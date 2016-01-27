@@ -11,7 +11,63 @@ $(function () {
 });
 
 $(function () {
-    /** Modal **/
+    $.fn.extend({
+        showTab: function(tabID) {
+
+            $( '.tabs' ).find( '.active' ).removeClass( 'active' );
+            $( '.tabs' ).find( 'a[href$=' + tabID + ']' ).addClass( 'active' );
+
+            $( 'body' ).find( '.tab-section' ).css({
+                visibility     : 'hidden', 
+                display        : 'none'
+            });
+
+            $( tabID ).css({
+                visibility     : 'visible', 
+                display        : 'block'
+            });
+        }
+
+    });
+
+    $.fn.extend({
+        tabs: function() {
+
+            var tabID = $(".tabs li a.active").attr("href") || '#' + $(this).data('target');
+            $tab = $(tabID);
+            $tab.css({
+                visibility     : 'visible', 
+                display        : 'block'
+            });
+
+            $(document).on('keyup', function(e, tabID) {
+                e.preventDefault();
+                if (e.keyCode === 37 || e.keyCode === 38) { 
+                    var PREV = $tab.prev().attr('id');
+                    if(typeof PREV != 'undefined') {
+                        $tab.showTab('#' + PREV);
+                        $tab = $('#' + PREV);
+                    }
+                }
+                if (e.keyCode === 39 || e.keyCode === 40) { 
+                    var NEXT = $tab.next().attr('id');
+                    if(typeof NEXT != 'undefined') {
+                        $tab.showTab('#' + NEXT);
+                        $tab = $('#' + NEXT);
+                    }
+                }
+            });
+
+            $(this).click(function(e) {
+                e.preventDefault();
+                var tabID = $(this).attr("href") || '#' + $(this).data('target');
+                $tab = $(tabID);
+                $tab.showTab(tabID);
+
+            }); 
+        }
+    });
+
     $.fn.extend({
         openModal: function(options) {
 
@@ -78,49 +134,49 @@ $(function () {
         }
     });
 
-$.fn.extend({
-    closeModal: function(options) {
+    $.fn.extend({
+        closeModal: function(options) {
 
-        $overlay.removeClass('state-show');
-        $(".modal-overlay").remove();
+            $overlay.removeClass('state-show');
+            $(".modal-overlay").remove();
 
-        $("body").css( "overflow", "auto" );
-        if (options.transitionStyle) {
-            $modal.css( {
-                WebkitTransition    : 'all ' + options.durationOut + 's',
-                MozTransition       : 'all ' + options.durationOut + 's',
-                MsTransition        : 'all ' + options.durationOut + 's',
-                OTransition         : 'all ' + options.durationOut + 's',
-                transition          : 'all ' + options.durationOut + 's',
-                visibility          : 'hidden',
-                transform           : 'scale(0.7)',
-                opacity             : '0',
-                top                 : '30%'
-            });
-        } else {
-           $modal.css( {
-            visibility          : 'hidden',
-            opacity             : '0',
-            top                 : '30%'
-        }); 
-       }
-   }
-});
+            $("body").css( "overflow", "auto" );
+            if (options.transitionStyle) {
+                $modal.css( {
+                    WebkitTransition    : 'all ' + options.durationOut + 's',
+                    MozTransition       : 'all ' + options.durationOut + 's',
+                    MsTransition        : 'all ' + options.durationOut + 's',
+                    OTransition         : 'all ' + options.durationOut + 's',
+                    transition          : 'all ' + options.durationOut + 's',
+                    visibility          : 'hidden',
+                    transform           : 'scale(0.7)',
+                    opacity             : '0',
+                    top                 : '30%'
+                });
+            } else {
+                $modal.css( {
+                    visibility          : 'hidden',
+                    opacity             : '0',
+                    top                 : '30%'
+                }); 
+            }
+        }
+    });
 
-$.fn.extend({
-    callModal: function(options) {
+    $.fn.extend({
+        callModal: function(options) {
 
-       return this.each(function() {
-        $(this).click(function(e) {
+            return this.each(function() {
+                $(this).click(function(e) {
 
-           $overlayAppend = $('<div class="modal-overlay"></div>');
-           $("body").append($overlayAppend);
+                    $overlayAppend = $('<div class="modal-overlay"></div>');
+                    $("body").append($overlayAppend);
 
-           var modalID = $(this).attr("href") || '#' + $(this).data('target');
-           $(modalID).openModal(options);
-       });
-    }); 
-   }
-});
+                    var modalID = $(this).attr("href") || '#' + $(this).data('target');
+                    $(modalID).openModal(options);
+                });
+            }); 
+        }
+    });
 });
 
