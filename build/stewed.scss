@@ -1,0 +1,46 @@
+/**
+ * Stewed 1.0
+ * @mauroreisvieira
+ * http://github.com/Stewed/stewed.css
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@charset "UTF-8";
+
+// Settings
+@import "settings/assets/variables";
+@import "settings/assets/mixins";
+@import "settings/assets/reset";
+@import "settings/assets/utilities";
+
+// Globals
+@import "globals/assets/grid";
+@import "globals/assets/typography";
+@import "globals/assets/color";
+
+// Organisms
+@import "organisms/assets/button";
+@import "organisms/assets/form";
+@import "organisms/assets/navigation";
+@import "organisms/assets/table";
+
+// Atoms
+@import "atoms/assets/card";
+
+// Components
+@import "components/assets/dropdown";
+@import "components/assets/modal";
+@import "components/assets/tabs";
+
+

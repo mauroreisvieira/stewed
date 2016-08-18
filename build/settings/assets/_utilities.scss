@@ -1,0 +1,92 @@
+/** Margin in all directions (10px...90px) **/
+@for $i from 1 through 9 {
+    .margin-#{$i}0 {
+        margin: unquote( ($i) + '0px');
+    }
+}
+
+/** Margin top (10px...90px) **/
+@for $i from 1 through 9 {
+    .margin-top-#{$i}0 {
+        margin-top: unquote( ($i) + '0px');
+    }
+}
+
+/** Margin right (10px...90px) **/
+@for $i from 1 through 9 {
+    .margin-right-#{$i}0 {
+        margin-right: unquote( ($i) + '0px');
+    }
+}
+
+/** Margin bottom (10px...90px) **/
+@for $i from 1 through 9 {
+    .margin-bottom-#{$i}0 {
+        margin-bottom: unquote( ($i) + '0px');
+    }
+}
+
+/** Margin left (10px...90px) **/
+@for $i from 1 through 9 {
+    .margin-left-#{$i}0 {
+        margin-left: unquote( ($i) + '0px');
+    }
+}
+
+/** Padding in all directions (10px...90px) **/
+@for $i from 1 through 9 {
+    .padding-#{$i}0 {
+        padding: unquote( ($i) + '0px');
+    }
+}
+
+/** Padding top (10px...90px) **/
+@for $i from 1 through 9 {
+    .padding-top-#{$i}0 {
+        padding-top: unquote( ($i) + '0px');
+    }
+}
+
+/** Padding right (10px...90px) **/
+@for $i from 1 through 9 {
+    .padding-right-#{$i}0 {
+        padding-right: unquote( ($i) + '0px');
+    }
+}
+
+/** Padding bottom (10px...90px) **/
+@for $i from 1 through 9 {
+    .padding-bottom-#{$i}0 {
+        padding-bottom: unquote( ($i) + '0px');
+    }
+}
+
+/** Padding left (10px...90px) **/
+@for $i from 1 through 9 {
+    .padding-left-#{$i}0 {
+        padding-left: unquote( ($i) + '0px');
+    }
+}
+
+/** Visibility  */
+.hidden {
+    visibility: hidden;
+    overflow: hidden;
+}
+.visible {
+    visibility: visible;
+    overflow: visible;
+}
+
+/** Align Float */
+.pull-right {
+    float: right;
+}
+.pull-left {
+    float: left;
+}
+.pull-center {
+    float: none;
+    display: table;
+    margin: auto;
+}
