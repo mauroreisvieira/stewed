@@ -1,7 +1,14 @@
 'use strict';
 
 var gulp = require('gulp'),
-	sass = require('gulp-sass');
+	sass = require('gulp-sass'),
+    jshint = require('gulp-jshint'),
+    uglify = require('gulp-uglify'),
+    pump = require('pump'),
+    minify = require('gulp-minify'),
+    sourcemaps = require('gulp-sourcemaps'),
+    concat = require('gulp-concat'),
+    gutil = require('gulp-util');
 
 const EXPANDED = 'expanded',
 	NESTED = 'nested',
@@ -15,18 +22,34 @@ gulp.task('sass', function () {
 	.pipe(gulp.dest('app/styles/'));
 });
 
+gulp.task('sass:watch', function () {
+	gulp.watch('build/stewed.scss', ['sass']);
+});
+
+//JAVASCRIPT
+gulp.task('jshint', function() {
+  return gulp.src('build/**/*.js')
+    .pipe(jshint())
+    .pipe(jshint.reporter('jshint-stylish'));
+});
+gulp.task('js-concat', function () {
+    gulp.src('build/components/**/*.js')
+    .pipe(sourcemaps.init())
+    .pipe(concat('stewed.js'))
+    //only uglify if gulp is ran with '--type production'
+    .pipe(uglify())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('dist/js'));
+});
 gulp.task('js', function () {
     return gulp.src('build/stewed.js')
     .pipe(gulp.dest('dist/js/'))
     .pipe(gulp.dest('app/js/'));
 });
 
-gulp.task('sass:watch', function () {
-	gulp.watch('build/stewed.scss', ['sass']);
-});
 
 //Watch for all changes
 gulp.task('watch', function () {
     gulp.watch('build/stewed.scss', ['sass']);
-    gulp.watch('build/stewed.js', ['js']);
+    gulp.watch('build/**/*.js', ['js-concat']);
 });
