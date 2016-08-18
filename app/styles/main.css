@@ -5,7 +5,7 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
     line-height: 1.72222;
-    background: #F2F1F1;
+    background: #fafafa;
 }
 p,a {
     font-family: 'Roboto', sans-serif;
@@ -178,9 +178,11 @@ section p {
 code {
     background: #FB3C68;
     color: #fff;
-    padding: 3px 6px;
-    font-size: 90%;
+    padding: 4px 6px;
+    font-size: 0.9em;
     border-radius: 2px;
+    margin: 4px 2px;
+    display: inline-block;
 }
 .header-description{
     padding: 40px 0px;
