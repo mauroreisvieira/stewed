@@ -568,6 +568,14 @@ p {
   margin: auto;
 }
 
+.display-table {
+  display: table;
+}
+
+.display-block {
+  display: block;
+}
+
 /**
 * By default have 12 columns.
 * When resizing your browser, each of these columns will always have an equal width.
@@ -1178,6 +1186,10 @@ a {
 
 .size-68 {
   font-size: 68px;
+}
+
+strong {
+  font-weight: bold;
 }
 
 /** Font Weight **/
@@ -1916,29 +1928,48 @@ table.centered > thead > tr > th {
 }
 
 .card {
-  background: white;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  font-size: 16px;
+  font-weight: 400;
+  min-height: 200px;
   overflow: hidden;
-  display: block;
+  z-index: 1;
   position: relative;
-  width: 100%;
+  background: #fff;
+  box-sizing: border-box;
   border-radius: 2px;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
 }
 
 .card .card__header {
-  width: calc(100% - 20px);
-  border-bottom: 1px solid #ECECEC;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 10px 20px;
 }
 
 .card .card__header .card__header__title {
-  font-size: 20px;
+  -webkit-align-self: flex-end;
+  -ms-flex-item-align: end;
+  align-self: flex-end;
+  color: inherit;
+  display: block;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 24px;
   font-weight: 300;
-  color: #CACACA;
+  line-height: normal;
+  overflow: hidden;
 }
 
 .card .card__container {
-  width: calc(100% - 40px);
+  width: 100%;
   padding: 10px 20px;
 }
 
