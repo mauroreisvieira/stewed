@@ -42,8 +42,7 @@ gulp.task('js-concat', function () {
     .pipe(gulp.dest('dist/js'));
 });
 gulp.task('js', function () {
-    return gulp.src('build/stewed.js')
-    .pipe(gulp.dest('dist/js/'))
+    return gulp.src('dist/js/stewed.js')
     .pipe(gulp.dest('app/js/'));
 });
 
@@ -52,4 +51,5 @@ gulp.task('js', function () {
 gulp.task('watch', function () {
     gulp.watch('build/stewed.scss', ['sass']);
     gulp.watch('build/**/*.js', ['js-concat']);
+    gulp.watch('build/**/*.js', ['js']);
 });
