@@ -1,17 +1,11 @@
-RewriteEngine On
+<IfModule mod_rewrite.c>
+    RewriteEngine on 
+    RewriteCond $2 !^(allow\.php|index\.php|public)
 
-RewriteRule ^.*\.(gif|png|jpg|css|wav|avi|mpg|js)$ - [NC,L]
-
-RewriteCond %{HTTP:Accept-Language} ^en [NC]
-RewriteRule ^$ http://www.stewed.dev/en/ [L,R=301]
-
-RewriteCond %{HTTP:Accept-Language} ^pt [NC]
-RewriteRule ^$ http://www.stewed.dev/en/ [L,R=301]
-
-RewriteCond %{REQUEST_FILENAME} !-f
-
-RewriteRule ^(pt|en|fr|es)/(.*?)/?$ index.php?lang=$1&page=$2 [QSA,NC,L]
-RewriteRule ^(pt|en|fr|es)/?$ index.php?lang=$1 [QSA,NC,L]
-
-RewriteCond %{HTTP_REFERER} !^$
-RewriteCond %{HTTP_REFERER} !^http://(www\.)?stewed.dev.*$ [NC]
+    RewriteRule ^(pt|en|fr|es)/(.*?)/?$ index.php?lang=$1&page=$2 [QSA,NC,L]
+    RewriteRule ^(pt|en|fr|es)/?$ index.php?lang=$1 [QSA,NC,L]
+    <Files .htaccess> 
+        order allow,deny 
+        deny from all 
+    </Files>
+</IfModule>
