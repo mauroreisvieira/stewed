@@ -3,8 +3,8 @@
     <h2>Introduction</h2>
     <p>Modal is positioned overlapping within the display window and is protected page content.</p>
     <div class="margin-bottom-20"></div>
-    <a class="button button-grey button-large openModal" href="#openModal">Show Modal Effect</a>
-    <a class="button button-white button-large openModalNo" href="#openModalNo">Show Modal No Effect</a>
+    <a class="button button-grey button-large openModal" href="#openModal" stewed-modal="openModal">Show Modal Effect</a>
+    <a class="button button-white button-large openModalNo" href="#openModalNo" stewed-modal="openModalNo">Show Modal No Effect</a>
     <hr class="custom-hr margin-top-20">
     <h2>Modal HTML Structure</h2>
     <div class="row-space margin-top-20">
@@ -95,37 +95,3 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
-
-//SHOW MODAL
-! function(){
-    var modal = new Modal([]);
-    modal.backgroundColor = '#FFF';
-    modal.show();
-}();
-
-//Modal
-function Modal(data) {
-    this.modal = document.getElementById('openModal');
-
-    this.backgroundColor = '#000';
-    this.opacityOverlay  = 0.6; 
-    this.transitionStyle = true;
-    this.keyboard        = true;
-    this.durationIn      = 0.477;
-    this.durationOut     = 0.177;
-
-    this.show = function () {
-        //set background color
-        this.modal.style.visibility = 'visible';
-    };
-    this.hide = function(){
-        this.modal.style.visibility = 'hidden';
-    };
-};
-
-
-</script>
-
-
-
