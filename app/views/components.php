@@ -1,0 +1,1 @@
+ <?php include 'components/grid.php' ?>

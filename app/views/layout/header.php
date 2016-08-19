@@ -25,7 +25,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/<?= $lang; ?>/modal" class="<?= $page === 'modal' ? 'active' : ''; ?>">
+                            <a href="/<?= $lang; ?>/javascript" class="<?= $page === 'javascript' ? 'active' : ''; ?>">
                                 <?= header_navigation_javascript; ?>
                             </a>
                         </li>
