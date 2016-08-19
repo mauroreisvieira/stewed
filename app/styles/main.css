@@ -9,8 +9,10 @@ body {
 }
 p,a {
     font-family: 'Roboto', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 300;
+    color: #000;
+    line-height: 24px;
 }
 header,
 .header {
@@ -70,9 +72,6 @@ ul.navigation__horizontal a.active {
 }
 .footer p {
     color: #E8E8E8;
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    font-weight: 100;
 }
 .footer p a {
     text-decoration: none;
@@ -103,11 +102,7 @@ ul.navigation__horizontal a.active {
     font-family: 'Roboto', sans-serif;
 }
 .master-header p {
-    font-size: 15px;
-    line-height: 30px;
     color: #E8E8E8;
-    font-weight: 300;
-    font-family: 'Roboto', sans-serif;
 }
 .master-header p code.markup {
     padding:3px 6px;
@@ -139,9 +134,7 @@ nav.nav {
     color: #3A3B52;
 }
 .features p {
-    font-size: 14px;
     text-align: center;
-    color: #000;
 }
 /** Grid System */
 .column {
@@ -162,10 +155,7 @@ section h2 {
     font-family: 'Roboto', sans-serif;
     margin: 10px 0px;
 }
-section p {
-    color: #7E7F86; font-size: 15px; font-weight: 400;
-    font-family: 'Roboto', sans-serif;
-}
+
 .custom-hr {
     background: #c7c7c7;
     height: 1px;

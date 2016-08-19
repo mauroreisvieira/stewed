@@ -63,59 +63,27 @@
                             durationIn      : 0.477,
                             durationOut     : 0.177
                         });
-                    </pre>
+                        </pre>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div id="openModal" class="modal modal--visible">
-    <div class="modal__dialog">
-        <div class="modal__head">
-            <h2 class="modal__title">Modal Header</h2>
-            <p>Press key <strong>ESC</strong></p>
-        </div>
-        <div class="modal__content">
-            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
-        </div>
-        <div class="modal__footer">
-            <button class="modal-close button-default button-small pull-right">Disagree</button>
-            <button class="button-pink button-small pull-right">Agree</button>
+    <div id="openModal" class="modal modal--visible">
+        <div class="modal__dialog">
+            <div class="modal__head">
+                <h2 class="modal__title">Modal Header</h2>
+                <p>Press key <strong>ESC</strong></p>
+            </div>
+            <div class="modal__content">
+                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+            </div>
+            <div class="modal__footer">
+                <button class="modal-close button-default button-small pull-right">Disagree</button>
+                <button class="button-pink button-small pull-right">Agree</button>
+            </div>
         </div>
     </div>
 </div>
-</div>
-<script type="text/javascript">
-
-//SHOW MODAL
-! function(){
-    var modal = new Modal([]);
-    modal.backgroundColor = '#FFF';
-    modal.show();
-}();
-
-//Modal
-function Modal(data) {
-    this.modal = document.getElementById('openModal');
-
-    this.backgroundColor = '#000';
-    this.opacityOverlay  = 0.6; 
-    this.transitionStyle = true;
-    this.keyboard        = true;
-    this.durationIn      = 0.477;
-    this.durationOut     = 0.177;
-
-    this.show = function () {
-//set background color
-//this.modal.style.visibility = 'visible';
-};
-this.hide = function(){
-    this.modal.style.visibility = 'hidden';
-};
-};
-
-
-</script>
-
 
 
