@@ -95,3 +95,37 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+
+//SHOW MODAL
+! function(){
+    var modal = new Modal([]);
+    modal.backgroundColor = '#FFF';
+    modal.show();
+}();
+
+//Modal
+function Modal(data) {
+    this.modal = document.getElementById('openModal');
+
+    this.backgroundColor = '#000';
+    this.opacityOverlay  = 0.6; 
+    this.transitionStyle = true;
+    this.keyboard        = true;
+    this.durationIn      = 0.477;
+    this.durationOut     = 0.177;
+
+    this.show = function () {
+        //set background color
+        this.modal.style.visibility = 'visible';
+    };
+    this.hide = function(){
+        this.modal.style.visibility = 'hidden';
+    };
+};
+
+
+</script>
+
+
+
