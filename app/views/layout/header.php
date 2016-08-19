@@ -9,10 +9,26 @@
             <div class="large-9 medium-9 small-12">
                 <nav class="navigation pull-right margin-top-20">
                     <ul class="navigation__horizontal">
-                        <li><a href="/<?= $lang; ?>/home" class="active" ><?= header_navigation_started; ?>/a></li> 
-                        <li><a href="/<?= $lang; ?>/helpers">CSS Helpers</a></li>
-                        <li><a href="components.html">CSS Components</a></li>
-                        <li><a href="modal.html">JavaScript</a></li>
+                        <li>
+                            <a href="/<?= $lang; ?>/home" class="<?= $page === 'home' ? 'active' : ''; ?>">
+                                <?= header_navigation_started; ?>
+                            </a> 
+                        </li> 
+                        <li>
+                            <a href="/<?= $lang; ?>/helpers" class="<?= $page === 'helpers' ? 'active' : ''; ?>">
+                                <?= header_navigation_helpers; ?>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/<?= $lang; ?>/components" class="<?= $page === 'components' ? 'active' : ''; ?>">
+                                <?= header_navigation_components; ?>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/<?= $lang; ?>/modal" class="<?= $page === 'modal' ? 'active' : ''; ?>">
+                                <?= header_navigation_javascript; ?>
+                            </a>
+                        </li>
                     </ul> 
                 </nav>
             </div>
