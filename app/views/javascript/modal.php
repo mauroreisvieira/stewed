@@ -31,6 +31,7 @@
                             &lt;p>...&lt;/p>
                             &lt;/div>
                             &lt;div class="modal-footer">
+                            &lt;!-- Use class 'modal-close' to close modal on click -->
                             &lt;a href="#!" class="modal-close button button-white button-large float-right">Disagree&lt;/a>
                             &lt;a href="#!" class="button button-white button-large float-right">Agree&lt;/a>
                             &lt;/div>
