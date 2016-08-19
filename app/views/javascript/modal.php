@@ -3,8 +3,8 @@
     <h2>Introduction</h2>
     <p>Modal is positioned overlapping within the display window and is protected page content.</p>
     <div class="margin-bottom-20"></div>
-    <a class="button button-grey button-large openModal" href="#openModal">Show Modal Effect</a>
-    <a class="button button-white button-large openModalNo" href="#openModalNo">Show Modal No Effect</a>
+    <a class="button button-grey button-large openModal" href="#openModal" stewed-modal="openModal">Show Modal Effect</a>
+    <a class="button button-white button-large openModalNo" href="#openModalNo" stewed-modal="openModalNo">Show Modal No Effect</a>
     <hr class="custom-hr margin-top-20">
     <h2>Modal HTML Structure</h2>
     <div class="row-space margin-top-20">
@@ -19,8 +19,8 @@
                             &lt;!-- Use a hyperlink 'href=""' -->
                             &lt;a class="button button-white button-large openModal" href="#modal">Show Modal&lt;/a>
 
-                            &lt;!-- Use a button 'data-target=""' -->
-                            &lt;button class="button button-white button-large openModal" data-target="#modal">Show Modal&lt;/button>
+                            &lt;!-- Use a button 'stewed-modal=""' -->
+                            &lt;button class="button button-white button-large openModal" stewed-modal="modal">Show Modal&lt;/button>
 
                             &lt;!-- Structure -->
                             &lt;div id="modal" class="container modal">
@@ -31,6 +31,7 @@
                             &lt;p>...&lt;/p>
                             &lt;/div>
                             &lt;div class="modal-footer">
+                            &lt;!-- Use class 'modal-close' to close modal on click -->
                             &lt;a href="#!" class="modal-close button button-white button-large float-right">Disagree&lt;/a>
                             &lt;a href="#!" class="button button-white button-large float-right">Agree&lt;/a>
                             &lt;/div>
