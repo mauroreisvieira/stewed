@@ -15,8 +15,8 @@
     display: -ms-flexbox;
     display: -webkit-box;
     display:         flex;
-    margin-right: -16px;
-    margin-left: -16px;
+    margin-right: -1em;
+    margin-left: -1em;
     flex-direction: row;
     box-sizing: border-box;
 
@@ -56,8 +56,8 @@
     }
 
     .row-space > [class*="small-"] {
-        padding-right: 16px;
-        padding-left: 16px;
+        padding-right: 1em;
+        padding-left: 1em;
         box-sizing: border-box;
 
         -webkit-box-flex: 0;
@@ -227,8 +227,8 @@
     }
 
     .row-space > [class*="medium-"] {
-        padding-right: 16px;
-        padding-left: 16px;
+        padding-right: 1em;
+        padding-left: 1em;
         box-sizing: border-box;
 
         -webkit-box-flex: 0;
@@ -395,8 +395,8 @@
     }
 
     .row-space > [class*="large-"] {
-        padding-right: 16px;
-        padding-left: 16px;
+        padding-right: 1em;
+        padding-left: 1em;
         box-sizing: border-box;
 
         -webkit-box-flex: 0;

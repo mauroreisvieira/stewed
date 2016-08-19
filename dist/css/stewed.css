@@ -593,8 +593,8 @@ p {
   display: -ms-flexbox;
   display: -webkit-box;
   display: flex;
-  margin-right: -1rem;
-  margin-left: -1rem;
+  margin-right: -1em;
+  margin-left: -1em;
   flex-direction: row;
   box-sizing: border-box;
   -webkit-box-direction: normal;
@@ -629,8 +629,8 @@ p {
     flex: 0 0 auto;
   }
   .row-space > [class*="small-"] {
-    padding-right: 1rem;
-    padding-left: 1rem;
+    padding-right: 1em;
+    padding-left: 1em;
     box-sizing: border-box;
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 auto;
@@ -763,8 +763,8 @@ p {
     flex: 0 0 auto;
   }
   .row-space > [class*="medium-"] {
-    padding-right: 1rem;
-    padding-left: 1rem;
+    padding-right: 1em;
+    padding-left: 1em;
     box-sizing: border-box;
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 auto;
@@ -893,8 +893,8 @@ p {
     flex: 0 0 auto;
   }
   .row-space > [class*="large-"] {
-    padding-right: 1rem;
-    padding-left: 1rem;
+    padding-right: 1em;
+    padding-left: 1em;
     box-sizing: border-box;
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 auto;
@@ -1364,14 +1364,15 @@ button,
   overflow: hidden;
   line-height: normal;
   cursor: pointer;
-  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   vertical-align: middle;
   text-decoration: none;
   text-transform: uppercase;
   color: inherit;
+  font-size: 0.875em;
   border: 0;
   border-radius: 2px;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: box-shadow;
 }
 
@@ -1379,7 +1380,7 @@ button:hover, button:focus, button:active,
 .button:hover,
 .button:focus,
 .button:active {
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 6px 16px rgba(0, 0, 0, 0.36);
 }
 
 button:disabled, button.disabled,
@@ -1403,21 +1404,22 @@ button font,
   overflow: hidden;
   line-height: normal;
   cursor: pointer;
-  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   vertical-align: middle;
   text-decoration: none;
   text-transform: uppercase;
   color: inherit;
+  font-size: 0.875em;
   border: 0;
   border-radius: 2px;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: box-shadow;
   padding: 6px 18px;
   line-height: 46px;
 }
 
 .button-large:hover, .button-large:focus, .button-large:active {
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 6px 16px rgba(0, 0, 0, 0.36);
 }
 
 .button-large:disabled, .button-large.disabled {
@@ -1438,21 +1440,22 @@ button font,
   overflow: hidden;
   line-height: normal;
   cursor: pointer;
-  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   vertical-align: middle;
   text-decoration: none;
   text-transform: uppercase;
   color: inherit;
+  font-size: 0.875em;
   border: 0;
   border-radius: 2px;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: box-shadow;
   padding: 3px 16px;
   line-height: 46px;
 }
 
 .button-medium:hover, .button-medium:focus, .button-medium:active {
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 6px 16px rgba(0, 0, 0, 0.36);
 }
 
 .button-medium:disabled, .button-medium.disabled {
@@ -1473,21 +1476,22 @@ button font,
   overflow: hidden;
   line-height: normal;
   cursor: pointer;
-  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   vertical-align: middle;
   text-decoration: none;
   text-transform: uppercase;
   color: inherit;
+  font-size: 0.875em;
   border: 0;
   border-radius: 2px;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: box-shadow;
   padding: 2px 14px;
   line-height: 36px;
 }
 
 .button-small:hover, .button-small:focus, .button-small:active {
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 6px 16px rgba(0, 0, 0, 0.36);
 }
 
 .button-small:disabled, .button-small.disabled {
@@ -2012,59 +2016,96 @@ ul.dropdown li:hover a {
   background-color: #eee;
 }
 
-/**
-* Modal
-*/
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 40;
-  opacity: 0;
-}
-
 .modal {
   position: fixed;
-  top: 30%;
-  right: 0;
   left: 0;
-  z-index: 999;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.modal::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  will-change: opacity;
+  transition: opacity 0.3s cubic-bezier(0, 0, 0.3, 1);
+}
+
+.modal .modal__dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(50%, 100%);
+  will-change: transform;
   display: block;
   visibility: hidden;
   width: 55%;
   max-width: 70%;
   max-height: 70%;
-  padding-bottom: 20px;
+  padding: 20px;
   margin: auto;
-  overflow-x: hidden;
   border-radius: 2px;
   background-color: #fff;
+  overflow-x: hidden;
+  overflow-y: auto;
   box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
 }
 
-.modal-head,
-.modal-body,
-.modal-footer {
+.modal .modal__dialog .modal__header {
   position: relative;
-  width: 90%;
-  padding: 20px 0;
+  padding: 1em 0;
   margin: auto;
   overflow: hidden;
 }
 
-.modal-head h2 {
-  font-size: 2rem;
+.modal .modal__dialog .modal__title {
+  font-size: 2em;
   font-weight: 500;
 }
 
-.modal-body {
+.modal .modal__dialog .modal__content {
   margin-bottom: 30px;
 }
 
-.modal-footer .button {
+.modal .modal__dialog .modal__footer {
+  position: relative;
+  padding: 1em 0;
+  margin: auto;
+  overflow: hidden;
+}
+
+.modal .modal__dialog button {
   margin: 0 10px;
+  transition: none;
+}
+
+.modal--visible {
+  pointer-events: auto;
+}
+
+.modal--visible::before {
+  opacity: 1;
+}
+
+.modal--visible .modal__dialog {
+  visibility: visible;
+  transition: transform 0.33s cubic-bezier(0, 0, 0.3, 1);
+  transform: translate(50%, 30%);
+}
+
+.modal--visible .modal__dialog button {
+  margin: 0 10px;
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /** Tabs */
