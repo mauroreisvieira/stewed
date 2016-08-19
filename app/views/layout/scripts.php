@@ -10,6 +10,17 @@
 
 <!-- Scripts -->
 <script type="text/javascript" src="../js/jquery-2.0.2.min.js "></script>
+<script type="text/javascript" src="../js/shCore.js"></script>
+<script type="text/javascript" src="../js/shBrushXml.js"></script>
+<script type="text/javascript" src="../js/shBrushJScript.js"></script>
+
+<!-- Syntax Highlighter -->
+<script type="text/javascript">
+    $(function(){
+        SyntaxHighlighter.all();
+    });
+</script>
+
 <?php if ($page === 'javascript'): ?>
 <script src="../js/stewed.js"></script>
 
@@ -39,13 +50,3 @@
 </script>
 <?php endif; ?>
 
-<script type="text/javascript" src="../js/shCore.js"></script>
-<script type="text/javascript" src="../js/shBrushXml.js"></script>
-<script type="text/javascript" src="../js/shBrushJScript.js"></script>
-
-<!-- Syntax Highlighter -->
-<script type="text/javascript">
-    $(function(){
-        SyntaxHighlighter.all();
-    });
-</script>

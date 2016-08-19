@@ -4,7 +4,6 @@
 * Can you choose if you want space between the columns or not, just by defining 'row'
 * not to have a rift between them or 'row-space' pars have.
 */
-
 .container {
     display: block;
     width: calc(1280px - 20px);
@@ -16,10 +15,11 @@
     display: -ms-flexbox;
     display: -webkit-box;
     display:         flex;
-    margin-right: -1rem;
-    margin-left: -1rem;
+    margin-right: -16px;
+    margin-left: -16px;
     flex-direction: row;
     box-sizing: border-box;
+
     -webkit-box-direction: normal;
     -webkit-box-flex: 0;
     -webkit-box-orient: horizontal;
@@ -33,12 +33,12 @@
     flex-wrap: wrap;
 }
 
+
 /**
 * Responsive Mobile Devices
 * min-width 280px and max-width: 767px
 */
 @media only screen and (min-width: 280px) and (max-width: 767px) {
-
     .container {
         width: 90%;
         max-width: 767px;
@@ -56,8 +56,8 @@
     }
 
     .row-space > [class*="small-"] {
-        padding-right: 1rem;
-        padding-left: 1rem;
+        padding-right: 16px;
+        padding-left: 16px;
         box-sizing: border-box;
 
         -webkit-box-flex: 0;
@@ -227,8 +227,8 @@
     }
 
     .row-space > [class*="medium-"] {
-        padding-right: 1rem;
-        padding-left: 1rem;
+        padding-right: 16px;
+        padding-left: 16px;
         box-sizing: border-box;
 
         -webkit-box-flex: 0;
@@ -395,8 +395,8 @@
     }
 
     .row-space > [class*="large-"] {
-        padding-right: 1rem;
-        padding-left: 1rem;
+        padding-right: 16px;
+        padding-left: 16px;
         box-sizing: border-box;
 
         -webkit-box-flex: 0;

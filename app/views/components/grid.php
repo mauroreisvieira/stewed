@@ -43,10 +43,13 @@
                                 &lt;div class="large-4 medium-4 small-4">large-4 medium-4 small-4&lt;/div>
                                 &lt;div class="large-4 medium-4 small-4">large-4 medium-4 small-4&lt;/div>
                                 &lt;div class="large-4 medium-4 small-4">large-4 medium-4 small-4&lt;/div>
+
                                 &lt;div class="large-4 medium-4 small-4">large-4 medium-4 small-4&lt;/div>
                                 &lt;div class="large-8 medium-8 small-8">large-8 medium-8 small-8&lt;/div>
+
                                 &lt;div class="large-6 medium-6 small-6">large-6 medium-6 small-6&lt;/div>
                                 &lt;div class="large-6 medium-6 small-6">large-6 medium-6 small-6&lt;/div>
+
                                 &lt;div class="large-12 medium-12 small-12">large-12 medium-12 small-12&lt;/div>
                             &lt;/div>
                         </pre>
@@ -63,20 +66,20 @@
     </div>
 
     <div class="row-space">
-        <div class="large-5 medium-5 small-5 column">5</div>
-        <div class="large-7 medium-7 small-7 column">7</div>
+        <div class="large-5 medium-5 small-5 column">large-5 medium-5 small-5</div>
+        <div class="large-7 medium-7 small-7 column">large-7 medium-7 small-7</div>
         <!-- LARGE 6 -->
-        <div class="large-6 medium-6 small-6 column">6</div>
-        <div class="large-6 medium-6 small-6 column">6</div>
+        <div class="large-6 medium-6 small-6 column">large-6 medium-6 small-6</div>
+        <div class="large-6 medium-6 small-6 column">large-6 medium-6 small-6</div>
         <!-- LARGE 7 + 5 -->
-        <div class="large-7 medium-7 small-7 column">7</div>
-        <div class="large-5 medium-5 small-5 column">5</div>
+        <div class="large-7 medium-7 small-7 column">large-7 medium-7 small-7</div>
+        <div class="large-5 medium-5 small-5 column">large-5 medium-5 small-5</div>
         <!-- LARGE 8 + 4 -->
-        <div class="large-8 medium-8 small-8 column">8</div>
-        <div class="large-4 medium-4 small-4 column">4</div>
+        <div class="large-8 medium-8 small-8 column">large-8 medium-8 small-8</div>
+        <div class="large-4 medium-4 small-4 column">large-4 medium-4 small-4</div>
         <!-- LARGE 9 + 3 -->
-        <div class="large-9 medium-9 small-9 column">9</div>
-        <div class="large-3 medium-3 small-3 column">3</div>
+        <div class="large-9 medium-9 small-9 column">large-9 medium-9 small-9</div>
+        <div class="large-3 medium-3 small-3 column">large-3 medium-3 small-3</div>
     </div>
 
     <div class="row">
@@ -90,23 +93,17 @@
                         <pre class="brush: xml; toolbar: false; gutter: false;">
                             &lt;!-- If you want a trough between the containers you can do it as follows: -->
                             &lt;div class="row-space">
-                            &lt;div class="large-4 medium-4 small-4">4&lt;/div>
-                            &lt;div class="large-4 medium-4 small-4">4&lt;/div>
-                            &lt;div class="large-4 medium-4 small-4">4&lt;/div>
-                            &lt;/div>
-
-                            &lt;div class="row-space">
-                            &lt;div class="large-4 column">4&lt;/div>
-                            &lt;div class="large-8 column">8&lt;/div>
-                            &lt;/div>
-
-                            &lt;div class="row-space">
-                            &lt;div class="large-6 column">6&lt;/div>
-                            &lt;div class="large-6 column">6&lt;/div>
-                            &lt;/div>
-
-                            &lt;div class="row-space">
-                            &lt;div class="large-12 column">12&lt;/div>
+                                &lt;div class="large-4 medium-4 small-4">large-4 medium-4 small-4&lt;/div>
+                                &lt;div class="large-4 medium-4 small-4">large-4 medium-4 small-4&lt;/div>
+                                &lt;div class="large-4 medium-4 small-4">large-4 medium-4 small-4&lt;/div>
+                            
+                                &lt;div class="large-4 medium-6 small-12">large-4 medium-6 small-12&lt;/div>
+                                &lt;div class="large-8 medium-6 small-12">large-8 medium-6 small-12&lt;/div>
+                     
+                                &lt;div class="large-6 medium-6 small-6">6&lt;/div>
+                                &lt;div class="large-6 medium-6 small-6">6&lt;/div>
+            
+                                &lt;div class="large-12 medium-12 small-12">12&lt;/div>
                             &lt;/div>
                         </pre>
                     </div>
