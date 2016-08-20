@@ -4,7 +4,7 @@
     <p>Modal is positioned overlapping within the display window and is protected page content.</p>
     <div class="margin-bottom-20"></div>
     <a class="button button-grey button-large openModal" href="#openModal" stewed-modal="openModal">Show Modal Effect</a>
-    <a class="button button-white button-large openModalNo" href="#openModalNo" stewed-modal="openModalNo">Show Modal No Effect</a>
+    <!--<a class="button button-white button-large openModalNo" href="#openModalNo" stewed-modal="openModalNo">Show Modal No Effect</a>-->
     <hr class="custom-hr margin-top-20">
     <h2>Modal HTML Structure</h2>
     <div class="row-space margin-top-20">
@@ -69,7 +69,7 @@
             </div>
         </div>
     </div>
-    <div id="openModal" class="modal modal--visible">
+    <div id="openModal" class="modal">
         <div class="modal__dialog">
             <div class="modal__head">
                 <h2 class="modal__title">Modal Header</h2>

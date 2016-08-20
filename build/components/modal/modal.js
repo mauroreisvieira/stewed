@@ -1,10 +1,11 @@
 //DEBUG
-console.log('Modal (v0.1.1)');
+console.log('Modal (v0.1.10)');
 
 //Modal
-function Modal(modelID) {
+function Modal(modalID) {
     var _self = this;
-    this.modal = document.getElementById(modelID);
+    console.log(modalID);
+    this.modal = document.getElementById(modalID);
     this.isOpen = false;
 
     this.backgroundColor = '#000';
@@ -14,24 +15,35 @@ function Modal(modelID) {
     this.durationIn      = 0.477;
     this.durationOut     = 0.177;
 
-    //construct Object
-    var buttons = this.modal.getElementsByClassName('modal-close');
-    for (var i = 0; i < buttons.length; i++) {
-        var btn_close = buttons[i];
-        btn_close.addEventListener('click', function(){
-            _self.hide();
-        });
-    };
+    //Constructor
+    if(this.modal !== null){
+        //construct Object
+        var closeButtons = this.modal.getElementsByClassName('modal-close');
+        for (var i = 0; i < closeButtons.length; i++) {
+            var btn_close = closeButtons[i];
+            btn_close.addEventListener('click', function(){
+                _self.hide();
+            });
+        };
+    }
 
 
+    /**
+     * Show Current Modal
+     * @return {[type]} [description]
+     */
     this.show = function () {
-        //set background color
-        this.modal.style.visibility = 'visible';
-        this.isOpen = true;
+        if(this.modal !== null){
+            this.modal.className += ' modal--visible';
+            this.isOpen = true;
+        }
     };
     this.hide = function(){
-        this.modal.style.visibility = 'hidden';
-        this.isOpen = false;
+        if(this.modal !== null){
+            var currentClass = this.modal.className;
+            this.modal.className = currentClass.replace(' modal--visible', '');
+            this.isOpen = false;
+        }
     };
 
 
@@ -62,7 +74,7 @@ function Modal(modelID) {
             //new Modal().show(); 
         });
         //element find class modal-close
-        var closeBtn = elem.getElementsByClassName(elem.getAttribute('stewed-modal'));
+        //var closeBtn = elem.getElementsByClassName(elem.getAttribute('stewed-modal'));
 
 
     }
