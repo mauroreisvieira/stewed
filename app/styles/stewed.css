@@ -2044,7 +2044,7 @@ ul.dropdown li:hover a {
   background: rgba(0, 0, 0, 0.4);
   opacity: 0;
   will-change: opacity;
-  transition: opacity 0.3s cubic-bezier(0, 0, 0.3, 1);
+  transition: opacity 0.2s cubic-bezier(0, 0, 0.3, 1);
 }
 
 .modal .modal__dialog {
@@ -2052,6 +2052,7 @@ ul.dropdown li:hover a {
   left: 0;
   top: 0;
   transform: translate(50%, -110%);
+  transition: transform 0.44s cubic-bezier(0, 0, 0.3, 1);
   will-change: transform;
   display: block;
   width: 50%;
@@ -2079,6 +2080,7 @@ ul.dropdown li:hover a {
 }
 
 .modal .modal__dialog .modal__content {
+  padding: 1em 0;
   margin-bottom: 30px;
 }
 
@@ -2094,6 +2096,13 @@ ul.dropdown li:hover a {
   transition: none;
 }
 
+@media only screen and (min-width: 280px) and (max-width: 767px) {
+  .modal .modal__dialog {
+    transform: translate(5%, -110%);
+    width: 90%;
+  }
+}
+
 .modal--visible {
   pointer-events: auto;
 }
@@ -2104,13 +2113,20 @@ ul.dropdown li:hover a {
 
 .modal--visible .modal__dialog {
   pointer-events: auto;
-  transition: transform 0.44s cubic-bezier(0, 0, 0.3, 1);
   transform: translate(50%, 30%);
+  transition: transform 0.33s cubic-bezier(0, 0, 0.3, 1);
 }
 
 .modal--visible .modal__dialog button {
   margin: 0 10px;
   transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media only screen and (min-width: 280px) and (max-width: 767px) {
+  .modal--visible .modal__dialog {
+    transform: translate(5%, 30%);
+    width: 90%;
+  }
 }
 
 /** Tabs */

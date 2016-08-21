@@ -1,4 +1,13 @@
-
+<?php 
+/*
+ * Todo 
+ *
+ * Add event to ESC key
+ * Add event onTransitionEnd
+ * Add touch's events
+ * 
+ */
+?>
 <div class="container">
     <h2>Introduction</h2>
     <p>Modal is positioned overlapping within the display window and is protected page content.</p>
