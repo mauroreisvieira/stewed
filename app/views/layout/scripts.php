@@ -21,10 +21,11 @@
     });
 </script>
 
-<?php if ($page === 'javascript'): ?>
+<?php if ($page === 'javascript') : ?>
 <script src="../js/stewed.js"></script>
+<?php endif; ?>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     $(document).ready(function () {
         /** Tab Default **/
         $('.tab').tabs();
@@ -47,6 +48,6 @@
             durationOut     : 0.300
         });
     });
-</script>
-<?php endif; ?>
+</script> -->
+
 
