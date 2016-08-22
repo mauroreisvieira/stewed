@@ -1,5 +1,5 @@
 //DEBUG
-console.log('Modal (v0.1.12)');
+console.log('Modal (v0.1.13)');
 
 //Modal
 function Modal(modalID) {
@@ -23,7 +23,6 @@ function Modal(modalID) {
         };
     }
 
-
     /**
      * Show Current Modal
      * @return {[type]} [description]
@@ -31,7 +30,11 @@ function Modal(modalID) {
     this.show = function () {
         if(this.modal !== null){
             this.modal.classList.add('modal--visible');
+            this.modal.classList.add('modal-animated');
             this.isOpen = true;
+            this.modal.addEventListener("transitionend", function(){
+                this.classList.remove('modal-animated');
+            });
         }
     };
     this.hide = function(){
@@ -40,8 +43,6 @@ function Modal(modalID) {
             this.isOpen = false;
         }
     };
-
-
 
 };
 
@@ -66,11 +67,6 @@ function Modal(modalID) {
             }else{
                 modal.show();
             }
-            //new Modal().show(); 
         });
-        //element find class modal-close
-        //var closeBtn = elem.getElementsByClassName(elem.getAttribute('stewed-modal'));
-
-
     }
 }();
