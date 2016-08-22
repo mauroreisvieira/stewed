@@ -77,7 +77,7 @@
         </div>
     </div>
 </div>
-<div id="openModal" class="modal">
+<div id="openModal" class="modal modal--fullwidth">
     <div class="modal__dialog">
         <div class="modal__head">
             <h2 class="modal__title">Modal Header</h2>
