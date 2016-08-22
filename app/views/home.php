@@ -1,15 +1,12 @@
 <div class="header-description">
     <div class="container">
-        <div class="master-header">
-            <h1 class="text-center">Start using Stewed, and see how it is so easy to cook your code!</h1>
-            <div class="margin-bottom-40"></div>
-            <div class="master-buttons">
-                <a class="button button-white button-large" href="">Download Latest Build</a>
-                <a class="button button-white button-large" href="">View Documentation</a>
-            </div>
-            <div class="margin-top-30"></div>
-            <p class="text-center">Currently Version 1.0</p>
+        <h1 class="text-center">Start using Stewed, and see how it is so easy to cook your code!</h1>
+        <div class="margin-bottom-40"></div>
+        <div class="pull-center margin-bottom-30">
+            <a class="background-white button-large" href="">Download Latest Build</a>
+            <a class="background-white button-large" href="">View Documentation</a>
         </div>
+        <p class="text-center margin-top-10 color-white">Currently Version 1.0</p>
     </div>
 </div>
 <div class="container">
@@ -59,12 +56,12 @@
     </div>
     <div class="margin-bottom-20"></div>
     <hr class="custom-hr">
-    <h2>Disabling Responsiveness</h2>
+    <h3>Disabling Responsiveness</h3>
     <p>First, we need to ensure that the following <code>meta</code> tags are not present in our website's <code>head</code> section.</p>
     <div class="margin-bottom-20"></div>
     <div class="card">
         <div class="card__header ">
-            <h5 class="card__header__title uppercase">Learn to cook</h5>
+        <h4 class="card__header__title uppercase">Learn to cook</h4>
         </div>
         <div class="card__container">
             <div id="view-html" class="code">
@@ -78,10 +75,10 @@
         </div>
     </div>
     <hr class="custom-hr margin-top-30">
-    <h2>Getting started </h2>
+    <h3>Getting started </h3>
     <div class="card margin-top-20">
         <div class="card__header">
-            <h5 class="card__header__title uppercase">Learn to cook</h5>
+        <h4 class="card__header__title uppercase">Learn to cook</h4>
         </div>
         <div class="card__container">
             <div id="view-html" class="code">

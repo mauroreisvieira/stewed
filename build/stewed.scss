@@ -24,11 +24,6 @@
 @import "settings/assets/reset";
 @import "settings/assets/utilities";
 
-// Globals
-@import "globals/assets/grid";
-@import "globals/assets/typography";
-@import "globals/assets/color";
-
 // Organisms
 @import "organisms/assets/button";
 @import "organisms/assets/form";
@@ -42,5 +37,10 @@
 @import "components/dropdown/dropdown";
 @import "components/modal/modal";
 @import "components/tabs/tabs";
+
+// Globals
+@import "globals/assets/grid";
+@import "globals/assets/typography";
+@import "globals/assets/color";
 
 

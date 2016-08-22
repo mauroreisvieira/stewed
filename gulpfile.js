@@ -1,19 +1,25 @@
 'use strict';
 
 var gulp = require('gulp'),
-	sass = require('gulp-sass'),
-    jshint = require('gulp-jshint'),
-    uglify = require('gulp-uglify'),
-    pump = require('pump'),
-    minify = require('gulp-minify'),
-    sourcemaps = require('gulp-sourcemaps'),
-    concat = require('gulp-concat'),
-    gutil = require('gulp-util');
+sass = require('gulp-sass'),
+jshint = require('gulp-jshint'),
+uglify = require('gulp-uglify'),
+pump = require('pump'),
+minify = require('gulp-minify'),
+sourcemaps = require('gulp-sourcemaps'),
+concat = require('gulp-concat'),
+gutil = require('gulp-util');
 
 const EXPANDED = 'expanded',
-	NESTED = 'nested',
-	COMPACT = 'compact',
-	COMPRESSED = 'compressed';
+NESTED = 'nested',
+COMPACT = 'compact',
+COMPRESSED = 'compressed';
+
+gulp.task('default', function () {
+    return gulp.src('app/styles/sass/main.scss')
+    .pipe(sass({outputStyle: EXPANDED}).on('error', sass.logError))
+    .pipe(gulp.dest('app/styles/'));
+});
 
 gulp.task('sass', function () {
 	return gulp.src('build/stewed.scss')
@@ -29,8 +35,8 @@ gulp.task('sass:watch', function () {
 //JAVASCRIPT
 gulp.task('jshint', function() {
   return gulp.src('build/**/*.js')
-    .pipe(jshint())
-    .pipe(jshint.reporter('jshint-stylish'));
+  .pipe(jshint())
+  .pipe(jshint.reporter('jshint-stylish'));
 });
 gulp.task('js-concat', function () {
     gulp.src('build/components/**/*.js')
@@ -46,9 +52,9 @@ gulp.task('js', function () {
     .pipe(gulp.dest('app/js/'));
 });
 
-
 //Watch for all changes
 gulp.task('watch', function () {
+    gulp.watch('app/styles/sass/main.scss', ['default']);
     gulp.watch('build/stewed.scss', ['sass']);
     gulp.watch('build/**/*.js', ['js-concat']);
     gulp.watch('build/**/*.js', ['js']);
