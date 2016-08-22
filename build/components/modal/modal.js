@@ -1,12 +1,12 @@
 //DEBUG
-console.log('Modal (v0.1.13)');
+console.log('Modal (v0.1.2)');
 
 //Modal
 function Modal(modalID) {
     var _self = this;
-    console.log(modalID);
     this.modal = document.getElementById(modalID);
     this.isOpen = false;
+    var num = 1;
 
     //Properties
     this.backgroundColor = '#000';
@@ -21,6 +21,17 @@ function Modal(modalID) {
                 _self.hide();
             });
         };
+        this.modal.addEventListener("transitionend", function(){
+            if(this.classList.contains('modal--animatable')){
+                this.classList.remove('modal--animatable');
+            }
+        });
+        //add key close event
+        document.addEventListener('keyup', function(e) {
+            if(e.keyCode === 27 && _self.isOpen){
+                _self.hide();
+            }
+        });
     }
 
     /**
@@ -30,16 +41,13 @@ function Modal(modalID) {
     this.show = function () {
         if(this.modal !== null){
             this.modal.classList.add('modal--visible');
-            this.modal.classList.add('modal-animated');
             this.isOpen = true;
-            this.modal.addEventListener("transitionend", function(){
-                this.classList.remove('modal-animated');
-            });
         }
     };
     this.hide = function(){
         if(this.modal !== null){
             this.modal.classList.remove('modal--visible');
+            this.modal.classList.add('modal--animatable');
             this.isOpen = false;
         }
     };
