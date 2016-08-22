@@ -1323,6 +1323,11 @@ ul.dropdown li:hover a {
   }
 }
 
+.modal .modal--animatable {
+  transform: translate(50%, -110%);
+  transition: transform 0.33s cubic-bezier(0, 0, 0.3, 1);
+}
+
 .modal--visible {
   pointer-events: auto;
 }

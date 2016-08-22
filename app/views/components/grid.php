@@ -1,8 +1,7 @@
 <div class="header-description">
     <div class="container">
-        <div class="master-header">
+        <div class="master-header padding-bottom-20">
             <h1>Grid System</h1>
-            <div class="margin-bottom-10"></div>
             <p>Stewed by default have 12 columns.</p>
             <p>When resizing your browser, each of these columns will always have an equal width.</p>
         </div>
