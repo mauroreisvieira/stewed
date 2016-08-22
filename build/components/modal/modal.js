@@ -1,5 +1,5 @@
 //DEBUG
-console.log('Modal (v0.1.10)');
+console.log('Modal (v0.1.12)');
 
 //Modal
 function Modal(modalID) {
@@ -8,13 +8,9 @@ function Modal(modalID) {
     this.modal = document.getElementById(modalID);
     this.isOpen = false;
 
+    //Properties
     this.backgroundColor = '#000';
-    this.opacityOverlay  = 0.6; 
-    this.transitionStyle = true;
-    this.keyboard        = true;
-    this.durationIn      = 0.477;
-    this.durationOut     = 0.177;
-
+    
     //Constructor
     if(this.modal !== null){
         //construct Object
@@ -34,14 +30,13 @@ function Modal(modalID) {
      */
     this.show = function () {
         if(this.modal !== null){
-            this.modal.className += ' modal--visible';
+            this.modal.classList.add('modal--visible');
             this.isOpen = true;
         }
     };
     this.hide = function(){
         if(this.modal !== null){
-            var currentClass = this.modal.className;
-            this.modal.className = currentClass.replace(' modal--visible', '');
+            this.modal.classList.remove('modal--visible');
             this.isOpen = false;
         }
     };
