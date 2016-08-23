@@ -2,8 +2,6 @@
 /*
  * Todo 
  *
- * Add event to ESC key
- * Add event onTransitionEnd
  * Add touch's events
  * 
  */

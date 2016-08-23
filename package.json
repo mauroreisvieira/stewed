@@ -2,7 +2,7 @@
   "name": "stewed",
   "version": "1.0.0",
   "description": "Stewed Framework in CSS, JS and HTML",
-  "private": true,
+  "private": false,
   "license": "GNU",
   "author": "Mauro Reis Vieira",
   "repository": "maurovieirareis/stewed",
