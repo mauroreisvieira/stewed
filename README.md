@@ -44,5 +44,8 @@ npm install Stewed
 
 ### License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+The Stewed is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+
+Created with ♥️ by [@mauroreisvieira](https://twitter.com/mauroreisvieira) in **Portugal**
+Thanks to [other contributors](https://github.com/maurovieirareis/stewed/graphs/contributors)
 
