@@ -1,6 +1,10 @@
 #Welcome to Stewed Framework 
+
+[![GitHub version](https://dl.dropboxusercontent.com/u/83653088/version.svg)](https://github.com/maurovieirareis/stewed)
+[![GitHub version](https://dl.dropboxusercontent.com/u/83653088/npm.svg)](https://github.com/maurovieirareis/stewed)
+
 Stewed is a framework for rapid development of simple and lightweight web applications.
-Using a combination of HTML, CSS and pure JavaScript allows you to create a fully customized application without losing its own special way it serves only one auxulio base in its development.
+Using a combination of **HTML**, **CSS** and pure **JavaScript** allows you to create a fully customized application without losing its own special way it serves only one auxulio base in its development.
 
 > Current version: 0.9.10
 
@@ -34,4 +38,8 @@ git clone https://github.com/maurovieirareis/stewed
 ``````bash
 npm install Stewed
 ```
+
+### License
+
+The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
 
