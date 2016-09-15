@@ -58,32 +58,28 @@
 		<p>Modal is positioned overlapping within the display window and is protected page content.</p>
 		<div class="margin-bottom-20"></div>
 		<div class="card p-b-20">
-			<div class="card-container">
+			<div class="card__container">
 				<form class="form">
 					<div class="row-space">
 						<div class="large-12 medium-12 small-12">
-							<div class="input-field">
-								<textarea name="mensagem" disabled></textarea>
-								<legend for="mensagem">Mensage Disabled</legend>
+							<div class="textfield">
+								<textarea name="mensagem" class="textfield__input" rows="4" disabled></textarea>
+								<label class="textfield__label" for="mensagem">Message Disabled</label>
 							</div>
-						</div>
-					</div>
-					<div class="row-scpace">
-						<div class="large-6 medium-12 small-12">
-							<div class="input-field">
-								<input name="password" type="password" disabled>
-								<legend for="password">Input Disabled</legend>
+
+							<div class="textfield">
+								<input name="Phone" class="textfield__input" type="text" disabled>
+								<label class="textfield__label" for="phone">Input Disabled</label>
 							</div>
-						</div>
-						<div class="large-6 medium-12 small-12">
-							<div class="input-field">
+
+							<div class="textfield">
 								<select name="option" disabled>
 									<option>Option 1</option>
 								</select>
-								<legend for="option">Select Option</legend>
+								<label class="textfield__label" for="option">Select Option</label>
 							</div>
+							<button type="submit" class="button button-large" disabled>Send Form</button>
 						</div>
-						<button type="submit" class="button button-large" disabled>Send Form</button>
 					</div>
 				</form>
 			</div>
