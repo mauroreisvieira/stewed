@@ -1,6 +1,6 @@
 #Welcome to Stewed Framework 
 Stewed is a framework for rapid development of simple and lightweight web applications.
-Using a combination of HTML, CSS and JavaScript allows you to create a fully customized application without losing its own special way it serves only one auxulio base in its development.
+Using a combination of **HTML, **CSS and pure J**avaScript allows you to create a fully customized application without losing its own special way it serves only one auxulio base in its development.
 
 > Current version: 0.9.0
 
@@ -27,5 +27,10 @@ Using a combination of HTML, CSS and JavaScript allows you to create a fully cus
 
 ```bash
 git clone https://github.com/maurovieirareis/stewed
+
+### Installation
+
+``````bash
+npm install Stewed
 ```
 

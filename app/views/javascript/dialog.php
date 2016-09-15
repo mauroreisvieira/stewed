@@ -1,7 +1,7 @@
 <div class="header-description">
     <div class="container">
         <div class="master-header padding-bottom-20">
-            <h1>Modal</h1>
+            <h1>Dialog</h1>
             <p></p>
         </div>
     </div>
@@ -10,9 +10,9 @@
     <h2>Introduction</h2>
     <p>Modal is positioned overlapping within the display window and is protected page content.</p>
     <div class="margin-bottom-20"></div>
-    <a class="background-bluegrey color-white button-large openModal" href="#openModal" stewed-modal="openModal">Show Modal Effect</a>
+    <a class="background-bluegrey color-white button-large openDialog" href="#openDialog" stewed-dialog="openDialog">Show Dialog</a>
     <hr class="custom-hr margin-top-20">
-    <h2>Modal HTML Structure</h2>
+    <h2>Dialog HTML Structure</h2>
     <div class="row-space margin-top-20">
         <div class="large-12 medium-12 small-12">
             <div class="card margin-bottom-40">
@@ -23,10 +23,10 @@
                     <div id="view-html" class="code">
                         <pre class="brush: xml; toolbar: false; gutter: false;">
                             &lt;!-- Use a hyperlink 'href=""' -->
-                            &lt;a class="button button-white button-large openModal" href="#modal">Show Modal&lt;/a>
+                            &lt;a class="button button-white button-large openDialog" href="#modal">Show Modal&lt;/a>
 
                             &lt;!-- Use a button 'stewed-modal=""' -->
-                            &lt;button class="button button-white button-large openModal" stewed-modal="modal">Show Modal&lt;/button>
+                            &lt;button class="button button-white button-large openDialog" stewed-modal="modal">Show Modal&lt;/button>
 
                             &lt;!-- Structure -->
                             &lt;div id="modal" class="container modal">
@@ -75,17 +75,17 @@
         </div>
     </div>
 </div>
-<div id="openModal" class="modal">
-    <div class="modal__container">
-        <div class="modal__head">
-            <h2 class="modal__title">Modal Header</h2>
+<div id="openDialog" class="dialog">
+    <div class="dialog__container">
+        <div class="dialog__head">
+            <h2 class="dialog__title">Dialog Header</h2>
             <p>Press key <strong>ESC</strong></p>
         </div>
-        <div class="modal__content">
+        <div class="dialog__content">
             <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
         </div>
-        <div class="modal__footer">
-            <button class="modal-close color-white button-small pull-right">Disagree</button>
+        <div class="dialog__footer">
+            <button class="dialog-close color-white button-small pull-right">Disagree</button>
             <button class="background-pink color-white button-small pull-right">Agree</button>
         </div>
     </div>

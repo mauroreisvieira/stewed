@@ -1,11 +1,12 @@
 <?php 
-$base_url = "http://www.stewed.dev";
+$base_url = "http://www.stewed.dev/";
 $_SERVER['REQUEST_URI_PATH'] = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $segments = explode('/', $_SERVER['REQUEST_URI_PATH']);
 
-$lang = isset($segments[1]) ? $segments[1] : 'en';
-$page = isset($segments[2]) ? $segments[2] : 'home';
-$subpage = isset($segments[3]) ? $segments[3] : null;
+$lang = !empty($segments[1]) ? $segments[1] : 'en';
+$page = !empty($segments[2]) ? $segments[2] : 'home';
+$subpage = !empty($segments[3]) ? $segments[3] : null;
+
 
 switch ($lang) :
     case 'pt':

@@ -10,22 +10,22 @@
                 <nav class="navigation pull-right margin-top-20">
                     <ul class="navigation__horizontal">
                         <li>
-                            <a href="/<?= $lang; ?>/home" class="<?= $page === 'home' ? 'active' : ''; ?>">
+                            <a href="<?= $base_url . $lang; ?>" class="<?= $page === 'home' ? 'active' : ''; ?>">
                                 <?= header_navigation_started; ?>
                             </a> 
                         </li> 
                         <li>
-                            <a href="/<?= $lang; ?>/helpers" class="<?= $page === 'helpers' ? 'active' : ''; ?>">
+                            <a href="<?= $base_url . $lang; ?>/helpers" class="<?= $page === 'helpers' ? 'active' : ''; ?>">
                                 <?= header_navigation_helpers; ?>
                             </a>
                         </li>
                         <li>
-                            <a href="/<?= $lang; ?>/components" class="<?= $page === 'components' ? 'active' : ''; ?>">
+                            <a href="<?= $base_url . $lang; ?>/components" class="<?= $page === 'components' ? 'active' : ''; ?>">
                                 <?= header_navigation_components; ?>
                             </a>
                         </li>
                         <li>
-                            <a href="/<?= $lang; ?>/javascript" class="<?= $page === 'javascript' ? 'active' : ''; ?>">
+                            <a href="<?= $base_url . $lang; ?>/javascript" class="<?= $page === 'javascript' ? 'active' : ''; ?>">
                                 <?= header_navigation_javascript; ?>
                             </a>
                         </li>

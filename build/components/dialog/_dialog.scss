@@ -1,4 +1,4 @@
-.modal {
+.dialog {
     position: fixed;
     left: 0;
     top: 0;
@@ -18,14 +18,14 @@
         will-change: opacity;
         transition: opacity 0.2s cubic-bezier(0,0,0.3,1);
     }
-    .modal__container {
+    .dialog__container {
         position: fixed;
         left: 0;
-        top: 0;
-        transform: translate(50%, 180%);
+        bottom: 0;
+        transform: translate(0%, 200%);
         will-change: transform;
         display: block;
-        width: 50%;
+        width: 100%;
         max-height: 70%;
         padding: 20px;
         margin: auto;
@@ -35,22 +35,21 @@
         overflow-y: auto;
         pointer-events: none;
         box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
-
-        .modal__header {
+        .dialog__header {
             position: relative;
             padding: 1em 0;
             margin: auto;
             overflow: hidden;
         }
-        .modal__title {
+        .dialog__title {
             font-size: 2em;
             font-weight: 500;
         }
-        .modal__content {
+        .dialog__content {
             padding: 1em 0;
             margin-bottom: 30px;
         }
-        .modal__footer {
+        .dialog__footer {
             position: relative;
             padding: 1em 0;
             margin: auto;
@@ -68,14 +67,14 @@
     }
 }
 
-.modal--visible {
+.dialog--visible {
     pointer-events: auto;
     &::before {
         opacity: 1;
     }
-    .modal__container {
+    .dialog__container {
         pointer-events: auto;
-        transform: translate(50%, 30%);
+        transform: translate(0%, 125%);
         transition: transform 0.33s cubic-bezier(0,0,0.3,1);
         button {
             margin: 0 10px;
@@ -88,8 +87,8 @@
     }
 }
 
-.modal--animatable {
-    .modal__container {
+.dialog--animatable {
+    .dialog__container {
         transform: translate(50%, 180%);
         transition: transform 0.33s cubic-bezier(0,0,0.3,1);
         @media only screen and (min-width: 280px) and (max-width: 767px) {

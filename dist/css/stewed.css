@@ -1267,7 +1267,7 @@ ul.dropdown li:hover a {
   transition: opacity 0.2s cubic-bezier(0, 0, 0.3, 1);
 }
 
-.modal .modal__dialog {
+.modal .modal__container {
   position: fixed;
   left: 0;
   top: 0;
@@ -1286,37 +1286,37 @@ ul.dropdown li:hover a {
   box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
 }
 
-.modal .modal__dialog .modal__header {
+.modal .modal__container .modal__header {
   position: relative;
   padding: 1em 0;
   margin: auto;
   overflow: hidden;
 }
 
-.modal .modal__dialog .modal__title {
+.modal .modal__container .modal__title {
   font-size: 2em;
   font-weight: 500;
 }
 
-.modal .modal__dialog .modal__content {
+.modal .modal__container .modal__content {
   padding: 1em 0;
   margin-bottom: 30px;
 }
 
-.modal .modal__dialog .modal__footer {
+.modal .modal__container .modal__footer {
   position: relative;
   padding: 1em 0;
   margin: auto;
   overflow: hidden;
 }
 
-.modal .modal__dialog button {
+.modal .modal__container button {
   margin: 0 10px;
   transition: none;
 }
 
 @media only screen and (min-width: 280px) and (max-width: 767px) {
-  .modal .modal__dialog {
+  .modal .modal__container {
     transform: translate(5%, -110%);
     width: 90%;
   }
@@ -1330,100 +1330,31 @@ ul.dropdown li:hover a {
   opacity: 1;
 }
 
-.modal--visible .modal__dialog {
+.modal--visible .modal__container {
   pointer-events: auto;
   transform: translate(50%, 30%);
   transition: transform 0.33s cubic-bezier(0, 0, 0.3, 1);
 }
 
-.modal--visible .modal__dialog button {
+.modal--visible .modal__container button {
   margin: 0 10px;
   transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @media only screen and (min-width: 280px) and (max-width: 767px) {
-  .modal--visible .modal__dialog {
+  .modal--visible .modal__container {
     transform: translate(5%, 30%);
     width: 90%;
   }
 }
 
-.modal.modal--fullwidth .modal__dialog {
-  position: fixed;
-  left: 0;
-  top: 0;
-  transform: translate(0%, 200%);
-  will-change: transform;
-  display: block;
-  width: 100%;
-  max-height: 70%;
-  padding: 20px;
-  margin: auto;
-  border-radius: 2px;
-  background-color: #fff;
-  overflow-x: hidden;
-  overflow-y: auto;
-  pointer-events: none;
-  box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
-}
-
-.modal.modal--fullwidth .modal__dialog .modal__header {
-  position: relative;
-  padding: 1em 0;
-  margin: auto;
-  overflow: hidden;
-}
-
-.modal.modal--fullwidth .modal__dialog .modal__title {
-  font-size: 2em;
-  font-weight: 500;
-}
-
-.modal.modal--fullwidth .modal__dialog .modal__content {
-  padding: 1em 0;
-  margin-bottom: 30px;
-}
-
-.modal.modal--fullwidth .modal__dialog .modal__footer {
-  position: relative;
-  padding: 1em 0;
-  margin: auto;
-  overflow: hidden;
-}
-
-.modal.modal--fullwidth.modal--visible {
-  pointer-events: auto;
-}
-
-.modal.modal--fullwidth.modal--visible::before {
-  opacity: 1;
-}
-
-.modal.modal--fullwidth.modal--visible .modal__dialog {
-  pointer-events: auto;
-  transform: translate(0%, 125%);
-  transition: transform 0.33s cubic-bezier(0, 0, 0.3, 1);
-}
-
-.modal.modal--fullwidth.modal--visible .modal__dialog button {
-  margin: 0 10px;
-  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@media only screen and (min-width: 280px) and (max-width: 767px) {
-  .modal.modal--fullwidth.modal--visible .modal__dialog {
-    transform: translate(5%, 30%);
-    width: 90%;
-  }
-}
-
-.modal--animatable .modal__dialog {
+.modal--animatable .modal__container {
   transform: translate(50%, 180%);
   transition: transform 0.33s cubic-bezier(0, 0, 0.3, 1);
 }
 
 @media only screen and (min-width: 280px) and (max-width: 767px) {
-  .modal--animatable .modal__dialog {
+  .modal--animatable .modal__container {
     transform: translate(5%, 180%);
     width: 90%;
   }
@@ -1479,6 +1410,122 @@ ul.dropdown li:hover a {
 .current-tab {
   display: block;
   visibility: visible;
+}
+
+.dialog {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.dialog::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  will-change: opacity;
+  transition: opacity 0.2s cubic-bezier(0, 0, 0.3, 1);
+}
+
+.dialog .dialog__container {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  transform: translate(0%, 200%);
+  will-change: transform;
+  display: block;
+  width: 100%;
+  max-height: 70%;
+  padding: 20px;
+  margin: auto;
+  border-radius: 2px;
+  background-color: #fff;
+  overflow-x: hidden;
+  overflow-y: auto;
+  pointer-events: none;
+  box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
+}
+
+.dialog .dialog__container .dialog__header {
+  position: relative;
+  padding: 1em 0;
+  margin: auto;
+  overflow: hidden;
+}
+
+.dialog .dialog__container .dialog__title {
+  font-size: 2em;
+  font-weight: 500;
+}
+
+.dialog .dialog__container .dialog__content {
+  padding: 1em 0;
+  margin-bottom: 30px;
+}
+
+.dialog .dialog__container .dialog__footer {
+  position: relative;
+  padding: 1em 0;
+  margin: auto;
+  overflow: hidden;
+}
+
+.dialog .dialog__container button {
+  margin: 0 10px;
+  transition: none;
+}
+
+@media only screen and (min-width: 280px) and (max-width: 767px) {
+  .dialog .dialog__container {
+    transform: translate(5%, -110%);
+    width: 90%;
+  }
+}
+
+.dialog--visible {
+  pointer-events: auto;
+}
+
+.dialog--visible::before {
+  opacity: 1;
+}
+
+.dialog--visible .dialog__container {
+  pointer-events: auto;
+  transform: translate(0%, 125%);
+  transition: transform 0.33s cubic-bezier(0, 0, 0.3, 1);
+}
+
+.dialog--visible .dialog__container button {
+  margin: 0 10px;
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media only screen and (min-width: 280px) and (max-width: 767px) {
+  .dialog--visible .dialog__container {
+    transform: translate(5%, 30%);
+    width: 90%;
+  }
+}
+
+.dialog--animatable .dialog__container {
+  transform: translate(50%, 180%);
+  transition: transform 0.33s cubic-bezier(0, 0, 0.3, 1);
+}
+
+@media only screen and (min-width: 280px) and (max-width: 767px) {
+  .dialog--animatable .dialog__container {
+    transform: translate(5%, 180%);
+    width: 90%;
+  }
 }
 
 /**
