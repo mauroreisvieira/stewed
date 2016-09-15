@@ -760,19 +760,6 @@ form.form {
   will-change: transform;
 }
 
-.form .textfield .textfield__label::after {
-  position: absolute;
-  bottom: 12px;
-  left: 45%;
-  visibility: hidden;
-  width: 10px;
-  height: 2px;
-  content: "";
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: .2s;
-  background-color: #3f51b5;
-}
-
 .form .textfield__input,
 .form select,
 .form textarea.textfield__input,
@@ -1062,7 +1049,7 @@ form.form {
 }
 
 .form .error {
-  border-color: #f44336 !important;
+  border-color: #4caf50 !important;
 }
 
 .navigation ul {
@@ -1272,7 +1259,7 @@ ul.dropdown li:hover a {
   position: fixed;
   left: 0;
   top: 0;
-  transform: translate(50%, 180%);
+  transform: translate(50%, -110%);
   will-change: transform;
   display: block;
   width: 50%;
@@ -1350,7 +1337,7 @@ ul.dropdown li:hover a {
 }
 
 .modal--animatable .modal__container {
-  transform: translate(50%, 180%);
+  transform: translate(50%, -110%);
   transition: transform 0.33s cubic-bezier(0, 0, 0.3, 1);
 }
 
@@ -2306,4 +2293,16 @@ strong {
 
 .color-indigo {
   color: #3f51b5;
+}
+
+.color-danger {
+  color: #f44336;
+}
+
+.color-warning {
+  color: #f44336;
+}
+
+.color-success {
+  color: #4caf50;
 }

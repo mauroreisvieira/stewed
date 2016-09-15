@@ -22,7 +22,7 @@
         position: fixed;
         left: 0;
         top: 0;
-        transform: translate(50%, 180%);
+        transform: translate(50%, -110%);
         will-change: transform;
         display: block;
         width: 50%;
@@ -90,7 +90,7 @@
 
 .modal--animatable {
     .modal__container {
-        transform: translate(50%, 180%);
+        transform: translate(50%, -110%);
         transition: transform 0.33s cubic-bezier(0,0,0.3,1);
         @media only screen and (min-width: 280px) and (max-width: 767px) {
             transform: translate(5%, 180%);

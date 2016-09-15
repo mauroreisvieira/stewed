@@ -15,17 +15,20 @@ Using a combination of **HTML**, **CSS** and pure **JavaScript** allows you to c
 
 ## Changelog
 - v0.1.0 (in development)
-	- Add Buttons
 	- Grid System bug fixes and new features
-	- Accordion using pure JavaScript
+	- Independant Modules
+	- Templates
 
 - v0.9.0
 	- SASS
 	- CSS Helpers
 	- Tables 
 	- Grid System
-	- Modal using pure JavaScript
+	- Modal & Dialog using pure JavaScript
 	- Form component
+	- Add Buttons
+	- Accordion using pure JavaScript
+	- New colors
 
 ### Clone the repo using Git
 
@@ -35,7 +38,7 @@ git clone https://github.com/maurovieirareis/stewed
 
 ### Installation
 
-``````bash
+```bash
 npm install Stewed
 ```
 
