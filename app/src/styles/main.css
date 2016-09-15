@@ -132,13 +132,25 @@ h3, h4, h5, h6 {
 
 /** CSS Components */
 .css-components {
-  background: rgba(0, 0, 0, 0.1);
+  background: #fb3c68;
+}
+
+.css-components ul.navigation__horizontal li a {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 400;
+  border-top: 2px solid #fb3c68;
+  border-bottom: 2px solid #fb3c68;
+  text-transform: uppercase;
 }
 
 .css-components ul.navigation__horizontal li a.active {
-  color: #FB3C68;
-  font-weight: 400;
-  background: #E0E0E0;
+  color: #FFFFFF;
+  border-bottom: 2px solid #FFFFFF;
+}
+
+.css-components ul.navigation__horizontal li a:hover {
+  background: #fb3c68;
+  color: #FFFFFF;
 }
 
 /** Grid System */

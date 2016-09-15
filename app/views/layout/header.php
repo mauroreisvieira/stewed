@@ -3,7 +3,7 @@
         <div class="row-space">
             <div class="large-3 medium-3 small-12">
                 <div class="logo">
-                    <img src="../images/logo/stewed_white.png" alt="Stewed" title="Stewed">
+                    <img src="<?= $base_url; ?>/src/images/logo/stewed_white.png" alt="Stewed" title="Stewed">
                 </div>
             </div>
             <div class="large-9 medium-9 small-12">

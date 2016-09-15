@@ -1,13 +1,12 @@
-<?php 
-/*
- * Todo 
- *
- * Add event to ESC key
- * Add event onTransitionEnd
- * Add touch's events
- * 
- */
-?>
+<div class="header-description">
+    <div class="container">
+        <div class="master-header padding-bottom-20">
+            <h1>Grid System</h1>
+            <p>Stewed by default have 12 columns.</p>
+            <p>When resizing your browser, each of these columns will always have an equal width.</p>
+        </div>
+    </div>
+</div>
 <div class="container">
     <h2>Introduction</h2>
     <p>Modal is positioned overlapping within the display window and is protected page content.</p>

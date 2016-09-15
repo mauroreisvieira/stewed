@@ -16,16 +16,16 @@ COMPACT = 'compact',
 COMPRESSED = 'compressed';
 
 gulp.task('default', function () {
-    return gulp.src('app/styles/sass/main.scss')
+    return gulp.src('app/src/styles/sass/main.scss')
     .pipe(sass({outputStyle: EXPANDED}).on('error', sass.logError))
-    .pipe(gulp.dest('app/styles/'));
+    .pipe(gulp.dest('app/src/styles/'));
 });
 
 gulp.task('sass', function () {
 	return gulp.src('build/stewed.scss')
 	.pipe(sass({outputStyle: EXPANDED}).on('error', sass.logError))
 	.pipe(gulp.dest('dist/css/'))
-	.pipe(gulp.dest('app/styles/'));
+	.pipe(gulp.dest('app/src/styles/'));
 });
 
 gulp.task('sass:watch', function () {
@@ -54,7 +54,7 @@ gulp.task('js', function () {
 
 //Watch for all changes
 gulp.task('watch', function () {
-    gulp.watch('app/styles/sass/main.scss', ['default']);
+    gulp.watch('app/src/styles/sass/main.scss', ['default']);
     gulp.watch('build/stewed.scss', ['sass']);
     gulp.watch('build/**/*.js', ['js-concat']);
     gulp.watch('build/**/*.js', ['js']);

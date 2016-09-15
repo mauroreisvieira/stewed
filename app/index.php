@@ -1,6 +1,11 @@
 <?php 
-$page = !empty($_GET['page']) ? $_GET['page'] : "home";
-$lang = isset($_GET['lang']) ? $_GET['lang'] : "en";
+$base_url = "http://www.stewed.dev";
+$_SERVER['REQUEST_URI_PATH'] = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$segments = explode('/', $_SERVER['REQUEST_URI_PATH']);
+
+$lang = isset($segments[1]) ? $segments[1] : 'en';
+$page = isset($segments[2]) ? $segments[2] : 'home';
+$subpage = isset($segments[3]) ? $segments[3] : null;
 
 switch ($lang) :
     case 'pt':
@@ -29,8 +34,8 @@ endswitch;
             <div class="content">
                 <?php switch ($page) :
                     case $page:
-                    include ("views/$page.php"); 
-                        break;
+                        include ("views/$page.php"); 
+                    break;
                     default:
                         include ("views/404.php"); 
                     break;

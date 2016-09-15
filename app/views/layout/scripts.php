@@ -9,10 +9,10 @@
 </script>
 
 <!-- Scripts -->
-<script type="text/javascript" src="../js/jquery-2.0.2.min.js "></script>
-<script type="text/javascript" src="../js/shCore.js"></script>
-<script type="text/javascript" src="../js/shBrushXml.js"></script>
-<script type="text/javascript" src="../js/shBrushJScript.js"></script>
+<script type="text/javascript" src="<?= $base_url; ?>/src/js/jquery-2.0.2.min.js"></script>
+<script type="text/javascript" src="<?= $base_url; ?>/src/js/shCore.js"></script>
+<script type="text/javascript" src="<?= $base_url; ?>/src/js/shBrushXml.js"></script>
+<script type="text/javascript" src="<?= $base_url; ?>/src/js/shBrushJScript.js"></script>
 
 <!-- Syntax Highlighter -->
 <script type="text/javascript">
@@ -22,32 +22,5 @@
 </script>
 
 <?php if ($page === 'javascript') : ?>
-<script src="../js/stewed.js"></script>
+<script src="<?= $base_url; ?>/src/js/stewed.js"></script>
 <?php endif; ?>
-
-<!-- <script type="text/javascript">
-    $(document).ready(function () {
-        /** Tab Default **/
-        $('.tab').tabs();
-        /** Default **/
-        $('.openModal').callModal();
-        /** No Effect **/
-        $('.openModalNo').callModal({
-            backgroundColor : '#fff',     
-            opacityOverlay  : 0.6, 
-            transitionStyle : false,
-            keyboard        : false,
-            durationIn      : 0,
-            durationOut     : 0
-        });
-        /** Dropdown **/
-        $('.drop').dropdown({
-            keyboard        : true,
-            alignment       : 'left',
-            durationIn      : 0.400,
-            durationOut     : 0.300
-        });
-    });
-</script> -->
-
-

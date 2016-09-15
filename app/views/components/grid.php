@@ -7,7 +7,6 @@
         </div>
     </div>
 </div>
-
 <div class="container">
     <div class="row">
         <div class="large-12 medium-12 small-12 margin-bottom-40">

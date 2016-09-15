@@ -124,13 +124,23 @@ h3, h4, h5, h6 {
 
 /** CSS Components */
 .css-components {
-background: rgba(0, 0, 0, 0.1);
+    background: #fb3c68;
     ul.navigation__horizontal {
         li {
-            a.active {
-                color: $color-primary;
+            a {
+                color: rgba(255,255,255, 0.6);
                 font-weight: 400;
-                background: $grey-300;
+                border-top: 2px solid #fb3c68;
+                border-bottom: 2px solid #fb3c68;
+                text-transform: uppercase;
+                &.active {
+                    color: $color-white;
+                    border-bottom: 2px solid $color-white;
+                }
+                &:hover {
+                    background: #fb3c68;
+                    color: $color-white;
+                }
             }
         }
     }

@@ -20,8 +20,8 @@
     <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
     <meta name="msapplication-TileColor" content="#2F3BA2">
     <!-- Stewed Kit -->
-    <link rel="stylesheet" href="../styles/stewed.css">
+    <link rel="stylesheet" href="<?= $base_url; ?>/src/styles/stewed.css">
     <!-- My Styles -->
-    <link rel="stylesheet" href="../styles/elegant.css">
-    <link rel="stylesheet" href="../styles/syntaxhighlighter.css">
-    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="<?= $base_url; ?>/src/styles/elegant.css">
+    <link rel="stylesheet" href="<?= $base_url; ?>/src/styles/syntaxhighlighter.css">
+    <link rel="stylesheet" href="<?= $base_url; ?>/src/styles/main.css">
