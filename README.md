@@ -27,6 +27,7 @@ Using a combination of **HTML, **CSS and pure J**avaScript allows you to create 
 
 ```bash
 git clone https://github.com/maurovieirareis/stewed
+```
 
 ### Installation
 
