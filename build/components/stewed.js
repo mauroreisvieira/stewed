@@ -1,9 +1,9 @@
-"use strict"
+/*"use strict"
 
 $(function () {
 
     /** Upload the file **/
-    $(document).on('change', '.file-path', function () {
+/*    $(document).on('change', '.file-path', function () {
         var input_file = $('.file-path > input[type=text]');
         var upload_file = $('.upload').val();
         input_file.val(upload_file);
@@ -261,4 +261,4 @@ $.fn.extend({
     }
 });
 });
-
+*/
