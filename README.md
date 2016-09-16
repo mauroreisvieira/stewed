@@ -30,6 +30,8 @@ Using a combination of **HTML**, **CSS** and pure **JavaScript** allows you to c
 	- Accordion using pure JavaScript
 	- New colors
 
+## Get Started
+
 ### Clone the repo using Git
 
 ```bash
@@ -42,10 +44,14 @@ git clone https://github.com/maurovieirareis/stewed
 npm install Stewed
 ```
 
-### License
+```bash
+bower install stewed
+```
+
+## License
 
 The Stewed is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
 
-Created with ♥️ by [@mauroreisvieira](https://twitter.com/mauroreisvieira) in **Portugal**
-Thanks to [other contributors](https://github.com/maurovieirareis/stewed/graphs/contributors)
+Created with ♥️ by [@mauroreisvieira](https://twitter.com/mauroreisvieira) in **Portugal**,
+thanks to [other contributors](https://github.com/maurovieirareis/stewed/graphs/contributors)
 
