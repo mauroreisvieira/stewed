@@ -542,42 +542,7 @@ p {
   padding-left: 90px;
 }
 
-/** Visibility  */
-.hidden {
-  visibility: hidden;
-  overflow: hidden;
-}
-
-.visible {
-  visibility: visible;
-  overflow: visible;
-}
-
-/** Align Float */
-.pull-right {
-  float: right;
-}
-
-.pull-left {
-  float: left;
-}
-
-.pull-center {
-  float: none;
-  display: table;
-  margin: auto;
-}
-
-.display-table {
-  display: table;
-}
-
-.display-block {
-  display: block;
-}
-
 /** Style formate buttons  */
-button,
 .button {
   position: relative;
   display: inline-block;
@@ -597,140 +562,78 @@ button,
   will-change: box-shadow;
 }
 
-button:hover, button:focus, button:active,
-.button:hover,
-.button:focus,
-.button:active {
+.button:hover, .button:active {
   outline: none;
   border: 0;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+.button:focus {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 6px 16px rgba(0, 0, 0, 0.36);
+  outline: none;
 }
 
-button:disabled, button.disabled,
-.button:disabled,
-.button.disabled {
+.button:disabled, .button.disabled,
+.button [disabled] {
+  background-color: rgba(0, 0, 0, 0.12);
+  color: rgba(0, 0, 0, 0.26);
+  box-shadow: none;
   cursor: default;
-  opacity: 0.4 !important;
-  color: inherit;
 }
 
-button font,
+.button:disabled:hover, .button:disabled:focus, .button.disabled:hover, .button.disabled:focus,
+.button [disabled]:hover,
+.button [disabled]:focus {
+  background-color: rgba(0, 0, 0, 0.12);
+  color: rgba(0, 0, 0, 0.26);
+  box-shadow: none;
+}
+
 .button font {
   size: 14px;
   weight: 400;
 }
 
-.button-large {
-  position: relative;
-  display: inline-block;
-  margin: 8px 6px;
+.button__fab {
+  border-radius: 50%;
+  font-size: 24px;
+  height: 56px;
+  min-width: 56px;
+  width: 56px;
+  padding: 0;
   overflow: hidden;
-  line-height: normal;
-  cursor: pointer;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-  vertical-align: middle;
-  text-decoration: none;
-  text-transform: uppercase;
-  color: inherit;
-  font-size: 0.875em;
-  border: 0;
-  border-radius: 2px;
-  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: box-shadow;
-  padding: 6px 18px;
-  line-height: 46px;
+  background: rgba(158, 158, 158, 0.2);
+  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
 }
 
-.button-large:hover, .button-large:focus, .button-large:active {
-  outline: none;
-  border: 0;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 6px 16px rgba(0, 0, 0, 0.36);
+.button__large {
+  padding: 0 3em;
+  line-height: 56px;
 }
 
-.button-large:disabled, .button-large.disabled {
-  cursor: default;
-  opacity: 0.4 !important;
-  color: inherit;
-}
-
-.button-large font {
-  size: 14px;
+.button__large font {
+  size: 1.125em;
   weight: 500;
 }
 
-.button-medium {
-  position: relative;
-  display: inline-block;
-  margin: 8px 6px;
-  overflow: hidden;
-  line-height: normal;
-  cursor: pointer;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-  vertical-align: middle;
-  text-decoration: none;
-  text-transform: uppercase;
-  color: inherit;
-  font-size: 0.875em;
-  border: 0;
-  border-radius: 2px;
-  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: box-shadow;
-  padding: 3px 16px;
-  line-height: 46px;
+.button__medium {
+  padding: 0 2.5em;
+  line-height: 48px;
 }
 
-.button-medium:hover, .button-medium:focus, .button-medium:active {
-  outline: none;
-  border: 0;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 6px 16px rgba(0, 0, 0, 0.36);
-}
-
-.button-medium:disabled, .button-medium.disabled {
-  cursor: default;
-  opacity: 0.4 !important;
-  color: inherit;
-}
-
-.button-medium font {
-  size: 14px;
+.button__medium font {
+  size: 1.000em;
   weight: 500;
 }
 
-.button-small {
-  position: relative;
-  display: inline-block;
-  margin: 8px 6px;
-  overflow: hidden;
-  line-height: normal;
-  cursor: pointer;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-  vertical-align: middle;
-  text-decoration: none;
-  text-transform: uppercase;
-  color: inherit;
-  font-size: 0.875em;
-  border: 0;
-  border-radius: 2px;
-  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: box-shadow;
-  padding: 2px 14px;
-  line-height: 36px;
+.button__small {
+  padding: 0 1.75em;
+  line-height: 40px;
 }
 
-.button-small:hover, .button-small:focus, .button-small:active {
-  outline: none;
-  border: 0;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 6px 16px rgba(0, 0, 0, 0.36);
-}
-
-.button-small:disabled, .button-small.disabled {
-  cursor: default;
-  opacity: 0.4 !important;
-  color: inherit;
-}
-
-.button-small font {
-  size: 14px;
+.button__small font {
+  size: 0.875em;
   weight: 500;
 }
 
@@ -1516,6 +1419,71 @@ ul.dropdown li:hover a {
   }
 }
 
+/** Visibility  */
+.visibility-hidden {
+  visibility: hidden;
+}
+
+.visibility-visible {
+  visibility: visible;
+}
+
+.visibility-collapse {
+  visibility: collapse;
+}
+
+/** Align Float */
+.pull-right {
+  float: right;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-center {
+  float: none;
+  margin: auto;
+}
+
+/** Display **/
+.display-table {
+  display: table;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
+.display-inline {
+  display: inline;
+}
+
+.display-inline-block {
+  display: inline-block;
+}
+
+/** Position **/
+.position-relative {
+  position: relative;
+}
+
+.position-absolute {
+  position: absolute;
+}
+
+.position-fixed {
+  position: fixed;
+}
+
+.position-static {
+  position: static;
+}
+
 /**
 * By default have 12 columns.
 * When resizing your browser, each of these columns will always have an equal width.
@@ -2125,10 +2093,6 @@ a {
 
 .size-68 {
   font-size: 68px;
-}
-
-strong {
-  font-weight: bold;
 }
 
 /** Font Weight **/

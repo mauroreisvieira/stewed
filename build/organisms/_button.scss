@@ -1,5 +1,46 @@
+@mixin button {
+    position: relative;
+    display: inline-block;
+    margin: 8px 6px;
+    overflow: hidden;
+    line-height: normal;
+    cursor: pointer;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+    vertical-align: middle;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: inherit;
+    font-size: 0.875em;
+    border: 0;
+    border-radius: 2px;
+    @include transitionButton;
+    will-change: box-shadow;
+    &:hover, &:active {
+        outline: none;
+        border: 0;
+        box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
+        outline: none;
+    }
+    &:focus {
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 6px 16px rgba(0, 0, 0, 0.36);
+        outline: none;
+    }
+    &:disabled,
+    &.disabled,
+    [disabled] {
+        background-color: rgba(0,0,0,.12);
+        color: rgba(0,0,0,.26);
+        box-shadow: none;
+        cursor: default;
+        &:hover, &:focus {
+            background-color: rgba(0,0,0,.12);
+            color: rgba(0,0,0,.26);
+            box-shadow: none;
+        }
+    }
+}
+
 /** Style formate buttons  */
-button,
 .button {
     @include button
     font {
@@ -8,32 +49,41 @@ button,
     }
 }
 
-.button-large {
-    @include button
-    padding: 6px 18px;
-    font {
-        size: 14px;
-        weight: $weight-medium;
-    }
-    line-height: 46px;
+.button__fab {
+    border-radius: 50%;
+    font-size: 24px;
+    height: 56px;
+    min-width: 56px;
+    width: 56px;
+    padding: 0;
+    overflow: hidden;
+    background: rgba(158,158,158,.2);
+    box-shadow: 0 1px 1.5px 0 rgba(0,0,0,.12), 0 1px 1px 0 rgba(0,0,0,.24);
 }
 
-.button-medium {
-    @include button
-    padding: 3px 16px;
+.button__large {
+    padding: 0 3em;
     font {
-        size: 14px;
+        size: 1.125em;
         weight: $weight-medium;
     }
-    line-height: 46px;
+    line-height: 56px;
 }
 
-.button-small {
-    @include button
-    padding: 2px 14px;
+.button__medium {
+    padding: 0 2.5em;
     font {
-        size: 14px;
+        size: 1.000em;
         weight: $weight-medium;
     }
-    line-height: 36px;
+    line-height: 48px;
+}
+
+.button__small {
+    padding: 0 1.75em;
+    font {
+        size: 0.875em;
+        weight: $weight-medium;
+    }
+    line-height: 40px;
 }

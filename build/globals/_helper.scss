@@ -1,0 +1,22 @@
+/** Visibility  */
+.visibility-hidden  { visibility: hidden; }
+.visibility-visible { visibility: visible; }
+.visibility-collapse { visibility: collapse; }
+
+/** Align Float */
+.pull-right { float: right; }
+.pull-left  { float: left; }
+.pull-center  { float: none; margin: auto; }
+
+/** Display **/
+.display-table  { display: table; }
+.display-block  { display: block; }
+.display-none   { display: none;}
+.display-inline  { display: inline }
+.display-inline-block { display: inline-block; }
+
+/** Position **/
+.position-relative  { position: relative; }
+.position-absolute  { position: absolute; }
+.position-fixed     { position: fixed; }
+.position-static    { position: static;}

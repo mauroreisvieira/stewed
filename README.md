@@ -14,7 +14,7 @@ Using a combination of **HTML**, **CSS** and pure **JavaScript** allows you to c
 - Internet Explorer 10
 
 ## Changelog
-- v0.1.0 (in development)
+- v1.0.0 (in development)
 	- Grid System bug fixes and new features
 	- Independant Modules
 	- Templates
