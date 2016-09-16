@@ -34,5 +34,25 @@
                 float: left;
             }
         }
+        &.navigation__horizontal--scroll {
+            display: inline-block;
+            position: relative;
+            white-space: nowrap;
+            overflow: hidden;
+            -webkit-user-select: none;
+            display: block;
+            height: 51px;
+            overflow-y: hidden;
+            padding: 0;
+            position: relative;
+            -webkit-overflow-scrolling: touch;
+            overflow-x: scroll;
+            &::-webkit-scrollbar { 
+                display: none; 
+            }
+            li {
+                display: inline-block;
+            }
+        }
     }
 }
