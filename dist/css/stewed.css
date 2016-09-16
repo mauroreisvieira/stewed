@@ -122,10 +122,12 @@ html {
   height: 100%;
   -ms-touch-action: manipulation;
   touch-action: manipulation;
+  overflow-x: hidden;
 }
 
 body {
   line-height: 1;
+  overflow-x: hidden;
 }
 
 ol,
@@ -1319,8 +1321,7 @@ ul.dropdown li:hover a {
   overflow: hidden;
 }
 
-.modal .modal__container button {
-  margin: 0 10px;
+.modal .modal__container .button {
   transition: none;
 }
 
@@ -1346,7 +1347,6 @@ ul.dropdown li:hover a {
 }
 
 .modal--visible .modal__container button {
-  margin: 0 10px;
   transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -1487,15 +1487,15 @@ ul.dropdown li:hover a {
   overflow: hidden;
 }
 
-.dialog .dialog__container button {
+.dialog .dialog__container .button {
   margin: 0 10px;
   transition: none;
 }
 
 @media only screen and (min-width: 280px) and (max-width: 767px) {
   .dialog .dialog__container {
-    transform: translate(5%, -110%);
-    width: 90%;
+    transform: translate(0%, 110%);
+    width: 100%;
   }
 }
 
@@ -1513,15 +1513,15 @@ ul.dropdown li:hover a {
   transition: transform 0.33s cubic-bezier(0, 0, 0.3, 1);
 }
 
-.dialog--visible .dialog__container button {
+.dialog--visible .dialog__container .button {
   margin: 0 10px;
   transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @media only screen and (min-width: 280px) and (max-width: 767px) {
   .dialog--visible .dialog__container {
-    transform: translate(5%, 30%);
-    width: 90%;
+    transform: translate(0%, 0%);
+    width: 100%;
   }
 }
 
@@ -1532,8 +1532,8 @@ ul.dropdown li:hover a {
 
 @media only screen and (min-width: 280px) and (max-width: 767px) {
   .dialog--animatable .dialog__container {
-    transform: translate(5%, 110%);
-    width: 90%;
+    transform: translate(0%, 110%);
+    width: 100%;
   }
 }
 
@@ -1614,13 +1614,11 @@ ul.dropdown li:hover a {
   margin: auto;
 }
 
-[class*="row"] {
+.row {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: -webkit-box;
   display: flex;
-  margin-right: -1em;
-  margin-left: -1em;
   flex-direction: row;
   box-sizing: border-box;
   -webkit-box-direction: normal;
@@ -1651,8 +1649,8 @@ ul.dropdown li:hover a {
     flex: 0 0 auto;
   }
   .row-space > [class*="large-"] {
-    padding-right: 1em;
-    padding-left: 1em;
+    padding-right: 0;
+    padding-left: 0;
     box-sizing: border-box;
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 auto;
@@ -1785,8 +1783,8 @@ ul.dropdown li:hover a {
     flex: 0 0 auto;
   }
   .row-space > [class*="medium-"] {
-    padding-right: 1em;
-    padding-left: 1em;
+    padding-right: 0;
+    padding-left: 0;
     box-sizing: border-box;
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 auto;
@@ -1919,8 +1917,8 @@ ul.dropdown li:hover a {
     flex: 0 0 auto;
   }
   .row-space > [class*="small-"] {
-    padding-right: 1em;
-    padding-left: 1em;
+    padding-right: 0;
+    padding-left: 0;
     box-sizing: border-box;
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 auto;
@@ -2333,6 +2331,10 @@ a {
   background-color: #3f51b5;
 }
 
+.background-transparent {
+  background-color: transparent;
+}
+
 .color-white {
   color: #ffffff;
 }
@@ -2375,4 +2377,8 @@ a {
 
 .color-indigo {
   color: #3f51b5;
+}
+
+.color-transparent {
+  color: transparent;
 }

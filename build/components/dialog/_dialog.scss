@@ -55,14 +55,14 @@
             margin: auto;
             overflow: hidden;
         }
-        button {
+        .button {
             margin: 0 10px;
             @include removeTransitionButton;
         }
 
         @media only screen and (min-width: 280px) and (max-width: 767px) {
-            transform: translate(5%, -110%);
-            width: 90%;
+            transform: translate(0%, 110%);
+            width: 100%;
         }
     }
 }
@@ -76,13 +76,13 @@
         pointer-events: auto;
         transform: translate(0%, 0%);
         transition: transform 0.33s cubic-bezier(0,0,0.3,1);
-        button {
+        .button {
             margin: 0 10px;
             @include transitionButton;
         }
         @media only screen and (min-width: 280px) and (max-width: 767px) {
-            transform: translate(5%, 30%);
-            width: 90%;
+            transform: translate(0%, 0%);
+            width: 100%;
         }
     }
 }
@@ -92,8 +92,8 @@
         transform: translate(0%, 110%);
         transition: transform 0.33s cubic-bezier(0,0,0.3,1);
         @media only screen and (min-width: 280px) and (max-width: 767px) {
-            transform: translate(5%, 110%);
-            width: 90%;
+            transform: translate(0%, 110%);
+            width: 100%;
         }
     }
 }

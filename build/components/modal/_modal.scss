@@ -56,8 +56,7 @@
             margin: auto;
             overflow: hidden;
         }
-        button {
-            margin: 0 10px;
+        .button {
             @include removeTransitionButton;
         }
 
@@ -78,7 +77,6 @@
         transform: translate(50%, 30%);
         transition: transform 0.33s cubic-bezier(0,0,0.3,1);
         button {
-            margin: 0 10px;
             @include transitionButton;
         }
         @media only screen and (min-width: 280px) and (max-width: 767px) {
