@@ -60,7 +60,7 @@ function Dialog(dialogID) {
     for (var i = 0; i < elems.length; i++) {
         var elem = elems[i];
         var dialogID = elem.getAttribute('stewed-dialog');
-        memory_dialogs[dialogID] = new dialog(dialogID);
+        memory_dialogs[dialogID] = new Dialog(dialogID);
         
         //element click
         elem.addEventListener('click', function(){

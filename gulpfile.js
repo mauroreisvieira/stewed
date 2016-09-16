@@ -24,21 +24,17 @@ gulp.task('default', function () {
 gulp.task('sass', function () {
 	return gulp.src('build/stewed.scss')
 	.pipe(sass({outputStyle: EXPANDED}).on('error', sass.logError))
-	.pipe(gulp.dest('dist/css/'))
-	.pipe(gulp.dest('app/src/styles/'));
+	.pipe(gulp.dest('dist/css/'));
 });
 
-gulp.task('sass:watch', function () {
-	gulp.watch('build/stewed.scss', ['sass']);
-});
-
-//JAVASCRIPT
+/** JAVASCRIPT **/
 gulp.task('jshint', function() {
   return gulp.src('build/**/*.js')
   .pipe(jshint())
   .pipe(jshint.reporter('jshint-stylish'));
 });
-gulp.task('js-concat', function () {
+
+gulp.task('js', function () {
     gulp.src('build/components/**/*.js')
     .pipe(sourcemaps.init())
     .pipe(concat('stewed.js'))
@@ -47,15 +43,9 @@ gulp.task('js-concat', function () {
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('dist/js'));
 });
-gulp.task('js', function () {
-    return gulp.src('dist/js/stewed.js')
-    .pipe(gulp.dest('app/js/'));
-});
 
 //Watch for all changes
 gulp.task('watch', function () {
-    gulp.watch('app/src/styles/sass/main.scss', ['default']);
     gulp.watch('build/stewed.scss', ['sass']);
-    gulp.watch('build/**/*.js', ['js-concat']);
     gulp.watch('build/**/*.js', ['js']);
 });

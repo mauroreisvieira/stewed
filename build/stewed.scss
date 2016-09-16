@@ -19,19 +19,19 @@
 @charset "UTF-8";
 
 // Settings
-@import "settings/assets/variables";
-@import "settings/assets/mixins";
-@import "settings/assets/reset";
-@import "settings/assets/utilities";
+@import "settings/variables";
+@import "settings/mixins";
+@import "settings/reset";
+@import "settings/utilities";
 
 // Organisms
-@import "organisms/assets/button";
-@import "organisms/assets/form";
-@import "organisms/assets/navigation";
-@import "organisms/assets/table";
+@import "organisms/button";
+@import "organisms/form";
+@import "organisms/navigation";
+@import "organisms/table";
 
 // Atoms
-@import "atoms/assets/card";
+@import "atoms/card";
 
 // Components
 @import "components/dropdown/dropdown";
@@ -40,8 +40,8 @@
 @import "components/dialog/dialog";
 
 // Globals
-@import "globals/assets/grid";
-@import "globals/assets/typography";
-@import "globals/assets/color";
+@import "globals/grid";
+@import "globals/typography";
+@import "globals/color";
 
 
