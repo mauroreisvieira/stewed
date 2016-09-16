@@ -15,10 +15,16 @@ Using a combination of **HTML**, **CSS** and pure **JavaScript** allows you to c
 - Internet Explorer 10
 
 ## Changelog
-- v1.0.0 (in development)
-	- Grid System bug fixes and new features
+- v1.0.0 **(in backlog)**
 	- Independant Modules
 	- Templates
+
+- v0.9.10 **(in development)**
+	- Grid System bug fixes and new features
+	- Badges & Labels
+	- Accordion using pure JavaScript
+	- Breadcrumbs
+	- New Helpers
 
 - v0.9.0
 	- SASS
@@ -27,9 +33,9 @@ Using a combination of **HTML**, **CSS** and pure **JavaScript** allows you to c
 	- Grid System
 	- Modal & Dialog using pure JavaScript
 	- Form component
-	- Add Buttons
-	- Accordion using pure JavaScript
-	- New colors
+	- Buttons
+	- Colors
+	- Cards
 
 ## Get Started
 
