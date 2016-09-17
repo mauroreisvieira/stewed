@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- head -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stewed Framework Kit</title>
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- Web Application Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Web Starter Kit">
+    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Web Starter Kit">
+    <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#2F3BA2">
+    <!-- Stewed Kit -->
+    <!--<link rel="stylesheet" href="<?= $base_url; ?>bower_components/stewed/dist/css/stewed.css">-->
+    <link rel="stylesheet" href="../dist/css/stewed.css">
+    <!-- My Styles -->
+    <link rel="stylesheet" href="assets/css/elegant.css">
+    <link rel="stylesheet" href="assets/css/syntaxhighlighter.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <!-- header -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="large-3 medium-3 small-12">
+                    <div class="logo">
+                        <img src="assets/images/logo/stewed_white.png" alt="Stewed" title="Stewed">
+                    </div>
+                </div>
+                <div class="large-9 medium-9 small-12">
+                    <nav class="navigation pull-right margin-top-20">
+                        <ul class="navigation__horizontal">
+                            <li>
+                                <a href="/" class="">Get Started</a> 
+                            </li> 
+                            <li>
+                                <a href="helpers.html" class="">CSS Helpers</a>
+                            </li>
+                            <li>
+                                <a href="components.html" class="">CSS Components</a>
+                            </li>
+                            <li>
+                                <a href="javascript.html" class="">JavaScript</a>
+                            </li>
+                        </ul> 
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="main">
+        <div class="content">
+
+
+<div class="header-description margin-bottom-40">
+    <div class="container">
+        <div class="master-header">
+            <h1>CSS Helpers</h1>
+            <p>These are custom classes available that can be used together with any elements of your HTML.</p>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row-space">
+        <div class="large-12 medium-12 small-12">
+            <!-- Margin -->
+            <div class="card margin-bottom-20 padding-bottom-20">
+                <div class="card__header">
+                    <h5 class="card__header__title">Margin</h5>
+                </div>
+                <div class="card__container">
+                    <strong class="display-block margin-top-10">Margin</strong>
+                    <code>.margin-10</code>
+                    <code>.margin-20</code>
+                    <code>.margin-30</code>
+                    <code>.margin-40</code>
+                    <code>.margin-50</code>
+                    <code>.margin-60</code>
+                    <code>.margin-70</code>
+                    <code>.margin-80</code>
+                    <code>.margin-90</code>
+                    <strong class="display-block margin-top-10">Margin Top</strong>
+                    <code>.margin-top-10</code>
+                    <code>.margin-top-20</code>
+                    <code>.margin-top-30</code>
+                    <code>.margin-top-40</code>
+                    <code>.margin-top-50</code>
+                    <code>.margin-top-60</code>
+                    <code>.margin-top-70</code>
+                    <code>.margin-top-80</code>
+                    <code>.margin-top-90</code>
+                    <strong class="display-block margin-top-10">Margin Right</strong>
+                    <code>.margin-right-10</code>
+                    <code>.margin-right-20</code>
+                    <code>.margin-right-30</code>
+                    <code>.margin-right-40</code>
+                    <code>.margin-right-50</code>
+                    <code>.margin-right-60</code>
+                    <code>.margin-right-70</code>
+                    <code>.margin-right-80</code>
+                    <code>.margin-right-90</code>
+                    <strong class="display-block margin-top-10">Margin Bottom</strong>
+                    <code>.margin-bottom-10</code>
+                    <code>.margin-bottom-20</code>
+                    <code>.margin-bottom-30</code>
+                    <code>.margin-bottom-40</code>
+                    <code>.margin-bottom-50</code>
+                    <code>.margin-bottom-60</code>
+                    <code>.margin-bottom-70</code>
+                    <code>.margin-bottom-80</code>
+                    <code>.margin-bottom-90</code>
+                    <strong class="display-block margin-top-10">Margin Left</strong>
+                    <code>.margin-left-10</code>
+                    <code>.margin-left-20</code>
+                    <code>.margin-left-30</code>
+                    <code>.margin-left-40</code>
+                    <code>.margin-left-50</code>
+                    <code>.margin-left-60</code>
+                    <code>.margin-left-70</code>
+                    <code>.margin-left-80</code>
+                    <code>.margin-left-90</code>
+                </div>
+            </div>
+            <!-- Font Format -->
+            <div class="card margin-bottom-20 padding-bottom-20">
+                <div class="card__header">
+                    <h5 class="card__header__title">Font Format</h5>
+                </div>
+                <div class="card__container">
+                    <!-- Font Size -->
+                    <strong class="display-block margin-top-10">Font Size</strong>
+                    <code>.size-12</code>
+                    <code>.size-14</code>
+                    <code>.size-16</code>
+                    <code>.size-18</code>
+                    <code>.size-20</code>
+                    <code>.size-22</code>
+                    <code>...</code>
+                    <code>.size-68</code>
+                    <!-- Font Weight -->
+                    <strong class="display-block margin-top-10">Font Weight</strong>
+                    <code>.font-100</code>
+                    <code>.font-300</code>
+                    <code>.font-500</code>
+                    <code>.font-600</code>
+                    <code>.font-700</code>
+                    <code>.font-900</code>
+
+                    <!-- Text Align -->
+                    <strong class="display-block margin-top-10">Text Align</strong>
+                    <code>.text-center</code>
+                    <code>.text-right</code>
+                    <code>.text-left</code>
+                    <code>.text-justify</code>
+                    <!-- Text Transform -->
+                    <strong class="display-block margin-top-10">Text Transform</strong>
+                    <code>.text-uppercase</code>
+                    <code>.text-lowercase</code>
+                    <code>.text-capitalize</code>  
+                    <code>.text-overline</code>  
+                    <code>.text-underline</code>       
+                </div>
+            </div>
+            <!-- Text Color -->
+            <div class="card margin-bottom-20 padding-bottom-20">
+                <div class="card__header">
+                    <h5 class="card__header__title">Text Color </h5>
+                </div>
+                <div class="card__container">
+                    <code>.color-white</code>
+                    <code>.color-black</code>
+                    <code>.color-grey</code>
+                    <code>.color-red</code>
+                    <code>.color-blue</code>
+                    <code>.color-green</code>
+                    <code>.color-pink</code>
+                    <code>.color-yellow</code>
+                    <code>.color-orange</code>
+                    <code>.color-bluegrey</code>
+                    <code>.color-indigo</code>
+                </div>
+            </div>
+        </div>
+
+        <div class="large-12 medium-12 small-12">
+            <!-- Paddingg -->
+            <div class="card margin-bottom-20 padding-bottom-20">
+                <div class="card__header">
+                    <h5 class="card__header__title">Paddingg</h5>
+                </div>
+                <div class="card__container">
+                    <strong class="display-block margin-top-10">Paddingg</strong>
+                    <code>.padding-10</code>
+                    <code>.padding-20</code>
+                    <code>.padding-30</code>
+                    <code>.padding-40</code>
+                    <code>.padding-50</code>
+                    <code>.padding-60</code>
+                    <code>.padding-70</code>
+                    <code>.padding-80</code>
+                    <code>.padding-90</code>
+                    <strong class="display-block margin-top-10">Paddingg Top</strong>
+                    <code>.padding-top-10</code>
+                    <code>.padding-top-20</code>
+                    <code>.padding-top-30</code>
+                    <code>.padding-top-40</code>
+                    <code>.padding-top-50</code>
+                    <code>.padding-top-60</code>
+                    <code>.padding-top-70</code>
+                    <code>.padding-top-80</code>
+                    <code>.padding-top-90</code>
+                    <strong class="display-block margin-top-10">Paddingg Right</strong>
+                    <code>.padding-right-10</code>
+                    <code>.padding-right-20</code>
+                    <code>.padding-right-30</code>
+                    <code>.padding-right-40</code>
+                    <code>.padding-right-50</code>
+                    <code>.padding-right-60</code>
+                    <code>.padding-right-70</code>
+                    <code>.padding-right-80</code>
+                    <code>.padding-right-90</code>
+                    <strong class="display-block margin-top-10">Paddingg Bottom</strong>
+                    <code>.padding-bottom-10</code>
+                    <code>.padding-bottom-20</code>
+                    <code>.padding-bottom-30</code>
+                    <code>.padding-bottom-40</code>
+                    <code>.padding-bottom-50</code>
+                    <code>.padding-bottom-60</code>
+                    <code>.padding-bottom-70</code>
+                    <code>.padding-bottom-80</code>
+                    <code>.padding-bottom-90</code>
+                    <strong class="display-block margin-top-10">Paddingg Left</strong>
+                    <code>.padding-left-10</code>
+                    <code>.padding-left-20</code>
+                    <code>.padding-left-30</code>
+                    <code>.padding-left-40</code>
+                    <code>.padding-left-50</code>
+                    <code>.padding-left-60</code>
+                    <code>.padding-left-70</code>
+                    <code>.padding-left-80</code>
+                    <code>.padding-left-90</code>
+                </div>
+            </div>
+            <!-- Background Color -->
+            <div class="card margin-bottom-20 padding-bottom-20">
+                <div class="card__header">
+                    <h5 class="card__header__title">Background Color </h5>
+                </div>
+                <div class="card__container">
+                    <code>.background-white</code>
+                    <code>.background-black</code>
+                    <code>.background-grey</code>
+                    <code>.background-red</code>
+                    <code>.background-blue</code>
+                    <code>.background-green</code>
+                    <code>.background-pink</code>
+                    <code>.background-yellow</code>
+                    <code>.background-orange</code>
+                    <code>.background-bluegrey</code>
+                    <code>.background-indigo</code>
+                </div>
+            </div>
+        </div>
+        <div class="large-12 medium-12 small-12">
+            <!-- Position -->
+            <div class="card margin-bottom-20 padding-bottom-20">
+                <div class="card__header">
+                    <h5 class="card__header__title">Position</h5>
+                </div>
+                <div class="card__container">
+                    <code>.position-relative</code>
+                    <code>.position-absolute</code>
+                    <code>.position-fixed</code>
+                    <code>.position-static</code>
+                </div>
+            </div>
+        </div>
+        <div class="large-6 medium-6 small-6">
+            <!-- Float -->
+            <div class="card margin-bottom-20 padding-bottom-20">
+                <div class="card__header">
+                    <h5 class="card__header__title">Float</h5>
+                </div>
+                <div class="card__container">
+                    <code>.pull-right</code>
+                    <code>.pull-left</code>
+                    <code>.pull-center</code>
+                </div>
+            </div>
+        </div>
+        <div class="large-6 medium-6 small-6">
+            <!-- Visibility -->
+            <div class="card margin-bottom-20 padding-bottom-20">
+                <div class="card__header">
+                    <h5 class="card__header__title">Visibility</h5>
+                </div>
+                <div class="card__container">
+                    <code>.visibility-visible</code>
+                    <code>.visibility-hidden</code>
+                    <code>.visibility-collapse</code>
+                </div>
+            </div>
+        </div>
+    </div>
+

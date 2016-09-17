@@ -1,0 +1,10 @@
+{
+  "manifest_version": 2,
+  "name": "Stewed Framework",
+  "version": "1.0.0",
+  "default_locale": "en",
+  "description": "A plain text description",
+  "author": "Mauro Reis Vieira"
+
+  }
+  
