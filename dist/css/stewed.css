@@ -1099,7 +1099,7 @@ form.form {
   background-color: #f1f1f1;
 }
 
-.table__striped tbody tr:odd-child {
+.table__striped tbody tr:nth-child(odd) {
   background-color: #f1f1f1;
 }
 

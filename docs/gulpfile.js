@@ -97,6 +97,25 @@ gulp.task('watch', function () {
  	gulp.src([
  		'views/layout/header.html',
  		'views/components.html', 
+ 		'views/components/navigation.html', 
+ 		'views/layout/footer.html'
+ 		])
+ 	.pipe(concat('navigation.html'))
+ 	.pipe(gulp.dest('.'));
+
+ 	gulp.src([
+ 		'views/layout/header.html',
+ 		'views/components.html', 
+ 		'views/components/pagination.html', 
+ 		'views/layout/footer.html'
+ 		])
+ 	.pipe(concat('pagination.html'))
+ 	.pipe(gulp.dest('.'));
+
+
+ 	gulp.src([
+ 		'views/layout/header.html',
+ 		'views/components.html', 
  		'views/components/tables.html', 
  		'views/layout/footer.html'
  		])

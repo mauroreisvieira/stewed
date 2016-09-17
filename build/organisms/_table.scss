@@ -1,4 +1,3 @@
-/** Table Simple */
 .table {
     display: table;
     width: 100%;
@@ -45,33 +44,8 @@
 
 .table__striped {
     tbody {
-        tr:odd-child {
+        tr:nth-child(odd) {
             background-color: #f1f1f1;
         }
     }
-}
-
-
-/** Table No Border */
-table.no-border > thead,
-table.no-border > thead > tr,
-table.no-border > tbody > tr {
-    border: 0;
-}
-/** Table Border */
-table.border > tbody > tr {
-    border-bottom: 1px solid #e9e9e9;
-}
-/** Tabel Hover */
-table.hover > tbody > tr:hover {
-    
-}
-/** Tabel Hover */
-table.odd > tbody > tr:odd-child {
-    background-color: #f1f1f1;
-}
-/** Tabel Hover */
-table.centered > tbody > tr > td,
-table.centered > thead > tr > th {
-    text-align: center;
 }

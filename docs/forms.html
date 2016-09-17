@@ -25,7 +25,8 @@
     <meta name="msapplication-TileColor" content="#2F3BA2">
     <!-- Stewed Kit -->
     <!--<link rel="stylesheet" href="<?= $base_url; ?>bower_components/stewed/dist/css/stewed.css">-->
-    <link rel="stylesheet" href="bower_components/stewed/dist/css/stewed.css">
+   <!-- <link rel="stylesheet" href="bower_components/stewed/dist/css/stewed.css"> -->
+    <link rel="stylesheet" href="../dist/css/stewed.css">
     <!-- My Styles -->
     <link rel="stylesheet" href="assets/css/elegant.css">
     <link rel="stylesheet" href="assets/css/syntaxhighlighter.css">
@@ -110,18 +111,11 @@
 	<div class="container">
 		<div class="master-header">
 			<h1>Forms</h1>
-			<div class="m-b-10"></div>
-			<p>Stewed by default have 12 columns.</p>
-			<p>When resizing your browser, each of these columns will always have an equal width.</p>
-			<p><strong>@large desktop devices:</strong> <code class="markup"> min-width 1600px</code></p>
-			<p><strong>@desktop devices:</strong> <code class="markup"> min-width 960px</code> and <code class="markup">max-width: 1599px</code></p>
-			<p><strong>@tablet devices:</strong> <code class="markup"> min-width 768px</code> and <code class="markup">max-width: 959px</code></p>
-			<p><strong>@mobile devices:</strong> <code class="markup"> min-width 280px</code> and <code class="markup">max-width: 767px</code></p>
 		</div>
 	</div>
 </div>
 <div class="container">
-	<section>
+	<section class="margin-top-40">
 		<div class="m-b-40"></div>
 		<h2>Simple Form</h2>
 		<p>Modal is positioned overlapping within the display window and is protected page content.</p>
@@ -155,7 +149,7 @@
 								</div>
 							</div>
 
-							<button type="submit" class="button-medium">Send Form</button>
+							<button type="submit" class="button button__medium">Send Form</button>
 						</div>
 					</div>
 				</form>
@@ -323,6 +317,7 @@
     </script>
 
     <script src="bower_components/stewed/dist/js/stewed.js"></script>
+    <script src="../js/stewed.js"></script>
     
 </body>
 </html>

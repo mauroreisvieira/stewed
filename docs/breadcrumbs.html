@@ -25,7 +25,8 @@
     <meta name="msapplication-TileColor" content="#2F3BA2">
     <!-- Stewed Kit -->
     <!--<link rel="stylesheet" href="<?= $base_url; ?>bower_components/stewed/dist/css/stewed.css">-->
-    <link rel="stylesheet" href="bower_components/stewed/dist/css/stewed.css">
+   <!-- <link rel="stylesheet" href="bower_components/stewed/dist/css/stewed.css"> -->
+    <link rel="stylesheet" href="../dist/css/stewed.css">
     <!-- My Styles -->
     <link rel="stylesheet" href="assets/css/elegant.css">
     <link rel="stylesheet" href="assets/css/syntaxhighlighter.css">
@@ -109,7 +110,7 @@
 <div class="header-description">
 	<div class="container">
 		<div class="master-header">
-			<h1><?= menu_components_breadcrumbs; ?></h1>
+			<h1>Breadcrumbs</h1>
 		</div>
 	</div>
 </div>
@@ -129,7 +130,7 @@
 					<div class="card__header ">
 						<h4 class="card__header__title text-uppercase">Cooking</h4>
 					</div>
-					<div class="card__container">
+					<div class="card__container card--border">
 						<div id="view-html" class="code">
 							<pre class="brush: xml; toolbar: false; gutter: false;">
 								&lt;div class="breadcrumbs margin-top-20 background-grey color-white text-uppercase">
@@ -158,7 +159,7 @@
 					<div class="card__header ">
 						<h4 class="card__header__title text-uppercase">Cooking</h4>
 					</div>
-					<div class="card__container">
+					<div class="card__container card--border">
 						<div id="view-html" class="code">
 							<pre class="brush: xml; toolbar: false; gutter: false;">
 								&lt;div class="breadcrumbs margin-top-20 color-blue text-uppercase">
@@ -173,7 +174,6 @@
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>	
 	</section>
@@ -231,6 +231,7 @@
     </script>
 
     <script src="bower_components/stewed/dist/js/stewed.js"></script>
+    <script src="../js/stewed.js"></script>
     
 </body>
 </html>
