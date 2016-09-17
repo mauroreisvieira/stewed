@@ -1490,6 +1490,10 @@ ul.dropdown li:hover a {
   }
 }
 
+.modal .modal__container .button {
+  margin: 0 10px;
+}
+
 .modal--visible {
   pointer-events: auto;
 }
@@ -1579,7 +1583,7 @@ ul.dropdown li:hover a {
   visibility: visible;
 }
 
-.dialog {
+.snackbar {
   position: fixed;
   left: 0;
   top: 0;
@@ -1590,7 +1594,7 @@ ul.dropdown li:hover a {
   z-index: 10;
 }
 
-.dialog::before {
+.snackbar::before {
   content: '';
   display: block;
   position: absolute;
@@ -1602,7 +1606,7 @@ ul.dropdown li:hover a {
   transition: opacity 0.2s cubic-bezier(0, 0, 0.3, 1);
 }
 
-.dialog .dialog__container {
+.snackbar .snackbar__container {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -1621,75 +1625,75 @@ ul.dropdown li:hover a {
   box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
 }
 
-.dialog .dialog__container .dialog__header {
+.snackbar .snackbar__container .snackbar__header {
   position: relative;
   padding: 1em 0;
   margin: auto;
   overflow: hidden;
 }
 
-.dialog .dialog__container .dialog__title {
+.snackbar .snackbar__container .snackbar__title {
   font-size: 2em;
   font-weight: 500;
 }
 
-.dialog .dialog__container .dialog__content {
+.snackbar .snackbar__container .snackbar__content {
   padding: 1em 0;
   margin-bottom: 30px;
 }
 
-.dialog .dialog__container .dialog__footer {
+.snackbar .snackbar__container .snackbar__footer {
   position: relative;
   padding: 1em 0;
   margin: auto;
   overflow: hidden;
 }
 
-.dialog .dialog__container .button {
+.snackbar .snackbar__container .button {
   margin: 0 10px;
   transition: none;
 }
 
 @media only screen and (min-width: 280px) and (max-width: 767px) {
-  .dialog .dialog__container {
+  .snackbar .snackbar__container {
     transform: translate(0%, 110%);
     width: 100%;
   }
 }
 
-.dialog--visible {
+.snackbar--visible {
   pointer-events: auto;
 }
 
-.dialog--visible::before {
+.snackbar--visible::before {
   opacity: 1;
 }
 
-.dialog--visible .dialog__container {
+.snackbar--visible .snackbar__container {
   pointer-events: auto;
   transform: translate(0%, 0%);
   transition: transform 0.33s cubic-bezier(0, 0, 0.3, 1);
 }
 
-.dialog--visible .dialog__container .button {
+.snackbar--visible .snackbar__container .button {
   margin: 0 10px;
   transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @media only screen and (min-width: 280px) and (max-width: 767px) {
-  .dialog--visible .dialog__container {
+  .snackbar--visible .snackbar__container {
     transform: translate(0%, 0%);
     width: 100%;
   }
 }
 
-.dialog--animatable .dialog__container {
+.snackbar--animatable .snackbar__container {
   transform: translate(0%, 110%);
   transition: transform 0.33s cubic-bezier(0, 0, 0.3, 1);
 }
 
 @media only screen and (min-width: 280px) and (max-width: 767px) {
-  .dialog--animatable .dialog__container {
+  .snackbar--animatable .snackbar__container {
     transform: translate(0%, 110%);
     width: 100%;
   }

@@ -112,7 +112,6 @@ gulp.task('watch', function () {
  	.pipe(concat('pagination.html'))
  	.pipe(gulp.dest('.'));
 
-
  	gulp.src([
  		'views/layout/header.html',
  		'views/components.html', 
@@ -120,5 +119,68 @@ gulp.task('watch', function () {
  		'views/layout/footer.html'
  		])
  	.pipe(concat('tables.html'))
+ 	.pipe(gulp.dest('.'));
+
+ 	gulp.src([
+ 		'views/layout/header.html',
+ 		'views/javascript.html', 
+ 		'views/javascript/accordion.html', 
+ 		'views/layout/footer.html'
+ 		])
+ 	.pipe(concat('accordion.html'))
+ 	.pipe(gulp.dest('.'));
+
+ 	gulp.src([
+ 		'views/layout/header.html',
+ 		'views/javascript.html', 
+ 		'views/javascript/dropdown.html', 
+ 		'views/layout/footer.html'
+ 		])
+ 	.pipe(concat('dropdown.html'))
+ 	.pipe(gulp.dest('.'));
+
+ 	gulp.src([
+ 		'views/layout/header.html',
+ 		'views/javascript.html', 
+ 		'views/javascript/modal.html', 
+ 		'views/layout/footer.html'
+ 		])
+ 	.pipe(concat('modal.html'))
+ 	.pipe(gulp.dest('.'));
+
+ 	gulp.src([
+ 		'views/layout/header.html',
+ 		'views/javascript.html', 
+ 		'views/javascript/sidenav.html', 
+ 		'views/layout/footer.html'
+ 		])
+ 	.pipe(concat('sidenav.html'))
+ 	.pipe(gulp.dest('.'));
+
+ 	gulp.src([
+ 		'views/layout/header.html',
+ 		'views/javascript.html', 
+ 		'views/javascript/snackbar.html', 
+ 		'views/layout/footer.html'
+ 		])
+ 	.pipe(concat('snackbar.html'))
+ 	.pipe(gulp.dest('.'));	
+
+ 	gulp.src([
+ 		'views/layout/header.html',
+ 		'views/javascript.html', 
+ 		'views/javascript/tabs.html', 
+ 		'views/layout/footer.html'
+ 		])
+ 	.pipe(concat('tabs.html'))
+ 	.pipe(gulp.dest('.'));
+
+ 	gulp.src([
+ 		'views/layout/header.html',
+ 		'views/javascript.html', 
+ 		'views/javascript/tooltips.html', 
+ 		'views/layout/footer.html'
+ 		])
+ 	.pipe(concat('tooltips.html'))
  	.pipe(gulp.dest('.'));
  });
