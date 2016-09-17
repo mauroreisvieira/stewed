@@ -1,7 +1,7 @@
 @mixin button {
     position: relative;
     display: inline-block;
-    margin: 8px 6px;
+    margin: auto;
     overflow: hidden;
     line-height: normal;
     cursor: pointer;
@@ -46,6 +46,46 @@
     font {
         size: 14px;
         weight: $weight-regular;
+    }
+}
+
+.button--link {
+    position: relative;
+    display: inline-block;
+    margin: auto;
+    overflow: hidden;
+    line-height: normal;
+    cursor: pointer;
+    vertical-align: middle;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: inherit;
+    font-size: 0.875em;
+    border: 0;
+    border-radius: 2px;
+    @include transitionButton;
+    will-change: box-shadow;
+    &:hover, &:active {
+        background-color: rgba(158,158,158,.2);
+        outline: none;
+        border: 0;
+        outline: none;
+    }
+    &:focus {
+        outline: none;
+    }
+    &:disabled,
+    &.disabled,
+    [disabled] {
+        background-color: rgba(0,0,0,.12);
+        color: rgba(0,0,0,.26);
+        box-shadow: none;
+        cursor: default;
+        &:hover, &:focus {
+            background-color: rgba(0,0,0,.12);
+            color: rgba(0,0,0,.26);
+            box-shadow: none;
+        }
     }
 }
 

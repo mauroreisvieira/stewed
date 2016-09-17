@@ -548,7 +548,7 @@ p {
 .button {
   position: relative;
   display: inline-block;
-  margin: 8px 6px;
+  margin: auto;
   overflow: hidden;
   line-height: normal;
   cursor: pointer;
@@ -595,6 +595,51 @@ p {
 .button font {
   size: 14px;
   weight: 400;
+}
+
+.button--link {
+  position: relative;
+  display: inline-block;
+  margin: auto;
+  overflow: hidden;
+  line-height: normal;
+  cursor: pointer;
+  vertical-align: middle;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: inherit;
+  font-size: 0.875em;
+  border: 0;
+  border-radius: 2px;
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: box-shadow;
+}
+
+.button--link:hover, .button--link:active {
+  background-color: rgba(158, 158, 158, 0.2);
+  outline: none;
+  border: 0;
+  outline: none;
+}
+
+.button--link:focus {
+  outline: none;
+}
+
+.button--link:disabled, .button--link.disabled,
+.button--link [disabled] {
+  background-color: rgba(0, 0, 0, 0.12);
+  color: rgba(0, 0, 0, 0.26);
+  box-shadow: none;
+  cursor: default;
+}
+
+.button--link:disabled:hover, .button--link:disabled:focus, .button--link.disabled:hover, .button--link.disabled:focus,
+.button--link [disabled]:hover,
+.button--link [disabled]:focus {
+  background-color: rgba(0, 0, 0, 0.12);
+  color: rgba(0, 0, 0, 0.26);
+  box-shadow: none;
 }
 
 .button__fab {
@@ -1019,31 +1064,43 @@ form.form {
 }
 
 /** Table Simple */
-table.table {
+.table {
   display: table;
   width: 100%;
-}
-
-table.table {
   border-spacing: 0;
   border-collapse: collapse;
   border: 0;
 }
 
-table.table thead {
+.table thead {
   border-bottom: 1px solid #e9e9e9;
 }
 
-table.table thead th {
+.table thead th {
   font-weight: bold;
-}
-
-table.table thead th,
-table.table tbody tr td {
   display: table-cell;
-  padding: 15px 10px;
+  padding: 1.00em 0.625em;
   text-align: left;
   vertical-align: middle;
+}
+
+.table tbody tr td {
+  display: table-cell;
+  padding: 1.00em 0.625em;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.table__border tbody tr {
+  border-bottom: 1px solid #e9e9e9;
+}
+
+.table__hover tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.table__striped tbody tr:odd-child {
+  background-color: #f1f1f1;
 }
 
 /** Table No Border */
@@ -1059,10 +1116,6 @@ table.border > tbody > tr {
 }
 
 /** Tabel Hover */
-table.hover > tbody > tr:hover {
-  background-color: #f1f1f1;
-}
-
 /** Tabel Hover */
 table.odd > tbody > tr:odd-child {
   background-color: #f1f1f1;
@@ -1081,8 +1134,8 @@ table.centered > thead > tr > th {
   display: inline-block;
 }
 
-.badge[data-badge]:after {
-  content: attr(data-badge);
+.badge[stewed-badge]:after {
+  content: attr(stewed-badge);
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -1159,10 +1212,13 @@ table.centered > thead > tr > th {
   box-sizing: border-box;
 }
 
+.card .card--border {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 .card .card__header {
   width: 100%;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 10px 20px;
+  padding: 0.750em 1.250em;
 }
 
 .card .card__header .card__header__title {
@@ -1182,7 +1238,12 @@ table.centered > thead > tr > th {
 
 .card .card__container {
   width: 100%;
-  padding: 10px 20px;
+  padding: 1em 1.250em;
+}
+
+.card .card__footer {
+  width: 100%;
+  padding: 0.750em 1.250em;
 }
 
 .breadcrumbs {

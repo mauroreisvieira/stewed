@@ -3,8 +3,8 @@
 	white-space: nowrap;
 	margin-right: 24px;
 	display: inline-block;
-	&[data-badge]:after {
-		content: attr(data-badge);
+	&[stewed-badge]:after {
+		content: attr(stewed-badge);
 		display: -webkit-flex;
 		display: -ms-flexbox;
 		display: flex;
