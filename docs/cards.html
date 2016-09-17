@@ -66,101 +66,107 @@
     <section id="main">
         <div class="content">
 
+<div class="css-components">
+	<div class="container">
+		<div class="row-space">
+			<div class="large-12 medium-12 small-12">
+				<nav class="navigation">
+					<ul class="navigation__horizontal--scroll">
+						<li>
+							<a href="badges.html" class="">Badges</a>
+						</li>
+						<li>
+							<a href="buttons.html" class="">Buttons</a>
+						</li>
+						<li>
+							<a href="breadcrumbs.html" class="">Breadcrumbs</a>
+						</li>
+						<li>
+							<a href="cards.html" class="">Cards</a>
+						</li>
+						<li>
+							<a href="forms.html" class="">Forms Filed</a>
+						</li>
+						<li>
+							<a href="grid.html" class="">Grid</a>
+						</li>
+						<li>
+							<a href="navigation.html" class="">Navigation</a>
+						</li>
+						<li>
+							<a href="pagination.html" class="">Pagination</a>
+						</li>
+						<li>
+							<a href="tables.html" class="">Tables</a>
+						</li>
+					</ul> 
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+
 <div class="header-description">
-    <div class="container">
-        <h1 class="text-center">Start using Stewed, and see how it is so easy to cook your code!</h1>
-        <div class="margin-bottom-40"></div>
-        <div class="pull-center display-table margin-bottom-30">
-            <a class="background-white button button__large" href="">Download Latest Build</a>
-            <a class="background-white button button__large" href="">View Documentation</a>
-        </div>
-        <p class="text-center margin-top-10 color-white">Currently Version 1.0.0</p>
-    </div>
+	<div class="container">
+		<div class="master-header">
+			<h1><?= menu_components_cards; ?></h1>
+		</div>
+	</div>
 </div>
 <div class="container">
-    <div class="row">
-        <div class="large-4 medium-6 small-12">
-            <div class="features">
-                <span> <i class="icon_heart_alt"></i></span>
-                <h4>Beautiful Code</h4>
-                <p>Code of easy interpretation clean and fully optimized.</p>
-            </div>
-        </div>
-        <div class="large-4 medium-6 small-12">
-            <div class="features">
-                <span> <i class="icon_desktop"></i></span>
-                <h4>Responsive Design</h4>
-                <p>Allows adapts the various platforms and sizes of devices.</p>
-            </div>
-        </div>
-        <div class="large-4 medium-6 small-12">
-            <div class="features">
-                <span> <i class="icon_balance"></i></span>
-                <h4>Very Light</h4>
-                <p>It contains just enough to create a lightweight application.</p>
-            </div>
-        </div>
-        <div class="large-4 medium-6 small-12">
-            <div class="features">
-                <span> <i class="icon_book_alt"></i></span>
-                <h4>Easy Learn</h4>
-                <p>Documentation easy learning with explicit examples.</p>
-            </div>
-        </div>
-        <div class="large-4 medium-6 small-12">
-            <div class="features">
-                <span> <i class="icon_puzzle"></i></span>
-                <h4>Independant Modules</h4>
-                <p>Is non-invasive, does not change the format of its application, only helps your development.</p>
-            </div>
-        </div>
-        <div class="large-4 medium-6 small-12">
-            <div class="features">
-                <span> <i class="icon_cone_alt"></i></span>
-                <h4>Dedicated Support</h4>
-                <p>Do you need help to Stweed? Contact us and we’ll help you to solve your problems.</p>
-            </div>
-        </div>
-    </div>
-    <div class="margin-bottom-20"></div>
-    <hr class="custom-hr">
-    <h3>Disabling Responsiveness</h3>
-    <p>First, we need to ensure that the following <code>meta</code> tags are not present in our website's <code>head</code> section.</p>
-    <div class="margin-bottom-20"></div>
-    <div class="card">
-        <div class="card__header ">
-        <h4 class="card__header__title uppercase">Learn to cook</h4>
-        </div>
-        <div class="card__container">
-            <div id="view-html" class="code">
-                <pre class="brush: xml; toolbar: false; gutter: false;">
-                    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    &lt;meta name="HandheldFriendly" content="True">
-                    &lt;meta name="MobileOptimized" content="320">
-                </pre>                    
-            </div>
-        </div>
-    </div>
-    <hr class="custom-hr margin-top-30">
-    <h3>Getting started </h3>
-    <div class="card margin-top-20">
-        <div class="card__header">
-        <h4 class="card__header__title uppercase">Learn to cook</h4>
-        </div>
-        <div class="card__container">
-            <div id="view-html" class="code">
-                <pre class="brush: xml; toolbar: false; gutter: false;">
-                    &lt;!-- Compiled and minified CSS -->
-                    &lt;link rel="stylesheet" type="text/css" media="screen" href="dist/css/stewed.min.css" />
-
-                    &lt;!-- Compiled and minified JavaScript -->
-                    &lt;script src="dist/js/stewed.min.js"></script>
-                </pre>                    
-            </div>
-        </div>
-    </div>
+	<section class="margin-top-40">
+		<div class="row">
+			<div class="large-12 medium-12 small-12">
+				<h2>Simple Card</h2>
+			</div>
+			<div class="large-6 medium-6 small-12 margin-bottom-40 large-offset-3 medium-offset-3">
+				<div class="margin-bottom-20"></div>
+				<div class="card pull-center">
+					<div class="card__header background-red color-white">
+						<h4 class="card__header__title text-uppercase">Welcome</h4>
+					</div>
+					<div class="card__container card--border">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, tempora molestiae numquam dicta odit modi. Doloribus repudiandae inventore, aut. Magnam.</p>
+						<p>Doloribus repudiandae inventore, aut.</p>
+					</div>
+					<div class="card__footer card--border">
+						<button class="button--link button__small background-transparent pull-right">Get Started</button>
+					</div>
+				</div>
+			</div>
+			<div class="large-12 medium-12 small-12 margin-bottom-40">
+				<div class="card margin-top-20">
+					<div class="card__header ">
+						<h4 class="card__header__title text-uppercase">Cooking</h4>
+					</div>
+					<div class="card__container card--border">
+						<div id="view-html" class="code">
+							<pre class="brush: xml; toolbar: false; gutter: false;">
+								&lt;div class="large-6 medium-6 small-12 margin-bottom-40 large-offset-3 medium-offset-3">
+									&lt;div class="margin-bottom-20">&lt;/div>
+									&lt;div class="card pull-center">
+										&lt;div class="card__header background-red color-white">
+											&lt;h4 class="card__header__title text-uppercase">Welcome&lt;/h4>
+										&lt;/div>
+										&lt;div class="card__container card--border">
+											&lt;p>Lorem ipsum dolor...&lt;/p>
+										&lt;/div>
+										&lt;div class="card__footer card--border">
+											&lt;button class="button--link button__small background-transparent pull-right">Get Started&lt;/button>
+										&lt;/div>
+									&lt;/div>
+								&lt;/div>
+								</div>
+							</pre>                    
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</section>
 </div>
+
+
 
         </div>
     </section>
