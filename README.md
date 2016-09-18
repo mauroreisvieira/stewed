@@ -48,12 +48,15 @@ git clone https://github.com/maurovieirareis/stewed
 ### Installation
 
 ```bash
-npm install Stewed
+npm install Stewed --save
 ```
 
 ```bash
-bower install stewed
+bower install stewed --save
 ```
+
+Alternatively you can [download](https://codeload.github.com/maurovieirareis/stewed/zip/master)
+this repository.
 
 ## License
 
