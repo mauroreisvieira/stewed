@@ -685,126 +685,122 @@ p {
 }
 
 /** Form */
-form.form {
+*:focus {
+  outline: none;
+}
+
+.form {
   display: block;
   width: 100%;
+  /** Form type input */
+  /** Input [valid] **/
+  /** Input [invalid] **/
+  /** Disabled */
+  /** Input checkbox */
+  /** Input radio */
+  /** Input file upload */
+  /** Input range */
 }
 
 .form .textfield {
   position: relative;
   display: block;
-  margin: 10px 0;
+  margin: 10px 0 25px 0;
 }
 
 .form .textfield .textfield__label {
   position: absolute;
   width: 100%;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   top: 0;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: .2s;
-  transform: translate(5px, 8px);
+  transform: translate(0px, 34px);
   pointer-events: none;
   color: #9e9e9e;
   will-change: transform;
 }
 
 .form .textfield__input,
-.form select,
-.form textarea.textfield__input,
-.form textarea {
+.form input[value=""]:valid,
+.form input[value=""]:invalid,
+.form input[value=""] {
   width: 100%;
-  padding: 15px 0;
+  padding: 0.750em 0;
   margin-top: 25px;
   font-size: 16px;
   border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 0;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.12);
   background-color: transparent;
   appearance: none;
   resize: none;
+  color: currentColor;
 }
 
-/** Form type input */
-.form input[type=text]:focus,
-.form input[type=password]:focus,
-.form input[type=email]:focus,
-.form input[type=url]:focus,
-.form input[type=time]:focus,
-.form input[type=date]:focus,
-.form input[type=tel]:focus,
-.form input[type=number]:focus,
-.form input[type=search]:focus,
-.form textarea:focus,
-.form select:focus {
-  outline: none;
-}
-
-.form .textfield__input:focus + label::after {
+.form .textfield__input:focus + label::after,
+.form input[value=""]:valid:focus + label::after,
+.form input[value=""]:invalid:focus + label::after,
+.form input[value=""]:focus + label::after {
   bottom: -10px;
   left: 0;
   visibility: visible;
   width: 100%;
 }
 
-.form input[type=text]:focus + .textfield__label,
-.form input[type=password]:focus + .textfield__label,
-.form input[type=email]:focus + .textfield__label,
-.form input[type=url]:focus + .textfield__label,
-.form input[type=time]:focus + .textfield__label,
-.form input[type=date]:focus + .textfield__label,
-.form input[type=tel]:focus + .textfield__label,
-.form input[type=number]:focus + .textfield__label,
-.form input[type=search]:focus + .textfield__label,
-.form textarea:focus + .textfield__label,
-.form select:focus + .textfield__label,
-.form .valid ~ .textfield__label,
-.form .error ~ .textfield__label {
-  font-size: 12px;
+.form .textfield__input:focus {
+  outline: none;
+  border-color: currentColor;
+}
+
+.form .textfield__input:focus + .textfield__label {
+  font-size: 14px;
   font-weight: bold;
-  transform: translate(0px, -14px);
-  color: #3f51b5;
+  transform: translate(0px, 4px);
+  color: currentColor;
 }
 
-.form .error ~ .textfield__label {
-  color: #f44336;
-}
-
-.form .valid ~ .textfield__label {
+.form .textfield__input:required:valid,
+.form .textfield__input:required:valid:focus {
+  background: transparent;
+  border-color: #4caf50;
   color: #4caf50;
 }
 
-.form .valid ~ .textfield__label::after,
-.form .error ~ .textfield__label::after {
-  bottom: -10px;
-  left: 0;
-  visibility: visible;
-  width: 100%;
+.form .textfield__input:required:valid:focus ~ .textfield__label,
+.form .textfield__input:required:valid ~ .textfield__label {
+  color: #4caf50;
+  font-size: 14px;
+  font-weight: bold;
+  transform: translate(0px, 4px);
 }
 
-.form .error ~ .textfield__label::after {
-  background-color: #f44336;
+.form .textfield__input:required:invalid,
+.form .textfield__input:required:invalid:focus {
+  background: transparent;
+  border-color: #f44336;
+  color: #f44336;
 }
 
-.form .valid ~ .textfield__label::after {
-  background-color: #4caf50;
+.form .textfield__input:required:invalid:focus ~ .textfield__label,
+.form .textfield__input:required:invalid ~ .textfield__label {
+  color: #f44336 !important;
+  font-size: 14px;
+  font-weight: bold;
+  transform: translate(0px, 4px);
 }
 
-/** Disabled */
-.form input:disabled,
-.form textarea:disabled,
-.form select:disabled {
-  border-bottom: 1px dashed #d1d1d1 !important;
+.form .textfield__input:disabled,
+.form .textfield__input.disabled {
+  border-color: #d1d1d1;
+  cursor: default;
 }
 
-.form input:disabled + label,
-.form textarea:disabled + label,
-.form select:disabled + label {
+.form .textfield__input:disabled + label,
+.form .textfield__input.disabled + label {
   color: #d1d1d1;
 }
 
-/** Input checkbox */
 .form input[type=checkbox] {
   position: absolute;
   padding: 0;
@@ -836,7 +832,6 @@ form.form {
   box-shadow: 0 0 0 2px #3a3b52;
 }
 
-/** Input radio */
 .form input[type=radio] {
   position: absolute;
   padding: 0;
@@ -878,7 +873,6 @@ form.form {
   box-shadow: 0 0 0 2px #3a3b52;
 }
 
-/** Input file upload */
 .form .file-path {
   position: relative;
   top: 30px;
@@ -926,12 +920,12 @@ form.form {
   outline: none;
 }
 
-/** Input range */
 .form input[type=range] {
   width: 100%;
   padding: 15px 0;
   margin-top: 25px;
   font-size: 14px;
+  background-color: transparent;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
