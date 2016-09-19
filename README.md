@@ -6,7 +6,7 @@
 Stewed is a framework for rapid development of simple and lightweight web applications.
 Using a combination of **HTML**, **CSS** and pure **JavaScript** allows you to create a fully customized application without losing its own special way it serves only one auxiliary base in its development.
 
-> Current version: 0.9.10
+> Current version: 0.9.20
 
 ## Supported Browsers:
 - Chrome 35+
