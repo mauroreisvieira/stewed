@@ -3,7 +3,7 @@
 [![GitHub version](https://dl.dropboxusercontent.com/u/83653088/version.svg)](https://github.com/maurovieirareis/stewed)
 [![GitHub version](https://dl.dropboxusercontent.com/u/83653088/npm.svg)](https://github.com/maurovieirareis/stewed)
 
-Stewed is a framework for rapid development of simple and lightweight web applications.
+[Stewed](http://maurovieirareis.github.io/stewed) is a framework for rapid development of simple and lightweight web applications.
 Using a combination of **HTML**, **CSS** and pure **JavaScript** allows you to create a fully customized application without losing its own special way it serves only one auxiliary base in its development.
 
 > Current version: 0.9.20
@@ -19,14 +19,18 @@ Using a combination of **HTML**, **CSS** and pure **JavaScript** allows you to c
 	- Independant Modules
 	- Templates
 
-- v0.9.10 **(in development)**
+- v0.9.20 **(in development)**
 	- Grid System bug fixes and new features
 	- Badges & Labels
 	- Accordion using pure JavaScript
 	- Breadcrumbs
 	- New Helpers
 
-- v0.9.0
+- v0.9.10 
+	- Grid System bug fixes and new features
+	- Badges & Labels
+	- Accordion using pure JavaScript
+	- Breadcrumbs
 	- SASS
 	- CSS Helpers
 	- Tables 

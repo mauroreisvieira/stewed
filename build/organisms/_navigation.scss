@@ -1,4 +1,8 @@
 .navigation {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: $border-radius;
     ul {
         list-style-type: none;
         display: block;
@@ -8,51 +12,47 @@
         li  {
             a {
                 display: block;
-                padding: 14px 16px;
+                padding:1.250em 1em;
                 text-decoration: none;
-                color: inherit;
+                color: currentColor;
+                &.active,
                 &:hover {
-                    background: #f3f3f3;
-                }
-                
-                &.active a {
-                    background: #f3f3f3;
-                }
-            }
-        }
-        &.navigation__vertical {
-            li {
-                display: block;
-                width: 100%;
-                margin-bottom: 1px;
-            }
-        }
-        &.navigation__horizontal {
-            display: inline;
-            li {
-                display: block;
-                float: left;
-            }
-        }
-        &.navigation__horizontal--scroll {
-            display: inline-block;
-            position: relative;
-            white-space: nowrap;
-            overflow: hidden;
-            -webkit-user-select: none;
+                   background: rgba(0,0,0,0.1);
+                   color: currentColor;
+               }
+           }
+       }
+       &.navigation__vertical {
+        li {
             display: block;
-            height: 51px;
-            overflow-y: hidden;
-            padding: 0;
-            position: relative;
-            -webkit-overflow-scrolling: touch;
-            overflow-x: scroll;
-            &::-webkit-scrollbar { 
-                display: none; 
-            }
-            li {
-                display: inline-block;
-            }
+            width: 100%;
+            margin-bottom: 1px;
         }
     }
+    &.navigation__horizontal {
+        display: inline;
+        li {
+            display: inline-block;
+        }
+    }
+    &.navigation__horizontal--scroll {
+        display: inline-block;
+        position: relative;
+        white-space: nowrap;
+        overflow: hidden;
+        -webkit-user-select: none;
+        display: block;
+        overflow-y: hidden;
+        padding: 0;
+        position: relative;
+        -webkit-overflow-scrolling: touch;
+        overflow-x: scroll;
+        &::-webkit-scrollbar { 
+            display: none; 
+        }
+        li {
+            display: inline-block;
+        }
+    }
+}
 }
