@@ -175,8 +175,13 @@ h3, h4, h5, h6 {
     border: 0px;
 }
 
+.card  {
+    .card__container {
+        background-color: #ebebeb;
+    }
+}
 .syntaxhighlighter {
-    background: $color-white!important;
+    background: transparent!important;
 }
 
 code {

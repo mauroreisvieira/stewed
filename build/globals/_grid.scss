@@ -11,25 +11,14 @@
 }
 
 .row {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: -webkit-box;
-    display:         flex;
-
-    flex-direction: row;
-    box-sizing: border-box;
-
-    -webkit-box-direction: normal;
-    -webkit-box-flex: 0;
-    -webkit-box-orient: horizontal;
-    -webkit-flex: 0 1 auto;
-    -ms-flex: 0 1 auto;
-    flex: 0 1 auto;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
+    display: flex;
+    flex-flow: row wrap;
     flex-wrap: wrap;
+    margin: 0 -0.5rem;
+}
+
+.row--space {
+    margin: 0;
 }
 
 
@@ -37,28 +26,7 @@
 * Responsive Desktop Devices
 * min-width 960px and max-width: 1281px
 */
-@media only screen and (min-width: 1281px) {
-    .row > [class*="large-"] {
-        padding-right: 0;
-        padding-left: 0;
-        box-sizing: border-box;
-
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 auto;
-        -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
-    }
-
-    .row-space > [class*="large-"] {
-        padding-right: 0;
-        padding-left: 0;
-        box-sizing: border-box;
-
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 auto;
-        -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
-    }
+@media only screen and (min-width: $media-desktop) {
 
     .large-1 {
         width: 8.333%;
@@ -201,40 +169,15 @@
 * Responsive Tablet Devices
 * min-width 768px and max-width: 959px
 */
-@media only screen and (min-width: 768px) and (max-width: 1280px) {
+@media only screen and (min-width: $media-tablet-min) and (max-width: $media-tablet-max) {
     .container {
         width: 90%;
         max-width: 959px;
     }
 
-    .row > [class*="medium-"] {
-        padding-right: 0;
-        padding-left: 0;
-        box-sizing: border-box;
-
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 auto;
-        -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
-    }
-
-    .row-space > [class*="medium-"] {
-        padding-right: 0;
-        padding-left: 0;
-        box-sizing: border-box;
-
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 auto;
-        -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
-    }
-
     .medium-1 {
         width: 8.333%;
-
-        -webkit-flex-basis: 8.333%;
         flex-basis: 8.333%;
-        -ms-flex-preferred-size: 8.333%;
     }
 
     .medium-2 {
@@ -263,10 +206,7 @@
 
     .medium-5 {
         width: 41.667%;
-
-        -webkit-flex-basis: 41.667%;
         flex-basis: 41.667%;
-        -ms-flex-preferred-size: 41.667%;
     }
 
     .medium-6 {
@@ -279,10 +219,7 @@
 
     .medium-7 {
         width: 58.333%;
-
-        -webkit-flex-basis: 58.333%;
         flex-basis: 58.333%;
-        -ms-flex-preferred-size: 58.333%;
     }
 
     .medium-8 {
@@ -310,19 +247,13 @@
     }
 
     .medium-11 {
-        width: 91.667%;
-
-        -webkit-flex-basis: 91.667%;
+        max-width: 91.667%;
         flex-basis: 91.667%;
-        -ms-flex-preferred-size: 91.667%;
     }
 
     .medium-12 {
-        width: 100%;
-
-        -webkit-flex-basis: 100%;
+        max-width: 100%;
         flex-basis: 100%;
-        -ms-flex-preferred-size: 100%;
     }
 
     .medium-offset-1 {
@@ -374,7 +305,7 @@
 * Responsive Mobile Devices
 * min-width 280px and max-width: 767px
 */
-@media only screen and (min-width: 280px) and (max-width: 767px) {
+@media only screen and (min-width: $media-mobile-min) and (max-width: $media-mobile-max) {
     .container {
         width: 90%;
         max-width: 767px;

@@ -8,6 +8,30 @@
 .pull-left  { float: left; }
 .pull-center  { float: none; margin: auto; }
 
+@media only screen and (min-width: $media-tablet-min) and (max-width: $media-tablet-max) {
+
+	.pull-right--tablet { float: right; }
+	.pull-left--tablet  { float: left; }
+	.pull-center--tablet  { 
+		float: none !important; 
+		margin: auto !important;
+		display: table !important;
+	}
+
+}
+
+@media only screen and (min-width: $media-mobile-min) and (max-width: $media-mobile-max) {
+
+	.pull-right--mobile { float: right; }
+	.pull-left--mobile  { float: left; }
+	.pull-center--mobile  { 
+		float: none !important; 
+		margin: auto !important;
+		display: table !important;
+	}
+
+}
+
 /** Display **/
 .display-table  { display: table; }
 .display-block  { display: block; }
@@ -20,3 +44,31 @@
 .position-absolute  { position: absolute; }
 .position-fixed     { position: fixed; }
 .position-static    { position: static;}
+
+.box-shadow--2dp {
+	@include shadow-2dp();
+}
+
+.box-shadow--3dp {
+	@include shadow-3dp();
+}
+
+.box-shadow--4dp {
+	@include shadow-4dp();
+}
+
+.box-shadow--6dp {
+	@include shadow-6dp();
+}
+
+.box-shadow--8dp {
+	@include shadow-8dp();
+}
+
+.box-shadow--16dp {
+	@include shadow-16dp();
+}
+
+.box-shadow--24dp {
+	@include shadow-24dp();
+}
