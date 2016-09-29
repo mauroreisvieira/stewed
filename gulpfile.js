@@ -24,7 +24,8 @@ gulp.task('default', function () {
 gulp.task('sass', function () {
 	return gulp.src('build/stewed.scss')
 	.pipe(sass({outputStyle: EXPANDED}).on('error', sass.logError))
-	.pipe(gulp.dest('dist/css/'));
+	.pipe(gulp.dest('dist/css/'))
+    .pipe(gulp.dest('docs/assets/stewed/'));
 });
 
 /** JAVASCRIPT **/
