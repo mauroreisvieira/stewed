@@ -32,6 +32,14 @@ gulp.task('watch', function () {
  	.pipe(concat('index.html'))
  	.pipe(gulp.dest('.'));
 
+ 	 	gulp.src([
+ 		'views/layout/header.html',
+ 		'views/changelog.html', 
+ 		'views/layout/footer.html'
+ 		])
+ 	.pipe(concat('changelog.html'))
+ 	.pipe(gulp.dest('.'));
+
  	gulp.src([
  		'views/layout/header.html',
  		'views/helpers/utilities.html', 
