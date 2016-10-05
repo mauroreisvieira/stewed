@@ -9,12 +9,12 @@
     position: relative;
     display: block;
     margin: 10px 0 25px 0;
+    overflow: hidden;
     .textfield__label {
         position: absolute;
         width: 100%;
-        font-size: 14px;
-        font-weight: 400;
         top: 0;
+        left: 0;
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
         transition-duration: .2s;
         transform: translate(0px, 34px);
@@ -22,11 +22,15 @@
         color: #9e9e9e;
         will-change: transform;
     }
+    [class^="textfield__label--"],
+    .textfield__label {
+        font-size: 14px;
+        letter-spacing: .5px;
+        font-weight: 400;
+    }
 }
 
 .textfield__input,
-input[value=""]:valid,
-input[value=""]:invalid,
 input[value=""] {
     width: 100%;
     padding: 0.750em 0;
@@ -59,48 +63,99 @@ input[value=""] {
     color: currentColor;
 }
 
-/** Input [valid] **/
-.textfield__input:required:valid,
-.textfield__input:required:valid:focus {
-    background: transparent;
-    border-color: #4caf50;
-    color: #4caf50;
+/** Input [filled] **/
+.textfield--filled {
+    .textfield__input {
+        border-color: currentColor;
+    }
+    .textfield__input:focus ~ .textfield__label,
+    .textfield__input ~ .textfield__label {
+        color: currentColor;
+        font-size: 14px;
+        font-weight: bold;
+        transform: translate(0px, 4px);
+    } 
 }
 
-.textfield__input:required:valid:focus ~ .textfield__label,
-.textfield__input:required:valid ~ .textfield__label {
+/** Input [valid] **/
+.textfield--valid {
     color: #4caf50;
-    font-size: 14px;
-    font-weight: bold;
-    transform: translate(0px, 4px);
-} 
+    .textfield__input {
+        border-color: currentColor;
+    }
+    .textfield__input:focus ~ .textfield__label,
+    .textfield__input ~ .textfield__label {
+        color: currentColor;
+        font-size: 14px;
+        font-weight: bold;
+        transform: translate(0px, 4px);
+    } 
+}
 
 /** Input [invalid] **/
-.textfield__input:required:invalid,
-.textfield__input:required:invalid:focus {
-    background: transparent;
-    border-color: #f44336;
+.textfield--invalid {
     color: #f44336;
+    .textfield__input {
+        border-color: currentColor;
+    }
+    .textfield__inp:focus ~ .textfield__label,
+    .textfield__input ~ .textfield__label {
+        color: currentColor;
+        font-size: 14px;
+        font-weight: bold;
+        transform: translate(0px, 4px);
+    } 
 }
-
-.textfield__input:required:invalid:focus ~ .textfield__label,
-.textfield__input:required:invalid ~ .textfield__label {
-    color: #f44336 !important;
-    font-size: 14px;
-    font-weight: bold;
-    transform: translate(0px, 4px);
-} 
 
 /** Disabled */
 .textfield__input:disabled,
 .textfield__input.disabled {
-    border-color: #d1d1d1;
+    color: #d1d1d1;
+    border-color: currentColor;
+    box-shadow: none;
     cursor: default;
 }
 
 .textfield__input:disabled + label,
 .textfield__input.disabled + label {
     color: #d1d1d1;
+}
+
+select {
+    outline: none;
+    display: flex;
+    -webkit-appearance: button;
+    -webkit-user-select: none;
+    border: 0;
+    font-size: inherit;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-radius: 0;
+    color: #9e9e9e;
+    position: relative;
+}
+
+select + label {
+    display: block;
+    width: 100%;
+    position: absolute;
+    color: currentColor;
+    top: 0;
+    left: 0;
+}
+
+select + label:before {
+    content: '▼';
+    position: absolute;
+    color: currentColor;
+    right: 0;
+    top: 36px;
+}
+
+select:focus + label {
+    color: currentColor;
 }
 
 /** 
@@ -119,6 +174,7 @@ input[value=""] {
 input[type=checkbox] + label:before {
     position: relative;
     top: 0;
+    left: 2px;
     display: inline-block;
     width: 16px;
     height: 16px;
@@ -136,7 +192,7 @@ input[type=checkbox]:checked + label:before {
 
 input[type=checkbox]:checked + label:after {
     top: 4px;
-    left: 2px;
+    left: 4px;
     height: 14px;
     width: 14px;
     content: '';
@@ -150,94 +206,51 @@ input[type=checkbox]:checked + label:after {
     transform: rotate(-45deg) scaleY(0.5);
 }
 
-/** Input radio */
-input[type=radio] {
+/** 
+ * Input radio 
+ * This input need the use the label
+ **/
+ input[type=radio] {
     position: absolute;
     padding: 0;
     overflow: hidden;
     clip: rect(0 0 0 0);
     border: 0;
+    top: 0;
 }
 
-// label {
-//     position: relative;
-//     top: 25px;
-//     display: block;
-//     height: 35px;
-//     cursor: pointer;
-//     color: #9e9e9e;
-// }
-
-input[type=radio] + span {
+input[type=radio] + label:before {
     position: relative;
-    top: 3px;
-}
-
-input[type=radio] + span:before {
-    position: relative;
-    top: -3px;
+    top: 0;
+    left: 2px;
     display: inline-block;
-    width: 12px;
-    height: 12px;
+    width: 16px;
+    height: 16px;
     margin-right: .75em;
     content: "";
     transition: .5s ease all;
     vertical-align: -.25em;
+    box-shadow: 0 0 0 2px #5a5a5a;
     border-radius: 50%;
-    box-shadow: 0 0 0 2px #9e9e9e;
 }
 
-input[type=radio]:checked + span:before {
-    background: currentColor;
+input[type=radio]:checked + label:before {
+    background: transparent;
     box-shadow: 0 0 0 2px currentColor;
 }
 
-/** Input file upload */
-.file-path {
-    position: relative;
-    top: 30px;
-    display: block;
-    width: 100%;
-    height: 40px;
-}
-
-.file-path span {
-    display: block;
-    float: left;
-    width: 10%;
-    height: 100%;
-    padding: 0 10px;
-    font-size: 13px;
-    line-height: 40px;
-    text-align: center;
-    text-transform: uppercase;
-    color: #fff;
-    border-radius: 2px;
-    background: #4c4d62;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
-}
-
-.file-path span:hover {
-    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
-}
-
-.file-path input[type=file] {
+input[type=radio]:checked + label:after {
+    top: 7px;
+    left: 4px;
+    height: 12px;
+    width: 12px;
+    margin: 0;
+    content: '';
+    cursor: pointer;
     position: absolute;
-    z-index: 999;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-}
-
-.file-path input[type=text] {
-    position: absolute;
-    top: -17px;
-    right: 0;
-    width: 85%;
-}
-
-.file-path input[type=file]:focus {
-    outline: none;
+    z-index: 2;
+    background: currentColor;
+    border-radius: 50%;
 }
 
 /** Input range */
@@ -253,18 +266,21 @@ input[type=range] {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    color: currentColor;
 }
 
 input[type=range]:focus {
     outline: none;
 }
 
+input[type=range]:focus::-webkit-slider-runnable-track,
 input[type=range]::-webkit-slider-runnable-track {
     width: 100%;
     height: 2px;
     cursor: pointer;
-    background: #9e9e9e;
+    background: currentColor;
 }
+
 
 input[type=range]::-webkit-slider-thumb {
     position: relative;
@@ -273,20 +289,16 @@ input[type=range]::-webkit-slider-thumb {
     height: 18px;
     cursor: pointer;
     border-radius: 50%;
-    background: #3a3b52;
+    background: currentColor;
     -webkit-appearance: none;
 }
 
-input[type=range]:focus::-webkit-slider-runnable-track {
-    outline: none;
-    background: #3a3b52;
-}
 
 input[type=range]::-moz-range-track {
     width: 100%;
     height: 2px;
     cursor: pointer;
-    background: #9e9e9e;
+    background: currentColor;
     animate: .2s;
 }
 
@@ -297,23 +309,10 @@ input[type=range]::-moz-range-thumb {
     height: 18px;
     cursor: pointer;
     border-radius: 50%;
-    background: #3a3b52;
+    background: currentColor;
     -webkit-appearance: none;
 }
 
 input[type=range]:focus::-moz-range-track {
     outline: none;
 }
-
-label.error {
-    display: none!important;
-}
-
-.valid {
-    border-color: $success!important;
-}
-
-.error {
-    border-color: $success!important;
-}
-
