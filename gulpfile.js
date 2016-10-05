@@ -42,7 +42,8 @@ gulp.task('js', function () {
     //only uglify if gulp is ran with '--type production'
     .pipe(uglify())
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('dist/js'));
+    .pipe(gulp.dest('dist/js'))
+    .pipe(gulp.dest('docs/assets/stewed/'));
 });
 
 //Watch for all changes
