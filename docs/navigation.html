@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- head -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stewed Framework</title>
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- Web Application Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Web Starter Kit">
+    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Web Starter Kit">
+    <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#2F3BA2">
+    <!-- Stewed Kit -->
+    <link rel="stylesheet" href="assets/stewed/stewed.css">
+    <!-- My Styles -->
+    <link rel="stylesheet" href="assets/css/elegant.css">
+    <link rel="stylesheet" href="assets/css/syntaxhighlighter.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <!-- header -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="large-3 medium-3 small-12">
+                    <div class="logo pull-center--mobile">
+                        <img src="assets/images/logo/stewed_white.png" alt="Stewed" title="Stewed">
+                    </div>
+                </div>
+                <div class="large-9 medium-9 small-12">
+                    <nav class="navigation margin-top-20">
+                        <ul class="navigation__horizontal--scroll color-white pull-none--mobile pull-right">
+                            <li>
+                                <a href="index.html" class="font-500">Get Started</a> 
+                            </li> 
+                            <li>
+                                <a href="helpers.html" class="font-500">CSS Helpers</a>
+                            </li>
+                            <li>
+                                <a href="badges.html" class="font-500">CSS Components</a>
+                            </li>
+                            <li>
+                                <a href="accordion.html" class="font-500">JavaScript</a>
+                            </li>
+                        </ul> 
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="main">
+        <div class="content">
+
+<div class="css-components">
+	<div class="container">
+		<div class="row-space">
+			<div class="large-12 medium-12 small-12">
+				<nav class="navigation">
+					<ul class="navigation__horizontal--scroll">
+						<li>
+							<a href="badges.html" class="">Badges</a>
+						</li>
+						<li>
+							<a href="buttons.html" class="">Buttons</a>
+						</li>
+						<li>
+							<a href="breadcrumbs.html" class="">Breadcrumbs</a>
+						</li>
+						<li>
+							<a href="cards.html" class="">Cards</a>
+						</li>
+						<li>
+							<a href="forms.html" class="">Forms Filed</a>
+						</li>
+						<li>
+							<a href="grid.html" class="">Grid</a>
+						</li>
+						<li>
+							<a href="navigation.html" class="">Navigation</a>
+						</li>
+						<li>
+							<a href="pagination.html" class="">Pagination</a>
+						</li>
+						<li>
+							<a href="tables.html" class="">Tables</a>
+						</li>
+					</ul> 
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="header-description">
+	<div class="container">
+		<div class="master-header">
+			<h1>Navigation</h1>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<section class="margin-top-40">
+		<div class="row">
+			<div class="large-12 medium-12 small-12">
+				<h2>Horizontal Navigation</h2>
+			</div>
+			<div class="large-12 medium-12 small-12 margin-bottom-40">
+				<div class="navigation background-teal color-white">
+					<ul class="navigation__horizontal">
+						<li><a href="">Menu 1</a></li>
+						<li><a href="" class="active">Menu 2</a></li>
+						<li><a href="">Menu 3</a></li>
+						<li>
+				            <a href="#">Menu Dropdown  (↓)</a>
+				            <ul class="navigation__horizontal__submenu background-amber text-center">
+				                <li><a href="">Menu Right 1</a></li>
+				                <li><a href="">Menu Right 2</a></li>
+				                <li><a href="">Menu Right 3</a></li>
+				            </ul>
+				        </li>
+						<li><a href="">Menu 5</a></li>
+						<li><a href="">Menu 6</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="large-12 medium-12 small-12 margin-bottom-40">
+				<div class="card margin-top-20">
+					<div class="card__header ">
+						<h4 class="card__header__title text-uppercase">Cooking</h4>
+					</div>
+					<div class="card__container card--border">
+						<div id="view-html" class="code">
+							<pre class="brush: xml; toolbar: false; gutter: false;">
+								&lt;div class="navigation background-teal color-white">
+									&lt;ul class="navigation__horizontal">
+										&lt;li>&lt;a href="">Menu 1&lt;/a>&lt;/li>
+										&lt;li>&lt;a href="" class="active">Menu 2&lt;/a>&lt;/li>
+										&lt;li>&lt;a href="">Menu 3&lt;/a>&lt;/li>
+										&lt;li>
+								            &lt;a href="#">Menu Dropdown  (↓)&lt;/a>
+								            &lt;ul class="navigation__horizontal__submenu background-amber text-center">
+								                &lt;li>&lt;a href="">Menu Right 1&lt;/a>&lt;/li>
+								                &lt;li>&lt;a href="">Menu Right 2&lt;/a>&lt;/li>
+								                &lt;li>&lt;a href="">Menu Right 3&lt;/a>&lt;/li>
+								            &lt;/ul>
+								        &lt;/li>
+										&lt;li>&lt;a href="">Menu 5&lt;/a>&lt;/li>
+										&lt;li>&lt;a href="">Menu 6&lt;/a>&lt;/li>
+									&lt;/ul>
+								&lt;/div>
+							</pre>                    
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="large-12 medium-12 small-12">
+				<h2>Horizontal Navigation (Scroll)</h2>
+			</div>
+			<div class="large-6 medium-6 small-12 margin-bottom-40">
+				<div class="navigation background-teal color-white">
+					<ul class="navigation__horizontal--scroll font-700">
+						<li><a href="">Menu 1</a></li>
+						<li><a href="" class="active">Menu 2</a></li>
+						<li><a href="">Menu 3</a></li>
+						<li><a href="">Menu 4</a></li>
+						<li><a href="">Menu 5</a></li>
+						<li><a href="">Menu 6</a></li>
+						<li><a href="">Menu 7</a></li>
+						<li><a href="">Menu 8</a></li>
+						<li><a href="">Menu 9</a></li>
+						<li><a href="">Menu 10</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="large-12 medium-12 small-12 margin-bottom-40">
+				<div class="card margin-top-20">
+					<div class="card__header ">
+						<h4 class="card__header__title text-uppercase">Cooking</h4>
+					</div>
+					<div class="card__container card--border">
+						<div id="view-html" class="code">
+							<pre class="brush: xml; toolbar: false; gutter: false;">
+								&lt;div class="navigation background-teal color-white">
+									&lt;ul class="navigation__horizontal--scroll">
+										&lt;li>&lt;a href="">Menu 1&lt;/a>&lt;/li>
+										&lt;li>&lt;a href="">Menu 2&lt;/a>&lt;/li>
+										&lt;li>&lt;a href="">Menu 3&lt;/a>&lt;/li>
+										&lt;li>&lt;a href="">Menu 4&lt;/a>&lt;/li>
+										&lt;li>&lt;a href="" class="active">Menu 5&lt;/a>&lt;/li>
+										&lt;li>&lt;a href="">Menu 6&lt;/a>&lt;/li>
+									&lt;/ul>
+								&lt;/div>
+							</pre>                    
+						</div>
+					</div>
+				</div>
+			</div>
+
+		<div class="large-12 medium-12 small-12">
+				<h2>Vertical Navigation (Sub Menu Left)</h2>
+			</div>
+			<div class="large-4 medium-6 small-12 margin-bottom-40 pull-center">
+				<div class="navigation color-white">
+					<ul class="navigation__vertical background-teal text-right">
+						<li><a href="">Menu 2</a></li>
+						<li>
+				            <a href="#">Menu Left  <span class="pull-left">(←)</span></a>
+				            <ul class="navigation__vertical__submenu--left background-amber text-center">
+				                <li><a href="">Menu Left 1</a></li>
+				                <li><a href="">Menu Left 2</a></li>
+				                <li><a href="">Menu Left 3</a></li>
+				                <li><a href="">Menu Left 4</a></li>
+				                <li><a href="">Menu Left 5</a></li>
+				            </ul>
+				        </li>
+				        <li><a href="#">Menu 3</a></li>
+				        <li><a href="#">Menu 4</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="large-12 medium-12 small-12 margin-bottom-40">
+				<div class="card margin-top-20">
+					<div class="card__header ">
+						<h4 class="card__header__title text-uppercase">Cooking</h4>
+					</div>
+					<div class="card__container card--border">
+						<div id="view-html" class="code">
+							<pre class="brush: xml; toolbar: false; gutter: false;">
+								&lt;div class="navigation color-white">
+									&lt;ul class="navigation__vertical background-teal text-right">
+										&lt;li>&lt;a href="">Menu 2&lt;/a>&lt;/li>
+										&lt;li>
+								            &lt;a href="#">Menu Left  &lt;span class="pull-left">(←)&lt;/span>&lt;/a>
+								            &lt;ul class="navigation__vertical__submenu--left background-amber text-center">
+								                &lt;li>&lt;a href="">Menu Left 1&lt;/a>&lt;/li>
+								                &lt;li>&lt;a href="">Menu Left 2&lt;/a>&lt;/li>
+								                &lt;li>&lt;a href="">Menu Left 3&lt;/a>&lt;/li>
+								                &lt;li>&lt;a href="">Menu Left 4&lt;/a>&lt;/li>
+								                &lt;li>&lt;a href="">Menu Left 5&lt;/a>&lt;/li>
+								            &lt;/ul>
+								        &lt;/li>
+								        &lt;li>&lt;a href="#">Menu 3&lt;/a>&lt;/li>
+								        &lt;li>&lt;a href="#">Menu 4&lt;/a>&lt;/li>
+									&lt;/ul>
+								&lt;/div>
+							</pre>                    
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="large-12 medium-12 small-12">
+				<h2>Vertical Navigation (Sub Menu Right)</h2>
+			</div>
+			<div class="large-4 medium-6 small-12 margin-bottom-40 pull-center">
+				<div class="navigation color-white">
+					<ul class="navigation__vertical background-teal">
+						<li><a href="">Menu 2</a></li>
+						<li>
+				            <a href="#">Menu Right  <span class="pull-right">(→)</span></a>
+				            <ul class="navigation__vertical__submenu--right background-amber text-center">
+				                <li><a href="">Menu Right 1</a></li>
+				                <li><a href="">Menu Right 2</a></li>
+				                <li><a href="">Menu Right 3</a></li>
+				                <li><a href="">Menu Right 4</a></li>
+				                <li><a href="">Menu Right 5</a></li>
+				            </ul>
+				        </li>
+				        <li><a href="#">Menu 3</a></li>
+				        <li><a href="#">Menu 4</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="large-12 medium-12 small-12 margin-bottom-40">
+				<div class="card margin-top-20">
+					<div class="card__header ">
+						<h4 class="card__header__title text-uppercase">Cooking</h4>
+					</div>
+					<div class="card__container card--border">
+						<div id="view-html" class="code">
+							<pre class="brush: xml; toolbar: false; gutter: false;">
+								&lt;div class="navigation color-white">
+									&lt;ul class="navigation__vertical background-teal">
+										&lt;li>&lt;a href="">Menu 2&lt;/a>&lt;/li>
+										&lt;li>
+								            &lt;a href="#">Menu Right  &lt;span class="pull-right">(→)&lt;/span>&lt;/a>
+								            &lt;ul class="navigation__vertical__submenu--right background-amber text-center">
+								                &lt;li>&lt;a href="">Menu Right 1&lt;/a>&lt;/li>
+								                &lt;li>&lt;a href="">Menu Right 2&lt;/a>&lt;/li>
+								                &lt;li>&lt;a href="">Menu Right 3&lt;/a>&lt;/li>
+								                &lt;li>&lt;a href="">Menu Right 4&lt;/a>&lt;/li>
+								                &lt;li>&lt;a href="">Menu Right 5&lt;/a>&lt;/li>
+								            &lt;/ul>
+								        &lt;/li>
+								        &lt;li>&lt;a href="#">Menu 3&lt;/a>&lt;/li>
+								        &lt;li>&lt;a href="#">Menu 4&lt;/a>&lt;/li>
+									&lt;/ul>
+								&lt;/div>
+							</pre>                    
+						</div>
+					</div>
+				</div>
+			</div>			
+		</div>	
+	</section>
+</div>
+
+
+
+        </div>
+    </section>
+
+    <!-- footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="row-space">
+                <div class="large-12 medium-12 small-12">
+                    <nav class="navigation pull-center display-table">
+                        <ul class="navigation__horizontal pull-center--mobile ">
+                            <li><a href="https://github.com/maurovieirareis/stewed" target="_bank">View Source on Github</a></li>
+                            <li><a href="">Support</a></li>
+                            <li>
+                                <a href="Changelog.html">
+                                    Changelog
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- scripts -->
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-XXXXX-X', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="assets/js/jquery-2.0.2.min.js"></script>
+    <script type="text/javascript" src="assets/js/shCore.js"></script>
+    <script type="text/javascript" src="assets/js/shBrushXml.js"></script>
+    <script type="text/javascript" src="assets/js/shBrushJScript.js"></script>
+
+    <!-- Syntax Highlighter -->
+    <script type="text/javascript">
+        $(function(){
+            SyntaxHighlighter.all();
+        });
+    </script>
+
+    <script src="assets/stewed/stewed.js"></script>   
+</body>
+</html>
