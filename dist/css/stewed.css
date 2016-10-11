@@ -2980,6 +2980,10 @@ strong,
   background-color: #607d8b;
 }
 
+.background-brown {
+  background-color: #795548;
+}
+
 .background-green {
   background-color: #4caf50;
 }
@@ -3042,6 +3046,10 @@ strong,
 
 .color-bluegrey {
   color: #607d8b;
+}
+
+.color-brown {
+  color: #795548;
 }
 
 .color-green {
