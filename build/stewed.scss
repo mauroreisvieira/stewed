@@ -22,26 +22,25 @@
  * THE SOFTWARE.
  */
 
-@charset "UTF-8";
+ @charset "UTF-8";
 
 // Settings
 @import "settings/variables";
 @import "settings/mixins";
 @import "settings/reset";
 
-// Organisms
-@import "organisms/button";
-@import "organisms/form";
-@import "organisms/navigation";
-@import "organisms/table";
-@import "organisms/badge";
-@import "organisms/label";
-@import "organisms/tooltips";
-
 // Atoms
-@import "atoms/card";
+@import "atoms/badge";
 @import "atoms/breadcrumb";
+@import "atoms/button";
+@import "atoms/card";
+@import "atoms/form";
+@import "atoms/grid";
+@import "atoms/label";
+@import "atoms/navigation";
 @import "atoms/pagination";
+@import "atoms/table";
+@import "atoms/tooltips";
 
 // Components
 @import "components/dropdown/dropdown";
@@ -51,7 +50,6 @@
 
 // Globals
 @import "globals/helper";
-@import "globals/grid";
 @import "globals/typography";
 @import "globals/color";
 

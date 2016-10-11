@@ -1,0 +1,64 @@
+/**
+ * Tooltip Styles
+ */
+
+ [stewed-tooltip],
+ .tooltip {
+ 	position: relative;
+ 	cursor: pointer;
+
+	/* Base styles for the entire tooltip */
+	&:before,
+	&:after,
+	&:before,
+	&:after {
+		position: absolute;
+		visibility: hidden;
+		opacity: 0;
+		transition: opacity 0.2s ease-in-out, 
+		visibility 0.2s ease-in-out, 
+		transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+		transform: none;
+		pointer-events: none;
+	}
+
+	/* Show the entire tooltip on hover and focus */
+	&:hover:before,
+	&:hover:after,
+	&:focus:before,
+	&:focus:after,
+	&:hover:before,
+	&:hover:after,
+	&:focus:before,
+	&:focus:after {
+		visibility: visible;
+		opacity: 1;
+	}
+
+	/* Base styles for the tooltip's directional arrow */
+	&:before,
+	&:before {
+		z-index: 1001;
+		border: 6px solid transparent;
+		background: transparent;
+		content: "";
+	}
+
+	/* Base styles for the tooltip's content area */
+	&:after,
+	&:after {
+		z-index: 1000;
+		padding: 8px;
+		width: 160px;
+		background-color: $black;
+		background-color: $tooltip-color;
+		color: $white;
+		content: attr(stewed-tooltip);
+		line-height: 1.2;
+		border-radius: $border-radius;
+		text-transform: none;
+		text-align: center;
+		font-size: 1em;
+		font-weight: $weight-regular;
+	}
+}

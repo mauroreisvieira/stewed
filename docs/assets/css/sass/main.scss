@@ -4,7 +4,7 @@ body {
     height: 100%;
     width: 100%;
     font-family: $font-family;
-    font-size: 1em;
+    font-size: 1.125em;
     line-height: 1.750;
     background: $grey-50;
     font-weight: 300;
@@ -160,10 +160,10 @@ h3, h4, h5, h6 {
 
 /** Grid System */
 .column {
-    background-color: $bluegrey-500;
+    background-color: $grean;
     padding: 15px 0px;
     text-align: center;
-    margin-bottom: 2%;
+    margin-bottom: 15px;
     color: $color-white;
     font-size: 16px;
     font-weight: 100;
