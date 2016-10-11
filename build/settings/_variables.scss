@@ -1,4 +1,4 @@
-// Color palettes
+/* Color palettes */
 $amber:		#ffc107;
 $black:     #000000;
 $blue:      #2196f3;
@@ -15,13 +15,13 @@ $red:       #f44336;
 $white:     #ffffff;
 $yellow:    #ffeb3b;
 
-// Alerts
+/* Alerts */
 $danger: #e53935;
 $info: #1e88e5;
 $success: #2E7D32;
 $warning: #FF8F00;
 
-// Heading size
+/* Heading size */
 $heading-1: 56px;
 $heading-2: 46px;
 $heading-3: 36px;
@@ -29,7 +29,7 @@ $heading-4: 26px;
 $heading-5: 16px;
 $heading-6: 14px;
 
-// Weight font
+/* Weight font */
 $weight-thin: 		100; 
 $weight-light: 		300; 
 $weight-regular:	400; 
@@ -37,14 +37,16 @@ $weight-medium: 	500;
 $weight-bold: 		700; 
 $weight-extra-bold: 900; 
 
-// Default values
+/* Radius */
 $border-radius: 2px;
 
-// Grid
+/* Grid */
 $media-desktop: 1281px;
 $media-tablet-min: 768px;
 $media-tablet-max: 1280px;
 $media-mobile-min: 280px;
 $media-mobile-max: 767px;
 
+/* Tooltip */
+$tooltip-color: rgba(51, 51, 51, 0.9);
 

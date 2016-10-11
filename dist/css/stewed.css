@@ -22,6 +22,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+/* Color palettes */
+/* Alerts */
+/* Heading size */
+/* Weight font */
+/* Radius */
+/* Grid */
+/* Tooltip */
 html,
 body,
 div,
@@ -186,7 +193,6 @@ p {
   position: relative;
   display: inline-block;
   margin: auto;
-  overflow: hidden;
   line-height: normal;
   cursor: pointer;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
@@ -209,7 +215,7 @@ p {
 }
 
 .button:focus {
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 6px 16px rgba(0, 0, 0, 0.36);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4));
   outline: none;
 }
 
@@ -235,6 +241,7 @@ p {
 }
 
 .button--link {
+  background: transparent;
   position: relative;
   display: inline-block;
   margin: auto;
@@ -249,17 +256,19 @@ p {
   border: 0;
   border-radius: 2px;
   transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: box-shadow;
+  box-shadow: none;
 }
 
 .button--link:hover, .button--link:active {
   background-color: rgba(158, 158, 158, 0.2);
+  box-shadow: none;
   outline: none;
   border: 0;
   outline: none;
 }
 
 .button--link:focus {
+  box-shadow: none;
   outline: none;
 }
 
@@ -279,49 +288,49 @@ p {
   box-shadow: none;
 }
 
-.button__fab {
+.button--fab {
   border-radius: 50%;
   font-size: 24px;
   height: 56px;
   min-width: 56px;
   width: 56px;
   padding: 0;
-  overflow: hidden;
+  border: 0;
   background: rgba(158, 158, 158, 0.2);
   box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
 }
 
-.button__fab:focus {
+.button--fab:focus {
   outline: none;
   border-radius: 50%;
 }
 
-.button__large {
+.button--large {
   padding: 0 3em;
   line-height: 56px;
 }
 
-.button__large font {
+.button--large font {
   size: 1.125em;
   weight: 500;
 }
 
-.button__medium {
+.button--medium {
   padding: 0 2.5em;
   line-height: 48px;
 }
 
-.button__medium font {
+.button--medium font {
   size: 1.000em;
   weight: 500;
 }
 
-.button__small {
+.button--small {
   padding: 0 1.75em;
   line-height: 40px;
 }
 
-.button__small font {
+.button--small font {
   size: 0.875em;
   weight: 500;
 }
@@ -847,6 +856,9 @@ input[type=range]:focus::-moz-range-track {
   }
 }
 
+/**
+ * Badge Styles
+ */
 .badge {
   position: relative;
   white-space: nowrap;
@@ -910,6 +922,196 @@ input[type=range]:focus::-moz-range-track {
 
 .label--danger {
   background-color: #e53935;
+}
+
+/**
+ * Tooltip Styles
+ */
+[stewed-tooltip],
+.tooltip {
+  position: relative;
+  cursor: pointer;
+  /* Base styles for the entire tooltip */
+  /* Show the entire tooltip on hover and focus */
+  /* Base styles for the tooltip's directional arrow */
+  /* Base styles for the tooltip's content area */
+}
+
+[stewed-tooltip]:before, [stewed-tooltip]:after, [stewed-tooltip]:before, [stewed-tooltip]:after,
+.tooltip:before,
+.tooltip:after,
+.tooltip:before,
+.tooltip:after {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+  transform: none;
+  pointer-events: none;
+}
+
+[stewed-tooltip]:hover:before, [stewed-tooltip]:hover:after, [stewed-tooltip]:focus:before, [stewed-tooltip]:focus:after, [stewed-tooltip]:hover:before, [stewed-tooltip]:hover:after, [stewed-tooltip]:focus:before, [stewed-tooltip]:focus:after,
+.tooltip:hover:before,
+.tooltip:hover:after,
+.tooltip:focus:before,
+.tooltip:focus:after,
+.tooltip:hover:before,
+.tooltip:hover:after,
+.tooltip:focus:before,
+.tooltip:focus:after {
+  visibility: visible;
+  opacity: 1;
+}
+
+[stewed-tooltip]:before, [stewed-tooltip]:before,
+.tooltip:before,
+.tooltip:before {
+  z-index: 1001;
+  border: 6px solid transparent;
+  background: transparent;
+  content: "";
+}
+
+[stewed-tooltip]:after, [stewed-tooltip]:after,
+.tooltip:after,
+.tooltip:after {
+  z-index: 1000;
+  padding: 8px;
+  width: 160px;
+  background-color: #000000;
+  background-color: rgba(51, 51, 51, 0.9);
+  color: #ffffff;
+  content: attr(stewed-tooltip);
+  line-height: 1.2;
+  border-radius: 2px;
+  text-transform: none;
+  text-align: center;
+  font-size: 1em;
+  font-weight: 400;
+}
+
+/* Directions Top (default) */
+[stewed-tooltip]:before,
+[stewed-tooltip]:after,
+.tooltip:before,
+.tooltip:after,
+.tooltip--top:before,
+.tooltip--top:after {
+  bottom: 100%;
+  left: 50%;
+}
+
+[stewed-tooltip]:before,
+.tooltip:before,
+.tooltip--top:before {
+  margin-left: -6px;
+  margin-bottom: -12px;
+  border-top-color: #000000;
+  border-top-color: rgba(51, 51, 51, 0.9);
+}
+
+/* Horizontally align top/bottom tooltips */
+[stewed-tooltip]:after,
+.tooltip:after,
+.tooltip--top:after {
+  margin-left: -80px;
+}
+
+[stewed-tooltip]:hover:before,
+[stewed-tooltip]:hover:after,
+[stewed-tooltip]:focus:before,
+[stewed-tooltip]:focus:after,
+.tooltip:hover:before,
+.tooltip:hover:after,
+.tooltip:focus:before,
+.tooltip:focus:after,
+.tooltip--top:hover:before,
+.tooltip--top:hover:after,
+.tooltip--top:focus:before,
+.tooltip--top:focus:after {
+  transform: translateY(-12px);
+}
+
+/* Directions Left */
+.tooltip--left:before,
+.tooltip--left:after {
+  right: 100%;
+  bottom: 50%;
+  left: auto;
+}
+
+.tooltip--left:before {
+  margin-left: 0;
+  margin-right: -12px;
+  margin-bottom: 0;
+  border-top-color: transparent;
+  border-left-color: #000000;
+  border-left-color: rgba(51, 51, 51, 0.9);
+}
+
+.tooltip--left:hover:before,
+.tooltip--left:hover:after,
+.tooltip--left:focus:before,
+.tooltip--left:focus:after {
+  transform: translateX(-12px);
+}
+
+/* Directions Bottom */
+.tooltip--bottom:before,
+.tooltip--bottom:after {
+  top: 100%;
+  bottom: auto;
+  left: 50%;
+}
+
+.tooltip--bottom:before {
+  margin-top: -12px;
+  margin-bottom: 0;
+  border-top-color: transparent;
+  border-bottom-color: #000000;
+  border-bottom-color: rgba(51, 51, 51, 0.9);
+}
+
+.tooltip--bottom:hover:before,
+.tooltip--bottom:hover:after,
+.tooltip--bottom:focus:before,
+.tooltip--bottom:focus:after {
+  transform: translateY(12px);
+}
+
+/* Directions Right */
+.tooltip--right:before,
+.tooltip--right:after {
+  bottom: 50%;
+  left: 100%;
+}
+
+.tooltip--right:before {
+  margin-bottom: 0;
+  margin-left: -12px;
+  border-top-color: transparent;
+  border-right-color: #000000;
+  border-right-color: rgba(51, 51, 51, 0.9);
+}
+
+.tooltip--right:hover:before,
+.tooltip--right:hover:after,
+.tooltip--right:focus:before,
+.tooltip--right:focus:after {
+  transform: translateX(12px);
+}
+
+/* Move directional arrows down a bit for left/right tooltips */
+.tooltip--left:before,
+.tooltip--right:before {
+  top: 3px;
+}
+
+/* Vertically center tooltip content for left/right tooltips */
+.tooltip--left:after,
+.tooltip--right:after {
+  margin-left: 0;
+  margin-bottom: -16px;
 }
 
 .card {
@@ -2531,6 +2733,11 @@ a {
 
 .size-68 {
   font-size: 68px;
+}
+
+strong,
+.strong {
+  font-weight: 700;
 }
 
 /** Font Weight **/

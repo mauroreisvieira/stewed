@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500,700);
+@import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700';
 /**	theme **/
 /** grey **/
 /** blue grey **/
@@ -6,17 +6,26 @@
 body {
   height: 100%;
   width: 100%;
-  font-family: 'Roboto', sans-serif;
-  font-size: 14px;
-  line-height: 1.72222;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1em;
+  line-height: 1.750;
   background: #FAFAFA;
-}
-
-p, a {
-  font-size: 14px;
   font-weight: 300;
   color: #000;
-  line-height: 22px;
+}
+
+p {
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  line-height: inherit;
+}
+
+a {
+  font-size: 0.900em;
+  font-weight: inherit;
+  color: inherit;
+  line-height: 1em;
 }
 
 h1 {
@@ -26,7 +35,7 @@ h1 {
 }
 
 h2 {
-  color: #3A3B52;
+  color: #FB3C68;
   font-size: 38px;
   font-weight: 100;
 }
@@ -122,20 +131,13 @@ h3, h4, h5, h6 {
 .features {
   display: block;
   padding: 20px 0px;
+  text-align: center;
 }
 
 .features span {
   display: table;
   margin: auto;
   font-size: 52px;
-}
-
-.features h4 {
-  text-align: center;
-}
-
-.features p {
-  text-align: center;
 }
 
 /** CSS Components */
@@ -192,11 +194,11 @@ h3, h4, h5, h6 {
 }
 
 code {
-  background: #FB3C68;
-  color: #FFFFFF;
-  padding: 4px 6px;
-  font-size: 0.9em;
+  background: rgba(251, 60, 104, 0.1);
+  color: #FB3C68;
+  padding: 2px 4px;
   border-radius: 2px;
-  margin: 4px 2px;
-  display: inline-block;
+  display: inline;
+  font-family: courier new, monospace;
+  font-size: inherit;
 }

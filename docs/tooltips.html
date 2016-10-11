@@ -53,7 +53,7 @@
                                 <a href="badges.html" class="font-500">CSS Components</a>
                             </li>
                             <li>
-                                <a href="accordion.html" class="font-500">JavaScript</a>
+                                <a href="snackbar.html" class="font-500">JavaScript</a>
                             </li>
                         </ul> 
                     </nav>
@@ -71,33 +71,92 @@
 			<div class="large-12 medium-12 small-12">
 				<nav class="navigation">
 					<ul class="navigation__horizontal--scroll">
+						<li>
+							<a href="badges.html" class="">Badges</a>
+						</li>
+						<li>
+							<a href="buttons.html" class="">Buttons</a>
+						</li>
+						<li>
+							<a href="breadcrumbs.html" class="">Breadcrumbs</a>
+						</li>
+						<li>
+							<a href="cards.html" class="">Cards</a>
+						</li>
+						<li>
+							<a href="forms.html" class="">Forms Filed</a>
+						</li>
 			<!-- 			<li>
-							<a href="accordion.html" class="">Accordion</a>
+							<a href="grid.html" class="">Grid</a>
 						</li> -->
 						<li>
-							<a href="snackbar.html" class="">Snackbar</a>
+							<a href="navigation.html" class="">Navigation</a>
 						</li>
-<!-- 						<li>
-							<a href="dropdown.html" class="">Dropdown</a>
-						</li> -->
 						<li>
-							<a href="modal.html" class="">Modal</a>
+							<a href="pagination.html" class="">Pagination</a>
 						</li>
-<!-- 						<li>
-							<a href="tabs.html" class="">Tabs</a>
+						<li>
+							<a href="tables.html" class="">Tables</a>
 						</li>
 						<li>
 							<a href="tooltips.html" class="">Tooltips</a>
 						</li>
-						<li>
-							<a href="sidenav.html" class="">Sidenav</a>
-						</li> -->
 					</ul> 
 				</nav>
 			</div>
 		</div>
 	</div>
 </div>
+
+<div class="header-description">
+	<div class="container">
+		<div class="master-header">
+			<h1>Tooltips</h1>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<section class="margin-top-40">
+		<div class="row">
+			<div class="large-12 medium-12 small-12 margin-bottom-40">
+				<h2>Tooltips</h2>
+				<p>To use the tooltip simply just use the <code>[stewed-tooltip]</code> in your tag, but if you want to change the direction of it, should one of the following classes: 
+					<code>.tooltip-top</code>,
+					<code>.tooltip-right</code>,
+					<code>.tooltip-bottom</code>,
+					<code>.tooltip-left</code>.
+				</p>
+				<div class="display-block margin-top-40">
+					<p>Lorem ipsum dolor sit amet, <strong stewed-tooltip="Tooltip Default.">necessitatibus</strong>  adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, fuga.
+						Tempore sequi aliquid maxime aspernatur ad, error soluta commodi accusantium minus! Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>
+						Explicabo perspiciatis nisi animi, <strong class="tooltip--right" stewed-tooltip="Tooltip Right.">in debitis?</strong> 
+					</p>
+				</div>
+				<div class="display-block margin-top-40">
+					<button class="button button--large background-red color-white tooltip--bottom" stewed-tooltip="Tooltip Bottom">Hover Me!</button>
+				</div>
+			</div>
+			<div class="large-12 medium-12 small-12 margin-bottom-40">
+				<div class="card margin-top-20">
+					<div class="card__header ">
+						<h4 class="card__header__title text-uppercase">Cooking</h4>
+					</div>
+					<div class="card__container card--border">
+						<div id="view-html" class="code">
+							<pre class="brush: xml; toolbar: false; gutter: false;">
+								&lt;p>Lorem ipsum ... &lt;strong stewed-tooltip="Tooltip Default.">necessitatibus&lt;/strong>  adipisicing... 
+								&lt;strong class="tooltip--right" stewed-tooltip="Tooltip Right.">in debitis?&lt;/strong>&lt;/p>
+
+								&lt;button class="button ... tooltip--bottom" stewed-tooltip="Tooltip Bottom">Hover Me!&lt;/button>
+							</pre>                    
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</section>
+</div>
+
 
 
         </div>

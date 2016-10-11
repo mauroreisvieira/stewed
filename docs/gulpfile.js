@@ -32,7 +32,7 @@ gulp.task('watch', function () {
  	.pipe(concat('index.html'))
  	.pipe(gulp.dest('.'));
 
- 	 	gulp.src([
+ 	gulp.src([
  		'views/layout/header.html',
  		'views/changelog.html', 
  		'views/layout/footer.html'
@@ -131,6 +131,15 @@ gulp.task('watch', function () {
 
  	gulp.src([
  		'views/layout/header.html',
+ 		'views/components.html', 
+ 		'views/components/tooltips.html', 
+ 		'views/layout/footer.html'
+ 		])
+ 	.pipe(concat('tooltips.html'))
+ 	.pipe(gulp.dest('.'));
+
+ 	gulp.src([
+ 		'views/layout/header.html',
  		'views/javascript.html', 
  		'views/javascript/accordion.html', 
  		'views/layout/footer.html'
@@ -183,12 +192,4 @@ gulp.task('watch', function () {
  	.pipe(concat('tabs.html'))
  	.pipe(gulp.dest('.'));
 
- 	gulp.src([
- 		'views/layout/header.html',
- 		'views/javascript.html', 
- 		'views/javascript/tooltips.html', 
- 		'views/layout/footer.html'
- 		])
- 	.pipe(concat('tooltips.html'))
- 	.pipe(gulp.dest('.'));
  });

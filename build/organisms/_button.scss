@@ -2,10 +2,9 @@
     position: relative;
     display: inline-block;
     margin: auto;
-    overflow: hidden;
     line-height: normal;
     cursor: pointer;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
     vertical-align: middle;
     text-decoration: none;
     text-transform: uppercase;
@@ -22,7 +21,7 @@
         outline: none;
     }
     &:focus {
-        box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 6px 16px rgba(0, 0, 0, 0.36);
+        background-image: linear-gradient(rgba(255, 255, 255, .40), rgba(255, 255, 255, .40));
         outline: none;
     }
     &:disabled,
@@ -50,6 +49,7 @@
 }
 
 .button--link {
+    background:transparent;
     position: relative;
     display: inline-block;
     margin: auto;
@@ -64,14 +64,16 @@
     border: 0;
     border-radius: 2px;
     @include transitionButton;
-    will-change: box-shadow;
+    box-shadow: none;
     &:hover, &:active {
         background-color: rgba(158,158,158,.2);
+        box-shadow: none;
         outline: none;
         border: 0;
         outline: none;
     }
     &:focus {
+        box-shadow: none;
         outline: none;
     }
     &:disabled,
@@ -89,14 +91,14 @@
     }
 }
 
-.button__fab {
+.button--fab {
     border-radius: 50%;
     font-size: 24px;
     height: 56px;
     min-width: 56px;
     width: 56px;
     padding: 0;
-    overflow: hidden;
+    border: 0;
     background: rgba(158,158,158,.2);
     box-shadow: 0 1px 1.5px 0 rgba(0,0,0,.12), 0 1px 1px 0 rgba(0,0,0,.24);
     &:focus {
@@ -105,7 +107,7 @@
     }
 }
 
-.button__large {
+.button--large {
     padding: 0 3em;
     font {
         size: 1.125em;
@@ -114,7 +116,7 @@
     line-height: 56px;
 }
 
-.button__medium {
+.button--medium {
     padding: 0 2.5em;
     font {
         size: 1.000em;
@@ -123,7 +125,7 @@
     line-height: 48px;
 }
 
-.button__small {
+.button--small {
     padding: 0 1.75em;
     font {
         size: 0.875em;
