@@ -24,12 +24,19 @@
 
  @charset "UTF-8";
 
-// Settings
+/* Settings */
 @import "settings/variables";
 @import "settings/mixins";
 @import "settings/reset";
 
-// Atoms
+/* Components */
+@import "components/dropdown/dropdown";
+@import "components/modal/modal";
+@import "components/tabs/tabs";
+@import "components/snackbar/snackbar";
+@import "components/toast/toast";
+
+/* Atoms */
 @import "atoms/badge";
 @import "atoms/breadcrumb";
 @import "atoms/button";
@@ -42,13 +49,7 @@
 @import "atoms/table";
 @import "atoms/tooltips";
 
-// Components
-@import "components/dropdown/dropdown";
-@import "components/modal/modal";
-@import "components/tabs/tabs";
-@import "components/snackbar/snackbar";
-
-// Globals
+/* Globals */
 @import "globals/helper";
 @import "globals/typography";
 @import "globals/color";

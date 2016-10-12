@@ -34,10 +34,12 @@
         color: rgba(0,0,0,.26);
         box-shadow: none;
         cursor: default;
+        opacity: 1;
         &:hover, &:focus {
             background-color: rgba(0,0,0,.12);
             color: rgba(0,0,0,.26);
             box-shadow: none;
+            opacity: 1;
         }
     }
 }

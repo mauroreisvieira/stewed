@@ -102,85 +102,29 @@
 <div class="header-description">
     <div class="container">
         <div class="master-header padding-bottom-20">
-            <h1>Snackbar</h1>
+            <h1>Toast</h1>
             <p></p>
         </div>
     </div>
 </div>
 <div class="container">
     <h2>Introduction</h2>
-    <p>Used to display notifications.</p>
-    <div class="margin-bottom-20"></div>
-    <a class="background-bluegrey color-white button button--large openSnackbar" href="#openSnackbar" stewed-snackbar="openSnackbar">Show Snackbar</a>
-    <div id="openSnackbar" class="snackbar">
-        <div class="snackbar__container">
-            <div class="snackbar__head">
-                <div class="container">
-                    <h2 class="snackbar__title">Snackbar Header</h2>
-                    <p>Press key <strong>ESC</strong></p>
-                </div>
-                <div class="snackbar__content">
-                    <div class="container">
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
-                    </div>
-                </div>
-                <div class="snackbar__footer">
-                    <div class="container">
-                        <button class="snackbar-close button button--small button--link pull-right">Disagree</button>
-                        <button class="background-pink color-white button button--small pull-right">Agree</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <hr class="custom-hr margin-top-20">
-    <h2>Snackbar HTML Structure</h2>
-    <div class="row-space margin-top-20">
+    <p>Modal is positioned overlapping within the display window and is protected page content.</p>
+    <div class="row-space margin-top-40">
         <div class="large-12 medium-12 small-12">
-            <div class="card margin-bottom-40">
-                <div class="card__header">
-                    <h5 class="card__header__title text-uppercase">COOKING</h5>
-                </div>
-                <div class="card__container card--border">
-                    <div id="view-html" class="code">
-                        <pre class="brush: xml; toolbar: false; gutter: false;">
+            <button class="background-bluegrey color-white button button--large" stewed-toast="Example Message from Toast">Toast</button>
+        </div>
 
-                            &lt;!-- Use a button [stewed-snackbar] -->
-                            &lt;button 
-                                class="button button--large openSnackbar" 
-                                stewed-snackbar="openSnackbar">Show Snackbar
-                            &lt;/button>
-
-                            &lt;!-- Structure -->
-                             &lt;div id="openSnackbar" class="snackbar">
-                                 &lt;div class="snackbar__container">
-                                     &lt;div class="snackbar__head">
-                                         &lt;div class="container">
-                                             &lt;h2 class="snackbar__title">Snackbar Header &lt;/h2>
-                                             &lt;p>Press key  &lt;strong>ESC &lt;/strong> &lt;/p>
-                                             &lt;/div
-                                         &lt;/div>
-                                         &lt;div class="snackbar__content">
-                                             &lt;div class="container">
-                                                 &lt;p>Contrary to popular belief, Lorem Ipsum ssage... &lt;/p>
-                                             &lt;/div>
-                                         &lt;/div>
-                                         &lt;div class="snackbar__footer">
-                                             &lt;div class="container">
-                                                 &lt;button class="snackbar-close color-white button button--small pull-right">Disagree &lt;/button>
-                                                 &lt;button class="background-pink color-white button button--small pull-right">Agree &lt;/button>
-                                             &lt;/div>
-                                         &lt;/div>
-                                     &lt;/div>
-                                 &lt;/div>
-                             &lt;/div>
-                        </pre>                    
-                    </div>
-                </div>
+        <div class="toast">
+            <div class="toast__text">Toast bar</div>
+            <div class="toast__action">
+                <a href="" class="color-pink">Retry</a>
             </div>
         </div>
     </div>
 </div>
+
+
 
         </div>
     </section>

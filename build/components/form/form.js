@@ -1,8 +1,5 @@
-var d = new Date();
-
-//console.log('Form ' + d.toUTCString());
-
 var form = function () {
+    'use strict';
 
     const VALIDATE = document.querySelectorAll('[stewed-validate="true"]');
     var inputs = document.getElementsByClassName('textfield__input');
@@ -14,6 +11,7 @@ var form = function () {
             input.parentNode.className = 'textfield';
 
             input.addEventListener('input', function() {
+                'use strict';
 
                 if (VALIDATE.length) {
                     const MIN = (this.min == '') ? ((this.type == 'tel') ? 9 : 2 ) : this.min,
@@ -64,5 +62,6 @@ var form = function () {
 };
 
 !function(){
+    'use strict';
     form();
 }();

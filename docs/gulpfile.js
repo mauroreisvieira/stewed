@@ -181,6 +181,15 @@ gulp.task('watch', function () {
  		'views/layout/footer.html'
  		])
  	.pipe(concat('snackbar.html'))
+ 	.pipe(gulp.dest('.'));	 	
+
+ 	gulp.src([
+ 		'views/layout/header.html',
+ 		'views/javascript.html', 
+ 		'views/javascript/toast.html', 
+ 		'views/layout/footer.html'
+ 		])
+ 	.pipe(concat('toast.html'))
  	.pipe(gulp.dest('.'));	
 
  	gulp.src([
