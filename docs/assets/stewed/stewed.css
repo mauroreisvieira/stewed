@@ -353,45 +353,51 @@ ul.dropdown li:hover a {
   display: block;
   width: 100%;
   padding: 0;
+  position: relative;
 }
 
 .tabs .tabs__item {
   position: relative;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-.tabs .tabs__item a {
   display: block;
   height: 50px;
   line-height: 50px;
-  font-weight: 500;
-  color: currentColor;
   text-decoration: none;
+  text-align: center;
+  cursor: pointer;
 }
 
-.tabs .tabs__item a:hover {
+.tabs .tabs__item * {
+  font-size: 1.000em;
+  font-weight: 500;
+  text-decoration: none;
+  color: currentColor;
+  text-transform: uppercase;
+}
+
+.tabs .tabs__item *:hover {
   opacity: .5;
 }
 
-.tabs .tabs__item a.disabled {
+.tabs .tabs__item.disabled,
+.tabs .tabs__item.disabled * {
   background-color: transparent;
   color: currentColor;
   box-shadow: none;
   cursor: default;
-  opacity: 0.4;
+  opacity: 0.5;
 }
 
-.tabs .tabs__item a.disabled:hover, .tabs .tabs__item a.disabled:focus {
+.tabs .tabs__item.disabled:hover, .tabs .tabs__item.disabled:focus,
+.tabs .tabs__item.disabled *:hover,
+.tabs .tabs__item.disabled *:focus {
   background-color: transparent;
   color: currentColor;
   box-shadow: none;
   cursor: default;
-  opacity: 0.4;
+  opacity: 0.5;
 }
 
-.tabs .tabs__item.tabs__item--active:before {
+.tabs .tabs__item--active:before {
   position: absolute;
   bottom: 0;
   display: block;
@@ -405,8 +411,8 @@ ul.dropdown li:hover a {
 .tab-section {
   display: block;
   display: none;
-  width: calc(100%-40px);
-  padding: 20px;
+  width: calc(100% - 1.250em);
+  padding: 1.250em;
 }
 
 .tab-section--active {

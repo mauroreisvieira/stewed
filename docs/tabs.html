@@ -77,21 +77,21 @@
 						<li>
 							<a href="snackbar.html" class="">Snackbar</a>
 						</li>
-<!-- 						<li>
+						<li>
 							<a href="dropdown.html" class="">Dropdown</a>
-						</li> -->
+						</li> 
 						<li>
 							<a href="modal.html" class="">Modal</a>
 						</li>
 						<li>
 							<a href="tabs.html" class="">Tabs</a>
 						</li>
-						<li>
+<!-- 						<li>
 							<a href="toast.html" class="">Toast</a>
 						</li>
 						<li>
 							<a href="sidenav.html" class="">Sidenav</a>
-						</li> 
+						</li>  -->
 					</ul> 
 				</nav>
 			</div>
@@ -108,45 +108,202 @@
     </div>
 </div>
 <div class="container">
-    <h2>Introduction</h2>
+    <h2>Tabs</h2>
     <p>When you click on tab, only the container with the corresponding tab id will become visible. </p>
     <p>You can add the class <code>.disabled</code> to make a tab inactivated.</p>
+    <p>If you want to use a precise external link to indicate that the tab will not have section <code>[stewed-tab-section="false"]</code>.</p>
+
     <div class="row row--gutter margin-top-40">
-        <div class="large-3 medium-12 small-12">
-            <div class="margin-top-10">
-                <ul class="tabs color-pink background-white row">
-                    <li class="tabs__item tabs__item--active large-12 medium-3 small-6"><a tabindex="1" href="#tab1">Tab 1</a></li>
-                    <li class="tabs__item large-12 medium-3 small-6"><a href="#tab2" tabindex="2" >Tab 2</a></li>
-                    <li class="tabs__item tabs__item--disabled large-12 medium-3 small-6"><a href="#tab3" class="disabled">Tab Disabled</a></li>
-                    <li class="tabs__item large-12 medium-3 small-6"><a href="#tab4" tabindex="4" >Tab 4</a></li>
+        <div class="large-12 medium-12 small-12">
+            <div class="margin-top-10 color-bluegrey background-white ">
+                <ul class="row tabs" stewed-tabs="one">
+                    <li class="tabs__item tabs__item--active large-2 medium-2 small-6" stewed-tab-id="tab1">
+                        <p>Tab 1</p>
+                    </li>
+                    <li class="tabs__item large-2 medium-2 small-6" stewed-tab-id="tab2">
+                        <p>Tab 2</p>
+                    </li>
+                    <li class="tabs__item large-2 medium-2 small-6" stewed-tab-id="tab3">
+                        <p>Tab 3</p>
+                    </li>        
+                    <li class="tabs__item large-2 medium-2 small-6" stewed-tab-id="tab4">
+                        <p>Tab 4</p>
+                    </li>   
+                    <li class="tabs__item disabled large-2 medium-2 small-6" stewed-tab-id="tab5">
+                        <p>Disabled</p>
+                    </li>
+                    <li class="tabs__item large-2 medium-2 small-6" stewed-tab-id="false">
+                        <a href="http://google.pt" target="_blank">External URL</a>
+                    </li>
                 </ul>
             </div>
         </div>
-        <div class="large-9 medium-12 small-12">
-            <div class="card margin-top-10">
+        <div class="large-12 medium-12 small-12">
+            <div class="background-white color-black margin-top-10" id="one">
                 <div id="tab1" class="tab-section tab-section--active">
-                    <h3 class="left">Hello Tabs 1</h3>
+                    <h3 class="font-500 color-bluegrey">Tab 1</h3>
                     <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel modi facere eius, sapiente aut rerum quae consequatur temporibus nam iste voluptates velit placeat sunt natus quia cupiditate assumenda eum ratione.</p>
                 </div>
                 <div id="tab2" class="tab-section">
-                    <h3 class="left">Hello Tabs 2</h3>
+                    <h3 class="font-500 color-bluegrey">Tab 2</h3>
                     <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel modi facere eius, sapiente aut rerum quae consequatur temporibus nam iste voluptates velit placeat sunt natus quia cupiditate assumenda eum ratione.</p>
                 </div>
                 <div id="tab3" class="tab-section">
-                    <h3 class="left">Hello Tabs 3</h3>
+                    <h3 class="font-500 color-bluegrey">Tab 3</h3>
                     <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel modi facere eius, sapiente aut rerum quae consequatur temporibus nam iste voluptates velit placeat sunt natus quia cupiditate assumenda eum ratione.</p>
                 </div>
                 <div id="tab4" class="tab-section">
-                    <h3 class="left">Hello Tabs 4</h3>
+                    <h3 class="font-500 color-bluegrey">Tab 4</h3>
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel modi facere eius, sapiente aut rerum quae consequatur temporibus nam iste voluptates velit placeat sunt natus quia cupiditate assumenda eum ratione.</p>
+                </div>
+                <div id="tab5" class="tab-section">
+                    <h3 class="font-500 color-bluegrey">Tab 5</h3>
                     <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel modi facere eius, sapiente aut rerum quae consequatur temporibus nam iste voluptates velit placeat sunt natus quia cupiditate assumenda eum ratione.</p>
                 </div>
             </div>
         </div>
     </div>
+    <div class="card margin-top-20 margin-bottom-60">
+        <div class="card__header ">
+            <h4 class="card__header__title text-uppercase">Cooking</h4>
+        </div>
+        <div class="card__container card--border">
+            <div id="view-html" class="code">
+                <pre class="brush: xml; toolbar: false; gutter: false;">
+                    &lt;div class="row row--gutter margin-top-40">
+                        &lt;div class="large-12 medium-12 small-12">
+                            &lt;div class="margin-top-10 color-bluegrey background-white ">
+                                &lt;ul class="row tabs" stewed-tabs="one">
+                                    &lt;li class="tabs__item tabs__item--active large-2 medium-2 small-6" stewed-tab-id="tab1">
+                                        &lt;p>Tab 1&lt;/p>
+                                    &lt;/li>
+                                    &lt;li class="tabs__item large-2 medium-2 small-6" stewed-tab-id="tab2">
+                                        &lt;p>Tab 2&lt;/p>
+                                    &lt;/li>
+                                    &lt;li class="tabs__item large-2 medium-2 small-6" stewed-tab-id="tab3">
+                                        &lt;p>Tab 3&lt;/p>
+                                    &lt;/li>        
+                                    &lt;li class="tabs__item large-2 medium-2 small-6" stewed-tab-id="tab4">
+                                        &lt;p>Tab 4&lt;/p>
+                                    &lt;/li>   
+                                    &lt;li class="tabs__item disabled large-2 medium-2 small-6" stewed-tab-id="tab5">
+                                        &lt;p>Disabled&lt;/p>
+                                    &lt;/li>
+                                    &lt;li class="tabs__item large-2 medium-2 small-6" stewed-tab-id="false">
+                                        &lt;a href="http://google.pt" target="_blank">External URL&lt;/a>
+                                    &lt;/li>
+                                &lt;/ul>
+                            &lt;/div>
+                        &lt;/div>
+                        &lt;div class="large-12 medium-12 small-12">
+                            &lt;div class="background-white color-black margin-top-10" id="one">
+                                &lt;div id="tab1" class="tab-section tab-section--active">
+                                    &lt;h3 class="font-500 color-bluegrey">Tab 1&lt;/h3>
+                                    &lt;p>Contrary to popular...&lt;/p>
+                                &lt;/div>
+                                &lt;div id="tab2" class="tab-section">
+                                    &lt;h3 class="font-500 color-bluegrey">Tab 2&lt;/h3>
+                                    &lt;p>Contrary to popular belief...&lt;/p>
+                                &lt;/div>
+                                &lt;div id="tab3" class="tab-section">
+                                    ...
+                                &lt;/div>
+                                &lt;div id="tab4" class="tab-section">
+                                    ...
+                                &lt;/div>
+                                &lt;div id="tab5" class="tab-section">
+                                    ...
+                                &lt;/div>
+                            &lt;/div>
+                        &lt;/div>
+                    &lt;/div>
+                </pre>                    
+            </div>
+        </div>
+    </div>
+    <div class="row row--gutter margin-top-40">
+        <div class="large-3 medium-3 small-12">
+            <div class="margin-top-10 color-bluegrey background-white ">
+                <ul class="row tabs" stewed-tabs="two">
+                    <li class="tabs__item large-12 medium-12 small-4" stewed-tab-id="sec1">
+                        <p>Section 1</p>
+                    </li>
+                    <li class="tabs__item tabs__item--active large-12 medium-12 small-4" stewed-tab-id="sec2">
+                        <p>Section 2</p>
+                    </li>
+                    <li class="tabs__item large-12 medium-12 small-4" stewed-tab-id="sec3">
+                        <p>Section 3</p>
+                    </li>        
+                </ul>
+            </div>
+        </div>
+        <div class="large-9 medium-9 small-12">
+            <div id="two" class="background-white color-black margin-top-10">
+                <div id="sec1" class="tab-section">
+                    <h3 class="font-500 color-bluegrey">Section 1</h3>
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel modi facere eius, sapiente aut rerum quae consequatur temporibus nam iste voluptates velit placeat sunt natus quia cupiditate assumenda eum ratione.</p>
+                </div>
+                <div id="sec2" class="tab-section tab-section--active">
+                    <h3 class="font-500 color-bluegrey">Section 2</h3>
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel modi facere eius, sapiente aut rerum quae consequatur temporibus nam iste voluptates velit placeat sunt natus quia cupiditate assumenda eum ratione.</p>
+                </div>
+                <div id="sec3" class="tab-section">
+                    <h3 class="font-500 color-bluegrey">Section 3</h3>
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel modi facere eius, sapiente aut rerum quae consequatur temporibus nam iste voluptates velit placeat sunt natus quia cupiditate assumenda eum ratione.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card margin-top-20 margin-bottom-60">
+            <div class="card__header ">
+                <h4 class="card__header__title text-uppercase">Cooking</h4>
+            </div>
+            <div class="card__container card--border">
+                <div id="view-html" class="code">
+                    <pre class="brush: xml; toolbar: false; gutter: false;">
+                        &lt;div class="row row--gutter margin-top-40">
+                            &lt;div class="large-3 medium-3 small-12">
+                                &lt;div class="margin-top-10 color-bluegrey background-white ">
+                                    &lt;ul class="row tabs" stewed-tabs="two">
+                                        &lt;li class="tabs__item large-12 medium-12 small-4" stewed-tab-id="sec1">
+                                            &lt;p>Section 1&lt;/p>
+                                        &lt;/li>
+                                        &lt;li class="tabs__item tabs__item--active large-12 medium-12 small-4" stewed-tab-id="sec2">
+                                            &lt;p>Section 2&lt;/p>
+                                        &lt;/li>
+                                        &lt;li class="tabs__item large-12 medium-12 small-4" stewed-tab-id="sec3">
+                                            &lt;p>Section 3&lt;/p>
+                                        &lt;/li>        
+                                    &lt;/ul>
+                                &lt;/div>
+                            &lt;/div>
+                            &lt;div class="large-9 medium-9 small-12">
+                                &lt;div id="two" class="background-white color-black margin-top-10">
+                                    &lt;div id="sec1" class="tab-section">
+                                        &lt;h3 class="font-500 color-bluegrey">Section 1&lt;/h3>
+                                        ...
+                                    &lt;/div>
+                                    &lt;div id="sec2" class="tab-section tab-section--active">
+                                        ...
+                                    &lt;/div>
+                                    &lt;div id="sec3" class="tab-section">
+                                        ...
+                                    &lt;/div>
+                                &lt;/div>
+                            &lt;/div>
+                        &lt;/div>
+                    </pre>                    
+                </div>
+            </div>
+        </div>
 </div>
         </div>
     </section>

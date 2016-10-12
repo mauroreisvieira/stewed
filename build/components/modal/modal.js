@@ -1,4 +1,4 @@
-var modal = function(modalId) {
+var Modal = function(modalId) {
     'use strict';
 
     var _self = this;
@@ -8,7 +8,7 @@ var modal = function(modalId) {
     this.isOpen = false;
     
     /* Constructor */
-    if(this.modal !== null){
+    if(this.modal !== null) {
 
         var closeButtons = this.modal.getElementsByClassName('modal-close');
         for (var i = 0; i < closeButtons.length; i++) {
@@ -60,7 +60,7 @@ var modal = function(modalId) {
    for (var i = 0; i < elems.length; i++) {
     var elem = elems[i];
     var modalId = elem.getAttribute('stewed-modal');
-    memory_modals[modalId] = new modal(modalId);
+    memory_modals[modalId] = new Modal(modalId);
 
     /* Eelement click */
     elem.addEventListener('click', function() {

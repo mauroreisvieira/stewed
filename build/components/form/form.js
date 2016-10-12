@@ -1,4 +1,4 @@
-var form = function () {
+var Form = function () {
     'use strict';
 
     const VALIDATE = document.querySelectorAll('[stewed-validate="true"]');
@@ -63,5 +63,5 @@ var form = function () {
 
 !function(){
     'use strict';
-    form();
+    new Form();
 }();
