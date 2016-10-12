@@ -14,6 +14,9 @@
     border-radius: 2px;
     @include transitionButton;
     will-change: box-shadow;
+    min-width: 60px;
+    line-height: 40px;
+    padding: 0 0.875em;
     &:hover, &:active {
         outline: none;
         border: 0;
@@ -108,28 +111,28 @@
 }
 
 .button--large {
-    padding: 0 3em;
+    padding: 0 2.750em;
     font {
         size: 1.125em;
         weight: $weight-medium;
     }
-    line-height: 56px;
+    line-height: 54px;
 }
 
 .button--medium {
-    padding: 0 2.5em;
+    padding: 0 2.125em;
     font {
         size: 1.000em;
         weight: $weight-medium;
     }
-    line-height: 48px;
+    line-height: 44px;
 }
 
 .button--small {
-    padding: 0 1.75em;
+    padding: 0 1.000em;
     font {
-        size: 0.875em;
+        size: .0.625em;
         weight: $weight-medium;
     }
-    line-height: 40px;
+    line-height: 34px;
 }

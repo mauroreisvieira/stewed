@@ -1,5 +1,5 @@
 .label {
-	display: inline;
+    display: inline-block;
     padding: .2em .6em .3em;
     line-height: normal;
     color: #fff;
@@ -8,6 +8,7 @@
     vertical-align: baseline;
     border-radius: 2px;
     background-color: $grey;
+    margin: 0.175em 0;
 }
 
 .label--success {
@@ -15,13 +16,13 @@
 }
 
 .label--info {
-   background-color: $info;
+    background-color: $info;
 }
 
 .label--warning {
-   background-color: $warning;
+    background-color: $warning;
 }
 
 .label--danger {
-   background-color: $danger;
+    background-color: $danger;
 }

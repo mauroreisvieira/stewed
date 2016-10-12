@@ -30,7 +30,7 @@
     }
 }
 
-.table__border {
+.table--border {
     tbody {
         tr {
             border-bottom: 1px solid #e9e9e9;
@@ -38,7 +38,7 @@
     }
 }
 
-.table__hover {
+.table--hover {
     tbody {
         tr:hover {
             background-color: #f1f1f1;
@@ -46,7 +46,7 @@
     }
 }
 
-.table__striped {
+.table--striped {
     tbody {
         tr:nth-child(odd) {
             background-color: #f1f1f1;

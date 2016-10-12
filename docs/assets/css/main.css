@@ -8,8 +8,8 @@ body {
   height: 100%;
   width: 100%;
   font-family: "Source Sans Pro", sans-serif;
-  font-size: 1.125em;
-  line-height: 1.750;
+  font-size: 1.00em;
+  line-height: 1.500;
   background: #FAFAFA;
   font-weight: 300;
   color: #000;
@@ -180,8 +180,8 @@ h3, h4, h5, h6 {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
-.custom-hr {
-  background: #607D8B;
+.hr {
+  background: currentColor;
   height: 1px;
   border: 0px;
 }
