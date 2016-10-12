@@ -357,7 +357,11 @@ ul.dropdown li:hover a {
 
 .tabs .tabs__item {
   position: relative;
-  position: relative;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 .tabs .tabs__item a {
@@ -365,12 +369,7 @@ ul.dropdown li:hover a {
   width: 100%;
   height: 100%;
   font-weight: 500;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
   color: currentColor;
-  height: 50px;
-  line-height: 50px;
 }
 
 .tabs .tabs__item a:hover {
@@ -873,6 +872,7 @@ ul.dropdown li:hover a {
   display: block;
   margin: 10px 0 25px 0;
   overflow: hidden;
+  font-size: 16px;
 }
 
 .textfield .textfield__label {
@@ -1061,8 +1061,8 @@ input[type=checkbox]:checked + label:before {
 }
 
 input[type=checkbox]:checked + label:after {
-  top: 9px;
-  left: 4px;
+  top: 20%;
+  left: 3px;
   height: 14px;
   width: 14px;
   content: '';
@@ -1110,7 +1110,7 @@ input[type=radio]:checked + label:before {
 }
 
 input[type=radio]:checked + label:after {
-  top: 12px;
+  top: 8px;
   left: 4px;
   height: 12px;
   width: 12px;

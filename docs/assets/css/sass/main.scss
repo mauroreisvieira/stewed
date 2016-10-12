@@ -140,7 +140,8 @@ h3, h4, h5, h6 {
     ul.navigation__horizontal {
         li {
             a {
-                color: #3a3b52;
+                color: #fff;
+                opacity: 0.6;
                 font-weight: 400;
                 border-top: 2px solid #fb3c68;
                 border-bottom: 2px solid #fb3c68;
@@ -152,6 +153,7 @@ h3, h4, h5, h6 {
                 &:hover {
                     background: #fb3c68;
                     color: $color-white;
+                    opacity: 1;
                 }
             }
         }
