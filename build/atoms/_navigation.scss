@@ -1,0 +1,100 @@
+.navigation {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: $border-radius;
+    ul {
+        list-style-type: none;
+        display: block;
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        li  {
+            position: relative;
+            a {
+                display: block;
+                padding:1.250em 1em;
+                text-decoration: none;
+                color: currentColor;
+            }
+            &.active,
+            &:hover {
+                background: rgba(0,0,0,0.1);
+                color: currentColor;
+            }
+        }
+
+        &.navigation__vertical {
+            li {
+                display: block;
+                width: 100%;
+                margin-bottom: 0;
+                ul {
+                    display: none;
+                    z-index: 11;
+                    position: absolute;
+                    min-width: 10em;
+                    top: 0;
+                }
+                .navigation__vertical__submenu--right {
+                    border-radius: 0 $border-radius $border-radius;
+                    left: 100%;
+                }
+                .navigation__vertical__submenu--left {
+                    right: 100%;
+                    border-radius: $border-radius 0 $border-radius;
+                }
+                &:hover {
+                    ul {
+                        display: block;
+                    }
+                }
+            }
+        }
+        &.navigation__horizontal {
+            display: inline;
+            li {
+                display: inline-block;
+                ul {
+                    display: none;
+                }
+                .navigation__horizontal__submenu {
+                    position: absolute;
+                    left: 0;
+                    position: absolute;
+                    min-width: 100%;
+                    top: auto;
+                    border-radius: 0 0 $border-radius;
+                    z-index: 11;
+                    li {
+                        width: 100%;
+                    }
+                }
+                &:hover {
+                    ul {
+                        display: block;
+                    }
+                }
+            }
+        }
+        &.navigation__horizontal--scroll {
+            display: inline-block;
+            position: relative;
+            white-space: nowrap;
+            overflow: hidden;
+            -webkit-user-select: none;
+            display: block;
+            overflow-y: hidden;
+            padding: 0;
+            position: relative;
+            -webkit-overflow-scrolling: touch;
+            overflow-x: scroll;
+            &::-webkit-scrollbar { 
+                display: none; 
+            }
+            li {
+                display: inline-block;
+            }
+        }
+    }
+}

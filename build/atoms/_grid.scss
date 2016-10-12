@@ -1,0 +1,369 @@
+/**
+* By default have 12 columns.
+* When resizing your browser, each of these columns will always have an equal width.
+* Can you choose if you want space between the columns or not, just by defining 'row'
+* not to have a rift between them or 'row-space' pars have.
+*/
+.container {
+    display: block;
+    width: calc(1280px - 30px);
+    padding: 0 15px;
+    margin: auto;
+}
+
+.row {
+    display: flex;
+    flex-flow: row wrap;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+.row--gutter {
+    margin:0 -15px;
+    [class*="large-"],
+    [class*="medium-"],
+    [class*="small-"] {
+        padding:0 15px;
+    }
+}
+
+.row,
+.row--gutter {
+    [class*="large-push-"],
+    [class*="large-pull-"],    
+    [class*="medium-push-"],
+    [class*="medium-push-"],
+    [class*="small-push-"],
+    [class*="small-pull-"] {
+        position: relative;
+    }
+}
+
+/**
+* Responsive Desktop Devices
+*/
+@media only screen and (min-width: $media-desktop) {
+
+    .large-1 {
+        width: 8.333%;
+        flex-basis: 8.333%;
+    }
+
+    .large-2 {
+        width: 16.667%;
+        flex-basis: 16.667%;
+    }
+
+    .large-3 {
+        width: 25%;
+        flex-basis: 25%;
+    }
+
+    .large-4 {
+        width: 33.333%;
+        flex-basis: 33.333%;
+    }
+
+    .large-5 {
+        width: 41.667%;
+        flex-basis: 41.667%;
+    }
+
+    .large-6 {
+        width: 50%;
+        flex-basis: 50%;
+    }
+
+    .large-7 {
+        width: 58.333%;
+        flex-basis: 58.333%;
+    }
+
+    .large-8 {
+        width: 66.667%;
+        flex-basis: 66.667%;
+    }
+
+    .large-9 {
+        width: 75%;
+        flex-basis: 75%;
+    }
+
+    .large-10 {
+        width: 83.333%;
+        flex-basis: 83.333%;
+    }
+
+    .large-11 {
+        width: 91.667%;
+        flex-basis: 91.667%;
+    }
+
+    .large-12 {
+        width: 100%;
+        flex-basis: 100%;
+    }
+
+    /** Offset large **/
+    .large-offset-1  { margin-left: 8.333%; }
+    .large-offset-2  { margin-left: 16.667%; }
+    .large-offset-3  { margin-left: 25%; }
+    .large-offset-4  { margin-left: 33.333%; }
+    .large-offset-5  { margin-left: 41.667%; }
+    .large-offset-6  { margin-left: 50%; }
+    .large-offset-7  { margin-left: 58.333%; }
+    .large-offset-8  { margin-left: 66.667%;}
+    .large-offset-9  { margin-left: 75%; }
+    .large-offset-10 { margin-left: 83.333%; }
+    .large-offset-11 { margin-left: 91.667%;}
+
+    /** Pull large **/
+    .large-pull-1  { right: 8.333%;}
+    .large-pull-2  { right: 16.667%;}
+    .large-pull-3  { right: 25%; }
+    .large-pull-4  { right: 33.333%;}
+    .large-pull-5  { right: 41.667%; }
+    .large-pull-6  { right: 50%; }
+    .large-pull-7  { right: 58.333%; }
+    .large-pull-8  { right: 66.667%;}
+    .large-pull-9  { right: 75%; }
+    .large-pull-10 { right: 83.333%; }
+    .large-pull-11 { right: 91.667%; }
+
+    /** Push large **/
+    .large-push-1  { left: 8.333%;}
+    .large-push-2  { left: 16.667%;}
+    .large-push-3  { left: 25%; }
+    .large-push-4  { left: 33.333%;}
+    .large-push-5  { left: 41.667%; }
+    .large-push-6  { left: 50%; }
+    .large-push-7  { left: 58.333%; }
+    .large-push-8  { left: 66.667%;}
+    .large-push-9  { left: 75%; }
+    .large-push-10 { left: 83.333%; }
+    .large-push-11 { left: 91.667%; }
+}
+
+/**
+* Responsive Tablet Devices
+* min-width 768px and max-width: 959px
+*/
+@media only screen and (min-width: $media-tablet-min) and (max-width: $media-tablet-max) {
+
+    .container {
+        width: 94%;
+        max-width: ($media-tablet-max - 1);
+    }
+
+    .medium-1 {
+        width: 8.333%;
+        flex-basis: 8.333%;
+    }
+
+    .medium-2 {
+        width: 16.667%;
+        flex-basis: 16.667%;
+    }
+
+    .medium-3 {
+        width: 25%;
+        flex-basis: 25%;
+    }
+
+    .medium-4 {
+        width: 33.333%;
+        flex-basis: 33.333%;
+    }
+
+    .medium-5 {
+        width: 41.667%;
+        flex-basis: 41.667%;
+    }
+
+    .medium-6 {
+        width: 50%;
+        flex-basis: 50%;
+    }
+
+    .medium-7 {
+        width: 58.333%;
+        flex-basis: 58.333%;
+    }
+
+    .medium-8 {
+        width: 66.667%;
+        flex-basis: 66.667%;
+    }
+
+    .medium-9 {
+        width: 75%;
+        flex-basis: 75%;
+    }
+
+    .medium-10 {
+        width: 83.333%;
+        flex-basis: 83.333%;
+    }
+
+    .medium-11 {
+        max-width: 91.667%;
+        flex-basis: 91.667%;
+    }
+
+    .medium-12 {
+        max-width: 100%;
+        flex-basis: 100%;
+    }
+
+    /** Offset medium **/
+    .medium-offset-1  { margin-left: 8.333%; }
+    .medium-offset-2  { margin-left: 16.667%; }
+    .medium-offset-3  { margin-left: 25%; }
+    .medium-offset-4  { margin-left: 33.333%; }
+    .medium-offset-5  { margin-left: 41.667%; }
+    .medium-offset-6  { margin-left: 50%; }
+    .medium-offset-7  { margin-left: 58.333%; }
+    .medium-offset-8  { margin-left: 66.667%;}
+    .medium-offset-9  { margin-left: 75%; }
+    .medium-offset-10 { margin-left: 83.333%; }
+    .medium-offset-11 { margin-left: 91.667%;}
+
+    /** Pull medium **/
+    .medium-pull-1  { right: 8.333%;}
+    .medium-pull-2  { right: 16.667%;}
+    .medium-pull-3  { right: 25%; }
+    .medium-pull-4  { right: 33.333%;}
+    .medium-pull-5  { right: 41.667%; }
+    .medium-pull-6  { right: 50%; }
+    .medium-pull-7  { right: 58.333%; }
+    .medium-pull-8  { right: 66.667%;}
+    .medium-pull-9  { right: 75%; }
+    .medium-pull-10 { right: 83.333%; }
+    .medium-pull-11 { right: 91.667%; }
+
+    /** Push medium **/
+    .medium-push-1  { left: 8.333%;}
+    .medium-push-2  { left: 16.667%;}
+    .medium-push-3  { left: 25%; }
+    .medium-push-4  { left: 33.333%;}
+    .medium-push-5  { left: 41.667%; }
+    .medium-push-6  { left: 50%; }
+    .medium-push-7  { left: 58.333%; }
+    .medium-push-8  { left: 66.667%;}
+    .medium-push-9  { left: 75%; }
+    .medium-push-10 { left: 83.333%; }
+    .medium-push-11 { left: 91.667%; }
+}
+
+/**
+* Responsive Mobile Devices
+* min-width 280px and max-width: 767px
+*/
+@media only screen and (min-width: $media-mobile-min) and (max-width: $media-mobile-max) {
+
+    .container {
+        width: 90%;
+        max-width: ($media-mobile-max - 1);
+    }
+
+    .small-1 {
+        width: 8.333%;
+        flex-basis: 8.333%;
+    }
+
+    .small-2 {
+        width: 16.667%;
+        flex-basis: 16.667%;
+    }
+
+    .small-3 {
+        width: 25%;
+        flex-basis: 25%;
+    }
+
+    .small-4 {
+        width: 33.333%;
+        flex-basis: 33.333%;
+    }
+
+    .small-5 {
+        width: 41.667%;
+        flex-basis: 41.667%;
+    }
+
+    .small-6 {
+        width: 50%;
+        flex-basis: 50%;
+    }
+
+    .small-7 {
+        width: 58.333%;
+        flex-basis: 58.333%;
+    }
+
+    .small-8 {
+        width: 66.667%;
+        flex-basis: 66.667%;
+    }
+
+    .small-9 {
+        width: 75%;
+        flex-basis: 75%;
+    }
+
+    .small-10 {
+        width: 83.333%;
+        flex-basis: 83.333%;
+    }
+
+    .small-11 {
+        width: 91.667%;
+        flex-basis: 91.667%;
+    }
+
+    .small-12 {
+        width: 100%;
+        flex-basis: 100%;
+    }
+
+    /** Offset small **/
+    .small-offset-1  { margin-left: 8.333%; }
+    .small-offset-2  { margin-left: 16.667%; }
+    .small-offset-3  { margin-left: 25%; }
+    .small-offset-4  { margin-left: 33.333%; }
+    .small-offset-5  { margin-left: 41.667%; }
+    .small-offset-6  { margin-left: 50%; }
+    .small-offset-7  { margin-left: 58.333%; }
+    .small-offset-8  { margin-left: 66.667%;}
+    .small-offset-9  { margin-left: 75%; }
+    .small-offset-10 { margin-left: 83.333%; }
+    .small-offset-11 { margin-left: 91.667%;}
+
+    /** Pull small **/
+    .small-pull-1  { right: 8.333%;}
+    .small-pull-2  { right: 16.667%;}
+    .small-pull-3  { right: 25%; }
+    .small-pull-4  { right: 33.333%;}
+    .small-pull-5  { right: 41.667%; }
+    .small-pull-6  { right: 50%; }
+    .small-pull-7  { right: 58.333%; }
+    .small-pull-8  { right: 66.667%;}
+    .small-pull-9  { right: 75%; }
+    .small-pull-10 { right: 83.333%; }
+    .small-pull-11 { right: 91.667%; }
+
+    /** Push small **/
+    .small-push-1  { left: 8.333%;}
+    .small-push-2  { left: 16.667%;}
+    .small-push-3  { left: 25%; }
+    .small-push-4  { left: 33.333%;}
+    .small-push-5  { left: 41.667%; }
+    .small-push-6  { left: 50%; }
+    .small-push-7  { left: 58.333%; }
+    .small-push-8  { left: 66.667%;}
+    .small-push-9  { left: 75%; }
+    .small-push-10 { left: 83.333%; }
+    .small-push-11 { left: 91.667%; }
+}
+
+

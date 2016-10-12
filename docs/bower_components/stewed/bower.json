@@ -1,0 +1,20 @@
+{
+  "name": "stewed",
+  "description": "Stewed Framework in CSS, JS and HTML",
+  "main": "",
+  "authors": [
+    "Mauro Reis Vieira"
+  ],
+  "license": "GNU",
+  "homepage": "https://github.com/maurovieirareis/stewed",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "tests",
+    "app",
+    "build",
+    "templates",
+    "gulpfile"
+  ]
+}

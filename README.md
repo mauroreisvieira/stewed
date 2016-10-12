@@ -3,10 +3,10 @@
 [![GitHub version](https://dl.dropboxusercontent.com/u/83653088/version.svg)](https://github.com/maurovieirareis/stewed)
 [![GitHub version](https://dl.dropboxusercontent.com/u/83653088/npm.svg)](https://github.com/maurovieirareis/stewed)
 
-Stewed is a framework for rapid development of simple and lightweight web applications.
+[Stewed](http://maurovieirareis.github.io/stewed) is a framework for rapid development of simple and lightweight web applications.
 Using a combination of **HTML**, **CSS** and pure **JavaScript** allows you to create a fully customized application without losing its own special way it serves only one auxiliary base in its development.
 
-> Current version: 0.9.10
+> Current version: 0.9.30
 
 ## Supported Browsers:
 - Chrome 35+
@@ -19,23 +19,40 @@ Using a combination of **HTML**, **CSS** and pure **JavaScript** allows you to c
 	- Independant Modules
 	- Templates
 
-- v0.9.10 **(in development)**
-	- Grid System bug fixes and new features
-	- Badges & Labels
-	- Accordion using pure JavaScript
-	- Breadcrumbs
-	- New Helpers
+- v0.9.40 **(in development)**
+	- Tooltips
+	- Accordion
+	- Dropdown
+	- Tabs
+	- SideNav
 
-- v0.9.0
-	- SASS
-	- CSS Helpers
-	- Tables 
-	- Grid System
-	- Modal & Dialog using pure JavaScript
-	- Form component
-	- Buttons
-	- Colors
-	- Cards
+- v0.9.30
+	- Fix Form Field 
+	- Fix Navigation Horizontal / Vertical
+	- Fix Grid System
+	- Fix Tables Responsive
+	- Adding Navigation Horizontal Scroll
+	- Adding Validate to Form
+	- Adding New Colors
+
+- v0.9.20
+	- Adding Badges
+	- Adding Labels
+	- Adding Breadcrumbs
+	- Adding New Helpers
+	- Adding Snackbar
+	- **Adding Documentation
+
+- v0.9.10 
+	- Adding Grid System
+	- Updating to SASS
+	- Adding CSS Helpers
+	- Adding Tables 
+	- Adding Modal
+	- Adding Form Fields
+	- Adding Buttons
+	- Adding Colors
+	- Adding Cards
 
 ## Get Started
 
@@ -48,12 +65,15 @@ git clone https://github.com/maurovieirareis/stewed
 ### Installation
 
 ```bash
-npm install Stewed
+npm install Stewed --save
 ```
 
 ```bash
-bower install stewed
+bower install stewed --save
 ```
+
+Alternatively you can [download](https://codeload.github.com/maurovieirareis/stewed/zip/master)
+this repository.
 
 ## License
 

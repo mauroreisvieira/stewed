@@ -1,0 +1,36 @@
+/**
+ * Badge Styles
+ */
+ .badge {
+ 	position: relative;
+ 	white-space: nowrap;
+ 	margin-right: 24px;
+ 	display: inline-block;
+ 	&[stewed-badge]:before,
+ 	&[stewed-badge]:after {
+ 		display: flex;
+ 		flex-direction: row;
+ 		flex-wrap: wrap;
+ 		justify-content: center;
+ 		align-content: center;
+ 		align-items: center;
+ 		position: absolute;
+ 		top: -11px;
+ 		right: -24px;
+ 		font-size: 0.750em;
+ 		width: 22px;
+ 		height: 22px;
+ 		border-radius: 50%;
+ 	}
+ 	&[stewed-badge]:before {
+ 		content: attr(stewed-badge);
+ 		color: $white;
+ 		font-size: 0.750em;
+ 		font-weight: $weight-medium;
+ 		z-index: 1;
+ 	}
+ 	&[stewed-badge]:after {
+ 		content: '';
+ 		background-color: currentColor;
+ 	}
+ }

@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- head -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stewed Framework</title>
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- Web Application Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Quick and efficiently responsive web framework HTML & CSS and Pure JavaScript">
+    <link rel="icon" href="assets/images/touch/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="assets/images/touch/favicon.ico" type="image/x-icon"/>
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/touch/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/touch/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/touch/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/touch/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/touch/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/touch/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/touch/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/touch/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/touch/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="assets/images/touch//android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/touch//favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/touch//favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/touch//favicon-16x16.png">
+
+    <meta name="msapplication-TileImage" content="assets/images/touch/apple-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#2F3BA2">
+    <!-- Stewed Kit -->
+    <link rel="stylesheet" href="assets/stewed/stewed.css">
+    <!-- My Styles -->
+    <link rel="stylesheet" href="assets/css/elegant.css">
+    <link rel="stylesheet" href="assets/css/syntaxhighlighter.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <!-- header -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="large-5 medium-4 small-12">
+                <div class="pull-center--mobile color-white">
+                      <p class="font-400 text-uppercase size-52">S t e w e d —</p>
+                      <p class="">Framework <strong>HTML</strong> & <strong>CSS</strong> and Pure <strong>JavaScript</strong></p>
+                  </div>
+              </div>
+              <div class="large-7 medium-8 small-12">
+                <nav class="navigation margin-top-20">
+                    <ul class="navigation__horizontal--scroll color-white pull-none--mobile pull-right">
+                        <li>
+                            <a href="index.html" class="font-500">Get Started</a> 
+                        </li>     
+                        <li>
+                            <a href="templates.html" class="font-500">Templates</a> 
+                        </li> 
+                        <li>
+                            <a href="helpers.html" class="font-500">CSS Helpers</a>
+                        </li>
+                        <li>
+                            <a href="badges.html" class="font-500">CSS Components</a>
+                        </li>
+                        <li>
+                            <a href="snackbar.html" class="font-500">JavaScript</a>
+                        </li>
+                    </ul> 
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section id="main">
+    <div class="content">
+
+<div class="css-components">
+	<div class="container">
+		<div class="row-space">
+			<div class="large-12 medium-12 small-12">
+				<nav class="navigation">
+					<ul class="navigation__horizontal--scroll">
+						<li> <a href="badges.html" class="">Badges</a> </li>
+						<li> <a href="breadcrumbs.html" class="">Breadcrumbs</a> </li>
+						<li> <a href="buttons.html" class="">Buttons</a> </li>
+						<li> <a href="cards.html" class="">Cards</a> </li>
+						<li> <a href="forms.html" class="">Forms Filed</a> </li>
+						<li> <a href="grid.html" class="">Grid</a></li>
+						<li> <a href="navigation.html" class="">Navigation</a> </li>
+						<li> <a href="pagination.html" class="">Pagination</a> </li>
+						<li> <a href="tables.html" class="">Tables</a> </li>
+						<li> <a href="tooltips.html" class="">Tooltips</a> </li>
+					</ul> 
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="header-description">
+    <div class="container">
+        <div class="master-header padding-bottom-20">
+            <h1>Grid System</h1>
+            <p>Stewed by default have 12 columns.</p>
+            <p>When resizing your browser, each of these columns will always have an equal width.</p>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <section class="margin-top-40">
+        <div class="row margin-bottom-40">
+            <div class="large-12 medium-12 small-12 margin-bottom-40">
+                <h2>Simple Grid</h2>
+                <p>Can you choose if you want space between the columns or not, just by defining <code>.row</code> not to have a rift between them or <code>.row--gutter</code> pars have.</p>
+                <p>Thus allowing you to use the entire screen space..</p>
+            </div>
+            <div class="large-5 medium-5 small-12">
+                <div class="column">
+                    <p>large-5 medium-5 small-12</p>
+                </div>
+            </div>
+            <div class="large-7 medium-7 small-12">
+                <div class="column">
+                    <p>large-7 medium-7 small-12</p>
+                </div>
+            </div>
+            <div class="large-6 medium-6 small-12">
+                <div class="column">
+                    <p>large-6 medium-6 small-12</p>
+                </div>
+            </div>
+            <div class="large-6 medium-6 small-12">
+                <div class="column">
+                    <p>large-6 medium-6 small-12</p>
+                </div>
+            </div>
+            <div class="large-4 medium-4 small-12">
+                <div class="column">
+                    <p>large-4 medium-4 small-12</p>
+                </div>
+            </div>
+            <div class="large-4 medium-4 small-12">
+                <div class="column">
+                    <p>large-4 medium-4 small-12</p>
+                </div>
+            </div>
+            <div class="large-4 medium-4 small-12">
+                <div class="column">
+                    <p>large-4 medium-4 small-12</p>
+                </div>
+            </div>
+        </div>
+        <div class="large-12 medium-12 small-12 margin-bottom-40">
+            <div class="card margin-top-20">
+                <div class="card__header ">
+                    <h4 class="card__header__title text-uppercase">Cooking</h4>
+                </div>
+                <div class="card__container card--border">
+                    <div id="view-html" class="code">
+                        <pre class="brush: xml; toolbar: false; gutter: false;">
+                            &lt;div class="row">
+                                &lt;div class="large-12 medium-12 small-12">
+                                    &lt;p>large-12 medium-12 small-12&lt;/p>
+                                &lt;/div>
+                                &lt;div class="large-6 medium-6 small-12">
+                                    &lt;p>large-6 medium-6 small-12&lt;/p>
+                                &lt;/div>
+                                &lt;div class="large-6 medium-6 small-12">
+                                    &lt;p>large-6 medium-6 small-12&lt;/p>
+                                &lt;/div>
+                                &lt;div class="large-4 medium-4 small-12">
+                                    &lt;p>large-4 medium-4 small-12&lt;/p>
+                                &lt;/div>
+                                &lt;div class="large-4 medium-4 small-12">
+                                    &lt;p>large-4 medium-4 small-12&lt;/p>
+                                &lt;/div>
+                                &lt;div class="large-4 medium-4 small-12">
+                                    &lt;p>large-4 medium-4 small-12&lt;/p>
+                                &lt;/div>
+                            &lt;/div>
+                        </pre>                    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Grid Gutter -->
+        <div class="row row--gutter">
+            <div class="large-12 medium-12 small-12 margin-bottom-40">
+                <h2>Grid Gutter</h2>
+                <p>In this case you nead the <code>.row--gutter</code> after <code>.row</code></p>
+            </div>
+            <div class="large-5 medium-5 small-12">
+                <div class="column">
+                    <p>large-5 medium-6 small-12</p>
+                </div>
+            </div>
+            <div class="large-7 medium-7 small-12">
+                <div class="column">
+                    <p>large-7 medium-6 small-12</p>
+                </div>
+            </div>
+            <div class="large-6 medium-6 small-12">
+                <div class="column">
+                    <p>large-6 medium-6 small-12</p>
+                </div>
+            </div>
+            <div class="large-6 medium-6 small-12">
+                <div class="column">
+                    <p>large-6 medium-6 small-12</p>
+                </div>
+            </div>
+            <div class="large-4 medium-4 small-12">
+                <div class="column">
+                    <p>large-4 medium-4 small-12</p>
+                </div>
+            </div>
+            <div class="large-4 medium-4 small-12">
+                <div class="column">
+                    <p>large-4 medium-4 small-12</p>
+                </div>
+            </div>
+            <div class="large-4 medium-4 small-12">
+                <div class="column">
+                    <p>large-4 medium-4 small-12</p>
+                </div>
+            </div>
+            <!-- 12 Columns -->
+            <div class="large-1 medium-3 small-6">
+                <div class="column">
+                    <p>large-1 medium-3 small-6</p>
+                </div>
+            </div>
+            <div class="large-1 medium-3 small-6">
+                <div class="column">
+                    <p>large-1 medium-3 small-6</p>
+                </div>
+            </div>
+            <div class="large-1 medium-3 small-6">
+                <div class="column">
+                    <p>large-1 medium-3 small-6</p>
+                </div>
+            </div>
+            <div class="large-1 medium-3 small-6">
+                <div class="column">
+                    <p>large-1 medium-3 small-6</p>
+                </div>
+            </div>
+            <div class="large-1 medium-3 small-6">
+                <div class="column">
+                    <p>large-1 medium-3 small-6</p>
+                </div>
+            </div>
+            <div class="large-1 medium-3 small-6">
+                <div class="column">
+                    <p>large-1 medium-3 small-6</p>
+                </div>
+            </div>
+            <div class="large-1 medium-3 small-6">
+                <div class="column">
+                    <p>large-1 medium-3 small-6</p>
+                </div>
+            </div>
+            <div class="large-1 medium-3 small-6">
+                <div class="column">
+                    <p>large-1 medium-3 small-6</p>
+                </div>
+            </div>
+            <div class="large-1 medium-3 small-6">
+                <div class="column">
+                    <p>large-1 medium-3 small-6</p>
+                </div>
+            </div>
+            <div class="large-1 medium-3 small-6">
+                <div class="column">
+                    <p>large-1 medium-3 small-6</p>
+                </div>
+            </div>
+            <div class="large-1 medium-3 small-6">
+                <div class="column">
+                    <p>large-1 medium-3 small-6</p>
+                </div>
+            </div>
+            <div class="large-1 medium-3 small-6">
+                <div class="column">
+                    <p>large-1 medium-3 small-6</p>
+                </div>
+            </div>
+        </div>
+        <div class="large-12 medium-12 small-12 margin-bottom-40">
+            <div class="card margin-top-20">
+                <div class="card__header ">
+                    <h4 class="card__header__title text-uppercase">Cooking</h4>
+                </div>
+                <div class="card__container card--border">
+                    <div id="view-html" class="code">
+                        <pre class="brush: xml; toolbar: false; gutter: false;">
+                            &lt;div class="row row--gutter">
+                                &lt;div class="large-12 medium-12 small-12">
+                                    &lt;p>large-12 medium-12 small-12&lt;/p>
+                                &lt;/div>
+                                &lt;div class="large-6 medium-6 small-12">
+                                    &lt;p>large-6 medium-6 small-12&lt;/p>
+                                &lt;/div>
+                                &lt;div class="large-6 medium-6 small-12">
+                                    &lt;p>large-6 medium-6 small-12&lt;/p>
+                                &lt;/div>
+                                &lt;div class="large-4 medium-4 small-12">
+                                    &lt;p>large-4 medium-4 small-12&lt;/p>
+                                &lt;/div>
+                                &lt;div class="large-4 medium-4 small-12">
+                                    &lt;p>large-4 medium-4 small-12&lt;/p>
+                                &lt;/div>
+                                &lt;div class="large-4 medium-4 small-12">
+                                    &lt;p>large-4 medium-4 small-12&lt;/p>
+                                &lt;/div>
+                            &lt;/div>
+                        </pre>                    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Grid Offset-->
+        <div class="row margin-bottom-40">
+            <div class="large-12 medium-12 small-12 margin-bottom-40">
+                <h2>Offset</h2>
+                <p>You can adapt the offset for different resolutions.</p>
+                <p>To be able to use the <code>offest</code> not able to perform with the class <code>.row--gutter</code> because it will not be calculated the space between the div's</p>
+            </div>
+            <div class="large-12 medium-12 small-12">
+                <div class="column">
+                    <p>large-12 medium-12 small-12</p>
+                </div>
+            </div>
+            <div class="large-6 large-offset-6 medium-6 medium-offset-6 small-12">
+                <div class="column">
+                    <p>large-6 large-offset-6 medium-6 medium-offset-6 small-12</p>
+                </div>
+            </div>
+            <div class="large-8 large-offset-4 medium-8 medium-offset-4 small-12">
+                <div class="column">
+                    <p>large-8 large-offset-4 medium-8 medium-offset-4 small-12</p>
+                </div>
+            </div>
+            <div class="large-9 large-offset-3 medium-9 medium-offset-3 small-12">
+                <div class="column">
+                    <p>large-9 large-offset-3 medium-9 medium-offset-3 small-12</p>
+                </div>
+            </div>
+        </div>
+        <div class="large-12 medium-12 small-12 margin-bottom-40">
+            <div class="card margin-top-20">
+                <div class="card__header ">
+                    <h4 class="card__header__title text-uppercase">Cooking</h4>
+                </div>
+                <div class="card__container card--border">
+                    <div id="view-html" class="code">
+                        <pre class="brush: xml; toolbar: false; gutter: false;">
+                            &lt;div class="row">
+                                &lt;div class="large-12 medium-12 small-12">
+                                    &lt;p>large-12 medium-12 small-12&lt;/p>
+                                &lt;/div>
+                                &lt;div class="large-6 large-offset-6 medium-6 medium-offset-6 small-12">
+                                    &lt;p>large-6 large-offset-6 medium-6 medium-offset-6 small-12&lt;/p>
+                                &lt;/div>
+                                &lt;div class="large-8 large-offset-4 medium-8 medium-offset-4 small-12">
+                                    &lt;p>large-8 large-offset-4 medium-8 medium-offset-4 small-12&lt;/p>
+                                &lt;/div>
+                                &lt;div class="large-9 large-offset-3 medium-9 medium-offset-3 small-12">
+                                    &lt;p>large-9 large-offset-3 medium-9 medium-offset-3 small-12&lt;/p>
+                                &lt;/div>
+                            &lt;/div>
+                        </pre>                    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Grid Pull-->
+        <div class="row margin-bottom-40">
+            <div class="large-12 medium-12 small-12 margin-bottom-40">
+                <h2>Pull & Push</h2>
+                <p>You can adapt the pull and the push for different resolutions.</p>
+                <p>To be able to use the <code>pull</code> and <code>push</code> not able to perform with the class <code>.row--gutter</code> because it will not be calculated the space between the div's</p>
+            </div>
+            <div class="large-7 large-push-5 medium-7 medium-push-5 small-12">
+                <div class="column">
+                    <p>First Column</p>
+                </div>
+            </div>
+            <div class="large-5 large-pull-7 medium-5 medium-pull-7 small-12">
+                <div class="column">
+                    <p>Second Column</p>
+                </div>
+            </div>
+            <div class="large-12 medium-12 small-12 margin-bottom-40">
+                <div class="card margin-top-20">
+                    <div class="card__header ">
+                        <h4 class="card__header__title text-uppercase">Cooking</h4>
+                    </div>
+                    <div class="card__container card--border">
+                        <div id="view-html" class="code">
+                            <pre class="brush: xml; toolbar: false; gutter: false;">
+                                &lt;div class="row">
+                                    &lt;div class="large-7 large-push-5 medium-7 medium-push-5 small-12">
+                                        &lt;p>First Column&lt;/p>
+                                    &lt;/div>
+                                    &lt;div class="large-5 large-pull-7 medium-5 medium-pull-7 small-12">
+                                        &lt;p>Second Column&lt;/p>
+                                    &lt;/div>
+                                &lt;/div>
+                            </pre>                    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+        </div>
+    </section>
+
+    <!-- footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="row-space">
+                <div class="large-12 medium-12 small-12">
+                    <nav class="navigation pull-center display-table">
+                        <ul class="navigation__horizontal pull-center--mobile ">
+                            <li><a href="https://github.com/maurovieirareis/stewed" target="_bank">View Source on Github</a></li>
+                            <li><a href="">Support</a></li>
+                            <li>
+                                <a href="changelog.html">
+                                    Changelog
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- scripts -->
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-XXXXX-X', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="assets/js/jquery-2.0.2.min.js"></script>
+    <script type="text/javascript" src="assets/js/shCore.js"></script>
+    <script type="text/javascript" src="assets/js/shBrushXml.js"></script>
+    <script type="text/javascript" src="assets/js/shBrushJScript.js"></script>
+
+    <!-- Syntax Highlighter -->
+    <script type="text/javascript">
+        $(function(){
+            SyntaxHighlighter.all();
+        });
+    </script>
+
+    <script src="assets/stewed/stewed.js"></script>   
+</body>
+</html>

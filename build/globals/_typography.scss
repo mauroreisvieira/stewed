@@ -49,11 +49,14 @@ a {
     }
 }
 
+strong,
+.strong { font-weight: $weight-bold; }
+
 /** Font Weight **/
 .font-100 { font-weight: $weight-thin; }
 .font-300 { font-weight: $weight-light; }
-.font-500 { font-weight: $weight-regular; }
-.font-600 { font-weight: $weight-medium; }
+.font-400 { font-weight: $weight-regular; }
+.font-500 { font-weight: $weight-medium; }
 .font-700 { font-weight: $weight-bold; }
 .font-900 { font-weight: $weight-extra-bold; }
 

@@ -1,7 +1,7 @@
 {
 	"name": "Stewed",
-	"version": "0.9.10",
-	"description": "Stewed Framework in CSS, JavaScript and HTML",
+	"version": "0.9.30",
+	"description": "Stewed Framework in CSS and (PURE) JavaScript.",
 	"license": "GNU",
 	"homepage": "https://github.com/maurovieirareis/stewed",
 	"author": "Mauro Reis Vieira",

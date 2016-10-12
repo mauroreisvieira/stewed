@@ -1,0 +1,29 @@
+{
+	"manifest_version": 1,
+	"name": "Stewed Framework",
+	"short_name": "SFW",
+	"version": "0.9.20",
+	"default_locale": "en",
+	"description": "Stewed is a framework for rapid development of simple and lightweight web applications. Using a combination of HTML, CSS and pure JavaScript allows you to create a fully customized application without losing its own special way it serves only one auxiliary base in its development.",
+	"author": "Mauro Reis Vieira",
+	"icons": [{
+		"src": "images/touch/icon-128x128.png",
+		"sizes": "128x128",
+		"type": "image/png"
+	}, {
+		"src": "images/touch/apple-touch-icon.png",
+		"sizes": "152x152",
+		"type": "image/png"
+	}, {
+		"src": "images/touch/ms-touch-icon-144x144-precomposed.png",
+		"sizes": "144x144",
+		"type": "image/png"
+	}, {
+		"src": "images/touch/chrome-touch-icon-192x192.png",
+		"sizes": "192x192",
+		"type": "image/png"
+	}],
+	"start_url": "/index.html",
+	"background_color": "#FB3C68",
+	"theme_color": "#FB3C68"
+}
