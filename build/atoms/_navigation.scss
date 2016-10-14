@@ -16,11 +16,22 @@
                 padding:1.250em 1em;
                 text-decoration: none;
                 color: currentColor;
-            }
-            &.active,
-            &:hover {
-                background: rgba(0,0,0,0.1);
-                color: currentColor;
+                font-size: 0.875em;
+                font-weight: 400;
+                &.active,
+                &:hover {
+                    background: rgba(0,0,0,0.1);
+                    color: currentColor;
+                }
+                &.disabled,
+                &[disabled],
+                &[disabled]:hover,
+                &.disabled:hover {
+                    color: #bdbdbd;
+                    background: transparent;
+                    background-color: transparent;
+                    cursor: default;
+                }
             }
         }
 
@@ -59,7 +70,6 @@
                     display: none;
                 }
                 .navigation__horizontal__submenu {
-                    position: absolute;
                     left: 0;
                     position: absolute;
                     min-width: 100%;
@@ -94,6 +104,37 @@
             }
             li {
                 display: inline-block;
+            }
+        }
+    }
+}
+
+
+@media only screen and (min-width: $media-mobile-min) and (max-width: $media-mobile-max) {
+
+    .navigation {
+        .navigation__horizontal {
+            display: inline;
+            li {
+                display: block;
+                width: 100%;
+                margin-bottom: 0;
+                .navigation__horizontal__submenu {
+                    position: relative !important;
+                }
+            }
+        }
+        .navigation__vertical {
+            li {
+                ul {
+                    position: relative !important;
+                }
+                .navigation__vertical__submenu--right {
+                    left: 0 !important;
+                }
+                .navigation__vertical__submenu--left {
+                    right: 0 !important;
+                }
             }
         }
     }

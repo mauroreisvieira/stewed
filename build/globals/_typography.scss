@@ -65,6 +65,21 @@ strong,
 .text-center    { text-align: center; }
 .text-right     { text-align: right; }
 .text-justify   { text-align: justify; }
+.text-nowrap    { white-space: nowrap; }
+
+@media only screen and (min-width: $media-tablet-min) and (max-width: $media-tablet-max) {
+
+    .text-left--tablet      { text-align: left; }
+    .text-center--tablet    { text-align: center; }
+    .text-right--tablet    { text-align: right; }
+}
+
+@media only screen and (min-width: $media-mobile-min) and (max-width: $media-mobile-max) {
+
+    .text-left--mobile      { text-align: left; }
+    .text-center--mobile    { text-align: center; }
+    .text-right--mobile    { text-align: right; }
+}
 
 /** Font style **/
 .font-normal    { font-style: normal; }

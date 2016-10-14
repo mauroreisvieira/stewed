@@ -112,6 +112,31 @@
     }
 }
 
+.button--icon {
+    position: relative;
+    border-radius: 50%;
+    font-size: 24px;
+    height: 48px;
+    min-width: 48px;
+    width: 48px;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+    z-index: 1;
+    background:transparent;
+    &:focus {
+        outline: none;
+        box-shadow: none;
+        background-color: transparent;
+        background-image: none;  
+    }
+    &:hover {
+        box-shadow: none;
+        background-color: rgba(0,0,0, .2);
+        background-image: none;
+    }
+}
+
 .button--large {
     padding: 0 2.750em;
     font {

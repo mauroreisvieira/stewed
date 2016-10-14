@@ -1,0 +1,53 @@
+/** Blockquote **/
+blockquote,
+.blockquote {
+	margin: 1.500em 0;
+	padding: 1.250em 1.000em 1.250em 1.000em;
+	border-left: 5px solid currentColor;
+}
+
+mark {
+	background-color: #f4ff81;
+}
+
+dt {
+	font-weight: 700;
+}
+
+/** Address **/
+address {
+	font-size: 12px;
+	line-height: 1;
+	font-style: normal;
+}
+
+/** Avatar **/
+[class^='avatar--'] {
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.avatar--32 {
+	height: 32px;
+	width: 32px;
+}
+
+.avatar--48 {
+	height: 48px;
+	width: 48px;
+}
+
+.avatar--64 {
+	height: 64px;
+	width: 64px;
+}
+
+.avatar--80 {
+	height: 80px;
+	width: 80px;
+}
+
+.avatar--96 {
+	height: 96px;
+	width: 96px;
+}
