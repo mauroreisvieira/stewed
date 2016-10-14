@@ -21,33 +21,37 @@ address {
 	font-style: normal;
 }
 
-/** Avatar **/
-[class^='avatar--'] {
-	border-radius: 50%;
-	object-fit: cover;
-}
-
 .avatar--32 {
 	height: 32px;
 	width: 32px;
+	border-radius: 50%;
+	object-fit: cover;
 }
 
 .avatar--48 {
 	height: 48px;
 	width: 48px;
+	border-radius: 50%;
+	object-fit: cover;
 }
 
 .avatar--64 {
 	height: 64px;
 	width: 64px;
+	border-radius: 50%;
+	object-fit: cover;
 }
 
 .avatar--80 {
 	height: 80px;
 	width: 80px;
+	border-radius: 50%;
+	object-fit: cover;
 }
 
 .avatar--96 {
 	height: 96px;
 	width: 96px;
+	border-radius: 50%;
+	object-fit: cover;
 }
