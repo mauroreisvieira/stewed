@@ -14,10 +14,9 @@
             a {
                 display: block;
                 padding:1.250em 1em;
+                line-height: 22px;
                 text-decoration: none;
                 color: currentColor;
-                font-size: 0.875em;
-                font-weight: 400;
                 &.active,
                 &:hover {
                     background: rgba(0,0,0,0.1);

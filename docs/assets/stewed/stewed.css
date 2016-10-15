@@ -997,6 +997,8 @@ p {
   position: relative;
   display: block;
   margin: 10px 0 25px 0;
+  min-height: 25px;
+  line-height: 25px;
   overflow: hidden;
   font-size: 16px;
 }
@@ -1016,9 +1018,10 @@ p {
 
 .textfield [class^="textfield__label--"],
 .textfield .textfield__label {
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: .5px;
   font-weight: 400;
+  padding-left: 2px;
 }
 
 .textfield__input,
@@ -1188,7 +1191,7 @@ input[type=checkbox]:checked + label:before {
 
 input[type=checkbox]:checked + label:after {
   top: 20%;
-  left: 3px;
+  left: 5px;
   height: 14px;
   width: 14px;
   content: '';
@@ -1218,7 +1221,7 @@ input[type=radio] {
 input[type=radio] + label:before {
   position: relative;
   top: 0;
-  left: 2px;
+  left: 0;
   display: inline-block;
   width: 16px;
   height: 16px;
@@ -1236,11 +1239,11 @@ input[type=radio]:checked + label:before {
 }
 
 input[type=radio]:checked + label:after {
-  top: 8px;
-  left: 4px;
+  top: 4px;
+  left: 0;
   height: 12px;
   width: 12px;
-  margin: 0;
+  margin: 4px;
   content: '';
   cursor: pointer;
   position: absolute;
@@ -1319,7 +1322,15 @@ input[type=range]:focus::-moz-range-track {
 */
 .container {
   display: block;
-  width: calc(1280px - 30px);
+  width: calc(100% - 30px);
+  max-width: 1280px;
+  padding: 0 15px;
+  margin: auto;
+}
+
+.container--fullwidth {
+  display: block;
+  width: calc(100% - 30px);
   padding: 0 15px;
   margin: auto;
 }
@@ -1518,7 +1529,7 @@ input[type=range]:focus::-moz-range-track {
 */
 @media only screen and (min-width: 768px) and (max-width: 1280px) {
   .container {
-    width: 94%;
+    width: 100%;
     max-width: 1279px;
   }
   .medium-1 {
@@ -1679,7 +1690,7 @@ input[type=range]:focus::-moz-range-track {
 */
 @media only screen and (min-width: 280px) and (max-width: 767px) {
   .container {
-    width: 90%;
+    width: 100%;
     max-width: 766px;
   }
   .small-1 {
@@ -1885,10 +1896,9 @@ input[type=range]:focus::-moz-range-track {
 .navigation ul li a {
   display: block;
   padding: 1.250em 1em;
+  line-height: 22px;
   text-decoration: none;
   color: currentColor;
-  font-size: 0.875em;
-  font-weight: 400;
 }
 
 .navigation ul li a.active, .navigation ul li a:hover {
@@ -3036,6 +3046,7 @@ h6,
 
 p {
   font-weight: 300;
+  line-height: 1.375em;
 }
 
 a {
@@ -3288,6 +3299,18 @@ strong,
   background-color: #795548;
 }
 
+.background-cyan {
+  background-color: #00BCD4;
+}
+
+.background-darkgrey {
+  background-color: #212121;
+}
+
+.background-darkbluegrey {
+  background-color: #263238;
+}
+
 .background-green {
   background-color: #4caf50;
 }
@@ -3354,6 +3377,18 @@ strong,
 
 .color-brown {
   color: #795548;
+}
+
+.color-cyan {
+  color: #00BCD4;
+}
+
+.color-darkbluegrey {
+  color: #263238;
+}
+
+.color-darkgrey {
+  color: #212121;
 }
 
 .color-green {

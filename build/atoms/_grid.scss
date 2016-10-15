@@ -6,7 +6,15 @@
 */
 .container {
     display: block;
-    width: calc(1280px - 30px);
+    width: calc(100% - 30px);
+    max-width: 1280px;
+    padding: 0 15px;
+    margin: auto;
+}
+
+.container--fullwidth {
+    display: block;
+    width: calc(100% - 30px);
     padding: 0 15px;
     margin: auto;
 }
@@ -151,7 +159,7 @@
 @media only screen and (min-width: $media-tablet-min) and (max-width: $media-tablet-max) {
 
     .container {
-        width: 94%;
+        width: 100%;
         max-width: ($media-tablet-max - 1);
     }
 
@@ -262,7 +270,7 @@
 @media only screen and (min-width: $media-mobile-min) and (max-width: $media-mobile-max) {
 
     .container {
-        width: 90%;
+        width: 100%;
         max-width: ($media-mobile-max - 1);
     }
 

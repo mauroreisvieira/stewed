@@ -4,11 +4,12 @@
     display: block;
     width: 100%;
 }
-
 .textfield {
     position: relative;
     display: block;
     margin: 10px 0 25px 0;
+    min-height: 25px;
+    line-height: 25px;
     overflow: hidden;
     font-size: 16px;
     .textfield__label {
@@ -25,9 +26,10 @@
     }
     [class^="textfield__label--"],
     .textfield__label {
-        font-size: 14px;
+        font-size: 16px;
         letter-spacing: .5px;
         font-weight: 400;
+        padding-left: 2px;
     }
 }
 
@@ -193,7 +195,7 @@ input[type=checkbox]:checked + label:before {
 
 input[type=checkbox]:checked + label:after {
     top: 20%;
-    left: 3px;
+    left: 5px;
     height: 14px;
     width: 14px;
     content: '';
@@ -223,7 +225,7 @@ input[type=checkbox]:checked + label:after {
 input[type=radio] + label:before {
     position: relative;
     top: 0;
-    left: 2px;
+    left: 0;
     display: inline-block;
     width: 16px;
     height: 16px;
@@ -241,11 +243,11 @@ input[type=radio]:checked + label:before {
 }
 
 input[type=radio]:checked + label:after {
-    top: 8px;
-    left: 4px;
+    top: 4px;
+    left: 0;
     height: 12px;
     width: 12px;
-    margin: 0;
+    margin: 4px;
     content: '';
     cursor: pointer;
     position: absolute;
