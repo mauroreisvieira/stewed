@@ -33,6 +33,9 @@ $heading-4: 26px;
 $heading-5: 16px;
 $heading-6: 14px;
 
+/* Font */
+$font-family: sans-serif;
+
 /* Weight font */
 $weight-thin: 		100; 
 $weight-light: 		300; 
@@ -54,3 +57,5 @@ $media-mobile-max: 767px;
 /* Tooltip */
 $tooltip-color: rgba(51, 51, 51, 0.9);
 
+/* [Disabled] */
+$disabled: #d2d2d2;

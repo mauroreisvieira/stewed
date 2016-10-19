@@ -113,7 +113,7 @@ input[value=""] {
 /** Disabled */
 .textfield__input:disabled,
 .textfield__input.disabled {
-    color: #d1d1d1;
+    color: $disabled;
     border-color: currentColor;
     box-shadow: none;
     cursor: default;
@@ -121,7 +121,7 @@ input[value=""] {
 
 .textfield__input:disabled + label,
 .textfield__input.disabled + label {
-    color: #d1d1d1;
+    color: $disabled;
 }
 
 select {
@@ -162,10 +162,10 @@ select:focus + label {
 }
 
 /** 
- * Input checkbox 
- * This input need the use the label
- **/
- input[type=checkbox] {
+* Input checkbox 
+* This input need the use the label
+**/
+input[type=checkbox].textfield__input--checkbox {
     position: absolute;
     padding: 0;
     overflow: hidden;
@@ -174,7 +174,7 @@ select:focus + label {
     top: 2px;
 }
 
-input[type=checkbox] + label:before {
+input[type=checkbox].textfield__input--checkbox + label.textfield__label--checkbox:before {
     position: relative;
     top: 0;
     left: 2px;
@@ -188,12 +188,12 @@ input[type=checkbox] + label:before {
     box-shadow: 0 0 0 2px #5a5a5a;
 }
 
-input[type=checkbox]:checked + label:before {
+input[type=checkbox].textfield__input--checkbox:checked + label.textfield__label--checkbox:before {
     background: currentColor;
     box-shadow: 0 0 0 2px currentColor;
 }
 
-input[type=checkbox]:checked + label:after {
+input[type=checkbox].textfield__input--checkbox:checked + label.textfield__label--checkbox:after {
     top: 20%;
     left: 5px;
     height: 14px;
@@ -210,10 +210,10 @@ input[type=checkbox]:checked + label:after {
 }
 
 /** 
- * Input radio 
- * This input need the use the label
- **/
- input[type=radio] {
+* Input radio 
+* This input need the use the label
+**/
+input[type=radio].textfield__input--radio {
     position: absolute;
     padding: 0;
     overflow: hidden;
@@ -222,7 +222,7 @@ input[type=checkbox]:checked + label:after {
     top: 0;
 }
 
-input[type=radio] + label:before {
+input[type=radio].textfield__input--radio + label.textfield__label--radio:before {
     position: relative;
     top: 0;
     left: 0;
@@ -237,12 +237,12 @@ input[type=radio] + label:before {
     border-radius: 50%;
 }
 
-input[type=radio]:checked + label:before {
+input[type=radio].textfield__input--radio:checked + label.textfield__label--radio:before {
     background: transparent;
     box-shadow: 0 0 0 2px currentColor;
 }
 
-input[type=radio]:checked + label:after {
+input[type=radio].textfield__input--radio:checked + label.textfield__label--radio:after {
     top: 4px;
     left: 0;
     height: 12px;
@@ -256,8 +256,83 @@ input[type=radio]:checked + label:after {
     border-radius: 50%;
 }
 
+/** 
+* Input switch 
+* This input need the use the label
+**/
+
+input[type=checkbox].textfield__input--switch {
+    display: none;
+}
+
+input[type=checkbox].textfield__input--switch + label.textfield__label--switch {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    text-align: left;
+    padding-left: 50px;
+}
+
+input[type=checkbox].textfield__input--switch + label.textfield__label--switch:before, 
+input[type=checkbox].textfield__input--switch + label.textfield__label--switch:after {
+    content: "";
+    position: absolute;
+    margin: 0;
+    outline: 0;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+input[type=checkbox].textfield__input--switch + label.textfield__label--switch:before {
+    left: 2px;
+    width: 34px;
+    height: 14px;
+    background-color: #9E9E9E;
+    border-radius: 8px;
+}
+
+input[type=checkbox].textfield__input--switch + label.textfield__label--switch:after {
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background-color: #FAFAFA;
+    border-radius: 50%;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14), 
+    0 2px 2px 0 rgba(0, 0, 0, 0.098), 
+    0 1px 5px 0 rgba(0, 0, 0, 0.084);
+}
+
+input[type=checkbox].textfield__input--switch:checked + label.textfield__label--switch:after {
+    background-color: #4CAF50;
+    -webkit-transform: translate(80%, -50%);
+    transform: translate(80%, -50%);
+}
+
+input[type=checkbox].textfield__input--switch:checked + label.textfield__label--switch:before {
+    background-color: currentColor;
+    opacity: 0.5;
+}
+
+input[type=checkbox].textfield__input--switch:checked + label.textfield__label--switch:after {
+    background-color: currentColor;
+    -webkit-transform: translate(80%, -50%);
+    transform: translate(80%, -50%);
+}
+
+input[type=checkbox].textfield__input--switch:disabled + label.textfield__label--switch:before {
+    background-color: $disabled;
+    opacity: 0.5;
+}
+
+input[type=checkbox].textfield__input--switch:disabled + label.textfield__label--switch:after {
+    background-color: $disabled;
+}
+
 /** Input range */
-input[type=range] {
+input[type=range].textfield__input--range {
     width: 100%;
     padding: 15px 0;
     margin-top: 25px;
@@ -272,12 +347,12 @@ input[type=range] {
     color: currentColor;
 }
 
-input[type=range]:focus {
+input[type=range].textfield__input--range:focus {
     outline: none;
 }
 
-input[type=range]:focus::-webkit-slider-runnable-track,
-input[type=range]::-webkit-slider-runnable-track {
+input[type=range].textfield__input--range:focus::-webkit-slider-runnable-track,
+input[type=range].textfield__input--range::-webkit-slider-runnable-track {
     width: 100%;
     height: 2px;
     cursor: pointer;
@@ -285,7 +360,7 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 
-input[type=range]::-webkit-slider-thumb {
+input[type=range].textfield__input--range::-webkit-slider-thumb {
     position: relative;
     top: -8px;
     width: 18px;
@@ -296,8 +371,7 @@ input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
 }
 
-
-input[type=range]::-moz-range-track {
+input[type=range].textfield__input--range::-moz-range-track {
     width: 100%;
     height: 2px;
     cursor: pointer;
@@ -305,7 +379,7 @@ input[type=range]::-moz-range-track {
     animate: .2s;
 }
 
-input[type=range]::-moz-range-thumb {
+input[type=range].textfield__input--range::-moz-range-thumb {
     position: relative;
     top: -8px;
     width: 18px;
@@ -316,6 +390,6 @@ input[type=range]::-moz-range-thumb {
     -webkit-appearance: none;
 }
 
-input[type=range]:focus::-moz-range-track {
+input[type=range].textfield__input--range:focus::-moz-range-track {
     outline: none;
 }

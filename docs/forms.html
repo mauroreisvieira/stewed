@@ -29,7 +29,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/touch//favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="assets/images/touch//favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/touch//favicon-16x16.png">
-
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <meta name="msapplication-TileImage" content="assets/images/touch/apple-icon-144x144.png">
     <meta name="msapplication-TileColor" content="#2F3BA2">
     <!-- Stewed Kit -->
@@ -45,9 +45,9 @@
         <div class="container">
             <div class="row">
                 <div class="large-5 medium-4 small-12">
-                <div class="pull-center--mobile color-white">
-                      <p class="font-400 text-uppercase size-44">S t e w e d —</p>
-                      <p class="">Framework <strong>HTML</strong>,<strong>CSS</strong> & Pure <strong>JavaScript</strong></p>
+                    <div class="pull-center--mobile color-white">
+                      <p class="font-400 text-uppercase size-40">S t e w e d —</p>
+                      <p class="size-14">Framework <strong>HTML</strong>,<strong>CSS</strong> & Pure <strong>JavaScript</strong></p>
                   </div>
               </div>
               <div class="large-7 medium-8 small-12">
@@ -60,7 +60,7 @@
                             <a href="dashboard.html" class="font-500">Templates</a> 
                         </li> 
                         <li>
-                            <a href="helpers.html" class="font-500">CSS Helpers</a>
+                            <a href="colors.html" class="font-500">CSS Helpers</a>
                         </li>
                         <li>
                             <a href="badges.html" class="font-500">CSS Components</a>
@@ -84,7 +84,7 @@
 			<div class="large-12 medium-12 small-12">
 				<nav class="navigation">
 					<ul class="navigation__horizontal--scroll">
-						<li> <a href="badges.html" class="">Badges</a> </li>
+						<li> <a href="badges.html" class="">Badges & Labels</a> </li>
 						<li> <a href="breadcrumbs.html" class="">Breadcrumbs</a> </li>
 						<li> <a href="buttons.html" class="">Buttons</a> </li>
 						<li> <a href="cards.html" class="">Cards</a> </li>
@@ -101,7 +101,7 @@
 	</div>
 </div>
 
-<div class="header-description">
+<div class="header-description box-shadow--4dp">
 	<div class="container">
 		<div class="master-header">
 			<h1>Forms</h1>
@@ -241,7 +241,7 @@
 		<h2>Others Form</h2>
 		<div class="row-space">
 			<div class="large-8 medium-8 small-12">
-				<div class="margin-bottom-40">
+				<div class="margin-bottom-20">
 					<h4>Select Options</h4>
 				</div>
 				<div class="textfield color-pink">
@@ -255,46 +255,89 @@
 				</div>
 			</div>
 			<div class="large-8 medium-8 small-12">
-				<div class="margin-bottom-40">
+				<div class="margin-top-40">
 					<h4>Input Range</h4>
 				</div>
 				<div class="textfield color-pink">
-					<label for="radio-1" class="textfield__label--range"><span class="color-black">Choose Price:</span></label>
-					<input type="range" id="range" min="0" max="100">
+					<label for="radio-1" class="textfield__label--range">
+						<span class="color-black">Choose Price:</span>
+					</label>
+					<input type="range" id="range" min="0" max="100" class="textfield__input--range">
 				</div>
 			</div>
 			<div class="large-6 medium-6 small-12">
-				<div class="margin-bottom-40">
+				<div class="margin-top-40">
 					<h4>Input Radio</h4>
 				</div>
 				<div class="textfield color-bluegrey">
-					<input type="radio" id="radio-1" value="1" name="radio[]">
-					<label for="radio-1" class="textfield__label--radio"><span class="color-black">Female</span></label>
+					<input type="radio" id="radio-1" value="1" name="radio[]" class="textfield__input--radio">
+					<label for="radio-1" class="textfield__label--radio">
+						<span class="color-black">Female</span>
+					</label>
 				</div>	
 				<div class="textfield color-bluegrey">
-					<input type="radio" id="radio-2" value="2" name="radio[]">
-					<label for="radio-2" class="textfield__label--radio"><span class="color-black">Male</span></label>
+					<input type="radio" id="radio-2" value="2" name="radio[]" class="textfield__input--radio">
+					<label for="radio-2" class="textfield__label--radio">
+						<span class="color-black">Male</span>
+					</label>
 				</div>
 				<div class="textfield color-bluegrey">
-					<input type="radio" id="radio-3" value="3" name="radio[]" checked="true">
-					<label for="radio-3" class="textfield__label--radio"><span class="color-black">Other</span></label>
+					<input type="radio" id="radio-3" value="3" name="radio[]" checked="true" class="textfield__input--radio">
+					<label for="radio-3" class="textfield__label--radio">
+						<span class="color-black">Other</span>
+					</label>
 				</div>
 			</div>
 			<div class="large-6 medium-6 small-12">
-				<div class="margin-bottom-40">
+				<div class="margin-top-40">
 					<h4>Input Checkbox</h4>
 				</div>
 				<div class="textfield color-pink">
-					<input type="checkbox" id="checkbox-1" value="1" name="checkbox[]" checked="true">
-					<label for="checkbox-1" class="textfield__label--checkbox"><span class="color-black">Option Pink</span></label>
+					<input type="checkbox" id="checkbox-1" value="1" name="checkbox[]" checked="true" class="textfield__input--checkbox">
+					<label for="checkbox-1" class="textfield__label--checkbox">
+						<span class="color-black">Checkbox Pink</span>
+					</label>
 				</div>		
 				<div class="textfield color-blue">
-					<input type="checkbox" id="checkbox-2" value="2" name="checkbox[]">
-					<label for="checkbox-2" class="textfield__label--checkbox"><span class="color-black">Option Blue</span></label>
+					<input type="checkbox" id="checkbox-2" value="2" name="checkbox[]" class="textfield__input--checkbox">
+					<label for="checkbox-2" class="textfield__label--checkbox">
+						<span class="color-black">Checkbox Blue</span>
+					</label>
 				</div>
 				<div class="textfield color-green">
-					<input type="checkbox" id="checkbox-3" value="3" name="checkbox[]">
-					<label for="checkbox-3" class="textfield__label--checkbox"><span class="color-black">Option Green</span></label></label>
+					<input type="checkbox" id="checkbox-3" value="3" name="checkbox[]" class="textfield__input--checkbox">
+					<label for="checkbox-3" class="textfield__label--checkbox">
+						<span class="color-black">Checkbox Green</span>
+					</label>
+				</div>
+			</div>
+			<div class="large-6 medium-6 small-12">
+				<div class="margin-top-40">
+					<h4>Input Switch</h4>
+				</div>
+				<div class="textfield color-pink">
+					<input type="checkbox" id="switch-1" name="set-name" class="textfield__input--switch">
+					<label for="switch-1" class="textfield__label--switch">
+						<span class="color-black">Switch Pink</span></label>
+					</label>
+				</div>
+				<div class="textfield color-blue">
+					<input type="checkbox" id="switch-2" name="set-name" class="textfield__input--switch">
+					<label for="switch-2" class="textfield__label--switch">
+						<span class="color-black">Switch Blue</span></label>
+					</label>
+				</div>
+				<div class="textfield color-orange">
+					<input type="checkbox" id="switch-3" name="set-name" class="textfield__input--switch" checked="true">
+					<label for="switch-3" class="textfield__label--switch">
+						<span class="color-black">Switch Orange</span></label>
+					</label>
+				</div>
+				<div class="textfield color-orange">
+					<input type="checkbox" id="switch-4" name="set-name" class="textfield__input--switch" checked="true" disabled>
+					<label for="switch-4" class="textfield__label--switch">
+						<span class="color-black">Switch Disabled</span></label>
+					</label>
 				</div>
 			</div>
 		</div>
@@ -307,20 +350,35 @@
 					<pre class="brush: xml; toolbar: false; gutter: false;">
 						&lt;!-- Input Range -->
 						&lt;div class="textfield color-pink">
-							&lt;label for="radio-1" class="textfield__label--range">&lt;span class="color-black">Choose Price:&lt;/span>&lt;/label>
-							&lt;input type="range" id="range" min="0" max="100">
+							&lt;label for="radio-1" class="textfield__label--range">
+								&lt;span class="color-black">Choose Price:&lt;/span>
+							&lt;/label>
+							&lt;input type="range" id="range" min="0" max="100" class="textfield__input--range">
 						&lt;/div>
 
 						&lt;!-- Input Radio -->
 						&lt;div class="textfield color-bluegrey">
-							&lt;input type="radio" id="radio-1" value="1" name="radio[]" checked="true">
-							&lt;label for="radio-1" class="textfield__label--radio">&lt;span class="color-black">Other&lt;/span>&lt;/label>
-						&lt;/div>
+							&lt;input type="radio" id="radio-1" value="1" name="radio[]" class="textfield__input--radio">
+							&lt;label for="radio-1" class="textfield__label--radio">
+								&lt;span class="color-black">Female&lt;/span>
+							&lt;/label>
+						&lt;/div>	
 
 						&lt;!-- Input Checkbox -->
 						&lt;div class="textfield color-green">
-							&lt;input type="checkbox" id="checkbox-1" value="1" name="checkbox[]">
-							&lt;label for="checkbox-1" class="textfield__label--checkbox">&lt;span class="color-black">Option Green&lt;/span>&lt;/label>&lt;/label>
+							&lt;input type="checkbox" id="checkbox-3" value="3" name="checkbox[]" class="textfield__input--checkbox">
+							&lt;label for="checkbox-3" class="textfield__label--checkbox">
+								&lt;span class="color-black">Checkbox Green&lt;/span>
+							&lt;/label>
+						&lt;/div>
+
+						
+						&lt;!-- Input Switch -->
+						&lt;div class="textfield color-orange">
+							&lt;input type="checkbox" id="switch-4" name="set-name" class="textfield__input--switch" checked="true" disabled>
+							&lt;label for="switch-4" class="textfield__label--switch">
+								&lt;span class="color-black">Switch Disabled&lt;/span>&lt;/label>
+							&lt;/label>
 						&lt;/div>
 					</pre>                    
 				</div>

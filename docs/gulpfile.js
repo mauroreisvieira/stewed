@@ -42,14 +42,6 @@ gulp.task('watch', function () {
 
  	gulp.src([
  		'views/layout/header.html',
- 		'views/helpers/utilities.html', 
- 		'views/layout/footer.html'
- 		])
- 	.pipe(concat('helpers.html'))
- 	.pipe(gulp.dest('.'));
-
- 	gulp.src([
- 		'views/layout/header.html',
  		'views/components.html', 
  		'views/components/badges.html', 
  		'views/layout/footer.html'
@@ -199,6 +191,33 @@ gulp.task('watch', function () {
  		'views/layout/footer.html'
  		])
  	.pipe(concat('tabs.html'))
+ 	.pipe(gulp.dest('.'));
+
+ 	gulp.src([
+ 		'views/layout/header.html',
+ 		'views/helpers.html', 
+ 		'views/helpers/colors.html', 
+ 		'views/layout/footer.html'
+ 		])
+ 	.pipe(concat('colors.html'))
+ 	.pipe(gulp.dest('.'));
+
+ 	gulp.src([
+ 		'views/layout/header.html',
+ 		'views/helpers.html', 
+ 		'views/helpers/typography.html', 
+ 		'views/layout/footer.html'
+ 		])
+ 	.pipe(concat('typography.html'))
+ 	.pipe(gulp.dest('.'));
+ 	
+ 	gulp.src([
+ 		'views/layout/header.html',
+ 		'views/helpers.html', 
+ 		'views/helpers/utilities.html', 
+ 		'views/layout/footer.html'
+ 		])
+ 	.pipe(concat('utilities.html'))
  	.pipe(gulp.dest('.'));
 
  });

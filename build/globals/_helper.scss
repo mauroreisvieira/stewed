@@ -46,15 +46,15 @@
 .position-fixed     { position: fixed; }
 .position-static    { position: static;}
 
-[class^="align-items--"],
-[class^="justify-content--"] {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -moz-flex;
-  display: -webkit-flex;
-  display: flex;
-  box-sizing: border-box;
+[class*="align-items--"],
+[class*="justify-content--"] {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+    box-sizing: border-box;
 }
 
 /** Align Items **/
@@ -90,13 +90,13 @@
 
 /** Justify Content **/
 .justify-content--center {
- -webkit-justify-content: center; 
- justify-content: center; 
+    -webkit-justify-content: center; 
+    justify-content: center; 
 }
 
 .justify-content--start {
- -webkit-justify-content: flex-start; 
- justify-content: flex-start; 
+    -webkit-justify-content: flex-start; 
+    justify-content: flex-start; 
 }
 
 .justify-content--end {
