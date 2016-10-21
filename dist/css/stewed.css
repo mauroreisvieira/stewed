@@ -858,8 +858,11 @@ p {
   outline: none;
 }
 
-.button:focus {
+.button:active {
   background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4));
+}
+
+.button:focus {
   outline: none;
 }
 
