@@ -3,6 +3,7 @@
     width: 100%;
     height: auto;
     border-radius: $border-radius;
+    -webkit-tap-highlight-color: transparent;
     ul {
         list-style-type: none;
         display: block;

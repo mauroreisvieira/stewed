@@ -64,19 +64,19 @@
         window.addEventListener('keypress', function(e) {
             'use strict';
 
-            switch (e.keyCode) {
-                case KEY_UP:
-                case KEY_LEFT:
-                    index--;
-                break;
+            // switch (e.keyCode) {
+            //     case KEY_UP:
+            //     case KEY_LEFT:
+            //         index--;
+            //     break;
 
-                case KEY_RIGHT:
-                case KEY_DOWN:
-                    index++;
-                break;
+            //     case KEY_RIGHT:
+            //     case KEY_DOWN:
+            //         index++;
+            //     break;
 
-                default: break;
-            }
+            //     default: break;
+            // }
 
             if (index < 0) {
                 index = 0;

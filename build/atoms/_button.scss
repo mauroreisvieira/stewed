@@ -17,6 +17,7 @@
     min-width: 60px;
     line-height: 40px;
     padding: 0 0.875em;
+    -webkit-tap-highlight-color: transparent;
     &:hover, &:active {
         outline: none;
         border: 0;
