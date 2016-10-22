@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/**
+/*
  * Stewed 0.9.30 | 17.09.2016
  * @mauroreisvieira
  * http://github.com/Stewed/stewed.css
@@ -21,17 +21,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- */
-/* Settings */
-/* Color palettes */
-/* Alerts */
-/* Heading size */
-/* Font */
-/* Weight font */
-/* Radius */
-/* Grid */
-/* Tooltip */
-/* [Disabled] */
+*/
 html,
 body,
 div,
@@ -191,7 +181,6 @@ p {
   padding: 0;
 }
 
-/* Components */
 /** Dropdown **/
 .dropdown {
   position: relative;
@@ -759,7 +748,6 @@ p {
   }
 }
 
-/* Atoms */
 /**
  * Badge Styles
  */
@@ -2024,6 +2012,58 @@ input[type=range].textfield__input--range:focus::-moz-range-track {
   background-color: #e53935;
 }
 
+.list {
+  display: block;
+  padding: 0;
+  list-style: none;
+}
+
+.list .list__item {
+  box-sizing: border-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  line-height: 1;
+  min-height: 48px;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  padding: 1.00em 1.500em;
+  cursor: default;
+  overflow: hidden;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.list .list__item.list__item--2x {
+  height: 72px;
+}
+
+.list .list__item .list__item__content {
+  flex-direction: column;
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  -webkit-flex-grow: 2;
+  -ms-flex-positive: 2;
+  flex-grow: 2;
+  text-decoration: none;
+  align-items: flex-start;
+  justify-content: center;
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  -webkit-flex-grow: 2;
+  -ms-flex-positive: 2;
+  flex-grow: 2;
+  text-decoration: none;
+  display: block;
+}
+
 .navigation {
   display: block;
   width: 100%;
@@ -2487,7 +2527,6 @@ input[type=range].textfield__input--range:focus::-moz-range-track {
   margin-bottom: -16px;
 }
 
-/* Globals */
 /** Blockquote **/
 blockquote,
 .blockquote {
@@ -2540,6 +2579,11 @@ address {
 .avatar--96 {
   height: 96px;
   width: 96px;
+}
+
+.avatar--112 {
+  height: 112px;
+  width: 112px;
 }
 
 /** Visibility  */
@@ -3483,6 +3527,10 @@ strong,
   background-color: #009688;
 }
 
+.background-turquoise {
+  background-color: #40e0d0;
+}
+
 .background-pink {
   background-color: #e91e63;
 }
@@ -3561,6 +3609,10 @@ strong,
 
 .color-teal {
   color: #009688;
+}
+
+.color-turquoise {
+  color: #40e0d0;
 }
 
 .color-pink {

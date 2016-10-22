@@ -1,4 +1,4 @@
-/**
+/*
  * Stewed 0.9.30 | 17.09.2016
  * @mauroreisvieira
  * http://github.com/Stewed/stewed.css
@@ -20,16 +20,15 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- */
-
+*/
  @charset "UTF-8";
 
-/* Settings */
+// Settings
 @import "settings/variables";
 @import "settings/mixins";
 @import "settings/reset";
 
-/* Components */
+// Components
 @import "components/dropdown/dropdown";
 @import "components/modal/modal";
 @import "components/tabs/tabs";
@@ -37,7 +36,7 @@
 @import "components/sidenav/sidenav";
 @import "components/toast/toast";
 
-/* Atoms */
+// Atoms
 @import "atoms/badge";
 @import "atoms/breadcrumb";
 @import "atoms/button";
@@ -45,12 +44,13 @@
 @import "atoms/form";
 @import "atoms/grid";
 @import "atoms/label";
+@import "atoms/list";
 @import "atoms/navigation";
 @import "atoms/pagination";
 @import "atoms/table";
 @import "atoms/tooltips";
 
-/* Globals */
+// Globals
 @import "globals/utilities";
 @import "globals/helper";
 @import "globals/typography";

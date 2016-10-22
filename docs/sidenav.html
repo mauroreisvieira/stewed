@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-    <!-- header -->
+
     <header class="header">
         <div class="container">
             <div class="row">
@@ -53,21 +53,10 @@
               <div class="large-7 medium-8 small-12">
                 <nav class="navigation margin-top-20">
                     <ul class="navigation__horizontal--scroll color-white pull-none--mobile pull-right">
-                        <li>
-                            <a href="index.html" class="font-500">Get Started</a> 
-                        </li>     
-                        <li>
-                            <a href="dashboard.html" class="font-500">Templates</a> 
-                        </li> 
-                        <li>
-                            <a href="colors.html" class="font-500">CSS Helpers</a>
-                        </li>
-                        <li>
-                            <a href="badges.html" class="font-500">CSS Components</a>
-                        </li>
-                        <li>
-                            <a href="dropdown.html" class="font-500">JavaScript</a>
-                        </li>
+                        <li><a href="index.html" class="font-500">Get Started</a> </li>     
+                        <li><a href="colors.html" class="font-500">CSS Helpers</a></li>
+                        <li><a href="badges.html" class="font-500">CSS Components</a></li>
+                        <li><a href="dropdown.html" class="font-500">JavaScript</a></li>
                     </ul> 
                 </nav>
             </div>
@@ -106,34 +95,78 @@
 	</div>
 </div>
 
-<div class="header-description box-shadow--4dp">
+    <div class="header-description box-shadow--4dp">
+        <div class="container">
+            <div class="master-header padding-bottom-20">
+                <h1>SideNav</h1>
+                <p></p>
+            </div>
+        </div>
+    </div>
     <div class="container">
-        <div class="master-header padding-bottom-20">
-            <h1>SideNav</h1>
-            <p></p>
+        <h2>SideNav</h2>
+        <p>Use SideNav simply create a container with <code>.js-side-nav</code> and <code>.side-nav</code> then you need to create an action with the class 
+        <code>.js-menu-show</code> that will show your sidenav, which is hidden.</p><br>
+        <p>To close the SideNav user just click an area outside the sidenav or if you prefer you can create an action to close by simply adding the <code>.js-menu-hide</code> class</p><br>
+
+
+        <div class="row row--gutter margin-top-40">
+            <div class="large-6 medium-6 small-6 margin-bottom-40">
+                <button class="button button--medium js-menu-show background-blue color-white">SideNav Demo</button>
+            </div>
+        </div>
+        <aside class="js-side-nav side-nav">
+            <nav class="js-side-nav-container side-nav__container">
+                <div class="card box-shadow--4dp">
+                    <div class="card__header background-white">
+                        <button class="js-menu-hide button color-purple button--icon">←</button>
+                        <img src="assets/images/profile/jack-sparrow.jpg" alt="" class="display-table avatar--96 pull-center">
+                        <h3 class="color-purple text-center">Jack Sparrow</h3>
+                    </div>
+                </div>
+                <div class="navigation color-white margin-top-20">
+                    <ul class="navigation__vertical color-black">
+                        <li><a href="#" class="font-500">Menu 1</a></li>
+                        <li><a href="#" class="font-500">Menu 2 </a></li>
+                        <li><a href="#" class="font-500">Menu 3</a></li>
+                        <li><a href="#" class="font-500">Menu 4</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+        <div class="card margin-top-20 margin-bottom-60">
+            <div class="card__header ">
+                <h4 class="card__header__title text-uppercase">Cooking</h4>
+            </div>
+            <div class="card__container card--border">
+                <div id="view-html" class="code">
+                    <pre class="brush: xml; toolbar: false; gutter: false;">
+                        &lt;button class="button button--medium js-menu-show background-blue color-white">SideNav Demo&lt;/button>
+                        
+                        &lt;aside class="js-side-nav side-nav">
+                            &lt;nav class="js-side-nav-container side-nav__container">
+                                &lt;div class="card box-shadow--4dp">
+                                    &lt;div class="card__container background-white">
+                                        &lt;button class="js-menu-hide side-nav__hide button color-turquoise button--icon">←&lt;/button>
+                                        &lt;img src="..." alt="" class="display-table avatar--80 pull-center">
+                                        &lt;h4 class="color-purple font-500 text-center text-uppercase">John Doe&lt;/h4>
+                                    &lt;/div>
+                                &lt;/div>
+                                &lt;div class="navigation color-white margin-top-20">
+                                    &lt;ul class="navigation__vertical color-black">
+                                        &lt;li>&lt;a href="#" class="">Menu 1&lt;/a>&lt;/li>
+                                        &lt;li>&lt;a href="#" class="">Menu 2 &lt;/a>&lt;/li>
+                                        &lt;li>&lt;a href="#" class="">Menu 3&lt;/a>&lt;/li>
+                                        &lt;li>&lt;a href="#" class="">Menu 4&lt;/a>&lt;/li>
+                                    &lt;/ul>
+                                &lt;/div>
+                            &lt;/nav>
+                        &lt;/aside>
+                    </pre>                    
+                </div>
+            </div>
         </div>
     </div>
-</div>
-<div class="container">
-    <div class="row row--gutter">
-        <div class="large-12 medium-12 small-12">
-            <button class="button button--medium js-menu-show header__menu-toggle background-blue color-white pull-right">SideNav Demo</button>
-        </div>
-    </div>
-
-    <aside class="js-side-nav side-nav">
-        <nav class="js-side-nav-container side-nav__container background-red">
-            <!-- <button class="js-menu-hide side-nav__hide button button--icon background-red color-white pull-right">✕</button>  -->
-            <ul class="side-nav__content ">
-                <li> <a href=""> Link 1 </a> </li>
-                <li> <a href=""> Link 2 </a> </li>
-                <li> <a href=""> Link 3 </a> </li>
-                <li> <a href=""> Link 4 </a> </li>
-            </ul>
-        </nav>
-    </aside>
-
-</div>
         </div>
     </section>
 
@@ -145,12 +178,9 @@
                     <nav class="navigation pull-center display-table">
                         <ul class="navigation__horizontal pull-center--mobile ">
                             <li><a href="https://github.com/maurovieirareis/stewed" target="_bank">View Source on Github</a></li>
+                            <li><a href="dashboard.html" class="font-500">Templates</a></li> 
                             <li><a href="">Support</a></li>
-                            <li>
-                                <a href="changelog.html">
-                                    Changelog
-                                </a>
-                            </li>
+                            <li><a href="changelog.html">Changelog</a></li>
                         </ul>
                     </nav>
                 </div>
