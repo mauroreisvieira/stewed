@@ -40,6 +40,8 @@
 		display: flex;
 		flex-direction: column;
 		will-change: transform;
+		overflow-x: hidden;
+		overflow-y: auto;
 	}
 }
 
