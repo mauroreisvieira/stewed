@@ -69,6 +69,12 @@ var Modal = function(modalId) {
         var current_modal = this.getAttribute('stewed-modal');
         var modal = memory_modals[current_modal];
 
+        var modalBody = document.querySelector('.modal');
+
+        modalBody.addEventListener('click', function() {
+            modal.hide();
+        });
+
         if (modal.isOpen) {
             modal.hide();
         } else {

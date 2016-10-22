@@ -432,7 +432,7 @@ p {
 @media only screen and (min-width: 280px) and (max-width: 767px) {
   .modal--animatable .modal__container {
     transform: translate(1%, -110%);
-    width: 90%;
+    width: 98%;
   }
 }
 

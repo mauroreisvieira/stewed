@@ -47,14 +47,25 @@ var SideNav = function() {
         $sideNavEl.classList.add('side-nav--animatable');
         $sideNavEl.classList.add('side-nav--visible');
         $sideNavEl.addEventListener('transitionend', onTransitionEnd);
-        // document.body.style.overflow = "hidden";
     }
 
     var hideSideNav = function() {
         $sideNavEl.classList.add('side-nav--animatable');
         $sideNavEl.classList.remove('side-nav--visible');
         $sideNavEl.addEventListener('transitionend', onTransitionEnd);
-        // document.body.style.overflow = "";
+    }
+
+    var update = function() {
+
+        if (!touchingSideNav) {
+            return;
+        }
+        requestAnimationFrame(function() {
+            update();
+        });
+        const translateX = Math.min(0, currentX - startX);
+        $sideNavContainerEl.style.transform = "translateX(" + translateX + "px)";
+
     }
 
     this.onTouchStart = function(evt) {
@@ -101,24 +112,6 @@ var SideNav = function() {
             hideSideNav();
         }
     }
-
-    var update = function() {
-
-        if (!touchingSideNav) {
-            return;
-        }
-
-        requestAnimationFrame(function() {
-            update();
-        });
-
-        const translateX = Math.min(0, currentX - startX);
-
-        $sideNavContainerEl.style.transform = "translateX(" + translateX + "px)";
-
-    }
-
-
 };
 
 

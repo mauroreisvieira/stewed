@@ -72,6 +72,12 @@ var snackbar = function(snackbarId) {
             var current_snackbar = this.getAttribute('stewed-snackbar');
             var snackbar = memory_snackbars[current_snackbar];
 
+            var snackbarBody = document.querySelector('.snackbar');
+
+            snackbarBody.addEventListener('click', function() {
+                snackbar.hide();
+            });
+            
             if (snackbar.isOpen) {
                 snackbar.hide();
             } else {
