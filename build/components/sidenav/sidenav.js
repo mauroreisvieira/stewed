@@ -47,14 +47,14 @@ var SideNav = function() {
         $sideNavEl.classList.add('side-nav--animatable');
         $sideNavEl.classList.add('side-nav--visible');
         $sideNavEl.addEventListener('transitionend', onTransitionEnd);
-        document.body.style.overflow = "hidden";
+        // document.body.style.overflow = "hidden";
     }
 
     var hideSideNav = function() {
         $sideNavEl.classList.add('side-nav--animatable');
         $sideNavEl.classList.remove('side-nav--visible');
         $sideNavEl.addEventListener('transitionend', onTransitionEnd);
-        document.body.style.overflow = "";
+        // document.body.style.overflow = "";
     }
 
     this.onTouchStart = function(evt) {
