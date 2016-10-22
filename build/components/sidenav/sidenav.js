@@ -40,6 +40,7 @@ var SideNav = function() {
 
     var onTransitionEnd = function(evt) {
         $sideNavEl.classList.remove('side-nav--animatable');
+        document.body.style.overflow = "";
         $sideNavEl.removeEventListener('transitionend', onTransitionEnd);
     }
 
@@ -47,14 +48,12 @@ var SideNav = function() {
         $sideNavEl.classList.add('side-nav--animatable');
         $sideNavEl.classList.add('side-nav--visible');
         $sideNavEl.addEventListener('transitionend', onTransitionEnd);
-        document.body.style.overflow = "hidden";
     }
 
     var hideSideNav = function() {
         $sideNavEl.classList.add('side-nav--animatable');
         $sideNavEl.classList.remove('side-nav--visible');
         $sideNavEl.addEventListener('transitionend', onTransitionEnd);
-        document.body.style.overflow = "";
     }
 
     this.onTouchStart = function(evt) {
