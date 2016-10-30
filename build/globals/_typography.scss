@@ -48,7 +48,7 @@ small {
 }
 
 /** Font size (12px to 68px) **/
-@for $i from 6 through 34 {
+@for $i from 6 through 40 {
     .size-#{$i*2} {
         font-size: unquote( ($i*2) + 'px');
     }
@@ -76,14 +76,14 @@ strong,
 
     .text-left--tablet      { text-align: left; }
     .text-center--tablet    { text-align: center; }
-    .text-right--tablet    { text-align: right; }
+    .text-right--tablet     { text-align: right; }
 }
 
 @media only screen and (min-width: $media-mobile-min) and (max-width: $media-mobile-max) {
 
     .text-left--mobile      { text-align: left; }
     .text-center--mobile    { text-align: center; }
-    .text-right--mobile    { text-align: right; }
+    .text-right--mobile     { text-align: right; }
 }
 
 /** Font style **/
@@ -94,6 +94,8 @@ strong,
 /** Text decoration **/
 .text-overline  { text-decoration: overline; }
 .text-underline { text-decoration: underline; }
+.text-line-through { text-decoration: line-through; }
+
 .text-uppercase { text-transform: uppercase; }
 .text-lowercase { text-transform: lowercase; }
 .text-capitalize{ text-transform: capitalize; }
