@@ -104,6 +104,11 @@
     justify-content: flex-end; 
 }
 
+.justify-content--space-between {
+    -webkit-justify-content: space-between; 
+    justify-content: space-between; 
+}
+
 /** Margin in all directions (10px...90px) **/
 @for $i from 0 through 9 {
     @if $i == 0 {
