@@ -3,7 +3,7 @@
 [![GitHub version](https://dl.dropboxusercontent.com/u/83653088/version.svg)](https://github.com/maurovieirareis/stewed)
 [![GitHub version](https://dl.dropboxusercontent.com/u/83653088/npm.svg)](https://github.com/maurovieirareis/stewed)
 
-[Stewed](http://maurovieirareis.github.io/stewed) is a framework for rapid development of simple and lightweight web applications.
+[Stewed Framework](http://maurovieirareis.github.io/stewed) is the ideal tool for a rapid development of simple and lightweight web applications.
 Using a combination of **HTML**, **CSS** and pure **JavaScript** allows you to create a fully customized application without losing its own special way it serves only one auxiliary base in its development.
 
 > Current version: 0.9.40
@@ -14,10 +14,12 @@ Using a combination of **HTML**, **CSS** and pure **JavaScript** allows you to c
 - Safari 9+
 - Internet Explorer 10
 
+
 ## Changelog
 - v1.0.0 **(in backlog)**
 	- Independant Modules
 	- Templates
+
 
 - v0.9.50 **(in development)**
 	- Accordion
@@ -29,6 +31,7 @@ Using a combination of **HTML**, **CSS** and pure **JavaScript** allows you to c
 	- Tabs
 	- SideNav
 
+
 - v0.9.30
 	- Fix Form Field 
 	- Fix Navigation Horizontal / Vertical
@@ -38,6 +41,7 @@ Using a combination of **HTML**, **CSS** and pure **JavaScript** allows you to c
 	- Adding Validate to Form
 	- Adding New Colors
 
+
 - v0.9.20
 	- Adding Badges
 	- Adding Labels
@@ -45,6 +49,7 @@ Using a combination of **HTML**, **CSS** and pure **JavaScript** allows you to c
 	- Adding New Helpers
 	- Adding Snackbar
 	- **Adding Documentation
+
 
 - v0.9.10 
 	- Adding Grid System
