@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*
- * Stewed 0.9.30 | 17.09.2016
+ * Stewed 0.9.40 | 05.11.2016
  * @mauroreisvieira
  * http://github.com/Stewed/stewed.css
  *
@@ -2747,6 +2747,11 @@ address {
 .justify-content--end {
   -webkit-justify-content: flex-end;
   justify-content: flex-end;
+}
+
+.justify-content--space-between {
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
 }
 
 /** Margin in all directions (10px...90px) **/

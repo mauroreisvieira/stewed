@@ -6,7 +6,7 @@
 [Stewed](http://maurovieirareis.github.io/stewed) is a framework for rapid development of simple and lightweight web applications.
 Using a combination of **HTML**, **CSS** and pure **JavaScript** allows you to create a fully customized application without losing its own special way it serves only one auxiliary base in its development.
 
-> Current version: 0.9.30
+> Current version: 0.9.40
 
 ## Supported Browsers:
 - Chrome 35+
@@ -19,9 +19,12 @@ Using a combination of **HTML**, **CSS** and pure **JavaScript** allows you to c
 	- Independant Modules
 	- Templates
 
-- v0.9.40 **(in development)**
-	- Tooltips
+- v0.9.50 **(in development)**
 	- Accordion
+	- Tree
+
+- v0.9.40 
+	- Tooltips
 	- Dropdown
 	- Tabs
 	- SideNav
