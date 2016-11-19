@@ -21,38 +21,26 @@ address {
 	font-style: normal;
 }
 
-/** Avatar **/
-[class*="avatar--"] {
-	border-radius: 50%;
+/** Images Fill **/
+.fit-fill {
+	object-fit: fill;
+}
+.fit-contain {
+	object-fit: contain;
+}
+.fit-cover {
 	object-fit: cover;
 }
-
-.avatar--32 {
-	height: 32px;
-	width: 32px;
+.fit-none {
+	object-fit: none;
+}
+.fit-scale {
+	object-fit: scale-down;
 }
 
-.avatar--48 {
-	height: 48px;
-	width: 48px;
-}
-
-.avatar--64 {
-	height: 64px;
-	width: 64px;
-}
-
-.avatar--80 {
-	height: 80px;
-	width: 80px;
-}
-
-.avatar--96 {
-	height: 96px;
-	width: 96px;
-}
-
-.avatar--112 {
-	height: 112px;
-	width: 112px;
+/** Rounded (0px to 32px) **/
+@for $i from 0 through 32 {
+	.rounded-#{$i} {
+		border-radius: unquote( ($i) + 'px');
+	}
 }

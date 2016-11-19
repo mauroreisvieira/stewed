@@ -44,7 +44,7 @@ a {
 }
 
 small {
-
+    font-size: 12px;
 }
 
 /** Font size (12px to 68px) **/
@@ -64,6 +64,11 @@ strong,
 .font-500 { font-weight: $weight-medium; }
 .font-700 { font-weight: $weight-bold; }
 .font-900 { font-weight: $weight-extra-bold; }
+
+/** Font style **/
+.font-normal    { font-style: normal; }
+.font-italic    { font-style: italic; }
+.font-oblique   { font-style: oblique; }
 
 /** Text align **/
 .text-left      { text-align: left; }
@@ -86,15 +91,10 @@ strong,
     .text-right--mobile     { text-align: right; }
 }
 
-/** Font style **/
-.font-normal    { font-style: normal; }
-.font-italic    { font-style: italic; }
-.font-oblique   { font-style: oblique; }
-
 /** Text decoration **/
 .text-overline  { text-decoration: overline; }
 .text-underline { text-decoration: underline; }
-.text-line-through { text-decoration: line-through; }
+.text-through { text-decoration: line-through; }
 
 .text-uppercase { text-transform: uppercase; }
 .text-lowercase { text-transform: lowercase; }

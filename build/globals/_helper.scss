@@ -7,14 +7,14 @@
 .pull-none { float: none; }
 .pull-right { float: right; }
 .pull-left  { float: left; }
-.pull-center  { float: none; margin: auto; }
+.centerd  { float: none; margin: auto; }
 
 @media only screen and (min-width: $media-tablet-min) and (max-width: $media-tablet-max) {
 
     .pull-none--tablet { float: none; }
     .pull-right--tablet { float: right; }
     .pull-left--tablet  { float: left; }
-    .pull-center--tablet  { 
+    .centerd--tablet  { 
         float: none !important; 
         margin: auto !important;
         display: table !important;
@@ -26,7 +26,7 @@
     .pull-none--mobile { float: none; }
     .pull-right--mobile { float: right; }
     .pull-left--mobile  { float: left; }
-    .pull-center--mobile  { 
+    .centerd--mobile  { 
         float: none !important; 
         margin: auto !important;
         display: table !important;
@@ -34,20 +34,22 @@
 }
 
 /** Display **/
+.display-flex  { display: flex; }
 .display-table  { display: table; }
 .display-block  { display: block; }
 .display-none   { display: none;}
 .display-inline  { display: inline }
-.display-inline-block { display: inline-block; }
+.display-inlineblock { display: inline-block; }
 
 /** Position **/
 .position-relative  { position: relative; }
 .position-absolute  { position: absolute; }
 .position-fixed     { position: fixed; }
 .position-static    { position: static;}
+.position-sticky    { position: sticky;} 
 
-[class*="align-items--"],
-[class*="justify-content--"] {
+ [class*="items-"],
+ [class*="content-"] {
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
@@ -57,184 +59,200 @@
     box-sizing: border-box;
 }
 
-/** Align Items **/
-.align-items--center {
+/** Align Items Center **/
+.items-center {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center; 
 }
 
-.align-items--start {
+/** Align Items Start **/
+.items-start {
     -webkit-align-items: flex-start;
     -ms-flex-align: flex-start;
     align-items: flex-start; 
 }
 
-.align-items--end {
+/** Align Items End **/
+.items-end {
     -webkit-align-items: flex-end;
     -ms-flex-align: flex-end;
     align-items: flex-end; 
 }
 
-.align-items--stretch {
+/** Align Items Stretch **/
+.items-stretch {
     -webkit-align-items: stretch;
     -ms-flex-align: stretch;
     align-items: stretch ;
 }
 
-.align-items--baseline {
+/** Align Items Baseline **/
+.items-baseline {
     -webkit-align-items: baseline;
     -ms-flex-align: baseline;
     align-items: baseline;
 }
 
-/** Justify Content **/
-.justify-content--center {
+/** Justify Content Center **/
+.content-center {
     -webkit-justify-content: center; 
     justify-content: center; 
 }
 
-.justify-content--start {
+/** Justify Content Start **/
+.content-start {
     -webkit-justify-content: flex-start; 
     justify-content: flex-start; 
 }
 
-.justify-content--end {
+/** Justify Content Flex-End **/
+.content-end {
     -webkit-justify-content: flex-end; 
     justify-content: flex-end; 
 }
 
-.justify-content--space-between {
+/** Justify Content Between **/
+.content-between {
     -webkit-justify-content: space-between; 
     justify-content: space-between; 
 }
 
-/** Margin in all directions (10px...90px) **/
+/** 
+ * Margin {0px to 90px}
+ * Padding {0px to 90px}
+ */
 @for $i from 0 through 9 {
     @if $i == 0 {
         .margin-0 {
-            margin: 0;
+            margin-top: 0;
+        }
+        .padding-0 {
+            padding-top: 0;
         }
     } @else {
         .margin-#{$i}0 {
             margin: unquote( ($i) + '0px');
-        }
-    } 
-}
-
-/** Margin top (0px to 90px) **/
-@for $i from 0 through 9 {
-    @if $i == 0 {
-        .margin-top-0 {
-            margin-top: 0;
-        }
-    } @else {
-        .margin-top-#{$i}0 {
-            margin-top: unquote( ($i) + '0px');
-        }
-    } 
-}
-
-/** Margin right (0px to 90px) **/
-@for $i from 0 through 9 {
-    @if $i == 0 {
-        .margin-right-0 {
-            margin-right: 0;
-        }
-    } @else {
-        .margin-right-#{$i}0 {
-            margin-right: unquote( ($i) + '0px');
-        }
-    } 
-}
-
-/** Margin bottom (0px to 90px) **/
-@for $i from 0 through 9 {
-    @if $i == 0 {
-        .margin-bottom-0 {
-            margin-bottom: 0;
-        }
-    } @else {
-        .margin-bottom-#{$i}0 {
-            margin-bottom: unquote( ($i) + '0px');
-        }
-    } 
-}
-
-/** Margin left (0px to 90px) **/
-@for $i from 0 through 9 {
-    @if $i == 0 {
-        .margin-left-0 {
-            margin-left: 0;
-        }
-    } @else {
-        .margin-left-#{$i}0 {
-            margin-left: unquote( ($i) + '0px');
-        }
-    }  
-}
-
-/** Padding in all directions (0px to 90px) **/
-@for $i from 0 through 9 {
-    @if $i == 0 {
-        .padding-0 {
-            padding: 0;
-        }
-    } @else {
+        }           
         .padding-#{$i}0 {
             padding: unquote( ($i) + '0px');
         }
-    }   
+    } 
 }
 
-/** Padding top (0px to 90px) **/
+
+/** 
+ * Top {0px to 90px} 
+ * Margin-Top {0px to 90px}
+ * Padding-Top {0px to 90px}
+ */
 @for $i from 0 through 9 {
     @if $i == 0 {
+        .top-0 {
+            top: 0;
+        }
+        .margin-top-0 {
+            margin-top: 0;
+        }
         .padding-top-0 {
             padding-top: 0;
         }
     } @else {
+        .top-#{$i}0 {
+            top: unquote( ($i) + '0px');
+        }   
+        .margin-top-#{$i}0 {
+            margin-top: unquote( ($i) + '0px');
+        }         
         .padding-top-#{$i}0 {
             padding-top: unquote( ($i) + '0px');
         }
-    }   
+    } 
 }
 
-/** Padding right (10px to 90px) **/
+/** 
+ * Right {0px to 90px} 
+ * Margin-Right {0px to 90px}
+ * Padding-Right {0px to 90px}
+ */
 @for $i from 0 through 9 {
     @if $i == 0 {
+        .right-0 {
+            right: 0;
+        }
+        .margin-right-0 {
+            margin-right: 0;
+        }
         .padding-right-0 {
             padding-right: 0;
         }
     } @else {
+        .right-#{$i}0 {
+            right: unquote( ($i) + '0px');
+        }   
+        .margin-right-#{$i}0 {
+            margin-right: unquote( ($i) + '0px');
+        }         
         .padding-right-#{$i}0 {
             padding-right: unquote( ($i) + '0px');
         }
-    }   
+    } 
 }
 
-/** Padding bottom (10px to 90px) **/
+/** 
+ * Bottom {0px to 90px} 
+ * Margin-Bottom {0px to 90px}
+ * Padding-Bottom {0px to 90px}
+ */
 @for $i from 0 through 9 {
     @if $i == 0 {
+        .bottom-0 {
+            bottom: 0;
+        }
+        .margin-bottom-0 {
+            margin-bottom: 0;
+        }
         .padding-bottom-0 {
             padding-bottom: 0;
         }
     } @else {
+        .bottom-#{$i}0 {
+            bottom: unquote( ($i) + '0px');
+        }   
+        .margin-bottom-#{$i}0 {
+            margin-bottom: unquote( ($i) + '0px');
+        }         
         .padding-bottom-#{$i}0 {
             padding-bottom: unquote( ($i) + '0px');
         }
-    }   
+    } 
 }
 
-/** Padding left (0px to 90px) **/
+/** 
+ * Left {0px to 90px} 
+ * Margin-Left {0px to 90px}
+ * Padding-Left {0px to 90px}
+ */
 @for $i from 0 through 9 {
     @if $i == 0 {
+        .left-0 {
+            left: 0;
+        }
+        .margin-left-0 {
+            margin-left: 0;
+        }
         .padding-left-0 {
             padding-left: 0;
         }
     } @else {
+        .left-#{$i}0 {
+            left: unquote( ($i) + '0px');
+        }   
+        .margin-left-#{$i}0 {
+            margin-left: unquote( ($i) + '0px');
+        }         
         .padding-left-#{$i}0 {
             padding-left: unquote( ($i) + '0px');
         }
-    }   
+    } 
 }

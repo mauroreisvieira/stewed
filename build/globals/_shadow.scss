@@ -1,24 +1,28 @@
 /** Box Shadow **/
-.box-shadow--2dp {
-    @include shadow-2dp();
+.box-shadow--0 {
+   box-shadow: 0;
 }
 
-.box-shadow--3dp {
-    @include shadow-3dp();
+.box-shadow--2 {
+    @include shadow-2();
 }
 
-.box-shadow--4dp {
-    @include shadow-4dp();
+.box-shadow--3 {
+    @include shadow-3();
 }
 
-.box-shadow--6dp {
-    @include shadow-6dp();
+.box-shadow--4 {
+    @include shadow-4();
 }
 
-.box-shadow--8dp {
-    @include shadow-8dp();
+.box-shadow--6 {
+    @include shadow-6();
 }
 
-.box-shadow--16dp {
-    @include shadow-16dp();
+.box-shadow--8 {
+    @include shadow-8();
+}
+
+.box-shadow--16 {
+    @include shadow-16();
 }
