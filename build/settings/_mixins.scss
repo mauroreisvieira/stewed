@@ -1,9 +1,10 @@
-@mixin typography($fontSize, $fontWeight, $color: #000000) {
+@mixin typography($fontSize, $fontWeight, $color: inherit, $font : inherit) {
 	font: {
+		family: $font;
 		size: $fontSize;
 		weight: $fontWeight;
 	}
-	line-height: $fontSize + 4;
+	line-height: $fontSize + 2;
 	color: $color;
 }
 

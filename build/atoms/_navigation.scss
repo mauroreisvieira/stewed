@@ -14,8 +14,8 @@
             position: relative;
             a {
                 display: block;
-                padding:1.250em 1em;
-                line-height: 22px;
+                padding:14px 12px;
+                line-height: 20px;
                 text-decoration: none;
                 color: currentColor;
                 &.active,
@@ -31,6 +31,10 @@
                     background: transparent;
                     background-color: transparent;
                     cursor: default;
+                }
+                @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+                    padding:1.000em 0.875em;
+                    line-height: 22px;
                 }
             }
         }

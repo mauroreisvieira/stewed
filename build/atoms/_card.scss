@@ -5,7 +5,7 @@
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
-    min-height: 180px;
+    min-height: 120px;
     position: relative;
     background: #fff;
     border-radius: $border-radius;
@@ -15,7 +15,7 @@
     }
     .card__header {
         width: 100%;
-        padding: 0.750em 1.250em;
+        padding: 1.250em;
         .card__header__title {
             -webkit-align-self: flex-end;
             -ms-flex-item-align: end;
@@ -25,18 +25,15 @@
             display: -webkit-flex;
             display: -ms-flexbox;
             display: flex;
-            font-size: 24px;
-            font-weight: 300;
             line-height: normal;
-    
         }
     }
     .card__container {
         width: 100%;
-        padding: 1em 1.250em;
+        padding: 1.250em;
     }
     .card__footer {
         width: 100%;
-        padding: 0.750em 1.250em;
+        padding: 1.250em;
     }
 }

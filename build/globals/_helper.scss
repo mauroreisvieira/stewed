@@ -7,14 +7,14 @@
 .pull-none { float: none; }
 .pull-right { float: right; }
 .pull-left  { float: left; }
-.centerd  { float: none; margin: auto; }
+.pull-center  { float: none; margin: auto; }
 
 @media only screen and (min-width: $media-tablet-min) and (max-width: $media-tablet-max) {
 
     .pull-none--tablet { float: none; }
     .pull-right--tablet { float: right; }
     .pull-left--tablet  { float: left; }
-    .centerd--tablet  { 
+    .pull-center--tablet  { 
         float: none !important; 
         margin: auto !important;
         display: table !important;
@@ -26,7 +26,7 @@
     .pull-none--mobile { float: none; }
     .pull-right--mobile { float: right; }
     .pull-left--mobile  { float: left; }
-    .centerd--mobile  { 
+    .pull-center--mobile  { 
         float: none !important; 
         margin: auto !important;
         display: table !important;
@@ -34,6 +34,7 @@
 }
 
 /** Display **/
+.display-grid  { display: grid; }
 .display-flex  { display: flex; }
 .display-table  { display: table; }
 .display-block  { display: block; }
@@ -48,8 +49,8 @@
 .position-static    { position: static;}
 .position-sticky    { position: sticky;} 
 
- [class*="items-"],
- [class*="content-"] {
+[class*="items-"],
+[class*="content-"] {
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
@@ -118,11 +119,35 @@
     justify-content: space-between; 
 }
 
+/** Flex Direction Row **/
+.flex-row {
+    flex-direction:row !important; 
+    -webkit-flex-direction: row !important;
+}
+
+/** Flex Direction Column **/
+.flex-column {
+    flex-direction:column !important; 
+    -webkit-flex-direction: column !important;
+}
+
+/** Flex Direction Row Reverse **/
+.flex-rowreverse {
+    flex-direction:row-reverse !important; 
+    -webkit-flex-direction: row-reverse !important;
+}
+
+/** Flex Direction Column Reverse **/
+.flex-columnreverse {
+    flex-direction:column-reverse !important; 
+    -webkit-flex-direction: column-reverse !important;
+}
+
 /** 
  * Margin {0px to 90px}
  * Padding {0px to 90px}
  */
-@for $i from 0 through 9 {
+ @for $i from 0 through 9 {
     @if $i == 0 {
         .margin-0 {
             margin-top: 0;
@@ -146,7 +171,7 @@
  * Margin-Top {0px to 90px}
  * Padding-Top {0px to 90px}
  */
-@for $i from 0 through 9 {
+ @for $i from 0 through 9 {
     @if $i == 0 {
         .top-0 {
             top: 0;
@@ -175,7 +200,7 @@
  * Margin-Right {0px to 90px}
  * Padding-Right {0px to 90px}
  */
-@for $i from 0 through 9 {
+ @for $i from 0 through 9 {
     @if $i == 0 {
         .right-0 {
             right: 0;
@@ -204,7 +229,7 @@
  * Margin-Bottom {0px to 90px}
  * Padding-Bottom {0px to 90px}
  */
-@for $i from 0 through 9 {
+ @for $i from 0 through 9 {
     @if $i == 0 {
         .bottom-0 {
             bottom: 0;
@@ -233,7 +258,7 @@
  * Margin-Left {0px to 90px}
  * Padding-Left {0px to 90px}
  */
-@for $i from 0 through 9 {
+ @for $i from 0 through 9 {
     @if $i == 0 {
         .left-0 {
             left: 0;
@@ -255,4 +280,17 @@
             padding-left: unquote( ($i) + '0px');
         }
     } 
+}
+
+/** Avatar **/
+[class*="avatar-"] {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+@for $i from 2 through 18 {
+    .avatar-#{$i*8} {
+      height: unquote( ($i*8) + 'px');
+      width: unquote( ($i*8) + 'px');
+  }
 }

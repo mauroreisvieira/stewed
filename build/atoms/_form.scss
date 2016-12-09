@@ -153,11 +153,11 @@ select + label {
 }
 
 select + label:before {
-    content: '▼';
+    content: '▾';
     position: absolute;
     color: currentColor;
     right: 0;
-    top: 36px;
+    top: 34px;
 }
 
 select:focus + label {

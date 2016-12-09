@@ -5,6 +5,7 @@ var SideNav = function() {
     $hideButtonEl = document.querySelector('.js-menu-hide'),
     $sideNavEl = document.querySelector('.js-side-nav'),
     $sideNavContainerEl = document.querySelector('.js-side-nav-container'),
+    $html = document.querySelector('.js-side-nav-container'),
     touchingSideNav = false,
     startX = 0,
     currentX = 0;
@@ -46,12 +47,14 @@ var SideNav = function() {
     this.showSideNav = function() {
         $sideNavEl.classList.add('side-nav--animatable');
         $sideNavEl.classList.add('side-nav--visible');
+        document.getElementsByTagName('html')[0].style.overflow = "hidden";
         $sideNavEl.addEventListener('transitionend', onTransitionEnd);
     }
 
     var hideSideNav = function() {
         $sideNavEl.classList.add('side-nav--animatable');
         $sideNavEl.classList.remove('side-nav--visible');
+        document.getElementsByTagName('html')[0].style.overflow = "";
         $sideNavEl.addEventListener('transitionend', onTransitionEnd);
     }
 

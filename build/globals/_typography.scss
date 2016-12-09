@@ -1,42 +1,36 @@
 h1,
 .h1 {
     @include typography($heading-1, $weight-regular);
-    margin: 24px 0;
 }
 
 h2,
 .h2 {
     @include typography($heading-2, $weight-regular);
-    margin: 24px 0;
 }
 
 h3,
 .h3 {
     @include typography($heading-3, $weight-light);
-    margin: 24px 0;
 }
 
 h4,
 .h4 {
     @include typography($heading-4, $weight-light);
-    margin: 24px 0 16px 0;
 }
 
 h5,
 .h5 {
     @include typography($heading-5, $weight-medium);
-    margin: 24px 0 16px 0;
 }
 
 h6,
 .h6 {
     @include typography($heading-6, $weight-regular);
-    margin: 24px 0 16px 0;
 }
 
 p {
     font-weight: $weight-light;
-    line-height: 1.375em;
+    line-height: 1;
 }
 
 a {
