@@ -9,7 +9,8 @@ minify = require('gulp-minify'),
 sourcemaps = require('gulp-sourcemaps'),
 concat = require('gulp-concat'),
 gutil = require('gulp-util'),
-webserver = require('gulp-webserver');
+webserver = require('gulp-webserver'),
+htmlPartial = require('gulp-html-partial');
 
 const EXPANDED = 'expanded',
 NESTED = 'nested',
@@ -23,7 +24,7 @@ gulp.task('default', function () {
 });
 
 gulp.task('sass', function () {
-	return gulp.src('build/stewed.scss')
+	return gulp.src('src/sass/stewed.scss')
 	.pipe(sass({outputStyle: EXPANDED}).on('error', sass.logError))
 	.pipe(gulp.dest('dist/css/'))
     .pipe(gulp.dest('docs/assets/stewed/'));
@@ -31,13 +32,13 @@ gulp.task('sass', function () {
 
 /** JAVASCRIPT **/
 gulp.task('jshint', function() {
-  return gulp.src('build/**/*.js')
+  return gulp.src('src/**/*.js')
   .pipe(jshint())
   .pipe(jshint.reporter('jshint-stylish'));
 });
 
 gulp.task('js', function () {
-    gulp.src('build/components/**/*.js')
+    gulp.src('src/sass/components/**/*.js')
     .pipe(sourcemaps.init())
     .pipe(concat('stewed.js'))
     //only uglify if gulp is ran with '--type production'
@@ -47,18 +48,29 @@ gulp.task('js', function () {
     .pipe(gulp.dest('docs/assets/stewed/'));
 });
 
+// Task for html comiling
+gulp.task('html', function () {
+    return gulp.src('src/html/**/*.html')
+    .pipe(htmlPartial({
+      basePath: 'src/html/'
+    }))
+    .pipe(gulp.dest('docs/'));
+});
+
 //Watch for all changes
 gulp.task('watch', function () {
-    gulp.watch('build/stewed.scss', ['sass']);
-    gulp.watch('build/**/*.js', ['js']);
+    gulp.watch('src/stewed.scss', ['sass']);
+    gulp.watch('src/**/*.js', ['js']);
+    gulp.watch('src/**/*.html', ['html']);
 });
 
 //Create Dev Server for all changes
 gulp.task('serve', function () {
-    //gulp.task('watch');
+    gulp.watch('src/stewed.scss', ['sass']);
+    gulp.watch('src/**/*.js', ['js']);
+    gulp.watch('src/**/*.html', ['html']);
     var stream = gulp.src('docs').pipe(webserver({
       livereload: true,
-      directoryListing: true,
       fallback: 'index.html',
       port: 8090,
       directoryListing: {

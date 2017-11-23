@@ -1,264 +1,300 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <!-- head -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stewed Framework</title>
-    <!-- Disable tap highlight on IE -->
-    <meta name="msapplication-tap-highlight" content="no">
-    <!-- Web Application Manifest -->
-    <link rel="manifest" href="manifest.json">
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Quick and efficiently responsive web framework HTML & CSS and Pure JavaScript">
-    <link rel="icon" href="assets/images/touch/favicon.ico" type="image/x-icon"/>
-    <link rel="shortcut icon" href="assets/images/touch/favicon.ico" type="image/x-icon"/>
-    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/touch/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/touch/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/touch/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/touch/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/touch/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/touch/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/touch/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/touch/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/touch/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="assets/images/touch/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/touch/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/touch/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/touch/favicon-16x16.png">
+    
+    <head>
+        <!-- head -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Stewed Framework</title>
+        <!-- Disable tap highlight on IE -->
+        <meta name="msapplication-tap-highlight" content="no">
+        <!-- Web Application Manifest -->
+        <link rel="manifest" href="manifest.json">
+        <!-- Add to homescreen for Chrome on Android -->
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="application-name" content="Quick and efficiently responsive web framework HTML & CSS and Pure JavaScript">
+        <link rel="icon" href="assets/images/touch/favicon.ico" type="image/x-icon"
+        />
+        <link rel="shortcut icon" href="assets/images/touch/favicon.ico" type="image/x-icon"
+        />
+        <link rel="apple-touch-icon" sizes="57x57" href="assets/images/touch/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="assets/images/touch/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="assets/images/touch/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="assets/images/touch/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="assets/images/touch/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="assets/images/touch/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="assets/images/touch/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="assets/images/touch/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/images/touch/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="assets/images/touch/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/images/touch/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="assets/images/touch/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/images/touch/favicon-16x16.png">
+        <meta name="msapplication-TileImage" content="assets/images/touch/apple-icon-144x144.png">
+        <meta name="msapplication-TileColor" content="#2F3BA2">
+        <!-- Stewed Kit -->
+        <link rel="stylesheet" href="assets/stewed/stewed.css">
+    </head>
+    
+    <body>
+        <div class="row">
+            <div class="large-2 medium-3 small-12 background-white box-shadow--4dp">
+                <div class="card box-shadow--4dp">
+                    <div class="card__container">
+                        <img src="assets/images/dashboard/photo.png" alt="" class="display-table avatar--80 pull-center">
+                         <h4 class="color-pink font-500 text-center text-uppercase">John Doe <span class="color-darkgrey display-block size-14 text-lowercase">doe.john@mail.com</span></h4>
 
-    <meta name="msapplication-TileImage" content="assets/images/touch/apple-icon-144x144.png">
-    <meta name="msapplication-TileColor" content="#2F3BA2">
-    <!-- Stewed Kit -->
-    <link rel="stylesheet" href="assets/stewed/stewed.css">
-</head>
-<body>
-    <div class="row">
-        <div class="large-2 medium-3 small-12 background-white box-shadow--4dp">
-            <div class="card box-shadow--4dp">
-                <div class="card__container">
-                    <img src="assets/images/dashboard/photo.png" alt="" class="display-table avatar--80 pull-center">
-                    <h4 class="color-pink font-500 text-center text-uppercase">John Doe <span class="color-darkgrey display-block size-14 text-lowercase">doe.john@mail.com</span></h4>
+                    </div>
+                </div>
+                <div class="navigation color-white margin-top-20 margin-bottom-20">
+                    <ul class="navigation__vertical color-pink">
+                        <li><a href="#" class="size-14 font-700">Menu 1</a>
+                        </li>
+                        <li><a href="#" class="size-14 font-700">Menu 2 </a>
+                        </li>
+                        <li><a href="#" class="size-14 font-700">Menu 3</a>
+                        </li>
+                        <li><a href="#" class="size-14 font-700">Menu 4</a>
+                        </li>
+                        <li><a href="#" class="size-14 font-700">Menu 5</a>
+                        </li>
+                        <li><a href="#" class="size-14 font-700">Menu 6</a>
+                        </li>
+                        <li><a href="#" class="size-14 font-700">Menu 7</a>
+                        </li>
+                        <li><a href="#" class="size-14 font-700">Menu 8</a>
+                        </li>
+                        <li><a href="#" class="size-14 font-700">Menu 9</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="navigation color-white margin-top-20 margin-bottom-20">
-                <ul class="navigation__vertical color-pink">
-                    <li><a href="#" class="size-14 font-700">Menu 1</a></li>
-                    <li><a href="#" class="size-14 font-700">Menu 2 </a></li>
-                    <li><a href="#" class="size-14 font-700">Menu 3</a></li>
-                    <li><a href="#" class="size-14 font-700">Menu 4</a></li>
-                    <li><a href="#" class="size-14 font-700">Menu 5</a></li>
-                    <li><a href="#" class="size-14 font-700">Menu 6</a></li>
-                    <li><a href="#" class="size-14 font-700">Menu 7</a></li>
-                    <li><a href="#" class="size-14 font-700">Menu 8</a></li>
-                    <li><a href="#" class="size-14 font-700">Menu 9</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="large-10 medium-9 small-12">
-            <header class="header background-pink box-shadow--6dp ">
-                <div class="container--fullwidth">
-                    <div class="row row--gutter">
-                        <div class="large-3 medium-4 small-6">
-                            <h4 class="color-white">Dashboard</h4>
+            <div class="large-10 medium-9 small-12">
+                <header class="header background-pink box-shadow--6dp ">
+                    <div class="container--fullwidth">
+                        <div class="row row--gutter">
+                            <div class="large-3 medium-4 small-6">
+                                 <h4 class="color-white">Dashboard</h4>
+
+                            </div>
+                            <div class="large-9 medium-8 small-6">
+                                <div class="dropdown dropdown--top-right color-white margin-top-10">
+                                    <button class="dropdown__button button button--icon" stewed-dropdown="menu-1">⁝</button>
+                                    <ul class="background-white color-pink box-shadow--4dp margin-top-10"
+                                    id="menu-1">
+                                        <li><a href="">Some Action</a>
+                                        </li>
+                                        <li class="dropdown__divider"><a href="">Another Action</a>
+                                        </li>
+                                        <li><a href="" class="disabled">Disabled Action</a>
+                                        </li>
+                                        <li><a href="">Logout</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                        <div class="large-9 medium-8 small-6">
-                            <div class="dropdown dropdown--top-right color-white margin-top-10">
-                                <button class="dropdown__button button button--icon" stewed-dropdown="menu-1">⁝</button>
-                                <ul class="background-white color-pink box-shadow--4dp margin-top-10" id="menu-1">
-                                    <li><a href="">Some Action</a></li>
-                                    <li class="dropdown__divider"><a href="">Another Action</a></li>
-                                    <li><a href="" class="disabled">Disabled Action</a></li>
-                                    <li><a href="">Logout</a></li>
+                    </div>
+                </header>
+                <section calss="main">
+                    <div class="container--fullwidth margin-top-40">
+                        <div class="row row--gutter">
+                            <div class="large-3 medium-6 small-12 margin-bottom-20">
+                                <div class="card background-darkbluegrey box-shadow--4dp">
+                                    <div class="card__container">
+                                         <h3 class="color-white text-center font-700">20.000<br> 
+                                        <small class="size-14 text-uppercase">(Products)</small>
+                                    </h3>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="large-3 medium-6 small-12 margin-bottom-20">
+                                <div class="card background-darkbluegrey box-shadow--4dp">
+                                    <div class="card__container">
+                                         <h3 class="color-white text-center font-700">17.300<br> 
+                                        <small class="size-14 text-uppercase">(Sales)</small>
+                                    </h3>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="large-3 medium-6 small-12 margin-bottom-20">
+                                <div class="card background-darkbluegrey box-shadow--4dp">
+                                    <div class="card__container">
+                                         <h3 class="color-white text-center font-700">9.120<br> <small class="size-14 text-uppercase">(Orders)</small></h3>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="large-3 medium-6 small-12 margin-bottom-20">
+                                <div class="card background-darkbluegrey box-shadow--4dp">
+                                    <div class="card__container">
+                                         <h3 class="color-white text-center font-700">200.000€<br> <small class="size-14 text-uppercase">(Return)</small></h3>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row--gutter margin-top-20">
+                            <div class="large-6 medium-12 small-12">
+                                <div class="row row--gutter">
+                                    <div class="large-12 medium-12 small-12">
+                                        <div class="card background-lightgrey box-shadow--4dp">
+                                            <div class="card__header color-darkbluegrey">
+                                                 <h4 class="card__header__title text-uppercase">#1 - Note</h4>
+
+                                            </div>
+                                            <div class="card__container card--border"> <span class="label label--warning margin-bottom-20">Medium</span>
+
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate sequi
+                                                    libero voluptas, excepturi in aut repudiandae minima maxime inventore qui
+                                                    veniam amet hic porro, dolor fugit totam eos. Aut, eius!.</p>
+                                            </div>
+                                            <div class="card__footer card--border">
+                                                <button class="button--link button--small pull-right text-uppercase color-red">✕ Trash</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="large-12 medium-12 small-12 margin-top-20 margin-bottom-40">
+                                        <div class="card background-lightgrey box-shadow--4dp">
+                                            <div class="card__header color-darkbluegrey">
+                                                 <h4 class="card__header__title text-uppercase">#2 - Note</h4>
+
+                                            </div>
+                                            <div class="card__container card--border"> <span class="label label--danger margin-bottom-20">High</span>
+
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate sequi
+                                                    libero voluptas, excepturi in aut repudiandae minima maxime inventore qui
+                                                    veniam amet hic porro, dolor fugit totam eos. Aut, eius!.</p>
+                                            </div>
+                                            <div class="card__footer card--border">
+                                                <button class="button--link button--small pull-right color-red">✕ Trash</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="large-6 medium-12 small-12">
+                                <div class="card background-white box-shadow--4dp padding-bottom-20">
+                                    <div class="card__container">
+                                        <form class="form color-pink" stewed-validate="true" autocomplete="off">
+                                            <div class="textfield">
+                                                <input name="name" class="textfield__input" max="10" min="3" type="text"
+                                                required>
+                                                <label class="textfield__label" for="name">Title</label>
+                                            </div>
+                                            <div class="textfield">
+                                                <select name="option" class="textfield__input">
+                                                    <option value="1">High</option>
+                                                    <option value="2">Medium</option>
+                                                    <option value="3">Low</option>
+                                                </select>
+                                                <label for="option" class="textfield__label--option"><span class="color-black">Priority</span>
+                                                </label>
+                                            </div>
+                                            <div class="textfield">
+                                                <textarea name="mensagem" class="textfield__input" minlength="2" maxlength="300"
+                                                rows="8"></textarea>
+                                                <label class="textfield__label" for="mensagem">Note...</label>
+                                            </div>
+                                            <div class="textfield">
+                                                <input type="checkbox" id="switch-4" name="set-name" class="textfield__input--switch">
+                                                <label for="switch-4" class="textfield__label--switch"> <span class="color-black">I want to be notified by email</span>
+                                                </label>
+                                                </label>
+                                            </div>
+                                            <button type="submit" class="button button--medium background-blue color-white margin-top-20">Save</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="large-12 medium-12 small-12 margin-top-40">
+                                <table class="table table--striped box-shadow--4dp margin-bottom-20 margin-top-20">
+                                    <thead class="color-blue">
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Name</th>
+                                            <th>Phone</th>
+                                            <th>Email</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>#1011</td>
+                                            <td>Robin Williams</td>
+                                            <td>311091022</td>
+                                            <td>example@stewed.com</td>
+                                            <td>
+                                                <button class="button button--icon color-green">✔</button>
+                                                <button class="button button--icon color-red">✖</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#1012</td>
+                                            <td>Robin Williams</td>
+                                            <td>311091022</td>
+                                            <td>example@stewed.com</td>
+                                            <td>
+                                                <button class="button button--icon color-green">✔</button>
+                                                <button class="button button--icon color-red">✖</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#1013</td>
+                                            <td>Robin Williams</td>
+                                            <td>311091022</td>
+                                            <td>example@stewed.com</td>
+                                            <td>
+                                                <button class="button button--icon color-green">✔</button>
+                                                <button class="button button--icon color-red">✖</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#1014</td>
+                                            <td>Robin Williams</td>
+                                            <td>311091022</td>
+                                            <td>example@stewed.com</td>
+                                            <td>
+                                                <button class="button button--icon color-green">✔</button>
+                                                <button class="button button--icon color-red">✖</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#1015</td>
+                                            <td>Robin Williams</td>
+                                            <td>311091022</td>
+                                            <td>example@stewed.com</td>
+                                            <td>
+                                                <button class="button button--icon color-green">✔</button>
+                                                <button class="button button--icon color-red">✖</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <ul class="pagination pagination__medium color-blue">
+                                    <li stewed-pagination="❮" disabled><a href="">Prev</a>
+                                    </li>
+                                    <li class="active"><a href="">1</a>
+                                    </li>
+                                    <li><a href="">2</a>
+                                    </li>
+                                    <li><a href="">3</a>
+                                    </li>
+                                    <li stewed-pagination="❯"><a href="">Next</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                </div>
-            </header>
-            <section calss="main">
-                <div class="container--fullwidth margin-top-40">
-                    <div class="row row--gutter">
-                        <div class="large-3 medium-6 small-12 margin-bottom-20">
-                            <div class="card background-darkbluegrey box-shadow--4dp">
-                                <div class="card__container">
-                                    <h3 class="color-white text-center font-700">20.000<br> 
-                                        <small class="size-14 text-uppercase">(Products)</small>
-                                    </h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="large-3 medium-6 small-12 margin-bottom-20">
-                            <div class="card background-darkbluegrey box-shadow--4dp">
-                                <div class="card__container">
-                                    <h3 class="color-white text-center font-700">17.300<br> 
-                                        <small class="size-14 text-uppercase">(Sales)</small>
-                                    </h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="large-3 medium-6 small-12 margin-bottom-20">
-                            <div class="card background-darkbluegrey box-shadow--4dp">
-                                <div class="card__container">
-                                    <h3 class="color-white text-center font-700">9.120<br> <small class="size-14 text-uppercase">(Orders)</small></h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="large-3 medium-6 small-12 margin-bottom-20">
-                            <div class="card background-darkbluegrey box-shadow--4dp">
-                                <div class="card__container">
-                                    <h3 class="color-white text-center font-700">200.000€<br> <small class="size-14 text-uppercase">(Return)</small></h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row row--gutter margin-top-20">
-                        <div class="large-6 medium-12 small-12">
-                            <div class="row row--gutter">
-                                <div class="large-12 medium-12 small-12">
-                                    <div class="card background-lightgrey box-shadow--4dp">
-                                        <div class="card__header color-darkbluegrey">
-                                            <h4 class="card__header__title text-uppercase">#1 - Note</h4>
-                                        </div>
-                                        <div class="card__container card--border">
-                                            <span class="label label--warning margin-bottom-20">Medium</span>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate sequi libero voluptas, excepturi in aut repudiandae minima maxime inventore qui veniam amet hic porro, dolor fugit totam eos. Aut, eius!.</p>
-                                        </div>
-                                        <div class="card__footer card--border">
-                                            <button class="button--link button--small pull-right text-uppercase color-red">✕ Trash</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="large-12 medium-12 small-12 margin-top-20 margin-bottom-40">
-                                    <div class="card background-lightgrey box-shadow--4dp">
-                                        <div class="card__header color-darkbluegrey">
-                                            <h4 class="card__header__title text-uppercase">#2 - Note</h4>
-                                        </div>
-                                        <div class="card__container card--border">
-                                            <span class="label label--danger margin-bottom-20">High</span>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate sequi libero voluptas, excepturi in aut repudiandae minima maxime inventore qui veniam amet hic porro, dolor fugit totam eos. Aut, eius!.</p>
-                                        </div>
-                                        <div class="card__footer card--border">
-                                            <button class="button--link button--small pull-right color-red">✕ Trash</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="large-6 medium-12 small-12">
-                            <div class="card background-white box-shadow--4dp padding-bottom-20">
-                                <div class="card__container">
-                                    <form class="form color-pink" stewed-validate="true" autocomplete="off">
-                                        <div class="textfield">
-                                            <input name="name" class="textfield__input"  max="10" min="3" type="text" required>
-                                            <label class="textfield__label" for="name">Title</label>
-                                        </div>
-                                        <div class="textfield">
-                                            <select name="option" class="textfield__input">
-                                                <option value="1">High</option>
-                                                <option value="2">Medium</option>
-                                                <option value="3">Low</option>
-                                            </select>
-                                            <label for="option" class="textfield__label--option"><span class="color-black">Priority</span></label>
-                                        </div>
-                                        <div class="textfield">
-                                            <textarea name="mensagem" class="textfield__input" minlength="2" maxlength="300" rows="8"></textarea>
-                                            <label class="textfield__label" for="mensagem">Note...</label>
-                                        </div>
-                                        <div class="textfield">
-                                        <input type="checkbox" id="switch-4" name="set-name" class="textfield__input--switch">
-                                            <label for="switch-4" class="textfield__label--switch">
-                                                <span class="color-black">I want to be notified by email</span></label>
-                                            </label>
-                                        </div>
-                                        <button type="submit" class="button button--medium background-blue color-white margin-top-20">Save</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="large-12 medium-12 small-12 margin-top-40">
-                            <table class="table table--striped box-shadow--4dp margin-bottom-20 margin-top-20">
-                                <thead class="color-blue">
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>Name</th>
-                                        <th>Phone</th>
-                                        <th>Email</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-                                    <tr>
-                                        <td>#1011</td>
-                                        <td>Robin Williams</td>
-                                        <td>311091022</td>
-                                        <td>example@stewed.com</td>
-                                        <td>
-                                            <button class="button button--icon color-green">✔</button>
-                                            <button class="button button--icon color-red">✖</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>#1012</td>
-                                        <td>Robin Williams</td>
-                                        <td>311091022</td>
-                                        <td>example@stewed.com</td>
-                                        <td>
-                                            <button class="button button--icon color-green">✔</button>
-                                            <button class="button button--icon color-red">✖</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>#1013</td>
-                                        <td>Robin Williams</td>
-                                        <td>311091022</td>
-                                        <td>example@stewed.com</td>
-                                        <td>
-                                            <button class="button button--icon color-green">✔</button>
-                                            <button class="button button--icon color-red">✖</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>#1014</td>
-                                        <td>Robin Williams</td>
-                                        <td>311091022</td>
-                                        <td>example@stewed.com</td>
-                                        <td>
-                                            <button class="button button--icon color-green">✔</button>
-                                            <button class="button button--icon color-red">✖</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>#1015</td>
-                                        <td>Robin Williams</td>
-                                        <td>311091022</td>
-                                        <td>example@stewed.com</td>
-                                        <td>
-                                            <button class="button button--icon color-green">✔</button>
-                                            <button class="button button--icon color-red">✖</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <ul class="pagination pagination__medium color-blue">
-                                <li stewed-pagination="❮" disabled><a href="">Prev</a></li>
-                                <li class="active"><a href="">1</a></li>
-                                <li><a href="">2</a></li>
-                                <li><a href="">3</a></li>
-                                <li stewed-pagination="❯"><a href="">Next</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                </section>
+            </div>
         </div>
-    </div>
+        <!-- scripts -->
+        <script src="assets/stewed/stewed.js"></script>
+    </body>
 
-    <!-- scripts -->
-    <script src="assets/stewed/stewed.js"></script>   
-</body>
 </html>
