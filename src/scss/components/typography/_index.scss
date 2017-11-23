@@ -15,9 +15,9 @@ $c-typography-font-size-large-xxx: $u-font-size + 26; // 42px
 $c-typography-font-weight-thin: 100;
 $c-typography-font-weight-light: 300;
 $c-typography-font-weight-normal: $u-font-weight; // 400
-$c-typography-font-weight-semi-bold: 500;
+$c-typography-font-weight-semibold: 500;
 $c-typography-font-weight-bold: 700;
-$c-typography-font-weight-extra-bold: 900;
+$c-typography-font-weight-extrabold: 900;
 
 // Color Heading
 $c-typography-color-heading-1: $u-color-black;
@@ -37,7 +37,7 @@ $c-typography-baseline-heading: $u-baseline * 3;
 
 $headings: (
   'h1': ($c-typography-color-heading-1, $c-typography-font-size-large-xxx, $c-typography-font-weight-light),
-  'h2': ($c-typography-color-heading-2, $c-typography-font-size-large-xx, $c-typography-font-weight-extra-bold),
+  'h2': ($c-typography-color-heading-2, $c-typography-font-size-large-xx, $c-typography-font-weight-extrabold),
   'h3': ($c-typography-color-heading-3, $c-typography-font-size-large-x, $c-typography-font-weight-bold),
   'h4': ($c-typography-color-heading-4, $c-typography-font-size-large, $c-typography-font-weight-bold),
   'h5': ($c-typography-color-heading-5, $c-typography-font-size-medium, $c-typography-font-weight-bold),

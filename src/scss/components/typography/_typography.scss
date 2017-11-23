@@ -26,3 +26,40 @@ a {
   }
 }
 
+// Text Alignment
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+// Font Weight
+.font-thin {
+  font-weight: $c-typography-font-weight-thin;
+}
+
+.font-normal {
+  font-weight: $c-typography-font-weight-normal;
+}
+
+.font-semibold {
+  font-weight: $c-typography-font-weight-semibold;
+}
+
+.font-bold {
+  font-weight: $c-typography-font-weight-bold;
+}
+
+.font-extrabold {
+  font-weight: $c-typography-font-weight-extrabold;
+}
