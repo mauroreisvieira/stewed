@@ -47,11 +47,12 @@ gulp.task('js', function () {
 
 // Task for html comiling
 gulp.task('html', function () {
-    return gulp.src('src/html/**/*.html')
+    gulp.src('src/html/**/*.html')
     .pipe(htmlPartial({
         basePath: 'src/html/'
     }))
     .pipe(gulp.dest('docs/'));
+    gulp.src('src/html/assets/css/*.css').pipe(gulp.dest('docs/assets/css'));
 });
 
 //Watch for all changes
