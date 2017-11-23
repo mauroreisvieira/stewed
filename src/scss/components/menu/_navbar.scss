@@ -6,9 +6,16 @@
     &__brand {
         float: left;
         &, * {
+            text-decoration: none;
             line-height: 50px;
             font-size: 25px;
             font-weight: 700;
+            &:hover {
+                color: white;
+            }
         }
+    }
+    * {
+        color: white;
     }
 }

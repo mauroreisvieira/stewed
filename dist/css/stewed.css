@@ -1160,9 +1160,18 @@ label {
 }
 
 .navbar__brand, .navbar__brand * {
+  text-decoration: none;
   line-height: 50px;
   font-size: 25px;
   font-weight: 700;
+}
+
+.navbar__brand:hover, .navbar__brand *:hover {
+  color: white;
+}
+
+.navbar * {
+  color: white;
 }
 
 /** Visibility  */
