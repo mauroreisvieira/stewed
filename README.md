@@ -1,4 +1,4 @@
-#Welcome to Stewed Framework 
+# Welcome to Stewed Framework
 
 [![GitHub version](https://dl.dropboxusercontent.com/u/83653088/version.svg)](https://github.com/maurovieirareis/stewed)
 [![GitHub version](https://dl.dropboxusercontent.com/u/83653088/npm.svg)](https://github.com/maurovieirareis/stewed)
@@ -25,7 +25,7 @@ Using a combination of **HTML**, **CSS** and pure **JavaScript** allows you to c
 	- Accordion
 	- Tree
 
-- v0.9.40 
+- v0.9.40
 	- Tooltips
 	- Dropdown
 	- Tabs
@@ -33,7 +33,7 @@ Using a combination of **HTML**, **CSS** and pure **JavaScript** allows you to c
 
 
 - v0.9.30
-	- Fix Form Field 
+	- Fix Form Field
 	- Fix Navigation Horizontal / Vertical
 	- Fix Grid System
 	- Fix Tables Responsive
@@ -51,11 +51,11 @@ Using a combination of **HTML**, **CSS** and pure **JavaScript** allows you to c
 	- **Adding Documentation
 
 
-- v0.9.10 
+- v0.9.10
 	- Adding Grid System
 	- Updating to SASS
 	- Adding CSS Helpers
-	- Adding Tables 
+	- Adding Tables
 	- Adding Modal
 	- Adding Form Fields
 	- Adding Buttons
