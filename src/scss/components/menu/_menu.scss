@@ -9,14 +9,14 @@
 
   &__item {
     padding: 20px 0;
+  }
 
-    &__link {
-      display: block;
-      padding: 4px 14px;
-      position: relative;
-      text-decoration: none;
-      transition: color .2s linear;
-    }
+  &__link {
+    display: block;
+    padding: 4px 14px;
+    position: relative;
+    text-decoration: none;
+    transition: color .2s linear;
   }
 
   &--vertical {
@@ -70,6 +70,26 @@
           display: block;
         }
       }
+    }
+  }
+
+  &--scroll {
+    display: inline-block;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-user-select: none;
+    display: block;
+    overflow-y: hidden;
+    padding: 0;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    li {
+      display: inline-block;
     }
   }
 }

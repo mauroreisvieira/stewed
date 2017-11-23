@@ -897,7 +897,7 @@ label {
   padding: 20px 0;
 }
 
-.menu__item__link {
+.menu__link {
   display: block;
   padding: 4px 14px;
   position: relative;
@@ -960,6 +960,28 @@ label {
 
 .menu--horizontal li:hover ul {
   display: block;
+}
+
+.menu--scroll {
+  display: inline-block;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-user-select: none;
+  display: block;
+  overflow-y: hidden;
+  padding: 0;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: scroll;
+}
+
+.menu--scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.menu--scroll li {
+  display: inline-block;
 }
 
 h1 {
