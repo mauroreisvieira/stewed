@@ -66,7 +66,7 @@ gulp.task('watch', function () {
 
 //Create Dev Server for all changes
 gulp.task('serve', function () {
-    gulp.watch('src/stewed.scss', ['sass']);
+    gulp.watch('src/sass/stewed.scss', ['sass']);
     gulp.watch('src/**/*.js', ['js']);
     gulp.watch('src/**/*.html', ['html']);
     var stream = gulp.src('docs').pipe(webserver({
