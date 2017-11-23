@@ -8,7 +8,8 @@ pump = require('pump'),
 minify = require('gulp-minify'),
 sourcemaps = require('gulp-sourcemaps'),
 concat = require('gulp-concat'),
-gutil = require('gulp-util');
+gutil = require('gulp-util'),
+webserver = require('gulp-webserver');
 
 const EXPANDED = 'expanded',
 NESTED = 'nested',
@@ -50,4 +51,20 @@ gulp.task('js', function () {
 gulp.task('watch', function () {
     gulp.watch('build/stewed.scss', ['sass']);
     gulp.watch('build/**/*.js', ['js']);
+});
+
+//Create Dev Server for all changes
+gulp.task('serve', function () {
+    //gulp.task('watch');
+    var stream = gulp.src('docs').pipe(webserver({
+      livereload: true,
+      directoryListing: true,
+      fallback: 'index.html',
+      port: 8090,
+      directoryListing: {
+        enable: true,
+        path: 'docs'
+      }
+    }));
+    stream.emit('kill');
 });
