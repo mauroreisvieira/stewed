@@ -2,7 +2,7 @@
 	"name": "Stewed",
 	"version": "0.9.40",
 	"description": "Stewed Framework in CSS and (PURE) JavaScript.",
-	"license": "GNU",
+	"license": "MIT",
 	"homepage": "https://github.com/maurovieirareis/stewed",
 	"author": "Mauro Reis Vieira",
 	"repository": "https://github.com/maurovieirareis/stewed",
@@ -16,10 +16,24 @@
 		"responsive",
 		"independant-modules"
 	],
-	"license": "MIT",
 	"ignore": [
 		"node_modules",
-		"app",
-	]
+		"app"
+	],
+	"scripts": {
+		"start": "gulp serve"
+	},
+	"devDependencies": {
+		"gulp": "^3.9.1",
+		"gulp-concat": "^2.6.1",
+		"gulp-jshint": "^2.0.4",
+		"gulp-minify": "^2.1.0",
+		"gulp-sass": "^3.1.0",
+		"gulp-sourcemaps": "^2.6.1",
+		"gulp-uglify": "^3.0.0",
+		"gulp-util": "^3.0.8",
+		"gulp-webserver": "^0.9.1",
+		"jshint": "^2.9.5",
+		"pump": "^1.0.3"
+	}
 }
-
