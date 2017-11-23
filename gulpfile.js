@@ -16,13 +16,13 @@ const EXPANDED = 'expanded',
     COMPRESSED = 'compressed';
 
 gulp.task('default', function () {
-    return gulp.src('app/src/styles/scss/main.scss')
+    return gulp.src('app/src/styles/scss/*.scss')
     .pipe(sass({outputStyle: EXPANDED}).on('error', sass.logError))
     .pipe(gulp.dest('app/src/styles/'));
 });
 
 gulp.task('sass', function () {
-    return gulp.src('src/scss/stewed.scss')
+    return gulp.src('src/scss/*.scss')
     .pipe(sass({outputStyle: EXPANDED}).on('error', sass.logError))
     .pipe(gulp.dest('dist/css/'))
     .pipe(gulp.dest('docs/assets/stewed/'));
@@ -52,18 +52,23 @@ gulp.task('html', function () {
         basePath: 'src/html/'
     }))
     .pipe(gulp.dest('docs/'));
-    gulp.src('src/html/assets/css/*.css').pipe(gulp.dest('docs/assets/css'));
+    gulp.src('src/html/assets/images/**/*').pipe(gulp.dest('docs/assets/images'));
+    gulp.src('src/html/assets/fonts/**/*').pipe(gulp.dest('docs/assets/fonts'));
+    gulp.src('src/html/assets/scss/*.scss')
+        .pipe(sass({outputStyle: EXPANDED}).on('error', sass.logError))
+        .pipe(gulp.dest('docs/assets/css'));
 });
 
-//Watch for all changes
+// Watch for all changes
 gulp.task('watch', function () {
     gulp.watch('src/**/*.scss', ['sass']);
     gulp.watch('src/**/*.js', ['js']);
     gulp.watch('src/**/*.html', ['html']);
 });
 
-//Create Dev Server for all changes
+// Create Dev Server for all changes
 gulp.task('serve', function () {
+    gulp.watch('app/src/styles/scss/*.scss', ['default']);
     gulp.watch('src/**/*.scss', ['sass']);
     gulp.watch('src/**/*.js', ['js']);
     gulp.watch('src/**/*.html', ['html']);

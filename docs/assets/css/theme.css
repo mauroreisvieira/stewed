@@ -1,0 +1,43 @@
+/**	theme **/
+/** grey **/
+/** blue grey **/
+/** grean **/
+/** default **/
+body {
+  background: #FAFAFA;
+  color: #000;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 1.00em;
+  font-weight: 300;
+  height: 100%;
+  line-height: 1.500;
+  width: 100%;
+}
+
+.header {
+  display: block;
+  overflow: hidden;
+  padding: 20px 0;
+  width: 100%;
+  z-index: 9;
+}
+
+.header .logo {
+  display: block;
+  margin: auto;
+  max-width: 180px;
+}
+
+.header .logo img {
+  width: 100%;
+}
+
+code {
+  background: rgba(251, 60, 104, 0.1);
+  border-radius: 2px;
+  color: #FB3C68;
+  display: inline;
+  font-family: courier new, monospace;
+  font-size: inherit;
+  padding: 2px 4px;
+}

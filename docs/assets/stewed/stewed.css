@@ -883,6 +883,85 @@ label {
   }
 }
 
+.menu {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.menu__item {
+  padding: 20px 0;
+}
+
+.menu__item__link {
+  display: block;
+  padding: 4px 14px;
+  position: relative;
+  text-decoration: none;
+  transition: color .2s linear;
+}
+
+.menu--vertical li {
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.menu--vertical li ul {
+  display: none;
+  z-index: 11;
+  position: absolute;
+  min-width: 10em;
+  top: 0;
+}
+
+.menu--vertical li .navigation__vertical__submenu--right {
+  border-radius: 0 2px 2px;
+  left: 100%;
+}
+
+.menu--vertical li .navigation__vertical__submenu--left {
+  right: 100%;
+  border-radius: 2px 0 2px;
+}
+
+.menu--vertical li:hover ul {
+  display: block;
+}
+
+.menu--horizontal {
+  display: inline;
+}
+
+.menu--horizontal li {
+  display: inline-block;
+}
+
+.menu--horizontal li ul {
+  display: none;
+}
+
+.menu--horizontal li .navigation__horizontal__submenu {
+  left: 0;
+  position: absolute;
+  min-width: 100%;
+  top: auto;
+  border-radius: 0 0 2px;
+  z-index: 11;
+}
+
+.menu--horizontal li .navigation__horizontal__submenu li {
+  width: 100%;
+}
+
+.menu--horizontal li:hover ul {
+  display: block;
+}
+
 h1 {
   font-family: "Raleway", sans-serif;
   font-size: 42px;
