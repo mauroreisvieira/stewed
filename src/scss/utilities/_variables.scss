@@ -1,0 +1,31 @@
+@import 'color-definitions';
+@import 'mixins';
+
+// Default Colors
+$u-color-text-default: map-get($u-color-red, 'base');
+$u-color-title-default: map-get($u-color-red, 'base');
+$u-color-border-default: map-get($u-color-red, 'base');
+
+$u-font-size: 16px;
+$u-font-weight: 400;
+$u-baseline: 6px;
+
+// Other
+$border-radius-default : 2px;
+$border-radius-card: 2px;
+$border-radius-inputs: 2px;
+$border-radius-buttons: 2px;
+
+// Typography
+$font-family-base    : 'Raleway', sans-serif;
+$font-family-default : 'Open Sans', sans-serif;
+
+
+$theme-gutter: 20px;
+$theme-padding: 20px;
+
+$theme-header-height: 100px;
+$theme-footer-height: 100px;
+
+$theme-main-width: 1024px;
+$theme-sidenav-width: 100px;

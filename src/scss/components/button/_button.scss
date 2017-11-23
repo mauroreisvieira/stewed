@@ -1,0 +1,101 @@
+.button {
+  background: none;
+  border: 0;
+  border-radius: $c-button-border-radius;
+  color: inherit;
+  cursor: pointer;
+  display: block;
+  float: left;
+  font-family: $font-family-base;
+  height: 36px;
+  letter-spacing: .4px;
+  line-height: 36px;
+  margin: 0;
+  padding: 0 16px;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  z-index: 0;
+
+  &[disabled] {
+    opacity: .7;
+    pointer-events: none;
+  }
+
+  &--large {
+    font-size: $c-button-font-size-medium;
+    font-weight: $c-button-font-weight-normal;
+    height: 46px;
+    line-height: 46px;
+    padding: 0 52px;
+  }
+
+  &--medium {
+    font-size: $c-button-font-size-medium;
+    font-weight: $c-button-font-weight-normal;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 32px;
+  }
+
+  &--small {
+    font-size: $c-button-font-size-small;
+    font-weight: $c-button-font-weight-normal;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 14px;
+  }
+
+  &--icon {
+    border-radius: 50%;
+    float: right;
+    font-size: $c-button-font-size-medium;
+    font-weight: $c-button-font-weight-normal;
+    padding: 0;
+    width: 36px;
+
+    .icon {
+      pointer-events: none;
+    }
+  }
+
+  @each $key, $values in $buttons {
+
+    &--#{$key} {
+      background-color: nth($values, 1);
+      color: nth($values, 2);
+      overflow: hidden;
+      transition: border-color .3s, color .3s;
+
+      &::before {
+        background-color: nth($values, 3);
+        content: '';
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        transform: rotate3d(0, 0, 1, -90deg);
+        transform-origin: left bottom;
+        transition: transform .3s, background-color .3s;
+        width: 150%;
+        will-change: transform;
+        z-index: -1;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:hover {
+        color: nth($values, 4);
+
+        &::before {
+          background-color: nth($values, 3);
+          opacity: 1;
+          transform: rotate3d(0, 0, 1, 0deg);
+          transition-timing-function: cubic-bezier(.2, 1, .3, 1);
+        }
+      }
+    }
+  }
+}

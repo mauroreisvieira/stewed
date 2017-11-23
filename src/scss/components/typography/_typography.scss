@@ -1,0 +1,28 @@
+@each $key, $values in $headings {
+  #{$key} {
+    @include typography(nth($values, 2), nth($values, 3));
+    color: nth($values, 1);
+    margin: $c-typography-baseline-heading 0;
+  }
+}
+
+p {
+  @include typography($c-typography-font-size-medium, $c-typography-font-weight-normal);
+  color: $c-typography-color-text;
+}
+
+span {
+  @include typography($c-typography-font-size-medium, $c-typography-font-weight-normal);
+  color: $c-typography-color-text;
+}
+
+a {
+  @include typography($c-typography-font-size-medium, $c-typography-font-weight-normal);
+  color: $c-typography-color-link;
+
+  &:hover {
+    color: $c-typography-color-link-hover;
+    text-decoration: none;
+  }
+}
+

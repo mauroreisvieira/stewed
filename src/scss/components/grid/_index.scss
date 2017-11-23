@@ -1,0 +1,24 @@
+@import '../../utilities/variables';
+@import '../../utilities/mixins';
+
+$grid: 100%;
+$columns: 12;
+$gutter: 15px;
+
+$class-row: 'row';
+$class-cell: 'col';
+$class-off: 'off';
+
+// Breakpoints
+$min-device : 280px;
+$mobile : 767px;
+$tablet : 992px;
+$desktop : 1200px;
+
+$breakpoints: (
+  (small, $min-device),
+  (medium, $tablet),
+  (large, $desktop)
+);
+
+@import 'grid';
