@@ -1,0 +1,22 @@
+input {
+  border: 1px solid $c-form-input-border-color;
+  box-sizing: border-box;
+  height: 44px;
+  padding: 0 14px;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+label {
+  color: $c-form-input-border-color;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  transition: transform .3s ease;
+}

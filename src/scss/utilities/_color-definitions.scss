@@ -1,0 +1,82 @@
+$u-color-red: (
+  'base': #e3342f,
+  'lighten': #e3342f,
+  'darken': #cc1f1a
+);
+
+$u-color-pink: (
+  'base': #df1070,
+  'lighten': #df1070,
+  'darken': #df1070,
+);
+
+$u-color-yellow: (
+  'base': #fdbc59,
+  'lighten': #fdbc59,
+  'darken': #fdbc59
+);
+
+$u-color-orange: (
+  'base': #f6993f,
+  'lighten': #faad63,
+  'darken': #de751f
+);
+
+$u-color-salmon: (
+  'base': #f86755,
+  'lighten': #f86755,
+  'darken': #f86755
+);
+
+$u-color-violet: (
+  'base': #6f1efb,
+  'lighten': #6f1efb,
+  'darken': #6f1efb
+);
+
+$u-color-cyan: (
+  'base': #0193a3,
+  'lighten': #0193a3,
+  'darken': #0193a3
+);
+
+$u-color-aqua: (
+  'base': #36f7ce,
+  'lighten': #36f7ce,
+  'darken': #36f7ce
+);
+
+$u-color-green: (
+  'base': #38c172,
+  'lighten': #51d88a,
+  'darken': #1f9d55
+);
+
+$u-color-blue: (
+  'base': #3490dc,
+  'lighten': #6cb2eb,
+  'darken': #2779bd
+);
+
+$u-color-grey: (
+  'base': #d1dded,
+  'lighten': #d1dded,
+  'darken': #424242
+);
+
+$u-colors: (
+  'red': $u-color-red,
+  'pink': $u-color-pink,
+  'yellow': $u-color-yellow,
+  'orange': $u-color-orange,
+  'salmon': $u-color-salmon,
+  'violet': $u-color-violet,
+  'cyan': $u-color-cyan,
+  'aqua': $u-color-aqua,
+  'green': $u-color-green,
+  'blue': $u-color-blue,
+  'grey': $u-color-grey
+) !default;
+
+$u-color-white: #fff;
+$u-color-black: #000;

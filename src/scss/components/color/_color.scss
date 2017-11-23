@@ -1,0 +1,22 @@
+@each $color-name, $color in $u-colors {
+  @each $color-type, $color-value in $color {
+    @if $color-type == 'base' {
+      .bg-#{$color-name} {
+        background-color: $color-value;
+      }
+
+      .text-#{$color-name} {
+        color: $color-value;
+      }
+    }
+    @else {
+      .bg-#{$color-name}--#{$color-type} {
+        background-color: $color-value;
+      }
+
+      .text-#{$color-name}--#{$color-type} {
+        color: $color-value;
+      }
+    }
+  }
+}

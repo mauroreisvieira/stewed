@@ -1,0 +1,27 @@
+.form {
+
+  &__fieldset {
+    align-items: left;
+    border: 0;
+    display: flex;
+    margin-bottom: 20px;
+    position: relative;
+
+    svg {
+      height: 44px;
+      position: absolute;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &--column {
+      flex-direction: column;
+    }
+
+    &--hidde {
+      display: none;
+    }
+  }
+}

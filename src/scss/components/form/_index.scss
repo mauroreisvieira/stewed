@@ -1,0 +1,14 @@
+@import '../../utilities/variables';
+@import '../../utilities/mixins';
+
+// Input
+$c-form-input-text-font-size: 16px !default;
+$c-form-input-text-width: 100% !default;
+$c-form-input-text-padding: 4px !default;
+$c-form-input-text-vertical-spacing: 20px !default;
+$c-form-input-text-button-size: 32px !default;
+
+$c-form-input-border-color: $u-color-black;
+
+@import 'input';
+@import 'form';

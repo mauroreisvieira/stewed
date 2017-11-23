@@ -1,0 +1,33 @@
+@import '../../utilities/variables';
+@import '../../utilities/mixins';
+
+$c-btn-font-size-small: $u-font-size - 2; // 12px
+$c-btn-font-size-medium: $u-font-size; // 14px
+$c-btn-font-weight-normal: $u-font-weight; // 400
+
+$c-btn-border-radius: 2px;
+
+// Button Danger
+$c-btn-color-danger: map-get($u-color-red, 'base');
+$c-btn-color-danger-hover: map-get($u-color-salmon, 'base');
+
+// Button Success
+$c-btn-color-success: map-get($u-color-green, 'base');
+$c-btn-color-success-hover: map-get($u-color-green, 'darken');
+
+// Button Info
+$c-btn-color-info: map-get($u-color-blue, 'base');
+$c-btn-color-info-hover: map-get($u-color-blue, 'darken');
+
+// Button Default
+$c-btn-color-default: map-get($u-color-grey, 'base');
+$c-btn-color-default-hover: map-get($u-color-grey, 'base');
+
+$btns: (
+  'danger': ($c-btn-color-danger, $u-color-white, $c-btn-color-danger-hover, $u-color-white),
+  'success': ($c-btn-color-success, $u-color-white, $c-btn-color-success-hover, $u-color-white),
+  'info': ($c-btn-color-info, $u-color-white, $c-btn-color-info-hover, $u-color-white),
+  'default': ($c-btn-color-default, $u-color-white, $c-btn-color-default-hover, $u-color-white)
+);
+
+@import 'button';
