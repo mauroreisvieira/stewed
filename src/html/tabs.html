@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- head -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stewed Framework</title>
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- Web Application Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Quick and efficiently responsive web framework HTML & CSS and Pure JavaScript">
+    <link rel="icon" href="assets/images/touch/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="assets/images/touch/favicon.ico" type="image/x-icon"/>
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/touch/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/touch/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/touch/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/touch/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/touch/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/touch/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/touch/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/touch/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/touch/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="assets/images/touch//android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/touch//favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/touch//favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/touch//favicon-16x16.png">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <meta name="msapplication-TileImage" content="assets/images/touch/apple-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#2F3BA2">
+    <!-- Stewed Kit -->
+    <link rel="stylesheet" href="assets/stewed/stewed.css">
+    <!-- My Styles -->
+    <link rel="stylesheet" href="assets/ionicons/css/ionicons.css">
+    <link rel="stylesheet" href="assets/css/syntaxhighlighter.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <header class="header background-darkbluegrey">
+        <div class="container--fullwidth">
+            <div class="row">
+                <div class="large-12 medium-12 small-12">
+                    <button class="button js-menu-show color-white background-pink button--fab size-20">
+                        <i class="icon ion-drag"></i>
+                    </button>
+                    <a href="index.html">
+                        <img src="assets/images/logo/stewed_white.svg" class="logo" alt="">
+                    </a>
+                    <aside class="js-side-nav side-nav">
+                        <nav class="js-side-nav-container side-nav__container box-shadow--4">
+                            <div class="pull-left margin-20">
+                                <button class="js-menu-hide button color-pink button--icon">
+                                    <i class="icon ion-ios-arrow-thin-left"></i>
+                                </button>
+                            </div>
+                            <a href="index.html">
+                                <img src="assets/images/logo/stewed_dark.svg" class="logo-90 margin-top-20" alt="">
+                            </a>
+                            <div class="navigation color-white margin-top-30">
+                                <ul class="navigation__vertical color-pink">
+                                    <!-- Helpers -->
+                                    <li class="font-500 text-uppercase"><a href="#">1. CSS Helpers</a></li>
+                                    <li class="color-darkbluegrey"><a href="colors.html" class=""><span class="font-500 color-pink">1.1</span> Color & Shadow</a> </li>
+                                    <li class="color-darkbluegrey"><a href="typography.html" class=""><span class="font-500 color-pink">1.2</span> Typography</a> </li>
+                                    <li class="color-darkbluegrey"><a href="utilities.html" class=""><span class="font-500 color-pink">1.3</span> Utilities</a> </li>
+                                    <!-- CSS -->
+                                    <li class="font-500 text-uppercase"><a href="#">2. CSS Components</a></li>
+                                    <li class="color-darkbluegrey"><a href="badges.html"><span class="font-500 color-pink">2.1</span> Badges & Labels</a></li>
+                                    <li class="color-darkbluegrey"><a href="breadcrumbs.html"><span class="font-500 color-pink">2.2</span> Breadcrumbs</a></li>
+                                    <li class="color-darkbluegrey"><a href="buttons.html"><span class="font-500 color-pink">2.3</span> Buttons</a></li>
+                                    <li class="color-darkbluegrey"><a href="cards.html"><span class="font-500 color-pink">2.4</span> Cards</a></li>
+                                    <li class="color-darkbluegrey"><a href="forms.html"><span class="font-500 color-pink">2.5</span> Forms Filed</a></li>
+                                    <li class="color-darkbluegrey"><a href="grid.html"><span class="font-500 color-pink">2.6</span> Grid</a></li>
+                                    <li class="color-darkbluegrey"><a href="navigation.html"><span class="font-500 color-pink">2.7</span> Navigation</a></li>
+                                    <li class="color-darkbluegrey"><a href="pagination.html"><span class="font-500 color-pink">2.8</span> Pagination</a></li>
+                                    <li class="color-darkbluegrey"><a href="tables.html"><span class="font-500 color-pink">2.9</span> Tables</a></li>
+                                    <li class="color-darkbluegrey"><a href="tooltips.html"><span class="font-500 color-pink">2.10</span> Tooltips</a></li>
+                                    <!-- Javascript -->
+                                    <li class="font-500 text-uppercase"><a href="">3. JavaScript</a></li>
+                                    <li class="color-darkbluegrey"><a href="dropdown.html" class=""><span class="font-500 color-pink">3.1</span> Dropdown</a></li> 
+                                    <li class="color-darkbluegrey"><a href="modal.html" class=""><span class="font-500 color-pink">3.2</span> Modal</a></li>
+                                    <li class="color-darkbluegrey"><a href="sidenav.html" class=""><span class="font-500 color-pink">3.3</span> SideNav</a></li>
+                                    <li class="color-darkbluegrey"><a href="snackbar.html" class=""><span class="font-500 color-pink">3.4</span> Snackbar</a></li>
+                                    <li class="color-darkbluegrey"><a href="tabs.html" class=""><span class="font-500 color-pink">3.5</span> Tabs</a></li>
+                                    <li class="color-darkbluegrey"><a href="toast.html" class=""><span class="font-500 color-pink">3.6</span> Toast</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="main">
+        <div class="content">
+
+<div class="header-description box-shadow--4 background-darkbluegrey">
+    <div class="container">
+        <div class="master-header padding-bottom-20">
+            <h1>Tabs</h1>
+            <p></p>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <h2>Tabs</h2>
+    <p>When you click on tab, only the container with the corresponding tab id will become visible. </p>
+    <p>You can add the class <code>.disabled</code> to make a tab inactivated.</p>
+    <p>If you want to use a precise external link to indicate that the tab will not have section <code>[stewed-tab-section="false"]</code>.</p>
+
+    <div class="row row--gutter margin-top-40">
+        <div class="large-12 medium-12 small-12">
+            <div class="margin-top-10 color-bluegrey background-white ">
+                <ul class="row tabs" stewed-tabs="one">
+                    <li class="tabs__item tabs__item--active large-2 medium-4 small-6" stewed-tab-id="tab1">
+                        <p>Tab 1</p>
+                    </li>
+                    <li class="tabs__item large-2 medium-4 small-6" stewed-tab-id="tab2">
+                        <p>Tab 2</p>
+                    </li>
+                    <li class="tabs__item large-2 medium-4 small-6" stewed-tab-id="tab3">
+                        <p>Tab 3</p>
+                    </li>        
+                    <li class="tabs__item large-2 medium-4 small-6" stewed-tab-id="tab4">
+                        <p>Tab 4</p>
+                    </li>   
+                    <li class="tabs__item disabled large-2 medium-4 small-6" stewed-tab-id="tab5">
+                        <p>Disabled</p>
+                    </li>
+                    <li class="tabs__item large-2 medium-4 small-6" stewed-tab-id="false">
+                        <a href="http://google.pt" target="_blank">External URL</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="large-12 medium-12 small-12">
+            <div class="background-white color-black margin-top-10" id="one">
+                <div id="tab1" class="tab-section tab-section--active">
+                    <h3 class="font-500 color-bluegrey">Tab 1</h3>
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel modi facere eius, sapiente aut rerum quae consequatur temporibus nam iste voluptates velit placeat sunt natus quia cupiditate assumenda eum ratione.</p>
+                </div>
+                <div id="tab2" class="tab-section">
+                    <h3 class="font-500 color-bluegrey">Tab 2</h3>
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel modi facere eius, sapiente aut rerum quae consequatur temporibus nam iste voluptates velit placeat sunt natus quia cupiditate assumenda eum ratione.</p>
+                </div>
+                <div id="tab3" class="tab-section">
+                    <h3 class="font-500 color-bluegrey">Tab 3</h3>
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel modi facere eius, sapiente aut rerum quae consequatur temporibus nam iste voluptates velit placeat sunt natus quia cupiditate assumenda eum ratione.</p>
+                </div>
+                <div id="tab4" class="tab-section">
+                    <h3 class="font-500 color-bluegrey">Tab 4</h3>
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel modi facere eius, sapiente aut rerum quae consequatur temporibus nam iste voluptates velit placeat sunt natus quia cupiditate assumenda eum ratione.</p>
+                </div>
+                <div id="tab5" class="tab-section">
+                    <h3 class="font-500 color-bluegrey">Tab 5</h3>
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel modi facere eius, sapiente aut rerum quae consequatur temporibus nam iste voluptates velit placeat sunt natus quia cupiditate assumenda eum ratione.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row row--gutter margin-top-40 margin-bottom-40">
+        <div class="large-12 medium-12 small-12">
+            <p>To use tabs you nead use the class <code>.tabs</code>, <code>.tabs__item</code> and <code>.tab-section</code>.</p>
+            <p>But also need to use attributes to be able to identify your tabs <code>[stewed-tabs="ID_CONTAINER"]</code> and <code>[stewed-tab-id="ID_TAB"]</code>.</p>  
+        </div>    
+    </div>
+    <div class="card margin-top-20 margin-bottom-60">
+        <div class="card__header ">
+            <h4 class="card__header__title text-uppercase">Cooking</h4>
+        </div>
+        <div class="card__container card--border">
+            <div id="view-html" class="code">
+                <pre class="brush: xml; toolbar: false; gutter: false;">
+                    &lt;div class="row row--gutter margin-top-40">
+                        &lt;div class="large-12 medium-12 small-12">
+                            &lt;div class="margin-top-10 color-bluegrey background-white ">
+                                &lt;ul class="row tabs" stewed-tabs="one">
+                                    &lt;li class="tabs__item tabs__item--active large-2 medium-2 small-6" stewed-tab-id="tab1">
+                                        &lt;p>Tab 1&lt;/p>
+                                    &lt;/li>
+                                    &lt;li class="tabs__item large-2 medium-2 small-6" stewed-tab-id="tab2">
+                                        &lt;p>Tab 2&lt;/p>
+                                    &lt;/li>
+                                    &lt;li class="tabs__item large-2 medium-2 small-6" stewed-tab-id="tab3">
+                                        &lt;p>Tab 3&lt;/p>
+                                    &lt;/li>        
+                                    &lt;li class="tabs__item large-2 medium-2 small-6" stewed-tab-id="tab4">
+                                        &lt;p>Tab 4&lt;/p>
+                                    &lt;/li>   
+                                    &lt;li class="tabs__item disabled large-2 medium-2 small-6" stewed-tab-id="tab5">
+                                        &lt;p>Disabled&lt;/p>
+                                    &lt;/li>
+                                    &lt;li class="tabs__item large-2 medium-2 small-6" stewed-tab-id="false">
+                                        &lt;a href="http://google.pt" target="_blank">External URL&lt;/a>
+                                    &lt;/li>
+                                &lt;/ul>
+                            &lt;/div>
+                        &lt;/div>
+                        &lt;div class="large-12 medium-12 small-12">
+                            &lt;div class="background-white color-black margin-top-10" id="one">
+                                &lt;div id="tab1" class="tab-section tab-section--active">
+                                    &lt;h3 class="font-500 color-bluegrey">Tab 1&lt;/h3>
+                                    &lt;p>Contrary to popular...&lt;/p>
+                                &lt;/div>
+                                &lt;div id="tab2" class="tab-section">
+                                    &lt;h3 class="font-500 color-bluegrey">Tab 2&lt;/h3>
+                                    &lt;p>Contrary to popular belief...&lt;/p>
+                                &lt;/div>
+                                &lt;div id="tab3" class="tab-section">
+                                    ...
+                                &lt;/div>
+                                &lt;div id="tab4" class="tab-section">
+                                    ...
+                                &lt;/div>
+                                &lt;div id="tab5" class="tab-section">
+                                    ...
+                                &lt;/div>
+                            &lt;/div>
+                        &lt;/div>
+                    &lt;/div>
+                </pre>                    
+            </div>
+        </div>
+    </div>
+    <div class="row row--gutter margin-top-40">
+        <div class="large-3 medium-3 small-12">
+            <div class="margin-top-10 color-red background-white ">
+                <ul class="row tabs" stewed-tabs="two">
+                    <li class="tabs__item large-12 medium-12 small-4" stewed-tab-id="sec1">
+                        <p>Section 1</p>
+                    </li>
+                    <li class="tabs__item tabs__item--active large-12 medium-12 small-4" stewed-tab-id="sec2">
+                        <p>Section 2</p>
+                    </li>
+                    <li class="tabs__item large-12 medium-12 small-4" stewed-tab-id="sec3">
+                        <p>Section 3</p>
+                    </li>        
+                </ul>
+            </div>
+        </div>
+        <div class="large-9 medium-9 small-12">
+            <div id="two" class="background-white color-black margin-top-10">
+                <div id="sec1" class="tab-section">
+                    <h3 class="font-500 color-red">Section 1</h3>
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel modi facere eius, sapiente aut rerum quae consequatur temporibus nam iste voluptates velit placeat sunt natus quia cupiditate assumenda eum ratione.</p>
+                </div>
+                <div id="sec2" class="tab-section tab-section--active">
+                    <h3 class="font-500 color-red">Section 2</h3>
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel modi facere eius, sapiente aut rerum quae consequatur temporibus nam iste voluptates velit placeat sunt natus quia cupiditate assumenda eum ratione.</p>
+                </div>
+                <div id="sec3" class="tab-section">
+                    <h3 class="font-500 color-red">Section 3</h3>
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel modi facere eius, sapiente aut rerum quae consequatur temporibus nam iste voluptates velit placeat sunt natus quia cupiditate assumenda eum ratione.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card margin-top-20 margin-bottom-60">
+            <div class="card__header ">
+                <h4 class="card__header__title text-uppercase">Cooking</h4>
+            </div>
+            <div class="card__container card--border">
+                <div id="view-html" class="code">
+                    <pre class="brush: xml; toolbar: false; gutter: false;">
+                        &lt;div class="row row--gutter margin-top-40">
+                            &lt;div class="large-3 medium-3 small-12">
+                                &lt;div class="margin-top-10 color-red background-white ">
+                                    &lt;ul class="row tabs" stewed-tabs="two">
+                                        &lt;li class="tabs__item large-12 medium-12 small-4" stewed-tab-id="sec1">
+                                            &lt;p>Section 1&lt;/p>
+                                        &lt;/li>
+                                        &lt;li class="tabs__item tabs__item--active large-12 medium-12 small-4" stewed-tab-id="sec2">
+                                            &lt;p>Section 2&lt;/p>
+                                        &lt;/li>
+                                        &lt;li class="tabs__item large-12 medium-12 small-4" stewed-tab-id="sec3">
+                                            &lt;p>Section 3&lt;/p>
+                                        &lt;/li>        
+                                    &lt;/ul>
+                                &lt;/div>
+                            &lt;/div>
+                            &lt;div class="large-9 medium-9 small-12">
+                                &lt;div id="two" class="background-white color-black margin-top-10">
+                                    &lt;div id="sec1" class="tab-section">
+                                        &lt;h3 class="font-500 color-red">Section 1&lt;/h3>
+                                        ...
+                                    &lt;/div>
+                                    &lt;div id="sec2" class="tab-section tab-section--active">
+                                        ...
+                                    &lt;/div>
+                                    &lt;div id="sec3" class="tab-section">
+                                        ...
+                                    &lt;/div>
+                                &lt;/div>
+                            &lt;/div>
+                        &lt;/div>
+                    </pre>                    
+                </div>
+            </div>
+        </div>
+</div>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <div class="footer background-darkbluegrey">
+        <div class="container">
+            <div class="row-space">
+                <div class="large-12 medium-12 small-12">
+                    <nav class="navigation pull-center display-table">
+                        <ul class="navigation__horizontal pull-center--mobile ">
+                            <li><a href="https://github.com/maurovieirareis/stewed" target="_bank">View Source on Github</a></li>
+                            <li><a href="dashboard.html" class="font-500">Templates</a></li> 
+                            <li><a href="">Support</a></li>
+                            <li><a href="changelog.html">Changelog</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- scripts -->
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-XXXXX-X', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="assets/js/jquery-2.0.2.min.js"></script>
+    <script type="text/javascript" src="assets/js/shCore.js"></script>
+    <script type="text/javascript" src="assets/js/shBrushXml.js"></script>
+    <script type="text/javascript" src="assets/js/shBrushJScript.js"></script>
+
+    <!-- Syntax Highlighter -->
+    <script type="text/javascript">
+        $(function(){
+            SyntaxHighlighter.all();
+        });
+    </script>
+
+    <script src="assets/stewed/stewed.js"></script>   
+</body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "name": "stewed",
+  "description": "Stewed Framework in CSS, JS and HTML",
+  "main": "",
+  "authors": [
+    "Mauro Reis Vieira"
+  ],
+  "license": "GNU",
+  "homepage": "https://github.com/maurovieirareis/stewed",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "tests",
+    "app",
+    "build",
+    "templates",
+    "gulpfile"
+  ],
+  "version": "0.9.20",
+  "_release": "0.9.20",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.9.20",
+    "commit": "28f4f4619928c900caa0e86d17f5268e5ca9f2e6"
+  },
+  "_source": "https://github.com/maurovieirareis/stewed.git",
+  "_target": "^0.9.20",
+  "_originalSource": "stewed",
+  "_direct": true
+}
