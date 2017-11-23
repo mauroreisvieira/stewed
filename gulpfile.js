@@ -50,11 +50,17 @@ gulp.task('js', function () {
 
 // Task for html comiling
 gulp.task('html', function () {
-    return gulp.src('src/html/**/*.html')
+    gulp.src('src/html/**/*.html')
     .pipe(htmlPartial({
       basePath: 'src/html/'
     }))
     .pipe(gulp.dest('docs/'));
+    gulp.src('src/html/assets/css/*.css').pipe(gulp.dest('docs/assets/css'));
+    gulp.src('src/html/assets/images/**/*').pipe(gulp.dest('docs/assets/images'));
+    gulp.src('src/html/assets/fonts/**/*').pipe(gulp.dest('docs/assets/fonts'));
+    gulp.src('src/html/assets/ionicons/**/*').pipe(gulp.dest('docs/assets/ionicons'));
+    gulp.src('src/html/assets/js/**/*').pipe(gulp.dest('docs/assets/js'));
+    gulp.src('src/html/assets/stewed/*.js').pipe(gulp.dest('docs/assets/stewed'));
 });
 
 //Watch for all changes
