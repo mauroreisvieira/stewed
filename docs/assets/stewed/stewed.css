@@ -883,6 +883,21 @@ label {
   }
 }
 
+.container {
+  display: block;
+  width: calc(100% - 30px);
+  max-width: 1280px;
+  padding: 0 15px;
+  margin: auto;
+}
+
+.container--fullwidth {
+  display: block;
+  width: calc(100% - 30px);
+  padding: 0 15px;
+  margin: auto;
+}
+
 .menu {
   align-items: center;
   display: flex;
