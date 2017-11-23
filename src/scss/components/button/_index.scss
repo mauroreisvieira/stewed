@@ -1,33 +1,33 @@
 @import '../../utilities/variables';
 @import '../../utilities/mixins';
 
-$c-button-font-size-small: $u-font-size - 2; // 12px
-$c-button-font-size-medium: $u-font-size; // 14px
-$c-button-font-weight-normal: $u-font-weight; // 400
+$c-btn-font-size-small: $u-font-size - 2; // 12px
+$c-btn-font-size-medium: $u-font-size; // 14px
+$c-btn-font-weight-normal: $u-font-weight; // 400
 
-$c-button-border-radius: 2px;
+$c-btn-border-radius: 2px;
 
 // Button Danger
-$c-button-color-danger: map-get($u-color-red, 'base');
-$c-button-color-danger-hover: map-get($u-color-salmon, 'base');
+$c-btn-color-danger: map-get($u-color-red, 'base');
+$c-btn-color-danger-hover: map-get($u-color-salmon, 'base');
 
 // Button Success
-$c-button-color-success: map-get($u-color-green, 'base');
-$c-button-color-success-hover: map-get($u-color-green, 'darken');
+$c-btn-color-success: map-get($u-color-green, 'base');
+$c-btn-color-success-hover: map-get($u-color-green, 'darken');
 
 // Button Info
-$c-button-color-info: map-get($u-color-blue, 'base');
-$c-button-color-info-hover: map-get($u-color-blue, 'darken');
+$c-btn-color-info: map-get($u-color-blue, 'base');
+$c-btn-color-info-hover: map-get($u-color-blue, 'darken');
 
 // Button Default
-$c-button-color-default: map-get($u-color-grey, 'base');
-$c-button-color-default-hover: map-get($u-color-grey, 'base');
+$c-btn-color-default: map-get($u-color-grey, 'base');
+$c-btn-color-default-hover: map-get($u-color-grey, 'base');
 
 $buttons: (
-  'danger': ($c-button-color-danger, $u-color-white, $c-button-color-danger-hover, $u-color-white),
-  'success': ($c-button-color-success, $u-color-white, $c-button-color-success-hover, $u-color-white),
-  'info': ($c-button-color-info, $u-color-white, $c-button-color-info-hover, $u-color-white),
-  'default': ($c-button-color-default, $u-color-white, $c-button-color-default-hover, $u-color-white)
+  'danger': ($c-btn-color-danger, $u-color-white, $c-btn-color-danger-hover, $u-color-white),
+  'success': ($c-btn-color-success, $u-color-white, $c-btn-color-success-hover, $u-color-white),
+  'info': ($c-btn-color-info, $u-color-white, $c-btn-color-info-hover, $u-color-white),
+  'default': ($c-btn-color-default, $u-color-white, $c-btn-color-default-hover, $u-color-white)
 );
 
 @import 'button';

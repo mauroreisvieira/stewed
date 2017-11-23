@@ -10,10 +10,10 @@ $class-cell: 'col';
 $class-off: 'off';
 
 // Breakpoints
-$min-device : 280px;
-$mobile : 767px;
-$tablet : 992px;
-$desktop : 1200px;
+$min-device: 280px;
+$mobile: 767px;
+$tablet: 992px;
+$desktop: 1200px;
 
 $breakpoints: (
   (small, $min-device),

@@ -1,7 +1,7 @@
-.button {
+.btn {
   background: none;
   border: 0;
-  border-radius: $c-button-border-radius;
+  border-radius: $c-btn-border-radius;
   color: inherit;
   cursor: pointer;
   display: block;
@@ -23,24 +23,24 @@
   }
 
   &--large {
-    font-size: $c-button-font-size-medium;
-    font-weight: $c-button-font-weight-normal;
+    font-size: $c-btn-font-size-medium;
+    font-weight: $c-btn-font-weight-normal;
     height: 46px;
     line-height: 46px;
     padding: 0 52px;
   }
 
   &--medium {
-    font-size: $c-button-font-size-medium;
-    font-weight: $c-button-font-weight-normal;
+    font-size: $c-btn-font-size-medium;
+    font-weight: $c-btn-font-weight-normal;
     height: 40px;
     line-height: 40px;
     padding: 0 32px;
   }
 
   &--small {
-    font-size: $c-button-font-size-small;
-    font-weight: $c-button-font-weight-normal;
+    font-size: $c-btn-font-size-small;
+    font-weight: $c-btn-font-weight-normal;
     height: 36px;
     line-height: 36px;
     padding: 0 14px;
@@ -49,8 +49,8 @@
   &--icon {
     border-radius: 50%;
     float: right;
-    font-size: $c-button-font-size-medium;
-    font-weight: $c-button-font-weight-normal;
+    font-size: $c-btn-font-size-medium;
+    font-weight: $c-btn-font-weight-normal;
     padding: 0;
     width: 36px;
 
@@ -59,7 +59,7 @@
     }
   }
 
-  @each $key, $values in $buttons {
+  @each $key, $values in $btns {
 
     &--#{$key} {
       background-color: nth($values, 1);

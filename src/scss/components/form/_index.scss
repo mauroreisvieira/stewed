@@ -8,6 +8,8 @@ $c-form-input-text-padding: 4px !default;
 $c-form-input-text-vertical-spacing: 20px !default;
 $c-form-input-text-button-size: 32px !default;
 
+$c-form-input-border-color: $u-color-black;
+
 @import 'input';
 @import 'textarea';
 @import 'form';
