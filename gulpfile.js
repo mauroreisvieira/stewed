@@ -59,14 +59,14 @@ gulp.task('html', function () {
 
 //Watch for all changes
 gulp.task('watch', function () {
-    gulp.watch('src/stewed.scss', ['sass']);
+    gulp.watch('src/**/*.scss', ['sass']);
     gulp.watch('src/**/*.js', ['js']);
     gulp.watch('src/**/*.html', ['html']);
 });
 
 //Create Dev Server for all changes
 gulp.task('serve', function () {
-    gulp.watch('src/sass/stewed.scss', ['sass']);
+    gulp.watch('src/**/*.scss', ['sass']);
     gulp.watch('src/**/*.js', ['js']);
     gulp.watch('src/**/*.html', ['html']);
     var stream = gulp.src('docs').pipe(webserver({
