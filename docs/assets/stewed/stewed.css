@@ -1401,7 +1401,7 @@ label {
 
 h1 {
   font-family: "Raleway", sans-serif;
-  font-size: 42px;
+  font-size: 50px;
   font-weight: 300;
   line-height: 1.4;
   color: #000;
@@ -1410,8 +1410,8 @@ h1 {
 
 h2 {
   font-family: "Raleway", sans-serif;
-  font-size: 36px;
-  font-weight: 900;
+  font-size: 42px;
+  font-weight: 700;
   line-height: 1.4;
   color: #000;
   margin: 18px 0;
@@ -1419,7 +1419,7 @@ h2 {
 
 h3 {
   font-family: "Raleway", sans-serif;
-  font-size: 28px;
+  font-size: 34px;
   font-weight: 700;
   line-height: 1.4;
   color: #000;
@@ -1428,7 +1428,7 @@ h3 {
 
 h4 {
   font-family: "Raleway", sans-serif;
-  font-size: 20px;
+  font-size: 26px;
   font-weight: 700;
   line-height: 1.4;
   color: #000;
@@ -1437,7 +1437,7 @@ h4 {
 
 h5 {
   font-family: "Raleway", sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 700;
   line-height: 1.4;
   color: #000;
@@ -1446,7 +1446,7 @@ h5 {
 
 h6 {
   font-family: "Raleway", sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   line-height: 1.4;
   color: #000;
@@ -1498,11 +1498,11 @@ a:hover {
   text-align: justify;
 }
 
-.font-thin {
+.thin {
   font-weight: 100;
 }
 
-.font-normal {
+.normal {
   font-weight: 400;
 }
 
@@ -1510,10 +1510,38 @@ a:hover {
   font-weight: 500;
 }
 
-.font-bold {
+.bold {
   font-weight: 700;
 }
 
-.font-extrabold {
+.extrabold {
   font-weight: 900;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.overline {
+  text-decoration: overline;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.through {
+  text-decoration: line-through;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
 }

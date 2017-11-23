@@ -7,17 +7,17 @@
 }
 
 p {
-  @include typography($c-typography-font-size-medium, $c-typography-font-weight-normal);
+  @include typography($c-typography-font-size-md, $c-typography-font-weight-normal);
   color: $c-typography-color-text;
 }
 
 span {
-  @include typography($c-typography-font-size-medium, $c-typography-font-weight-normal);
+  @include typography($c-typography-font-size-md, $c-typography-font-weight-normal);
   color: $c-typography-color-text;
 }
 
 a {
-  @include typography($c-typography-font-size-medium, $c-typography-font-weight-normal);
+  @include typography($c-typography-font-size-md, $c-typography-font-weight-normal);
   color: $c-typography-color-link;
 
   &:hover {
@@ -44,11 +44,11 @@ a {
 }
 
 // Font Weight
-.font-thin {
+.thin {
   font-weight: $c-typography-font-weight-thin;
 }
 
-.font-normal {
+.normal {
   font-weight: $c-typography-font-weight-normal;
 }
 
@@ -56,10 +56,40 @@ a {
   font-weight: $c-typography-font-weight-semibold;
 }
 
-.font-bold {
+.bold {
   font-weight: $c-typography-font-weight-bold;
 }
 
-.font-extrabold {
+.extrabold {
   font-weight: $c-typography-font-weight-extrabold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+// Text Decoration
+.overline  {
+  text-decoration: overline;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.through {
+  text-decoration: line-through;
+}
+
+// Text transform
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
 }

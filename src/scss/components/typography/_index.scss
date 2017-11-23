@@ -2,14 +2,15 @@
 @import '../../utilities/mixins';
 
 // Font Size
-$c-typography-font-size-small-x: $u-font-size - 6; // 10px
-$c-typography-font-size-small-xx: $u-font-size -4; // 12px
-$c-typography-font-size-small: $u-font-size - 2; // 14px
-$c-typography-font-size-medium: $u-font-size; // 16px
-$c-typography-font-size-large: $u-font-size + 4; // 20px
-$c-typography-font-size-large-x: $u-font-size + 12; // 26px
-$c-typography-font-size-large-xx: $u-font-size + 20; // 36px
-$c-typography-font-size-large-xxx: $u-font-size + 26; // 42px
+$c-typography-font-size-sx: 10px; // 10px
+$c-typography-font-size-sm: 12px; // 12px
+$c-typography-font-size-base: $u-font-size;
+$c-typography-font-size-md: 16px;
+$c-typography-font-size-lg: 20px;
+$c-typography-font-size-xl: 26px;
+$c-typography-font-size-xl-x: 34px;
+$c-typography-font-size-xl-xx: 42px;
+$c-typography-font-size-xl-xxx: 50px;
 
 // Font Weight
 $c-typography-font-weight-thin: 100;
@@ -36,12 +37,12 @@ $c-typography-color-link-hover: map-get($u-color-pink, 'base');
 $c-typography-baseline-heading: $u-baseline * 3;
 
 $headings: (
-  'h1': ($c-typography-color-heading-1, $c-typography-font-size-large-xxx, $c-typography-font-weight-light),
-  'h2': ($c-typography-color-heading-2, $c-typography-font-size-large-xx, $c-typography-font-weight-extrabold),
-  'h3': ($c-typography-color-heading-3, $c-typography-font-size-large-x, $c-typography-font-weight-bold),
-  'h4': ($c-typography-color-heading-4, $c-typography-font-size-large, $c-typography-font-weight-bold),
-  'h5': ($c-typography-color-heading-5, $c-typography-font-size-medium, $c-typography-font-weight-bold),
-  'h6': ($c-typography-color-heading-6, $c-typography-font-size-small, $c-typography-font-weight-bold)
+  'h1': ($c-typography-color-heading-1, $c-typography-font-size-xl-xxx, $c-typography-font-weight-light),
+  'h2': ($c-typography-color-heading-2, $c-typography-font-size-xl-xx, $c-typography-font-weight-bold),
+  'h3': ($c-typography-color-heading-3, $c-typography-font-size-xl-x, $c-typography-font-weight-bold),
+  'h4': ($c-typography-color-heading-4, $c-typography-font-size-xl, $c-typography-font-weight-bold),
+  'h5': ($c-typography-color-heading-5, $c-typography-font-size-lg, $c-typography-font-weight-bold),
+  'h6': ($c-typography-color-heading-6, $c-typography-font-size-md, $c-typography-font-weight-bold)
 );
 
 @import 'typography';
