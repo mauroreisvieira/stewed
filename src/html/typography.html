@@ -1,100 +1,10 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <!-- head -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stewed Framework</title>
-    <!-- Disable tap highlight on IE -->
-    <meta name="msapplication-tap-highlight" content="no">
-    <!-- Web Application Manifest -->
-    <link rel="manifest" href="manifest.json">
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Quick and efficiently responsive web framework HTML & CSS and Pure JavaScript">
-    <link rel="icon" href="assets/images/touch/favicon.ico" type="image/x-icon"/>
-    <link rel="shortcut icon" href="assets/images/touch/favicon.ico" type="image/x-icon"/>
-    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/touch/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/touch/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/touch/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/touch/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/touch/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/touch/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/touch/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/touch/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/touch/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="assets/images/touch//android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/touch//favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/touch//favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/touch//favicon-16x16.png">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
-    <meta name="msapplication-TileImage" content="assets/images/touch/apple-icon-144x144.png">
-    <meta name="msapplication-TileColor" content="#2F3BA2">
-    <!-- Stewed Kit -->
-    <link rel="stylesheet" href="assets/stewed/stewed.css">
-    <!-- My Styles -->
-    <link rel="stylesheet" href="assets/ionicons/css/ionicons.css">
-    <link rel="stylesheet" href="assets/css/syntaxhighlighter.css">
-    <link rel="stylesheet" href="assets/css/main.css">
+    <partial src="partials/head.html" title="Stewed Framework 1.0"></partial>
 </head>
 <body>
-    <header class="header background-darkbluegrey">
-        <div class="container--fullwidth">
-            <div class="row">
-                <div class="large-12 medium-12 small-12">
-                    <button class="button js-menu-show color-white background-pink button--fab size-20">
-                        <i class="icon ion-drag"></i>
-                    </button>
-                    <a href="index.html">
-                        <img src="assets/images/logo/stewed_white.svg" class="logo" alt="">
-                    </a>
-                    <aside class="js-side-nav side-nav">
-                        <nav class="js-side-nav-container side-nav__container box-shadow--4">
-                            <div class="pull-left margin-20">
-                                <button class="js-menu-hide button color-pink button--icon">
-                                    <i class="icon ion-ios-arrow-thin-left"></i>
-                                </button>
-                            </div>
-                            <a href="index.html">
-                                <img src="assets/images/logo/stewed_dark.svg" class="logo-90 margin-top-20" alt="">
-                            </a>
-                            <div class="navigation color-white margin-top-30">
-                                <ul class="navigation__vertical color-pink">
-                                    <!-- Helpers -->
-                                    <li class="font-500 text-uppercase"><a href="#">1. CSS Helpers</a></li>
-                                    <li class="color-darkbluegrey"><a href="colors.html" class=""><span class="font-500 color-pink">1.1</span> Color & Shadow</a> </li>
-                                    <li class="color-darkbluegrey"><a href="typography.html" class=""><span class="font-500 color-pink">1.2</span> Typography</a> </li>
-                                    <li class="color-darkbluegrey"><a href="utilities.html" class=""><span class="font-500 color-pink">1.3</span> Utilities</a> </li>
-                                    <!-- CSS -->
-                                    <li class="font-500 text-uppercase"><a href="#">2. CSS Components</a></li>
-                                    <li class="color-darkbluegrey"><a href="badges.html"><span class="font-500 color-pink">2.1</span> Badges & Labels</a></li>
-                                    <li class="color-darkbluegrey"><a href="breadcrumbs.html"><span class="font-500 color-pink">2.2</span> Breadcrumbs</a></li>
-                                    <li class="color-darkbluegrey"><a href="buttons.html"><span class="font-500 color-pink">2.3</span> Buttons</a></li>
-                                    <li class="color-darkbluegrey"><a href="cards.html"><span class="font-500 color-pink">2.4</span> Cards</a></li>
-                                    <li class="color-darkbluegrey"><a href="forms.html"><span class="font-500 color-pink">2.5</span> Forms Filed</a></li>
-                                    <li class="color-darkbluegrey"><a href="grid.html"><span class="font-500 color-pink">2.6</span> Grid</a></li>
-                                    <li class="color-darkbluegrey"><a href="navigation.html"><span class="font-500 color-pink">2.7</span> Navigation</a></li>
-                                    <li class="color-darkbluegrey"><a href="pagination.html"><span class="font-500 color-pink">2.8</span> Pagination</a></li>
-                                    <li class="color-darkbluegrey"><a href="tables.html"><span class="font-500 color-pink">2.9</span> Tables</a></li>
-                                    <li class="color-darkbluegrey"><a href="tooltips.html"><span class="font-500 color-pink">2.10</span> Tooltips</a></li>
-                                    <!-- Javascript -->
-                                    <li class="font-500 text-uppercase"><a href="">3. JavaScript</a></li>
-                                    <li class="color-darkbluegrey"><a href="dropdown.html" class=""><span class="font-500 color-pink">3.1</span> Dropdown</a></li> 
-                                    <li class="color-darkbluegrey"><a href="modal.html" class=""><span class="font-500 color-pink">3.2</span> Modal</a></li>
-                                    <li class="color-darkbluegrey"><a href="sidenav.html" class=""><span class="font-500 color-pink">3.3</span> SideNav</a></li>
-                                    <li class="color-darkbluegrey"><a href="snackbar.html" class=""><span class="font-500 color-pink">3.4</span> Snackbar</a></li>
-                                    <li class="color-darkbluegrey"><a href="tabs.html" class=""><span class="font-500 color-pink">3.5</span> Tabs</a></li>
-                                    <li class="color-darkbluegrey"><a href="toast.html" class=""><span class="font-500 color-pink">3.6</span> Toast</a></li>
-                                </ul>
-                            </div>
-                        </nav>
-                    </aside>
-                </div>
-            </div>
-        </div>
-    </header>
+    <partial src="partials/header.html" selected="home"></partial>
 
     <section id="main">
         <div class="content">
@@ -203,7 +113,7 @@
         <h4 class="font-400 margin-top-40">Text Decoration Underline</h4>
             <code>.text-underline</code>
             <p class="text-underline margin-top-20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium quidem inventore possimus.</p>
-        </div>    
+        </div>
 
         <div class="large-12 medium-12 small-12">
         <h4 class="font-400 margin-top-40">Text Decoration Line Through</h4>
@@ -249,7 +159,7 @@
                             &lt;blockquote class="blockquote color-indigo background-white">
                             &lt;p class="color-black">Lorem ipsum...&lt;/p>
                             &lt;/blockquote>
-                        </pre>                    
+                        </pre>
                     </div>
                 </div>
             </div>
@@ -271,7 +181,7 @@
                     <nav class="navigation pull-center display-table">
                         <ul class="navigation__horizontal pull-center--mobile ">
                             <li><a href="https://github.com/maurovieirareis/stewed" target="_bank">View Source on Github</a></li>
-                            <li><a href="dashboard.html" class="font-500">Templates</a></li> 
+                            <li><a href="dashboard.html" class="font-500">Templates</a></li>
                             <li><a href="">Support</a></li>
                             <li><a href="changelog.html">Changelog</a></li>
                         </ul>
@@ -306,6 +216,6 @@
         });
     </script>
 
-    <script src="assets/stewed/stewed.js"></script>   
+    <script src="assets/stewed/stewed.js"></script>
 </body>
 </html>
