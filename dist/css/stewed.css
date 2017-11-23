@@ -20,7 +20,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
 */
-.button {
+.btn {
   background: none;
   border: 0;
   border-radius: 2px;
@@ -40,12 +40,12 @@
   z-index: 0;
 }
 
-.button[disabled] {
+.btn[disabled] {
   opacity: .7;
   pointer-events: none;
 }
 
-.button--large {
+.btn--large {
   font-size: 16px;
   font-weight: 400;
   height: 46px;
@@ -53,7 +53,7 @@
   padding: 0 52px;
 }
 
-.button--medium {
+.btn--medium {
   font-size: 16px;
   font-weight: 400;
   height: 40px;
@@ -61,7 +61,7 @@
   padding: 0 32px;
 }
 
-.button--small {
+.btn--small {
   font-size: 14px;
   font-weight: 400;
   height: 36px;
@@ -69,7 +69,7 @@
   padding: 0 14px;
 }
 
-.button--icon {
+.btn--icon {
   border-radius: 50%;
   float: right;
   font-size: 16px;
@@ -78,18 +78,18 @@
   width: 36px;
 }
 
-.button--icon .icon {
+.btn--icon .icon {
   pointer-events: none;
 }
 
-.button--danger {
+.btn--danger {
   background-color: #e3342f;
   color: #fff;
   overflow: hidden;
   transition: border-color .3s, color .3s;
 }
 
-.button--danger::before {
+.btn--danger::before {
   background-color: #f86755;
   content: '';
   height: 100%;
@@ -104,29 +104,29 @@
   z-index: -1;
 }
 
-.button--danger:focus {
+.btn--danger:focus {
   outline: none;
 }
 
-.button--danger:hover {
+.btn--danger:hover {
   color: #fff;
 }
 
-.button--danger:hover::before {
+.btn--danger:hover::before {
   background-color: #f86755;
   opacity: 1;
   transform: rotate3d(0, 0, 1, 0deg);
   transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
 }
 
-.button--success {
+.btn--success {
   background-color: #38c172;
   color: #fff;
   overflow: hidden;
   transition: border-color .3s, color .3s;
 }
 
-.button--success::before {
+.btn--success::before {
   background-color: #1f9d55;
   content: '';
   height: 100%;
@@ -141,29 +141,29 @@
   z-index: -1;
 }
 
-.button--success:focus {
+.btn--success:focus {
   outline: none;
 }
 
-.button--success:hover {
+.btn--success:hover {
   color: #fff;
 }
 
-.button--success:hover::before {
+.btn--success:hover::before {
   background-color: #1f9d55;
   opacity: 1;
   transform: rotate3d(0, 0, 1, 0deg);
   transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
 }
 
-.button--info {
+.btn--info {
   background-color: #3490dc;
   color: #fff;
   overflow: hidden;
   transition: border-color .3s, color .3s;
 }
 
-.button--info::before {
+.btn--info::before {
   background-color: #2779bd;
   content: '';
   height: 100%;
@@ -178,29 +178,29 @@
   z-index: -1;
 }
 
-.button--info:focus {
+.btn--info:focus {
   outline: none;
 }
 
-.button--info:hover {
+.btn--info:hover {
   color: #fff;
 }
 
-.button--info:hover::before {
+.btn--info:hover::before {
   background-color: #2779bd;
   opacity: 1;
   transform: rotate3d(0, 0, 1, 0deg);
   transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
 }
 
-.button--default {
+.btn--default {
   background-color: #d1dded;
   color: #fff;
   overflow: hidden;
   transition: border-color .3s, color .3s;
 }
 
-.button--default::before {
+.btn--default::before {
   background-color: #d1dded;
   content: '';
   height: 100%;
@@ -215,15 +215,15 @@
   z-index: -1;
 }
 
-.button--default:focus {
+.btn--default:focus {
   outline: none;
 }
 
-.button--default:hover {
+.btn--default:hover {
   color: #fff;
 }
 
-.button--default:hover::before {
+.btn--default:hover::before {
   background-color: #d1dded;
   opacity: 1;
   transform: rotate3d(0, 0, 1, 0deg);
