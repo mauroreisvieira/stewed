@@ -3,8 +3,11 @@
 /** blue grey **/
 /** grean **/
 /** default **/
+* {
+  box-sizing: border-box;
+}
+
 body {
-  background: #FAFAFA;
   color: #000;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-size: 1.00em;
@@ -12,14 +15,19 @@ body {
   height: 100%;
   line-height: 1.500;
   width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.wrapper {
+  display: grid;
+  grid-row-gap: 10px;
+  grid-row-column: 10px;
+  grid-template-areas: "header header" "sidebar content" "footer footer";
 }
 
 .header {
-  display: block;
-  overflow: hidden;
-  padding: 20px 0;
-  width: 100%;
-  z-index: 9;
+  grid-area: header;
 }
 
 .header .logo {
@@ -30,6 +38,19 @@ body {
 
 .header .logo img {
   width: 100%;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.content {
+  grid-area: content;
+  flex-direction: column;
+}
+
+.footer {
+  grid-area: footer;
 }
 
 code {

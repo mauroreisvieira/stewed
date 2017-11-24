@@ -1014,6 +1014,14 @@ label {
   display: inline-block;
 }
 
+.menu--inherit .menu__item {
+  color: inherit;
+}
+
+.menu--inherit .menu__link {
+  color: inherit;
+}
+
 .navigation {
   display: block;
   width: 100%;
@@ -1165,27 +1173,27 @@ label {
 
 .navbar {
   width: 100%;
-  height: 50px;
-  line-height: 50px;
-  padding: 10px;
+  height: 60px;
+  line-height: 60px;
+  padding: 12px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-.navbar__brand {
-  float: left;
+.navbar--spacebetween {
+  justify-content: space-between;
 }
 
-.navbar__brand, .navbar__brand * {
-  text-decoration: none;
-  line-height: 50px;
+.navbar__brand a {
   font-size: 25px;
   font-weight: 700;
-}
-
-.navbar__brand:hover, .navbar__brand *:hover {
+  line-height: 50px;
+  text-decoration: none;
   color: white;
 }
 
-.navbar * {
+.navbar__brand a:hover {
   color: white;
 }
 

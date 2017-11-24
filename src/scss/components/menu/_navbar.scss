@@ -1,21 +1,32 @@
 .navbar {
-    width: 100%;
-    height: 50px;
-    line-height: 50px;
-    padding: 10px;
-    &__brand {
-        float: left;
-        &, * {
-            text-decoration: none;
-            line-height: 50px;
-            font-size: 25px;
-            font-weight: 700;
-            &:hover {
-                color: white;
-            }
-        }
-    }
-    * {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  padding: 12px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  &--spacebetween {
+    justify-content: space-between;
+  }
+
+  &__brand {
+
+    a {
+      font-size: 25px;
+      font-weight: 700;
+      line-height: 50px;
+      text-decoration: none;
+      color: white;
+
+      &:hover {
         color: white;
+      }
     }
+  }
+
+  &__menu {
+
+  }
 }

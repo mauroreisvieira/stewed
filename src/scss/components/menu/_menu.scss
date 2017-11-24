@@ -92,4 +92,14 @@
       display: inline-block;
     }
   }
+
+  &--inherit {
+    .menu__item {
+      color: inherit;
+    }
+
+    .menu__link {
+      color: inherit;
+    }
+  }
 }
