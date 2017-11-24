@@ -7,23 +7,32 @@
 }
 
 p {
-  @include typography($c-typography-font-size-md, $c-typography-font-weight-normal);
+  @include typography($c-typography-font-size-md, $c-typography-font-weight-light);
   color: $c-typography-color-text;
 }
 
 span {
-  @include typography($c-typography-font-size-md, $c-typography-font-weight-normal);
+  @include typography($c-typography-font-size-md, $c-typography-font-weight-light);
   color: $c-typography-color-text;
 }
 
 a {
-  @include typography($c-typography-font-size-md, $c-typography-font-weight-normal);
+  @include typography($c-typography-font-size-md, $c-typography-font-weight-light);
   color: $c-typography-color-link;
 
   &:hover {
     color: $c-typography-color-link-hover;
     text-decoration: none;
   }
+}
+
+// Font Family
+.monospace {
+  font-family: $c-typography-monospace;
+}
+
+.serif {
+  font-family: $c-typography-serif;
 }
 
 // Text Alignment
@@ -46,6 +55,10 @@ a {
 // Font Weight
 .thin {
   font-weight: $c-typography-font-weight-thin;
+}
+
+.light {
+  font-weight: $c-typography-font-weight-light;
 }
 
 .normal {

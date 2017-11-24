@@ -1,4 +1,4 @@
-/**	theme **/
+/** theme **/
 /** grey **/
 /** blue grey **/
 /** grean **/
@@ -8,7 +8,6 @@
 }
 
 body {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-size: 100%;
   margin: 0;
   padding: 0;
@@ -48,9 +47,8 @@ body {
 }
 
 code {
-  background: rgba(251, 60, 104, 0.1);
+  background: rgba(0, 0, 0, 0.1);
   border-radius: 2px;
-  color: #FB3C68;
   display: inline;
   font-family: courier new, monospace;
   font-size: inherit;

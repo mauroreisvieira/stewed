@@ -1,6 +1,10 @@
 @import '../../utilities/variables';
 @import '../../utilities/mixins';
 
+// Fonts Family
+$c-typography-serif: $u-font-family-serif;
+$c-typography-monospace: $u-font-family-monospace;
+
 // Font Size
 $c-typography-font-size-sx: 10px; // 10px
 $c-typography-font-size-sm: 12px; // 12px
@@ -15,7 +19,7 @@ $c-typography-font-size-xl-xxx: 50px;
 // Font Weight
 $c-typography-font-weight-thin: 100;
 $c-typography-font-weight-light: 300;
-$c-typography-font-weight-normal: $u-font-weight; // 400
+$c-typography-font-weight-normal: 400;
 $c-typography-font-weight-semibold: 500;
 $c-typography-font-weight-bold: 700;
 $c-typography-font-weight-extrabold: 900;
@@ -37,10 +41,10 @@ $c-typography-color-link-hover: map-get($u-color-pink, 'base');
 $c-typography-baseline-heading: $u-baseline * 3;
 
 $headings: (
-  'h1': ($c-typography-color-heading-1, $c-typography-font-size-xl-xxx, $c-typography-font-weight-light),
-  'h2': ($c-typography-color-heading-2, $c-typography-font-size-xl-xx, $c-typography-font-weight-bold),
-  'h3': ($c-typography-color-heading-3, $c-typography-font-size-xl-x, $c-typography-font-weight-bold),
-  'h4': ($c-typography-color-heading-4, $c-typography-font-size-xl, $c-typography-font-weight-bold),
+  'h1': ($c-typography-color-heading-1, $c-typography-font-size-xl-xxx, $c-typography-font-weight-thin),
+  'h2': ($c-typography-color-heading-2, $c-typography-font-size-xl-xx, $c-typography-font-weight-light),
+  'h3': ($c-typography-color-heading-3, $c-typography-font-size-xl-x, $c-typography-font-weight-semibold),
+  'h4': ($c-typography-color-heading-4, $c-typography-font-size-xl, $c-typography-font-weight-semibold),
   'h5': ($c-typography-color-heading-5, $c-typography-font-size-lg, $c-typography-font-weight-bold),
   'h6': ($c-typography-color-heading-6, $c-typography-font-size-md, $c-typography-font-weight-bold)
 );

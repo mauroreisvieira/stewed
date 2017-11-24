@@ -32,7 +32,7 @@
         <link rel="icon" type="image/png" sizes="32x32" href="assets/images/touch//favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="assets/images/touch//favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="assets/images/touch//favicon-16x16.png">
-        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500|Roboto+Mono:400,500"
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500|Roboto:100,300,500,700"
         rel="stylesheet">
         <meta name="msapplication-TileImage" content="assets/images/touch/apple-icon-144x144.png">
         <meta name="msapplication-TileColor" content="#2F3BA2">
@@ -46,7 +46,9 @@
     <body>
         <main class="wrapper" id="app">
             <header class="header navbar navbar--spacebetween bg-grey--darken text-white">
-                <div class="navbar__brand"> <a href="index.html">Stewed Framework</a>
+                <div class="navbar__brand"> <a href="index.html" title="Stewed Framework" class="monospace uppercase thin text-white">
+            Stewed Framework
+        </a>
 
                 </div>
                 <div class="navbar__menu">
@@ -110,14 +112,14 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-large-12 col-medium-12 col-small-12">
-                             <h1>Buttons</h1>
+                             <h2 class="monospace">Buttons</h2>
 
                         </div>
                     </div>
                     <section class="section">
                         <div class="row">
                             <div class="col-large-12 col-medium-12 col-small-12">
-                                <p class="text-blue extrabold">Button Default</p>
+                                <p class="monospace extrabold">Button Default</p>
                                 <p>Mandatory, defaults to a text button</p>
                             </div>
                             <div class="col-large-3 col-medium-6 col-small-12">
@@ -134,7 +136,7 @@
                         </div>
                         <div class="row">
                             <div class="col-large-12 col-medium-12 col-small-12">
-                                <p class="text-blue extrabold">Button with different colors</p>
+                                <p class="monospace extrabold">Button Colors</p>
                                 <p>Optional, can use the buttons components with this specific colors applying
                                     the next modifiers.</p>
                             </div>
@@ -167,7 +169,25 @@
                         </div>
                         <div class="row">
                             <div class="col-large-12 col-medium-12 col-small-12">
-                                <p class="text-blue extrabold">Button with different sizes.</p>
+                                <p class="monospace extrabold">Disabled Button</p>
+                                <p>Optional, can add disabled directly to the button element to disable a
+                                    button</p>
+                            </div>
+                            <div class="col-large-3 col-medium-6 col-small-12">
+                                <ul class="list">
+                                    <li class="list__item py-10"><code>disabled</code>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-large-3 col-medium-6 col-small-12">
+                                <div class="text-center p-10">
+                                    <button class="btn btn--default" disabled>Button</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-large-12 col-medium-12 col-small-12">
+                                <p class="monospace extrabold">Button Sizes</p>
                                 <p>Optional, can use the buttons components with this specific size applying
                                     the next modifiers.</p>
                             </div>
@@ -196,7 +216,7 @@
                     </section>
                 </div>
             </div>
-            <footer class="footer bg-grey--lighten text-grey--darken">
+            <footer class="footer bg-grey--lighten text-grey--darken mt-60">
                 <div class="container">
                     <div class="row">
                         <div class="col-col-large-12 col-col-medium-12 col-col-small-12">

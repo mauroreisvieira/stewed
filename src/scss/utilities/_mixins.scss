@@ -1,10 +1,9 @@
-@mixin typography ($font-size: $font-sm , $font-weight: $font-normal, $line-height: 1.4, $font: $u-font-family-serif) {
+@mixin typography ($font-size: $u-font-size , $font-weight: $u-font-weight, $font: $u-font-family-serif) {
   font: {
     family: $font;
     size: $font-size;
     weight: $font-weight;
   }
-  line-height: $line-height;
 }
 
 // Calculate column size percentage

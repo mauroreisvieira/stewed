@@ -1187,14 +1187,7 @@ label {
 
 .navbar__brand a {
   font-size: 25px;
-  font-weight: 700;
-  line-height: 50px;
   text-decoration: none;
-  color: white;
-}
-
-.navbar__brand a:hover {
-  color: white;
 }
 
 .m-0 {
@@ -1800,8 +1793,7 @@ label {
 h1 {
   font-family: "Roboto", sans-serif;
   font-size: 50px;
-  font-weight: 300;
-  line-height: 1.4;
+  font-weight: 100;
   color: #000;
   margin: 18px 0;
 }
@@ -1809,8 +1801,7 @@ h1 {
 h2 {
   font-family: "Roboto", sans-serif;
   font-size: 42px;
-  font-weight: 700;
-  line-height: 1.4;
+  font-weight: 300;
   color: #000;
   margin: 18px 0;
 }
@@ -1818,8 +1809,7 @@ h2 {
 h3 {
   font-family: "Roboto", sans-serif;
   font-size: 34px;
-  font-weight: 700;
-  line-height: 1.4;
+  font-weight: 500;
   color: #000;
   margin: 18px 0;
 }
@@ -1827,8 +1817,7 @@ h3 {
 h4 {
   font-family: "Roboto", sans-serif;
   font-size: 26px;
-  font-weight: 700;
-  line-height: 1.4;
+  font-weight: 500;
   color: #000;
   margin: 18px 0;
 }
@@ -1837,7 +1826,6 @@ h5 {
   font-family: "Roboto", sans-serif;
   font-size: 20px;
   font-weight: 700;
-  line-height: 1.4;
   color: #000;
   margin: 18px 0;
 }
@@ -1846,7 +1834,6 @@ h6 {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   font-weight: 700;
-  line-height: 1.4;
   color: #000;
   margin: 18px 0;
 }
@@ -1854,30 +1841,35 @@ h6 {
 p {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
-  font-weight: 400;
-  line-height: 1.4;
+  font-weight: 300;
   color: #000;
 }
 
 span {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
-  font-weight: 400;
-  line-height: 1.4;
+  font-weight: 300;
   color: #000;
 }
 
 a {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
-  font-weight: 400;
-  line-height: 1.4;
+  font-weight: 300;
   color: #e3342f;
 }
 
 a:hover {
   color: #df1070;
   text-decoration: none;
+}
+
+.monospace {
+  font-family: "Roboto Mono", monospace;
+}
+
+.serif {
+  font-family: "Roboto", sans-serif;
 }
 
 .text-left {
@@ -1898,6 +1890,10 @@ a:hover {
 
 .thin {
   font-weight: 100;
+}
+
+.light {
+  font-weight: 300;
 }
 
 .normal {
