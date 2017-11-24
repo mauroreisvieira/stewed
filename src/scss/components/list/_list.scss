@@ -1,0 +1,23 @@
+.list {
+  font-size: 1rem;
+  font-weight: 400;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-decoration: inherit;
+  text-transform: inherit;
+
+  &__item {
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &__text {
+      display: inline-flex;
+      flex-direction: column;
+    }
+  }
+}

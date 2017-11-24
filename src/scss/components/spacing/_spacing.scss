@@ -4,6 +4,16 @@
       margin: 0;
     }
 
+    .mx-0 {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .my-0 {
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+
     .mt-0 {
       margin-top: 0;
     }
@@ -22,6 +32,16 @@
 
     .p-0 {
       padding: 0;
+    }
+
+    .px-0 {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .py-0 {
+      padding-bottom: 0;
+      padding-top: 0;
     }
 
     .pt-0 {
@@ -44,6 +64,16 @@
       margin: unquote(($i) + '0px');
     }
 
+    .mx-#{$i}0 {
+      margin-left: unquote(($i) + '0px');
+      margin-right: unquote(($i) + '0px');
+    }
+
+    .my-#{$i}0 {
+      margin-bottom: unquote(($i) + '0px');
+      margin-top: unquote(($i) + '0px');
+    }
+
     .mt-#{$i}0 {
       margin-top: unquote(($i) + '0px');
     }
@@ -62,6 +92,16 @@
 
     .p-#{$i}0 {
       padding: unquote(($i) + '0px');
+    }
+
+    .px-#{$i}0 {
+      padding-left: unquote(($i) + '0px');
+      padding-right: unquote(($i) + '0px');
+    }
+
+    .py-#{$i}0 {
+      padding-bottom: unquote(($i) + '0px');
+      padding-top: unquote(($i) + '0px');
     }
 
     .pt-#{$i}0 {

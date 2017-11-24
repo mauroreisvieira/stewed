@@ -9,7 +9,7 @@ $c-btn-border-radius: 2px;
 
 // Button Danger
 $c-btn-color-danger: map-get($u-color-red, 'base');
-$c-btn-color-danger-hover: map-get($u-color-salmon, 'base');
+$c-btn-color-danger-hover: map-get($u-color-salmon, 'darken');
 
 // Button Success
 $c-btn-color-success: map-get($u-color-green, 'base');
@@ -21,7 +21,7 @@ $c-btn-color-info-hover: map-get($u-color-blue, 'darken');
 
 // Button Default
 $c-btn-color-default: map-get($u-color-grey, 'base');
-$c-btn-color-default-hover: map-get($u-color-grey, 'base');
+$c-btn-color-default-hover: map-get($u-color-grey, 'darken');
 
 $btns: (
   'danger': ($c-btn-color-danger, $u-color-white, $c-btn-color-danger-hover, $u-color-white),

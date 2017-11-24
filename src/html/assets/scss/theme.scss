@@ -5,23 +5,19 @@
 }
 
 body {
-	color: #000;
 	font-family: $font-family;
-	font-size: 1.00em;
-	font-weight: 300;
-	height: 100%;
-	line-height: 1.500;
-	width: 100%;
-	padding: 0;
+	font-size: 100%;
 	margin: 0;
+	padding: 0;
+	width: 100%;
 }
 
 .wrapper {
 	display: grid;
 	grid-template-areas:
-		"header header"
-		"sidebar content"
-		"footer footer";
+	"header header"
+	"sidebar content"
+	"footer footer";
 }
 
 .header {

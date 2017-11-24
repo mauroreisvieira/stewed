@@ -1,10 +1,4 @@
-@mixin typography(
-  $font-size: $font-sm ,
-  $font-weight: $font-normal,
-  $line-height: 1.4,
-  $font: $font-family-base
-  ) {
-
+@mixin typography ($font-size: $font-sm , $font-weight: $font-normal, $line-height: 1.4, $font: $u-font-family-serif) {
   font: {
     family: $font;
     size: $font-size;

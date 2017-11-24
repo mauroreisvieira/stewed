@@ -8,15 +8,11 @@
 }
 
 body {
-  color: #000;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  font-size: 1.00em;
-  font-weight: 300;
-  height: 100%;
-  line-height: 1.500;
-  width: 100%;
-  padding: 0;
+  font-size: 100%;
   margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 .wrapper {

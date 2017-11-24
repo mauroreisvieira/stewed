@@ -1,11 +1,11 @@
 .btn {
   background: none;
-  border: 0;
+  border: 1px solid;
   border-radius: $c-btn-border-radius;
   color: inherit;
   cursor: pointer;
   display: inline-block;
-  font-family: $font-family-base;
+  font-family: $u-font-family-serif;
   height: 36px;
   letter-spacing: .4px;
   line-height: 36px;
