@@ -21,8 +21,6 @@ body {
 
 .wrapper {
   display: grid;
-  grid-row-gap: 10px;
-  grid-row-column: 10px;
   grid-template-areas: "header header" "sidebar content" "footer footer";
 }
 
