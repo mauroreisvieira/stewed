@@ -32,7 +32,7 @@
         <link rel="icon" type="image/png" sizes="32x32" href="assets/images/touch//favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="assets/images/touch//favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="assets/images/touch//favicon-16x16.png">
-        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500|Roboto:100,300,500,700"
         rel="stylesheet">
         <meta name="msapplication-TileImage" content="assets/images/touch/apple-icon-144x144.png">
         <meta name="msapplication-TileColor" content="#2F3BA2">
@@ -45,28 +45,27 @@
     
     <body>
         <main class="wrapper" id="app">
-            <header class="header navbar navbar--spacebetween bg-red text-white">
-                <div class="navbar__brand"> <a href="index.html">Stewed Framework</a>
+            <header class="header navbar navbar--spacebetween bg-grey--darken text-white">
+                <div class="navbar__brand"> <a href="index.html" title="Stewed Framework" class="monospace uppercase thin text-white">
+            Stewed Framework
+        </a>
 
                 </div>
                 <div class="navbar__menu">
                     <ul class="menu menu--horizontal menu--inherit">
-                        <li class="menu__item"><a class="menu__link" href="index.html">Home</a>
+                        <li class="menu__item"><a class="menu__link uppercase" href="index.html">Home</a>
 
                         </li>
-                        <li class="menu__item"><a class="menu__link" href="documentation.html">Documentation</a>
+                        <li class="menu__item"><a class="menu__link uppercase" href="documentation.html">Documentation</a>
 
                         </li>
-                        <li class="menu__item"><a class="menu__link" href="roadmap.html">Roadmap</a>
-
-                        </li>
-                        <li class="menu__item"><a class="menu__link" href="">Github</a>
+                        <li class="menu__item"><a class="menu__link uppercase" href="">Github</a>
 
                         </li>
                     </ul>
                 </div>
             </header>
-            <div class="sidebar bg-grey--lighten text-grey--darken">
+            <div class="sidebar text-grey">
                 <ul class="menu menu--vertical menu--inherit">
                     <li class="menu__item"><a class="menu__link" href="colors.html" class="">Color & Shadow</a> 
                     </li>
@@ -650,34 +649,34 @@
                     </div>
                 </div>
             </section>
-            <footer class="footer bg-blue text-white">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-col-large-12 col-col-medium-12 col-col-small-12">
-                            <nav>
-                                <ul class="menu menu--horizontal menu--inherit float-right">
-                                    <li class="menu__item"><a class="menu__link" href="https://github.com/maurovieirareis/stewed"
-                                        target="_bank">View Source on Github</a>
+        </main>
+        <footer class="footer bg-grey--lighten text-grey--darken mt-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-col-large-12 col-col-medium-12 col-col-small-12">
+                        <nav>
+                            <ul class="menu menu--horizontal menu--inherit float-right">
+                                <li class="menu__item"> <a class="menu__link" href="https://github.com/maurovieirareis/stewed"
+                                    target="_blank">View Source on Github</a>
 
-                                    </li>
-                                    <li class="menu__item"><a class="menu__link" href="changelog.html">Changelog</a>
+                                </li>
+                                <li class="menu__item"> <a class="menu__link" href="changelog.html">Changelog</a>
 
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
-            </footer>
-            <script src="https://unpkg.com/vue"></script>
-            <script>
-                new Vue({
-                    el: '#app',
-                    data: {
-                    }
-                });
-            </script>
-        </main>
+            </div>
+        </footer>
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                }
+            });
+        </script>
     </body>
 
 </html>

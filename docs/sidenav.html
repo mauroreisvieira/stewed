@@ -44,157 +44,159 @@
     </head>
     
     <body>
-        <header class="header navbar navbar--spacebetween bg-grey--darken text-white">
-            <div class="navbar__brand"> <a href="index.html" title="Stewed Framework" class="monospace uppercase thin text-white">
+        <main class="wrapper" id="app">
+            <header class="header navbar navbar--spacebetween bg-grey--darken text-white">
+                <div class="navbar__brand"> <a href="index.html" title="Stewed Framework" class="monospace uppercase thin text-white">
             Stewed Framework
         </a>
 
-            </div>
-            <div class="navbar__menu">
-                <ul class="menu menu--horizontal menu--inherit">
-                    <li class="menu__item"><a class="menu__link uppercase" href="index.html">Home</a>
+                </div>
+                <div class="navbar__menu">
+                    <ul class="menu menu--horizontal menu--inherit">
+                        <li class="menu__item"><a class="menu__link uppercase" href="index.html">Home</a>
+
+                        </li>
+                        <li class="menu__item"><a class="menu__link uppercase" href="documentation.html">Documentation</a>
+
+                        </li>
+                        <li class="menu__item"><a class="menu__link uppercase" href="">Github</a>
+
+                        </li>
+                    </ul>
+                </div>
+            </header>
+            <div class="sidebar text-grey">
+                <ul class="menu menu--vertical menu--inherit">
+                    <li class="menu__item"><a class="menu__link" href="colors.html" class="">Color & Shadow</a> 
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="typography.html" class="">Typography</a> 
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="utilities.html" class="">Utilities</a> 
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="badges.html">Badges & Labels</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link uppercase" href="documentation.html">Documentation</a>
+                    <li class="menu__item"><a class="menu__link" href="breadcrumbs.html">Breadcrumbs</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link uppercase" href="">Github</a>
+                    <li class="menu__item"><a class="menu__link" href="buttons.html">Buttons</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="cards.html">Cards</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="forms.html">Forms Filed</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="grid.html">Grid</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="navigation.html">Navigation</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="pagination.html">Pagination</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="tables.html">Tables</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="tooltips.html">Tooltips</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="navbar.html">Navbar</a>
 
                     </li>
                 </ul>
             </div>
-        </header>
-        <div class="sidebar text-grey">
-            <ul class="menu menu--vertical menu--inherit">
-                <li class="menu__item"><a class="menu__link" href="colors.html" class="">Color & Shadow</a> 
-                </li>
-                <li class="menu__item"><a class="menu__link" href="typography.html" class="">Typography</a> 
-                </li>
-                <li class="menu__item"><a class="menu__link" href="utilities.html" class="">Utilities</a> 
-                </li>
-                <li class="menu__item"><a class="menu__link" href="badges.html">Badges & Labels</a>
+            <section id="main">
+                <div class="content">
+                    <div class="header-description box-shadow--4 bg-darkbluegrey">
+                        <div class="container">
+                            <div class="master-header padding-bottom-20">
+                                 <h1>SideNav</h1>
 
-                </li>
-                <li class="menu__item"><a class="menu__link" href="breadcrumbs.html">Breadcrumbs</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="buttons.html">Buttons</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="cards.html">Cards</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="forms.html">Forms Filed</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="grid.html">Grid</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="navigation.html">Navigation</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="pagination.html">Pagination</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="tables.html">Tables</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="tooltips.html">Tooltips</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="navbar.html">Navbar</a>
-
-                </li>
-            </ul>
-        </div>
-        <section id="main">
-            <div class="content">
-                <div class="header-description box-shadow--4 bg-darkbluegrey">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
                     <div class="container">
-                        <div class="master-header padding-bottom-20">
-                             <h1>SideNav</h1>
+                         <h2>SideNav</h2>
 
-                            <p></p>
+                        <p>Use SideNav simply create a container with <code>.js-side-nav</code> and <code>.side-nav</code> then
+                            you need to create an action with the class <code>.js-menu-show</code> that
+                            will show your sidenav, which is hidden.</p>
+                        <br>
+                        <p>To close the SideNav user just click an area outside the sidenav or if
+                            you prefer you can create an action to close by simply adding the <code>.js-menu-hide</code> class</p>
+                        <br>
+                        <div class="row row--gutter margin-top-40">
+                            <div class="col-large-6 col-medium-12 col-small-12 margin-bottom-40">
+                                <button class="button button--medium js-menu-show bg-blue color-white">SideNav Demo</button>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="container">
-                     <h2>SideNav</h2>
+                        <aside class="js-side-nav side-nav">
+                            <nav class="js-side-nav-container side-nav__container">
+                                <div class="card">
+                                    <div class="card__header bg-white box-shadow--4dp">
+                                        <button class="js-menu-hide button color-purple button--icon">←</button>
+                                        <img src="assets/images/profile/jack-sparrow.jpg" alt="" class="display-table avatar--96 pull-center">
+                                         <h3 class="color-purple text-center">Jack Sparrow</h3>
 
-                    <p>Use SideNav simply create a container with <code>.js-side-nav</code> and <code>.side-nav</code> then
-                        you need to create an action with the class <code>.js-menu-show</code> that
-                        will show your sidenav, which is hidden.</p>
-                    <br>
-                    <p>To close the SideNav user just click an area outside the sidenav or if
-                        you prefer you can create an action to close by simply adding the <code>.js-menu-hide</code> class</p>
-                    <br>
-                    <div class="row row--gutter margin-top-40">
-                        <div class="col-large-6 col-medium-12 col-small-12 margin-bottom-40">
-                            <button class="button button--medium js-menu-show bg-blue color-white">SideNav Demo</button>
-                        </div>
-                    </div>
-                    <aside class="js-side-nav side-nav">
-                        <nav class="js-side-nav-container side-nav__container">
-                            <div class="card">
-                                <div class="card__header bg-white box-shadow--4dp">
-                                    <button class="js-menu-hide button color-purple button--icon">←</button>
-                                    <img src="assets/images/profile/jack-sparrow.jpg" alt="" class="display-table avatar--96 pull-center">
-                                     <h3 class="color-purple text-center">Jack Sparrow</h3>
-
-                                </div>
-                                <div class="card__container">
-                                    <div class="navigation color-white margin-top-20">
-                                        <ul class="navigation__vertical color-black">
-                                            <li><a href="#" class="font-500">Menu 1</a>
-                                            </li>
-                                            <li><a href="#" class="font-500">Menu 2 </a>
-                                            </li>
-                                            <li><a href="#" class="font-500">Menu 3</a>
-                                            </li>
-                                            <li><a href="#" class="font-500">Menu 4</a>
-                                            </li>
-                                        </ul>
+                                    </div>
+                                    <div class="card__container">
+                                        <div class="navigation color-white margin-top-20">
+                                            <ul class="navigation__vertical color-black">
+                                                <li><a href="#" class="font-500">Menu 1</a>
+                                                </li>
+                                                <li><a href="#" class="font-500">Menu 2 </a>
+                                                </li>
+                                                <li><a href="#" class="font-500">Menu 3</a>
+                                                </li>
+                                                <li><a href="#" class="font-500">Menu 4</a>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
+                            </nav>
+                        </aside>
+                        <div class="card margin-top-20 margin-bottom-60">
+                            <div class="card__header ">
+                                 <h4 class="card__header__title text-uppercase">Cooking</h4>
+
                             </div>
-                        </nav>
-                    </aside>
-                    <div class="card margin-top-20 margin-bottom-60">
-                        <div class="card__header ">
-                             <h4 class="card__header__title text-uppercase">Cooking</h4>
+                            <div class="card__container card--border">
+                                <div id="view-html" class="code"> <pre class="brush: xml; toolbar: false; gutter: false;">
+                                        &lt;button class="button button--medium js-menu-show bg-blue color-white">SideNav Demo&lt;/button>
 
-                        </div>
-                        <div class="card__container card--border">
-                            <div id="view-html" class="code"> <pre class="brush: xml; toolbar: false; gutter: false;">
-                            &lt;button class="button button--medium js-menu-show bg-blue color-white">SideNav Demo&lt;/button>
-
-                            &lt;aside class="js-side-nav side-nav">
-                                &lt;nav class="js-side-nav-container side-nav__container">
-                                    &lt;div class="card box-shadow--4dp">
+                                        &lt;aside class="js-side-nav side-nav">
+                                        &lt;nav class="js-side-nav-container side-nav__container">
+                                        &lt;div class="card box-shadow--4dp">
                                         &lt;div class="card__container bg-white">
-                                            &lt;button class="js-menu-hide side-nav__hide button color-turquoise button--icon">←&lt;/button>
-                                            &lt;img src="..." alt="" class="display-table avatar--80 pull-center">
-                                            &lt;h4 class="color-purple font-500 text-center text-uppercase">John Doe&lt;/h4>
+                                        &lt;button class="js-menu-hide side-nav__hide button color-turquoise button--icon">←&lt;/button>
+                                        &lt;img src="..." alt="" class="display-table avatar--80 pull-center">
+                                        &lt;h4 class="color-purple font-500 text-center text-uppercase">John Doe&lt;/h4>
                                         &lt;/div>
-                                    &lt;/div>
-                                    &lt;div class="navigation color-white margin-top-20">
+                                        &lt;/div>
+                                        &lt;div class="navigation color-white margin-top-20">
                                         &lt;ul class="navigation__vertical color-black">
-                                            &lt;li>&lt;a href="#" class="">Menu 1&lt;/a>&lt;/li>
-                                            &lt;li>&lt;a href="#" class="">Menu 2 &lt;/a>&lt;/li>
-                                            &lt;li>&lt;a href="#" class="">Menu 3&lt;/a>&lt;/li>
-                                            &lt;li>&lt;a href="#" class="">Menu 4&lt;/a>&lt;/li>
+                                        &lt;li>&lt;a href="#" class="">Menu 1&lt;/a>&lt;/li>
+                                        &lt;li>&lt;a href="#" class="">Menu 2 &lt;/a>&lt;/li>
+                                        &lt;li>&lt;a href="#" class="">Menu 3&lt;/a>&lt;/li>
+                                        &lt;li>&lt;a href="#" class="">Menu 4&lt;/a>&lt;/li>
                                         &lt;/ul>
-                                    &lt;/div>
-                                &lt;/nav>
-                            &lt;/aside>
-                        </pre>
+                                        &lt;/div>
+                                        &lt;/nav>
+                                        &lt;/aside>
+                                    </pre>
 
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </main>
         <footer class="footer bg-grey--lighten text-grey--darken mt-60">
             <div class="container">
                 <div class="row">
