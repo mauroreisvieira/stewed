@@ -1,305 +1,307 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <partial src="partials/head.html" title="Stewed Framework 1.0"></partial>
+	<partial src="partials/head.html" title="Stewed Framework 1.0"></partial>
 </head>
 <body>
-    <partial src="partials/header.html" selected="home"></partial>
+	<main class="wrapper" id="app">
+		<partial src="partials/header.html" selected="navbar"></partial>
 
-    <section id="main">
-        <div class="content">
+		<section id="main">
+			<div class="content">
 
-<div class="header-description box-shadow--4 bg-darkbluegrey">
-	<div class="container">
-		<div class="master-header">
-			<h1>Forms</h1>
-		</div>
-	</div>
-</div>
-<div class="container">
-	<section class="margin-top-40">
-		<div class="row-space margin-top-20">
-			<h2>Simple Form</h2>
-			<p>You can active the form validate using <code class="markup">stewed-validate="true"</code></p>
-			<div class="col-large-8 col-medium-8 col-small-12">
-				<form class="form color-pink" stewed-validate="true" autocomplete="off">
-					<div class="textfield">
-						<input name="name" class="textfield__input"  max="20" min="3" type="text" required>
-						<label class="textfield__label" for="name">First Name</label>
-					</div>
-					<div class="textfield">
-						<input name="surname" class="textfield__input" max="10" type="text">
-						<label class="textfield__label" for="surname">Last Name</label>
-					</div>
-					<div class="textfield">
-						<input name="email" class="textfield__input" type="email" required>
-						<label class="textfield__label" for="surname">Email</label>
-					</div>
-					<div class="textfield">
-						<input name="phone" class="textfield__input" max="9" type="tel">
-						<label class="textfield__label" for="phone">Phone</label>
-					</div>
-					<div class="textfield">
-						<select name="option" class="textfield__input">
-							<option value="">-- Choose --</option>
-							<option value="2" disabled>Class 1</option>
-							<option value="3">Class 2</option>
-							<option value="4">Class 3</option>
-							<option value="5">Class 4</option>
-						</select>
-						<label for="option" class="textfield__label--option"><span class="color-black">Choose your class</span></label>
-					</div>
-					<div class="textfield">
-						<textarea name="mensagem" class="textfield__input" minlength="2" maxlength="300" rows="4"></textarea>
-						<label class="textfield__label" for="mensagem">Message</label>
-					</div>
-					<button type="submit" class="button button--medium bg-pink color-white">Submit Form</button>
-				</form>
-			</div>
-			<div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40 margin-top-20">
-				<div class="card margin-top-20">
-					<div class="card__header ">
-						<h4 class="card__header__title text-uppercase">Cooking</h4>
-					</div>
-					<div class="card__container card--border">
-						<div id="view-html" class="code">
-							<pre class="brush: xml; toolbar: false; gutter: false;">
-								&lt;form class="form color-pink" stewed-validate="true" autocomplete="off">
-									&lt;div class="textfield">
-										&lt;input name="name" class="textfield__input"  max="10" min="3" type="text" required>
-										&lt;label class="textfield__label" for="name">First Name&lt;/label>
-									&lt;/div>
-									&lt;div class="textfield">
-										&lt;input name="email" class="textfield__input" type="email" required>
-										&lt;label class="textfield__label" for="surname">Email&lt;/label>
-									&lt;/div>
-									&lt;div class="textfield">
-										&lt;input name="phone" class="textfield__input" max="9" type="tel">
-										&lt;label class="textfield__label" for="phone">Phone&lt;/label>
-									&lt;/div>
-									&lt;div class="textfield">
-										&lt;select name="option" class="textfield__input">
-											&lt;option value="">-- Choose --&lt;/option>
-											&lt;option value="1">Class 1&lt;/option>
-											&lt;option value="2">Class 2&lt;/option>
-											&lt;option value="3">Class 3&lt;/option>
-											&lt;option value="4">Class 4&lt;/option>
-										&lt;/select>
-										&lt;label for="option" class="textfield__label--option">&lt;span class="color-black">Choose your class&lt;/span>&lt;/label>
-									&lt;/div>
-									&lt;div class="textfield">
-										&lt;textarea name="mensagem" class="textfield__input" minlength="2" maxlength="300" rows="4">&lt;/textarea>
-										&lt;label class="textfield__label" for="mensagem">Message&lt;/label>
-									&lt;/div>
-									&lt;button type="submit" class="button button--medium bg-pink color-white">Submit Form&lt;/button>
-								&lt;/form>
-							</pre>
+				<div class="header-description box-shadow--4 bg-darkbluegrey">
+					<div class="container">
+						<div class="master-header">
+							<h1>Forms</h1>
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-		<div class="margin-bottom-40"></div>
-		<h2>Disabled Form</h2>
-		<p>Modal is positioned overlapping within the display window and is protected page content.</p>
-		<div class="margin-bottom-20"></div>
-		<div class="row-space">
-			<div class="col-large-8 col-medium-8 col-small-12">
-				<div class="textfield">
-					<input name="phone" class="textfield__input" type="text" disabled>
-					<label class="textfield__label" for="phone">Input Disabled</label>
-				</div>
-				<div class="textfield">
-					<textarea name="mensagem" class="textfield__input" rows="1" disabled></textarea>
-					<label class="textfield__label" for="mensagem">Message Disabled</label>
-				</div>
-				<div class="textfield">
-					<select name="option" class="textfield__input" disabled>
-						<option>Option Disabled</option>
-					</select>
-					<label for="option" class="textfield__label--option">Choose one option</label>
-				</div>
-			</div>
-		</div>
-		<div class="card margin-top-40 margin-bottom-40">
-			<div class="card__header ">
-				<h4 class="card__header__title text-uppercase">Cooking</h4>
-			</div>
-			<div class="card__container card--border">
-				<div id="view-html" class="code">
-					<pre class="brush: xml; toolbar: false; gutter: false;">
-						&lt;div class="textfield">
-							&lt;input name="phone" class="textfield__input" type="text" disabled>
-							&lt;label class="textfield__label" for="phone">Input Disabled&lt;/label>
-						&lt;/div>
-						&lt;div class="textfield">
-							&lt;textarea name="mensagem" class="textfield__input" rows="2" disabled>&lt;/textarea>
-							&lt;label class="textfield__label" for="mensagem">Message Disabled&lt;/label>
-						&lt;/div>
-						&lt;div class="textfield">
-							&lt;select name="option" class="textfield__input" disabled>
-								&lt;option>Option Disabled&lt;/option>
-							&lt;/select>
-							&lt;label for="option" class="textfield__label--option">Choose one option&lt;/label>
-						&lt;/div>
-					</pre>
-				</div>
-			</div>
-		</div>
-		<h2>Others Form</h2>
-		<div class="row-space">
-			<div class="col-large-8 col-medium-8 col-small-12">
-				<div class="margin-bottom-20">
-					<h4>Select Options</h4>
-				</div>
-				<div class="textfield color-pink">
-					<select name="option" class="textfield__input">
-						<option value="">Option 1</option>
-						<option value="2">Option 2</option>
-						<option value="3">Option 3</option>
-						<option value="4">Option 4</option>
-					</select>
-					<label for="option" class="textfield__label--option"><span class="color-black">Choose one option</span></label>
-				</div>
-			</div>
-			<div class="col-large-8 col-medium-8 col-small-12">
-				<div class="margin-top-40">
-					<h4>Input Range</h4>
-				</div>
-				<div class="textfield color-pink">
-					<label for="radio-1" class="textfield__label--range">
-						<span class="color-black">Choose Price:</span>
-					</label>
-					<input type="range" id="range" min="0" max="100" class="textfield__input--range">
-				</div>
-			</div>
-			<div class="col-large-6 col-medium-6 col-small-12">
-				<div class="margin-top-40">
-					<h4>Input Radio</h4>
-				</div>
-				<div class="textfield color-bluegrey">
-					<input type="radio" id="radio-1" value="1" name="radio[]" class="textfield__input--radio">
-					<label for="radio-1" class="textfield__label--radio">
-						<span class="color-black">Female</span>
-					</label>
-				</div>
-				<div class="textfield color-bluegrey">
-					<input type="radio" id="radio-2" value="2" name="radio[]" class="textfield__input--radio">
-					<label for="radio-2" class="textfield__label--radio">
-						<span class="color-black">Male</span>
-					</label>
-				</div>
-				<div class="textfield color-bluegrey">
-					<input type="radio" id="radio-3" value="3" name="radio[]" checked="true" class="textfield__input--radio">
-					<label for="radio-3" class="textfield__label--radio">
-						<span class="color-black">Other</span>
-					</label>
-				</div>
-			</div>
-			<div class="col-large-6 col-medium-6 col-small-12">
-				<div class="margin-top-40">
-					<h4>Input Checkbox</h4>
-				</div>
-				<div class="textfield color-pink">
-					<input type="checkbox" id="checkbox-1" value="1" name="checkbox[]" checked="true" class="textfield__input--checkbox">
-					<label for="checkbox-1" class="textfield__label--checkbox">
-						<span class="color-black">Checkbox Pink</span>
-					</label>
-				</div>
-				<div class="textfield color-blue">
-					<input type="checkbox" id="checkbox-2" value="2" name="checkbox[]" class="textfield__input--checkbox">
-					<label for="checkbox-2" class="textfield__label--checkbox">
-						<span class="color-black">Checkbox Blue</span>
-					</label>
-				</div>
-				<div class="textfield color-green">
-					<input type="checkbox" id="checkbox-3" value="3" name="checkbox[]" class="textfield__input--checkbox">
-					<label for="checkbox-3" class="textfield__label--checkbox">
-						<span class="color-black">Checkbox Green</span>
-					</label>
-				</div>
-			</div>
-			<div class="col-large-6 col-medium-6 col-small-12">
-				<div class="margin-top-40">
-					<h4>Input Switch</h4>
-				</div>
-				<div class="textfield color-pink">
-					<input type="checkbox" id="switch-1" name="set-name" class="textfield__input--switch">
-					<label for="switch-1" class="textfield__label--switch">
-						<span class="color-black">Switch Pink</span></label>
-					</label>
-				</div>
-				<div class="textfield color-blue">
-					<input type="checkbox" id="switch-2" name="set-name" class="textfield__input--switch">
-					<label for="switch-2" class="textfield__label--switch">
-						<span class="color-black">Switch Blue</span></label>
-					</label>
-				</div>
-				<div class="textfield color-orange">
-					<input type="checkbox" id="switch-3" name="set-name" class="textfield__input--switch" checked="true">
-					<label for="switch-3" class="textfield__label--switch">
-						<span class="color-black">Switch Orange</span></label>
-					</label>
-				</div>
-				<div class="textfield color-orange">
-					<input type="checkbox" id="switch-4" name="set-name" class="textfield__input--switch" checked="true" disabled>
-					<label for="switch-4" class="textfield__label--switch">
-						<span class="color-black">Switch Disabled</span></label>
-					</label>
-				</div>
-			</div>
-		</div>
-		<div class="card margin-top-40 margin-bottom-40">
-			<div class="card__header ">
-				<h4 class="card__header__title text-uppercase">Cooking</h4>
-			</div>
-			<div class="card__container card--border">
-				<div id="view-html" class="code">
-					<pre class="brush: xml; toolbar: false; gutter: false;">
-						&lt;!-- Input Range -->
-						&lt;div class="textfield color-pink">
-							&lt;label for="radio-1" class="textfield__label--range">
-								&lt;span class="color-black">Choose Price:&lt;/span>
-							&lt;/label>
-							&lt;input type="range" id="range" min="0" max="100" class="textfield__input--range">
-						&lt;/div>
+				<div class="container">
+					<section class="margin-top-40">
+						<div class="row-space margin-top-20">
+							<h2>Simple Form</h2>
+							<p>You can active the form validate using <code class="markup">stewed-validate="true"</code></p>
+							<div class="col-large-8 col-medium-8 col-small-12">
+								<form class="form color-pink" stewed-validate="true" autocomplete="off">
+									<div class="textfield">
+										<input name="name" class="textfield__input"  max="20" min="3" type="text" required>
+										<label class="textfield__label" for="name">First Name</label>
+									</div>
+									<div class="textfield">
+										<input name="surname" class="textfield__input" max="10" type="text">
+										<label class="textfield__label" for="surname">Last Name</label>
+									</div>
+									<div class="textfield">
+										<input name="email" class="textfield__input" type="email" required>
+										<label class="textfield__label" for="surname">Email</label>
+									</div>
+									<div class="textfield">
+										<input name="phone" class="textfield__input" max="9" type="tel">
+										<label class="textfield__label" for="phone">Phone</label>
+									</div>
+									<div class="textfield">
+										<select name="option" class="textfield__input">
+											<option value="">-- Choose --</option>
+											<option value="2" disabled>Class 1</option>
+											<option value="3">Class 2</option>
+											<option value="4">Class 3</option>
+											<option value="5">Class 4</option>
+										</select>
+										<label for="option" class="textfield__label--option"><span class="color-black">Choose your class</span></label>
+									</div>
+									<div class="textfield">
+										<textarea name="mensagem" class="textfield__input" minlength="2" maxlength="300" rows="4"></textarea>
+										<label class="textfield__label" for="mensagem">Message</label>
+									</div>
+									<button type="submit" class="button button--medium bg-pink color-white">Submit Form</button>
+								</form>
+							</div>
+							<div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40 margin-top-20">
+								<div class="card margin-top-20">
+									<div class="card__header ">
+										<h4 class="card__header__title text-uppercase">Cooking</h4>
+									</div>
+									<div class="card__container card--border">
+										<div id="view-html" class="code">
+											<pre class="brush: xml; toolbar: false; gutter: false;">
+												&lt;form class="form color-pink" stewed-validate="true" autocomplete="off">
+												&lt;div class="textfield">
+												&lt;input name="name" class="textfield__input"  max="10" min="3" type="text" required>
+												&lt;label class="textfield__label" for="name">First Name&lt;/label>
+												&lt;/div>
+												&lt;div class="textfield">
+												&lt;input name="email" class="textfield__input" type="email" required>
+												&lt;label class="textfield__label" for="surname">Email&lt;/label>
+												&lt;/div>
+												&lt;div class="textfield">
+												&lt;input name="phone" class="textfield__input" max="9" type="tel">
+												&lt;label class="textfield__label" for="phone">Phone&lt;/label>
+												&lt;/div>
+												&lt;div class="textfield">
+												&lt;select name="option" class="textfield__input">
+												&lt;option value="">-- Choose --&lt;/option>
+												&lt;option value="1">Class 1&lt;/option>
+												&lt;option value="2">Class 2&lt;/option>
+												&lt;option value="3">Class 3&lt;/option>
+												&lt;option value="4">Class 4&lt;/option>
+												&lt;/select>
+												&lt;label for="option" class="textfield__label--option">&lt;span class="color-black">Choose your class&lt;/span>&lt;/label>
+												&lt;/div>
+												&lt;div class="textfield">
+												&lt;textarea name="mensagem" class="textfield__input" minlength="2" maxlength="300" rows="4">&lt;/textarea>
+												&lt;label class="textfield__label" for="mensagem">Message&lt;/label>
+												&lt;/div>
+												&lt;button type="submit" class="button button--medium bg-pink color-white">Submit Form&lt;/button>
+												&lt;/form>
+											</pre>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="margin-bottom-40"></div>
+						<h2>Disabled Form</h2>
+						<p>Modal is positioned overlapping within the display window and is protected page content.</p>
+						<div class="margin-bottom-20"></div>
+						<div class="row-space">
+							<div class="col-large-8 col-medium-8 col-small-12">
+								<div class="textfield">
+									<input name="phone" class="textfield__input" type="text" disabled>
+									<label class="textfield__label" for="phone">Input Disabled</label>
+								</div>
+								<div class="textfield">
+									<textarea name="mensagem" class="textfield__input" rows="1" disabled></textarea>
+									<label class="textfield__label" for="mensagem">Message Disabled</label>
+								</div>
+								<div class="textfield">
+									<select name="option" class="textfield__input" disabled>
+										<option>Option Disabled</option>
+									</select>
+									<label for="option" class="textfield__label--option">Choose one option</label>
+								</div>
+							</div>
+						</div>
+						<div class="card margin-top-40 margin-bottom-40">
+							<div class="card__header ">
+								<h4 class="card__header__title text-uppercase">Cooking</h4>
+							</div>
+							<div class="card__container card--border">
+								<div id="view-html" class="code">
+									<pre class="brush: xml; toolbar: false; gutter: false;">
+										&lt;div class="textfield">
+										&lt;input name="phone" class="textfield__input" type="text" disabled>
+										&lt;label class="textfield__label" for="phone">Input Disabled&lt;/label>
+										&lt;/div>
+										&lt;div class="textfield">
+										&lt;textarea name="mensagem" class="textfield__input" rows="2" disabled>&lt;/textarea>
+										&lt;label class="textfield__label" for="mensagem">Message Disabled&lt;/label>
+										&lt;/div>
+										&lt;div class="textfield">
+										&lt;select name="option" class="textfield__input" disabled>
+										&lt;option>Option Disabled&lt;/option>
+										&lt;/select>
+										&lt;label for="option" class="textfield__label--option">Choose one option&lt;/label>
+										&lt;/div>
+									</pre>
+								</div>
+							</div>
+						</div>
+						<h2>Others Form</h2>
+						<div class="row-space">
+							<div class="col-large-8 col-medium-8 col-small-12">
+								<div class="margin-bottom-20">
+									<h4>Select Options</h4>
+								</div>
+								<div class="textfield color-pink">
+									<select name="option" class="textfield__input">
+										<option value="">Option 1</option>
+										<option value="2">Option 2</option>
+										<option value="3">Option 3</option>
+										<option value="4">Option 4</option>
+									</select>
+									<label for="option" class="textfield__label--option"><span class="color-black">Choose one option</span></label>
+								</div>
+							</div>
+							<div class="col-large-8 col-medium-8 col-small-12">
+								<div class="margin-top-40">
+									<h4>Input Range</h4>
+								</div>
+								<div class="textfield color-pink">
+									<label for="radio-1" class="textfield__label--range">
+										<span class="color-black">Choose Price:</span>
+									</label>
+									<input type="range" id="range" min="0" max="100" class="textfield__input--range">
+								</div>
+							</div>
+							<div class="col-large-6 col-medium-6 col-small-12">
+								<div class="margin-top-40">
+									<h4>Input Radio</h4>
+								</div>
+								<div class="textfield color-bluegrey">
+									<input type="radio" id="radio-1" value="1" name="radio[]" class="textfield__input--radio">
+									<label for="radio-1" class="textfield__label--radio">
+										<span class="color-black">Female</span>
+									</label>
+								</div>
+								<div class="textfield color-bluegrey">
+									<input type="radio" id="radio-2" value="2" name="radio[]" class="textfield__input--radio">
+									<label for="radio-2" class="textfield__label--radio">
+										<span class="color-black">Male</span>
+									</label>
+								</div>
+								<div class="textfield color-bluegrey">
+									<input type="radio" id="radio-3" value="3" name="radio[]" checked="true" class="textfield__input--radio">
+									<label for="radio-3" class="textfield__label--radio">
+										<span class="color-black">Other</span>
+									</label>
+								</div>
+							</div>
+							<div class="col-large-6 col-medium-6 col-small-12">
+								<div class="margin-top-40">
+									<h4>Input Checkbox</h4>
+								</div>
+								<div class="textfield color-pink">
+									<input type="checkbox" id="checkbox-1" value="1" name="checkbox[]" checked="true" class="textfield__input--checkbox">
+									<label for="checkbox-1" class="textfield__label--checkbox">
+										<span class="color-black">Checkbox Pink</span>
+									</label>
+								</div>
+								<div class="textfield color-blue">
+									<input type="checkbox" id="checkbox-2" value="2" name="checkbox[]" class="textfield__input--checkbox">
+									<label for="checkbox-2" class="textfield__label--checkbox">
+										<span class="color-black">Checkbox Blue</span>
+									</label>
+								</div>
+								<div class="textfield color-green">
+									<input type="checkbox" id="checkbox-3" value="3" name="checkbox[]" class="textfield__input--checkbox">
+									<label for="checkbox-3" class="textfield__label--checkbox">
+										<span class="color-black">Checkbox Green</span>
+									</label>
+								</div>
+							</div>
+							<div class="col-large-6 col-medium-6 col-small-12">
+								<div class="margin-top-40">
+									<h4>Input Switch</h4>
+								</div>
+								<div class="textfield color-pink">
+									<input type="checkbox" id="switch-1" name="set-name" class="textfield__input--switch">
+									<label for="switch-1" class="textfield__label--switch">
+										<span class="color-black">Switch Pink</span></label>
+									</label>
+								</div>
+								<div class="textfield color-blue">
+									<input type="checkbox" id="switch-2" name="set-name" class="textfield__input--switch">
+									<label for="switch-2" class="textfield__label--switch">
+										<span class="color-black">Switch Blue</span></label>
+									</label>
+								</div>
+								<div class="textfield color-orange">
+									<input type="checkbox" id="switch-3" name="set-name" class="textfield__input--switch" checked="true">
+									<label for="switch-3" class="textfield__label--switch">
+										<span class="color-black">Switch Orange</span></label>
+									</label>
+								</div>
+								<div class="textfield color-orange">
+									<input type="checkbox" id="switch-4" name="set-name" class="textfield__input--switch" checked="true" disabled>
+									<label for="switch-4" class="textfield__label--switch">
+										<span class="color-black">Switch Disabled</span></label>
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="card margin-top-40 margin-bottom-40">
+							<div class="card__header ">
+								<h4 class="card__header__title text-uppercase">Cooking</h4>
+							</div>
+							<div class="card__container card--border">
+								<div id="view-html" class="code">
+									<pre class="brush: xml; toolbar: false; gutter: false;">
+										&lt;!-- Input Range -->
+										&lt;div class="textfield color-pink">
+										&lt;label for="radio-1" class="textfield__label--range">
+										&lt;span class="color-black">Choose Price:&lt;/span>
+										&lt;/label>
+										&lt;input type="range" id="range" min="0" max="100" class="textfield__input--range">
+										&lt;/div>
 
-						&lt;!-- Input Radio -->
-						&lt;div class="textfield color-bluegrey">
-							&lt;input type="radio" id="radio-1" value="1" name="radio[]" class="textfield__input--radio">
-							&lt;label for="radio-1" class="textfield__label--radio">
-								&lt;span class="color-black">Female&lt;/span>
-							&lt;/label>
-						&lt;/div>
+										&lt;!-- Input Radio -->
+										&lt;div class="textfield color-bluegrey">
+										&lt;input type="radio" id="radio-1" value="1" name="radio[]" class="textfield__input--radio">
+										&lt;label for="radio-1" class="textfield__label--radio">
+										&lt;span class="color-black">Female&lt;/span>
+										&lt;/label>
+										&lt;/div>
 
-						&lt;!-- Input Checkbox -->
-						&lt;div class="textfield color-green">
-							&lt;input type="checkbox" id="checkbox-3" value="3" name="checkbox[]" class="textfield__input--checkbox">
-							&lt;label for="checkbox-3" class="textfield__label--checkbox">
-								&lt;span class="color-black">Checkbox Green&lt;/span>
-							&lt;/label>
-						&lt;/div>
+										&lt;!-- Input Checkbox -->
+										&lt;div class="textfield color-green">
+										&lt;input type="checkbox" id="checkbox-3" value="3" name="checkbox[]" class="textfield__input--checkbox">
+										&lt;label for="checkbox-3" class="textfield__label--checkbox">
+										&lt;span class="color-black">Checkbox Green&lt;/span>
+										&lt;/label>
+										&lt;/div>
 
 
-						&lt;!-- Input Switch -->
-						&lt;div class="textfield color-orange">
-							&lt;input type="checkbox" id="switch-4" name="set-name" class="textfield__input--switch" checked="true" disabled>
-							&lt;label for="switch-4" class="textfield__label--switch">
-								&lt;span class="color-black">Switch Disabled&lt;/span>&lt;/label>
-							&lt;/label>
-						&lt;/div>
-					</pre>
+										&lt;!-- Input Switch -->
+										&lt;div class="textfield color-orange">
+										&lt;input type="checkbox" id="switch-4" name="set-name" class="textfield__input--switch" checked="true" disabled>
+										&lt;label for="switch-4" class="textfield__label--switch">
+										&lt;span class="color-black">Switch Disabled&lt;/span>&lt;/label>
+										&lt;/label>
+										&lt;/div>
+									</pre>
+								</div>
+							</div>
+						</div>
+					</section>
 				</div>
+
+
+
 			</div>
-		</div>
-	</section>
-</div>
+		</section>
 
-
-
-        </div>
-    </section>
-
-    <partial src="partials/footer.html" ></partial>
+		<partial src="partials/footer.html" ></partial>
+	</main>
 </body>
 </html>

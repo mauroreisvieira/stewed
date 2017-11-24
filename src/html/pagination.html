@@ -1,110 +1,112 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <partial src="partials/head.html" title="Stewed Framework 1.0"></partial>
+	<partial src="partials/head.html" title="Stewed Framework 1.0"></partial>
 </head>
 <body>
-    <partial src="partials/header.html" selected="home"></partial>
+	<main class="wrapper" id="app">
+		<partial src="partials/header.html" selected="navbar"></partial>
 
-    <section id="main">
-        <div class="content">
+		<section id="main">
+			<div class="content">
 
-<div class="header-description box-shadow--4 bg-darkbluegrey">
-	<div class="container">
-		<div class="master-header">
-			<h1>Pagination</h1>
-		</div>
-	</div>
-</div>
-<div class="container">
-	<section class="margin-top-40">
-		<div class="row">
-			<div class="col-large-12 col-medium-12 col-small-12">
-				<h2>Simple Pagination</h2>
-				<div class="pull-center">
-					<ul class="pagination color-pink">
-						<li stewed-pagination="❮" disabled><a href="">Prev</a></li>
-						<li><a href="">1</a></li>
-						<li><a href="">2</a></li>
-						<li><a href="">3</a></li>
-						<li><a href="">4</a></li>
-						<li><a href="">5</a></li>
-						<li><a href="">6</a></li>
-						<li class="active"><a href="">7</a></li>
-						<li stewed-pagination="❯"><a href="">Next</a></li>
-					</ul>
-				</div>
-				<div class="pull-center">
-					<ul class="pagination pagination__large pagination--border color-bluegrey">
-						<li stewed-pagination="❮" disabled><a href="">Prev</a></li>
-						<li disabled><a href="">1</a></li>
-						<li disabled><a href="">2</a></li>
-						<li class="active"><a href="">3</a></li>
-						<li><a href="">4</a></li>
-						<li><a href="">5</a></li>
-						<li><a href="">6</a></li>
-						<li class=""><a href="">7</a></li>
-						<li stewed-pagination="❯"><a href="">Next</a></li>
-					</ul>
-				</div>
-				<div class="pull-center">
-					<ul class="pagination pagination__medium pagination--border color-bluegrey">
-						<li stewed-pagination="<" disabled><a href="">Prev</a></li>
-						<li><a href="">1</a></li>
-						<li><a href="">2</a></li>
-						<li><a href="">3</a></li>
-						<li><a href="">...</a></li>
-						<li><a href="">5</a></li>
-						<li><a href="">6</a></li>
-						<li class="active"><a href="">7</a></li>
-						<li stewed-pagination=">" disabled><a href="">Next</a></li>
-					</ul>
-				</div>
-				<div class="pull-center">
-					<ul class="pagination pagination__small pagination--border color-bluegrey">
-						<li stewed-pagination="❮" disabled><a href="">Prev</a></li>
-						<li><a href="">1</a></li>
-						<li><a href="">2</a></li>
-						<li><a href="">3</a></li>
-						<li><a href="">4</a></li>
-						<li><a href="">5</a></li>
-						<li><a href="">6</a></li>
-						<li class="active"><a href="">7</a></li>
-						<li stewed-pagination="❯"><a href="">Next</a></li>
-					</ul>
-				</div>
-				<div class="card margin-top-20 margin-bottom-40">
-					<div class="card__header ">
-						<h4 class="card__header__title text-uppercase">Cooking</h4>
-					</div>
-					<div class="card__container card--border">
-						<div id="view-html" class="code">
-							<pre class="brush: xml; toolbar: false; gutter: false;">
-								&lt;ul class="pagination pagination__medium pagination--border color-bluegrey">
-									&lt;li stewed-pagination="❮" disabled><a href="">Prev</a>&lt;/li>
-									&lt;li><a href="">1</a>&lt;/li>
-									&lt;li><a href="">2</a>&lt;/li>
-									&lt;li><a href="">3</a>&lt;/li>
-									&lt;li><a href="">4</a>&lt;/li>
-									&lt;li><a href="">5</a>&lt;/li>
-									&lt;li><a href="">6</a>&lt;/li>
-									&lt;li class="active"><a href="">7</a>&lt;/li>
-									&lt;li stewed-pagination="❯"><a href="">Next</a>&lt;/li>
-								&lt;/ul>
-							</pre>
+				<div class="header-description box-shadow--4 bg-darkbluegrey">
+					<div class="container">
+						<div class="master-header">
+							<h1>Pagination</h1>
 						</div>
 					</div>
 				</div>
+				<div class="container">
+					<section class="margin-top-40">
+						<div class="row">
+							<div class="col-large-12 col-medium-12 col-small-12">
+								<h2>Simple Pagination</h2>
+								<div class="pull-center">
+									<ul class="pagination color-pink">
+										<li stewed-pagination="❮" disabled><a href="">Prev</a></li>
+										<li><a href="">1</a></li>
+										<li><a href="">2</a></li>
+										<li><a href="">3</a></li>
+										<li><a href="">4</a></li>
+										<li><a href="">5</a></li>
+										<li><a href="">6</a></li>
+										<li class="active"><a href="">7</a></li>
+										<li stewed-pagination="❯"><a href="">Next</a></li>
+									</ul>
+								</div>
+								<div class="pull-center">
+									<ul class="pagination pagination__large pagination--border color-bluegrey">
+										<li stewed-pagination="❮" disabled><a href="">Prev</a></li>
+										<li disabled><a href="">1</a></li>
+										<li disabled><a href="">2</a></li>
+										<li class="active"><a href="">3</a></li>
+										<li><a href="">4</a></li>
+										<li><a href="">5</a></li>
+										<li><a href="">6</a></li>
+										<li class=""><a href="">7</a></li>
+										<li stewed-pagination="❯"><a href="">Next</a></li>
+									</ul>
+								</div>
+								<div class="pull-center">
+									<ul class="pagination pagination__medium pagination--border color-bluegrey">
+										<li stewed-pagination="<" disabled><a href="">Prev</a></li>
+										<li><a href="">1</a></li>
+										<li><a href="">2</a></li>
+										<li><a href="">3</a></li>
+										<li><a href="">...</a></li>
+										<li><a href="">5</a></li>
+										<li><a href="">6</a></li>
+										<li class="active"><a href="">7</a></li>
+										<li stewed-pagination=">" disabled><a href="">Next</a></li>
+									</ul>
+								</div>
+								<div class="pull-center">
+									<ul class="pagination pagination__small pagination--border color-bluegrey">
+										<li stewed-pagination="❮" disabled><a href="">Prev</a></li>
+										<li><a href="">1</a></li>
+										<li><a href="">2</a></li>
+										<li><a href="">3</a></li>
+										<li><a href="">4</a></li>
+										<li><a href="">5</a></li>
+										<li><a href="">6</a></li>
+										<li class="active"><a href="">7</a></li>
+										<li stewed-pagination="❯"><a href="">Next</a></li>
+									</ul>
+								</div>
+								<div class="card margin-top-20 margin-bottom-40">
+									<div class="card__header ">
+										<h4 class="card__header__title text-uppercase">Cooking</h4>
+									</div>
+									<div class="card__container card--border">
+										<div id="view-html" class="code">
+											<pre class="brush: xml; toolbar: false; gutter: false;">
+												&lt;ul class="pagination pagination__medium pagination--border color-bluegrey">
+												&lt;li stewed-pagination="❮" disabled><a href="">Prev</a>&lt;/li>
+												&lt;li><a href="">1</a>&lt;/li>
+												&lt;li><a href="">2</a>&lt;/li>
+												&lt;li><a href="">3</a>&lt;/li>
+												&lt;li><a href="">4</a>&lt;/li>
+												&lt;li><a href="">5</a>&lt;/li>
+												&lt;li><a href="">6</a>&lt;/li>
+												&lt;li class="active"><a href="">7</a>&lt;/li>
+												&lt;li stewed-pagination="❯"><a href="">Next</a>&lt;/li>
+												&lt;/ul>
+											</pre>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+
+
+
 			</div>
-		</div>
-	</section>
-</div>
+		</section>
 
-
-
-        </div>
-    </section>
-
-    <partial src="partials/footer.html" ></partial>
+		<partial src="partials/footer.html" ></partial>
+	</main>
 </body>
 </html>

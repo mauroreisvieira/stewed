@@ -1,87 +1,89 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <partial src="partials/head.html" title="Stewed Framework 1.0"></partial>
+	<partial src="partials/head.html" title="Stewed Framework 1.0"></partial>
 </head>
 <body>
-    <partial src="partials/header.html" selected="home"></partial>
+	<main class="wrapper" id="app">
+		<partial src="partials/header.html" selected="navbar"></partial>
 
-    <section id="main">
-        <div class="content">
+		<section id="main">
+			<div class="content">
 
-<div class="header-description box-shadow--4 bg-darkbluegrey">
-	<div class="container">
-		<div class="master-header">
-			<h1>Badges & Labels</h1>
-		</div>
-	</div>
-</div>
-<div class="container">
-	<section class="margin-top--40">
-		<div class="row">
-			<div class="col-large-12 col-medium-12 col-small-12 margin-bottom--40">
-				<h2>Badges</h2>
-				<div class="display-table pull-center margin-top-40 margin-bottom-40">
-					<div class="display-inline margin-40">
-						<div class="badge color-green" stewed-badge="12">Inbox</div>
-					</div>
-					<div class="display-inline margin-40">
-						<div class="badge color-orange" stewed-badge="⚑">Flag</div>
-					</div>
-				</div>
-				<div class="card margin-top-20">
-					<div class="card__header ">
-						<h4 class="card__header__title text-uppercase">Cooking</h4>
-					</div>
-					<div class="card__container card--border">
-						<div id="view-html" class="code">
-							<pre class="brush: xml; toolbar: false; gutter: false;">
-								&lt;div class="badge color-green" stewed-badge="12">Inbox&lt;/div>
-								&lt;div class="badge color-orange" stewed-badge="⚑">Stewed&lt;/div>
-							</pre>
+				<div class="header-description box-shadow--4 bg-darkbluegrey">
+					<div class="container">
+						<div class="master-header">
+							<h1>Badges & Labels</h1>
 						</div>
 					</div>
 				</div>
-			</div>
+				<div class="container">
+					<section class="margin-top--40">
+						<div class="row">
+							<div class="col-large-12 col-medium-12 col-small-12 margin-bottom--40">
+								<h2>Badges</h2>
+								<div class="display-table pull-center margin-top-40 margin-bottom-40">
+									<div class="display-inline margin-40">
+										<div class="badge color-green" stewed-badge="12">Inbox</div>
+									</div>
+									<div class="display-inline margin-40">
+										<div class="badge color-orange" stewed-badge="⚑">Flag</div>
+									</div>
+								</div>
+								<div class="card margin-top-20">
+									<div class="card__header ">
+										<h4 class="card__header__title text-uppercase">Cooking</h4>
+									</div>
+									<div class="card__container card--border">
+										<div id="view-html" class="code">
+											<pre class="brush: xml; toolbar: false; gutter: false;">
+												&lt;div class="badge color-green" stewed-badge="12">Inbox&lt;/div>
+												&lt;div class="badge color-orange" stewed-badge="⚑">Stewed&lt;/div>
+											</pre>
+										</div>
+									</div>
+								</div>
+							</div>
 
-			<div class="col-large-12 col-medium-12 col-small-12 margin-bottom--40">
-				<h2>Labels</h2>
-				<div class="margin-bottom--20"></div>
-				<span class="label">Default</span>
-				<span class="label label--success">Success</span>
-				<span class="label label--info">Info</span>
-				<span class="label label--warning">Warning</span>
-				<span class="label label--danger">Danger</span>
-				<span class="label bg-red">Background Red</span>
-				<span class="label bg-pink">Background Pink</span>
-				<div class="card margin-top-20">
-					<div class="card__header ">
-						<h4 class="card__header__title text-uppercase">Cooking</h4>
-					</div>
-					<div class="card__container card--border">
-						<div id="view-html" class="code">
-							<pre class="brush: xml; toolbar: false; gutter: false;">
-								&lt;span class="label">Default&lt;/span>
-								&lt;span class="label label--success">Success&lt;/span>
-								&lt;span class="label label--info">Info&lt;/span>
-								&lt;span class="label label--warning">Warning&lt;/span>
-								&lt;span class="label label--danger">Danger&lt;/span>
-								&lt;span class="label bg-red">Background Red&lt;/span>
-								&lt;span class="label bg-pink">Background Pink&lt;/span>
-							</pre>
+							<div class="col-large-12 col-medium-12 col-small-12 margin-bottom--40">
+								<h2>Labels</h2>
+								<div class="margin-bottom--20"></div>
+								<span class="label">Default</span>
+								<span class="label label--success">Success</span>
+								<span class="label label--info">Info</span>
+								<span class="label label--warning">Warning</span>
+								<span class="label label--danger">Danger</span>
+								<span class="label bg-red">Background Red</span>
+								<span class="label bg-pink">Background Pink</span>
+								<div class="card margin-top-20">
+									<div class="card__header ">
+										<h4 class="card__header__title text-uppercase">Cooking</h4>
+									</div>
+									<div class="card__container card--border">
+										<div id="view-html" class="code">
+											<pre class="brush: xml; toolbar: false; gutter: false;">
+												&lt;span class="label">Default&lt;/span>
+												&lt;span class="label label--success">Success&lt;/span>
+												&lt;span class="label label--info">Info&lt;/span>
+												&lt;span class="label label--warning">Warning&lt;/span>
+												&lt;span class="label label--danger">Danger&lt;/span>
+												&lt;span class="label bg-red">Background Red&lt;/span>
+												&lt;span class="label bg-pink">Background Pink&lt;/span>
+											</pre>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
-					</div>
+					</section>
 				</div>
+
+
+
 			</div>
-		</div>
-	</section>
-</div>
+		</section>
 
-
-
-        </div>
-    </section>
-
-    <partial src="partials/footer.html" ></partial>
+		<partial src="partials/footer.html" ></partial>
+	</main>
 </body>
 </html>

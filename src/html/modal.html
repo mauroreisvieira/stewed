@@ -4,83 +4,85 @@
     <partial src="partials/head.html" title="Stewed Framework 1.0"></partial>
 </head>
 <body>
-    <partial src="partials/header.html" selected="home"></partial>
+    <main class="wrapper" id="app">
+        <partial src="partials/header.html" selected="navbar"></partial>
 
-    <section id="main">
-        <div class="content">
+        <section id="main">
+            <div class="content">
 
-<div class="header-description box-shadow--4 bg-darkbluegrey">
-    <div class="container">
-        <div class="master-header padding-bottom-20">
-            <h1>Modal</h1>
-            <p></p>
-        </div>
-    </div>
-</div>
-<div class="container">
-    <h2>Modal</h2>
-    <p>It is positioned overlapping within the display window and is protected page content.</p>
-    <div class="margin-bottom-20"></div>
-    <a class="bg-bluegrey color-white button button--large openModal" href="#openModal" stewed-modal="openModal">Show Modal Effect</a>
-
-    <div class="row-space margin-top-40">
-        <div class="col-large-12 col-medium-12 col-small-12">
-            <div class="card margin-bottom-40">
-                <div class="card__header">
-                    <h5 class="card__header__title uppercase">Learn to cook</h5>
-                </div>
-                <div class="card__container">
-                    <div id="view-html" class="code">
-                        <pre class="brush: xml; toolbar: false; gutter: false;">
-                            &lt;!-- Use a hyperlink 'href=""' -->
-                            &lt;a class="button button-white button button--large openModal" href="#modal">Show Modal&lt;/a>
-
-                            &lt;!-- Use a button 'stewed-modal=""' -->
-                            &lt;button class="button button-white button button--large openModal" stewed-modal="modal">Show Modal&lt;/button>
-
-                            &lt;!-- Structure -->
-                            &lt;div id="modal" class="container modal">
-                                &lt;div class="modal-head">
-                                    &lt;h2>Modal Header&lt;/h2>
-                                &lt;/div>
-                                &lt;div class="modal-body">
-                                    &lt;p>...&lt;/p>
-                                &lt;/div>
-                                &lt;div class="modal-footer">
-                                    &lt;!-- Use class 'modal-close' to close modal on click -->
-                                    &lt;a href="#!" class="modal-close button button-white button button--large float-right">Disagree&lt;/a>
-                                    &lt;a href="#!" class="button button-white button button--large float-right">Agree&lt;/a>
-                                &lt;/div>
-                            &lt;/div>
-                        </pre>
+                <div class="header-description box-shadow--4 bg-darkbluegrey">
+                    <div class="container">
+                        <div class="master-header padding-bottom-20">
+                            <h1>Modal</h1>
+                            <p></p>
+                        </div>
                     </div>
                 </div>
+                <div class="container">
+                    <h2>Modal</h2>
+                    <p>It is positioned overlapping within the display window and is protected page content.</p>
+                    <div class="margin-bottom-20"></div>
+                    <a class="bg-bluegrey color-white button button--large openModal" href="#openModal" stewed-modal="openModal">Show Modal Effect</a>
+
+                    <div class="row-space margin-top-40">
+                        <div class="col-large-12 col-medium-12 col-small-12">
+                            <div class="card margin-bottom-40">
+                                <div class="card__header">
+                                    <h5 class="card__header__title uppercase">Learn to cook</h5>
+                                </div>
+                                <div class="card__container">
+                                    <div id="view-html" class="code">
+                                        <pre class="brush: xml; toolbar: false; gutter: false;">
+                                            &lt;!-- Use a hyperlink 'href=""' -->
+                                            &lt;a class="button button-white button button--large openModal" href="#modal">Show Modal&lt;/a>
+
+                                            &lt;!-- Use a button 'stewed-modal=""' -->
+                                            &lt;button class="button button-white button button--large openModal" stewed-modal="modal">Show Modal&lt;/button>
+
+                                            &lt;!-- Structure -->
+                                            &lt;div id="modal" class="container modal">
+                                            &lt;div class="modal-head">
+                                            &lt;h2>Modal Header&lt;/h2>
+                                            &lt;/div>
+                                            &lt;div class="modal-body">
+                                            &lt;p>...&lt;/p>
+                                            &lt;/div>
+                                            &lt;div class="modal-footer">
+                                            &lt;!-- Use class 'modal-close' to close modal on click -->
+                                            &lt;a href="#!" class="modal-close button button-white button button--large float-right">Disagree&lt;/a>
+                                            &lt;a href="#!" class="button button-white button button--large float-right">Agree&lt;/a>
+                                            &lt;/div>
+                                            &lt;/div>
+                                        </pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="openModal" class="modal">
+                        <div class="modal__container">
+                            <div class="modal__head">
+                                <h2 class="modal__title">Modal Header</h2>
+                                <p>Press key <strong>ESC</strong></p>
+                            </div>
+                            <div class="modal__content">
+                                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+                            </div>
+                            <div class="modal__footer">
+                                <button class="modal-close button button--small button--link pull-right">Disagree</button>
+                                <button class="bg-pink color-white button button--small pull-right">Agree</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
             </div>
-        </div>
-    </div>
+        </section>
 
-    <div id="openModal" class="modal">
-        <div class="modal__container">
-            <div class="modal__head">
-                <h2 class="modal__title">Modal Header</h2>
-                <p>Press key <strong>ESC</strong></p>
-            </div>
-            <div class="modal__content">
-                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
-            </div>
-            <div class="modal__footer">
-                <button class="modal-close button button--small button--link pull-right">Disagree</button>
-                <button class="bg-pink color-white button button--small pull-right">Agree</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-        </div>
-    </section>
-
-    <partial src="partials/footer.html" ></partial>
+        <partial src="partials/footer.html" ></partial>
+    </main>
 </body>
 </html>
