@@ -5,72 +5,114 @@
 </head>
 <body>
     <main class="wrapper" id="app">
-        <partial src="partials/header.html" selected="navbar"></partial>
-        <div class="content">
-            <div class="container">
+        <partial src="partials/header.html" selected="button"></partial>
+        <div class="content pb-40">
+            <partial src="partials/title.html" color="blue" title="Buttons" update="24 Nov 2017"></partial>
+            <section class="section p-20">
                 <div class="row">
                     <div class="col-large-12 col-medium-12 col-small-12">
-                        <h1>Buttons</h1>
+                        <p class="monospace extrabold">Button Default</p>
+                        <p>Mandatory, defaults to a text button</p>
+                    </div>
+                    <div class="col-large-3 col-medium-6 col-small-12">
+                        <ul class="list">
+                            <li class="list__item py-10"><code>.btn</code></li>
+                        </ul>
+                    </div>
+                    <div class="col-large-3 col-medium-6 col-small-12">
+                        <div class="text-center p-10">
+                            <button class="btn">Button</button>
+                        </div>
                     </div>
                 </div>
-                <section class="section">
-                    <div class="row">
-                        <div class="col-large-12 col-medium-12 col-small-12">
-                            <p class="text-blue uppercase extrabold">Button Default with different colors.</p>
-                            <p>You can use the buttons components with this specific colors applying the next modifiers.</p>
+                <div class="row">
+                    <div class="col-large-12 col-medium-12 col-small-12">
+                        <p class="monospace extrabold">Button Colors</p>
+                        <p>Optional, can use the buttons components with this specific colors applying the next modifiers.</p>
+                    </div>
+                    <div class="col-large-3 col-medium-6 col-small-12">
+                        <ul class="list">
+                            <li class="list__item py-10"><code>.btn--default</code></li>
+                            <li class="list__item py-10"><code>.btn--danger</code></li>
+                            <li class="list__item py-10"><code>.btn--success</code></li>
+                            <li class="list__item py-10"><code>.btn--info</code></li>
+                        </ul>
+                    </div>
+                    <div class="col-large-3 col-medium-6 col-small-12">
+                        <div class="text-center p-10">
+                            <button class="btn btn--default">Button</button>
                         </div>
-                        <div class="col-large-3 col-medium-6 col-small-12">
-                            <ul class="list">
-                                <li class="list__item p-10"><code>.btn--default</code></li>
-                                <li class="list__item p-10"><code>.btn--danger</code></li>
-                                <li class="list__item p-10"><code>.btn--success</code></li>
-                                <li class="list__item p-10"><code>.btn--info</code></li>
-                            </ul>
+                        <div class="text-center p-10">
+                            <button class="btn btn--danger">Button</button>
                         </div>
-                        <div class="col-large-3 col-medium-6 col-small-12">
-                            <div class="text-center p-10">
-                                <button class="btn btn--default">Button</button>
-                            </div>
-                            <div class="text-center p-10">
-                                <button class="btn btn--danger">Button</button>
-                            </div>
-                            <div class="text-center p-10">
-                                <button class="btn btn--success">Button</button>
-                            </div>
-                            <div class="text-center p-10">
-                                <button class="btn btn--info">Button</button>
-                            </div>
+                        <div class="text-center p-10">
+                            <button class="btn btn--success">Button</button>
+                        </div>
+                        <div class="text-center p-10">
+                            <button class="btn btn--info">Button</button>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-large-12 col-medium-12 col-small-12">
-                            <p class="text-blue uppercase extrabold">Button Default with different sizes.</p>
-                            <p>You can use the buttons components with this specific colors applying the next modifiers.</p>
-                        </div>
-                        <div class="col-large-3 col-medium-6 col-small-12">
-                            <ul class="list">
-                                <li class="list__item p-10"><code>.btn--small</code></li>
-                                <li class="list__item p-10"><code>.btn--medium</code></li>
-                                <li class="list__item p-10"><code>.btn--large</code></li>
-                            </ul>
-                        </div>
-                        <div class="col-large-3 col-medium-6 col-small-12">
-                            <div class="text-center p-10">
-                                <button class="btn btn--small btn--info">Button</button>
-                            </div>
-                            <div class="text-center p-10">
-                                <button class="btn btn--medium btn--info">Button</button>
-                            </div>
-                            <div class="text-center p-10">
-                                <button class="btn btn--large btn--info">Button</button>
-                            </div>
+                </div>
+                <div class="row">
+                    <div class="col-large-12 col-medium-12 col-small-12">
+                        <p class="monospace extrabold">Button Icon</p>
+                        <p>Optional, for the icon element</p>
+                    </div>
+                    <div class="col-large-3 col-medium-6 col-small-12">
+                        <ul class="list">
+                            <li class="list__item py-10"><code>btn--icon</code></li>
+                        </ul>
+                    </div>
+                    <div class="col-large-3 col-medium-6 col-small-12">
+                        <div class="text-center p-10">
+                            <button class="btn btn--info btn--icon"><i class="icon ion-beer"></i></button>
                         </div>
                     </div>
-                </section>
-            </div>
+                </div>
+                <div class="row">
+                    <div class="col-large-12 col-medium-12 col-small-12">
+                        <p class="monospace extrabold">Disabled Button</p>
+                        <p>Optional, can add disabled directly to the button element to disable a button</p>
+                    </div>
+                    <div class="col-large-3 col-medium-6 col-small-12">
+                        <ul class="list">
+                            <li class="list__item py-10"><code>disabled</code></li>
+                        </ul>
+                    </div>
+                    <div class="col-large-3 col-medium-6 col-small-12">
+                        <div class="text-center p-10">
+                            <button class="btn btn--default" disabled>Button</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-large-12 col-medium-12 col-small-12">
+                        <p class="monospace extrabold">Button Sizes</p>
+                        <p>Optional, can use the buttons components with this specific size applying the next modifiers.</p>
+                    </div>
+                    <div class="col-large-3 col-medium-6 col-small-12">
+                        <ul class="list">
+                            <li class="list__item py-10"><code>.btn--small</code></li>
+                            <li class="list__item py-10"><code>.btn--medium</code></li>
+                            <li class="list__item py-10"><code>.btn--large</code></li>
+                        </ul>
+                    </div>
+                    <div class="col-large-3 col-medium-6 col-small-12">
+                        <div class="text-center p-10">
+                            <button class="btn btn--small btn--info">Button</button>
+                        </div>
+                        <div class="text-center p-10">
+                            <button class="btn btn--medium btn--info">Button</button>
+                        </div>
+                        <div class="text-center p-10">
+                            <button class="btn btn--large btn--info">Button</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-        <partial src="partials/footer.html"></partial>
     </main>
+    <partial src="partials/script.html"></partial>
 </body>
 </html>
 

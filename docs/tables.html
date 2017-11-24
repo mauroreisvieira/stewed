@@ -32,7 +32,7 @@
         <link rel="icon" type="image/png" sizes="32x32" href="assets/images/touch//favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="assets/images/touch//favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="assets/images/touch//favicon-16x16.png">
-        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500|Roboto:100,300,500,700"
         rel="stylesheet">
         <meta name="msapplication-TileImage" content="assets/images/touch/apple-icon-144x144.png">
         <meta name="msapplication-TileColor" content="#2F3BA2">
@@ -44,391 +44,404 @@
     </head>
     
     <body>
-        <header class="header navbar navbar--spacebetween bg-red text-white">
-            <div class="navbar__brand"> <a href="index.html">Stewed Framework</a>
+        <main class="wrapper" id="app">
+            <header class="header navbar navbar--spacebetween bg-grey--darken text-white">
+                <div class="navbar__brand"> <a href="index.html" title="Stewed Framework">
+            <span class="monospace uppercase thin text-white large">Stewed Framework</span>
+        </a>
 
-            </div>
-            <div class="navbar__menu">
-                <ul class="menu menu--horizontal menu--inherit">
-                    <li class="menu__item"><a class="menu__link" href="index.html">Home</a>
+                </div>
+                <div class="navbar__menu">
+                    <ul class="menu menu--horizontal menu--inherit">
+                        <li class="menu__item"><a class="menu__link uppercase" href="index.html">Home</a>
+
+                        </li>
+                        <li class="menu__item"><a class="menu__link uppercase" href="documentation.html">Documentation</a>
+
+                        </li>
+                        <li class="menu__item"><a class="menu__link uppercase" href="">Github</a>
+
+                        </li>
+                    </ul>
+                </div>
+            </header>
+            <div class="sidebar text-grey--darken">
+                <div class="flex flex--column flex--item-center flex--content-center h-3 mb-40 bg-white">
+                    <img src="assets/images/logo/stewed_dark.svg" alt="Stewed Framework" title="Stewed Framework"
+                    class="logo"> <span class="text-center mb-40 bold">⏤ v0.9.50 ⏤</span>
+
+                </div>
+                <ul class="menu menu--vertical menu--inherit p-20">
+                    <li class="menu__item"><a class="menu__link" href="colors.html" class="">Color & Shadow</a> 
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="typography.html" class="">Typography</a> 
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="utilities.html" class="">Utilities</a> 
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="badges.html">Badges & Labels</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="documentation.html">Documentation</a>
+                    <li class="menu__item"><a class="menu__link" href="breadcrumbs.html">Breadcrumbs</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="">Github</a>
+                    <li class="menu__item"><a class="menu__link is-active bl-2 border-blue" href="buttons.html">Buttons</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="cards.html">Cards</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="forms.html">Forms Filed</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="grid.html">Grid</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="navigation.html">Navigation</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="pagination.html">Pagination</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="tables.html">Tables</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="tooltips.html">Tooltips</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="navbar.html">Navbar</a>
 
                     </li>
                 </ul>
             </div>
-        </header>
-        <div class="sidebar bg-grey--lighten text-grey--darken">
-            <ul class="menu menu--vertical menu--inherit">
-                <li class="menu__item"><a class="menu__link" href="colors.html" class="">Color & Shadow</a> 
-                </li>
-                <li class="menu__item"><a class="menu__link" href="typography.html" class="">Typography</a> 
-                </li>
-                <li class="menu__item"><a class="menu__link" href="utilities.html" class="">Utilities</a> 
-                </li>
-                <li class="menu__item"><a class="menu__link" href="badges.html">Badges & Labels</a>
+            <section id="main">
+                <div class="content">
+                    <div class="header-description box-shadow--4 bg-darkbluegrey">
+                        <div class="container">
+                            <div class="master-header">
+                                	<h1>Tables</h1>
 
-                </li>
-                <li class="menu__item"><a class="menu__link" href="breadcrumbs.html">Breadcrumbs</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="buttons.html">Buttons</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="cards.html">Cards</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="forms.html">Forms Filed</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="grid.html">Grid</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="navigation.html">Navigation</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="pagination.html">Pagination</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="tables.html">Tables</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="tooltips.html">Tooltips</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="navbar.html">Navbar</a>
-
-                </li>
-            </ul>
-        </div>
-        <section id="main">
-            <div class="content">
-                <div class="header-description box-shadow--4 bg-darkbluegrey">
-                    <div class="container">
-                        <div class="master-header">
-                            	<h1>Tables</h1>
-
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="container">
-                    <section class="margin-top-40">
-                        <div class="row">
-                            <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
-                                	<h2>Simple Table</h2>
+                    <div class="container">
+                        <section class="margin-top-40">
+                            <div class="row">
+                                <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
+                                    	<h2>Simple Table</h2>
 
-                                <table class="table color-blue">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Phone</th>
-                                            <th>Email</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Johnny Depp</td>
-                                            <td>311091022</td>
-                                            <td>example@stewed.com</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Samuel L Jackson</td>
-                                            <td>311091022</td>
-                                            <td>example@stewed.com</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Robin Williams</td>
-                                            <td>311091022</td>
-                                            <td>example@stewed.com</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Morgan Freeman</td>
-                                            <td>311091022</td>
-                                            <td>example@stewed.com</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <div class="card margin-top-20">
-                                    <div class="card__header">
-                                        	<h5 class="card__header__title text-uppercase">Cooking</h5>
+                                    <table class="table color-blue">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Phone</th>
+                                                <th>Email</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Johnny Depp</td>
+                                                <td>311091022</td>
+                                                <td>example@stewed.com</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Samuel L Jackson</td>
+                                                <td>311091022</td>
+                                                <td>example@stewed.com</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Robin Williams</td>
+                                                <td>311091022</td>
+                                                <td>example@stewed.com</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Morgan Freeman</td>
+                                                <td>311091022</td>
+                                                <td>example@stewed.com</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="card margin-top-20">
+                                        <div class="card__header">
+                                            	<h5 class="card__header__title text-uppercase">Cooking</h5>
 
-                                    </div>
-                                    <div class="card__container card--border">
-                                        <div id="view-html" class="code">	<pre class="brush: xml; toolbar: false; gutter: false;">
-								&lt;table class="table color-blue">
-									&lt;thead>
-										&lt;tr>
-											&lt;th>Name&lt;/th>
-											&lt;th>Phone&lt;/th>
-											&lt;th>Email&lt;/th>
-										&lt;/tr>
-									&lt;/thead>
-									&lt;tbody>
-										&lt;tr>
-											&lt;td>Johnny Depp &lt;/td>
-											&lt;td>311091022&lt;/td>
-											&lt;td>example@stewed.com&lt;/td>
-										&lt;/tr>
-									&lt;/tbody>
-								&lt;/table>
-							</pre>
+                                        </div>
+                                        <div class="card__container card--border">
+                                            <div id="view-html" class="code">	<pre class="brush: xml; toolbar: false; gutter: false;">
+												&lt;table class="table color-blue">
+												&lt;thead>
+												&lt;tr>
+												&lt;th>Name&lt;/th>
+												&lt;th>Phone&lt;/th>
+												&lt;th>Email&lt;/th>
+												&lt;/tr>
+												&lt;/thead>
+												&lt;tbody>
+												&lt;tr>
+												&lt;td>Johnny Depp &lt;/td>
+												&lt;td>311091022&lt;/td>
+												&lt;td>example@stewed.com&lt;/td>
+												&lt;/tr>
+												&lt;/tbody>
+												&lt;/table>
+											</pre>
 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
-                                	<h2>Table Border</h2>
+                                <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
+                                    	<h2>Table Border</h2>
 
-                                <table class="table table--border table--hover">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Phone</th>
-                                            <th>Email</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Johnny Depp</td>
-                                            <td>311091022</td>
-                                            <td>example@stewed.com</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Samuel L Jackson</td>
-                                            <td>311091022</td>
-                                            <td>example@stewed.com</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Robin Williams</td>
-                                            <td>311091022</td>
-                                            <td>example@stewed.com</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Morgan Freeman</td>
-                                            <td>311091022</td>
-                                            <td>example@stewed.com</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <div class="card margin-top-20">
-                                    <div class="card__header">
-                                        	<h5 class="card__header__title text-uppercase">Cooking</h5>
+                                    <table class="table table--border table--hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Phone</th>
+                                                <th>Email</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Johnny Depp</td>
+                                                <td>311091022</td>
+                                                <td>example@stewed.com</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Samuel L Jackson</td>
+                                                <td>311091022</td>
+                                                <td>example@stewed.com</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Robin Williams</td>
+                                                <td>311091022</td>
+                                                <td>example@stewed.com</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Morgan Freeman</td>
+                                                <td>311091022</td>
+                                                <td>example@stewed.com</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="card margin-top-20">
+                                        <div class="card__header">
+                                            	<h5 class="card__header__title text-uppercase">Cooking</h5>
 
-                                    </div>
-                                    <div class="card__container card--border">
-                                        <div id="view-html" class="code">	<pre class="brush: xml; toolbar: false; gutter: false;">
-								&lt;table class="table table--border table--hover">
-									&lt;thead>
-										&lt;tr>
-											&lt;th>Name&lt;/th>
-											&lt;th>Phone&lt;/th>
-											&lt;th>Email&lt;/th>
-										&lt;/tr>
-									&lt;/thead>
-									&lt;tbody>
-											&lt;tr>
-											&lt;td>Johnny Depp &lt;/td>
-											&lt;td>311091022&lt;/td>
-											&lt;td>example@stewed.com&lt;/td>
-										&lt;/tr>
-									&lt;/tbody>
-								&lt;/table>
-							</pre>
+                                        </div>
+                                        <div class="card__container card--border">
+                                            <div id="view-html" class="code">	<pre class="brush: xml; toolbar: false; gutter: false;">
+												&lt;table class="table table--border table--hover">
+												&lt;thead>
+												&lt;tr>
+												&lt;th>Name&lt;/th>
+												&lt;th>Phone&lt;/th>
+												&lt;th>Email&lt;/th>
+												&lt;/tr>
+												&lt;/thead>
+												&lt;tbody>
+												&lt;tr>
+												&lt;td>Johnny Depp &lt;/td>
+												&lt;td>311091022&lt;/td>
+												&lt;td>example@stewed.com&lt;/td>
+												&lt;/tr>
+												&lt;/tbody>
+												&lt;/table>
+											</pre>
 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
-                                	<h2>Table Striped</h2>
+                                <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
+                                    	<h2>Table Striped</h2>
 
-                                <table class="table table--striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Phone</th>
-                                            <th>Email</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Johnny Depp</td>
-                                            <td>311091022</td>
-                                            <td>example@stewed.com</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Samuel L Jackson</td>
-                                            <td>311091022</td>
-                                            <td>example@stewed.com</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Robin Williams</td>
-                                            <td>311091022</td>
-                                            <td>example@stewed.com</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Morgan Freeman</td>
-                                            <td>311091022</td>
-                                            <td>example@stewed.com</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <div class="card margin-top-20">
-                                    <div class="card__header ">
-                                        	<h5 class="card__header__title text-uppercase">Cooking</h5>
+                                    <table class="table table--striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Phone</th>
+                                                <th>Email</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Johnny Depp</td>
+                                                <td>311091022</td>
+                                                <td>example@stewed.com</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Samuel L Jackson</td>
+                                                <td>311091022</td>
+                                                <td>example@stewed.com</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Robin Williams</td>
+                                                <td>311091022</td>
+                                                <td>example@stewed.com</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Morgan Freeman</td>
+                                                <td>311091022</td>
+                                                <td>example@stewed.com</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="card margin-top-20">
+                                        <div class="card__header ">
+                                            	<h5 class="card__header__title text-uppercase">Cooking</h5>
 
-                                    </div>
-                                    <div class="card__container card--border">
-                                        <div id="view-html" class="code">	<pre class="brush: xml; toolbar: false; gutter: false;">
-								&lt;table class="table table--striped">
-									&lt;thead>
-										&lt;tr>
-											&lt;th>Name&lt;/th>
-											&lt;th>Phone&lt;/th>
-											&lt;th>Email&lt;/th>
-										&lt;/tr>
-									&lt;/thead>
-									&lt;tbody>
-										&lt;tr>
-											&lt;td>Johnny Depp &lt;/td>
-											&lt;td>311091022&lt;/td>
-											&lt;td>example@stewed.com&lt;/td>
-										&lt;/tr>
-									&lt;/tbody>
-								&lt;/table>
-							</pre>
+                                        </div>
+                                        <div class="card__container card--border">
+                                            <div id="view-html" class="code">	<pre class="brush: xml; toolbar: false; gutter: false;">
+												&lt;table class="table table--striped">
+												&lt;thead>
+												&lt;tr>
+												&lt;th>Name&lt;/th>
+												&lt;th>Phone&lt;/th>
+												&lt;th>Email&lt;/th>
+												&lt;/tr>
+												&lt;/thead>
+												&lt;tbody>
+												&lt;tr>
+												&lt;td>Johnny Depp &lt;/td>
+												&lt;td>311091022&lt;/td>
+												&lt;td>example@stewed.com&lt;/td>
+												&lt;/tr>
+												&lt;/tbody>
+												&lt;/table>
+											</pre>
 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
-                                	<h2>Table Customer</h2>
+                                <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
+                                    	<h2>Table Customer</h2>
 
-                                <table class="table table--striped">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Name</th>
-                                            <th>Phone</th>
-                                            <th>Email</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="textfield color-pink">
-                                                    <input type="checkbox" id="checkbox-1" value="1" name="checkbox[]">
-                                                    <label for="checkbox-1" class="textfield__label--checkbox"></label>
-                                                </div>
-                                            </td>
-                                            <td>Johnny Depp</td>
-                                            <td>311091022</td>
-                                            <td>example@stewed.com</td>
-                                            <td>
-                                                <button class="button button--fab bg-white color-pink">★</button>
-                                                <button class="button button--fab bg-green color-white">➥</button>
-                                                <button class="button button--fab bg-red color-white">✖</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="textfield color-pink">
-                                                    <input type="checkbox" id="checkbox-2" value="2" name="checkbox[]">
-                                                    <label for="checkbox-2" class="textfield__label--checkbox"></label>
-                                                </div>
-                                            </td>
-                                            <td>Samuel L Jackson</td>
-                                            <td>311091022</td>
-                                            <td>example@stewed.com</td>
-                                            <td>
-                                                <button class="button button--fab bg-white color-pink">★</button>
-                                                <button class="button button--fab bg-green color-white">➥</button>
-                                                <button class="button button--fab bg-red color-white">✖</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="textfield color-pink">
-                                                    <input type="checkbox" id="checkbox-3" value="3" name="checkbox[]">
-                                                    <label for="checkbox-3" class="textfield__label--checkbox"></label>
-                                                </div>
-                                            </td>
-                                            <td>Robin Williams</td>
-                                            <td>311091022</td>
-                                            <td>example@stewed.com</td>
-                                            <td>
-                                                <button class="button button--fab bg-white color-pink">★</button>
-                                                <button class="button button--fab bg-green color-white">➥</button>
-                                                <button class="button button--fab bg-red color-white">✖</button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <div class="card margin-top-20 margin-bottom-40">
-                                    <div class="card__header">
-                                        	<h5 class="card__header__title text-uppercase">Cooking</h5>
+                                    <table class="table table--striped">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Name</th>
+                                                <th>Phone</th>
+                                                <th>Email</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="textfield color-pink">
+                                                        <input type="checkbox" id="checkbox-1" value="1" name="checkbox[]">
+                                                        <label for="checkbox-1" class="textfield__label--checkbox"></label>
+                                                    </div>
+                                                </td>
+                                                <td>Johnny Depp</td>
+                                                <td>311091022</td>
+                                                <td>example@stewed.com</td>
+                                                <td>
+                                                    <button class="button button--fab bg-white color-pink">★</button>
+                                                    <button class="button button--fab bg-green color-white">➥</button>
+                                                    <button class="button button--fab bg-red color-white">✖</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="textfield color-pink">
+                                                        <input type="checkbox" id="checkbox-2" value="2" name="checkbox[]">
+                                                        <label for="checkbox-2" class="textfield__label--checkbox"></label>
+                                                    </div>
+                                                </td>
+                                                <td>Samuel L Jackson</td>
+                                                <td>311091022</td>
+                                                <td>example@stewed.com</td>
+                                                <td>
+                                                    <button class="button button--fab bg-white color-pink">★</button>
+                                                    <button class="button button--fab bg-green color-white">➥</button>
+                                                    <button class="button button--fab bg-red color-white">✖</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="textfield color-pink">
+                                                        <input type="checkbox" id="checkbox-3" value="3" name="checkbox[]">
+                                                        <label for="checkbox-3" class="textfield__label--checkbox"></label>
+                                                    </div>
+                                                </td>
+                                                <td>Robin Williams</td>
+                                                <td>311091022</td>
+                                                <td>example@stewed.com</td>
+                                                <td>
+                                                    <button class="button button--fab bg-white color-pink">★</button>
+                                                    <button class="button button--fab bg-green color-white">➥</button>
+                                                    <button class="button button--fab bg-red color-white">✖</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="card margin-top-20 margin-bottom-40">
+                                        <div class="card__header">
+                                            	<h5 class="card__header__title text-uppercase">Cooking</h5>
 
-                                    </div>
-                                    <div class="card__container card--border">
-                                        <div id="view-html" class="code">	<pre class="brush: xml; toolbar: false; gutter: false;">
-								&lt;table class="table table--striped">
-									&lt;thead>
-										&lt;tr>
-											&lt;th>#&lt;/th>
-											&lt;th>Name&lt;/th>
-											&lt;th>Phone&lt;/th>
-											&lt;th>Email&lt;/th>
-											&lt;th>Actions&lt;/th>
-										&lt;/tr>
-									&lt;/thead>
-									&lt;tbody>
-										&lt;tr>
-											&lt;td>
+                                        </div>
+                                        <div class="card__container card--border">
+                                            <div id="view-html" class="code">	<pre class="brush: xml; toolbar: false; gutter: false;">
+												&lt;table class="table table--striped">
+												&lt;thead>
+												&lt;tr>
+												&lt;th>#&lt;/th>
+												&lt;th>Name&lt;/th>
+												&lt;th>Phone&lt;/th>
+												&lt;th>Email&lt;/th>
+												&lt;th>Actions&lt;/th>
+												&lt;/tr>
+												&lt;/thead>
+												&lt;tbody>
+												&lt;tr>
+												&lt;td>
 												&lt;div class="textfield color-pink">
-													&lt;input type="checkbox" id="checkbox-3" value="3" name="checkbox[]">
-													&lt;label for="checkbox-3" class="textfield__label--checkbox">&lt;/label>
+												&lt;input type="checkbox" id="checkbox-3" value="3" name="checkbox[]">
+												&lt;label for="checkbox-3" class="textfield__label--checkbox">&lt;/label>
 												&lt;/div>
-											&lt;/td>
-											&lt;td>Robin Williams&lt;/td>
-											&lt;td>311091022&lt;/td>
-											&lt;td>example@stewed.com&lt;/td>
-											&lt;td>
+												&lt;/td>
+												&lt;td>Robin Williams&lt;/td>
+												&lt;td>311091022&lt;/td>
+												&lt;td>example@stewed.com&lt;/td>
+												&lt;td>
 												&lt;button class="button button--fab bg-white color-pink">★&lt;/button>
 												&lt;button class="button button--fab bg-green color-white">➥&lt;/button>
 												&lt;button class="button button--fab bg-red color-white">✖&lt;/button>
-											&lt;/td>
-										&lt;/tr>
-									&lt;/tbody>
-								&lt;/table>
-							</pre>
+												&lt;/td>
+												&lt;/tr>
+												&lt;/tbody>
+												&lt;/table>
+											</pre>
 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </section>
+                        </section>
+                    </div>
                 </div>
-            </div>
-        </section>
-        <footer class="footer bg-blue text-white">
+            </section>
+        </main>
+        <footer class="footer bg-grey--lighten text-grey--darken">
             <div class="container">
                 <div class="row">
-                    <div class="col-col-large-12 col-col-medium-12 col-col-small-12">
+                    <div class="col-large-12 col-medium-12 col-small-12"></div>
+                    <div class="col-large-12 col-medium-12 col-small-12">
                         <nav>
                             <ul class="menu menu--horizontal menu--inherit float-right">
-                                <li class="menu__item"><a class="menu__link" href="https://github.com/maurovieirareis/stewed"
-                                    target="_bank">View Source on Github</a>
+                                <li class="menu__item"> <a class="menu__link" href="https://github.com/maurovieirareis/stewed"
+                                    target="_blank">View Source on Github</a>
 
                                 </li>
-                                <li class="menu__item"><a class="menu__link" href="changelog.html">Changelog</a>
+                                <li class="menu__item"> <a class="menu__link" href="changelog.html">Changelog</a>
+
+                                </li>
+                                <li class="menu__item"> <a class="menu__link" href="https://twitter.com/StewedCSS" target="_blank">Twitter</a>
 
                                 </li>
                             </ul>
@@ -437,14 +450,6 @@
                 </div>
             </div>
         </footer>
-        <script src="https://unpkg.com/vue"></script>
-        <script>
-            new Vue({
-                el: '#app',
-                data: {
-                }
-            });
-        </script>
     </body>
 
 </html>

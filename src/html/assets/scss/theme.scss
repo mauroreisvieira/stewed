@@ -1,27 +1,26 @@
-@import 'partials/variables';
+@import 'utilities/variables';
 
 * {
 	box-sizing: border-box;
 }
 
 body {
-	color: #000;
-	font-family: $font-family;
-	font-size: 1.00em;
-	font-weight: 300;
-	height: 100%;
-	line-height: 1.500;
-	width: 100%;
-	padding: 0;
+	font-size: 100%;
 	margin: 0;
+	padding: 0;
+	width: 100%;
+	box-sizing: border-box;
+	overflow-x: hidden;
+	background: #f3f3f3;
 }
 
 .wrapper {
 	display: grid;
+	grid-template-columns: 300px calc(100% - 300px);
 	grid-template-areas:
-		"header header"
-		"sidebar content"
-		"footer footer";
+	"header header"
+	"sidebar content"
+	"sidebar footer";
 }
 
 .header {
@@ -30,7 +29,7 @@ body {
 	.logo {
 		display: block;
 		margin: auto;
-		max-width: 180px;
+		max-width: 100px;
 
 		img {
 			width: 100%;
@@ -40,21 +39,28 @@ body {
 
 .sidebar {
 	grid-area: sidebar;
+	width: 300px;
+
+	.logo {
+		width: 120px;
+		margin: auto;
+	}
 }
 
 .content {
 	grid-area: content;
 	flex-direction: column;
+	background-color: #fff;
 }
 
 .footer {
+	background-color: #fff;
 	grid-area: footer;
 }
 
 code {
-	background: rgba(251, 60, 104, 0.10);
-	border-radius: 2px;
-	color: $color-primary;
+	background: $theme-code-color;
+	border-radius: $theme-code-radius;
 	display: inline;
 	font-family: courier new, monospace;
 	font-size: inherit;

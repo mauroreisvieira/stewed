@@ -1,15 +1,21 @@
 @import '../../utilities/variables';
 @import '../../utilities/mixins';
 
-$c-btn-font-size-small: $u-font-size - 2; // 12px
-$c-btn-font-size-medium: $u-font-size; // 14px
-$c-btn-font-weight-normal: $u-font-weight; // 400
+$c-btn-font-size: $u-font-size; // 14px
+$c-btn-font-weight: $u-font-weight; // 400
 
+// Button Size
+$c-btn-height: 40px;
+
+// Button Horizontal Padding
+$c-btn-horizontal-padding: 16px;
+
+// Border Radius
 $c-btn-border-radius: 2px;
 
 // Button Danger
 $c-btn-color-danger: map-get($u-color-red, 'base');
-$c-btn-color-danger-hover: map-get($u-color-salmon, 'base');
+$c-btn-color-danger-hover: map-get($u-color-salmon, 'darken');
 
 // Button Success
 $c-btn-color-success: map-get($u-color-green, 'base');
@@ -21,7 +27,11 @@ $c-btn-color-info-hover: map-get($u-color-blue, 'darken');
 
 // Button Default
 $c-btn-color-default: map-get($u-color-grey, 'base');
-$c-btn-color-default-hover: map-get($u-color-grey, 'base');
+$c-btn-color-default-hover: map-get($u-color-grey, 'darken');
+
+// Button Animation Transition
+$c-btn-transition-timing: cubic-bezier(.2, 1, .3, 1);
+$c-btn-transition-duration: .4s;
 
 $btns: (
   'danger': ($c-btn-color-danger, $u-color-white, $c-btn-color-danger-hover, $u-color-white),

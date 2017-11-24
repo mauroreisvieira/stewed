@@ -4,334 +4,337 @@
     <partial src="partials/head.html" title="Stewed Framework 1.0"></partial>
 </head>
 <body>
-    <partial src="partials/header.html" selected="home"></partial>
+    <main class="wrapper" id="app">
+        <partial src="partials/header.html" selected="navbar"></partial>
 
-    <section id="main">
-        <div class="content">
+        <section id="main">
+            <div class="content">
 
-<div class="header-description box-shadow--4 bg-darkbluegrey">
-    <div class="container">
-        <div class="master-header padding-bottom-20">
-            <h1>Grid System</h1>
-            <p>Stewed by default have 12 columns.</p>
-            <p>When resizing your browser, each of these columns will always have an equal width.</p>
-        </div>
-    </div>
-</div>
-<div class="container">
-    <section class="margin-top-40">
-        <div class="row margin-bottom-40">
-            <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
-                <h2>Simple Grid</h2>
-                <p>Can you choose if you want space between the columns or not, just by defining <code>.row</code> not to have a rift between them or <code>.row--gutter</code> pars have.</p>
-                <p>Thus allowing you to use the entire screen space..</p>
-            </div>
-            <div class="col-large-5 col-medium-5 col-small-12">
-                <div class="column">
-                    <p>col-large-5 col-medium-5 col-small-12</p>
-                </div>
-            </div>
-            <div class="col-large-7 col-medium-7 col-small-12">
-                <div class="column">
-                    <p>col-large-7 col-medium-7 col-small-12</p>
-                </div>
-            </div>
-            <div class="col-large-6 col-medium-6 col-small-12">
-                <div class="column">
-                    <p>col-large-6 col-medium-6 col-small-12</p>
-                </div>
-            </div>
-            <div class="col-large-6 col-medium-6 col-small-12">
-                <div class="column">
-                    <p>col-large-6 col-medium-6 col-small-12</p>
-                </div>
-            </div>
-            <div class="col-large-4 col-medium-4 col-small-12">
-                <div class="column">
-                    <p>col-large-4 col-medium-4 col-small-12</p>
-                </div>
-            </div>
-            <div class="col-large-4 col-medium-4 col-small-12">
-                <div class="column">
-                    <p>col-large-4 col-medium-4 col-small-12</p>
-                </div>
-            </div>
-            <div class="col-large-4 col-medium-4 col-small-12">
-                <div class="column">
-                    <p>col-large-4 col-medium-4 col-small-12</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
-            <div class="card margin-top-20">
-                <div class="card__header ">
-                    <h4 class="card__header__title text-uppercase">Cooking</h4>
-                </div>
-                <div class="card__container card--border">
-                    <div id="view-html" class="code">
-                        <pre class="brush: xml; toolbar: false; gutter: false;">
-                            &lt;div class="row">
-                                &lt;div class="col-large-12 col-medium-12 col-small-12">
-                                    &lt;p>col-large-12 col-medium-12 col-small-12&lt;/p>
-                                &lt;/div>
-                                &lt;div class="col-large-6 col-medium-6 col-small-12">
-                                    &lt;p>col-large-6 col-medium-6 col-small-12&lt;/p>
-                                &lt;/div>
-                                &lt;div class="col-large-6 col-medium-6 col-small-12">
-                                    &lt;p>col-large-6 col-medium-6 col-small-12&lt;/p>
-                                &lt;/div>
-                                &lt;div class="col-large-4 col-medium-4 col-small-12">
-                                    &lt;p>col-large-4 col-medium-4 col-small-12&lt;/p>
-                                &lt;/div>
-                                &lt;div class="col-large-4 col-medium-4 col-small-12">
-                                    &lt;p>col-large-4 col-medium-4 col-small-12&lt;/p>
-                                &lt;/div>
-                                &lt;div class="col-large-4 col-medium-4 col-small-12">
-                                    &lt;p>col-large-4 col-medium-4 col-small-12&lt;/p>
-                                &lt;/div>
-                            &lt;/div>
-                        </pre>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Grid Gutter -->
-        <div class="row row--gutter">
-            <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
-                <h2>Grid Gutter</h2>
-                <p>In this case you nead the <code>.row--gutter</code> after <code>.row</code></p>
-            </div>
-            <div class="col-large-5 col-medium-5 col-small-12">
-                <div class="column">
-                    <p>col-large-5 col-medium-6 col-small-12</p>
-                </div>
-            </div>
-            <div class="col-large-7 col-medium-7 col-small-12">
-                <div class="column">
-                    <p>col-large-7 col-medium-6 col-small-12</p>
-                </div>
-            </div>
-            <div class="col-large-6 col-medium-6 col-small-12">
-                <div class="column">
-                    <p>col-large-6 col-medium-6 col-small-12</p>
-                </div>
-            </div>
-            <div class="col-large-6 col-medium-6 col-small-12">
-                <div class="column">
-                    <p>col-large-6 col-medium-6 col-small-12</p>
-                </div>
-            </div>
-            <div class="col-large-4 col-medium-4 col-small-12">
-                <div class="column">
-                    <p>col-large-4 col-medium-4 col-small-12</p>
-                </div>
-            </div>
-            <div class="col-large-4 col-medium-4 col-small-12">
-                <div class="column">
-                    <p>col-large-4 col-medium-4 col-small-12</p>
-                </div>
-            </div>
-            <div class="col-large-4 col-medium-4 col-small-12">
-                <div class="column">
-                    <p>col-large-4 col-medium-4 col-small-12</p>
-                </div>
-            </div>
-            <!-- 12 Columns -->
-            <div class="col-large-1 col-medium-3 col-small-6">
-                <div class="column">
-                    <p>col-large-1 col-medium-3 col-small-6</p>
-                </div>
-            </div>
-            <div class="col-large-1 col-medium-3 col-small-6">
-                <div class="column">
-                    <p>col-large-1 col-medium-3 col-small-6</p>
-                </div>
-            </div>
-            <div class="col-large-1 col-medium-3 col-small-6">
-                <div class="column">
-                    <p>col-large-1 col-medium-3 col-small-6</p>
-                </div>
-            </div>
-            <div class="col-large-1 col-medium-3 col-small-6">
-                <div class="column">
-                    <p>col-large-1 col-medium-3 col-small-6</p>
-                </div>
-            </div>
-            <div class="col-large-1 col-medium-3 col-small-6">
-                <div class="column">
-                    <p>col-large-1 col-medium-3 col-small-6</p>
-                </div>
-            </div>
-            <div class="col-large-1 col-medium-3 col-small-6">
-                <div class="column">
-                    <p>col-large-1 col-medium-3 col-small-6</p>
-                </div>
-            </div>
-            <div class="col-large-1 col-medium-3 col-small-6">
-                <div class="column">
-                    <p>col-large-1 col-medium-3 col-small-6</p>
-                </div>
-            </div>
-            <div class="col-large-1 col-medium-3 col-small-6">
-                <div class="column">
-                    <p>col-large-1 col-medium-3 col-small-6</p>
-                </div>
-            </div>
-            <div class="col-large-1 col-medium-3 col-small-6">
-                <div class="column">
-                    <p>col-large-1 col-medium-3 col-small-6</p>
-                </div>
-            </div>
-            <div class="col-large-1 col-medium-3 col-small-6">
-                <div class="column">
-                    <p>col-large-1 col-medium-3 col-small-6</p>
-                </div>
-            </div>
-            <div class="col-large-1 col-medium-3 col-small-6">
-                <div class="column">
-                    <p>col-large-1 col-medium-3 col-small-6</p>
-                </div>
-            </div>
-            <div class="col-large-1 col-medium-3 col-small-6">
-                <div class="column">
-                    <p>col-large-1 col-medium-3 col-small-6</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
-            <div class="card margin-top-20">
-                <div class="card__header ">
-                    <h4 class="card__header__title text-uppercase">Cooking</h4>
-                </div>
-                <div class="card__container card--border">
-                    <div id="view-html" class="code">
-                        <pre class="brush: xml; toolbar: false; gutter: false;">
-                            &lt;div class="row row--gutter">
-                                &lt;div class="col-large-12 col-medium-12 col-small-12">
-                                    &lt;p>col-large-12 col-medium-12 col-small-12&lt;/p>
-                                &lt;/div>
-                                &lt;div class="col-large-6 col-medium-6 col-small-12">
-                                    &lt;p>col-large-6 col-medium-6 col-small-12&lt;/p>
-                                &lt;/div>
-                                &lt;div class="col-large-6 col-medium-6 col-small-12">
-                                    &lt;p>col-large-6 col-medium-6 col-small-12&lt;/p>
-                                &lt;/div>
-                                &lt;div class="col-large-4 col-medium-4 col-small-12">
-                                    &lt;p>col-large-4 col-medium-4 col-small-12&lt;/p>
-                                &lt;/div>
-                                &lt;div class="col-large-4 col-medium-4 col-small-12">
-                                    &lt;p>col-large-4 col-medium-4 col-small-12&lt;/p>
-                                &lt;/div>
-                                &lt;div class="col-large-4 col-medium-4 col-small-12">
-                                    &lt;p>col-large-4 col-medium-4 col-small-12&lt;/p>
-                                &lt;/div>
-                            &lt;/div>
-                        </pre>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Grid Offset-->
-        <div class="row margin-bottom-40">
-            <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
-                <h2>Offset</h2>
-                <p>You can adapt the offset for different resolutions.</p>
-                <p>To be able to use the <code>offest</code> not able to perform with the class <code>.row--gutter</code> because it will not be calculated the space between the div's</p>
-            </div>
-            <div class="col-large-12 col-medium-12 col-small-12">
-                <div class="column">
-                    <p>col-large-12 col-medium-12 col-small-12</p>
-                </div>
-            </div>
-            <div class="col-large-6 col-large-offset-6 col-medium-6 col-medium-offset-6 col-small-12">
-                <div class="column">
-                    <p>col-large-6 col-large-offset-6 col-medium-6 col-medium-offset-6 col-small-12</p>
-                </div>
-            </div>
-            <div class="col-large-8 col-large-offset-4 col-medium-8 col-medium-offset-4 col-small-12">
-                <div class="column">
-                    <p>col-large-8 col-large-offset-4 col-medium-8 col-medium-offset-4 col-small-12</p>
-                </div>
-            </div>
-            <div class="col-large-9 col-large-offset-3 col-medium-9 col-medium-offset-3 col-small-12">
-                <div class="column">
-                    <p>col-large-9 col-large-offset-3 col-medium-9 col-medium-offset-3 col-small-12</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
-            <div class="card margin-top-20">
-                <div class="card__header ">
-                    <h4 class="card__header__title text-uppercase">Cooking</h4>
-                </div>
-                <div class="card__container card--border">
-                    <div id="view-html" class="code">
-                        <pre class="brush: xml; toolbar: false; gutter: false;">
-                            &lt;div class="row">
-                                &lt;div class="col-large-12 col-medium-12 col-small-12">
-                                    &lt;p>col-large-12 col-medium-12 col-small-12&lt;/p>
-                                &lt;/div>
-                                &lt;div class="col-large-6 col-large-offset-6 col-medium-6 col-medium-offset-6 col-small-12">
-                                    &lt;p>col-large-6 col-large-offset-6 col-medium-6 col-medium-offset-6 col-small-12&lt;/p>
-                                &lt;/div>
-                                &lt;div class="col-large-8 col-large-offset-4 col-medium-8 col-medium-offset-4 col-small-12">
-                                    &lt;p>col-large-8 col-large-offset-4 col-medium-8 col-medium-offset-4 col-small-12&lt;/p>
-                                &lt;/div>
-                                &lt;div class="col-large-9 col-large-offset-3 col-medium-9 col-medium-offset-3 col-small-12">
-                                    &lt;p>col-large-9 col-large-offset-3 col-medium-9 col-medium-offset-3 col-small-12&lt;/p>
-                                &lt;/div>
-                            &lt;/div>
-                        </pre>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Grid Pull-->
-        <div class="row margin-bottom-40">
-            <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
-                <h2>Pull & Push</h2>
-                <p>You can adapt the pull and the push for different resolutions.</p>
-                <p>To be able to use the <code>pull</code> and <code>push</code> not able to perform with the class <code>.row--gutter</code> because it will not be calculated the space between the div's</p>
-            </div>
-            <div class="col-large-7 col-large-push-5 col-medium-7 col-medium-push-5 col-small-12">
-                <div class="column">
-                    <p>First Column</p>
-                </div>
-            </div>
-            <div class="col-large-5 col-large-pull-7 col-medium-5 col-medium-pull-7 col-small-12">
-                <div class="column">
-                    <p>Second Column</p>
-                </div>
-            </div>
-            <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
-                <div class="card margin-top-20">
-                    <div class="card__header ">
-                        <h4 class="card__header__title text-uppercase">Cooking</h4>
-                    </div>
-                    <div class="card__container card--border">
-                        <div id="view-html" class="code">
-                            <pre class="brush: xml; toolbar: false; gutter: false;">
-                                &lt;div class="row">
-                                    &lt;div class="col-large-7 col-large-push-5 col-medium-7 col-medium-push-5 col-small-12">
-                                        &lt;p>First Column&lt;/p>
-                                    &lt;/div>
-                                    &lt;div class="col-large-5 col-large-pull-7 col-medium-5 col-medium-pull-7 col-small-12">
-                                        &lt;p>Second Column&lt;/p>
-                                    &lt;/div>
-                                &lt;/div>
-                            </pre>
+                <div class="header-description box-shadow--4 bg-darkbluegrey">
+                    <div class="container">
+                        <div class="master-header padding-bottom-20">
+                            <h1>Grid System</h1>
+                            <p>Stewed by default have 12 columns.</p>
+                            <p>When resizing your browser, each of these columns will always have an equal width.</p>
                         </div>
                     </div>
                 </div>
+                <div class="container">
+                    <section class="margin-top-40">
+                        <div class="row margin-bottom-40">
+                            <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
+                                <h2>Simple Grid</h2>
+                                <p>Can you choose if you want space between the columns or not, just by defining <code>.row</code> not to have a rift between them or <code>.row--gutter</code> pars have.</p>
+                                <p>Thus allowing you to use the entire screen space..</p>
+                            </div>
+                            <div class="col-large-5 col-medium-5 col-small-12">
+                                <div class="column">
+                                    <p>col-large-5 col-medium-5 col-small-12</p>
+                                </div>
+                            </div>
+                            <div class="col-large-7 col-medium-7 col-small-12">
+                                <div class="column">
+                                    <p>col-large-7 col-medium-7 col-small-12</p>
+                                </div>
+                            </div>
+                            <div class="col-large-6 col-medium-6 col-small-12">
+                                <div class="column">
+                                    <p>col-large-6 col-medium-6 col-small-12</p>
+                                </div>
+                            </div>
+                            <div class="col-large-6 col-medium-6 col-small-12">
+                                <div class="column">
+                                    <p>col-large-6 col-medium-6 col-small-12</p>
+                                </div>
+                            </div>
+                            <div class="col-large-4 col-medium-4 col-small-12">
+                                <div class="column">
+                                    <p>col-large-4 col-medium-4 col-small-12</p>
+                                </div>
+                            </div>
+                            <div class="col-large-4 col-medium-4 col-small-12">
+                                <div class="column">
+                                    <p>col-large-4 col-medium-4 col-small-12</p>
+                                </div>
+                            </div>
+                            <div class="col-large-4 col-medium-4 col-small-12">
+                                <div class="column">
+                                    <p>col-large-4 col-medium-4 col-small-12</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
+                            <div class="card margin-top-20">
+                                <div class="card__header ">
+                                    <h4 class="card__header__title text-uppercase">Cooking</h4>
+                                </div>
+                                <div class="card__container card--border">
+                                    <div id="view-html" class="code">
+                                        <pre class="brush: xml; toolbar: false; gutter: false;">
+                                            &lt;div class="row">
+                                            &lt;div class="col-large-12 col-medium-12 col-small-12">
+                                            &lt;p>col-large-12 col-medium-12 col-small-12&lt;/p>
+                                            &lt;/div>
+                                            &lt;div class="col-large-6 col-medium-6 col-small-12">
+                                            &lt;p>col-large-6 col-medium-6 col-small-12&lt;/p>
+                                            &lt;/div>
+                                            &lt;div class="col-large-6 col-medium-6 col-small-12">
+                                            &lt;p>col-large-6 col-medium-6 col-small-12&lt;/p>
+                                            &lt;/div>
+                                            &lt;div class="col-large-4 col-medium-4 col-small-12">
+                                            &lt;p>col-large-4 col-medium-4 col-small-12&lt;/p>
+                                            &lt;/div>
+                                            &lt;div class="col-large-4 col-medium-4 col-small-12">
+                                            &lt;p>col-large-4 col-medium-4 col-small-12&lt;/p>
+                                            &lt;/div>
+                                            &lt;div class="col-large-4 col-medium-4 col-small-12">
+                                            &lt;p>col-large-4 col-medium-4 col-small-12&lt;/p>
+                                            &lt;/div>
+                                            &lt;/div>
+                                        </pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Grid Gutter -->
+                        <div class="row row--gutter">
+                            <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
+                                <h2>Grid Gutter</h2>
+                                <p>In this case you nead the <code>.row--gutter</code> after <code>.row</code></p>
+                            </div>
+                            <div class="col-large-5 col-medium-5 col-small-12">
+                                <div class="column">
+                                    <p>col-large-5 col-medium-6 col-small-12</p>
+                                </div>
+                            </div>
+                            <div class="col-large-7 col-medium-7 col-small-12">
+                                <div class="column">
+                                    <p>col-large-7 col-medium-6 col-small-12</p>
+                                </div>
+                            </div>
+                            <div class="col-large-6 col-medium-6 col-small-12">
+                                <div class="column">
+                                    <p>col-large-6 col-medium-6 col-small-12</p>
+                                </div>
+                            </div>
+                            <div class="col-large-6 col-medium-6 col-small-12">
+                                <div class="column">
+                                    <p>col-large-6 col-medium-6 col-small-12</p>
+                                </div>
+                            </div>
+                            <div class="col-large-4 col-medium-4 col-small-12">
+                                <div class="column">
+                                    <p>col-large-4 col-medium-4 col-small-12</p>
+                                </div>
+                            </div>
+                            <div class="col-large-4 col-medium-4 col-small-12">
+                                <div class="column">
+                                    <p>col-large-4 col-medium-4 col-small-12</p>
+                                </div>
+                            </div>
+                            <div class="col-large-4 col-medium-4 col-small-12">
+                                <div class="column">
+                                    <p>col-large-4 col-medium-4 col-small-12</p>
+                                </div>
+                            </div>
+                            <!-- 12 Columns -->
+                            <div class="col-large-1 col-medium-3 col-small-6">
+                                <div class="column">
+                                    <p>col-large-1 col-medium-3 col-small-6</p>
+                                </div>
+                            </div>
+                            <div class="col-large-1 col-medium-3 col-small-6">
+                                <div class="column">
+                                    <p>col-large-1 col-medium-3 col-small-6</p>
+                                </div>
+                            </div>
+                            <div class="col-large-1 col-medium-3 col-small-6">
+                                <div class="column">
+                                    <p>col-large-1 col-medium-3 col-small-6</p>
+                                </div>
+                            </div>
+                            <div class="col-large-1 col-medium-3 col-small-6">
+                                <div class="column">
+                                    <p>col-large-1 col-medium-3 col-small-6</p>
+                                </div>
+                            </div>
+                            <div class="col-large-1 col-medium-3 col-small-6">
+                                <div class="column">
+                                    <p>col-large-1 col-medium-3 col-small-6</p>
+                                </div>
+                            </div>
+                            <div class="col-large-1 col-medium-3 col-small-6">
+                                <div class="column">
+                                    <p>col-large-1 col-medium-3 col-small-6</p>
+                                </div>
+                            </div>
+                            <div class="col-large-1 col-medium-3 col-small-6">
+                                <div class="column">
+                                    <p>col-large-1 col-medium-3 col-small-6</p>
+                                </div>
+                            </div>
+                            <div class="col-large-1 col-medium-3 col-small-6">
+                                <div class="column">
+                                    <p>col-large-1 col-medium-3 col-small-6</p>
+                                </div>
+                            </div>
+                            <div class="col-large-1 col-medium-3 col-small-6">
+                                <div class="column">
+                                    <p>col-large-1 col-medium-3 col-small-6</p>
+                                </div>
+                            </div>
+                            <div class="col-large-1 col-medium-3 col-small-6">
+                                <div class="column">
+                                    <p>col-large-1 col-medium-3 col-small-6</p>
+                                </div>
+                            </div>
+                            <div class="col-large-1 col-medium-3 col-small-6">
+                                <div class="column">
+                                    <p>col-large-1 col-medium-3 col-small-6</p>
+                                </div>
+                            </div>
+                            <div class="col-large-1 col-medium-3 col-small-6">
+                                <div class="column">
+                                    <p>col-large-1 col-medium-3 col-small-6</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
+                            <div class="card margin-top-20">
+                                <div class="card__header ">
+                                    <h4 class="card__header__title text-uppercase">Cooking</h4>
+                                </div>
+                                <div class="card__container card--border">
+                                    <div id="view-html" class="code">
+                                        <pre class="brush: xml; toolbar: false; gutter: false;">
+                                            &lt;div class="row row--gutter">
+                                            &lt;div class="col-large-12 col-medium-12 col-small-12">
+                                            &lt;p>col-large-12 col-medium-12 col-small-12&lt;/p>
+                                            &lt;/div>
+                                            &lt;div class="col-large-6 col-medium-6 col-small-12">
+                                            &lt;p>col-large-6 col-medium-6 col-small-12&lt;/p>
+                                            &lt;/div>
+                                            &lt;div class="col-large-6 col-medium-6 col-small-12">
+                                            &lt;p>col-large-6 col-medium-6 col-small-12&lt;/p>
+                                            &lt;/div>
+                                            &lt;div class="col-large-4 col-medium-4 col-small-12">
+                                            &lt;p>col-large-4 col-medium-4 col-small-12&lt;/p>
+                                            &lt;/div>
+                                            &lt;div class="col-large-4 col-medium-4 col-small-12">
+                                            &lt;p>col-large-4 col-medium-4 col-small-12&lt;/p>
+                                            &lt;/div>
+                                            &lt;div class="col-large-4 col-medium-4 col-small-12">
+                                            &lt;p>col-large-4 col-medium-4 col-small-12&lt;/p>
+                                            &lt;/div>
+                                            &lt;/div>
+                                        </pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Grid Offset-->
+                        <div class="row margin-bottom-40">
+                            <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
+                                <h2>Offset</h2>
+                                <p>You can adapt the offset for different resolutions.</p>
+                                <p>To be able to use the <code>offest</code> not able to perform with the class <code>.row--gutter</code> because it will not be calculated the space between the div's</p>
+                            </div>
+                            <div class="col-large-12 col-medium-12 col-small-12">
+                                <div class="column">
+                                    <p>col-large-12 col-medium-12 col-small-12</p>
+                                </div>
+                            </div>
+                            <div class="col-large-6 col-large-offset-6 col-medium-6 col-medium-offset-6 col-small-12">
+                                <div class="column">
+                                    <p>col-large-6 col-large-offset-6 col-medium-6 col-medium-offset-6 col-small-12</p>
+                                </div>
+                            </div>
+                            <div class="col-large-8 col-large-offset-4 col-medium-8 col-medium-offset-4 col-small-12">
+                                <div class="column">
+                                    <p>col-large-8 col-large-offset-4 col-medium-8 col-medium-offset-4 col-small-12</p>
+                                </div>
+                            </div>
+                            <div class="col-large-9 col-large-offset-3 col-medium-9 col-medium-offset-3 col-small-12">
+                                <div class="column">
+                                    <p>col-large-9 col-large-offset-3 col-medium-9 col-medium-offset-3 col-small-12</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
+                            <div class="card margin-top-20">
+                                <div class="card__header ">
+                                    <h4 class="card__header__title text-uppercase">Cooking</h4>
+                                </div>
+                                <div class="card__container card--border">
+                                    <div id="view-html" class="code">
+                                        <pre class="brush: xml; toolbar: false; gutter: false;">
+                                            &lt;div class="row">
+                                            &lt;div class="col-large-12 col-medium-12 col-small-12">
+                                            &lt;p>col-large-12 col-medium-12 col-small-12&lt;/p>
+                                            &lt;/div>
+                                            &lt;div class="col-large-6 col-large-offset-6 col-medium-6 col-medium-offset-6 col-small-12">
+                                            &lt;p>col-large-6 col-large-offset-6 col-medium-6 col-medium-offset-6 col-small-12&lt;/p>
+                                            &lt;/div>
+                                            &lt;div class="col-large-8 col-large-offset-4 col-medium-8 col-medium-offset-4 col-small-12">
+                                            &lt;p>col-large-8 col-large-offset-4 col-medium-8 col-medium-offset-4 col-small-12&lt;/p>
+                                            &lt;/div>
+                                            &lt;div class="col-large-9 col-large-offset-3 col-medium-9 col-medium-offset-3 col-small-12">
+                                            &lt;p>col-large-9 col-large-offset-3 col-medium-9 col-medium-offset-3 col-small-12&lt;/p>
+                                            &lt;/div>
+                                            &lt;/div>
+                                        </pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Grid Pull-->
+                        <div class="row margin-bottom-40">
+                            <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
+                                <h2>Pull & Push</h2>
+                                <p>You can adapt the pull and the push for different resolutions.</p>
+                                <p>To be able to use the <code>pull</code> and <code>push</code> not able to perform with the class <code>.row--gutter</code> because it will not be calculated the space between the div's</p>
+                            </div>
+                            <div class="col-large-7 col-large-push-5 col-medium-7 col-medium-push-5 col-small-12">
+                                <div class="column">
+                                    <p>First Column</p>
+                                </div>
+                            </div>
+                            <div class="col-large-5 col-large-pull-7 col-medium-5 col-medium-pull-7 col-small-12">
+                                <div class="column">
+                                    <p>Second Column</p>
+                                </div>
+                            </div>
+                            <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
+                                <div class="card margin-top-20">
+                                    <div class="card__header ">
+                                        <h4 class="card__header__title text-uppercase">Cooking</h4>
+                                    </div>
+                                    <div class="card__container card--border">
+                                        <div id="view-html" class="code">
+                                            <pre class="brush: xml; toolbar: false; gutter: false;">
+                                                &lt;div class="row">
+                                                &lt;div class="col-large-7 col-large-push-5 col-medium-7 col-medium-push-5 col-small-12">
+                                                &lt;p>First Column&lt;/p>
+                                                &lt;/div>
+                                                &lt;div class="col-large-5 col-large-pull-7 col-medium-5 col-medium-pull-7 col-small-12">
+                                                &lt;p>Second Column&lt;/p>
+                                                &lt;/div>
+                                                &lt;/div>
+                                            </pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+
             </div>
-        </div>
-    </section>
-</div>
+        </section>
 
+    </main>
+    <partial src="partials/footer.html"></partial>
 
-        </div>
-    </section>
-
-    <partial src="partials/footer.html" ></partial>
 </body>
 </html>

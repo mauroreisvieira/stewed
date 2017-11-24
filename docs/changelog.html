@@ -32,7 +32,7 @@
         <link rel="icon" type="image/png" sizes="32x32" href="assets/images/touch//favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="assets/images/touch//favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="assets/images/touch//favicon-16x16.png">
-        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500|Roboto:100,300,500,700"
         rel="stylesheet">
         <meta name="msapplication-TileImage" content="assets/images/touch/apple-icon-144x144.png">
         <meta name="msapplication-TileColor" content="#2F3BA2">
@@ -44,173 +44,186 @@
     </head>
     
     <body>
-        <header class="header navbar navbar--spacebetween bg-red text-white">
-            <div class="navbar__brand"> <a href="index.html">Stewed Framework</a>
+        <main class="wrapper" id="app">
+            <header class="header navbar navbar--spacebetween bg-grey--darken text-white">
+                <div class="navbar__brand"> <a href="index.html" title="Stewed Framework">
+            <span class="monospace uppercase thin text-white large">Stewed Framework</span>
+        </a>
 
-            </div>
-            <div class="navbar__menu">
-                <ul class="menu menu--horizontal menu--inherit">
-                    <li class="menu__item"><a class="menu__link" href="index.html">Home</a>
+                </div>
+                <div class="navbar__menu">
+                    <ul class="menu menu--horizontal menu--inherit">
+                        <li class="menu__item"><a class="menu__link uppercase" href="index.html">Home</a>
+
+                        </li>
+                        <li class="menu__item"><a class="menu__link uppercase" href="documentation.html">Documentation</a>
+
+                        </li>
+                        <li class="menu__item"><a class="menu__link uppercase" href="">Github</a>
+
+                        </li>
+                    </ul>
+                </div>
+            </header>
+            <div class="sidebar text-grey--darken">
+                <div class="flex flex--column flex--item-center flex--content-center h-3 mb-40 bg-white">
+                    <img src="assets/images/logo/stewed_dark.svg" alt="Stewed Framework" title="Stewed Framework"
+                    class="logo"> <span class="text-center mb-40 bold">⏤ v0.9.50 ⏤</span>
+
+                </div>
+                <ul class="menu menu--vertical menu--inherit p-20">
+                    <li class="menu__item"><a class="menu__link" href="colors.html" class="">Color & Shadow</a> 
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="typography.html" class="">Typography</a> 
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="utilities.html" class="">Utilities</a> 
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="badges.html">Badges & Labels</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="documentation.html">Documentation</a>
+                    <li class="menu__item"><a class="menu__link" href="breadcrumbs.html">Breadcrumbs</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="">Github</a>
+                    <li class="menu__item"><a class="menu__link is-active bl-2 border-blue" href="buttons.html">Buttons</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="cards.html">Cards</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="forms.html">Forms Filed</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="grid.html">Grid</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="navigation.html">Navigation</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="pagination.html">Pagination</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="tables.html">Tables</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="tooltips.html">Tooltips</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="navbar.html">Navbar</a>
 
                     </li>
                 </ul>
             </div>
-        </header>
-        <div class="sidebar bg-grey--lighten text-grey--darken">
-            <ul class="menu menu--vertical menu--inherit">
-                <li class="menu__item"><a class="menu__link" href="colors.html" class="">Color & Shadow</a> 
-                </li>
-                <li class="menu__item"><a class="menu__link" href="typography.html" class="">Typography</a> 
-                </li>
-                <li class="menu__item"><a class="menu__link" href="utilities.html" class="">Utilities</a> 
-                </li>
-                <li class="menu__item"><a class="menu__link" href="badges.html">Badges & Labels</a>
+            <section id="main">
+                <div class="content">
+                    <div class="header-description">
+                        <div class="container">
+                            <div class="master-header">
+                                	<h1>Changelog</h1>
 
-                </li>
-                <li class="menu__item"><a class="menu__link" href="breadcrumbs.html">Breadcrumbs</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="buttons.html">Buttons</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="cards.html">Cards</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="forms.html">Forms Filed</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="grid.html">Grid</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="navigation.html">Navigation</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="pagination.html">Pagination</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="tables.html">Tables</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="tooltips.html">Tooltips</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="navbar.html">Navbar</a>
-
-                </li>
-            </ul>
-        </div>
-        <section id="main">
-            <div class="content">
-                <div class="header-description">
-                    <div class="container">
-                        <div class="master-header">
-                            	<h1>Changelog</h1>
-
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="container margin-top-20">
-                    <div class="row row--gutter">
-                        <div class="col-large-12 col-medium-12 col-small-12">
-                            <div class="margin-bottom-40 margin-top-20">
-                                	<h4 class="font-400"> v1.0.0</h4>
+                    <div class="container margin-top-20">
+                        <div class="row row--gutter">
+                            <div class="col-large-12 col-medium-12 col-small-12">
+                                <div class="margin-bottom-40 margin-top-20">
+                                    	<h4 class="font-400"> v1.0.0</h4>
 
-                                <ul class="list">
-                                    <li class="list__item"><span class="color-pink margin-right-10">#</span><strong>First release</strong>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="margin-bottom-40">
-                                	<h4 class="font-400">v0.9.30</h4>
+                                    <ul class="list">
+                                        <li class="list__item"><span class="color-pink margin-right-10">#</span><strong>First release</strong>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="margin-bottom-40">
+                                    	<h4 class="font-400">v0.9.30</h4>
 
-                                <ul class="list">
-                                    <li class="list__item"><span class="color-red margin-right-10">#</span>Fixed Form Field</li>
-                                    <li
-                                    class="list__item"><span class="color-red margin-right-10">#</span>Fixed Navigation Horizontal
-                                        / Vertical</li>
-                                        <li class="list__item"><span class="color-red margin-right-10">#</span>Fixed Grid System</li>
+                                    <ul class="list">
+                                        <li class="list__item"><span class="color-red margin-right-10">#</span>Fixed Form Field</li>
                                         <li
-                                        class="list__item"><span class="color-red margin-right-10">#</span>Fixed Tables Responsive</li>
+                                        class="list__item"><span class="color-red margin-right-10">#</span>Fixed Navigation Horizontal
+                                            / Vertical</li>
+                                            <li class="list__item"><span class="color-red margin-right-10">#</span>Fixed Grid System</li>
                                             <li
-                                            class="list__item"><span class="color-green margin-right-10">#</span>Adding Navigation Horizontal
-                                                Scroll</li>
-                                                <li class="list__item"><span class="color-green margin-right-10">#</span>Adding Validate to Form</li>
+                                            class="list__item"><span class="color-red margin-right-10">#</span>Fixed Tables Responsive</li>
                                                 <li
-                                                class="list__item"><span class="color-green margin-right-10">#</span>Adding New Colors</li>
-                                </ul>
-                            </div>
-                            <div class="margin-bottom-40 ">
-                                	<h4 class="font-400">v0.9.20</h4>
-
-                                <ul class="list">
-                                    <li class="list__item"><span class="color-green margin-right-10">#</span>Adding Badges</li>
-                                    <li
-                                    class="list__item"><span class="color-green margin-right-10">#</span>Adding Labels</li>
-                                        <li
-                                        class="list__item"><span class="color-green margin-right-10">#</span>Adding Breadcrumbs</li>
-                                            <li
-                                            class="list__item"><span class="color-green margin-right-10">#</span>Adding New Helpers</li>
-                                                <li
-                                                class="list__item"><span class="color-green margin-right-10">#</span>Adding Snackbar</li>
+                                                class="list__item"><span class="color-green margin-right-10">#</span>Adding Navigation Horizontal
+                                                    Scroll</li>
+                                                    <li class="list__item"><span class="color-green margin-right-10">#</span>Adding Validate to Form</li>
                                                     <li
-                                                    class="list__item"><span class="color-green margin-right-10">#</span>Adding Documentation</li>
-                                </ul>
-                            </div>
-                            <div class="margin-bottom-40 ">
-                                	<h4 class="font-400">v0.9.10</h4>
+                                                    class="list__item"><span class="color-green margin-right-10">#</span>Adding New Colors</li>
+                                    </ul>
+                                </div>
+                                <div class="margin-bottom-40 ">
+                                    	<h4 class="font-400">v0.9.20</h4>
 
-                                <ul class="list">
-                                    <li class="list__item"><span class="color-orange margin-right-10">#</span>Updating Framework
-                                        to SASS</li>
-                                    <li class="list__item"><span class="color-orange margin-right-10">#</span>Updating to SASS</li>
-                                    <li
-                                    class="list__item"><span class="color-green margin-right-10">#</span>Adding Grid System</li>
+                                    <ul class="list">
+                                        <li class="list__item"><span class="color-green margin-right-10">#</span>Adding Badges</li>
                                         <li
-                                        class="list__item"><span class="color-green margin-right-10">#</span>Adding CSS Helpers</li>
+                                        class="list__item"><span class="color-green margin-right-10">#</span>Adding Labels</li>
                                             <li
-                                            class="list__item"><span class="color-green margin-right-10">#</span>Adding Tables</li>
+                                            class="list__item"><span class="color-green margin-right-10">#</span>Adding Breadcrumbs</li>
                                                 <li
-                                                class="list__item"><span class="color-green margin-right-10">#</span>Adding Modal</li>
+                                                class="list__item"><span class="color-green margin-right-10">#</span>Adding New Helpers</li>
                                                     <li
-                                                    class="list__item"><span class="color-green margin-right-10">#</span>Adding Form Fields</li>
+                                                    class="list__item"><span class="color-green margin-right-10">#</span>Adding Snackbar</li>
                                                         <li
-                                                        class="list__item"><span class="color-green margin-right-10">#</span>Adding Buttons</li>
-                                                            <li
-                                                            class="list__item"><span class="color-green margin-right-10">#</span>Adding Colors</li>
-                                                                <li
-                                                                class="list__item"><span class="color-green margin-right-10">#</span>Adding Cards</li>
-                                </ul>
-                            </div>
-                            <div class="margin-bottom-40 ">
-                                	<h4 class="font-500">v0.9.0</h4>
+                                                        class="list__item"><span class="color-green margin-right-10">#</span>Adding Documentation</li>
+                                    </ul>
+                                </div>
+                                <div class="margin-bottom-40 ">
+                                    	<h4 class="font-400">v0.9.10</h4>
 
-                                <ul class="list">
-                                    <li class="list__item"><span class="color-pink margin-right-10">#</span><strong>Alpha Release</strong>
-                                    </li>
-                                </ul>
+                                    <ul class="list">
+                                        <li class="list__item"><span class="color-orange margin-right-10">#</span>Updating Framework
+                                            to SASS</li>
+                                        <li class="list__item"><span class="color-orange margin-right-10">#</span>Updating to SASS</li>
+                                        <li
+                                        class="list__item"><span class="color-green margin-right-10">#</span>Adding Grid System</li>
+                                            <li
+                                            class="list__item"><span class="color-green margin-right-10">#</span>Adding CSS Helpers</li>
+                                                <li
+                                                class="list__item"><span class="color-green margin-right-10">#</span>Adding Tables</li>
+                                                    <li
+                                                    class="list__item"><span class="color-green margin-right-10">#</span>Adding Modal</li>
+                                                        <li
+                                                        class="list__item"><span class="color-green margin-right-10">#</span>Adding Form Fields</li>
+                                                            <li
+                                                            class="list__item"><span class="color-green margin-right-10">#</span>Adding Buttons</li>
+                                                                <li
+                                                                class="list__item"><span class="color-green margin-right-10">#</span>Adding Colors</li>
+                                                                    <li
+                                                                    class="list__item"><span class="color-green margin-right-10">#</span>Adding Cards</li>
+                                    </ul>
+                                </div>
+                                <div class="margin-bottom-40 ">
+                                    	<h4 class="font-500">v0.9.0</h4>
+
+                                    <ul class="list">
+                                        <li class="list__item"><span class="color-pink margin-right-10">#</span><strong>Alpha Release</strong>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <footer class="footer bg-blue text-white">
+            </section>
+        </main>
+        <footer class="footer bg-grey--lighten text-grey--darken">
             <div class="container">
                 <div class="row">
-                    <div class="col-col-large-12 col-col-medium-12 col-col-small-12">
+                    <div class="col-large-12 col-medium-12 col-small-12"></div>
+                    <div class="col-large-12 col-medium-12 col-small-12">
                         <nav>
                             <ul class="menu menu--horizontal menu--inherit float-right">
-                                <li class="menu__item"><a class="menu__link" href="https://github.com/maurovieirareis/stewed"
-                                    target="_bank">View Source on Github</a>
+                                <li class="menu__item"> <a class="menu__link" href="https://github.com/maurovieirareis/stewed"
+                                    target="_blank">View Source on Github</a>
 
                                 </li>
-                                <li class="menu__item"><a class="menu__link" href="changelog.html">Changelog</a>
+                                <li class="menu__item"> <a class="menu__link" href="changelog.html">Changelog</a>
+
+                                </li>
+                                <li class="menu__item"> <a class="menu__link" href="https://twitter.com/StewedCSS" target="_blank">Twitter</a>
 
                                 </li>
                             </ul>
@@ -219,14 +232,6 @@
                 </div>
             </div>
         </footer>
-        <script src="https://unpkg.com/vue"></script>
-        <script>
-            new Vue({
-                el: '#app',
-                data: {
-                }
-            });
-        </script>
     </body>
 
 </html>

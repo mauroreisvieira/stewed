@@ -1,0 +1,20 @@
+.flex {
+  box-sizing: border-box;
+  display: flex;
+
+  &--column {
+    flex-direction: column;
+  }
+
+  &--row {
+    flex-direction: row;
+  }
+
+  &--content-center {
+    justify-content: center;
+  }
+
+  &--items-center {
+    align-items: center;
+  }
+}

@@ -7,23 +7,32 @@
 }
 
 p {
-  @include typography($c-typography-font-size-md, $c-typography-font-weight-normal);
+  @include typography($c-typography-font-size-base, $c-typography-font-weight-light);
   color: $c-typography-color-text;
 }
 
 span {
-  @include typography($c-typography-font-size-md, $c-typography-font-weight-normal);
+  @include typography($c-typography-font-size-base, $c-typography-font-weight-light);
   color: $c-typography-color-text;
 }
 
 a {
-  @include typography($c-typography-font-size-md, $c-typography-font-weight-normal);
+  @include typography($c-typography-font-size-base, $c-typography-font-weight-light);
   color: $c-typography-color-link;
 
   &:hover {
     color: $c-typography-color-link-hover;
     text-decoration: none;
   }
+}
+
+// Font Family
+.monospace {
+  font-family: $c-typography-monospace;
+}
+
+.serif {
+  font-family: $c-typography-serif;
 }
 
 // Text Alignment
@@ -48,11 +57,15 @@ a {
   font-weight: $c-typography-font-weight-thin;
 }
 
+.light {
+  font-weight: $c-typography-font-weight-light;
+}
+
 .normal {
   font-weight: $c-typography-font-weight-normal;
 }
 
-.font-semibold {
+.semibold {
   font-weight: $c-typography-font-weight-semibold;
 }
 
@@ -64,8 +77,41 @@ a {
   font-weight: $c-typography-font-weight-extrabold;
 }
 
+// Font Size
+.x-small {
+  font-size: $c-typography-font-size-sx;
+}
+
+.small {
+  font-size: $c-typography-font-size-sm;
+}
+
+.base {
+  font-size: $c-typography-font-size-base;
+}
+
+.medium {
+  font-size: $c-typography-font-size-md;
+}
+
+.large {
+  font-size: $c-typography-font-size-lg;
+}
+
+.x-large {
+  font-size: $c-typography-font-size-xl;
+}
+
 .italic {
   font-style: italic;
+}
+
+.oblique {
+  font-style: oblique;
+}
+
+.normal {
+  font-style: normal;
 }
 
 // Text Decoration
