@@ -2,7 +2,7 @@
 @import '../../utilities/mixins';
 
 // Fonts Family
-$c-typography-serif: $u-font-family-serif;
+$c-typography-serif: $u-font-family-serif !default;
 $c-typography-monospace: $u-font-family-monospace;
 
 // Font Size
@@ -34,8 +34,8 @@ $c-typography-color-heading-6: $u-color-black;
 
 // Color Text
 $c-typography-color-text: $u-color-black;
-$c-typography-color-link: map-get($u-color-red, 'base');
-$c-typography-color-link-hover: map-get($u-color-pink, 'base');
+$c-typography-color-link: map-get($u-color-blue, 'base');
+$c-typography-color-link-hover: map-get($u-color-blue, 'darken');
 
 // Baseline
 $c-typography-baseline-heading: $u-baseline * 3;
