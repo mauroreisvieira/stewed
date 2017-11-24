@@ -1,3 +1,19 @@
+.bg-white {
+  background-color: $c-color-white;
+}
+
+.text-white {
+  color: $c-color-white;
+}
+
+.bg-black {
+  background-color: $c-color-black;
+}
+
+.text-black {
+  color: $c-color-black;
+}
+
 @each $color-name, $color in $u-colors {
   @each $color-type, $color-value in $color {
     @if $color-type == 'base' {
@@ -9,6 +25,7 @@
         color: $color-value;
       }
     }
+
     @else {
       .bg-#{$color-name}--#{$color-type} {
         background-color: $color-value;

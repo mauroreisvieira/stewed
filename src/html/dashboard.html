@@ -37,17 +37,17 @@
     <link rel="stylesheet" href="assets/css/dashboard.css">
 </head>
 <body>
-    <header class="header" style="background-image:url(assets/images/dashboard/header.jpeg);">
-        <div class="background-darkbluegrey box-shadow--4dp">
+    <header class="header" style="bg-image:url(assets/images/dashboard/header.jpeg);">
+        <div class="bg-darkbluegrey box-shadow--4dp">
             <div class="container--fullwidth">
                 <div class="row">
-                    <div class="large-3 medium-4 small-6">
+                    <div class="col-large-3 col-medium-4 col-small-6">
                         <h4 class="color-white font-400">Stewed Dashboard - Template</h4>
                     </div>
-                    <div class="large-9 medium-8 small-6">
+                    <div class="col-large-9 col-medium-8 col-small-6">
                         <div class="dropdown dropdown--top-right color-white margin-top-10">
                             <button class="dropdown__button button button--icon" stewed-dropdown="menu-1">⁝</button>
-                            <ul class="background-white color-pink box-shadow--4dp margin-top-10" id="menu-1">
+                            <ul class="bg-white color-pink box-shadow--4dp margin-top-10" id="menu-1">
                                 <li><a href="">Some Action</a></li>
                                 <li class="dropdown__divider"><a href="">Another Action</a></li>
                                 <li><a href="" class="disabled">Disabled Action</a></li>
@@ -60,27 +60,27 @@
         </div>
         <div class="container--fullwidth">
             <div class="row">
-                <div class="large-12 medium-12 small-12">
+                <div class="col-large-12 col-medium-12 col-small-12">
                     <div class="padding-top-60 padding-bottom-60">
                         <p class="size-42 font-100 color-white"><small class="font-700">Welcome</small> Paul D. Lewis </p>
                         <p class="color-white">Look like a busy week!!</p>
                     </div>
                 </div>
-                <div class="large-6 medium-12 small-12">
+                <div class="col-large-6 col-medium-12 col-small-12">
                     <div class="margin-top-10 color-pink">
                         <ul class="row tabs" stewed-tabs="one">
-                            <li class="tabs__item tabs__item--active large-2 medium-2 small-6" stewed-tab-id="tab1">
+                            <li class="tabs__item tabs__item--active col-large-2 col-medium-2 col-small-6" stewed-tab-id="tab1">
                                 <p class="text-uppercase">Dashboard</p>
                             </li>
-                            <li class="tabs__item large-2 medium-2 small-6" stewed-tab-id="tab2">
+                            <li class="tabs__item col-large-2 col-medium-2 col-small-6" stewed-tab-id="tab2">
                                 <p class="text-uppercase">Timer</p>
                             </li>
-                            <li class="tabs__item large-2 medium-2 small-6" stewed-tab-id="tab3">
+                            <li class="tabs__item col-large-2 col-medium-2 col-small-6" stewed-tab-id="tab3">
                                 <p class="text-uppercase">Projects</p>
-                            </li>        
-                            <li class="tabs__item large-2 medium-2 small-6" stewed-tab-id="tab4">
+                            </li>
+                            <li class="tabs__item col-large-2 col-medium-2 col-small-6" stewed-tab-id="tab4">
                                 <p class="text-uppercase">Team</p>
-                            </li>   
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -91,10 +91,10 @@
     <section calss="main">
         <div class="container--fullwidth margin-top-40">
             <div class="row row--gutter margin-top-20">
-                <div class="large-6 medium-12 small-12">
+                <div class="col-large-6 col-medium-12 col-small-12">
                     <div class="row row--gutter">
-                        <div class="large-12 medium-12 small-12">
-                            <div class="card background-lightgrey box-shadow--4dp">
+                        <div class="col-large-12 col-medium-12 col-small-12">
+                            <div class="card bg-lightgrey box-shadow--4dp">
                                 <div class="card__header color-darkbluegrey">
                                     <h4 class="card__header__title text-uppercase">#1 - Note</h4>
                                 </div>
@@ -107,8 +107,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="large-12 medium-12 small-12 margin-top-20 margin-bottom-40">
-                            <div class="card background-lightgrey box-shadow--4dp">
+                        <div class="col-large-12 col-medium-12 col-small-12 margin-top-20 margin-bottom-40">
+                            <div class="card bg-lightgrey box-shadow--4dp">
                                 <div class="card__header color-darkbluegrey">
                                     <h4 class="card__header__title text-uppercase">#2 - Note</h4>
                                 </div>
@@ -123,8 +123,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="large-6 medium-12 small-12">
-                    <div class="card background-white box-shadow--4dp padding-bottom-20">
+                <div class="col-large-6 col-medium-12 col-small-12">
+                    <div class="card bg-white box-shadow--4dp padding-bottom-20">
                         <div class="card__container">
                             <form class="form color-pink" stewed-validate="true" autocomplete="off">
                                 <div class="textfield">
@@ -149,12 +149,12 @@
                                         <span class="color-black">I want to be notified by email</span></label>
                                     </label>
                                 </div>
-                                <button type="submit" class="button button--medium background-blue color-white margin-top-20">Save</button>
+                                <button type="submit" class="button button--medium bg-blue color-white margin-top-20">Save</button>
                             </form>
                         </div>
                     </div>
                 </div>
-                <div class="large-12 medium-12 small-12 margin-top-40">
+                <div class="col-large-12 col-medium-12 col-small-12 margin-top-40">
                     <table class="table table--striped box-shadow--4dp margin-bottom-20 margin-top-20">
                         <thead class="color-blue">
                             <tr>
@@ -233,6 +233,6 @@
 
 
     <!-- scripts -->
-    <script src="assets/stewed/stewed.js"></script>   
+    <script src="assets/stewed/stewed.js"></script>
 </body>
 </html>

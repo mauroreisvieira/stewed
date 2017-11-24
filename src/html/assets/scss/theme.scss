@@ -1,7 +1,10 @@
 @import 'partials/variables';
 
+* {
+	box-sizing: border-box;
+}
+
 body {
-	background: $grey-50;
 	color: #000;
 	font-family: $font-family;
 	font-size: 1.00em;
@@ -9,14 +12,20 @@ body {
 	height: 100%;
 	line-height: 1.500;
 	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+.wrapper {
+	display: grid;
+	grid-template-areas:
+		"header header"
+		"sidebar content"
+		"footer footer";
 }
 
 .header {
-	display: block;
-	overflow: hidden;
-	padding: 20px 0;
-	width: 100%;
-	z-index: 9;
+	grid-area: header;
 
 	.logo {
 		display: block;
@@ -27,6 +36,19 @@ body {
 			width: 100%;
 		}
 	}
+}
+
+.sidebar {
+	grid-area: sidebar;
+}
+
+.content {
+	grid-area: content;
+	flex-direction: column;
+}
+
+.footer {
+	grid-area: footer;
 }
 
 code {
