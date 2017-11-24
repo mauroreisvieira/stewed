@@ -564,6 +564,27 @@
   color: #212121;
 }
 
+.flex {
+  box-sizing: border-box;
+  display: flex;
+}
+
+.flex--column {
+  flex-direction: column;
+}
+
+.flex--row {
+  flex-direction: row;
+}
+
+.flex--content-center {
+  justify-content: center;
+}
+
+.flex--items-center {
+  align-items: center;
+}
+
 input {
   border: 1px solid #000;
   box-sizing: border-box;
@@ -903,7 +924,6 @@ label {
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 100%;
   list-style: none;
   padding: 0;
 }
@@ -1976,4 +1996,84 @@ a:hover {
 .list__item__text {
   display: inline-flex;
   flex-direction: column;
+}
+
+.h-1 {
+  height: 10vh;
+}
+
+.w-1 {
+  width: 10vh;
+}
+
+.h-2 {
+  height: 20vh;
+}
+
+.w-2 {
+  width: 20vh;
+}
+
+.h-3 {
+  height: 30vh;
+}
+
+.w-3 {
+  width: 30vh;
+}
+
+.h-4 {
+  height: 40vh;
+}
+
+.w-4 {
+  width: 40vh;
+}
+
+.h-5 {
+  height: 50vh;
+}
+
+.w-5 {
+  width: 50vh;
+}
+
+.h-6 {
+  height: 60vh;
+}
+
+.w-6 {
+  width: 60vh;
+}
+
+.h-7 {
+  height: 70vh;
+}
+
+.w-7 {
+  width: 70vh;
+}
+
+.h-8 {
+  height: 80vh;
+}
+
+.w-8 {
+  width: 80vh;
+}
+
+.h-9 {
+  height: 90vh;
+}
+
+.w-9 {
+  width: 90vh;
+}
+
+.h-10 {
+  height: 100vh;
+}
+
+.w-10 {
+  width: 100vh;
 }

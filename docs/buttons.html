@@ -66,7 +66,12 @@
                 </div>
             </header>
             <div class="sidebar text-grey--darken">
-                <ul class="menu menu--vertical menu--inherit">
+                <div class="flex flex--column flex--item-center flex--content-center h-3 mb-40 bg-white">
+                    <img src="assets/images/logo/stewed_dark.svg" alt="Stewed Framework" title="Stewed Framework"
+                    class="logo"> <span class="text-center mb-40 bold">⏤ v0.9.50 ⏤</span>
+
+                </div>
+                <ul class="menu menu--vertical menu--inherit p-20">
                     <li class="menu__item"><a class="menu__link" href="colors.html" class="">Color & Shadow</a> 
                     </li>
                     <li class="menu__item"><a class="menu__link" href="typography.html" class="">Typography</a> 
@@ -108,156 +113,130 @@
                     </li>
                 </ul>
             </div>
-            <div class="content">
-                <div class="container pt-60">
+            <div class="content pb-40">
+                <div class="px-20 flex flex--column flex--content-center bg-blue h-3 mb-40">
+                     <h2 class="monospace text-white">Buttons</h2>
+
+                    <p class="monospace text-white"><strong>Last Updated:</strong> 24 Nov 2017</p>
+                </div>
+                <section class="section p-20">
                     <div class="row">
                         <div class="col-large-12 col-medium-12 col-small-12">
-                             <h2 class="monospace">Buttons</h2>
-
+                            <p class="monospace extrabold">Button Default</p>
+                            <p>Mandatory, defaults to a text button</p>
                         </div>
-                    </div>
-                    <section class="section">
-                        <div class="row">
-                            <div class="col-large-12 col-medium-12 col-small-12">
-                                <p class="monospace extrabold">Button Default</p>
-                                <p>Mandatory, defaults to a text button</p>
-                            </div>
-                            <div class="col-large-3 col-medium-6 col-small-12">
-                                <ul class="list">
-                                    <li class="list__item py-10"><code>.btn</code>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-large-3 col-medium-6 col-small-12">
-                                <div class="text-center p-10">
-                                    <button class="btn">Button</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-large-12 col-medium-12 col-small-12">
-                                <p class="monospace extrabold">Button Colors</p>
-                                <p>Optional, can use the buttons components with this specific colors applying
-                                    the next modifiers.</p>
-                            </div>
-                            <div class="col-large-3 col-medium-6 col-small-12">
-                                <ul class="list">
-                                    <li class="list__item py-10"><code>.btn--default</code>
-                                    </li>
-                                    <li class="list__item py-10"><code>.btn--danger</code>
-                                    </li>
-                                    <li class="list__item py-10"><code>.btn--success</code>
-                                    </li>
-                                    <li class="list__item py-10"><code>.btn--info</code>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-large-3 col-medium-6 col-small-12">
-                                <div class="text-center p-10">
-                                    <button class="btn btn--default">Button</button>
-                                </div>
-                                <div class="text-center p-10">
-                                    <button class="btn btn--danger">Button</button>
-                                </div>
-                                <div class="text-center p-10">
-                                    <button class="btn btn--success">Button</button>
-                                </div>
-                                <div class="text-center p-10">
-                                    <button class="btn btn--info">Button</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-large-12 col-medium-12 col-small-12">
-                                <p class="monospace extrabold">Button Icon</p>
-                                <p>Optional, for the icon element</p>
-                            </div>
-                            <div class="col-large-3 col-medium-6 col-small-12">
-                                <ul class="list">
-                                    <li class="list__item py-10"><code>btn--icon</code>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-large-3 col-medium-6 col-small-12">
-                                <div class="text-center p-10">
-                                    <button class="btn btn--info btn--icon"><i class="icon ion-beer"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-large-12 col-medium-12 col-small-12">
-                                <p class="monospace extrabold">Disabled Button</p>
-                                <p>Optional, can add disabled directly to the button element to disable a
-                                    button</p>
-                            </div>
-                            <div class="col-large-3 col-medium-6 col-small-12">
-                                <ul class="list">
-                                    <li class="list__item py-10"><code>disabled</code>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-large-3 col-medium-6 col-small-12">
-                                <div class="text-center p-10">
-                                    <button class="btn btn--default" disabled>Button</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-large-12 col-medium-12 col-small-12">
-                                <p class="monospace extrabold">Button Sizes</p>
-                                <p>Optional, can use the buttons components with this specific size applying
-                                    the next modifiers.</p>
-                            </div>
-                            <div class="col-large-3 col-medium-6 col-small-12">
-                                <ul class="list">
-                                    <li class="list__item py-10"><code>.btn--small</code>
-                                    </li>
-                                    <li class="list__item py-10"><code>.btn--medium</code>
-                                    </li>
-                                    <li class="list__item py-10"><code>.btn--large</code>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-large-3 col-medium-6 col-small-12">
-                                <div class="text-center p-10">
-                                    <button class="btn btn--small btn--info">Button</button>
-                                </div>
-                                <div class="text-center p-10">
-                                    <button class="btn btn--medium btn--info">Button</button>
-                                </div>
-                                <div class="text-center p-10">
-                                    <button class="btn btn--large btn--info">Button</button>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </main>
-        <footer class="footer bg-grey--lighten text-grey--darken mt-60">
-            <div class="container">
-                <div class="row">
-                    <div class="col-large-12 col-medium-12 col-small-12"></div>
-                    <div class="col-large-12 col-medium-12 col-small-12">
-                        <nav>
-                            <ul class="menu menu--horizontal menu--inherit float-right">
-                                <li class="menu__item"> <a class="menu__link" href="https://github.com/maurovieirareis/stewed"
-                                    target="_blank">View Source on Github</a>
-
-                                </li>
-                                <li class="menu__item"> <a class="menu__link" href="changelog.html">Changelog</a>
-
-                                </li>
-                                <li class="menu__item"> <a class="menu__link" href="https://twitter.com/StewedCSS" target="_blank">Twitter</a>
-
+                        <div class="col-large-3 col-medium-6 col-small-12">
+                            <ul class="list">
+                                <li class="list__item py-10"><code>.btn</code>
                                 </li>
                             </ul>
-                        </nav>
+                        </div>
+                        <div class="col-large-3 col-medium-6 col-small-12">
+                            <div class="text-center p-10">
+                                <button class="btn">Button</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    <div class="row">
+                        <div class="col-large-12 col-medium-12 col-small-12">
+                            <p class="monospace extrabold">Button Colors</p>
+                            <p>Optional, can use the buttons components with this specific colors applying
+                                the next modifiers.</p>
+                        </div>
+                        <div class="col-large-3 col-medium-6 col-small-12">
+                            <ul class="list">
+                                <li class="list__item py-10"><code>.btn--default</code>
+                                </li>
+                                <li class="list__item py-10"><code>.btn--danger</code>
+                                </li>
+                                <li class="list__item py-10"><code>.btn--success</code>
+                                </li>
+                                <li class="list__item py-10"><code>.btn--info</code>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-large-3 col-medium-6 col-small-12">
+                            <div class="text-center p-10">
+                                <button class="btn btn--default">Button</button>
+                            </div>
+                            <div class="text-center p-10">
+                                <button class="btn btn--danger">Button</button>
+                            </div>
+                            <div class="text-center p-10">
+                                <button class="btn btn--success">Button</button>
+                            </div>
+                            <div class="text-center p-10">
+                                <button class="btn btn--info">Button</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-large-12 col-medium-12 col-small-12">
+                            <p class="monospace extrabold">Button Icon</p>
+                            <p>Optional, for the icon element</p>
+                        </div>
+                        <div class="col-large-3 col-medium-6 col-small-12">
+                            <ul class="list">
+                                <li class="list__item py-10"><code>btn--icon</code>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-large-3 col-medium-6 col-small-12">
+                            <div class="text-center p-10">
+                                <button class="btn btn--info btn--icon"><i class="icon ion-beer"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-large-12 col-medium-12 col-small-12">
+                            <p class="monospace extrabold">Disabled Button</p>
+                            <p>Optional, can add disabled directly to the button element to disable a
+                                button</p>
+                        </div>
+                        <div class="col-large-3 col-medium-6 col-small-12">
+                            <ul class="list">
+                                <li class="list__item py-10"><code>disabled</code>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-large-3 col-medium-6 col-small-12">
+                            <div class="text-center p-10">
+                                <button class="btn btn--default" disabled>Button</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-large-12 col-medium-12 col-small-12">
+                            <p class="monospace extrabold">Button Sizes</p>
+                            <p>Optional, can use the buttons components with this specific size applying
+                                the next modifiers.</p>
+                        </div>
+                        <div class="col-large-3 col-medium-6 col-small-12">
+                            <ul class="list">
+                                <li class="list__item py-10"><code>.btn--small</code>
+                                </li>
+                                <li class="list__item py-10"><code>.btn--medium</code>
+                                </li>
+                                <li class="list__item py-10"><code>.btn--large</code>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-large-3 col-medium-6 col-small-12">
+                            <div class="text-center p-10">
+                                <button class="btn btn--small btn--info">Button</button>
+                            </div>
+                            <div class="text-center p-10">
+                                <button class="btn btn--medium btn--info">Button</button>
+                            </div>
+                            <div class="text-center p-10">
+                                <button class="btn btn--large btn--info">Button</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
-        </footer>
+        </main>
         <script src="https://unpkg.com/vue"></script>
         <script>
             new Vue({
