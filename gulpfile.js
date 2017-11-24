@@ -9,6 +9,8 @@ const concat = require('gulp-concat');
 const gutil = require('gulp-util');
 const webserver = require('gulp-webserver');
 const htmlPartial = require('gulp-html-partial');
+const htmlreplace = require('gulp-html-replace');
+const packageJson = require('./package.json');
 
 const EXPANDED = 'expanded',
     NESTED = 'nested',
@@ -50,6 +52,12 @@ gulp.task('html', function () {
     gulp.src('src/html/**/*.html')
     .pipe(htmlPartial({
         basePath: 'src/html/'
+    }))
+    .pipe(htmlreplace({
+      version: {
+        src: packageJson.version,
+        tpl: 'Currently Version %s'
+      }
     }))
     .pipe(gulp.dest('docs/'));
     gulp.src('src/html/assets/images/**/*').pipe(gulp.dest('docs/assets/images'));
