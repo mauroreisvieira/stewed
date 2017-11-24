@@ -6,9 +6,9 @@
   cursor: pointer;
   display: inline-block;
   font-family: $u-font-family-serif;
-  height: 36px;
+  height: 40px;
   letter-spacing: .4px;
-  line-height: 36px;
+  line-height: 40px;
   margin: 0;
   padding: 0 16px;
   position: relative;
@@ -24,16 +24,16 @@
   &--large {
     font-size: $c-btn-font-size-medium;
     font-weight: $c-btn-font-weight-normal;
-    height: 46px;
-    line-height: 46px;
+    height: 48px;
+    line-height: 48px;
     padding: 0 52px;
   }
 
   &--medium {
     font-size: $c-btn-font-size-medium;
     font-weight: $c-btn-font-weight-normal;
-    height: 40px;
-    line-height: 40px;
+    height: 44px;
+    line-height: 44px;
     padding: 0 32px;
   }
 
@@ -47,14 +47,25 @@
 
   &--icon {
     border-radius: 50%;
-    float: right;
     font-size: $c-btn-font-size-medium;
     font-weight: $c-btn-font-weight-normal;
     padding: 0;
-    width: 36px;
+    width: 40px;
 
     .icon {
       pointer-events: none;
+    }
+
+    &.btn--large {
+      width: 48px;
+    }
+
+    &.btn--medium {
+      width: 44px;
+    }
+
+    &.btn--small {
+      width: 36px;
     }
   }
 

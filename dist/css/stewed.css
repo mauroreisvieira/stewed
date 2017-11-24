@@ -28,9 +28,9 @@
   cursor: pointer;
   display: inline-block;
   font-family: "Roboto", sans-serif;
-  height: 36px;
+  height: 40px;
   letter-spacing: .4px;
-  line-height: 36px;
+  line-height: 40px;
   margin: 0;
   padding: 0 16px;
   position: relative;
@@ -47,16 +47,16 @@
 .btn--large {
   font-size: 16px;
   font-weight: 400;
-  height: 46px;
-  line-height: 46px;
+  height: 48px;
+  line-height: 48px;
   padding: 0 52px;
 }
 
 .btn--medium {
   font-size: 16px;
   font-weight: 400;
-  height: 40px;
-  line-height: 40px;
+  height: 44px;
+  line-height: 44px;
   padding: 0 32px;
 }
 
@@ -70,15 +70,26 @@
 
 .btn--icon {
   border-radius: 50%;
-  float: right;
   font-size: 16px;
   font-weight: 400;
   padding: 0;
-  width: 36px;
+  width: 40px;
 }
 
 .btn--icon .icon {
   pointer-events: none;
+}
+
+.btn--icon.btn--large {
+  width: 48px;
+}
+
+.btn--icon.btn--medium {
+  width: 44px;
+}
+
+.btn--icon.btn--small {
+  width: 36px;
 }
 
 .btn--danger {
@@ -629,14 +640,6 @@ label {
   max-width: 100%;
 }
 
-/**
- * Generate a set of grid column classes using a namespace
- */
-/**
- * Build the grid in two steps, to help minimize file size
- * Step 1, for each namespace, create the grid-base
- * Step 2, for each namespace, wrap the col width/offset measurements in their breakpoint media query
- */
 @media only screen and (min-width: 280px) {
   .col-small-1 {
     flex-basis: 8.33333%;
@@ -686,40 +689,40 @@ label {
     flex-basis: 100%;
     max-width: 100%;
   }
-  .off-small-1 {
+  .offset-small-1 {
     margin-left: 8.33333%;
   }
-  .off-small-2 {
+  .offset-small-2 {
     margin-left: 16.66667%;
   }
-  .off-small-3 {
+  .offset-small-3 {
     margin-left: 25%;
   }
-  .off-small-4 {
+  .offset-small-4 {
     margin-left: 33.33333%;
   }
-  .off-small-5 {
+  .offset-small-5 {
     margin-left: 41.66667%;
   }
-  .off-small-6 {
+  .offset-small-6 {
     margin-left: 50%;
   }
-  .off-small-7 {
+  .offset-small-7 {
     margin-left: 58.33333%;
   }
-  .off-small-8 {
+  .offset-small-8 {
     margin-left: 66.66667%;
   }
-  .off-small-9 {
+  .offset-small-9 {
     margin-left: 75%;
   }
-  .off-small-10 {
+  .offset-small-10 {
     margin-left: 83.33333%;
   }
-  .off-small-11 {
+  .offset-small-11 {
     margin-left: 91.66667%;
   }
-  .off-small-reset {
+  .offset-small-0 {
     margin-left: 0;
   }
 }
@@ -773,40 +776,40 @@ label {
     flex-basis: 100%;
     max-width: 100%;
   }
-  .off-medium-1 {
+  .offset-medium-1 {
     margin-left: 8.33333%;
   }
-  .off-medium-2 {
+  .offset-medium-2 {
     margin-left: 16.66667%;
   }
-  .off-medium-3 {
+  .offset-medium-3 {
     margin-left: 25%;
   }
-  .off-medium-4 {
+  .offset-medium-4 {
     margin-left: 33.33333%;
   }
-  .off-medium-5 {
+  .offset-medium-5 {
     margin-left: 41.66667%;
   }
-  .off-medium-6 {
+  .offset-medium-6 {
     margin-left: 50%;
   }
-  .off-medium-7 {
+  .offset-medium-7 {
     margin-left: 58.33333%;
   }
-  .off-medium-8 {
+  .offset-medium-8 {
     margin-left: 66.66667%;
   }
-  .off-medium-9 {
+  .offset-medium-9 {
     margin-left: 75%;
   }
-  .off-medium-10 {
+  .offset-medium-10 {
     margin-left: 83.33333%;
   }
-  .off-medium-11 {
+  .offset-medium-11 {
     margin-left: 91.66667%;
   }
-  .off-medium-reset {
+  .offset-medium-0 {
     margin-left: 0;
   }
 }
@@ -860,57 +863,42 @@ label {
     flex-basis: 100%;
     max-width: 100%;
   }
-  .off-large-1 {
+  .offset-large-1 {
     margin-left: 8.33333%;
   }
-  .off-large-2 {
+  .offset-large-2 {
     margin-left: 16.66667%;
   }
-  .off-large-3 {
+  .offset-large-3 {
     margin-left: 25%;
   }
-  .off-large-4 {
+  .offset-large-4 {
     margin-left: 33.33333%;
   }
-  .off-large-5 {
+  .offset-large-5 {
     margin-left: 41.66667%;
   }
-  .off-large-6 {
+  .offset-large-6 {
     margin-left: 50%;
   }
-  .off-large-7 {
+  .offset-large-7 {
     margin-left: 58.33333%;
   }
-  .off-large-8 {
+  .offset-large-8 {
     margin-left: 66.66667%;
   }
-  .off-large-9 {
+  .offset-large-9 {
     margin-left: 75%;
   }
-  .off-large-10 {
+  .offset-large-10 {
     margin-left: 83.33333%;
   }
-  .off-large-11 {
+  .offset-large-11 {
     margin-left: 91.66667%;
   }
-  .off-large-reset {
+  .offset-large-0 {
     margin-left: 0;
   }
-}
-
-.container {
-  display: block;
-  width: calc(100% - 30px);
-  max-width: 1280px;
-  padding: 0 15px;
-  margin: auto;
-}
-
-.container--fullwidth {
-  display: block;
-  width: calc(100% - 30px);
-  padding: 0 15px;
-  margin: auto;
 }
 
 .menu {
@@ -918,7 +906,6 @@ label {
   display: flex;
   flex-direction: column;
   height: 100%;
-  justify-content: center;
   list-style: none;
   padding: 0;
 }
@@ -1941,10 +1928,7 @@ a:hover {
 }
 
 .list {
-  font-size: 1rem;
-  font-weight: 400;
   list-style-type: none;
-  margin: 0;
   padding: 0;
   text-decoration: inherit;
   text-transform: inherit;
