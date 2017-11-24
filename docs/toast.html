@@ -44,115 +44,117 @@
     </head>
     
     <body>
-        <header class="header navbar navbar--spacebetween bg-grey--darken text-white">
-            <div class="navbar__brand"> <a href="index.html" title="Stewed Framework" class="monospace uppercase thin text-white">
+        <main class="wrapper" id="app">
+            <header class="header navbar navbar--spacebetween bg-grey--darken text-white">
+                <div class="navbar__brand"> <a href="index.html" title="Stewed Framework" class="monospace uppercase thin text-white">
             Stewed Framework
         </a>
 
-            </div>
-            <div class="navbar__menu">
-                <ul class="menu menu--horizontal menu--inherit">
-                    <li class="menu__item"><a class="menu__link uppercase" href="index.html">Home</a>
+                </div>
+                <div class="navbar__menu">
+                    <ul class="menu menu--horizontal menu--inherit">
+                        <li class="menu__item"><a class="menu__link uppercase" href="index.html">Home</a>
+
+                        </li>
+                        <li class="menu__item"><a class="menu__link uppercase" href="documentation.html">Documentation</a>
+
+                        </li>
+                        <li class="menu__item"><a class="menu__link uppercase" href="">Github</a>
+
+                        </li>
+                    </ul>
+                </div>
+            </header>
+            <div class="sidebar text-grey">
+                <ul class="menu menu--vertical menu--inherit">
+                    <li class="menu__item"><a class="menu__link" href="colors.html" class="">Color & Shadow</a> 
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="typography.html" class="">Typography</a> 
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="utilities.html" class="">Utilities</a> 
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="badges.html">Badges & Labels</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link uppercase" href="documentation.html">Documentation</a>
+                    <li class="menu__item"><a class="menu__link" href="breadcrumbs.html">Breadcrumbs</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link uppercase" href="">Github</a>
+                    <li class="menu__item"><a class="menu__link" href="buttons.html">Buttons</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="cards.html">Cards</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="forms.html">Forms Filed</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="grid.html">Grid</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="navigation.html">Navigation</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="pagination.html">Pagination</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="tables.html">Tables</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="tooltips.html">Tooltips</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="navbar.html">Navbar</a>
 
                     </li>
                 </ul>
             </div>
-        </header>
-        <div class="sidebar text-grey">
-            <ul class="menu menu--vertical menu--inherit">
-                <li class="menu__item"><a class="menu__link" href="colors.html" class="">Color & Shadow</a> 
-                </li>
-                <li class="menu__item"><a class="menu__link" href="typography.html" class="">Typography</a> 
-                </li>
-                <li class="menu__item"><a class="menu__link" href="utilities.html" class="">Utilities</a> 
-                </li>
-                <li class="menu__item"><a class="menu__link" href="badges.html">Badges & Labels</a>
+            <section id="main">
+                <div class="content">
+                    <div class="header-description box-shadow--4 bg-darkbluegrey">
+                        <div class="container">
+                            <div class="master-header padding-bottom-20">
+                                 <h1>Toast</h1>
 
-                </li>
-                <li class="menu__item"><a class="menu__link" href="breadcrumbs.html">Breadcrumbs</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="buttons.html">Buttons</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="cards.html">Cards</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="forms.html">Forms Filed</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="grid.html">Grid</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="navigation.html">Navigation</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="pagination.html">Pagination</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="tables.html">Tables</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="tooltips.html">Tooltips</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="navbar.html">Navbar</a>
-
-                </li>
-            </ul>
-        </div>
-        <section id="main">
-            <div class="content">
-                <div class="header-description box-shadow--4 bg-darkbluegrey">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
                     <div class="container">
-                        <div class="master-header padding-bottom-20">
-                             <h1>Toast</h1>
+                         <h2>Toast</h2>
 
-                            <p></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                     <h2>Toast</h2>
-
-                    <div class="row row--gutter margin-top-40">
-                        <div class="col-large-4 col-medium-4 col-small-4">
-                            <div class="card">
-                                <div class="card__container">
-                                    <button class="bg-bluegrey color-white button button--large" stewed-toast="Example Message from Toast">Success</button>
+                        <div class="row row--gutter margin-top-40">
+                            <div class="col-large-4 col-medium-4 col-small-4">
+                                <div class="card">
+                                    <div class="card__container">
+                                        <button class="bg-bluegrey color-white button button--large" stewed-toast="Example Message from Toast">Success</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-large-4 col-medium-4 col-small-4">
-                            <div class="card">
-                                <div class="card__container">
-                                    <button class="bg-bluegrey color-white button button--large" stewed-toast="Example Message from Toast">Warning</button>
+                            <div class="col-large-4 col-medium-4 col-small-4">
+                                <div class="card">
+                                    <div class="card__container">
+                                        <button class="bg-bluegrey color-white button button--large" stewed-toast="Example Message from Toast">Warning</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-large-4 col-medium-4 col-small-4">
-                            <div class="card">
-                                <div class="card__container">
-                                    <button class="bg-bluegrey color-white button button--large" stewed-toast="Example Message from Toast">Information</button>
+                            <div class="col-large-4 col-medium-4 col-small-4">
+                                <div class="card">
+                                    <div class="card__container">
+                                        <button class="bg-bluegrey color-white button button--large" stewed-toast="Example Message from Toast">Information</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="toast">
-                            <div class="toast__text">Toast bar</div>
-                            <div class="toast__action"> <a href="" class="color-pink">Retry</a>
+                            <div class="toast">
+                                <div class="toast__text">Toast bar</div>
+                                <div class="toast__action"> <a href="" class="color-pink">Retry</a>
 
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </main>
         <footer class="footer bg-grey--lighten text-grey--darken mt-60">
             <div class="container">
                 <div class="row">

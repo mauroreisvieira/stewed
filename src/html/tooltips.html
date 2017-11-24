@@ -1,68 +1,71 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <partial src="partials/head.html" title="Stewed Framework 1.0"></partial>
+	<partial src="partials/head.html" title="Stewed Framework 1.0"></partial>
 </head>
 <body>
-    <partial src="partials/header.html" selected="home"></partial>
+	<main class="wrapper" id="app">
+		<partial src="partials/header.html" selected="navbar"></partial>
 
-    <section id="main">
-        <div class="content">
+		<section id="main">
+			<div class="content">
 
-<div class="header-description box-shadow--4 bg-darkbluegrey">
-	<div class="container">
-		<div class="master-header">
-			<h1>Tooltips</h1>
-		</div>
-	</div>
-</div>
-<div class="container">
-	<section class="margin-top-40">
-		<div class="row">
-			<div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
-				<h2>Tooltips</h2>
-				<p>To use the tooltip simply just use the <code>[stewed-tooltip]</code> in your tag, but if you want to change the direction of it, should one of the following classes:
-					<code>.tooltip-top</code>,
-					<code>.tooltip-right</code>,
-					<code>.tooltip-bottom</code>,
-					<code>.tooltip-left</code>.
-				</p>
-				<div class="display-block margin-top-40">
-					<p>Lorem ipsum dolor sit amet, <strong stewed-tooltip="Tooltip Default.">necessitatibus</strong>  adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, fuga.
-						Tempore sequi aliquid maxime aspernatur ad, error soluta commodi accusantium minus! Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>
-						Explicabo perspiciatis nisi animi, <strong class="tooltip--right" stewed-tooltip="Tooltip Right.">in debitis?</strong>
-					</p>
-				</div>
-				<div class="display-block margin-top-40">
-					<button class="button button--large bg-red color-white tooltip--bottom" stewed-tooltip="Tooltip Bottom">Hover Me!</button>
-				</div>
-			</div>
-			<div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
-				<div class="card margin-top-20">
-					<div class="card__header ">
-						<h4 class="card__header__title text-uppercase">Cooking</h4>
-					</div>
-					<div class="card__container card--border">
-						<div id="view-html" class="code">
-							<pre class="brush: xml; toolbar: false; gutter: false;">
-								&lt;p>Lorem ipsum ... &lt;strong stewed-tooltip="Tooltip Default.">necessitatibus&lt;/strong>  adipisicing...
-								&lt;strong class="tooltip--right" stewed-tooltip="Tooltip Right.">in debitis?&lt;/strong>&lt;/p>
-
-								&lt;button class="button ... tooltip--bottom" stewed-tooltip="Tooltip Bottom">Hover Me!&lt;/button>
-							</pre>
+				<div class="header-description box-shadow--4 bg-darkbluegrey">
+					<div class="container">
+						<div class="master-header">
+							<h1>Tooltips</h1>
 						</div>
 					</div>
 				</div>
+				<div class="container">
+					<section class="margin-top-40">
+						<div class="row">
+							<div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
+								<h2>Tooltips</h2>
+								<p>To use the tooltip simply just use the <code>[stewed-tooltip]</code> in your tag, but if you want to change the direction of it, should one of the following classes:
+									<code>.tooltip-top</code>,
+									<code>.tooltip-right</code>,
+									<code>.tooltip-bottom</code>,
+									<code>.tooltip-left</code>.
+								</p>
+								<div class="display-block margin-top-40">
+									<p>Lorem ipsum dolor sit amet, <strong stewed-tooltip="Tooltip Default.">necessitatibus</strong>  adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, fuga.
+										Tempore sequi aliquid maxime aspernatur ad, error soluta commodi accusantium minus! Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>
+										Explicabo perspiciatis nisi animi, <strong class="tooltip--right" stewed-tooltip="Tooltip Right.">in debitis?</strong>
+									</p>
+								</div>
+								<div class="display-block margin-top-40">
+									<button class="button button--large bg-red color-white tooltip--bottom" stewed-tooltip="Tooltip Bottom">Hover Me!</button>
+								</div>
+							</div>
+							<div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
+								<div class="card margin-top-20">
+									<div class="card__header ">
+										<h4 class="card__header__title text-uppercase">Cooking</h4>
+									</div>
+									<div class="card__container card--border">
+										<div id="view-html" class="code">
+											<pre class="brush: xml; toolbar: false; gutter: false;">
+												&lt;p>Lorem ipsum ... &lt;strong stewed-tooltip="Tooltip Default.">necessitatibus&lt;/strong>  adipisicing...
+												&lt;strong class="tooltip--right" stewed-tooltip="Tooltip Right.">in debitis?&lt;/strong>&lt;/p>
+
+												&lt;button class="button ... tooltip--bottom" stewed-tooltip="Tooltip Bottom">Hover Me!&lt;/button>
+											</pre>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+
+
+
 			</div>
-		</div>
-	</section>
-</div>
+		</section>
 
+    </main>
+    <partial src="partials/footer.html"></partial>
 
-
-        </div>
-    </section>
-
-    <partial src="partials/footer.html" ></partial>
 </body>
 </html>
