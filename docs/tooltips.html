@@ -44,152 +44,157 @@
     </head>
     
     <body>
-        <header class="header navbar navbar--spacebetween bg-red text-white">
-            <div class="navbar__brand"> <a href="index.html">Stewed Framework</a>
+        <main class="wrapper" id="app">
+            <header class="header navbar navbar--spacebetween bg-red text-white">
+                <div class="navbar__brand"> <a href="index.html">Stewed Framework</a>
 
-            </div>
-            <div class="navbar__menu">
-                <ul class="menu menu--horizontal menu--inherit">
-                    <li class="menu__item"><a class="menu__link" href="index.html">Home</a>
+                </div>
+                <div class="navbar__menu">
+                    <ul class="menu menu--horizontal menu--inherit">
+                        <li class="menu__item"><a class="menu__link" href="index.html">Home</a>
+
+                        </li>
+                        <li class="menu__item"><a class="menu__link" href="documentation.html">Documentation</a>
+
+                        </li>
+                        <li class="menu__item"><a class="menu__link" href="roadmap.html">Roadmap</a>
+
+                        </li>
+                        <li class="menu__item"><a class="menu__link" href="">Github</a>
+
+                        </li>
+                    </ul>
+                </div>
+            </header>
+            <div class="sidebar bg-grey--lighten text-grey--darken">
+                <ul class="menu menu--vertical menu--inherit">
+                    <li class="menu__item"><a class="menu__link" href="colors.html" class="">Color & Shadow</a> 
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="typography.html" class="">Typography</a> 
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="utilities.html" class="">Utilities</a> 
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="badges.html">Badges & Labels</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="documentation.html">Documentation</a>
+                    <li class="menu__item"><a class="menu__link" href="breadcrumbs.html">Breadcrumbs</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="">Github</a>
+                    <li class="menu__item"><a class="menu__link" href="buttons.html">Buttons</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="cards.html">Cards</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="forms.html">Forms Filed</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="grid.html">Grid</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="navigation.html">Navigation</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="pagination.html">Pagination</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="tables.html">Tables</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="tooltips.html">Tooltips</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="navbar.html">Navbar</a>
 
                     </li>
                 </ul>
             </div>
-        </header>
-        <div class="sidebar bg-grey--lighten text-grey--darken">
-            <ul class="menu menu--vertical menu--inherit">
-                <li class="menu__item"><a class="menu__link" href="colors.html" class="">Color & Shadow</a> 
-                </li>
-                <li class="menu__item"><a class="menu__link" href="typography.html" class="">Typography</a> 
-                </li>
-                <li class="menu__item"><a class="menu__link" href="utilities.html" class="">Utilities</a> 
-                </li>
-                <li class="menu__item"><a class="menu__link" href="badges.html">Badges & Labels</a>
+            <section id="main">
+                <div class="content">
+                    <div class="header-description box-shadow--4 bg-darkbluegrey">
+                        <div class="container">
+                            <div class="master-header">
+                                	<h1>Tooltips</h1>
 
-                </li>
-                <li class="menu__item"><a class="menu__link" href="breadcrumbs.html">Breadcrumbs</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="buttons.html">Buttons</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="cards.html">Cards</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="forms.html">Forms Filed</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="grid.html">Grid</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="navigation.html">Navigation</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="pagination.html">Pagination</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="tables.html">Tables</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="tooltips.html">Tooltips</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="navbar.html">Navbar</a>
-
-                </li>
-            </ul>
-        </div>
-        <section id="main">
-            <div class="content">
-                <div class="header-description box-shadow--4 bg-darkbluegrey">
-                    <div class="container">
-                        <div class="master-header">
-                            	<h1>Tooltips</h1>
-
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="container">
-                    <section class="margin-top-40">
-                        <div class="row">
-                            <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
-                                	<h2>Tooltips</h2>
+                    <div class="container">
+                        <section class="margin-top-40">
+                            <div class="row">
+                                <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
+                                    	<h2>Tooltips</h2>
 
-                                <p>To use the tooltip simply just use the <code>[stewed-tooltip]</code> in
-                                    your tag, but if you want to change the direction of it, should one of
-                                    the following classes:	<code>.tooltip-top</code>,	<code>.tooltip-right</code>,	<code>.tooltip-bottom</code>,	<code>.tooltip-left</code>.</p>
-                                <div
-                                class="display-block margin-top-40">
-                                    <p>Lorem ipsum dolor sit amet, <strong stewed-tooltip="Tooltip Default.">necessitatibus</strong> adipisicing
-                                        elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa,
-                                        fuga. Tempore sequi aliquid maxime aspernatur ad, error soluta commodi
-                                        accusantium minus! Lorem ipsum dolor sit amet, consectetur adipisicing
-                                        elit.
-                                        <br>Explicabo perspiciatis nisi animi, <strong class="tooltip--right" stewed-tooltip="Tooltip Right.">in debitis?</strong>
+                                    <p>To use the tooltip simply just use the <code>[stewed-tooltip]</code> in
+                                        your tag, but if you want to change the direction of it, should one of
+                                        the following classes:	<code>.tooltip-top</code>,	<code>.tooltip-right</code>,	<code>.tooltip-bottom</code>,	<code>.tooltip-left</code>.</p>
+                                    <div
+                                    class="display-block margin-top-40">
+                                        <p>Lorem ipsum dolor sit amet, <strong stewed-tooltip="Tooltip Default.">necessitatibus</strong> adipisicing
+                                            elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa,
+                                            fuga. Tempore sequi aliquid maxime aspernatur ad, error soluta commodi
+                                            accusantium minus! Lorem ipsum dolor sit amet, consectetur adipisicing
+                                            elit.
+                                            <br>Explicabo perspiciatis nisi animi, <strong class="tooltip--right" stewed-tooltip="Tooltip Right.">in debitis?</strong>
 
-                                    </p>
-                            </div>
-                            <div class="display-block margin-top-40">
-                                <button class="button button--large bg-red color-white tooltip--bottom"
-                                stewed-tooltip="Tooltip Bottom">Hover Me!</button>
-                            </div>
-                        </div>
-                        <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
-                            <div class="card margin-top-20">
-                                <div class="card__header ">
-                                    	<h4 class="card__header__title text-uppercase">Cooking</h4>
-
+                                        </p>
                                 </div>
-                                <div class="card__container card--border">
-                                    <div id="view-html" class="code">	<pre class="brush: xml; toolbar: false; gutter: false;">
-								&lt;p>Lorem ipsum ... &lt;strong stewed-tooltip="Tooltip Default.">necessitatibus&lt;/strong>  adipisicing...
-								&lt;strong class="tooltip--right" stewed-tooltip="Tooltip Right.">in debitis?&lt;/strong>&lt;/p>
+                                <div class="display-block margin-top-40">
+                                    <button class="button button--large bg-red color-white tooltip--bottom"
+                                    stewed-tooltip="Tooltip Bottom">Hover Me!</button>
+                                </div>
+                            </div>
+                            <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
+                                <div class="card margin-top-20">
+                                    <div class="card__header ">
+                                        	<h4 class="card__header__title text-uppercase">Cooking</h4>
 
-								&lt;button class="button ... tooltip--bottom" stewed-tooltip="Tooltip Bottom">Hover Me!&lt;/button>
-							</pre>
+                                    </div>
+                                    <div class="card__container card--border">
+                                        <div id="view-html" class="code">	<pre class="brush: xml; toolbar: false; gutter: false;">
+												&lt;p>Lorem ipsum ... &lt;strong stewed-tooltip="Tooltip Default.">necessitatibus&lt;/strong>  adipisicing...
+												&lt;strong class="tooltip--right" stewed-tooltip="Tooltip Right.">in debitis?&lt;/strong>&lt;/p>
 
+												&lt;button class="button ... tooltip--bottom" stewed-tooltip="Tooltip Bottom">Hover Me!&lt;/button>
+											</pre>
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                    </div>
+                    </section>
                 </div>
-                </section>
-            </div>
-            </div>
-        </section>
-        <footer class="footer bg-blue text-white">
-            <div class="container">
-                <div class="row">
-                    <div class="col-col-large-12 col-col-medium-12 col-col-small-12">
-                        <nav>
-                            <ul class="menu menu--horizontal menu--inherit float-right">
-                                <li class="menu__item"><a class="menu__link" href="https://github.com/maurovieirareis/stewed"
-                                    target="_bank">View Source on Github</a>
+                </div>
+            </section>
+            <footer class="footer bg-blue text-white">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-col-large-12 col-col-medium-12 col-col-small-12">
+                            <nav>
+                                <ul class="menu menu--horizontal menu--inherit float-right">
+                                    <li class="menu__item"><a class="menu__link" href="https://github.com/maurovieirareis/stewed"
+                                        target="_bank">View Source on Github</a>
 
-                                </li>
-                                <li class="menu__item"><a class="menu__link" href="changelog.html">Changelog</a>
+                                    </li>
+                                    <li class="menu__item"><a class="menu__link" href="changelog.html">Changelog</a>
 
-                                </li>
-                            </ul>
-                        </nav>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </footer>
-        <script src="https://unpkg.com/vue"></script>
-        <script>
-            new Vue({
-                el: '#app',
-                data: {
-                }
-            });
-        </script>
+            </footer>
+            <script src="https://unpkg.com/vue"></script>
+            <script>
+                new Vue({
+                    el: '#app',
+                    data: {
+                    }
+                });
+            </script>
+        </main>
     </body>
 
 </html>

@@ -1,234 +1,236 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <partial src="partials/head.html" title="Stewed Framework 1.0"></partial>
+	<partial src="partials/head.html" title="Stewed Framework 1.0"></partial>
 </head>
 <body>
-    <partial src="partials/header.html" selected="home"></partial>
+	<main class="wrapper" id="app">
+		<partial src="partials/header.html" selected="navbar"></partial>
 
-    <section id="main">
-        <div class="content">
+		<section id="main">
+			<div class="content">
 
-<div class="header-description box-shadow--4 bg-darkbluegrey">
-	<div class="container">
-		<div class="master-header">
-			<h1>Navigation</h1>
-		</div>
-	</div>
-</div>
-<div class="container">
-	<section class="margin-top-40">
-        <div class="row">
-            <div class="col-large-12 col-medium-12 col-small-12">
-				<h2>Horizontal Navigation</h2>
-			</div>
-			<div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
-				<div class="navigation bg-teal color-white">
-					<ul class="navigation__horizontal">
-						<li><a href="">Menu 1</a></li>
-						<li><a href="" class="active">Menu 2</a></li>
-						<li><a href="">Menu 3</a></li>
-						<li>
-				            <a href="#">Menu Dropdown  (↓)</a>
-				            <ul class="navigation__horizontal__submenu bg-amber text-center">
-				                <li><a href="">Menu Right 1</a></li>
-				                <li><a href="">Menu Right 2</a></li>
-				                <li><a href="">Menu Right 3</a></li>
-				            </ul>
-				        </li>
-						<li><a href="">Menu 5</a></li>
-						<li><a href="">Menu 6</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
-				<div class="card margin-top-20">
-					<div class="card__header ">
-						<h4 class="card__header__title text-uppercase">Cooking</h4>
-					</div>
-					<div class="card__container card--border">
-						<div id="view-html" class="code">
-							<pre class="brush: xml; toolbar: false; gutter: false;">
-								&lt;div class="navigation bg-teal color-white">
-									&lt;ul class="navigation__horizontal">
-										&lt;li>&lt;a href="">Menu 1&lt;/a>&lt;/li>
-										&lt;li>&lt;a href="" class="active">Menu 2&lt;/a>&lt;/li>
-										&lt;li>&lt;a href="">Menu 3&lt;/a>&lt;/li>
-										&lt;li>
-								            &lt;a href="#">Menu Dropdown  (↓)&lt;/a>
-								            &lt;ul class="navigation__horizontal__submenu bg-amber text-center">
-								                &lt;li>&lt;a href="">Menu Right 1&lt;/a>&lt;/li>
-								                &lt;li>&lt;a href="">Menu Right 2&lt;/a>&lt;/li>
-								                &lt;li>&lt;a href="">Menu Right 3&lt;/a>&lt;/li>
-								            &lt;/ul>
-								        &lt;/li>
-										&lt;li>&lt;a href="">Menu 5&lt;/a>&lt;/li>
-										&lt;li>&lt;a href="">Menu 6&lt;/a>&lt;/li>
-									&lt;/ul>
-								&lt;/div>
-							</pre>
+				<div class="header-description box-shadow--4 bg-darkbluegrey">
+					<div class="container">
+						<div class="master-header">
+							<h1>Navigation</h1>
 						</div>
 					</div>
 				</div>
-			</div>
+				<div class="container">
+					<section class="margin-top-40">
+						<div class="row">
+							<div class="col-large-12 col-medium-12 col-small-12">
+								<h2>Horizontal Navigation</h2>
+							</div>
+							<div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
+								<div class="navigation bg-teal color-white">
+									<ul class="navigation__horizontal">
+										<li><a href="">Menu 1</a></li>
+										<li><a href="" class="active">Menu 2</a></li>
+										<li><a href="">Menu 3</a></li>
+										<li>
+											<a href="#">Menu Dropdown  (↓)</a>
+											<ul class="navigation__horizontal__submenu bg-amber text-center">
+												<li><a href="">Menu Right 1</a></li>
+												<li><a href="">Menu Right 2</a></li>
+												<li><a href="">Menu Right 3</a></li>
+											</ul>
+										</li>
+										<li><a href="">Menu 5</a></li>
+										<li><a href="">Menu 6</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
+								<div class="card margin-top-20">
+									<div class="card__header ">
+										<h4 class="card__header__title text-uppercase">Cooking</h4>
+									</div>
+									<div class="card__container card--border">
+										<div id="view-html" class="code">
+											<pre class="brush: xml; toolbar: false; gutter: false;">
+												&lt;div class="navigation bg-teal color-white">
+												&lt;ul class="navigation__horizontal">
+												&lt;li>&lt;a href="">Menu 1&lt;/a>&lt;/li>
+												&lt;li>&lt;a href="" class="active">Menu 2&lt;/a>&lt;/li>
+												&lt;li>&lt;a href="">Menu 3&lt;/a>&lt;/li>
+												&lt;li>
+												&lt;a href="#">Menu Dropdown  (↓)&lt;/a>
+												&lt;ul class="navigation__horizontal__submenu bg-amber text-center">
+												&lt;li>&lt;a href="">Menu Right 1&lt;/a>&lt;/li>
+												&lt;li>&lt;a href="">Menu Right 2&lt;/a>&lt;/li>
+												&lt;li>&lt;a href="">Menu Right 3&lt;/a>&lt;/li>
+												&lt;/ul>
+												&lt;/li>
+												&lt;li>&lt;a href="">Menu 5&lt;/a>&lt;/li>
+												&lt;li>&lt;a href="">Menu 6&lt;/a>&lt;/li>
+												&lt;/ul>
+												&lt;/div>
+											</pre>
+										</div>
+									</div>
+								</div>
+							</div>
 
-			<div class="col-large-12 col-medium-12 col-small-12">
-				<h2>Horizontal Navigation (Scroll)</h2>
-			</div>
-			<div class="col-large-6 col-medium-6 col-small-12 margin-bottom-40">
-				<div class="navigation bg-teal color-white">
-					<ul class="navigation__horizontal--scroll font-500">
-						<li><a href="">Menu 1</a></li>
-						<li><a href="" class="active">Menu 2</a></li>
-						<li><a href="">Menu 3</a></li>
-						<li><a href="">Menu 4</a></li>
-						<li><a href="">Menu 5</a></li>
-						<li><a href="">Menu 6</a></li>
-						<li><a href="">Menu 7</a></li>
-						<li><a href="">Menu 8</a></li>
-						<li><a href="">Menu 9</a></li>
-						<li><a href="">Menu 10</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
-				<div class="card margin-top-20">
-					<div class="card__header ">
-						<h4 class="card__header__title text-uppercase">Cooking</h4>
-					</div>
-					<div class="card__container card--border">
-						<div id="view-html" class="code">
-							<pre class="brush: xml; toolbar: false; gutter: false;">
-								&lt;div class="navigation bg-teal color-white">
-									&lt;ul class="navigation__horizontal--scroll">
-										&lt;li>&lt;a href="">Menu 1&lt;/a>&lt;/li>
-										&lt;li>&lt;a href="">Menu 2&lt;/a>&lt;/li>
-										&lt;li>&lt;a href="">Menu 3&lt;/a>&lt;/li>
-										&lt;li>&lt;a href="">Menu 4&lt;/a>&lt;/li>
-										&lt;li>&lt;a href="" class="active">Menu 5&lt;/a>&lt;/li>
-										&lt;li>&lt;a href="">Menu 6&lt;/a>&lt;/li>
-									&lt;/ul>
-								&lt;/div>
-							</pre>
+							<div class="col-large-12 col-medium-12 col-small-12">
+								<h2>Horizontal Navigation (Scroll)</h2>
+							</div>
+							<div class="col-large-6 col-medium-6 col-small-12 margin-bottom-40">
+								<div class="navigation bg-teal color-white">
+									<ul class="navigation__horizontal--scroll font-500">
+										<li><a href="">Menu 1</a></li>
+										<li><a href="" class="active">Menu 2</a></li>
+										<li><a href="">Menu 3</a></li>
+										<li><a href="">Menu 4</a></li>
+										<li><a href="">Menu 5</a></li>
+										<li><a href="">Menu 6</a></li>
+										<li><a href="">Menu 7</a></li>
+										<li><a href="">Menu 8</a></li>
+										<li><a href="">Menu 9</a></li>
+										<li><a href="">Menu 10</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
+								<div class="card margin-top-20">
+									<div class="card__header ">
+										<h4 class="card__header__title text-uppercase">Cooking</h4>
+									</div>
+									<div class="card__container card--border">
+										<div id="view-html" class="code">
+											<pre class="brush: xml; toolbar: false; gutter: false;">
+												&lt;div class="navigation bg-teal color-white">
+												&lt;ul class="navigation__horizontal--scroll">
+												&lt;li>&lt;a href="">Menu 1&lt;/a>&lt;/li>
+												&lt;li>&lt;a href="">Menu 2&lt;/a>&lt;/li>
+												&lt;li>&lt;a href="">Menu 3&lt;/a>&lt;/li>
+												&lt;li>&lt;a href="">Menu 4&lt;/a>&lt;/li>
+												&lt;li>&lt;a href="" class="active">Menu 5&lt;/a>&lt;/li>
+												&lt;li>&lt;a href="">Menu 6&lt;/a>&lt;/li>
+												&lt;/ul>
+												&lt;/div>
+											</pre>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-large-12 col-medium-12 col-small-12">
+								<h2>Vertical Navigation (Sub Menu Left)</h2>
+							</div>
+							<div class="col-large-4 col-medium-6 col-small-12 margin-bottom-40 pull-center">
+								<div class="navigation color-white">
+									<ul class="navigation__vertical bg-teal text-right">
+										<li><a href="">Menu 2</a></li>
+										<li>
+											<a href="#">Menu Left  <span class="pull-left">(←)</span></a>
+											<ul class="navigation__vertical__submenu--left bg-amber text-center">
+												<li><a href="">Menu Left 1</a></li>
+												<li><a href="">Menu Left 2</a></li>
+												<li><a href="">Menu Left 3</a></li>
+												<li><a href="">Menu Left 4</a></li>
+												<li><a href="">Menu Left 5</a></li>
+											</ul>
+										</li>
+										<li><a href="#">Menu 3</a></li>
+										<li><a href="#">Menu 4</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
+								<div class="card margin-top-20">
+									<div class="card__header ">
+										<h4 class="card__header__title text-uppercase">Cooking</h4>
+									</div>
+									<div class="card__container card--border">
+										<div id="view-html" class="code">
+											<pre class="brush: xml; toolbar: false; gutter: false;">
+												&lt;div class="navigation color-white">
+												&lt;ul class="navigation__vertical bg-teal text-right">
+												&lt;li>&lt;a href="">Menu 2&lt;/a>&lt;/li>
+												&lt;li>
+												&lt;a href="#">Menu Left  &lt;span class="pull-left">(←)&lt;/span>&lt;/a>
+												&lt;ul class="navigation__vertical__submenu--left bg-amber text-center">
+												&lt;li>&lt;a href="">Menu Left 1&lt;/a>&lt;/li>
+												&lt;li>&lt;a href="">Menu Left 2&lt;/a>&lt;/li>
+												&lt;li>&lt;a href="">Menu Left 3&lt;/a>&lt;/li>
+												&lt;li>&lt;a href="">Menu Left 4&lt;/a>&lt;/li>
+												&lt;li>&lt;a href="">Menu Left 5&lt;/a>&lt;/li>
+												&lt;/ul>
+												&lt;/li>
+												&lt;li>&lt;a href="#">Menu 3&lt;/a>&lt;/li>
+												&lt;li>&lt;a href="#">Menu 4&lt;/a>&lt;/li>
+												&lt;/ul>
+												&lt;/div>
+											</pre>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-large-12 col-medium-12 col-small-12">
+								<h2>Vertical Navigation (Sub Menu Right)</h2>
+							</div>
+							<div class="col-large-4 col-medium-6 col-small-12 margin-bottom-40 pull-center">
+								<div class="navigation color-white">
+									<ul class="navigation__vertical bg-teal">
+										<li><a href="">Menu 2</a></li>
+										<li>
+											<a href="#">Menu Right  <span class="pull-right">(→)</span></a>
+											<ul class="navigation__vertical__submenu--right bg-amber text-center">
+												<li><a href="">Menu Right 1</a></li>
+												<li><a href="">Menu Right 2</a></li>
+												<li><a href="">Menu Right 3</a></li>
+												<li><a href="">Menu Right 4</a></li>
+												<li><a href="">Menu Right 5</a></li>
+											</ul>
+										</li>
+										<li><a href="#">Menu 3</a></li>
+										<li><a href="#">Menu 4</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
+								<div class="card margin-top-20">
+									<div class="card__header ">
+										<h4 class="card__header__title text-uppercase">Cooking</h4>
+									</div>
+									<div class="card__container card--border">
+										<div id="view-html" class="code">
+											<pre class="brush: xml; toolbar: false; gutter: false;">
+												&lt;div class="navigation color-white">
+												&lt;ul class="navigation__vertical bg-teal">
+												&lt;li>&lt;a href="">Menu 2&lt;/a>&lt;/li>
+												&lt;li>
+												&lt;a href="#">Menu Right  &lt;span class="pull-right">(→)&lt;/span>&lt;/a>
+												&lt;ul class="navigation__vertical__submenu--right bg-amber text-center">
+												&lt;li>&lt;a href="">Menu Right 1&lt;/a>&lt;/li>
+												&lt;li>&lt;a href="">Menu Right 2&lt;/a>&lt;/li>
+												&lt;li>&lt;a href="">Menu Right 3&lt;/a>&lt;/li>
+												&lt;li>&lt;a href="">Menu Right 4&lt;/a>&lt;/li>
+												&lt;li>&lt;a href="">Menu Right 5&lt;/a>&lt;/li>
+												&lt;/ul>
+												&lt;/li>
+												&lt;li>&lt;a href="#">Menu 3&lt;/a>&lt;/li>
+												&lt;li>&lt;a href="#">Menu 4&lt;/a>&lt;/li>
+												&lt;/ul>
+												&lt;/div>
+											</pre>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
-					</div>
+					</section>
 				</div>
-			</div>
-
-		<div class="col-large-12 col-medium-12 col-small-12">
-				<h2>Vertical Navigation (Sub Menu Left)</h2>
-			</div>
-			<div class="col-large-4 col-medium-6 col-small-12 margin-bottom-40 pull-center">
-				<div class="navigation color-white">
-					<ul class="navigation__vertical bg-teal text-right">
-						<li><a href="">Menu 2</a></li>
-						<li>
-				            <a href="#">Menu Left  <span class="pull-left">(←)</span></a>
-				            <ul class="navigation__vertical__submenu--left bg-amber text-center">
-				                <li><a href="">Menu Left 1</a></li>
-				                <li><a href="">Menu Left 2</a></li>
-				                <li><a href="">Menu Left 3</a></li>
-				                <li><a href="">Menu Left 4</a></li>
-				                <li><a href="">Menu Left 5</a></li>
-				            </ul>
-				        </li>
-				        <li><a href="#">Menu 3</a></li>
-				        <li><a href="#">Menu 4</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
-				<div class="card margin-top-20">
-					<div class="card__header ">
-						<h4 class="card__header__title text-uppercase">Cooking</h4>
-					</div>
-					<div class="card__container card--border">
-						<div id="view-html" class="code">
-							<pre class="brush: xml; toolbar: false; gutter: false;">
-								&lt;div class="navigation color-white">
-									&lt;ul class="navigation__vertical bg-teal text-right">
-										&lt;li>&lt;a href="">Menu 2&lt;/a>&lt;/li>
-										&lt;li>
-								            &lt;a href="#">Menu Left  &lt;span class="pull-left">(←)&lt;/span>&lt;/a>
-								            &lt;ul class="navigation__vertical__submenu--left bg-amber text-center">
-								                &lt;li>&lt;a href="">Menu Left 1&lt;/a>&lt;/li>
-								                &lt;li>&lt;a href="">Menu Left 2&lt;/a>&lt;/li>
-								                &lt;li>&lt;a href="">Menu Left 3&lt;/a>&lt;/li>
-								                &lt;li>&lt;a href="">Menu Left 4&lt;/a>&lt;/li>
-								                &lt;li>&lt;a href="">Menu Left 5&lt;/a>&lt;/li>
-								            &lt;/ul>
-								        &lt;/li>
-								        &lt;li>&lt;a href="#">Menu 3&lt;/a>&lt;/li>
-								        &lt;li>&lt;a href="#">Menu 4&lt;/a>&lt;/li>
-									&lt;/ul>
-								&lt;/div>
-							</pre>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-large-12 col-medium-12 col-small-12">
-				<h2>Vertical Navigation (Sub Menu Right)</h2>
-			</div>
-			<div class="col-large-4 col-medium-6 col-small-12 margin-bottom-40 pull-center">
-				<div class="navigation color-white">
-					<ul class="navigation__vertical bg-teal">
-						<li><a href="">Menu 2</a></li>
-						<li>
-				            <a href="#">Menu Right  <span class="pull-right">(→)</span></a>
-				            <ul class="navigation__vertical__submenu--right bg-amber text-center">
-				                <li><a href="">Menu Right 1</a></li>
-				                <li><a href="">Menu Right 2</a></li>
-				                <li><a href="">Menu Right 3</a></li>
-				                <li><a href="">Menu Right 4</a></li>
-				                <li><a href="">Menu Right 5</a></li>
-				            </ul>
-				        </li>
-				        <li><a href="#">Menu 3</a></li>
-				        <li><a href="#">Menu 4</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
-				<div class="card margin-top-20">
-					<div class="card__header ">
-						<h4 class="card__header__title text-uppercase">Cooking</h4>
-					</div>
-					<div class="card__container card--border">
-						<div id="view-html" class="code">
-							<pre class="brush: xml; toolbar: false; gutter: false;">
-								&lt;div class="navigation color-white">
-									&lt;ul class="navigation__vertical bg-teal">
-										&lt;li>&lt;a href="">Menu 2&lt;/a>&lt;/li>
-										&lt;li>
-								            &lt;a href="#">Menu Right  &lt;span class="pull-right">(→)&lt;/span>&lt;/a>
-								            &lt;ul class="navigation__vertical__submenu--right bg-amber text-center">
-								                &lt;li>&lt;a href="">Menu Right 1&lt;/a>&lt;/li>
-								                &lt;li>&lt;a href="">Menu Right 2&lt;/a>&lt;/li>
-								                &lt;li>&lt;a href="">Menu Right 3&lt;/a>&lt;/li>
-								                &lt;li>&lt;a href="">Menu Right 4&lt;/a>&lt;/li>
-								                &lt;li>&lt;a href="">Menu Right 5&lt;/a>&lt;/li>
-								            &lt;/ul>
-								        &lt;/li>
-								        &lt;li>&lt;a href="#">Menu 3&lt;/a>&lt;/li>
-								        &lt;li>&lt;a href="#">Menu 4&lt;/a>&lt;/li>
-									&lt;/ul>
-								&lt;/div>
-							</pre>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-</div>
 
 
 
-        </div>
-    </section>
+			</div>
+		</section>
 
-    <partial src="partials/footer.html" ></partial>
+		<partial src="partials/footer.html" ></partial>
+	</main>
 </body>
 </html>

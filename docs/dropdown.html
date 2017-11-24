@@ -44,190 +44,195 @@
     </head>
     
     <body>
-        <header class="header navbar navbar--spacebetween bg-red text-white">
-            <div class="navbar__brand"> <a href="index.html">Stewed Framework</a>
+        <main class="wrapper" id="app">
+            <header class="header navbar navbar--spacebetween bg-red text-white">
+                <div class="navbar__brand"> <a href="index.html">Stewed Framework</a>
 
-            </div>
-            <div class="navbar__menu">
-                <ul class="menu menu--horizontal menu--inherit">
-                    <li class="menu__item"><a class="menu__link" href="index.html">Home</a>
+                </div>
+                <div class="navbar__menu">
+                    <ul class="menu menu--horizontal menu--inherit">
+                        <li class="menu__item"><a class="menu__link" href="index.html">Home</a>
+
+                        </li>
+                        <li class="menu__item"><a class="menu__link" href="documentation.html">Documentation</a>
+
+                        </li>
+                        <li class="menu__item"><a class="menu__link" href="roadmap.html">Roadmap</a>
+
+                        </li>
+                        <li class="menu__item"><a class="menu__link" href="">Github</a>
+
+                        </li>
+                    </ul>
+                </div>
+            </header>
+            <div class="sidebar bg-grey--lighten text-grey--darken">
+                <ul class="menu menu--vertical menu--inherit">
+                    <li class="menu__item"><a class="menu__link" href="colors.html" class="">Color & Shadow</a> 
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="typography.html" class="">Typography</a> 
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="utilities.html" class="">Utilities</a> 
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="badges.html">Badges & Labels</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="documentation.html">Documentation</a>
+                    <li class="menu__item"><a class="menu__link" href="breadcrumbs.html">Breadcrumbs</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="">Github</a>
+                    <li class="menu__item"><a class="menu__link" href="buttons.html">Buttons</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="cards.html">Cards</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="forms.html">Forms Filed</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="grid.html">Grid</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="navigation.html">Navigation</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="pagination.html">Pagination</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="tables.html">Tables</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="tooltips.html">Tooltips</a>
+
+                    </li>
+                    <li class="menu__item"><a class="menu__link" href="navbar.html">Navbar</a>
 
                     </li>
                 </ul>
             </div>
-        </header>
-        <div class="sidebar bg-grey--lighten text-grey--darken">
-            <ul class="menu menu--vertical menu--inherit">
-                <li class="menu__item"><a class="menu__link" href="colors.html" class="">Color & Shadow</a> 
-                </li>
-                <li class="menu__item"><a class="menu__link" href="typography.html" class="">Typography</a> 
-                </li>
-                <li class="menu__item"><a class="menu__link" href="utilities.html" class="">Utilities</a> 
-                </li>
-                <li class="menu__item"><a class="menu__link" href="badges.html">Badges & Labels</a>
+            <section id="main">
+                <div class="content">
+                    <div class="header-description box-shadow--4 bg-darkbluegrey">
+                        <div class="container">
+                            <div class="master-header padding-bottom-20">
+                                 <h1>Dropdown</h1>
 
-                </li>
-                <li class="menu__item"><a class="menu__link" href="breadcrumbs.html">Breadcrumbs</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="buttons.html">Buttons</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="cards.html">Cards</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="forms.html">Forms Filed</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="grid.html">Grid</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="navigation.html">Navigation</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="pagination.html">Pagination</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="tables.html">Tables</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="tooltips.html">Tooltips</a>
-
-                </li>
-                <li class="menu__item"><a class="menu__link" href="navbar.html">Navbar</a>
-
-                </li>
-            </ul>
-        </div>
-        <section id="main">
-            <div class="content">
-                <div class="header-description box-shadow--4 bg-darkbluegrey">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
                     <div class="container">
-                        <div class="master-header padding-bottom-20">
-                             <h1>Dropdown</h1>
+                         <h2>Dropdown</h2>
 
-                            <p></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                     <h2>Dropdown</h2>
-
-                    <p>To use the dropdown create a div with the class <code>.dropdown</code> then
-                        only needs to use a button with the attribute <code>[stewed-dropdown]</code> and
-                        class <code>.dropdown__button</code>.</p>
-                    <br>
-                    <p>You can set the alignment of the dropdown with <code>.dropdown--top-left</code> and <code>.dropdown--top-right</code> in
-                        your div dropdown.</p>
-                    <p>Then simply create a container that contains the id attribute clearcut
-                        the date dropdown button.</p>
-                    <br>
-                    <p>The button to be used may be any, provided that uses the attribute.</p>
-                    <br>
-                    <p class="font-500">You can customize the colors of the buttons, as well as the dropdwons.</p>
-                    <div
-                    class="row row--gutter margin-top-40">
-                        <div class="col-large-6 col-medium-6 col-small-6 margin-bottom-40">
-                            <div class="card bg-white color-pink box-shadow--6">
-                                <div class="card__header ">
-                                    <div class="dropdown dropdown--top-left">
-                                        <button class="dropdown__button button button--icon" stewed-dropdown="menu-1">⁝</button>
-                                        <ul class="bg-white color-pink box-shadow--4 margin-top-10"
-                                        id="menu-1">
-                                            <li><a href="">Some Action</a>
-                                            </li>
-                                            <li class="dropdown__divider"><a href="">Another Action</a>
-                                            </li>
-                                            <li><a href="" class="disabled">Disabled Action</a>
-                                            </li>
-                                            <li><a href="">Yet Another Action</a>
-                                            </li>
-                                        </ul>
+                        <p>To use the dropdown create a div with the class <code>.dropdown</code> then
+                            only needs to use a button with the attribute <code>[stewed-dropdown]</code> and
+                            class <code>.dropdown__button</code>.</p>
+                        <br>
+                        <p>You can set the alignment of the dropdown with <code>.dropdown--top-left</code> and <code>.dropdown--top-right</code> in
+                            your div dropdown.</p>
+                        <p>Then simply create a container that contains the id attribute clearcut
+                            the date dropdown button.</p>
+                        <br>
+                        <p>The button to be used may be any, provided that uses the attribute.</p>
+                        <br>
+                        <p class="font-500">You can customize the colors of the buttons, as well as the dropdwons.</p>
+                        <div
+                        class="row row--gutter margin-top-40">
+                            <div class="col-large-6 col-medium-6 col-small-6 margin-bottom-40">
+                                <div class="card bg-white color-pink box-shadow--6">
+                                    <div class="card__header ">
+                                        <div class="dropdown dropdown--top-left">
+                                            <button class="dropdown__button button button--icon" stewed-dropdown="menu-1">⁝</button>
+                                            <ul class="bg-white color-pink box-shadow--4 margin-top-10"
+                                            id="menu-1">
+                                                <li><a href="">Some Action</a>
+                                                </li>
+                                                <li class="dropdown__divider"><a href="">Another Action</a>
+                                                </li>
+                                                <li><a href="" class="disabled">Disabled Action</a>
+                                                </li>
+                                                <li><a href="">Yet Another Action</a>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-large-6 col-medium-6 col-small-6 margin-bottom-40">
-                            <div class="card bg-white color-blue box-shadow--6">
-                                <div class="card__header">
-                                    <div class="dropdown dropdown--top-right">
-                                        <button class="dropdown__button button button--icon" stewed-dropdown="menu-2">⁝</button>
-                                        <ul class="bg-white box-shadow--4 margin-top-10" id="menu-2">
-                                            <li><a href="">Some Action</a>
-                                            </li>
-                                            <li class="dropdown__divider"><a href="">Another Action</a>
-                                            </li>
-                                            <li><a href="" class="disabled">Disabled Action</a>
-                                            </li>
-                                            <li><a href="">Yet Another Action</a>
-                                            </li>
-                                        </ul>
+                            <div class="col-large-6 col-medium-6 col-small-6 margin-bottom-40">
+                                <div class="card bg-white color-blue box-shadow--6">
+                                    <div class="card__header">
+                                        <div class="dropdown dropdown--top-right">
+                                            <button class="dropdown__button button button--icon" stewed-dropdown="menu-2">⁝</button>
+                                            <ul class="bg-white box-shadow--4 margin-top-10" id="menu-2">
+                                                <li><a href="">Some Action</a>
+                                                </li>
+                                                <li class="dropdown__divider"><a href="">Another Action</a>
+                                                </li>
+                                                <li><a href="" class="disabled">Disabled Action</a>
+                                                </li>
+                                                <li><a href="">Yet Another Action</a>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                </div>
-                <div class="card margin-top-20 margin-bottom-60">
-                    <div class="card__header ">
-                         <h4 class="card__header__title text-uppercase">Cooking</h4>
-
                     </div>
-                    <div class="card__container card--border">
-                        <div id="view-html" class="code"> <pre class="brush: xml; toolbar: false; gutter: false;">
-                    &lt;div class="card bg-white color-pink box-shadow--6">
-                        &lt;div class="card__header ">
-                            &lt;div class="dropdown dropdown--top-left">
-                                &lt;button class="dropdown__button button button--icon" stewed-dropdown="menu-1">⁝&lt;/button>
-                                &lt;ul class="bg-white color-pink box-shadow--4 margin-top-10" id="menu-1">
+                    <div class="card margin-top-20 margin-bottom-60">
+                        <div class="card__header ">
+                             <h4 class="card__header__title text-uppercase">Cooking</h4>
+
+                        </div>
+                        <div class="card__container card--border">
+                            <div id="view-html" class="code"> <pre class="brush: xml; toolbar: false; gutter: false;">
+                                    &lt;div class="card bg-white color-pink box-shadow--6">
+                                    &lt;div class="card__header ">
+                                    &lt;div class="dropdown dropdown--top-left">
+                                    &lt;button class="dropdown__button button button--icon" stewed-dropdown="menu-1">⁝&lt;/button>
+                                    &lt;ul class="bg-white color-pink box-shadow--4 margin-top-10" id="menu-1">
                                     &lt;li>&lt;a href="">Some Action&lt;/a>&lt;/li>
                                     &lt;li class="dropdown__divider">&lt;a href="">Another Action&lt;/a>&lt;/li>
                                     &lt;li>&lt;a href="" class="disabled">Disabled Action&lt;/a>&lt;/li>
                                     &lt;li>&lt;a href="">Yet Another Action&lt;/a>&lt;/li>
-                                &lt;/ul>
-                            &lt;/div>
-                        &lt;/div>
-                    &lt;/div>
-                </pre>
+                                    &lt;/ul>
+                                    &lt;/div>
+                                    &lt;/div>
+                                    &lt;/div>
+                                </pre>
 
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            </div>
-        </section>
-        <footer class="footer bg-blue text-white">
-            <div class="container">
-                <div class="row">
-                    <div class="col-col-large-12 col-col-medium-12 col-col-small-12">
-                        <nav>
-                            <ul class="menu menu--horizontal menu--inherit float-right">
-                                <li class="menu__item"><a class="menu__link" href="https://github.com/maurovieirareis/stewed"
-                                    target="_bank">View Source on Github</a>
+                </div>
+            </section>
+            <footer class="footer bg-blue text-white">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-col-large-12 col-col-medium-12 col-col-small-12">
+                            <nav>
+                                <ul class="menu menu--horizontal menu--inherit float-right">
+                                    <li class="menu__item"><a class="menu__link" href="https://github.com/maurovieirareis/stewed"
+                                        target="_bank">View Source on Github</a>
 
-                                </li>
-                                <li class="menu__item"><a class="menu__link" href="changelog.html">Changelog</a>
+                                    </li>
+                                    <li class="menu__item"><a class="menu__link" href="changelog.html">Changelog</a>
 
-                                </li>
-                            </ul>
-                        </nav>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </footer>
-        <script src="https://unpkg.com/vue"></script>
-        <script>
-            new Vue({
-                el: '#app',
-                data: {
-                }
-            });
-        </script>
+            </footer>
+            <script src="https://unpkg.com/vue"></script>
+            <script>
+                new Vue({
+                    el: '#app',
+                    data: {
+                    }
+                });
+            </script>
+        </main>
     </body>
 
 </html>
