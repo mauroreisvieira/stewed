@@ -1,0 +1,12 @@
+@import '../../utilities/variables';
+@import '../../utilities/mixins';
+
+// font
+$c-table-font-family: $u-font-family-monospace;
+$c-table-font-size: $u-font-size;
+
+// spaces
+$c-table-padding-head: 0.70em 1.300em;
+$c-table-padding-body: 0.90em 1.000em;
+
+@import 'table';

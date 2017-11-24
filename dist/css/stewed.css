@@ -1963,3 +1963,88 @@ a:hover {
   display: inline-flex;
   flex-direction: column;
 }
+
+.table {
+  display: table;
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  white-space: nowrap;
+  border: 0;
+  font-family: "Roboto Mono", monospace;
+  font-size: 16px;
+}
+
+.table thead {
+  border-bottom: 1px solid #e9e9e9;
+}
+
+.table thead th {
+  font-weight: bold;
+  display: table-cell;
+  padding: 0.7em 1.3em;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.table tbody tr td {
+  display: table-cell;
+  padding: 0.9em 1em;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.table .textfield {
+  margin: 0;
+}
+
+.table--border tbody tr {
+  border-bottom: 1px solid #e9e9e9;
+}
+
+.table--hover tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.table--striped tbody tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+
+@media only screen and (max-width: 992px) {
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    display: block;
+    position: relative;
+  }
+  .table thead {
+    display: block;
+    float: left;
+    border: 0;
+    border-right: 1px solid #d0d0d0;
+  }
+  .table thead tr {
+    display: block;
+    padding: 0 10px 0 0;
+  }
+  .table thead tr th {
+    display: block;
+    text-align: right;
+  }
+  .table tbody {
+    display: block;
+    width: auto;
+    position: relative;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .table tbody tr {
+    display: inline-block;
+    vertical-align: top;
+  }
+  .table tbody tr td {
+    display: block;
+    text-align: left;
+  }
+}
