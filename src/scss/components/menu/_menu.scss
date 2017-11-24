@@ -6,15 +6,21 @@
   padding: 0;
 
   &__item {
-    padding: 20px 0;
+
   }
 
   &__link {
     display: block;
-    padding: 4px 14px;
+    padding: 14px;
     position: relative;
     text-decoration: none;
     transition: color .2s linear;
+    box-sizing: border-box;
+    border-radius: 2px;
+
+    &.is-active {
+      background-color: #fff;
+    }
   }
 
   &--vertical {
@@ -22,6 +28,7 @@
       display: block;
       width: 100%;
       margin-bottom: 0;
+
       ul {
         display: none;
         z-index: 11;
