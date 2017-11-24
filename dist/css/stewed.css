@@ -21,6 +21,7 @@
  * THE SOFTWARE.
 */
 .btn {
+  --btn: 40px;
   background: none;
   border: 1px solid;
   border-radius: 2px;
@@ -28,9 +29,10 @@
   cursor: pointer;
   display: inline-block;
   font-family: "Roboto", sans-serif;
-  height: 40px;
-  letter-spacing: .4px;
-  line-height: 40px;
+  font-size: 14px;
+  font-weight: 400;
+  height: var(--btn);
+  line-height: var(--btn);
   margin: 0;
   padding: 0 16px;
   position: relative;
@@ -45,35 +47,31 @@
 }
 
 .btn--large {
-  font-size: 16px;
-  font-weight: 400;
-  height: 48px;
-  line-height: 48px;
-  padding: 0 52px;
+  --btn-large: 48px;
+  height: var(--btn-large);
+  line-height: var(--btn-large);
+  padding: 0 48px;
 }
 
 .btn--medium {
-  font-size: 16px;
-  font-weight: 400;
-  height: 44px;
-  line-height: 44px;
+  --btn-medium: 44px;
+  height: var(--btn-medium);
+  line-height: var(--btn-medium);
   padding: 0 32px;
 }
 
 .btn--small {
-  font-size: 14px;
-  font-weight: 400;
-  height: 36px;
-  line-height: 36px;
+  --btn-small: 36px;
+  height: var(--btn-small);
+  line-height: var(--btn-small);
   padding: 0 14px;
 }
 
 .btn--icon {
   border-radius: 50%;
-  font-size: 16px;
   font-weight: 400;
   padding: 0;
-  width: 40px;
+  width: var(--btn);
 }
 
 .btn--icon .icon {
@@ -81,15 +79,15 @@
 }
 
 .btn--icon.btn--large {
-  width: 48px;
+  width: var(--btn-large);
 }
 
 .btn--icon.btn--medium {
-  width: 44px;
+  width: var(--btn-medium);
 }
 
 .btn--icon.btn--small {
-  width: 36px;
+  width: var(--btn-small);
 }
 
 .btn--danger {
@@ -108,7 +106,7 @@
   top: 0;
   transform: rotate3d(0, 0, 1, -90deg);
   transform-origin: left bottom;
-  transition: transform .3s, background-color .3s;
+  transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1), background-color 0.4s cubic-bezier(0.2, 1, 0.3, 1);
   width: 150%;
   will-change: transform;
   z-index: -1;
@@ -145,7 +143,7 @@
   top: 0;
   transform: rotate3d(0, 0, 1, -90deg);
   transform-origin: left bottom;
-  transition: transform .3s, background-color .3s;
+  transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1), background-color 0.4s cubic-bezier(0.2, 1, 0.3, 1);
   width: 150%;
   will-change: transform;
   z-index: -1;
@@ -182,7 +180,7 @@
   top: 0;
   transform: rotate3d(0, 0, 1, -90deg);
   transform-origin: left bottom;
-  transition: transform .3s, background-color .3s;
+  transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1), background-color 0.4s cubic-bezier(0.2, 1, 0.3, 1);
   width: 150%;
   will-change: transform;
   z-index: -1;
@@ -219,7 +217,7 @@
   top: 0;
   transform: rotate3d(0, 0, 1, -90deg);
   transform-origin: left bottom;
-  transition: transform .3s, background-color .3s;
+  transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1), background-color 0.4s cubic-bezier(0.2, 1, 0.3, 1);
   width: 150%;
   will-change: transform;
   z-index: -1;
@@ -1827,27 +1825,27 @@ h6 {
 
 p {
   font-family: "Roboto", sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 300;
   color: #000;
 }
 
 span {
   font-family: "Roboto", sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 300;
   color: #000;
 }
 
 a {
   font-family: "Roboto", sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 300;
-  color: #e3342f;
+  color: #3490dc;
 }
 
 a:hover {
-  color: #df1070;
+  color: #2779bd;
   text-decoration: none;
 }
 
@@ -1887,7 +1885,7 @@ a:hover {
   font-weight: 400;
 }
 
-.font-semibold {
+.semibold {
   font-weight: 500;
 }
 
@@ -1899,8 +1897,40 @@ a:hover {
   font-weight: 900;
 }
 
+.x-small {
+  font-size: 10px;
+}
+
+.small {
+  font-size: 12px;
+}
+
+.base {
+  font-size: 14px;
+}
+
+.medium {
+  font-size: 16px;
+}
+
+.large {
+  font-size: 20px;
+}
+
+.x-large {
+  font-size: 26px;
+}
+
 .italic {
   font-style: italic;
+}
+
+.oblique {
+  font-style: oblique;
+}
+
+.normal {
+  font-style: normal;
 }
 
 .overline {
