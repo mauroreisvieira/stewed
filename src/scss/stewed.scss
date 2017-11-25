@@ -26,19 +26,24 @@
 @import 'utilities/variables';
 
 // Components
+@import 'components/badge/index';
 @import 'components/border/index';
+@import 'components/breadcrumb/index';
 @import 'components/button/index';
 @import 'components/card/index';
 @import 'components/color/index';
 @import 'components/flex/index';
 @import 'components/form/index';
 @import 'components/grid/index';
-@import 'components/list/index';
+@import 'components/label/index';
 @import 'components/list/index';
 @import 'components/menu/index';
 @import 'components/navbar/index';
+@import 'components/pagination/index';
+@import 'components/shadow/index';
 @import 'components/sizing/index';
 @import 'components/spacing/index';
 @import 'components/table/index';
+@import 'components/tooltip/index';
 @import 'components/typography/index';
 
