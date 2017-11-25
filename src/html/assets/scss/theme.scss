@@ -12,6 +12,10 @@ body {
 	box-sizing: border-box;
 	overflow-x: hidden;
 	background: #f3f3f3;
+
+	&.docs {
+		background: #fff;
+	}
 }
 
 .wrapper {

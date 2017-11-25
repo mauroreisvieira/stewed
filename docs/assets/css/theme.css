@@ -12,6 +12,10 @@ body {
   background: #f3f3f3;
 }
 
+body.docs {
+  background: #fff;
+}
+
 .wrapper {
   display: grid;
   grid-template-columns: 300px calc(100% - 300px);
