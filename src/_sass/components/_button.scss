@@ -1,0 +1,214 @@
+@mixin button {
+    position: relative;
+    display: inline-block;
+    margin: auto;
+    line-height: normal;
+    cursor: pointer;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    vertical-align: middle;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: inherit;
+    font-size: $font-size;
+    border: 0;
+    border-radius: $border-radius;
+    @include transitionButton;
+    will-change: box-shadow;
+    min-width: 60px;
+    line-height: 40px;
+    padding: 0 16px;
+    -webkit-tap-highlight-color: transparent;
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+        font-size: 0.875em;
+        padding: 0 0.875em;
+    }
+    &:hover, &:active {
+        outline: none;
+        border: 0;
+        box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
+        outline: none;
+    }
+    &:active {
+        background-image: linear-gradient(rgba(255, 255, 255, .40), rgba(255, 255, 255, .40));
+    }
+    &:focus {
+        outline: none;
+    }
+    &:disabled,
+    &.disabled,
+    [disabled] {
+        background-color: rgba(0,0,0,.12);
+        color: rgba(0,0,0,.26);
+        box-shadow: none;
+        cursor: default;
+        opacity: 1;
+        &:hover, &:focus {
+            background-color: rgba(0,0,0,.12);
+            color: rgba(0,0,0,.26);
+            box-shadow: none;
+            opacity: 1;
+        }
+    }
+}
+
+/** Style formate buttons  */
+.button {
+    @include button
+    font {
+        size: $font-size;
+        weight: $weight-regular;
+    }
+    &.button--fullwidth {
+        width: 100%;
+    }
+}
+
+.button--link {
+    background:transparent;
+    position: relative;
+    display: inline-block;
+    margin: auto;
+    overflow: hidden;
+    line-height: normal;
+    cursor: pointer;
+    vertical-align: middle;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: inherit;
+    font-size: $font-size;
+    border: 0;
+    border-radius: $border-radius;
+    @include transitionButton;
+    box-shadow: none;
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+        font-size: 0.875em;
+    }
+    &:hover, &:active {
+        background-color: rgba(158,158,158,.2);
+        box-shadow: none;
+        outline: none;
+        border: 0;
+        outline: none;
+    }
+    &:focus {
+        box-shadow: none;
+        outline: none;
+    }
+    &:disabled,
+    &.disabled,
+    [disabled] {
+        background-color: rgba(0,0,0,.12);
+        color: rgba(0,0,0,.26);
+        box-shadow: none;
+        cursor: default;
+        &:hover, &:focus {
+            background-color: rgba(0,0,0,.12);
+            color: rgba(0,0,0,.26);
+            box-shadow: none;
+        }
+    }
+}
+
+.button--fab {
+    border-radius: 50%;
+    font-size: 24px;
+    height: 48px;
+    min-width: 48px;
+    width: 48px;
+    padding: 0;
+    border: 0;
+    background: rgba(158,158,158,.2);
+    box-shadow: 0 1px 1.5px 0 rgba(0,0,0,.12), 0 1px 1px 0 rgba(0,0,0,.24);
+    &:focus {
+        outline: none;
+        border-radius: 50%;
+    }
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+        height: 56px;
+        min-width: 56px;
+        width: 56px;
+        font-size: 1.250em;
+    }
+}
+
+.button--icon {
+    position: relative;
+    border-radius: 50%;
+    font-size: 20px;
+    height: 34px;
+    min-width: 34px;
+    width: 34px;
+    line-height: 34px;
+    text-align: center;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+    z-index: 1;
+    background:transparent;
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+        font-size: 22px;
+        height: 38px;
+        min-width: 38px;
+        width: 38px;
+        line-height: 38px;
+    }
+    &:focus {
+        outline: none;
+        box-shadow: none;
+        background-color: transparent;
+        background-image: none;  
+    }
+    &:hover {
+        box-shadow: none;
+        background-color: rgba(0,0,0, .2);
+        background-image: none;
+    }
+}
+
+.button--large {
+    padding: 0 26px;
+    line-height: 54px;
+    font {
+        size: 18px;
+        weight: $weight-medium;
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+            size: 1.125em;
+        }
+    }
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+        padding: 0 2.750em;
+        line-height: 54px;
+    }
+}
+
+.button--medium {
+    padding: 0 24px;
+    line-height: 44px;
+    font {
+        size: 16px;
+        weight: $weight-medium;
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+            size: 1.000;
+        }
+    }
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+        padding: 0 2.125em;
+        line-height: 44px;
+    }
+}
+
+.button--small {
+    padding: 0 16px;
+    line-height: 34px;
+    font {
+        size: 14px;
+        weight: $weight-medium;
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+            size: .0.625em;
+        }
+    }
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+        padding: 0 1.750em;
+        line-height: 34px;
+    }
+}

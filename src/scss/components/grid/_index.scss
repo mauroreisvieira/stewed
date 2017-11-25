@@ -1,6 +1,12 @@
 @import '../../utilities/variables';
 @import '../../utilities/mixins';
 
+$c-grid-media-desktop: $u-width-media-desktop;
+$c-grid-media-tablet-min: $u-width-media-tablet-min;
+$c-grid-media-tablet-max: $u-width-media-tablet-max;
+$c-grid-media-mobile-min: $u-width-media-mobile-min;
+$c-grid-media-mobile-max: $u-width-media-mobile-max;
+
 $grid: 100%;
 $columns: 12;
 $gutter: 15px;

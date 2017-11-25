@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<partial src="partials/head.html" title="Stewed Framework 1.0"></partial>
+</head>
+<body>
+	<main class="wrapper" id="app">
+		<partial src="partials/header.html" selected="button"></partial>
+		<div class="content pb-40">
+			<partial src="partials/title.html" color="pink" title="Menu" update="25 Nov 2017"></partial>
+			<section class="section p-20">
+				<div class="row">
+					<div class="col-large-12 col-medium-12 col-small-12">
+						<p class="monospace extrabold">Menu Horizontal</p>
+						<p>Mandatory, defaults to a text button</p>
+					</div>
+					<div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
+						<div class="bg-blue text-white">
+							<ul class="menu menu--inherit menu--horizontal">
+								<li class="menu__item"><a href="" class="menu__link">Menu 1</a></li>
+								<li class="menu__item"><a href="" class="menu__link is-active">Menu 2</a></li>
+								<li class="menu__item"><a href="" class="menu__link">Menu 3</a></li>
+								<li class="menu__item">
+									<a href="#" class="menu__link">Menu Dropdown  (↓)</a>
+									<ul class="menu__horizontal__submenu bg-amber text-center">
+										<li><a href="">Menu Right 1</a></li>
+										<li><a href="">Menu Right 2</a></li>
+										<li><a href="">Menu Right 3</a></li>
+									</ul>
+								</li>
+								<li class="menu__item"><a href="" class="menu__link">Menu 5</a></li>
+								<li class="menu__item"><a href="" class="menu__link">Menu 6</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="col-large-12 col-medium-12 col-small-12">
+						<p class="monospace extrabold">Menu Horizontal with Scroll</p>
+					</div>
+					<div class="col-large-6 col-medium-6 col-small-12 margin-bottom-40">
+						<div class="menu bg-teal color-white">
+							<ul class="menu__horizontal--scroll font-500">
+								<li><a href="">Menu 1</a></li>
+								<li><a href="" class="active">Menu 2</a></li>
+								<li><a href="">Menu 3</a></li>
+								<li><a href="">Menu 4</a></li>
+								<li><a href="">Menu 5</a></li>
+								<li><a href="">Menu 6</a></li>
+								<li><a href="">Menu 7</a></li>
+								<li><a href="">Menu 8</a></li>
+								<li><a href="">Menu 9</a></li>
+								<li><a href="">Menu 10</a></li>
+							</ul>
+						</div>
+					</div>
+
+
+					<div class="col-large-12 col-medium-12 col-small-12">
+						<h2>Vertical menu (Sub Menu Left)</h2>
+					</div>
+					<div class="col-large-4 col-medium-6 col-small-12 margin-bottom-40 pull-center">
+						<div class="menu color-white">
+							<ul class="menu__vertical bg-teal text-right">
+								<li><a href="">Menu 2</a></li>
+								<li>
+									<a href="#">Menu Left  <span class="pull-left">(←)</span></a>
+									<ul class="menu__vertical__submenu--left bg-amber text-center">
+										<li><a href="">Menu Left 1</a></li>
+										<li><a href="">Menu Left 2</a></li>
+										<li><a href="">Menu Left 3</a></li>
+										<li><a href="">Menu Left 4</a></li>
+										<li><a href="">Menu Left 5</a></li>
+									</ul>
+								</li>
+								<li><a href="#">Menu 3</a></li>
+								<li><a href="#">Menu 4</a></li>
+							</ul>
+						</div>
+					</div>
+
+
+					<div class="col-large-12 col-medium-12 col-small-12">
+						<h2>Vertical menu (Sub Menu Right)</h2>
+					</div>
+					<div class="col-large-4 col-medium-6 col-small-12 margin-bottom-40 pull-center">
+						<div class="menu color-white">
+							<ul class="menu__vertical bg-teal">
+								<li><a href="">Menu 2</a></li>
+								<li>
+									<a href="#">Menu Right  <span class="pull-right">(→)</span></a>
+									<ul class="menu__vertical__submenu--right bg-amber text-center">
+										<li><a href="">Menu Right 1</a></li>
+										<li><a href="">Menu Right 2</a></li>
+										<li><a href="">Menu Right 3</a></li>
+										<li><a href="">Menu Right 4</a></li>
+										<li><a href="">Menu Right 5</a></li>
+									</ul>
+								</li>
+								<li><a href="#">Menu 3</a></li>
+								<li><a href="#">Menu 4</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+</section>
+
+</main>
+<partial src="partials/script.html"></partial>
+</body>
+</html>

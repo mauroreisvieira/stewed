@@ -1,0 +1,28 @@
+.label {
+    display: inline-block;
+    padding: .2em .6em .3em;
+    line-height: normal;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 2px;
+    background-color: #000;
+    margin: 0.175em 0;
+}
+
+.label--success {
+    background-color: green;
+}
+
+.label--info {
+    background-color: blue;
+}
+
+.label--warning {
+    background-color: red;
+}
+
+.label--danger {
+    background-color: purple;
+}

@@ -1,18 +1,18 @@
-.btn {
-  --btn: $c-btn-height;
+.button {
+  --button: $c-button-height;
   background: none;
   border: 1px solid;
-  border-radius: $c-btn-border-radius;
+  border-radius: $c-button-border-radius;
   color: inherit;
   cursor: pointer;
   display: inline-block;
   font-family: $u-font-family-serif;
-  font-size: $c-btn-font-size;
-  font-weight: $c-btn-font-weight;
-  height: var(--btn);
-  line-height: var(--btn);
+  font-size: $c-button-font-size;
+  font-weight: $c-button-font-weight;
+  height: var(--button);
+  line-height: var(--button);
   margin: 0;
-  padding: 0 $c-btn-horizontal-padding;
+  padding: 0 $c-button-horizontal-padding;
   position: relative;
   text-transform: uppercase;
   vertical-align: middle;
@@ -24,50 +24,50 @@
   }
 
   &--large {
-    --btn-large: $c-btn-height + 8px;
-    height: var(--btn-large);
-    line-height: var(--btn-large);
-    padding: 0 $c-btn-horizontal-padding * 3;
+    --button-large: $c-button-height + 8px;
+    height: var(--button-large);
+    line-height: var(--button-large);
+    padding: 0 $c-button-horizontal-padding * 3;
   }
 
   &--medium {
-    --btn-medium: $c-btn-height + 4px;
-    height: var(--btn-medium);
-    line-height: var(--btn-medium);
-    padding: 0 $c-btn-horizontal-padding * 2;
+    --button-medium: $c-button-height + 4px;
+    height: var(--button-medium);
+    line-height: var(--button-medium);
+    padding: 0 $c-button-horizontal-padding * 2;
   }
 
   &--small {
-    --btn-small: $c-btn-height - 4px;
-    height: var(--btn-small);
-    line-height: var(--btn-small);
-    padding: 0 $c-btn-horizontal-padding - 2;
+    --button-small: $c-button-height - 4px;
+    height: var(--button-small);
+    line-height: var(--button-small);
+    padding: 0 $c-button-horizontal-padding - 2;
   }
 
   &--icon {
     border-radius: 50%;
-    font-weight: $c-btn-font-weight;
+    font-weight: $c-button-font-weight;
     padding: 0;
-    width: var(--btn);
+    width: var(--button);
 
     .icon {
       pointer-events: none;
     }
 
-    &.btn--large {
-      width: var(--btn-large);
+    &.button--large {
+      width: var(--button-large);
     }
 
-    &.btn--medium {
-      width: var(--btn-medium);
+    &.button--medium {
+      width: var(--button-medium);
     }
 
-    &.btn--small {
-      width: var(--btn-small);
+    &.button--small {
+      width: var(--button-small);
     }
   }
 
-  @each $key, $values in $btns {
+  @each $key, $values in $buttons {
 
     &--#{$key} {
       background-color: nth($values, 1);
@@ -84,7 +84,7 @@
         top: 0;
         transform: rotate3d(0, 0, 1, -90deg);
         transform-origin: left bottom;
-        transition: transform $c-btn-transition-duration $c-btn-transition-timing, background-color $c-btn-transition-duration $c-btn-transition-timing;
+        transition: transform $c-button-transition-duration $c-button-transition-timing, background-color $c-button-transition-duration $c-button-transition-timing;
         width: 150%;
         will-change: transform;
         z-index: -1;
@@ -101,7 +101,7 @@
           background-color: nth($values, 3);
           opacity: 1;
           transform: rotate3d(0, 0, 1, 0deg);
-          transition-timing-function: $c-btn-transition-timing;
+          transition-timing-function: $c-button-transition-timing;
         }
       }
     }

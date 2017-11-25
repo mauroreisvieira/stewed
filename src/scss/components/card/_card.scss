@@ -1,21 +1,10 @@
 .card {
-  border-radius: $border-radius-card;
-  box-shadow: 0 3rem 5rem -2rem rgba($c-card-shadow-color, .4);
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin: auto;
-  text-align: left;
-  width: 100%;
-
-  &--border {
-    border-right: 2px solid $c-card-shadow-color;
-  }
-
-  &--center {
-    align-items: center;
-  }
+  justify-content: flex-end;
+  box-sizing: border-box;
+  padding: 0;
+  overflow: hidden;
 
   &--small {
     max-width: 400px;
@@ -30,17 +19,44 @@
   }
 
   &__header {
-    align-items: center;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    padding: 8px 16px;
     width: 100%;
+  }
+
+  &__media {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   &__content {
     box-sizing: border-box;
-    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    padding: 8px 16px;
     width: 100%;
+  }
+
+  &__actions {
+    display: flex;
+    box-sizing: border-box;
+    padding: 8px 16px 16px;
+  }
+
+  &__footer {
+    display: flex;
+    box-sizing: border-box;
+    padding: 8px 16px;
   }
 }
 

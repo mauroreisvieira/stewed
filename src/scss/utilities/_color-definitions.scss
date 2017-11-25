@@ -1,6 +1,6 @@
 $u-color-red: (
   'base': #e3342f,
-  'lighten': #e3342f,
+  'lighten': #f9acaa,
   'darken': #cc1f1a
 );
 
@@ -32,6 +32,12 @@ $u-color-violet: (
   'base': #6f1efb,
   'lighten': #6f1efb,
   'darken': #6f1efb
+);
+
+$u-color-purple: (
+  'base': #800080,
+  'lighten': #800080,
+  'darken': #800080
 );
 
 $u-color-cyan: (
@@ -71,6 +77,7 @@ $u-colors: (
   'orange': $u-color-orange,
   'salmon': $u-color-salmon,
   'violet': $u-color-violet,
+  'purple': $u-color-purple,
   'cyan': $u-color-cyan,
   'aqua': $u-color-aqua,
   'green': $u-color-green,
