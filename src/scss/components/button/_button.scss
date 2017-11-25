@@ -1,8 +1,8 @@
 .button {
   --button: $c-button-height;
   background: none;
-  border: 1px solid;
   border-radius: $c-button-border-radius;
+  border: 1px solid;
   color: inherit;
   cursor: pointer;
   display: inline-block;
@@ -14,9 +14,14 @@
   margin: 0;
   padding: 0 $c-button-horizontal-padding;
   position: relative;
+  text-decoration: none;
   text-transform: uppercase;
   vertical-align: middle;
   z-index: 0;
+
+  &:hover {
+    text-decoration: none;
+  }
 
   &[disabled] {
     opacity: .7;

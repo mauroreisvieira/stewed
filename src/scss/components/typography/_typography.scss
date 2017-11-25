@@ -11,11 +11,6 @@ p {
   color: $c-typography-color-text;
 }
 
-span {
-  @include typography($c-typography-font-size-base, $c-typography-font-weight-light);
-  color: $c-typography-color-text;
-}
-
 a {
   @include typography($c-typography-font-size-base, $c-typography-font-weight-light);
   color: $c-typography-color-link;

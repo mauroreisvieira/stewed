@@ -291,8 +291,8 @@
 .button {
   --button: 40px;
   background: none;
-  border: 1px solid;
   border-radius: 2px;
+  border: 1px solid;
   color: inherit;
   cursor: pointer;
   display: inline-block;
@@ -304,9 +304,14 @@
   margin: 0;
   padding: 0 16px;
   position: relative;
+  text-decoration: none;
   text-transform: uppercase;
   vertical-align: middle;
   z-index: 0;
+}
+
+.button:hover {
+  text-decoration: none;
 }
 
 .button[disabled] {
@@ -2613,13 +2618,6 @@ h6 {
 }
 
 p {
-  font-family: "Roboto", sans-serif;
-  font-size: 14px;
-  font-weight: 300;
-  color: #000;
-}
-
-span {
   font-family: "Roboto", sans-serif;
   font-size: 14px;
   font-weight: 300;
