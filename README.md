@@ -29,7 +29,7 @@ git clone https://github.com/maurovieirareis/stewed
 #### Installation
 
 ```bash
-npm install Stewed --save
+npm install stewed --save
 ```
 
 ```bash
