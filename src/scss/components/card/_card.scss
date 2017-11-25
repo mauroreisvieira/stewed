@@ -1,17 +1,9 @@
 .card {
-  border-radius: $border-radius-card;
-  box-shadow: 0 3rem 5rem -2rem rgba($c-card-shadow-color, .4);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   margin: auto;
-  text-align: left;
   width: 100%;
-
-  &--border {
-    border-right: 2px solid $c-card-shadow-color;
-  }
 
   &--center {
     align-items: center;
@@ -30,7 +22,6 @@
   }
 
   &__header {
-    align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: space-around;

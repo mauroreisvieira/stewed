@@ -34,6 +34,12 @@ $u-color-violet: (
   'darken': #6f1efb
 );
 
+$u-color-purple: (
+  'base': #800080,
+  'lighten': #800080,
+  'darken': #800080
+);
+
 $u-color-cyan: (
   'base': #0193a3,
   'lighten': #0193a3,
@@ -71,6 +77,7 @@ $u-colors: (
   'orange': $u-color-orange,
   'salmon': $u-color-salmon,
   'violet': $u-color-violet,
+  'purple': $u-color-purple,
   'cyan': $u-color-cyan,
   'aqua': $u-color-aqua,
   'green': $u-color-green,
