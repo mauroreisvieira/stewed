@@ -1,24 +1,18 @@
-/**
- * Tooltip Styles
- */
+[data-tooltip],
+.tooltip {
+	position: relative;
+	cursor: pointer;
 
- [stewed-tooltip],
- .tooltip {
- 	position: relative;
- 	cursor: pointer;
-
-	/* Base styles for the entire tooltip */
 	&:after,
 	&:after {
-		position: absolute;
-		visibility: hidden;
 		opacity: 0;
-		transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
-		transform: none;
 		pointer-events: none;
+		position: absolute;
+		transform: none;
+		transition: opacity .2s ease-in-out, visibility 0.2s ease-in-out, transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+		visibility: hidden;
 	}
 
-	/* Show the entire tooltip on hover and focus */
 	&:hover:after,
 	&:focus:after,
 	&:hover:after,
@@ -26,43 +20,39 @@
 		visibility: visible;
 		opacity: 1;
 	}
-	/* Base styles for the tooltip's content area */
+
 	&:after,
 	&:after {
 		z-index: 1000;
 		padding: 8px;
 		width: 160px;
-		background-color: #000;
-		background-color: red;
-		color: #fff;
-		content: attr(stewed-tooltip);
+		background-color: $c-tooltip-background;
+		color: $c-tooltip-color;
+		content: attr(data-tooltip);
 		line-height: 1em;
-		border-radius: 2;
+		border-radius: $c-tooltip-border-radius;
 		text-transform: none;
 		text-align: center;
-		font-size: 14px;
-		font-weight: 300;
+		font-size: $c-tooltip-font-size;
+		font-weight: $c-tooltip-font-weight;
 	}
-
 }
 
-/* Directions Top (default) */
-[stewed-tooltip]:after,
+[data-tooltip]:after,
 .tooltip:after,
 .tooltip--top:after {
 	bottom: 100%;
 	left: 50%;
 }
 
-/* Horizontally align top/bottom tooltips */
-[stewed-tooltip]:after,
+[data-tooltip]:after,
 .tooltip:after,
 .tooltip--top:after {
 	margin-left: -80px;
 }
 
-[stewed-tooltip]:hover:after,
-[stewed-tooltip]:focus:after,
+[data-tooltip]:hover:after,
+[data-tooltip]:focus:after,
 .tooltip:hover:after,
 .tooltip:focus:after,
 .tooltip--top:hover:after,
@@ -82,7 +72,6 @@
 	transform: translateX(-12px);
 }
 
-/* Directions Bottom */
 .tooltip--bottom:after {
 	top: 100%;
 	bottom: auto;
@@ -95,7 +84,6 @@
 	transform: translateY(12px);
 }
 
-/* Directions Right */
 .tooltip--right:after {
 	bottom: 50%;
 	left: 100%;
@@ -106,7 +94,6 @@
 	transform: translateX(12px);
 }
 
-/* Vertically center tooltip content for left/right tooltips */
 .tooltip--left:after,
 .tooltip--right:after {
 	margin-left: 0;
