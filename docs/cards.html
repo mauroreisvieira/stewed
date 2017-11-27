@@ -69,8 +69,10 @@
             <div class="sidebar text-grey--darken">
                 <div class="flex flex--column flex--item-center flex--content-center h-3 mb-40 bg-white">
                     <img src="assets/images/logo/stewed_dark.svg" alt="Stewed Framework" title="Stewed Framework"
-                    class="logo"> <span class="text-center mb-40 bold">⏤ v0.9.50 ⏤</span>
+                    class="logo">
+                    <p class="text-center"><span class="mb-40 bold">⏤ v0.9.50 ⏤</span>
 
+                    </p>
                 </div>
                 <input type="hidden" id="sidebarSelected" value="cards">
                 <ul class="menu menu--vertical menu--inherit p-20">
@@ -141,8 +143,58 @@
                     </div>
                     <div class="row mt-40">
                         <div class="col-large-12 col-medium-12 col-small-12">
+                            <p class="monospace extrabold">Card with Progress</p>
+                            <p>Optional, can change the default color (white) applied the different colors
+                                using class <code>.text-{YOUR COLOR}</code>
+                            </p>
+                        </div>
+                        <div class="col-large-4 col-medium-6 col-small-12">
+                            <ul class="list">
+                                <li class="list__item py-10"><code>.card</code>
+                                </li>
+                                <li class="list__item py-10"><code>.card__media</code>
+                                </li>
+                                <li class="list__item py-10"><code>.card__content</code>
+                                </li>
+                                <li class="list__item py-10"><code>.card__footer</code>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-large-4 col-medium-6 col-small-12">
+                            <div class="card bg-red mt-30">
+                                <div class="card__header">
+                                    	<h4 class="text-white thin"><span class="bold">Web</span> and <span class="bold">Mobile</span> Card Project with <span class="bold">Progress</span></h4>
+
+                                </div>
+                                <div class="card__content">
+                                    <div class="flex flex--content-between">
+                                        <p class=" text-white">	<i class="icon ion-android-attach"></i>
+2 attachment</p>
+                                        <p class="bold text-right text-white">60%</p>
+                                    </div>
+                                    <progress class="progress text-yellow" max="100" value="60"></progress>
+                                </div>
+                                <div class="card__footer bg-red--darken">
+                                    <div class="list list--horizontal">
+                                        <div class="list__item">
+                                            <img src="https://pbs.twimg.com/profile_images/913828202832973826/1WWUHoo5_400x400.jpg"
+                                            class="list__pic list__pic--xs">
+                                        </div>
+                                        <div class="list__item">
+                                            <img src="https://pbs.twimg.com/profile_images/777268866967867392/S1jRh4WM_400x400.jpg"
+                                            class="list__pic list__pic--xs">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-40">
+                        <div class="col-large-12 col-medium-12 col-small-12">
                             <p class="monospace extrabold">Card Media</p>
-                            <p>Mandatory, defaults card</p>
+                            <p>Optional, can use this for image as a container to show images.
+                                <br>If you need to have some kind of action, you can use the card for that
+                                purpose.</p>
                         </div>
                         <div class="col-large-4 col-medium-6 col-small-12">
                             <ul class="list">
@@ -157,7 +209,7 @@
                             </ul>
                         </div>
                         <div class="col-large-6 col-medium-6 col-small-12">
-                            <div class="card bg-grey--lighten">
+                            <div class="card mt-30 bg-grey--lighten">
                                 <div class="card__media">
                                     <img src="https://source.unsplash.com/random/480x300" title="Thanks Tobias van Schneider"
                                     alt="Thanks Tobias van Schneider">
@@ -178,7 +230,8 @@
                     <div class="row mt-40">
                         <div class="col-large-12 col-medium-12 col-small-12">
                             <p class="monospace extrabold">Card Horizontal</p>
-                            <p>Mandatory, defaults card</p>
+                            <p>Optional, can change the orientation of card using helpers like <code>.flex</code> to
+                                chanfge the arrangement of elements</p>
                         </div>
                         <div class="col-large-4 col-medium-6 col-small-12">
                             <ul class="list">
@@ -198,7 +251,7 @@
                             </ul>
                         </div>
                         <div class="col-large-6 col-medium-6 col-small-12">
-                            <div class="card flex flex--row bg-grey--lighten">
+                            <div class="card mt-30 flex flex--row bg-grey--lighten">
                                 <div class="card__media w-4">
                                     <img src="https://source.unsplash.com/random/481x301" title="Thanks Tobias van Schneider"
                                     alt="Thanks Tobias van Schneider">
