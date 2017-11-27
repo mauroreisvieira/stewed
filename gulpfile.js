@@ -56,7 +56,7 @@ gulp.task('html', function () {
     .pipe(htmlreplace({
       version: {
         src: packageJson.version,
-        tpl: 'Currently Version %s'
+        tpl: 'v%s'
       }
     }))
     .pipe(gulp.dest('docs/'));
