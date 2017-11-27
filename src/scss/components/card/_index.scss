@@ -1,6 +1,14 @@
 @import '../../utilities/variables';
 @import '../../utilities/mixins';
 
-$c-card-shadow-color: $u-color-black;
+// Card Padding
+$c-card-padding-x: 16px;
+$c-card-padding-y: 12px;
+
+// Card Width
+$c-card-large: $u-width-media-desktop;
+$c-card-medium: $u-width-media-tablet-min;
+$c-card-small: $u-width-media-mobile-min;
+
 
 @import 'card';
