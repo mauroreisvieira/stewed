@@ -2,7 +2,19 @@
 <script>
     new Vue({
         el: '#app',
-        data: {
+        mounted() {
+            var sidebarActive = document.getElementById('sidebarSelected');
+            this.selectedPage = sidebarActive.value;
+        },
+        data() {
+            return {
+                selectedPage: null
+            }
+        },
+        methods: {
+            isMenuSelected: function(page) {
+                return this.selectedPage == page;
+            }
         }
     });
 </script>
