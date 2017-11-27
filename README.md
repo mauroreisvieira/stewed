@@ -1,6 +1,6 @@
 <p align="center">
     <a href="http://maurovieirareis.github.io/stewed/index.html" target="_blank">
-    	<img width="120" src="docs/assets/images/logo/stewed_red.png">
+    	<img width="140" src="docs/assets/images/logo/stewed_dark.jpg">
     </a><br>
 </p>
 
