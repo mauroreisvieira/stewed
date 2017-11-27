@@ -921,6 +921,42 @@
   border-color: #36f7ce;
 }
 
+.bg-teal {
+  background-color: #4dc0b5;
+}
+
+.text-teal {
+  color: #4dc0b5;
+}
+
+.border-teal {
+  border-color: #4dc0b5;
+}
+
+.bg-teal--lighten {
+  background-color: #64d5ca;
+}
+
+.text-teal--lighten {
+  color: #64d5ca;
+}
+
+.border-teal--lighten {
+  border-color: #64d5ca;
+}
+
+.bg-teal--darken {
+  background-color: #38a89d;
+}
+
+.text-teal--darken {
+  color: #38a89d;
+}
+
+.border-teal--darken {
+  border-color: #38a89d;
+}
+
 .bg-green {
   background-color: #38c172;
 }
