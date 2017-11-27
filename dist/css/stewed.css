@@ -512,12 +512,12 @@
 }
 
 .card {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  box-sizing: border-box;
-  padding: 0;
   overflow: hidden;
+  padding: 0;
 }
 
 .card--small {
@@ -536,7 +536,7 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  padding: 8px 16px;
+  padding: 12px 16px;
   width: 100%;
 }
 
@@ -557,20 +557,21 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  padding: 8px 16px;
+  padding: 12px 16px;
   width: 100%;
 }
 
 .card__actions {
   display: flex;
   box-sizing: border-box;
-  padding: 8px 16px 16px;
+  padding: 12px 16px 16px;
 }
 
 .card__footer {
   display: flex;
   box-sizing: border-box;
-  padding: 8px 16px;
+  padding: 12px 16px;
+  margin-top: 4px;
 }
 
 .bg-white {
@@ -1046,6 +1047,10 @@
   justify-content: center;
 }
 
+.flex--content-between {
+  justify-content: space-between;
+}
+
 .flex--items-center {
   align-items: center;
 }
@@ -1419,6 +1424,12 @@ label {
   padding: 0;
   text-decoration: inherit;
   text-transform: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+.list--horizontal {
+  flex-direction: row;
 }
 
 .list__item {
@@ -1433,6 +1444,30 @@ label {
 .list__item__text {
   display: inline-flex;
   flex-direction: column;
+}
+
+.list__pic {
+  display: flex;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+  border-radius: 50%;
+  margin: 2px;
+}
+
+.list__pic--xs {
+  width: 32px;
+  height: 32px;
+}
+
+.list__pic--sm {
+  width: 40px;
+  height: 40px;
+}
+
+.list__pic--md {
+  width: 48px;
+  height: 48px;
 }
 
 .menu {
@@ -1681,6 +1716,27 @@ label {
 .pagination--border li.disabled:hover, .pagination--border li.disabled:focus, .pagination--border li[disabled]:hover, .pagination--border li[disabled]:focus {
   border-color: rgba(0, 0, 0, 0.26);
   background-color: transparent;
+}
+
+.progress[value] {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 2px;
+  border: 0;
+  height: 6px;
+  width: 100%;
+}
+
+.progress[value]::-webkit-progress-bar {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  box-shadow: none;
+}
+
+.progress[value]::-webkit-progress-value {
+  background: currentColor;
+  border-radius: 2px;
+  box-shadow: none;
 }
 
 /** Box Shadow **/
