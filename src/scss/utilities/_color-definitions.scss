@@ -70,6 +70,12 @@ $u-color-grey: (
   'darken': #212121
 );
 
+$u-color-teal: (
+  'base': #4dc0b5,
+  'lighten': #64d5ca,
+  'darken': #38a89d
+);
+
 $u-colors: (
   'red': $u-color-red,
   'pink': $u-color-pink,
@@ -80,6 +86,7 @@ $u-colors: (
   'purple': $u-color-purple,
   'cyan': $u-color-cyan,
   'aqua': $u-color-aqua,
+  'teal': $u-color-teal,
   'green': $u-color-green,
   'blue': $u-color-blue,
   'grey': $u-color-grey
