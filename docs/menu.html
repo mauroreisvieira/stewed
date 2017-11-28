@@ -56,7 +56,7 @@
                         <li class="menu__item"> <a class="menu__link uppercase" href="index.html" title="Home">Home</a>
 
                         </li>
-                        <li class="menu__item"> <a class="menu__link uppercase" href="typography.html" title="Documentation">Documentation</a>
+                        <li class="menu__item"> <a class="menu__link uppercase" href="instal.html" title="Documentation">Documentation</a>
 
                         </li>
                         <li class="menu__item"> <a class="menu__link uppercase" href="https://github.com/maurovieirareis/stewed"
@@ -70,12 +70,16 @@
                 <div class="flex flex--column flex--item-center flex--content-center h-3 mb-40 bg-white">
                     <img src="assets/images/logo/stewed_dark.svg" alt="Stewed Framework" title="Stewed Framework"
                     class="logo">
-                    <p class="text-center"><span class="mb-40 semibold">⏤  Currently Version 0.9.52 ⏤</span>
+                    <p class="text-center"><span class="mb-40 semibold">⏤  v0.9.52 ⏤</span>
 
                     </p>
                 </div>
                 <input type="hidden" id="sidebarSelected" value="button">
                 <ul class="menu menu--vertical menu--inherit p-20">
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('instal')}" class="menu__link"
+                        href="instal.html" class="">Instal</a> 
+                    </li>
+                    <li class="menu__separator"></li>
                     <!-- <li class="menu__item"><a :class="{'is-active': isMenuSelected('-')}" class="menu__link" href="colors.html" class="">Color & Shadow</a> </li> -->
                     <li class="menu__item"><a :class="{'is-active': isMenuSelected('typography')}" class="menu__link"
                         href="typography.html" class="">Typography</a> 

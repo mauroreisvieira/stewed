@@ -1,4 +1,6 @@
 @import '../../utilities/variables';
 @import '../../utilities/mixins';
 
+$c-menu__separator-color: map-get($u-color-grey, 'base');
+
 @import 'menu';

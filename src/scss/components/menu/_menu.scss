@@ -9,6 +9,10 @@
 
   }
 
+  &__separator {
+    border: 1px solid $c-menu__separator-color;
+  }
+
   &__link {
     display: block;
     padding: 14px;
