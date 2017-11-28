@@ -10,5 +10,19 @@ $c-form-input-text-button-size: 32px !default;
 
 $c-form-input-border-color: $u-color-black;
 
-@import 'input';
+// Form Font Family
+$c-form-family: $u-font-family-serif;
+$c-form-weight: $u-font-weight;
+
+// Checkbox Font Family
+$c-checkbox-family: $u-font-family-serif;
+$c-checkbox-weight: 300;
+
+// Switch Font Family
+$c-switch-family: $u-font-family-serif;
+$c-switch-weight: 300;
+
+@import 'radio';
+@import 'checkbox';
+@import 'switch';
 @import 'form';
