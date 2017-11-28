@@ -1670,8 +1670,9 @@
   padding: 0;
 }
 
-.menu__separator {
+.menu__item--separator {
   border: 1px solid #bdbdbd;
+  margin: 6px 0;
 }
 
 .menu__link {
@@ -1691,7 +1692,6 @@
 .menu--vertical li {
   display: block;
   width: 100%;
-  margin-bottom: 0;
 }
 
 .menu--vertical li ul {
