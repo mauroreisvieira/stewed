@@ -36,6 +36,10 @@ npm install stewed --save
 bower install stewed --save
 ```
 
+```bash
+yarn add stewed
+```
+
 Alternatively you can [download](https://codeload.github.com/maurovieirareis/stewed/zip/master)
 this repository.
 
