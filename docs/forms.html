@@ -74,12 +74,12 @@
 
                     </p>
                 </div>
-                <input type="hidden" id="sidebarSelected" value="buttons">
+                <input type="hidden" id="sidebarSelected" value="form">
                 <ul class="menu menu--vertical menu--inherit p-20">
                     <li class="menu__item"><a :class="{'is-active': isMenuSelected('instal')}" class="menu__link"
-                        href="instal.html" class="">Instal</a> 
+                        href="instal.html" class="">Installation</a> 
                     </li>
-                    <li class="menu__separator"></li>
+                    <li class="menu__item menu__item--separator"></li>
                     <!-- <li class="menu__item"><a :class="{'is-active': isMenuSelected('-')}" class="menu__link" href="colors.html" class="">Color & Shadow</a> </li> -->
                     <li class="menu__item"><a :class="{'is-active': isMenuSelected('typography')}" class="menu__link"
                         href="typography.html" class="">Typography</a> 
@@ -95,8 +95,7 @@
                         href="cards.html">Cards</a>
 
                     </li>
-                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('forms')}" class="menu__link"
-                        href="forms.html">Forms Filed</a>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('form')}" class="menu__link" href="forms.html">Forms Filed</a>
 
                     </li>
                     <!--<li class="menu__item"><a :class="{'is-active': isMenuSelected('grid')}" class="menu__link" href="grid.html">Grid</a></li>
@@ -114,8 +113,8 @@
                 </ul>
             </div>
             <div class="content pb-40">
-                <div class="px-20 flex flex--column flex--content-center bg-blue h-3 mb-40">
-                     <h2 class="monospace text-white">Buttons</h2>
+                <div class="px-20 flex flex--column flex--content-center bg-pink h-3 mb-40">
+                     <h2 class="monospace text-white">Forms</h2>
 
                     <p class="monospace text-white"><strong>Last Updated:</strong> 25 Nov 2017</p>
                 </div>
@@ -240,6 +239,26 @@
                 </section>
             </div>
         </main>
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+            new Vue({
+                el: '#app',
+                mounted() {
+                    var sidebarActive = document.getElementById('sidebarSelected');
+                    this.selectedPage = sidebarActive.value;
+                },
+                data() {
+                    return {
+                        selectedPage: null
+                    }
+                },
+                methods: {
+                    isMenuSelected: function(page) {
+                        return this.selectedPage == page;
+                    }
+                }
+            });
+        </script>
     </body>
 
 </html>

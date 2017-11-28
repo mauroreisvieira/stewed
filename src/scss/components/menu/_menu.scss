@@ -7,10 +7,10 @@
 
   &__item {
 
-  }
-
-  &__separator {
-    border: 1px solid $c-menu__separator-color;
+    &--separator {
+      border: 1px solid $c-menu__separator-color;
+      margin: 6px 0;
+    }
   }
 
   &__link {
@@ -31,7 +31,6 @@
     li {
       display: block;
       width: 100%;
-      margin-bottom: 0;
 
       ul {
         display: none;
