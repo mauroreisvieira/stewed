@@ -1477,6 +1477,10 @@ label {
   padding: 0;
 }
 
+.menu__separator {
+  border: 1px solid #bdbdbd;
+}
+
 .menu__link {
   display: block;
   padding: 14px;
