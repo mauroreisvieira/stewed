@@ -74,10 +74,10 @@
 
                     </p>
                 </div>
-                <input type="hidden" id="sidebarSelected" value="form">
+                <input type="hidden" id="sidebarSelected" value="instal">
                 <ul class="menu menu--vertical menu--inherit p-20">
                     <li class="menu__item"><a :class="{'is-active': isMenuSelected('installation')}" class="menu__link"
-                        href="installation.html" class="">Getting Start</a> 
+                        href="installation.html" class="">Installation</a> 
                     </li>
                     <li class="menu__item menu__item--separator"></li>
                     <!-- <li class="menu__item"><a :class="{'is-active': isMenuSelected('-')}" class="menu__link" href="colors.html" class="">Color & Shadow</a> </li> -->
@@ -113,127 +113,40 @@
                 </ul>
             </div>
             <div class="content pb-40">
-                <div class="px-20 flex flex--column flex--content-center bg-pink h-3 mb-40">
-                     <h2 class="monospace text-white">Forms</h2>
+                <div class="px-20 flex flex--column flex--content-center bg-salmon h-3 mb-40">
+                     <h2 class="monospace text-white">Instal</h2>
 
                     <p class="monospace text-white"><strong>Last Updated:</strong> 28 Nov 2017</p>
                 </div>
                 <section class="section p-20">
                     <div class="row">
                         <div class="col-large-12 col-medium-12 col-small-12">
-                            <p class="monospace extrabold">Form Default</p>
-                            <p>🤔</p>
-                        </div>
-                        <div class="col-large-3 col-medium-6 col-small-12">
-                            <ul class="list">
-                                <li class="list__item py-10"><code>.form</code>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-large-9 col-medium-6 col-small-12">
-                            <form class="form form--vertical" action="" autocomplete="off">
-                                <label class="form__fieldLabel" for="fieldName">Name	<span class="form__fieldLabel-required">*</span>
-
-                                </label>
-                                <input class="form__fieldInput form__fieldInput--large" type="text" name=""
-                                placeholder="Fill with your name" id="fieldName">
-                                <label class="form__fieldLabel" for="fieldPhone">Phone</label>
-                                <input class="form__fieldInput form__fieldInput--large" type="text"
-                                name="" placeholder="Fill with your phone" id="fieldPhone">
-                                <label class="form__fieldLabel" for="fieldMessage">Message	<span class="form__fieldLabel-required">*</span>
-
-                                </label>
-                                <textarea class="form__fieldInput form__fieldInput-textarea" rows="5"
-                                placeholder="Write something..."></textarea>
-                                <button class="button button--info">Send</button>
-                                <button class="button button--default">Reset</button>
-                            </form>
+                            <p class="monospace extrabold">Read First</p>
+                            <p>Our Framework is unique, complete and powerful. Besides, you can instal <b>Stewed Frameword</b> in
+                                your project among with other frameworks, using the most common code repositories,
+                                like npm and bower</p>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mt-40">
                         <div class="col-large-12 col-medium-12 col-small-12">
-                            <p class="monospace extrabold">Form Checkbox</p>
-                            <p>🤔</p>
+                            <p class="monospace extrabold">Usin npm</p>
                         </div>
                         <div class="col-large-3 col-medium-6 col-small-12">
                             <ul class="list">
-                                <li class="list__item py-10"><code>.form</code>
+                                <li class="list__item py-10"><code>npm install stewed --save</code>
                                 </li>
                             </ul>
-                        </div>
-                        <div class="col-large-9 col-medium-6 col-small-12">
-                            <form class="form form--vertical" action="" autocomplete="off">
-                                <div class="form">
-                                    <input type="checkbox" id="checkbox-1" value="1" name="checkbox[]" class="form__fieldInputCheckbox"
-                                    checked="true">
-                                    <label for="checkbox-1" class="form__fieldInputCheckbox-label">	<span class="form__fieldInputCheckbox-labelText">Checkbox 1</span>
-
-                                    </label>
-                                </div>
-                                <div class="form">
-                                    <input type="checkbox" id="checkbox-2" value="2" name="checkbox[]" class="form__fieldInputCheckbox">
-                                    <label for="checkbox-2" class="form__fieldInputCheckbox-label">	<span class="form__fieldInputCheckbox-labelText">Checkbox 2</span>
-
-                                    </label>
-                                </div>
-                                <div class="form">
-                                    <input type="checkbox" id="checkbox-3" value="3" name="checkbox[]" class="form__fieldInputCheckbox"
-                                    checked="true" disabled="">
-                                    <label for="checkbox-3" class="form__fieldInputCheckbox-label">	<span class="form__fieldInputCheckbox-labelText">Checkbox Disabled Checked</span>
-
-                                    </label>
-                                </div>
-                                <div class="form">
-                                    <input type="checkbox" id="checkbox-4" value="4" name="checkbox[]" class="form__fieldInputCheckbox"
-                                    disabled="">
-                                    <label for="checkbox-4" class="form__fieldInputCheckbox-label">	<span class="form__fieldInputCheckbox-labelText">Checkbox Disabled</span>
-
-                                    </label>
-                                </div>
-                            </form>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mt-40">
                         <div class="col-large-12 col-medium-12 col-small-12">
-                            <p class="monospace extrabold">Form Switch</p>
-                            <p>🤔</p>
+                            <p class="monospace extrabold">Usin Bower</p>
                         </div>
                         <div class="col-large-3 col-medium-6 col-small-12">
                             <ul class="list">
-                                <li class="list__item py-10"><code>.form</code>
+                                <li class="list__item py-10"><code>bower install stewed</code>
                                 </li>
                             </ul>
-                        </div>
-                        <div class="col-large-9 col-medium-6 col-small-12">
-                            <form class="form form--vertical" action="" autocomplete="off">
-                                <div class="form">
-                                    <input type="checkbox" id="switch-1" name="set-name" class="form__fieldInputSwitch"
-                                    checked="true">
-                                    <label for="switch-1" class="form__fieldInputSwitch-label">	<span class="form__fieldInputSwitch-labelText">Switch 1</span>
-
-                                    </label>
-                                </div>
-                                <div class="form">
-                                    <input type="checkbox" id="switch-2" name="set-name" class="form__fieldInputSwitch">
-                                    <label for="switch-2" class="form__fieldInputSwitch-label">	<span class="form__fieldInputSwitch-labelText">Switch 2</span>
-
-                                    </label>
-                                </div>
-                                <div class="form">
-                                    <input type="checkbox" id="switch-3" name="set-name" class="form__fieldInputSwitch"
-                                    checked="true" disabled="">
-                                    <label for="switch-3" class="form__fieldInputSwitch-label">	<span class="form__fieldInputSwitch-labelText">Switch Disabled Checked</span>
-
-                                    </label>
-                                </div>
-                                <div class="form">
-                                    <input type="checkbox" id="switch-4" name="set-name" class="form__fieldInputSwitch"
-                                    disabled="">
-                                    <label for="switch-4" class="form__fieldInputSwitch-label">	<span class="form__fieldInputSwitch-labelText">Switch Disabled</span>
-
-                                    </label>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </section>
