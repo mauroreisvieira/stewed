@@ -1,4 +1,6 @@
 .menu {
+  $root: '.menu';
+
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -14,16 +16,16 @@
   }
 
   &__link {
+    border-radius: 2px;
+    box-sizing: border-box;
     display: block;
     padding: 14px;
     position: relative;
     text-decoration: none;
     transition: color .2s linear;
-    box-sizing: border-box;
-    border-radius: 2px;
 
     &:hover {
-      background-color: #f6f6f6;
+      opacity: .6;
     }
 
     &.is-active {
@@ -61,26 +63,37 @@
 
   &--horizontal {
     display: inline;
-    li {
-      display: inline-block;
-      ul {
-        display: none;
-      }
-      .navigation__horizontal__submenu {
-        left: 0;
-        position: absolute;
-        min-width: 100%;
-        top: auto;
-        border-radius: 0 0 2px;
-        z-index: 11;
-        li {
-          width: 100%;
-        }
-      }
-      &:hover {
+
+    #{$root} {
+
+      &__item {
+        display: inline-block;
+
         ul {
-          display: block;
+          display: none;
         }
+
+        .navigation__horizontal__submenu {
+          left: 0;
+          position: absolute;
+          min-width: 100%;
+          top: auto;
+          border-radius: 0 0 2px;
+          z-index: 11;
+          li {
+            width: 100%;
+          }
+        }
+        &:hover {
+          ul {
+            display: block;
+          }
+        }
+      }
+
+      &__link {
+        padding-bottom: 0;
+        padding-top: 0;
       }
     }
   }
