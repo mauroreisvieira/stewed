@@ -22,6 +22,10 @@
     box-sizing: border-box;
     border-radius: 2px;
 
+    &:hover {
+      background-color: #f6f6f6;
+    }
+
     &.is-active {
       background-color: #fff;
     }

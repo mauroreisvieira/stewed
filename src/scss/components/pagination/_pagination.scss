@@ -1,122 +1,71 @@
 .pagination {
-	margin: 1em 0;
-	li {
-		zoom: 1;
-		position: relative;
-		display: inline-block;
-		border-radius: 2px;
-		text-align: center;
-		vertical-align: top;
-		height: 38px;
-		-webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
 
-		a {
-			display: inline-block;
-			padding: 0 1em;
-			line-height: 38px;
-			position: relative;
-			color: currentColor;
-			text-decoration: none;
-		}
+  .pagination__item {
+    padding: 0;
+    cursor: pointer;
+    border: 0;
+    margin: 4px;
+    background: #fff;
+    color: #000;
+    border-radius: 50%;
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    transition: all .3s ease-in;
+    overflow: hidden;
 
-		&:hover,
-		&:focus {
-			background-color: rgba(0,0,0,.12);
-		}
+    &:hover {
+      background: darken(#fff, 12%);
+    }
 
-		&.active {
-			background-color: #000;
-			color: #fff;
-		}
+    &:focus {
+      outline: none;
+    }
 
-		&.disabled,
-		&[disabled] {
-			cursor: default;
-			color: rgba(0, 0, 0, 0.26);
-			&:hover,
-			&:focus {
-				background-color: transparent;
-			}
-		}
-	}
+    &--first,
+    &--last {
+      color: red;
 
-	[stewed-pagination] {
-		a {
-			text-indent: -9999px;
-			padding: 0 1.500em;
-		}
-	}
-	[stewed-pagination]:after {
-		content: attr(stewed-pagination);
-		display: block;
-		position: absolute;
-		top: 0;
-		line-height: 38px;
-		width: 100%;
-		cursor: pointer;
-	}
-}
+      @include mobile () {
+        display: none;
+      }
 
-.pagination__large {
-	li {
-		height: 50px;
-		a {
-			line-height: 50px;
-			padding: 0 1.750em;
-		}
-	}
-	[stewed-pagination]:after {
-		line-height: 50px;
-	}
-}
+      &:hover {
+        background: transparent;
+        color: darken(red, 12%);
+      }
+    }
 
-.pagination__medium {
-	li {
-		height: 44px;
-		a {
-			line-height: 44px;
-			padding: 0 1.250em;
-		}
-	}
-	[stewed-pagination]:after {
-		line-height: 44px;
-	}
-}
+    &--prev,
+    &--next {
+      color: green;
 
-.pagination__small {
-	li {
-		height: 30px;
-		a {
-			line-height: 30px;
-			padding: 0 0.750em;
-		}
-	}
-	[stewed-pagination]:after {
-		line-height: 30px;
-	}
-}
+      &:hover {
+        background: transparent;
+        color: darken(green, 12%);
+      }
+    }
 
-.pagination--border {
-	li {
-		border: 1px solid currentColor;
-		&:hover,
-		&:focus {
-			border-color: rgb(221, 221, 221);
-		}
-		&.active {
-			border: 1px solid #000;
-			background-color: #000;
-			color: #fff;
-		}
-		&.disabled,
-		&[disabled] {
-			cursor: default;
-			color: rgba(0, 0, 0, 0.26);
-			&:hover,
-			&:focus {
-				border-color: rgba(0, 0, 0, 0.26);
-				background-color: transparent;
-			}
-		}
-	}
+    &--dots {
+
+      &:hover {
+        background: #fff;
+        color: #000;
+      }
+    }
+
+    &--active {
+      background: red;
+      color: #fff;
+    }
+
+    &[disabled] {
+      opacity: .4;
+      cursor: not-allowed;
+    }
+  }
 }

@@ -5,109 +5,40 @@
 </head>
 <body>
 	<main class="wrapper" id="app">
-		<partial src="partials/header.html" selected="navbar"></partial>
-
-		<section id="main">
-			<div class="content">
-
-				<div class="header-description box-shadow--4 bg-darkbluegrey">
-					<div class="container">
-						<div class="master-header">
-							<h1>Pagination</h1>
+		<partial src="partials/header.html" selected="pagination"></partial>
+		<div class="content pb-40">
+			<partial src="partials/title.html" color="pink" title="Pagination" update="29 Nov 2017"></partial>
+			<section class="section p-20">
+				<div class="row mt-40">
+					<div class="col-large-12 col-medium-12 col-small-12">
+						<p class="monospace extrabold">Pagination Default</p>
+						<p>Mandatory, defaults to a text button</p>
+					</div>
+					<div class="col-large-3 col-medium-6 col-small-12">
+						<ul class="list">
+							<li class="list__item py-10"><code>.button--default</code></li>
+							<li class="list__item py-10"><code>.button--danger</code></li>
+							<li class="list__item py-10"><code>.button--success</code></li>
+							<li class="list__item py-10"><code>.button--info</code></li>
+						</ul>
+					</div>
+					<div class="col-large-3 col-medium-6 col-small-12">
+						<div class="pagination">
+							<button class="pagination__item pagination__item--first">❮❮</button>
+							<button class="pagination__item pagination__item--prev">❮</button>
+							<button class="pagination__item">1</button>
+							<button class="pagination__item pagination__item--active">2</button>
+							<button class="pagination__item">3</button>
+							<button class="pagination__item pagination__item--dots">...</button>
+							<button class="pagination__item">16</button>
+							<button class="pagination__item pagination__item--next">❯</button>
+							<button class="pagination__item pagination__item--last">❯❯</button>
 						</div>
 					</div>
 				</div>
-				<div class="container">
-					<section class="margin-top-40">
-						<div class="row">
-							<div class="col-large-12 col-medium-12 col-small-12">
-								<h2>Simple Pagination</h2>
-								<div class="pull-center">
-									<ul class="pagination color-pink">
-										<li stewed-pagination="❮" disabled><a href="">Prev</a></li>
-										<li><a href="">1</a></li>
-										<li><a href="">2</a></li>
-										<li><a href="">3</a></li>
-										<li><a href="">4</a></li>
-										<li><a href="">5</a></li>
-										<li><a href="">6</a></li>
-										<li class="active"><a href="">7</a></li>
-										<li stewed-pagination="❯"><a href="">Next</a></li>
-									</ul>
-								</div>
-								<div class="pull-center">
-									<ul class="pagination pagination__large pagination--border color-bluegrey">
-										<li stewed-pagination="❮" disabled><a href="">Prev</a></li>
-										<li disabled><a href="">1</a></li>
-										<li disabled><a href="">2</a></li>
-										<li class="active"><a href="">3</a></li>
-										<li><a href="">4</a></li>
-										<li><a href="">5</a></li>
-										<li><a href="">6</a></li>
-										<li class=""><a href="">7</a></li>
-										<li stewed-pagination="❯"><a href="">Next</a></li>
-									</ul>
-								</div>
-								<div class="pull-center">
-									<ul class="pagination pagination__medium pagination--border color-bluegrey">
-										<li stewed-pagination="<" disabled><a href="">Prev</a></li>
-										<li><a href="">1</a></li>
-										<li><a href="">2</a></li>
-										<li><a href="">3</a></li>
-										<li><a href="">...</a></li>
-										<li><a href="">5</a></li>
-										<li><a href="">6</a></li>
-										<li class="active"><a href="">7</a></li>
-										<li stewed-pagination=">" disabled><a href="">Next</a></li>
-									</ul>
-								</div>
-								<div class="pull-center">
-									<ul class="pagination pagination__small pagination--border color-bluegrey">
-										<li stewed-pagination="❮" disabled><a href="">Prev</a></li>
-										<li><a href="">1</a></li>
-										<li><a href="">2</a></li>
-										<li><a href="">3</a></li>
-										<li><a href="">4</a></li>
-										<li><a href="">5</a></li>
-										<li><a href="">6</a></li>
-										<li class="active"><a href="">7</a></li>
-										<li stewed-pagination="❯"><a href="">Next</a></li>
-									</ul>
-								</div>
-								<div class="card margin-top-20 margin-bottom-40">
-									<div class="card__header ">
-										<h4 class="card__header__title text-uppercase">Cooking</h4>
-									</div>
-									<div class="card__container card--border">
-										<div id="view-html" class="code">
-											<pre class="brush: xml; toolbar: false; gutter: false;">
-												&lt;ul class="pagination pagination__medium pagination--border color-bluegrey">
-												&lt;li stewed-pagination="❮" disabled><a href="">Prev</a>&lt;/li>
-												&lt;li><a href="">1</a>&lt;/li>
-												&lt;li><a href="">2</a>&lt;/li>
-												&lt;li><a href="">3</a>&lt;/li>
-												&lt;li><a href="">4</a>&lt;/li>
-												&lt;li><a href="">5</a>&lt;/li>
-												&lt;li><a href="">6</a>&lt;/li>
-												&lt;li class="active"><a href="">7</a>&lt;/li>
-												&lt;li stewed-pagination="❯"><a href="">Next</a>&lt;/li>
-												&lt;/ul>
-											</pre>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</section>
-				</div>
-
-
-
-			</div>
-		</section>
-
-    </main>
-    <partial src="partials/footer.html"></partial>
-
+			</section>
+		</div>
+	</main>
+	<partial src="partials/script.html"></partial>
 </body>
 </html>

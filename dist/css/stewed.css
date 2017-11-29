@@ -1685,6 +1685,10 @@
   border-radius: 2px;
 }
 
+.menu__link:hover {
+  background-color: #f6f6f6;
+}
+
 .menu__link.is-active {
   background-color: #fff;
 }
@@ -1795,123 +1799,72 @@
 }
 
 .pagination {
-  margin: 1em 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
 }
 
-.pagination li {
-  zoom: 1;
-  position: relative;
-  display: inline-block;
-  border-radius: 2px;
-  text-align: center;
-  vertical-align: top;
-  height: 38px;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.pagination li a {
-  display: inline-block;
-  padding: 0 1em;
-  line-height: 38px;
-  position: relative;
-  color: currentColor;
-  text-decoration: none;
-}
-
-.pagination li:hover, .pagination li:focus {
-  background-color: rgba(0, 0, 0, 0.12);
-}
-
-.pagination li.active {
-  background-color: #000;
-  color: #fff;
-}
-
-.pagination li.disabled, .pagination li[disabled] {
-  cursor: default;
-  color: rgba(0, 0, 0, 0.26);
-}
-
-.pagination li.disabled:hover, .pagination li.disabled:focus, .pagination li[disabled]:hover, .pagination li[disabled]:focus {
-  background-color: transparent;
-}
-
-.pagination [stewed-pagination] a {
-  text-indent: -9999px;
-  padding: 0 1.500em;
-}
-
-.pagination [stewed-pagination]:after {
-  content: attr(stewed-pagination);
-  display: block;
-  position: absolute;
-  top: 0;
-  line-height: 38px;
-  width: 100%;
+.pagination .pagination__item {
+  padding: 0;
   cursor: pointer;
+  border: 0;
+  margin: 4px;
+  background: #fff;
+  color: #000;
+  border-radius: 50%;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  transition: all .3s ease-in;
+  overflow: hidden;
 }
 
-.pagination__large li {
-  height: 50px;
+.pagination .pagination__item:hover {
+  background: #e0e0e0;
 }
 
-.pagination__large li a {
-  line-height: 50px;
-  padding: 0 1.750em;
+.pagination .pagination__item:focus {
+  outline: none;
 }
 
-.pagination__large [stewed-pagination]:after {
-  line-height: 50px;
+.pagination .pagination__item--first, .pagination .pagination__item--last {
+  color: red;
 }
 
-.pagination__medium li {
-  height: 44px;
+@media (max-width: 767px) {
+  .pagination .pagination__item--first, .pagination .pagination__item--last {
+    display: none;
+  }
 }
 
-.pagination__medium li a {
-  line-height: 44px;
-  padding: 0 1.250em;
+.pagination .pagination__item--first:hover, .pagination .pagination__item--last:hover {
+  background: transparent;
+  color: #c20000;
 }
 
-.pagination__medium [stewed-pagination]:after {
-  line-height: 44px;
+.pagination .pagination__item--prev, .pagination .pagination__item--next {
+  color: green;
 }
 
-.pagination__small li {
-  height: 30px;
+.pagination .pagination__item--prev:hover, .pagination .pagination__item--next:hover {
+  background: transparent;
+  color: #004300;
 }
 
-.pagination__small li a {
-  line-height: 30px;
-  padding: 0 0.750em;
+.pagination .pagination__item--dots:hover {
+  background: #fff;
+  color: #000;
 }
 
-.pagination__small [stewed-pagination]:after {
-  line-height: 30px;
-}
-
-.pagination--border li {
-  border: 1px solid currentColor;
-}
-
-.pagination--border li:hover, .pagination--border li:focus {
-  border-color: #dddddd;
-}
-
-.pagination--border li.active {
-  border: 1px solid #000;
-  background-color: #000;
+.pagination .pagination__item--active {
+  background: red;
   color: #fff;
 }
 
-.pagination--border li.disabled, .pagination--border li[disabled] {
-  cursor: default;
-  color: rgba(0, 0, 0, 0.26);
-}
-
-.pagination--border li.disabled:hover, .pagination--border li.disabled:focus, .pagination--border li[disabled]:hover, .pagination--border li[disabled]:focus {
-  border-color: rgba(0, 0, 0, 0.26);
-  background-color: transparent;
+.pagination .pagination__item[disabled] {
+  opacity: .4;
+  cursor: not-allowed;
 }
 
 .progress[value] {
