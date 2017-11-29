@@ -97,7 +97,8 @@
                     <li class="menu__item"><a :class="{'is-active': isMenuSelected('menu')}" class="menu__link" href="menu.html">Menu</a>
 
                     </li>
-                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('-')}" class="menu__link" href="navbar.html">Navbar</a>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('navbar')}" class="menu__link"
+                        href="navbar.html">Navbar</a>
 
                     </li>
                     <li class="menu__item"><a :class="{'is-active': isMenuSelected('pagination')}" class="menu__link"
@@ -117,84 +118,74 @@
                     </li>
                 </ul>
             </div>
-            <section id="main">
-                <div class="content">
-                    <div class="header-description box-shadow--4 bg-darkbluegrey">
-                        <div class="container">
-                            <div class="master-header">
-                                 <h1>Navigation</h1>
+            <div class="content pb-40">
+                <div class="px-20 flex flex--column flex--content-center bg-pink h-3 mb-40">
+                     <h2 class="monospace text-white">Navbar</h2>
 
+                    <p class="monospace text-white"><strong>Last Updated:</strong> 29 Nov 2017</p>
+                </div>
+                <section class="section p-20">
+                    <div class="row mt-40">
+                        <div class="col-large-12 col-medium-12 col-small-12">
+                            <p class="monospace extrabold">Navbar Default</p>
+                            <p>Mandatory, defaults to a text button</p>
+                        </div>
+                        <div class="col-large-3 col-medium-6 col-small-12">
+                            <ul class="list">
+                                <li class="list__item py-10"><code>.navbar</code>
+                                </li>
+                                <li class="list__item py-10"><code>.navbar__brand</code>
+                                </li>
+                                <li class="list__item py-10"><code>.navbar__menu</code>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-large-9 col-medium-6 col-small-12">
+                            <div class="navbar navbar--spacebetween bg-blue--darken text-white">
+                                <div class="navbar__brand"> <a href="index.html" title="Stewed Framework">
+                                    <span class="monospace uppercase thin text-white large">Stewed Framework</span>
+                                </a>
+
+                                </div>
+                                <div class="navbar__menu">
+                                    <ul class="menu menu--horizontal menu--inherit">
+                                        <li class="menu__item"> <a href="index.html" title="Home" class="menu__link uppercase">Home</a>
+
+                                        </li>
+                                        <li class="menu__item"> <a href="installation.html" title="Documentation" class="menu__link uppercase">Documentation</a>
+
+                                        </li>
+                                        <li class="menu__item"> <a href="https://github.com/maurovieirareis/stewed" title="Github" class="menu__link uppercase">Github</a>
+
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="container">
-                        <section class="margin-top-40">
-                            <div class="row">
-                                <div class="col-large-12 col-medium-12 col-small-12">
-                                     <h2>NavBar</h2>
-
-                                </div>
-                                <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
-                                    <nav class="navbar bg-blue">
-                                        <div class="container">
-                                            <div class="navbar__brand">Stewed</div>
-                                            <div class="float-right">
-                                                <div class="navigation">
-                                                    <ul class="navigation__horizontal">
-                                                        <li><a href="" class="active">Login</a>
-                                                        </li>
-                                                        <li><a href="">Github</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </nav>
-                                </div>
-                                <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
-                                    <div class="card margin-top-20">
-                                        <div class="card__header ">
-                                             <h4 class="card__header__title text-uppercase">Cooking</h4>
-
-                                        </div>
-                                        <div class="card__container card--border">
-                                            <div id="view-html" class="code"> <pre class="brush: xml; toolbar: false; gutter: false;">
-                                                //TODO
-                                            </pre>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-            </section>
-        </main>
-        <footer class="footer bg-grey--lighten text-grey--darken">
-            <div class="container">
-                <div class="row">
-                    <div class="col-large-12 col-medium-12 col-small-12"></div>
-                    <div class="col-large-12 col-medium-12 col-small-12">
-                        <nav>
-                            <ul class="menu menu--horizontal menu--inherit float-right">
-                                <li class="menu__item"> <a class="menu__link" href="https://github.com/maurovieirareis/stewed"
-                                    target="_blank">View Source on Github</a>
-
-                                </li>
-                                <li class="menu__item"> <a class="menu__link" href="changelog.html">Changelog</a>
-
-                                </li>
-                                <li class="menu__item"> <a class="menu__link" href="https://twitter.com/StewedCSS" target="_blank">Twitter</a>
-
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
+                </section>
             </div>
-        </footer>
+        </main>
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+            new Vue({
+                el: '#app',
+                mounted() {
+                    var sidebarActive = document.getElementById('sidebarSelected');
+                    this.selectedPage = sidebarActive.value;
+                },
+                data() {
+                    return {
+                        selectedPage: null
+                    }
+                },
+                methods: {
+                    isMenuSelected: function(page) {
+                        return this.selectedPage == page;
+                    }
+                }
+            });
+        </script>
     </body>
 
 </html>
