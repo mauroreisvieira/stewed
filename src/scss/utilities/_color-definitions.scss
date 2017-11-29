@@ -1,7 +1,37 @@
-$u-color-red: (
-  'base': #e3342f,
-  'lighten': #f9acaa,
-  'darken': #cc1f1a
+$u-color-aqua: (
+  'base': #36f7ce,
+  'lighten': #36f7ce,
+  'darken': #36f7ce
+);
+
+$u-color-blue: (
+  'base': #3490dc,
+  'lighten': #6cb2eb,
+  'darken': #2779bd
+);
+
+$u-color-cyan: (
+  'base': #0193a3,
+  'lighten': #0193a3,
+  'darken': #0193a3
+);
+
+$u-color-green: (
+  'base': #38c172,
+  'lighten': #51d88a,
+  'darken': #1f9d55
+);
+
+$u-color-grey: (
+  'base': #bdbdbd,
+  'lighten': #f2f2f2,
+  'darken': #212121
+);
+
+$u-color-orange: (
+  'base': #f6993f,
+  'lighten': #faad63,
+  'darken': #de751f
 );
 
 $u-color-pink: (
@@ -10,16 +40,16 @@ $u-color-pink: (
   'darken': #df1070,
 );
 
-$u-color-yellow: (
-  'base': #fdbc59,
-  'lighten': #fdbc59,
-  'darken': #fdbc59
+$u-color-purple: (
+  'base': #800080,
+  'lighten': #800080,
+  'darken': #800080
 );
 
-$u-color-orange: (
-  'base': #f6993f,
-  'lighten': #faad63,
-  'darken': #de751f
+$u-color-red: (
+  'base': #e3342f,
+  'lighten': #f9acaa,
+  'darken': #cc1f1a
 );
 
 $u-color-salmon: (
@@ -34,40 +64,10 @@ $u-color-violet: (
   'darken': #6f1efb
 );
 
-$u-color-purple: (
-  'base': #800080,
-  'lighten': #800080,
-  'darken': #800080
-);
-
-$u-color-cyan: (
-  'base': #0193a3,
-  'lighten': #0193a3,
-  'darken': #0193a3
-);
-
-$u-color-aqua: (
-  'base': #36f7ce,
-  'lighten': #36f7ce,
-  'darken': #36f7ce
-);
-
-$u-color-green: (
-  'base': #38c172,
-  'lighten': #51d88a,
-  'darken': #1f9d55
-);
-
-$u-color-blue: (
-  'base': #3490dc,
-  'lighten': #6cb2eb,
-  'darken': #2779bd
-);
-
-$u-color-grey: (
-  'base': #bdbdbd,
-  'lighten': #f2f2f2,
-  'darken': #212121
+$u-color-yellow: (
+  'base': #fdbc59,
+  'lighten': #fdbc59,
+  'darken': #fdbc59
 );
 
 $u-color-teal: (
@@ -77,19 +77,19 @@ $u-color-teal: (
 );
 
 $u-colors: (
-  'red': $u-color-red,
-  'pink': $u-color-pink,
-  'yellow': $u-color-yellow,
-  'orange': $u-color-orange,
-  'salmon': $u-color-salmon,
-  'violet': $u-color-violet,
-  'purple': $u-color-purple,
-  'cyan': $u-color-cyan,
   'aqua': $u-color-aqua,
-  'teal': $u-color-teal,
-  'green': $u-color-green,
   'blue': $u-color-blue,
+  'cyan': $u-color-cyan,
+  'green': $u-color-green,
   'grey': $u-color-grey
+  'orange': $u-color-orange,
+  'pink': $u-color-pink,
+  'purple': $u-color-purple,
+  'red': $u-color-red,
+  'salmon': $u-color-salmon,
+  'teal': $u-color-teal,
+  'violet': $u-color-violet,
+  'yellow': $u-color-yellow,
 ) !default;
 
 $u-color-white: #fff;
