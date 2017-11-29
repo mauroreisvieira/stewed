@@ -74,10 +74,10 @@
 
                     </p>
                 </div>
-                <input type="hidden" id="sidebarSelected" value="navbar">
+                <input type="hidden" id="sidebarSelected" value="instal">
                 <ul class="menu menu--vertical menu--inherit p-20">
                     <li class="menu__item"><a :class="{'is-active': isMenuSelected('installation')}" class="menu__link"
-                        href="installation.html" class="">Getting Start</a> 
+                        href="installation.html" class="">Installation</a> 
                     </li>
                     <li class="menu__item menu__item--separator"></li>
                     <!-- <li class="menu__item"><a :class="{'is-active': isMenuSelected('-')}" class="menu__link" href="colors.html" class="">Color & Shadow</a> </li> -->
@@ -98,17 +98,13 @@
                     <li class="menu__item"><a :class="{'is-active': isMenuSelected('form')}" class="menu__link" href="forms.html">Forms Filed</a>
 
                     </li>
-                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('grid')}" class="menu__link" href="grid.html">Grid</a>
+                    <!--<li class="menu__item"><a :class="{'is-active': isMenuSelected('grid')}" class="menu__link" href="grid.html">Grid</a></li>
+ <!--        <li class="menu__item"><a :class="{'is-active': isMenuSelected('-')}" class="menu__link" href="menu.html">Menu</a></li>
+        <li class="menu__item"><a :class="{'is-active': isMenuSelected('-')}" class="menu__link" href="pagination.html">Pagination</a></li> -->
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('tables')}" class="menu__link"
+                        href="tables.html">Tables</a>
 
                     </li>
-                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('menu')}" class="menu__link" href="menu.html">Menu</a>
-
-                    </li>
-                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('pagination')}" class="menu__link"
-                        href="pagination.html">Pagination</a>
-
-                    </li>
-                    <!--<li class="menu__item"><a :class="{'is-active': isMenuSelected('tables')}" class="menu__link" href="tables.html">Tables</a></li> -->
                     <li class="menu__item"><a :class="{'is-active': isMenuSelected('tooltips')}" class="menu__link"
                         href="tooltips.html">Tooltips</a>
 
@@ -116,68 +112,66 @@
                     <!-- <li class="menu__item"><a :class="{'is-active': isMenuSelected('-')}" class="menu__link" href="navbar.html">Navbar</a></li> -->
                 </ul>
             </div>
-            <div class="content">
-                <div class="container pt-60">
+            <div class="content pb-40">
+                <div class="px-20 flex flex--column flex--content-center bg-salmon h-3 mb-40">
+                     <h2 class="monospace text-white">Instal</h2>
+
+                    <p class="monospace text-white"><strong>Last Updated:</strong> 28 Nov 2017</p>
+                </div>
+                <section class="section p-20">
                     <div class="row">
                         <div class="col-large-12 col-medium-12 col-small-12">
-                             <h2 class="monospace">Colors</h2>
-
+                            <p class="monospace extrabold">Read First</p>
+                            <p>Our Framework is unique, complete and powerful. Besides, you can instal <b>Stewed Frameword</b> in
+                                your project among with other frameworks, using the most common code repositories,
+                                like npm and bower</p>
                         </div>
                     </div>
-                    <section class="section">
-                        <div class="row">
-                            <div class="col-large-12 col-medium-12 col-small-12">
-                                <p class="monospace extrabold">List of Existing colors</p>
-                            </div>
-                            <div class="col-large-12 col-medium-12 col-small-12">
-                                <div class="text-center p-10">
-                                    <div class="row">
-                                        <div v-for="color in ['white', 'black', 'red', 'green', 'blue']" class="col-large-3 col-medium-6 col-small-12">
-                                            <div class="card mb-20">
-                                                <div class="card__header color-white" :class="'bg-'+color">
-                                                    <p class="text-center">${{ color }}</p>
-                                                </div>
-                                                <div class="card__footer mt-10">
-                                                    <div class="mt-10"> <code>.color-{{ color }}</code>
-
-                                                    </div>
-                                                    <div class="mt-10"> <code>.bg-{{ color }}</code>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="row mt-40">
+                        <div class="col-large-12 col-medium-12 col-small-12">
+                            <p class="monospace extrabold">Usin npm</p>
                         </div>
-                    </section>
-                </div>
-            </div>
-        </main>
-        <footer class="footer bg-grey--lighten text-grey--darken">
-            <div class="container">
-                <div class="row">
-                    <div class="col-large-12 col-medium-12 col-small-12"></div>
-                    <div class="col-large-12 col-medium-12 col-small-12">
-                        <nav>
-                            <ul class="menu menu--horizontal menu--inherit float-right">
-                                <li class="menu__item"> <a class="menu__link" href="https://github.com/maurovieirareis/stewed"
-                                    target="_blank">View Source on Github</a>
-
-                                </li>
-                                <li class="menu__item"> <a class="menu__link" href="changelog.html">Changelog</a>
-
-                                </li>
-                                <li class="menu__item"> <a class="menu__link" href="https://twitter.com/StewedCSS" target="_blank">Twitter</a>
-
+                        <div class="col-large-3 col-medium-6 col-small-12">
+                            <ul class="list">
+                                <li class="list__item py-10"><code>npm install stewed --save</code>
                                 </li>
                             </ul>
-                        </nav>
+                        </div>
                     </div>
-                </div>
+                    <div class="row mt-40">
+                        <div class="col-large-12 col-medium-12 col-small-12">
+                            <p class="monospace extrabold">Usin Bower</p>
+                        </div>
+                        <div class="col-large-3 col-medium-6 col-small-12">
+                            <ul class="list">
+                                <li class="list__item py-10"><code>bower install stewed</code>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
             </div>
-        </footer>
+        </main>
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+            new Vue({
+                el: '#app',
+                mounted() {
+                    var sidebarActive = document.getElementById('sidebarSelected');
+                    this.selectedPage = sidebarActive.value;
+                },
+                data() {
+                    return {
+                        selectedPage: null
+                    }
+                },
+                methods: {
+                    isMenuSelected: function(page) {
+                        return this.selectedPage == page;
+                    }
+                }
+            });
+        </script>
     </body>
 
 </html>
