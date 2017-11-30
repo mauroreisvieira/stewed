@@ -267,18 +267,15 @@
 .breadcrumbs__item {
   cursor: default;
   display: inline-block;
-  font-size: 14px;
-  font-weight: 400;
   font-family: inherit;
 }
 
 .breadcrumbs__item.is-active {
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .breadcrumbs__link {
   color: currentColor;
-  font-weight: 300;
   text-decoration: none;
 }
 
@@ -2831,11 +2828,11 @@ a {
   font-family: "Roboto", sans-serif;
   font-size: 14px;
   font-weight: 300;
-  color: #3490dc;
+  color: #bdbdbd;
 }
 
 a:hover {
-  color: #2779bd;
+  color: #212121;
   text-decoration: none;
 }
 

@@ -2,36 +2,36 @@
   #{$key} {
     @include typography(nth($values, 2), nth($values, 3));
     color: nth($values, 1);
-    margin: $c-typography-baseline-heading 0;
+    margin: $typography-baseline-heading 0;
   }
 }
 
 body {
-  @include typography($c-typography-font-size-base, $c-typography-font-weight-light);
-  color: $c-typography-color-text;
+  @include typography($typography-font-size-base, $typography-font-weight-light);
+  color: $typography-color-text;
 }
 
 p {
-  @include typography($c-typography-font-size-base, $c-typography-font-weight-light);
+  @include typography($typography-font-size-base, $typography-font-weight-light);
 }
 
 a {
-  @include typography($c-typography-font-size-base, $c-typography-font-weight-light);
-  color: $c-typography-color-link;
+  @include typography($typography-font-size-base, $typography-font-weight-light);
+  color: $typography-color-link;
 
   &:hover {
-    color: $c-typography-color-link-hover;
+    color: $typography-color-link-hover;
     text-decoration: none;
   }
 }
 
 // Font Family
 .monospace {
-  font-family: $c-typography-monospace;
+  font-family: $typography-monospace;
 }
 
 .serif {
-  font-family: $c-typography-serif;
+  font-family: $typography-serif;
 }
 
 // Text Alignment
@@ -53,52 +53,52 @@ a {
 
 // Font Weight
 .thin {
-  font-weight: $c-typography-font-weight-thin;
+  font-weight: $typography-font-weight-thin;
 }
 
 .light {
-  font-weight: $c-typography-font-weight-light;
+  font-weight: $typography-font-weight-light;
 }
 
 .normal {
-  font-weight: $c-typography-font-weight-normal;
+  font-weight: $typography-font-weight-normal;
 }
 
 .semibold {
-  font-weight: $c-typography-font-weight-semibold;
+  font-weight: $typography-font-weight-semibold;
 }
 
 .bold {
-  font-weight: $c-typography-font-weight-bold;
+  font-weight: $typography-font-weight-bold;
 }
 
 .extrabold {
-  font-weight: $c-typography-font-weight-extrabold;
+  font-weight: $typography-font-weight-extrabold;
 }
 
 // Font Size
 .x-small {
-  font-size: $c-typography-font-size-sx;
+  font-size: $typography-font-size-sx;
 }
 
 .small {
-  font-size: $c-typography-font-size-sm;
+  font-size: $typography-font-size-sm;
 }
 
 .base {
-  font-size: $c-typography-font-size-base;
+  font-size: $typography-font-size-base;
 }
 
 .medium {
-  font-size: $c-typography-font-size-md;
+  font-size: $typography-font-size-md;
 }
 
 .large {
-  font-size: $c-typography-font-size-lg;
+  font-size: $typography-font-size-lg;
 }
 
 .x-large {
-  font-size: $c-typography-font-size-xl;
+  font-size: $typography-font-size-xl;
 }
 
 .italic {

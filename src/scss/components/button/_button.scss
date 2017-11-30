@@ -1,18 +1,18 @@
 .button {
-  --button: $c-button-height;
+  --button: $button-height;
   background: none;
-  border-radius: $c-button-border-radius;
+  border-radius: $button-border-radius;
   border: 1px solid;
   color: inherit;
   cursor: pointer;
   display: inline-block;
-  font-family: $u-font-family-serif;
-  font-size: $c-button-font-size;
-  font-weight: $c-button-font-weight;
+  font-family: $global-font-family-serif;
+  font-size: $button-font-size;
+  font-weight: $button-font-weight;
   height: var(--button);
   line-height: var(--button);
   margin: 0;
-  padding: 0 $c-button-horizontal-padding;
+  padding: 0 $button-horizontal-padding;
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
@@ -29,29 +29,29 @@
   }
 
   &--large {
-    --button-large: $c-button-height + 8px;
+    --button-large: $button-height + 8px;
     height: var(--button-large);
     line-height: var(--button-large);
-    padding: 0 $c-button-horizontal-padding * 3;
+    padding: 0 $button-horizontal-padding * 3;
   }
 
   &--medium {
-    --button-medium: $c-button-height + 4px;
+    --button-medium: $button-height + 4px;
     height: var(--button-medium);
     line-height: var(--button-medium);
-    padding: 0 $c-button-horizontal-padding * 2;
+    padding: 0 $button-horizontal-padding * 2;
   }
 
   &--small {
-    --button-small: $c-button-height - 4px;
+    --button-small: $button-height - 4px;
     height: var(--button-small);
     line-height: var(--button-small);
-    padding: 0 $c-button-horizontal-padding - 2;
+    padding: 0 $button-horizontal-padding - 2;
   }
 
   &--icon {
     border-radius: 50%;
-    font-weight: $c-button-font-weight;
+    font-weight: $button-font-weight;
     padding: 0;
     width: var(--button);
 
@@ -89,7 +89,7 @@
         top: 0;
         transform: rotate3d(0, 0, 1, -90deg);
         transform-origin: left bottom;
-        transition: transform $c-button-transition-duration $c-button-transition-timing, background-color $c-button-transition-duration $c-button-transition-timing;
+        transition: transform $button-transition-duration $button-transition-timing, background-color $button-transition-duration $button-transition-timing;
         width: 150%;
         will-change: transform;
         z-index: -1;
@@ -106,7 +106,7 @@
           background-color: nth($values, 3);
           opacity: 1;
           transform: rotate3d(0, 0, 1, 0deg);
-          transition-timing-function: $c-button-transition-timing;
+          transition-timing-function: $button-transition-timing;
         }
       }
     }
