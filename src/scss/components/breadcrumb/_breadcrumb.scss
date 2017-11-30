@@ -1,24 +1,30 @@
 .breadcrumbs {
-	display: block;
-	width: 100%;
-	padding: 1em;
-	border-radius: 2px;
-	ul {
-		list-style: none;
-		li {
-			display: inline-block;
-			font-size: 14px;
-			font-weight: 400;
-			cursor: default;
-			a {
-				text-decoration: none;
-				font-weight: 300;
-				color: currentColor;
-			}
-			a::after {
-				padding-left: 5px;
-				content: '/';
-			}
-		}
-	}
+  border-radius: 2px;
+  display: block;
+  list-style: none;
+  padding: 0;
+  width: 100%;
+
+  &__item {
+    cursor: default;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: inherit;
+
+    &.is-active {
+      font-weight: 600;
+    }
+  }
+
+  &__link {
+    color: currentColor;
+    font-weight: 300;
+    text-decoration: none;
+
+    &::after {
+      content: '/';
+      padding-left: 5px;
+    }
+  }
 }
