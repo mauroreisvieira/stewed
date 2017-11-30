@@ -76,6 +76,9 @@ $global-color-teal: (
   'darken': #38a89d
 );
 
+$global-color-white: #fff;
+$global-color-black: #000;
+
 $global-colors: (
   'aqua': $global-color-aqua,
   'blue': $global-color-blue,
@@ -91,6 +94,3 @@ $global-colors: (
   'violet': $global-color-violet,
   'yellow': $global-color-yellow,
 ) !default;
-
-$global-color-white: #fff;
-$global-color-black: #000;
