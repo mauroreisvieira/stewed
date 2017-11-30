@@ -1,13 +1,11 @@
-/**
- * Badge Styles
- */
  .badge {
  	position: relative;
  	white-space: nowrap;
  	margin-right: 24px;
  	display: inline-block;
- 	&[stewed-badge]:before,
- 	&[stewed-badge]:after {
+
+ 	&[data-badge]::before,
+ 	&[data-badge]::after {
  		display: flex;
  		flex-direction: row;
  		flex-wrap: wrap;
@@ -22,14 +20,14 @@
  		height: 24px;
  		border-radius: 50%;
  	}
- 	&[stewed-badge]:before {
- 		content: attr(stewed-badge);
+ 	&[data-badge]::before {
+ 		content: attr(data-badge);
  		color: #fff;
  		font-size: 0.750em;
  		font-weight: 400;
  		z-index: 1;
  	}
- 	&[stewed-badge]:after {
+ 	&[data-badge]::after {
  		content: '';
  		background-color: currentColor;
  	}
