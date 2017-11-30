@@ -1,6 +1,6 @@
 <p align="center">
     <a href="http://maurovieirareis.github.io/stewed/index.html" target="_blank">
-    	<img width="120" src="docs/assets/images/logo/stewed_red.png">
+    	<img width="140" src="docs/assets/images/logo/stewed_dark.jpg">
     </a><br>
 </p>
 
@@ -29,11 +29,15 @@ git clone https://github.com/maurovieirareis/stewed
 #### Installation
 
 ```bash
-npm install Stewed --save
+npm install stewed --save
 ```
 
 ```bash
 bower install stewed --save
+```
+
+```bash
+yarn add stewed
 ```
 
 Alternatively you can [download](https://codeload.github.com/maurovieirareis/stewed/zip/master)

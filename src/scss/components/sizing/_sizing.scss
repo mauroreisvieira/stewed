@@ -1,0 +1,9 @@
+ @for $i from 1 through 10 {
+  .h-#{$i} {
+    height: unquote(($i) + '0vh');
+  }
+
+  .w-#{$i} {
+    width: unquote(($i) + '0vh');
+  }
+}

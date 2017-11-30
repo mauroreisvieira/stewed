@@ -1,0 +1,20 @@
+<script src="https://unpkg.com/vue"></script>
+<script>
+    new Vue({
+        el: '#app',
+        mounted() {
+            var sidebarActive = document.getElementById('sidebarSelected');
+            this.selectedPage = sidebarActive.value;
+        },
+        data() {
+            return {
+                selectedPage: null
+            }
+        },
+        methods: {
+            isMenuSelected: function(page) {
+                return this.selectedPage == page;
+            }
+        }
+    });
+</script>

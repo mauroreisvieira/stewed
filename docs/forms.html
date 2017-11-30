@@ -53,401 +53,223 @@
                 </div>
                 <div class="navbar__menu">
                     <ul class="menu menu--horizontal menu--inherit">
-                        <li class="menu__item"><a class="menu__link uppercase" href="index.html">Home</a>
+                        <li class="menu__item"> <a class="menu__link uppercase" href="index.html" title="Home">Home</a>
 
                         </li>
-                        <li class="menu__item"><a class="menu__link uppercase" href="colors.html">Documentation</a>
+                        <li class="menu__item"> <a class="menu__link uppercase" href="installation.html" title="Documentation">Documentation</a>
 
                         </li>
-                        <li class="menu__item"><a class="menu__link uppercase" href="http://maurovieirareis.github.io/stewed">Github</a>
+                        <li class="menu__item"> <a class="menu__link uppercase" href="https://github.com/maurovieirareis/stewed"
+                            title="Github">Github</a>
 
                         </li>
                     </ul>
                 </div>
             </header>
             <div class="sidebar text-grey--darken">
-                <ul class="menu menu--vertical menu--inherit">
-                    <li class="menu__item"><a class="menu__link" href="colors.html" class="">Color & Shadow</a> 
+                <div class="flex flex--column flex--item-center flex--content-center h-3 mb-40 bg-white">
+                    <img src="assets/images/logo/stewed_dark.svg" alt="Stewed Framework" title="Stewed Framework"
+                    class="logo">
+                    <p class="text-center"><span class="mb-40 semibold">⏤  v0.9.52 ⏤</span>
+
+                    </p>
+                </div>
+                <input type="hidden" id="sidebarSelected" value="form">
+                <ul class="menu menu--vertical menu--inherit p-20">
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('installation')}" class="menu__link"
+                        href="installation.html" class="">Getting Start</a> 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="typography.html" class="">Typography</a> 
-                    </li>
-                    <li class="menu__item"><a class="menu__link" href="utilities.html" class="">Utilities</a> 
-                    </li>
-                    <li class="menu__item"><a class="menu__link" href="badges.html">Badges & Labels</a>
+                    <li class="menu__item menu__item--separator"></li>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('badges')}" class="menu__link"
+                        href="badges.html">Badge & Label's</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="breadcrumbs.html">Breadcrumbs</a>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('breadcrumbs')}" class="menu__link"
+                        href="breadcrumbs.html">Breadcrumbs</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="buttons.html">Buttons</a>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('buttons')}" class="menu__link"
+                        href="buttons.html">Buttons</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="cards.html">Cards</a>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('cards')}" class="menu__link"
+                        href="cards.html">Cards</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="forms.html">Forms Filed</a>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('form')}" class="menu__link" href="forms.html">Forms Filed</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="grid.html">Grid</a>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('grid')}" class="menu__link" href="grid.html">Grid</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="navigation.html">Navigation</a>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('menu')}" class="menu__link" href="menu.html">Menu</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="pagination.html">Pagination</a>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('navbar')}" class="menu__link"
+                        href="navbar.html">Navbar</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="tables.html">Tables</a>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('pagination')}" class="menu__link"
+                        href="pagination.html">Pagination</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="tooltips.html">Tooltips</a>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('tables')}" class="menu__link"
+                        href="tables.html">Tables</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="navbar.html">Navbar</a>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('tooltips')}" class="menu__link"
+                        href="tooltips.html">Tooltips</a>
 
+                    </li>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('typography')}" class="menu__link"
+                        href="typography.html" class="">Typography</a> 
                     </li>
                 </ul>
             </div>
-            <section id="main">
-                <div class="content">
-                    <div class="header-description box-shadow--4 bg-darkbluegrey">
-                        <div class="container">
-                            <div class="master-header">
-                                	<h1>Forms</h1>
+            <div class="content pb-40">
+                <div class="px-20 flex flex--column flex--content-center bg-green h-3 mb-40">
+                     <h2 class="monospace text-white">Forms</h2>
 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <section class="margin-top-40">
-                            <div class="row-space margin-top-20">
-                                	<h2>Simple Form</h2>
-
-                                <p>You can active the form validate using <code class="markup">stewed-validate="true"</code>
-                                </p>
-                                <div class="col-large-8 col-medium-8 col-small-12">
-                                    <form class="form color-pink" stewed-validate="true" autocomplete="off">
-                                        <div class="textfield">
-                                            <input name="name" class="textfield__input" max="20" min="3" type="text"
-                                            required>
-                                            <label class="textfield__label" for="name">First Name</label>
-                                        </div>
-                                        <div class="textfield">
-                                            <input name="surname" class="textfield__input" max="10" type="text">
-                                            <label class="textfield__label" for="surname">Last Name</label>
-                                        </div>
-                                        <div class="textfield">
-                                            <input name="email" class="textfield__input" type="email" required>
-                                            <label class="textfield__label" for="surname">Email</label>
-                                        </div>
-                                        <div class="textfield">
-                                            <input name="phone" class="textfield__input" max="9" type="tel">
-                                            <label class="textfield__label" for="phone">Phone</label>
-                                        </div>
-                                        <div class="textfield">
-                                            <select name="option" class="textfield__input">
-                                                <option value="">-- Choose --</option>
-                                                <option value="2" disabled>Class 1</option>
-                                                <option value="3">Class 2</option>
-                                                <option value="4">Class 3</option>
-                                                <option value="5">Class 4</option>
-                                            </select>
-                                            <label for="option" class="textfield__label--option"><span class="color-black">Choose your class</span>
-                                            </label>
-                                        </div>
-                                        <div class="textfield">
-                                            <textarea name="mensagem" class="textfield__input" minlength="2" maxlength="300"
-                                            rows="4"></textarea>
-                                            <label class="textfield__label" for="mensagem">Message</label>
-                                        </div>
-                                        <button type="submit" class="button button--medium bg-pink color-white">Submit Form</button>
-                                    </form>
-                                </div>
-                                <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40 margin-top-20">
-                                    <div class="card margin-top-20">
-                                        <div class="card__header ">
-                                            	<h4 class="card__header__title text-uppercase">Cooking</h4>
-
-                                        </div>
-                                        <div class="card__container card--border">
-                                            <div id="view-html" class="code">	<pre class="brush: xml; toolbar: false; gutter: false;">
-												&lt;form class="form color-pink" stewed-validate="true" autocomplete="off">
-												&lt;div class="textfield">
-												&lt;input name="name" class="textfield__input"  max="10" min="3" type="text" required>
-												&lt;label class="textfield__label" for="name">First Name&lt;/label>
-												&lt;/div>
-												&lt;div class="textfield">
-												&lt;input name="email" class="textfield__input" type="email" required>
-												&lt;label class="textfield__label" for="surname">Email&lt;/label>
-												&lt;/div>
-												&lt;div class="textfield">
-												&lt;input name="phone" class="textfield__input" max="9" type="tel">
-												&lt;label class="textfield__label" for="phone">Phone&lt;/label>
-												&lt;/div>
-												&lt;div class="textfield">
-												&lt;select name="option" class="textfield__input">
-												&lt;option value="">-- Choose --&lt;/option>
-												&lt;option value="1">Class 1&lt;/option>
-												&lt;option value="2">Class 2&lt;/option>
-												&lt;option value="3">Class 3&lt;/option>
-												&lt;option value="4">Class 4&lt;/option>
-												&lt;/select>
-												&lt;label for="option" class="textfield__label--option">&lt;span class="color-black">Choose your class&lt;/span>&lt;/label>
-												&lt;/div>
-												&lt;div class="textfield">
-												&lt;textarea name="mensagem" class="textfield__input" minlength="2" maxlength="300" rows="4">&lt;/textarea>
-												&lt;label class="textfield__label" for="mensagem">Message&lt;/label>
-												&lt;/div>
-												&lt;button type="submit" class="button button--medium bg-pink color-white">Submit Form&lt;/button>
-												&lt;/form>
-											</pre>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="margin-bottom-40"></div>
-                            	<h2>Disabled Form</h2>
-
-                            <p>Modal is positioned overlapping within the display window and is protected
-                                page content.</p>
-                            <div class="margin-bottom-20"></div>
-                            <div class="row-space">
-                                <div class="col-large-8 col-medium-8 col-small-12">
-                                    <div class="textfield">
-                                        <input name="phone" class="textfield__input" type="text" disabled>
-                                        <label class="textfield__label" for="phone">Input Disabled</label>
-                                    </div>
-                                    <div class="textfield">
-                                        <textarea name="mensagem" class="textfield__input" rows="1" disabled></textarea>
-                                        <label class="textfield__label" for="mensagem">Message Disabled</label>
-                                    </div>
-                                    <div class="textfield">
-                                        <select name="option" class="textfield__input" disabled>
-                                            <option>Option Disabled</option>
-                                        </select>
-                                        <label for="option" class="textfield__label--option">Choose one option</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card margin-top-40 margin-bottom-40">
-                                <div class="card__header ">
-                                    	<h4 class="card__header__title text-uppercase">Cooking</h4>
-
-                                </div>
-                                <div class="card__container card--border">
-                                    <div id="view-html" class="code">	<pre class="brush: xml; toolbar: false; gutter: false;">
-										&lt;div class="textfield">
-										&lt;input name="phone" class="textfield__input" type="text" disabled>
-										&lt;label class="textfield__label" for="phone">Input Disabled&lt;/label>
-										&lt;/div>
-										&lt;div class="textfield">
-										&lt;textarea name="mensagem" class="textfield__input" rows="2" disabled>&lt;/textarea>
-										&lt;label class="textfield__label" for="mensagem">Message Disabled&lt;/label>
-										&lt;/div>
-										&lt;div class="textfield">
-										&lt;select name="option" class="textfield__input" disabled>
-										&lt;option>Option Disabled&lt;/option>
-										&lt;/select>
-										&lt;label for="option" class="textfield__label--option">Choose one option&lt;/label>
-										&lt;/div>
-									</pre>
-
-                                    </div>
-                                </div>
-                            </div>
-                            	<h2>Others Form</h2>
-
-                            <div class="row-space">
-                                <div class="col-large-8 col-medium-8 col-small-12">
-                                    <div class="margin-bottom-20">
-                                        	<h4>Select Options</h4>
-
-                                    </div>
-                                    <div class="textfield color-pink">
-                                        <select name="option" class="textfield__input">
-                                            <option value="">Option 1</option>
-                                            <option value="2">Option 2</option>
-                                            <option value="3">Option 3</option>
-                                            <option value="4">Option 4</option>
-                                        </select>
-                                        <label for="option" class="textfield__label--option"><span class="color-black">Choose one option</span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-large-8 col-medium-8 col-small-12">
-                                    <div class="margin-top-40">
-                                        	<h4>Input Range</h4>
-
-                                    </div>
-                                    <div class="textfield color-pink">
-                                        <label for="radio-1" class="textfield__label--range">	<span class="color-black">Choose Price:</span>
-
-                                        </label>
-                                        <input type="range" id="range" min="0" max="100" class="textfield__input--range">
-                                    </div>
-                                </div>
-                                <div class="col-large-6 col-medium-6 col-small-12">
-                                    <div class="margin-top-40">
-                                        	<h4>Input Radio</h4>
-
-                                    </div>
-                                    <div class="textfield color-bluegrey">
-                                        <input type="radio" id="radio-1" value="1" name="radio[]" class="textfield__input--radio">
-                                        <label for="radio-1" class="textfield__label--radio">	<span class="color-black">Female</span>
-
-                                        </label>
-                                    </div>
-                                    <div class="textfield color-bluegrey">
-                                        <input type="radio" id="radio-2" value="2" name="radio[]" class="textfield__input--radio">
-                                        <label for="radio-2" class="textfield__label--radio">	<span class="color-black">Male</span>
-
-                                        </label>
-                                    </div>
-                                    <div class="textfield color-bluegrey">
-                                        <input type="radio" id="radio-3" value="3" name="radio[]" checked="true"
-                                        class="textfield__input--radio">
-                                        <label for="radio-3" class="textfield__label--radio">	<span class="color-black">Other</span>
-
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-large-6 col-medium-6 col-small-12">
-                                    <div class="margin-top-40">
-                                        	<h4>Input Checkbox</h4>
-
-                                    </div>
-                                    <div class="textfield color-pink">
-                                        <input type="checkbox" id="checkbox-1" value="1" name="checkbox[]" checked="true"
-                                        class="textfield__input--checkbox">
-                                        <label for="checkbox-1" class="textfield__label--checkbox">	<span class="color-black">Checkbox Pink</span>
-
-                                        </label>
-                                    </div>
-                                    <div class="textfield color-blue">
-                                        <input type="checkbox" id="checkbox-2" value="2" name="checkbox[]" class="textfield__input--checkbox">
-                                        <label for="checkbox-2" class="textfield__label--checkbox">	<span class="color-black">Checkbox Blue</span>
-
-                                        </label>
-                                    </div>
-                                    <div class="textfield color-green">
-                                        <input type="checkbox" id="checkbox-3" value="3" name="checkbox[]" class="textfield__input--checkbox">
-                                        <label for="checkbox-3" class="textfield__label--checkbox">	<span class="color-black">Checkbox Green</span>
-
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-large-6 col-medium-6 col-small-12">
-                                    <div class="margin-top-40">
-                                        	<h4>Input Switch</h4>
-
-                                    </div>
-                                    <div class="textfield color-pink">
-                                        <input type="checkbox" id="switch-1" name="set-name" class="textfield__input--switch">
-                                        <label for="switch-1" class="textfield__label--switch">	<span class="color-black">Switch Pink</span>
-                                        </label>
-                                        </label>
-                                    </div>
-                                    <div class="textfield color-blue">
-                                        <input type="checkbox" id="switch-2" name="set-name" class="textfield__input--switch">
-                                        <label for="switch-2" class="textfield__label--switch">	<span class="color-black">Switch Blue</span>
-                                        </label>
-                                        </label>
-                                    </div>
-                                    <div class="textfield color-orange">
-                                        <input type="checkbox" id="switch-3" name="set-name" class="textfield__input--switch"
-                                        checked="true">
-                                        <label for="switch-3" class="textfield__label--switch">	<span class="color-black">Switch Orange</span>
-                                        </label>
-                                        </label>
-                                    </div>
-                                    <div class="textfield color-orange">
-                                        <input type="checkbox" id="switch-4" name="set-name" class="textfield__input--switch"
-                                        checked="true" disabled>
-                                        <label for="switch-4" class="textfield__label--switch">	<span class="color-black">Switch Disabled</span>
-                                        </label>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card margin-top-40 margin-bottom-40">
-                                <div class="card__header ">
-                                    	<h4 class="card__header__title text-uppercase">Cooking</h4>
-
-                                </div>
-                                <div class="card__container card--border">
-                                    <div id="view-html" class="code">	<pre class="brush: xml; toolbar: false; gutter: false;">
-										&lt;!-- Input Range -->
-										&lt;div class="textfield color-pink">
-										&lt;label for="radio-1" class="textfield__label--range">
-										&lt;span class="color-black">Choose Price:&lt;/span>
-										&lt;/label>
-										&lt;input type="range" id="range" min="0" max="100" class="textfield__input--range">
-										&lt;/div>
-
-										&lt;!-- Input Radio -->
-										&lt;div class="textfield color-bluegrey">
-										&lt;input type="radio" id="radio-1" value="1" name="radio[]" class="textfield__input--radio">
-										&lt;label for="radio-1" class="textfield__label--radio">
-										&lt;span class="color-black">Female&lt;/span>
-										&lt;/label>
-										&lt;/div>
-
-										&lt;!-- Input Checkbox -->
-										&lt;div class="textfield color-green">
-										&lt;input type="checkbox" id="checkbox-3" value="3" name="checkbox[]" class="textfield__input--checkbox">
-										&lt;label for="checkbox-3" class="textfield__label--checkbox">
-										&lt;span class="color-black">Checkbox Green&lt;/span>
-										&lt;/label>
-										&lt;/div>
-
-
-										&lt;!-- Input Switch -->
-										&lt;div class="textfield color-orange">
-										&lt;input type="checkbox" id="switch-4" name="set-name" class="textfield__input--switch" checked="true" disabled>
-										&lt;label for="switch-4" class="textfield__label--switch">
-										&lt;span class="color-black">Switch Disabled&lt;/span>&lt;/label>
-										&lt;/label>
-										&lt;/div>
-									</pre>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
+                    <p class="monospace text-white"><strong>Last Updated:</strong> 28 Nov 2017</p>
                 </div>
-            </section>
-        </main>
-        <footer class="footer bg-grey--lighten text-grey--darken mt-60">
-            <div class="container">
-                <div class="row">
-                    <div class="col-large-12 col-medium-12 col-small-12"></div>
-                    <div class="col-large-12 col-medium-12 col-small-12">
-                        <nav>
-                            <ul class="menu menu--horizontal menu--inherit float-right">
-                                <li class="menu__item"> <a class="menu__link" href="https://github.com/maurovieirareis/stewed"
-                                    target="_blank">View Source on Github</a>
-
-                                </li>
-                                <li class="menu__item"> <a class="menu__link" href="changelog.html">Changelog</a>
-
-                                </li>
-                                <li class="menu__item"> <a class="menu__link" href="https://twitter.com/StewedCSS" target="_blank">Twitter</a>
-
+                <section class="section p-20">
+                    <div class="row">
+                        <div class="col-large-12 col-medium-12 col-small-12">
+                            <p class="monospace extrabold">Form Default</p>
+                            <p>🤔</p>
+                        </div>
+                        <div class="col-large-3 col-medium-6 col-small-12">
+                            <ul class="list">
+                                <li class="list__item py-10"><code>.form</code>
                                 </li>
                             </ul>
-                        </nav>
+                        </div>
+                        <div class="col-large-9 col-medium-6 col-small-12">
+                            <form class="form form--vertical" action="" autocomplete="off">
+                                <label class="form__fieldLabel" for="fieldName">Name	<span class="form__fieldLabel-required">*</span>
+
+                                </label>
+                                <input class="form__fieldInput form__fieldInput--large" type="text" name=""
+                                placeholder="Fill with your name" id="fieldName">
+                                <label class="form__fieldLabel" for="fieldPhone">Phone</label>
+                                <input class="form__fieldInput form__fieldInput--large" type="text"
+                                name="" placeholder="Fill with your phone" id="fieldPhone">
+                                <label class="form__fieldLabel" for="fieldMessage">Message	<span class="form__fieldLabel-required">*</span>
+
+                                </label>
+                                <textarea class="form__fieldInput form__fieldInput-textarea" rows="5"
+                                placeholder="Write something..."></textarea>
+                                <button class="button button--info">Send</button>
+                                <button class="button button--default">Reset</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
+                    <div class="row">
+                        <div class="col-large-12 col-medium-12 col-small-12">
+                            <p class="monospace extrabold">Form Checkbox</p>
+                            <p>🤔</p>
+                        </div>
+                        <div class="col-large-3 col-medium-6 col-small-12">
+                            <ul class="list">
+                                <li class="list__item py-10"><code>.form</code>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-large-9 col-medium-6 col-small-12">
+                            <form class="form form--vertical" action="" autocomplete="off">
+                                <div class="form">
+                                    <input type="checkbox" id="checkbox-1" value="1" name="checkbox[]" class="form__fieldInputCheckbox"
+                                    checked="true">
+                                    <label for="checkbox-1" class="form__fieldInputCheckbox-label">	<span class="form__fieldInputCheckbox-labelText">Checkbox 1</span>
+
+                                    </label>
+                                </div>
+                                <div class="form">
+                                    <input type="checkbox" id="checkbox-2" value="2" name="checkbox[]" class="form__fieldInputCheckbox">
+                                    <label for="checkbox-2" class="form__fieldInputCheckbox-label">	<span class="form__fieldInputCheckbox-labelText">Checkbox 2</span>
+
+                                    </label>
+                                </div>
+                                <div class="form">
+                                    <input type="checkbox" id="checkbox-3" value="3" name="checkbox[]" class="form__fieldInputCheckbox"
+                                    checked="true" disabled="">
+                                    <label for="checkbox-3" class="form__fieldInputCheckbox-label">	<span class="form__fieldInputCheckbox-labelText">Checkbox Disabled Checked</span>
+
+                                    </label>
+                                </div>
+                                <div class="form">
+                                    <input type="checkbox" id="checkbox-4" value="4" name="checkbox[]" class="form__fieldInputCheckbox"
+                                    disabled="">
+                                    <label for="checkbox-4" class="form__fieldInputCheckbox-label">	<span class="form__fieldInputCheckbox-labelText">Checkbox Disabled</span>
+
+                                    </label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-large-12 col-medium-12 col-small-12">
+                            <p class="monospace extrabold">Form Switch</p>
+                            <p>🤔</p>
+                        </div>
+                        <div class="col-large-3 col-medium-6 col-small-12">
+                            <ul class="list">
+                                <li class="list__item py-10"><code>.form</code>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-large-9 col-medium-6 col-small-12">
+                            <form class="form form--vertical" action="" autocomplete="off">
+                                <div class="form">
+                                    <input type="checkbox" id="switch-1" name="set-name" class="form__fieldInputSwitch"
+                                    checked="true">
+                                    <label for="switch-1" class="form__fieldInputSwitch-label">	<span class="form__fieldInputSwitch-labelText">Switch 1</span>
+
+                                    </label>
+                                </div>
+                                <div class="form">
+                                    <input type="checkbox" id="switch-2" name="set-name" class="form__fieldInputSwitch">
+                                    <label for="switch-2" class="form__fieldInputSwitch-label">	<span class="form__fieldInputSwitch-labelText">Switch 2</span>
+
+                                    </label>
+                                </div>
+                                <div class="form">
+                                    <input type="checkbox" id="switch-3" name="set-name" class="form__fieldInputSwitch"
+                                    checked="true" disabled="">
+                                    <label for="switch-3" class="form__fieldInputSwitch-label">	<span class="form__fieldInputSwitch-labelText">Switch Disabled Checked</span>
+
+                                    </label>
+                                </div>
+                                <div class="form">
+                                    <input type="checkbox" id="switch-4" name="set-name" class="form__fieldInputSwitch"
+                                    disabled="">
+                                    <label for="switch-4" class="form__fieldInputSwitch-label">	<span class="form__fieldInputSwitch-labelText">Switch Disabled</span>
+
+                                    </label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
             </div>
-        </footer>
+        </main>
         <script src="https://unpkg.com/vue"></script>
         <script>
             new Vue({
                 el: '#app',
-                data: {
+                mounted() {
+                    var sidebarActive = document.getElementById('sidebarSelected');
+                    this.selectedPage = sidebarActive.value;
+                },
+                data() {
+                    return {
+                        selectedPage: null
+                    }
+                },
+                methods: {
+                    isMenuSelected: function(page) {
+                        return this.selectedPage == page;
+                    }
                 }
             });
         </script>

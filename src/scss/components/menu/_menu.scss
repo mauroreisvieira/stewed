@@ -1,28 +1,43 @@
 .menu {
+  $root: '.menu';
+
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 100%;
   list-style: none;
   padding: 0;
 
   &__item {
-    padding: 20px 0;
+
+    &--separator {
+      border: 1px solid $c-menu__separator-color;
+      margin: 6px 0;
+    }
   }
 
   &__link {
+    border-radius: 2px;
+    box-sizing: border-box;
     display: block;
-    padding: 4px 14px;
+    padding: 14px;
     position: relative;
     text-decoration: none;
     transition: color .2s linear;
+
+    &:hover {
+      opacity: .6;
+    }
+
+    &.is-active {
+      background-color: #fff;
+    }
   }
 
   &--vertical {
     li {
       display: block;
       width: 100%;
-      margin-bottom: 0;
+
       ul {
         display: none;
         z-index: 11;
@@ -48,26 +63,37 @@
 
   &--horizontal {
     display: inline;
-    li {
-      display: inline-block;
-      ul {
-        display: none;
-      }
-      .navigation__horizontal__submenu {
-        left: 0;
-        position: absolute;
-        min-width: 100%;
-        top: auto;
-        border-radius: 0 0 2px;
-        z-index: 11;
-        li {
-          width: 100%;
-        }
-      }
-      &:hover {
+
+    #{$root} {
+
+      &__item {
+        display: inline-block;
+
         ul {
-          display: block;
+          display: none;
         }
+
+        .navigation__horizontal__submenu {
+          left: 0;
+          position: absolute;
+          min-width: 100%;
+          top: auto;
+          border-radius: 0 0 2px;
+          z-index: 11;
+          li {
+            width: 100%;
+          }
+        }
+        &:hover {
+          ul {
+            display: block;
+          }
+        }
+      }
+
+      &__link {
+        padding-bottom: 0;
+        padding-top: 0;
       }
     }
   }

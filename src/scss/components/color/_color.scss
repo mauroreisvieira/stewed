@@ -6,12 +6,20 @@
   color: $c-color-white;
 }
 
+.border-white {
+  border-color: $c-color-white;
+}
+
 .bg-black {
   background-color: $c-color-black;
 }
 
 .text-black {
   color: $c-color-black;
+}
+
+.border-black {
+  border-color: $c-color-black;
 }
 
 @each $color-name, $color in $u-colors {
@@ -24,6 +32,10 @@
       .text-#{$color-name} {
         color: $color-value;
       }
+
+      .border-#{$color-name} {
+        border-color: $color-value;
+      }
     }
 
     @else {
@@ -33,6 +45,10 @@
 
       .text-#{$color-name}--#{$color-type} {
         color: $color-value;
+      }
+
+      .border-#{$color-name}--#{$color-type} {
+        border-color: $color-value;
       }
     }
   }

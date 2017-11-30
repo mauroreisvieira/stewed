@@ -53,145 +53,149 @@
                 </div>
                 <div class="navbar__menu">
                     <ul class="menu menu--horizontal menu--inherit">
-                        <li class="menu__item"><a class="menu__link uppercase" href="index.html">Home</a>
+                        <li class="menu__item"> <a class="menu__link uppercase" href="index.html" title="Home">Home</a>
 
                         </li>
-                        <li class="menu__item"><a class="menu__link uppercase" href="colors.html">Documentation</a>
+                        <li class="menu__item"> <a class="menu__link uppercase" href="installation.html" title="Documentation">Documentation</a>
 
                         </li>
-                        <li class="menu__item"><a class="menu__link uppercase" href="http://maurovieirareis.github.io/stewed">Github</a>
+                        <li class="menu__item"> <a class="menu__link uppercase" href="https://github.com/maurovieirareis/stewed"
+                            title="Github">Github</a>
 
                         </li>
                     </ul>
                 </div>
             </header>
             <div class="sidebar text-grey--darken">
-                <ul class="menu menu--vertical menu--inherit">
-                    <li class="menu__item"><a class="menu__link" href="colors.html" class="">Color & Shadow</a> 
+                <div class="flex flex--column flex--item-center flex--content-center h-3 mb-40 bg-white">
+                    <img src="assets/images/logo/stewed_dark.svg" alt="Stewed Framework" title="Stewed Framework"
+                    class="logo">
+                    <p class="text-center"><span class="mb-40 semibold">⏤  v0.9.52 ⏤</span>
+
+                    </p>
+                </div>
+                <input type="hidden" id="sidebarSelected" value="badges">
+                <ul class="menu menu--vertical menu--inherit p-20">
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('installation')}" class="menu__link"
+                        href="installation.html" class="">Getting Start</a> 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="typography.html" class="">Typography</a> 
-                    </li>
-                    <li class="menu__item"><a class="menu__link" href="utilities.html" class="">Utilities</a> 
-                    </li>
-                    <li class="menu__item"><a class="menu__link" href="badges.html">Badges & Labels</a>
+                    <li class="menu__item menu__item--separator"></li>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('badges')}" class="menu__link"
+                        href="badges.html">Badge & Label's</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="breadcrumbs.html">Breadcrumbs</a>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('breadcrumbs')}" class="menu__link"
+                        href="breadcrumbs.html">Breadcrumbs</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="buttons.html">Buttons</a>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('buttons')}" class="menu__link"
+                        href="buttons.html">Buttons</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="cards.html">Cards</a>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('cards')}" class="menu__link"
+                        href="cards.html">Cards</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="forms.html">Forms Filed</a>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('form')}" class="menu__link" href="forms.html">Forms Filed</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="grid.html">Grid</a>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('grid')}" class="menu__link" href="grid.html">Grid</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="navigation.html">Navigation</a>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('menu')}" class="menu__link" href="menu.html">Menu</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="pagination.html">Pagination</a>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('navbar')}" class="menu__link"
+                        href="navbar.html">Navbar</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="tables.html">Tables</a>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('pagination')}" class="menu__link"
+                        href="pagination.html">Pagination</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="tooltips.html">Tooltips</a>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('tables')}" class="menu__link"
+                        href="tables.html">Tables</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="navbar.html">Navbar</a>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('tooltips')}" class="menu__link"
+                        href="tooltips.html">Tooltips</a>
 
+                    </li>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('typography')}" class="menu__link"
+                        href="typography.html" class="">Typography</a> 
                     </li>
                 </ul>
             </div>
-            <div class="content">
-                <div class="container pt-60">
-                    <div class="row">
-                        <div class="col-large-12 col-medium-12 col-small-12">
-                             <h2 class="monospace">Badges</h2>
+            <div class="content pb-40">
+                <div class="px-20 flex flex--column flex--content-center bg-blue h-3 mb-40">
+                     <h2 class="monospace text-white">Badge & Label</h2>
 
-                        </div>
-                    </div>
-                    <section class="section">
-                        <div class="row">
-                            <div class="col-large-12 col-medium-12 col-small-12">
-                                <p class="monospace extrabold">Badge Default</p>
-                                <p>Mandatory, defaults to a text button</p>
-                            </div>
-                            <div class="col-large-3 col-medium-6 col-small-12">
-                                <ul class="list">
-                                    <li class="list__item py-10"><code>.badge</code>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-large-3 col-medium-6 col-small-12">
-                                <div class="text-center p-10">
-                                    <div class="badge color-green">Inbox</div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <div class="row">
-                        <div class="col-large-12 col-medium-12 col-small-12">
-                             <h2 class="monospace">Labels</h2>
-
-                        </div>
-                    </div>
-                    <section class="section">
-                        <div class="row">
-                            <div class="col-large-12 col-medium-12 col-small-12">
-                                <p class="monospace extrabold">Label Default</p>
-                                <p>Mandatory, defaults to a text button</p>
-                            </div>
-                            <div class="col-large-3 col-medium-6 col-small-12">
-                                <ul class="list">
-                                    <li class="list__item py-10"><code>.label</code>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-large-3 col-medium-6 col-small-12">
-                                <div class="text-center p-10"> <span class="label">Default</span>
- <span class="label label--success">Success</span>
-
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                    <p class="monospace text-white"><strong>Last Updated:</strong> 30 Nov 2017</p>
                 </div>
-            </div>
-        </main>
-        <footer class="footer bg-grey--lighten text-grey--darken mt-60">
-            <div class="container">
-                <div class="row">
-                    <div class="col-large-12 col-medium-12 col-small-12"></div>
-                    <div class="col-large-12 col-medium-12 col-small-12">
-                        <nav>
-                            <ul class="menu menu--horizontal menu--inherit float-right">
-                                <li class="menu__item"> <a class="menu__link" href="https://github.com/maurovieirareis/stewed"
-                                    target="_blank">View Source on Github</a>
-
-                                </li>
-                                <li class="menu__item"> <a class="menu__link" href="changelog.html">Changelog</a>
-
-                                </li>
-                                <li class="menu__item"> <a class="menu__link" href="https://twitter.com/StewedCSS" target="_blank">Twitter</a>
-
+                <section class="section p-20">
+                    <div class="row">
+                        <div class="col-large-12 col-medium-12 col-small-12">
+                            <p class="monospace extrabold">Badge Default</p>
+                            <p>Optional, can use the buttons components with this specific colors applying
+                                the next modifiers.</p>
+                        </div>
+                        <div class="col-large-3 col-medium-6 col-small-12">
+                            <ul class="list">
+                                <li class="list__item py-10"><code>disabled</code>
                                 </li>
                             </ul>
-                        </nav>
+                        </div>
+                        <div class="col-large-9 col-medium-6 col-small-12">
+                            <div class="mt-40">
+                                <div class="badge color-green" data-badge="12">Inbox</div>
+                            </div>
+                            <div class="mt-40">
+                                <div class="badge color-orange" data-badge="⚑">Flag</div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    <div class="row">
+                        <div class="col-large-12 col-medium-12 col-small-12">
+                            <p class="monospace extrabold">Label Default</p>
+                            <p>Optional, can use the buttons components with this specific colors applying
+                                the next modifiers.</p>
+                        </div>
+                        <div class="col-large-3 col-medium-6 col-small-12">
+                            <ul class="list">
+                                <li class="list__item py-10"><code>disabled</code>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-large-9 col-medium-6 col-small-12">
+                            <div class="mt-10">	<span class="label label--success">Success</span>
+	<span class="label label--info">Info</span>
+
+                                <span
+                                class="label label--warning">Warning</span>	<span class="label label--danger">Danger</span>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
-        </footer>
+        </main>
         <script src="https://unpkg.com/vue"></script>
         <script>
             new Vue({
                 el: '#app',
-                data: {
+                mounted() {
+                    var sidebarActive = document.getElementById('sidebarSelected');
+                    this.selectedPage = sidebarActive.value;
+                },
+                data() {
+                    return {
+                        selectedPage: null
+                    }
+                },
+                methods: {
+                    isMenuSelected: function(page) {
+                        return this.selectedPage == page;
+                    }
                 }
             });
         </script>

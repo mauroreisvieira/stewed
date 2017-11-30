@@ -53,133 +53,260 @@
                 </div>
                 <div class="navbar__menu">
                     <ul class="menu menu--horizontal menu--inherit">
-                        <li class="menu__item"><a class="menu__link uppercase" href="index.html">Home</a>
+                        <li class="menu__item"> <a class="menu__link uppercase" href="index.html" title="Home">Home</a>
 
                         </li>
-                        <li class="menu__item"><a class="menu__link uppercase" href="colors.html">Documentation</a>
+                        <li class="menu__item"> <a class="menu__link uppercase" href="installation.html" title="Documentation">Documentation</a>
 
                         </li>
-                        <li class="menu__item"><a class="menu__link uppercase" href="http://maurovieirareis.github.io/stewed">Github</a>
+                        <li class="menu__item"> <a class="menu__link uppercase" href="https://github.com/maurovieirareis/stewed"
+                            title="Github">Github</a>
 
                         </li>
                     </ul>
                 </div>
             </header>
             <div class="sidebar text-grey--darken">
-                <ul class="menu menu--vertical menu--inherit">
-                    <li class="menu__item"><a class="menu__link" href="colors.html" class="">Color & Shadow</a> 
+                <div class="flex flex--column flex--item-center flex--content-center h-3 mb-40 bg-white">
+                    <img src="assets/images/logo/stewed_dark.svg" alt="Stewed Framework" title="Stewed Framework"
+                    class="logo">
+                    <p class="text-center"><span class="mb-40 semibold">⏤  v0.9.52 ⏤</span>
+
+                    </p>
+                </div>
+                <input type="hidden" id="sidebarSelected" value="cards">
+                <ul class="menu menu--vertical menu--inherit p-20">
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('installation')}" class="menu__link"
+                        href="installation.html" class="">Getting Start</a> 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="typography.html" class="">Typography</a> 
-                    </li>
-                    <li class="menu__item"><a class="menu__link" href="utilities.html" class="">Utilities</a> 
-                    </li>
-                    <li class="menu__item"><a class="menu__link" href="badges.html">Badges & Labels</a>
+                    <li class="menu__item menu__item--separator"></li>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('badges')}" class="menu__link"
+                        href="badges.html">Badge & Label's</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="breadcrumbs.html">Breadcrumbs</a>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('breadcrumbs')}" class="menu__link"
+                        href="breadcrumbs.html">Breadcrumbs</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="buttons.html">Buttons</a>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('buttons')}" class="menu__link"
+                        href="buttons.html">Buttons</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="cards.html">Cards</a>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('cards')}" class="menu__link"
+                        href="cards.html">Cards</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="forms.html">Forms Filed</a>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('form')}" class="menu__link" href="forms.html">Forms Filed</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="grid.html">Grid</a>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('grid')}" class="menu__link" href="grid.html">Grid</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="navigation.html">Navigation</a>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('menu')}" class="menu__link" href="menu.html">Menu</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="pagination.html">Pagination</a>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('navbar')}" class="menu__link"
+                        href="navbar.html">Navbar</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="tables.html">Tables</a>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('pagination')}" class="menu__link"
+                        href="pagination.html">Pagination</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="tooltips.html">Tooltips</a>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('tables')}" class="menu__link"
+                        href="tables.html">Tables</a>
 
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="navbar.html">Navbar</a>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('tooltips')}" class="menu__link"
+                        href="tooltips.html">Tooltips</a>
 
+                    </li>
+                    <li class="menu__item"><a :class="{'is-active': isMenuSelected('typography')}" class="menu__link"
+                        href="typography.html" class="">Typography</a> 
                     </li>
                 </ul>
             </div>
-            <div class="content">
-                <div class="container pt-60">
+            <div class="content pb-40">
+                <div class="px-20 flex flex--column flex--content-center bg-cyan h-3 mb-40">
+                     <h2 class="monospace text-white">Cards</h2>
+
+                    <p class="monospace text-white"><strong>Last Updated:</strong> 25 Nov 2017</p>
+                </div>
+                <section class="section p-20">
                     <div class="row">
                         <div class="col-large-12 col-medium-12 col-small-12">
-                             <h2 class="monospace">Cards</h2>
-
+                            <p class="monospace extrabold">Card Default</p>
+                            <p>Mandatory, defaults card</p>
+                        </div>
+                        <div class="col-large-4 col-medium-6 col-small-12">
+                            <ul class="list">
+                                <li class="list__item py-10"><code>.card</code>
+                                </li>
+                                <li class="list__item py-10"><code>.card__header</code>
+                                </li>
+                                <li class="list__item py-10"><code>.card__content</code>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-large-6 col-medium-6 col-small-12">
+                            <div class="card shadow-sm">
+                                <div class="card__header bg-grey--darken">
+                                    <p class="large bold text-white">Lorem ipsum dolor sit.</p>
+                                </div>
+                                <div class="card__content bg-grey--lighten">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, tempora
+                                        molestiae numquam dicta odit modi. Doloribus repudiandae inventore, aut.
+                                        Magnam.</p>
+                                    <p>Doloribus repudiandae inventore, aut.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <section class="section">
-                        <div class="row">
-                            <div class="col-large-12 col-medium-12 col-small-12">
-                                <p class="monospace extrabold">Card Default</p>
-                                <p>Mandatory, defaults to a text button</p>
-                            </div>
-                            <div class="col-large-3 col-medium-6 col-small-12">
-                                <ul class="list">
-                                    <li class="list__item py-10"><code>.card</code>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-large-8 col-medium-10 col-small-12">
-                                <div class="p-10">
-                                    <div class="card">
-                                        <div class="card__header bg-blue color-white">
-                                            	<h4 class="card__header__title text-uppercase">Welcome</h4>
+                    <div class="row mt-40">
+                        <div class="col-large-12 col-medium-12 col-small-12">
+                            <p class="monospace extrabold">Card with Progress</p>
+                            <p>Optional, can change the default color (white) applied the different colors
+                                using class <code>.text-{YOUR COLOR}</code>
+                            </p>
+                        </div>
+                        <div class="col-large-4 col-medium-6 col-small-12">
+                            <ul class="list">
+                                <li class="list__item py-10"><code>.card</code>
+                                </li>
+                                <li class="list__item py-10"><code>.card__media</code>
+                                </li>
+                                <li class="list__item py-10"><code>.card__content</code>
+                                </li>
+                                <li class="list__item py-10"><code>.card__footer</code>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-large-4 col-medium-6 col-small-12">
+                            <div class="card bg-red mt-30">
+                                <div class="card__header">
+                                    	<h4 class="text-white thin"><span class="bold">Web</span> and <span class="bold">Mobile</span> Card Project with <span class="bold">Progress</span></h4>
 
+                                </div>
+                                <div class="card__content">
+                                    <div class="flex flex--content-between">
+                                        <p class=" text-white">	<i class="icon ion-android-attach"></i>
+2 attachment</p>
+                                        <p class="bold text-right text-white">60%</p>
+                                    </div>
+                                    <progress class="progress text-yellow" max="100" value="60"></progress>
+                                </div>
+                                <div class="card__footer bg-red--darken">
+                                    <div class="list list--horizontal">
+                                        <div class="list__item">
+                                            <img src="https://pbs.twimg.com/profile_images/913828202832973826/1WWUHoo5_400x400.jpg"
+                                            class="list__pic list__pic--xs">
                                         </div>
-                                        <div class="card__container card--border bg-white">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, tempora
-                                                molestiae numquam dicta odit modi. Doloribus repudiandae inventore, aut.
-                                                Magnam.</p>
-                                            <p>Doloribus repudiandae inventore, aut.</p>
-                                        </div>
-                                        <div class="card__footer card--border">
-                                            <button class="btn btn--success btn--small float-right">Get Started</button>
+                                        <div class="list__item">
+                                            <img src="https://pbs.twimg.com/profile_images/777268866967867392/S1jRh4WM_400x400.jpg"
+                                            class="list__pic list__pic--xs">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </section>
-                </div>
-            </div>
-        </main>
-        <footer class="footer bg-grey--lighten text-grey--darken mt-60">
-            <div class="container">
-                <div class="row">
-                    <div class="col-large-12 col-medium-12 col-small-12"></div>
-                    <div class="col-large-12 col-medium-12 col-small-12">
-                        <nav>
-                            <ul class="menu menu--horizontal menu--inherit float-right">
-                                <li class="menu__item"> <a class="menu__link" href="https://github.com/maurovieirareis/stewed"
-                                    target="_blank">View Source on Github</a>
-
+                    </div>
+                    <div class="row mt-40">
+                        <div class="col-large-12 col-medium-12 col-small-12">
+                            <p class="monospace extrabold">Card Media</p>
+                            <p>Optional, can use this for image as a container to show images.
+                                <br>If you need to have some kind of action, you can use the card for that
+                                purpose.</p>
+                        </div>
+                        <div class="col-large-4 col-medium-6 col-small-12">
+                            <ul class="list">
+                                <li class="list__item py-10"><code>.card</code>
                                 </li>
-                                <li class="menu__item"> <a class="menu__link" href="changelog.html">Changelog</a>
-
+                                <li class="list__item py-10"><code>.card__media</code>
                                 </li>
-                                <li class="menu__item"> <a class="menu__link" href="https://twitter.com/StewedCSS" target="_blank">Twitter</a>
-
+                                <li class="list__item py-10"><code>.card__content</code>
+                                </li>
+                                <li class="list__item py-10"><code>.card__actions</code>
                                 </li>
                             </ul>
-                        </nav>
+                        </div>
+                        <div class="col-large-6 col-medium-6 col-small-12">
+                            <div class="card mt-30 bg-grey--lighten">
+                                <div class="card__media">
+                                    <img src="https://source.unsplash.com/random/480x300" title="Thanks Tobias van Schneider"
+                                    alt="Thanks Tobias van Schneider">
+                                </div>
+                                <div class="card__content">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                        consequat.</p>
+                                </div>
+                                <div class="card__actions">
+                                    <button class="button button--success">Accept</button>
+                                    <button class="button button--default">Close</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    <div class="row mt-40">
+                        <div class="col-large-12 col-medium-12 col-small-12">
+                            <p class="monospace extrabold">Card Horizontal</p>
+                            <p>Optional, can change the orientation of card using helpers like <code>.flex</code> to
+                                chanfge the arrangement of elements</p>
+                        </div>
+                        <div class="col-large-4 col-medium-6 col-small-12">
+                            <ul class="list">
+                                <li class="list__item py-10"><code>.card</code>
+                                </li>
+                                <li class="list__item py-10"><code>.card__media</code>
+                                </li>
+                                <li class="list__item py-10"><code>.card__content</code>
+                                </li>
+                            </ul>
+                            <p class="bold">Helpers</p>
+                            <ul class="list">
+                                <li class="list__item py-10"><code>.flex</code>
+                                </li>
+                                <li class="list__item py-10"><code>.flex--row</code>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-large-6 col-medium-6 col-small-12">
+                            <div class="card mt-30 flex flex--row bg-grey--lighten">
+                                <div class="card__media w-4">
+                                    <img src="https://source.unsplash.com/random/481x301" title="Thanks Tobias van Schneider"
+                                    alt="Thanks Tobias van Schneider">
+                                </div>
+                                <div class="card__content">
+                                    <p class="large bold">Horizontal</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                        consequat.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
-        </footer>
+        </main>
         <script src="https://unpkg.com/vue"></script>
         <script>
             new Vue({
                 el: '#app',
-                data: {
+                mounted() {
+                    var sidebarActive = document.getElementById('sidebarSelected');
+                    this.selectedPage = sidebarActive.value;
+                },
+                data() {
+                    return {
+                        selectedPage: null
+                    }
+                },
+                methods: {
+                    isMenuSelected: function(page) {
+                        return this.selectedPage == page;
+                    }
                 }
             });
         </script>

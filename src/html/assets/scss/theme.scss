@@ -11,14 +11,20 @@ body {
 	width: 100%;
 	box-sizing: border-box;
 	overflow-x: hidden;
+	background: #f3f3f3;
+
+	&.docs {
+		background: #fff;
+	}
 }
 
 .wrapper {
 	display: grid;
+	grid-template-columns: 300px calc(100% - 300px);
 	grid-template-areas:
 	"header header"
 	"sidebar content"
-	"footer footer";
+	"sidebar footer";
 }
 
 .header {
@@ -27,7 +33,7 @@ body {
 	.logo {
 		display: block;
 		margin: auto;
-		max-width: 180px;
+		max-width: 100px;
 
 		img {
 			width: 100%;
@@ -37,14 +43,22 @@ body {
 
 .sidebar {
 	grid-area: sidebar;
+	width: 300px;
+
+	.logo {
+		width: 120px;
+		margin: auto;
+	}
 }
 
 .content {
 	grid-area: content;
 	flex-direction: column;
+	background-color: #fff;
 }
 
 .footer {
+	background-color: #fff;
 	grid-area: footer;
 }
 

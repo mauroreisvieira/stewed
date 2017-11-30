@@ -3,6 +3,12 @@
   padding: 0;
   text-decoration: inherit;
   text-transform: inherit;
+  display: flex;
+  flex-direction: column;
+
+  &--horizontal {
+    flex-direction: row;
+  }
 
   &__item {
     align-items: center;
@@ -15,6 +21,30 @@
     &__text {
       display: inline-flex;
       flex-direction: column;
+    }
+  }
+
+  &__pic {
+    display: flex;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 50%;
+    margin: 2px;
+
+    &--xs {
+      width: 32px;
+      height: 32px;
+    }
+
+    &--sm {
+      width: 40px;
+      height: 40px;
+    }
+
+    &--md {
+      width: 48px;
+      height: 48px;
     }
   }
 }
