@@ -26,15 +26,15 @@
 		z-index: 1000;
 		padding: 8px;
 		width: 160px;
-		background-color: $c-tooltip-background;
-		color: $c-tooltip-color;
+		background-color: $tooltip-background;
+		color: $tooltip-color;
 		content: attr(data-tooltip);
 		line-height: 1em;
-		border-radius: $c-tooltip-border-radius;
+		border-radius: $tooltip-border-radius;
 		text-transform: none;
 		text-align: center;
-		font-size: $c-tooltip-font-size;
-		font-weight: $c-tooltip-font-weight;
+		font-size: $tooltip-font-size;
+		font-weight: $tooltip-font-weight;
 	}
 }
 

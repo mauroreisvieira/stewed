@@ -1,11 +1,11 @@
 @import '../../utilities/variables';
 @import '../../utilities/mixins';
 
-$c-grid-media-desktop: $u-width-media-desktop;
-$c-grid-media-tablet-min: $u-width-media-tablet-min;
-$c-grid-media-tablet-max: $u-width-media-tablet-max;
-$c-grid-media-mobile-min: $u-width-media-mobile-min;
-$c-grid-media-mobile-max: $u-width-media-mobile-max;
+$grid-media-desktop: $global-width-media-desktop;
+$grid-media-tablet-min: $global-width-media-tablet-min;
+$grid-media-tablet-max: $global-width-media-tablet-max;
+$grid-media-mobile-min: $global-width-media-mobile-min;
+$grid-media-mobile-max: $global-width-media-mobile-max;
 
 $grid: 100%;
 $columns: 12;

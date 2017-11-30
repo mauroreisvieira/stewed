@@ -2,6 +2,6 @@
 @import '../../utilities/mixins';
 
 $breadcrumb-is-active: $global-font-weight; // 400
-$breadcrumb-border-radius: $global-border-radius-defaul; // 2px
+$breadcrumb-border-radius: $global-border-radius; // 2px
 
 @import 'breadcrumb';

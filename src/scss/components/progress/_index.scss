@@ -2,7 +2,7 @@
 @import '../../utilities/mixins';
 
 
-$c-progress-border-radius: 2px;
-$c-progress-background: $u-color-black;
+$progress-border-radius: 2px;
+$progress-background: $global-color-black;
 
 @import 'progress';

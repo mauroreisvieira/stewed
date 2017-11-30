@@ -6,19 +6,19 @@
 
  	&[data-badge]::before,
  	&[data-badge]::after {
- 		display: flex;
- 		flex-direction: row;
- 		flex-wrap: wrap;
- 		justify-content: center;
- 		align-content: center;
- 		align-items: center;
- 		position: absolute;
- 		top: -11px;
- 		right: -24px;
- 		font-size: 0.750em;
- 		width: 24px;
- 		height: 24px;
- 		border-radius: 50%;
+    align-content: center;
+    align-items: center;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 0.750em;
+    height: 24px;
+    justify-content: center;
+    position: absolute;
+    right: -24px;
+    top: -100%;
+    width: 24px;
  	}
  	&[data-badge]::before {
  		content: attr(data-badge);

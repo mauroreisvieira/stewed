@@ -14,10 +14,10 @@
     .form__fieldLabel {
       color: #555;
       display: block;
-      font-family: $c-form-family;
+      font-family: $form-family;
       letter-spacing: .4px;
       margin-top: 10px;
-      font-weight: $c-form-weight;
+      font-weight: $form-weight;
 
       .form__fieldLabel-required {
         color: red;
@@ -68,7 +68,7 @@
       box-shadow: 0 0 0 2px #000;
       content: "";
       display: inline-block;
-      font-family: $c-checkbox-family;
+      font-family: $checkbox-family;
       height: 16px;
       left: 2px;
       margin-right: .75em;
@@ -121,8 +121,8 @@
       color: #000;
       position: relative;
       top: 3px;
-      font-family: $c-checkbox-family;
-      font-weight: $c-checkbox-weight;
+      font-family: $checkbox-family;
+      font-weight: $checkbox-weight;
     }
   }
 
@@ -135,7 +135,7 @@
       cursor: pointer;
       text-align: left;
       padding-left: 50px;
-      font-family: $c-switch-family;
+      font-family: $switch-family;
     }
 
     + label.form__fieldInputSwitch-label:before,
@@ -197,8 +197,8 @@
 
     .form__fieldInputSwitch-labelText {
       color: #000;
-      font-family: $c-switch-family;
-      font-weight: $c-switch-weight;
+      font-family: $switch-family;
+      font-weight: $switch-weight;
     }
   }
 }

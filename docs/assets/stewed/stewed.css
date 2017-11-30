@@ -28,19 +28,19 @@
 }
 
 .badge[data-badge]::before, .badge[data-badge]::after {
+  align-content: center;
+  align-items: center;
+  border-radius: 50%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  position: absolute;
-  top: -11px;
-  right: -24px;
   font-size: 0.750em;
-  width: 24px;
   height: 24px;
-  border-radius: 50%;
+  justify-content: center;
+  position: absolute;
+  right: -24px;
+  top: -100%;
+  width: 24px;
 }
 
 .badge[data-badge]::before {
@@ -257,7 +257,6 @@
 }
 
 .breadcrumbs {
-  border-radius: 2px;
   display: block;
   list-style: none;
   padding: 0;
@@ -267,7 +266,6 @@
 .breadcrumbs__item {
   cursor: default;
   display: inline-block;
-  font-family: inherit;
 }
 
 .breadcrumbs__item.is-active {
@@ -1586,25 +1584,24 @@
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
-  border-radius: 2px;
   background-color: #000;
   margin: 0.175em 0;
 }
 
 .label--success {
-  background-color: green;
+  background-color: #38c172;
 }
 
 .label--info {
-  background-color: blue;
+  background-color: #3490dc;
 }
 
 .label--warning {
-  background-color: red;
+  background-color: #bdbdbd;
 }
 
 .label--danger {
-  background-color: purple;
+  background-color: #e3342f;
 }
 
 .list {
