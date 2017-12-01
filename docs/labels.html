@@ -74,7 +74,7 @@
 
                     </p>
                 </div>
-                <input type="hidden" id="sidebarSelected" value="tooltips">
+                <input type="hidden" id="sidebarSelected" value="labels">
                 <ul class="menu menu--vertical menu--inherit p-20">
                     <li class="menu__item"><a :class="{'is-active': isMenuSelected('installation')}" class="menu__link"
                         href="installation.html" class="">Getting Start</a> 
@@ -131,37 +131,31 @@
                 </ul>
             </div>
             <div class="content pb-40">
-                <div class="px-20 flex flex--column flex--content-center bg-salmon h-3 mb-40">
-                     <h2 class="monospace text-white">Tooltip</h2>
+                <div class="px-20 flex flex--column flex--content-center bg-blue h-3 mb-40">
+                     <h2 class="monospace text-white">Labels</h2>
 
-                    <p class="monospace text-white"><strong>Last Updated:</strong> 26 Nov 2017</p>
+                    <p class="monospace text-white"><strong>Last Updated:</strong> 1 Dec 2017</p>
                 </div>
                 <section class="section p-20">
                     <div class="row">
                         <div class="col-large-12 col-medium-12 col-small-12">
-                            <p class="monospace extrabold">Tooltip Default</p>
-                            <p>To use the tooltip simply just use the <code>[data-tooltip]</code> in your
-                                tag, but if you want to change the direction of it, should one of the following
-                                classes:</p>
+                            <p class="extrabold">Label Default</p>
+                            <p>🤔</p>
                         </div>
                         <div class="col-large-3 col-medium-6 col-small-12">
                             <ul class="list">
-                                <li class="list__item py-10"><code>.tooltip--top</code>
-                                </li>
-                                <li class="list__item py-10"><code>.tooltip--right</code>
-                                </li>
-                                <li class="list__item py-10"><code>.tooltip--bottom</code>
-                                </li>
-                                <li class="list__item py-10"><code>.tooltip--left</code>
+                                <li class="list__item py-10"><code>disabled</code>
                                 </li>
                             </ul>
                         </div>
                         <div class="col-large-9 col-medium-6 col-small-12">
-                            <p>Lorem ipsum dolor sit amet, <strong data-tooltip="Tooltip Default.">necessitatibus</strong> adipisicing
-                                elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa,
-                                fuga.</p>
-                            <p>Explicabo perspiciatis nisi animi, <strong class="tooltip--right" data-tooltip="Tooltip Right.">in debitis?</strong>
-                            </p>
+                            <div class="mt-10">	<span class="label label--success">Success</span>
+	<span class="label label--info">Info</span>
+
+                                <span
+                                class="label label--warning">Warning</span>	<span class="label label--danger">Danger</span>
+
+                            </div>
                         </div>
                     </div>
                 </section>
