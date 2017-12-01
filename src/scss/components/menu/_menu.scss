@@ -1,17 +1,15 @@
-.menu {
-  $root: '.menu';
-
-  align-items: center;
+#{$menu} {
   display: flex;
   flex-direction: column;
-  list-style: none;
+  align-items: center;
   padding: 0;
+  list-style: none;
 
   &__item {
 
     &--separator {
-      border: 1px solid $menu__separator-color;
       margin: 6px 0;
+      border: 1px solid $menu-separator-color;
     }
   }
 
