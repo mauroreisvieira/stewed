@@ -1,6 +1,8 @@
 @import "../../utilities/variables";
 @import "../../utilities/mixins";
 
+$button: ".button";
+
 $button-font-size: $global-font-size; // 14px
 $button-font-weight: $global-font-weight; // 400
 

@@ -283,22 +283,22 @@
 
 .button {
   --button: 40px;
-  background: none;
-  border-radius: 2px;
-  border: 1px solid;
-  color: inherit;
-  cursor: pointer;
   display: inline-block;
+  position: relative;
+  height: var(--button);
+  margin: 0;
+  padding: 0 16px;
+  border: 1px solid;
+  border-radius: 2px;
+  background: none;
+  color: inherit;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
   font-weight: 400;
-  height: var(--button);
   line-height: var(--button);
-  margin: 0;
-  padding: 0 16px;
-  position: relative;
   text-decoration: none;
   text-transform: uppercase;
+  cursor: pointer;
   vertical-align: middle;
   z-index: 0;
 }
@@ -315,29 +315,29 @@
 .button--large {
   --button-large: 48px;
   height: var(--button-large);
-  line-height: var(--button-large);
   padding: 0 48px;
+  line-height: var(--button-large);
 }
 
 .button--medium {
   --button-medium: 44px;
   height: var(--button-medium);
-  line-height: var(--button-medium);
   padding: 0 32px;
+  line-height: var(--button-medium);
 }
 
 .button--small {
   --button-small: 36px;
   height: var(--button-small);
-  line-height: var(--button-small);
   padding: 0 14px;
+  line-height: var(--button-small);
 }
 
 .button--icon {
+  width: var(--button);
+  padding: 0;
   border-radius: 50%;
   font-weight: 400;
-  padding: 0;
-  width: var(--button);
 }
 
 .button--icon .icon {
@@ -357,23 +357,23 @@
 }
 
 .button--danger {
+  transition: border-color .3s, color .3s;
   background-color: #e3342f;
   color: #fff;
   overflow: hidden;
-  transition: border-color .3s, color .3s;
 }
 
 .button--danger::before {
-  background-color: #cc1f1a;
-  content: '';
-  height: 100%;
-  left: 0;
   position: absolute;
   top: 0;
+  left: 0;
+  width: 150%;
+  height: 100%;
   transform: rotate3d(0, 0, 1, -90deg);
   transform-origin: left bottom;
   transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1), background-color 0.4s cubic-bezier(0.2, 1, 0.3, 1);
-  width: 150%;
+  background-color: #cc1f1a;
+  content: "";
   will-change: transform;
   z-index: -1;
 }
@@ -387,30 +387,30 @@
 }
 
 .button--danger:hover::before {
-  background-color: #cc1f1a;
-  opacity: 1;
   transform: rotate3d(0, 0, 1, 0deg);
   transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  background-color: #cc1f1a;
+  opacity: 1;
 }
 
 .button--success {
+  transition: border-color .3s, color .3s;
   background-color: #38c172;
   color: #fff;
   overflow: hidden;
-  transition: border-color .3s, color .3s;
 }
 
 .button--success::before {
-  background-color: #1f9d55;
-  content: '';
-  height: 100%;
-  left: 0;
   position: absolute;
   top: 0;
+  left: 0;
+  width: 150%;
+  height: 100%;
   transform: rotate3d(0, 0, 1, -90deg);
   transform-origin: left bottom;
   transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1), background-color 0.4s cubic-bezier(0.2, 1, 0.3, 1);
-  width: 150%;
+  background-color: #1f9d55;
+  content: "";
   will-change: transform;
   z-index: -1;
 }
@@ -424,30 +424,30 @@
 }
 
 .button--success:hover::before {
-  background-color: #1f9d55;
-  opacity: 1;
   transform: rotate3d(0, 0, 1, 0deg);
   transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  background-color: #1f9d55;
+  opacity: 1;
 }
 
 .button--info {
+  transition: border-color .3s, color .3s;
   background-color: #3490dc;
   color: #fff;
   overflow: hidden;
-  transition: border-color .3s, color .3s;
 }
 
 .button--info::before {
-  background-color: #2779bd;
-  content: '';
-  height: 100%;
-  left: 0;
   position: absolute;
   top: 0;
+  left: 0;
+  width: 150%;
+  height: 100%;
   transform: rotate3d(0, 0, 1, -90deg);
   transform-origin: left bottom;
   transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1), background-color 0.4s cubic-bezier(0.2, 1, 0.3, 1);
-  width: 150%;
+  background-color: #2779bd;
+  content: "";
   will-change: transform;
   z-index: -1;
 }
@@ -461,30 +461,30 @@
 }
 
 .button--info:hover::before {
-  background-color: #2779bd;
-  opacity: 1;
   transform: rotate3d(0, 0, 1, 0deg);
   transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  background-color: #2779bd;
+  opacity: 1;
 }
 
 .button--default {
+  transition: border-color .3s, color .3s;
   background-color: #bdbdbd;
   color: #fff;
   overflow: hidden;
-  transition: border-color .3s, color .3s;
 }
 
 .button--default::before {
-  background-color: #212121;
-  content: '';
-  height: 100%;
-  left: 0;
   position: absolute;
   top: 0;
+  left: 0;
+  width: 150%;
+  height: 100%;
   transform: rotate3d(0, 0, 1, -90deg);
   transform-origin: left bottom;
   transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1), background-color 0.4s cubic-bezier(0.2, 1, 0.3, 1);
-  width: 150%;
+  background-color: #212121;
+  content: "";
   will-change: transform;
   z-index: -1;
 }
@@ -498,19 +498,19 @@
 }
 
 .button--default:hover::before {
-  background-color: #212121;
-  opacity: 1;
   transform: rotate3d(0, 0, 1, 0deg);
   transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  background-color: #212121;
+  opacity: 1;
 }
 
 .card {
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  overflow: hidden;
+  box-sizing: border-box;
   padding: 0;
+  overflow: hidden;
 }
 
 .card--small {
@@ -526,43 +526,43 @@
 }
 
 .card__header {
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  padding: 12px 16px;
+  box-sizing: border-box;
   width: 100%;
+  padding: 12px 16px;
 }
 
 .card__media {
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
   width: 100%;
 }
 
 .card__media img {
+  width: 100%;
   height: 100%;
   object-fit: cover;
-  width: 100%;
 }
 
 .card__content {
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  padding: 12px 16px;
+  box-sizing: border-box;
   width: 100%;
+  padding: 12px 16px;
 }
 
 .card__actions {
-  box-sizing: border-box;
   display: flex;
+  box-sizing: border-box;
   padding: 12px 16px 16px;
 }
 
 .card__footer {
-  box-sizing: border-box;
   display: flex;
+  box-sizing: border-box;
   padding: 12px 16px;
 }
 
