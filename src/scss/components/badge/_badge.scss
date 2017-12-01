@@ -1,36 +1,37 @@
 .badge {
   display: inline-block;
-  margin-right: 24px;
   position: relative;
+  margin-right: $badge-right-spacing;
+  padding: 0;
   white-space: nowrap;
 
-  &[data-badge]::before,
-  &[data-badge]::after {
-    align-content: center;
-    align-items: center;
-    border-radius: 50%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    font-size: .750em;
-    height: 24px;
-    justify-content: center;
-    position: absolute;
-    right: -24px;
-    top: -100%;
-    width: 24px;
-  }
+  &[data-badge] {
+    &::before,
+    &::after {
+      display: flex;
+      position: absolute;
+      top: -100%;
+      right: -$badge-right-spacing;
+      flex-flow: row wrap;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      width: $badge-width;
+      height: $badge-height;
+      border-radius: 50%;
+    }
 
-  &[data-badge]::before {
-    color: #fff;
-    content: attr(data-badge);
-    font-size: 0.750em;
-    font-weight: 400;
-    z-index: 1;
-  }
+    &::before {
+      color: $badge-text-color;
+      font-size: $badge-font-size;
+      font-weight: $badge-font-weight;
+      content: attr(data-badge);
+      z-index: 1;
+    }
 
-  &[data-badge]::after {
-    background-color: currentColor;
-    content: '';
+    &::after {
+      background-color: currentColor;
+      content: "";
+    }
   }
 }

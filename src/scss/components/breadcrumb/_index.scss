@@ -1,7 +1,7 @@
-@import '../../utilities/variables';
-@import '../../utilities/mixins';
+@import "../../utilities/variables";
+@import "../../utilities/mixins";
 
 $breadcrumb-is-active: $global-font-weight; // 400
 $breadcrumb-border-radius: $global-border-radius; // 2px
 
-@import 'breadcrumb';
+@import "breadcrumb";

@@ -21,39 +21,38 @@
  * THE SOFTWARE.
 */
 .badge {
-  position: relative;
-  white-space: nowrap;
-  margin-right: 24px;
   display: inline-block;
+  position: relative;
+  margin-right: 24px;
+  padding: 0;
+  white-space: nowrap;
 }
 
 .badge[data-badge]::before, .badge[data-badge]::after {
+  display: flex;
+  position: absolute;
+  top: -100%;
+  right: -24px;
+  flex-flow: row wrap;
   align-content: center;
   align-items: center;
-  border-radius: 50%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  font-size: 0.750em;
-  height: 24px;
   justify-content: center;
-  position: absolute;
-  right: -24px;
-  top: -100%;
   width: 24px;
+  height: 24px;
+  border-radius: 50%;
 }
 
 .badge[data-badge]::before {
-  content: attr(data-badge);
   color: #fff;
-  font-size: 0.750em;
+  font-size: 12px;
   font-weight: 400;
+  content: attr(data-badge);
   z-index: 1;
 }
 
 .badge[data-badge]::after {
-  content: '';
   background-color: currentColor;
+  content: "";
 }
 
 .b-1 {
@@ -258,14 +257,14 @@
 
 .breadcrumbs {
   display: block;
-  list-style: none;
-  padding: 0;
   width: 100%;
+  padding: 0;
+  list-style: none;
 }
 
 .breadcrumbs__item {
-  cursor: default;
   display: inline-block;
+  cursor: default;
 }
 
 .breadcrumbs__item.is-active {
@@ -278,8 +277,8 @@
 }
 
 .breadcrumbs__link::after {
-  content: '/';
   padding-left: 5px;
+  content: "/";
 }
 
 .button {

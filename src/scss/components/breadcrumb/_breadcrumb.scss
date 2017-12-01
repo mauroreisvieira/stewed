@@ -1,12 +1,12 @@
 .breadcrumbs {
   display: block;
-  list-style: none;
-  padding: 0;
   width: 100%;
+  padding: 0;
+  list-style: none;
 
   &__item {
-    cursor: default;
     display: inline-block;
+    cursor: default;
 
     &.is-active {
       font-weight: $breadcrumb-is-active;
@@ -18,8 +18,8 @@
     text-decoration: none;
 
     &::after {
-      content: '/';
       padding-left: 5px;
+      content: "/";
     }
   }
 }
