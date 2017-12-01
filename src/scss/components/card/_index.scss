@@ -1,5 +1,5 @@
-@import '../../utilities/variables';
-@import '../../utilities/mixins';
+@import "../../utilities/variables";
+@import "../../utilities/mixins";
 
 $card: ".card";
 
@@ -13,4 +13,4 @@ $card-medium: $global-width-media-tablet-min;
 $card-small: $global-width-media-mobile-min;
 
 
-@import 'card';
+@import "card";

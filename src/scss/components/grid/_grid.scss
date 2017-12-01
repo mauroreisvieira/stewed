@@ -1,9 +1,8 @@
-// Row wrapper class, flex box parent.
- .#{ $class-row } {
-  box-sizing: border-box;
+.#{ $class-row } {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
+  box-sizing: border-box;
+
   @include spacing( ( -$gutter ), margin, horizontal );
 }
 
@@ -19,6 +18,7 @@
 
 %#{ $class-cell }-flex {
   @extend %#{ $class-cell };
+
   flex-grow: 1;
   flex-basis: 0;
   max-width: 100%;

@@ -1,22 +1,22 @@
-.list {
+#{$list} {
+  display: flex;
+  flex-direction: column;
   list-style-type: none;
   padding: 0;
   text-decoration: inherit;
   text-transform: inherit;
-  display: flex;
-  flex-direction: column;
 
   &--horizontal {
     flex-direction: row;
   }
 
   &__item {
-    align-items: center;
     display: flex;
+    align-items: center;
     justify-content: flex-start;
-    overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    overflow: hidden;
 
     &__text {
       display: inline-flex;
@@ -26,25 +26,25 @@
 
   &__pic {
     display: flex;
-    height: 100%;
-    object-fit: cover;
     width: 100%;
-    border-radius: 50%;
+    height: 100%;
     margin: 2px;
+    object-fit: cover;
+    border-radius: 50%;
 
-    &--xs {
-      width: 32px;
-      height: 32px;
+    &--large {
+      width: 48px;
+      height: 48px;
     }
 
-    &--sm {
+    &--medium {
       width: 40px;
       height: 40px;
     }
 
-    &--md {
-      width: 48px;
-      height: 48px;
+    &--small {
+      width: 32px;
+      height: 32px;
     }
   }
 }
