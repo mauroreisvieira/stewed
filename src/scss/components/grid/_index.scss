@@ -1,5 +1,5 @@
-@import '../../utilities/variables';
-@import '../../utilities/mixins';
+@import "../../utilities/variables";
+@import "../../utilities/mixins";
 
 $grid-media-desktop: $global-width-media-desktop;
 $grid-media-tablet-min: $global-width-media-tablet-min;
@@ -11,9 +11,9 @@ $grid: 100%;
 $columns: 12;
 $gutter: 15px;
 
-$class-row: 'row';
-$class-cell: 'col';
-$class-off: 'offset';
+$class-row: "row";
+$class-cell: "col";
+$class-off: "offset";
 
 // Breakpoints
 $min-device: 280px;
@@ -27,4 +27,4 @@ $breakpoints: (
   (large, $desktop)
 );
 
-@import 'grid';
+@import "grid";

@@ -1,5 +1,5 @@
-@import '../../utilities/variables';
-@import '../../utilities/mixins';
+@import "../../utilities/variables";
+@import "../../utilities/mixins";
 
 // Input
 $form-input-text-font-size: 16px !default;
@@ -22,7 +22,7 @@ $checkbox-weight: 300;
 $switch-family: $global-font-family-serif;
 $switch-weight: 300;
 
-@import 'radio';
-@import 'checkbox';
-@import 'switch';
-@import 'form';
+@import "radio";
+@import "checkbox";
+@import "switch";
+@import "form";

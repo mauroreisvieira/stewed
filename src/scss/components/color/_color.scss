@@ -24,7 +24,7 @@
 
 @each $color-name, $color in $global-colors {
   @each $color-type, $color-value in $color {
-    @if $color-type == 'base' {
+    @if $color-type == "base" {
       .bg-#{$color-name} {
         background-color: $color-value;
       }
