@@ -6,7 +6,6 @@
   list-style: none;
 
   &__item {
-
     &--separator {
       margin: 6px 0;
       border: 1px solid $menu-separator-color;
@@ -14,13 +13,13 @@
   }
 
   &__link {
-    border-radius: 2px;
-    box-sizing: border-box;
     display: block;
-    padding: 14px;
     position: relative;
-    text-decoration: none;
+    padding: 14px;
     transition: color .2s linear;
+    border-radius: 2px;
+    text-decoration: none;
+    box-sizing: border-box;
 
     &:hover {
       opacity: .6;
@@ -47,10 +46,12 @@
         border-radius: 0 2px 2px;
         left: 100%;
       }
+
       .navigation__vertical__submenu--left {
         right: 100%;
         border-radius: 2px 0 2px;
       }
+
       &:hover {
         ul {
           display: block;
@@ -62,7 +63,7 @@
   &--horizontal {
     display: inline;
 
-    #{$root} {
+    #{$menu} {
 
       &__item {
         display: inline-block;

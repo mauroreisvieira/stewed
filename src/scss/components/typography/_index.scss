@@ -1,5 +1,5 @@
-@import '../../utilities/variables';
-@import '../../utilities/mixins';
+@import "../../utilities/variables";
+@import "../../utilities/mixins";
 
 // Fonts Family
 $typography-serif: $global-font-family-serif !default;
@@ -34,19 +34,19 @@ $typography-color-heading-6: $global-color-black;
 
 // Color Text
 $typography-color-text: $global-color-black;
-$typography-color-link: map-get($global-color-grey, 'base');
-$typography-color-link-hover: map-get($global-color-grey, 'darken');
+$typography-color-link: map-get($global-color-grey, "base");
+$typography-color-link-hover: map-get($global-color-grey, "darken");
 
 // Baseline
 $typography-baseline-heading: $global-baseline * 3;
 
 $headings: (
-  'h1': ($typography-color-heading-1, $typography-font-size-xl-xxx, $typography-font-weight-thin),
-  'h2': ($typography-color-heading-2, $typography-font-size-xl-xx, $typography-font-weight-light),
-  'h3': ($typography-color-heading-3, $typography-font-size-xl-x, $typography-font-weight-semibold),
-  'h4': ($typography-color-heading-4, $typography-font-size-xl, $typography-font-weight-semibold),
-  'h5': ($typography-color-heading-5, $typography-font-size-lg, $typography-font-weight-bold),
-  'h6': ($typography-color-heading-6, $typography-font-size-md, $typography-font-weight-bold)
+  "h1": ($typography-color-heading-1, $typography-font-size-xl-xxx, $typography-font-weight-thin),
+  "h2": ($typography-color-heading-2, $typography-font-size-xl-xx, $typography-font-weight-light),
+  "h3": ($typography-color-heading-3, $typography-font-size-xl-x, $typography-font-weight-semibold),
+  "h4": ($typography-color-heading-4, $typography-font-size-xl, $typography-font-weight-semibold),
+  "h5": ($typography-color-heading-5, $typography-font-size-lg, $typography-font-weight-bold),
+  "h6": ($typography-color-heading-6, $typography-font-size-md, $typography-font-weight-bold)
 );
 
-@import 'typography';
+@import "typography";

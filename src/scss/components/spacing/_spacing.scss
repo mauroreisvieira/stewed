@@ -61,63 +61,63 @@
     }
   } @else {
     .m-#{$i}0 {
-      margin: unquote(($i) + '0px');
+      margin: unquote(($i) + "0px");
     }
 
     .mx-#{$i}0 {
-      margin-left: unquote(($i) + '0px');
-      margin-right: unquote(($i) + '0px');
+      margin-left: unquote(($i) + "0px");
+      margin-right: unquote(($i) + "0px");
     }
 
     .my-#{$i}0 {
-      margin-bottom: unquote(($i) + '0px');
-      margin-top: unquote(($i) + '0px');
+      margin-bottom: unquote(($i) + "0px");
+      margin-top: unquote(($i) + "0px");
     }
 
     .mt-#{$i}0 {
-      margin-top: unquote(($i) + '0px');
+      margin-top: unquote(($i) + "0px");
     }
 
     .mr-#{$i}0 {
-      margin-right: unquote(($i) + '0px');
+      margin-right: unquote(($i) + "0px");
     }
 
     .mb-#{$i}0 {
-      margin-bottom: unquote(($i) + '0px');
+      margin-bottom: unquote(($i) + "0px");
     }
 
     .ml-#{$i}0 {
-      margin-left: unquote(($i) + '0px');
+      margin-left: unquote(($i) + "0px");
     }
 
     .p-#{$i}0 {
-      padding: unquote(($i) + '0px');
+      padding: unquote(($i) + "0px");
     }
 
     .px-#{$i}0 {
-      padding-left: unquote(($i) + '0px');
-      padding-right: unquote(($i) + '0px');
+      padding-left: unquote(($i) + "0px");
+      padding-right: unquote(($i) + "0px");
     }
 
     .py-#{$i}0 {
-      padding-bottom: unquote(($i) + '0px');
-      padding-top: unquote(($i) + '0px');
+      padding-bottom: unquote(($i) + "0px");
+      padding-top: unquote(($i) + "0px");
     }
 
     .pt-#{$i}0 {
-      padding-top: unquote(($i) + '0px');
+      padding-top: unquote(($i) + "0px");
     }
 
     .pr-#{$i}0 {
-      padding-right: unquote(($i) + '0px');
+      padding-right: unquote(($i) + "0px");
     }
 
     .pb-#{$i}0 {
-      padding-bottom: unquote(($i) + '0px');
+      padding-bottom: unquote(($i) + "0px");
     }
 
     .pl-#{$i}0 {
-      padding-left: unquote(($i) + '0px');
+      padding-left: unquote(($i) + "0px");
     }
   }
 }
