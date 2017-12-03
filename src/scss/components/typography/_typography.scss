@@ -1,13 +1,15 @@
 @each $key, $values in $headings {
   #{$key} {
     @include typography(nth($values, 2), nth($values, 3));
-    color: nth($values, 1);
+
     margin: $typography-baseline-heading 0;
+    color: nth($values, 1);
   }
 }
 
 body {
   @include typography($typography-font-size-base, $typography-font-weight-light);
+
   color: $typography-color-text;
 }
 
@@ -17,6 +19,7 @@ p {
 
 a {
   @include typography($typography-font-size-base, $typography-font-weight-light);
+
   color: $typography-color-link;
   &:hover {
     color: $typography-color-link-hover;
