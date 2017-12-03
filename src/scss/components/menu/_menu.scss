@@ -18,8 +18,8 @@
     padding: 14px;
     transition: color .2s linear;
     border-radius: 2px;
-    text-decoration: none;
     box-sizing: border-box;
+    text-decoration: none;
 
     &:hover {
       opacity: .6;
@@ -68,31 +68,33 @@
       &__item {
         display: inline-block;
 
-        ul {
+        .smenu {
           display: none;
-        }
 
-        .navigation__horizontal__submenu {
-          left: 0;
-          position: absolute;
-          min-width: 100%;
-          top: auto;
-          border-radius: 0 0 2px;
-          z-index: 11;
-          li {
-            width: 100%;
+          &--horizontal {
+            position: absolute;
+            top: auto;
+            left: 0;
+            min-width: 100%;
+            border-radius: 0 0 2px;
+            z-index: 11;
+
+            .smenu__item {
+              width: 100%;
+            }
+          }
+
+          &:hover {
+            ul {
+              display: block;
+            }
           }
         }
-        &:hover {
-          ul {
-            display: block;
-          }
-        }
-      }
 
-      &__link {
-        padding-bottom: 0;
-        padding-top: 0;
+        &__link {
+          padding-bottom: 0;
+          padding-top: 0;
+        }
       }
     }
   }

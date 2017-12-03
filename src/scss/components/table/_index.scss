@@ -1,6 +1,8 @@
 @import "../../utilities/variables";
 @import "../../utilities/mixins";
 
+$table: ".table";
+
 // font
 $table-font-family: $global-font-family-monospace;
 $table-font-size: $global-font-size;

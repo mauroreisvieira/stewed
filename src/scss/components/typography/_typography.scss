@@ -18,7 +18,6 @@ p {
 a {
   @include typography($typography-font-size-base, $typography-font-weight-light);
   color: $typography-color-link;
-
   &:hover {
     color: $typography-color-link-hover;
     text-decoration: none;
@@ -114,7 +113,7 @@ a {
 }
 
 // Text Decoration
-.overline  {
+.overline {
   text-decoration: overline;
 }
 

@@ -1,4 +1,8 @@
-@mixin typography ($font-size: $global-font-size , $font-weight: $global-font-weight, $font: $global-font-family-serif) {
+@mixin typography (
+  $font-size: $global-font-size,
+  $font-weight: $global-font-weight,
+  $font: $global-font-family-serif
+  ) {
   font: {
     family: $font;
     size: $font-size;

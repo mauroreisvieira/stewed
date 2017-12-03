@@ -1,6 +1,6 @@
 /*
  * Stewed Framework
- * http://github.com/Stewed/stewed.css
+ * https://github.com/maurovieirareis/stewed
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -1671,8 +1671,8 @@
   padding: 14px;
   transition: color .2s linear;
   border-radius: 2px;
-  text-decoration: none;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 .menu__link:hover {
@@ -1718,28 +1718,28 @@
   display: inline-block;
 }
 
-.menu--horizontal .menu__item ul {
+.menu--horizontal .menu__item .smenu {
   display: none;
 }
 
-.menu--horizontal .menu__item .navigation__horizontal__submenu {
-  left: 0;
+.menu--horizontal .menu__item .smenu--horizontal {
   position: absolute;
-  min-width: 100%;
   top: auto;
+  left: 0;
+  min-width: 100%;
   border-radius: 0 0 2px;
   z-index: 11;
 }
 
-.menu--horizontal .menu__item .navigation__horizontal__submenu li {
+.menu--horizontal .menu__item .smenu--horizontal .smenu__item {
   width: 100%;
 }
 
-.menu--horizontal .menu__item:hover ul {
+.menu--horizontal .menu__item .smenu:hover ul {
   display: block;
 }
 
-.menu--horizontal .menu__link {
+.menu--horizontal .menu__item__link {
   padding-bottom: 0;
   padding-top: 0;
 }
@@ -1799,7 +1799,7 @@
   margin: 40px 0;
 }
 
-.pagination .pagination__item {
+.pagination__item {
   padding: 0;
   cursor: pointer;
   border: 0;
@@ -1814,49 +1814,49 @@
   overflow: hidden;
 }
 
-.pagination .pagination__item:hover {
+.pagination__item:hover {
   background: #e0e0e0;
 }
 
-.pagination .pagination__item:focus {
+.pagination__item:focus {
   outline: none;
 }
 
-.pagination .pagination__item--first, .pagination .pagination__item--last {
+.pagination__item--first, .pagination__item--last {
   color: red;
 }
 
 @media (max-width: 767px) {
-  .pagination .pagination__item--first, .pagination .pagination__item--last {
+  .pagination__item--first, .pagination__item--last {
     display: none;
   }
 }
 
-.pagination .pagination__item--first:hover, .pagination .pagination__item--last:hover {
+.pagination__item--first:hover, .pagination__item--last:hover {
   background: transparent;
   color: #c20000;
 }
 
-.pagination .pagination__item--prev, .pagination .pagination__item--next {
+.pagination__item--prev, .pagination__item--next {
   color: green;
 }
 
-.pagination .pagination__item--prev:hover, .pagination .pagination__item--next:hover {
+.pagination__item--prev:hover, .pagination__item--next:hover {
   background: transparent;
   color: #004300;
 }
 
-.pagination .pagination__item--dots:hover {
+.pagination__item--dots:hover {
   background: #fff;
   color: #000;
 }
 
-.pagination .pagination__item--active {
+.pagination__item--active {
   background: red;
   color: #fff;
 }
 
-.pagination .pagination__item[disabled] {
+.pagination__item[disabled] {
   opacity: .4;
   cursor: not-allowed;
 }
@@ -1882,7 +1882,6 @@
   box-shadow: none;
 }
 
-/** Box Shadow **/
 .shadow-none {
   box-shadow: 0;
 }
@@ -1972,13 +1971,13 @@
 }
 
 .mx-0 {
-  margin-left: 0;
   margin-right: 0;
+  margin-left: 0;
 }
 
 .my-0 {
-  margin-bottom: 0;
   margin-top: 0;
+  margin-bottom: 0;
 }
 
 .mt-0 {
@@ -2002,13 +2001,13 @@
 }
 
 .px-0 {
-  padding-left: 0;
   padding-right: 0;
+  padding-left: 0;
 }
 
 .py-0 {
-  padding-bottom: 0;
   padding-top: 0;
+  padding-bottom: 0;
 }
 
 .pt-0 {
@@ -2032,13 +2031,13 @@
 }
 
 .mx-10 {
-  margin-left: 10px;
   margin-right: 10px;
+  margin-left: 10px;
 }
 
 .my-10 {
-  margin-bottom: 10px;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .mt-10 {
@@ -2062,13 +2061,13 @@
 }
 
 .px-10 {
-  padding-left: 10px;
   padding-right: 10px;
+  padding-left: 10px;
 }
 
 .py-10 {
-  padding-bottom: 10px;
   padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .pt-10 {
@@ -2092,13 +2091,13 @@
 }
 
 .mx-20 {
-  margin-left: 20px;
   margin-right: 20px;
+  margin-left: 20px;
 }
 
 .my-20 {
-  margin-bottom: 20px;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .mt-20 {
@@ -2122,13 +2121,13 @@
 }
 
 .px-20 {
-  padding-left: 20px;
   padding-right: 20px;
+  padding-left: 20px;
 }
 
 .py-20 {
-  padding-bottom: 20px;
   padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .pt-20 {
@@ -2152,13 +2151,13 @@
 }
 
 .mx-30 {
-  margin-left: 30px;
   margin-right: 30px;
+  margin-left: 30px;
 }
 
 .my-30 {
-  margin-bottom: 30px;
   margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .mt-30 {
@@ -2182,13 +2181,13 @@
 }
 
 .px-30 {
-  padding-left: 30px;
   padding-right: 30px;
+  padding-left: 30px;
 }
 
 .py-30 {
-  padding-bottom: 30px;
   padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .pt-30 {
@@ -2212,13 +2211,13 @@
 }
 
 .mx-40 {
-  margin-left: 40px;
   margin-right: 40px;
+  margin-left: 40px;
 }
 
 .my-40 {
-  margin-bottom: 40px;
   margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .mt-40 {
@@ -2242,13 +2241,13 @@
 }
 
 .px-40 {
-  padding-left: 40px;
   padding-right: 40px;
+  padding-left: 40px;
 }
 
 .py-40 {
-  padding-bottom: 40px;
   padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .pt-40 {
@@ -2272,13 +2271,13 @@
 }
 
 .mx-50 {
-  margin-left: 50px;
   margin-right: 50px;
+  margin-left: 50px;
 }
 
 .my-50 {
-  margin-bottom: 50px;
   margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .mt-50 {
@@ -2302,13 +2301,13 @@
 }
 
 .px-50 {
-  padding-left: 50px;
   padding-right: 50px;
+  padding-left: 50px;
 }
 
 .py-50 {
-  padding-bottom: 50px;
   padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .pt-50 {
@@ -2332,13 +2331,13 @@
 }
 
 .mx-60 {
-  margin-left: 60px;
   margin-right: 60px;
+  margin-left: 60px;
 }
 
 .my-60 {
-  margin-bottom: 60px;
   margin-top: 60px;
+  margin-bottom: 60px;
 }
 
 .mt-60 {
@@ -2362,13 +2361,13 @@
 }
 
 .px-60 {
-  padding-left: 60px;
   padding-right: 60px;
+  padding-left: 60px;
 }
 
 .py-60 {
-  padding-bottom: 60px;
   padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 .pt-60 {
@@ -2392,13 +2391,13 @@
 }
 
 .mx-70 {
-  margin-left: 70px;
   margin-right: 70px;
+  margin-left: 70px;
 }
 
 .my-70 {
-  margin-bottom: 70px;
   margin-top: 70px;
+  margin-bottom: 70px;
 }
 
 .mt-70 {
@@ -2422,13 +2421,13 @@
 }
 
 .px-70 {
-  padding-left: 70px;
   padding-right: 70px;
+  padding-left: 70px;
 }
 
 .py-70 {
-  padding-bottom: 70px;
   padding-top: 70px;
+  padding-bottom: 70px;
 }
 
 .pt-70 {
@@ -2452,13 +2451,13 @@
 }
 
 .mx-80 {
-  margin-left: 80px;
   margin-right: 80px;
+  margin-left: 80px;
 }
 
 .my-80 {
-  margin-bottom: 80px;
   margin-top: 80px;
+  margin-bottom: 80px;
 }
 
 .mt-80 {
@@ -2482,13 +2481,13 @@
 }
 
 .px-80 {
-  padding-left: 80px;
   padding-right: 80px;
+  padding-left: 80px;
 }
 
 .py-80 {
-  padding-bottom: 80px;
   padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 .pt-80 {
@@ -2512,13 +2511,13 @@
 }
 
 .mx-90 {
-  margin-left: 90px;
   margin-right: 90px;
+  margin-left: 90px;
 }
 
 .my-90 {
-  margin-bottom: 90px;
   margin-top: 90px;
+  margin-bottom: 90px;
 }
 
 .mt-90 {
@@ -2542,13 +2541,13 @@
 }
 
 .px-90 {
-  padding-left: 90px;
   padding-right: 90px;
+  padding-left: 90px;
 }
 
 .py-90 {
-  padding-bottom: 90px;
   padding-top: 90px;
+  padding-bottom: 90px;
 }
 
 .pt-90 {

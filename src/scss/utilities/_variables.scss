@@ -1,10 +1,10 @@
-@import 'color-definitions';
-@import 'mixins';
+@import "color-definitions";
+@import "mixins";
 
 // Default Colors
-$global-color-text-default: map-get($global-color-red, 'base');
-$global-color-title-default: map-get($global-color-red, 'base');
-$global-color-border-default: map-get($global-color-red, 'base');
+$global-color-text-default: map-get($global-color-red, "base");
+$global-color-title-default: map-get($global-color-red, "base");
+$global-color-border-default: map-get($global-color-red, "base");
 
 // Font Size
 $global-font-size: 14px;
@@ -12,8 +12,8 @@ $global-font-weight: 400;
 $global-baseline: 6px;
 
 // Typography
-$global-font-family-serif: 'Roboto', sans-serif;
-$global-font-family-monospace: 'Roboto Mono', monospace;
+$global-font-family-serif: "Roboto", sans-serif;
+$global-font-family-monospace: "Roboto Mono", monospace;
 
 // Grid
 $global-width-media-desktop: 1281px;
@@ -24,7 +24,3 @@ $global-width-media-mobile-max: 767px;
 
 // Border Radius
 $global-border-radius: 2px;
-
-
-
-

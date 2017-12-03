@@ -1,10 +1,10 @@
-.pagination {
+#{$pagination} {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 40px 0;
 
-  .pagination__item {
+  &__item {
     padding: 0;
     cursor: pointer;
     border: 0;

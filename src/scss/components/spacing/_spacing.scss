@@ -5,13 +5,13 @@
     }
 
     .mx-0 {
-      margin-left: 0;
       margin-right: 0;
+      margin-left: 0;
     }
 
     .my-0 {
-      margin-bottom: 0;
       margin-top: 0;
+      margin-bottom: 0;
     }
 
     .mt-0 {
@@ -35,13 +35,13 @@
     }
 
     .px-0 {
-      padding-left: 0;
       padding-right: 0;
+      padding-left: 0;
     }
 
     .py-0 {
-      padding-bottom: 0;
       padding-top: 0;
+      padding-bottom: 0;
     }
 
     .pt-0 {
@@ -65,13 +65,13 @@
     }
 
     .mx-#{$i}0 {
-      margin-left: unquote(($i) + "0px");
       margin-right: unquote(($i) + "0px");
+      margin-left: unquote(($i) + "0px");
     }
 
     .my-#{$i}0 {
-      margin-bottom: unquote(($i) + "0px");
       margin-top: unquote(($i) + "0px");
+      margin-bottom: unquote(($i) + "0px");
     }
 
     .mt-#{$i}0 {
@@ -95,13 +95,13 @@
     }
 
     .px-#{$i}0 {
-      padding-left: unquote(($i) + "0px");
       padding-right: unquote(($i) + "0px");
+      padding-left: unquote(($i) + "0px");
     }
 
     .py-#{$i}0 {
-      padding-bottom: unquote(($i) + "0px");
       padding-top: unquote(($i) + "0px");
+      padding-bottom: unquote(($i) + "0px");
     }
 
     .pt-#{$i}0 {
