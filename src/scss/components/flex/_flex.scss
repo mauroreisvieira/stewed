@@ -1,6 +1,7 @@
 .flex {
   display: flex;
   box-sizing: border-box;
+  line-height: 0;
 
   &--column {
     flex-direction: column;

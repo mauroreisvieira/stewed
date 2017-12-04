@@ -1,9 +1,17 @@
- @for $i from 1 through 10 {
+@for $i from 1 through 10 {
   .h-#{$i} {
-    height: unquote(($i) + "0vh");
+    height: unquote(($i) + "em");
   }
 
   .w-#{$i} {
+    width: unquote(($i) + "em");
+  }
+
+  .vh-#{$i} {
+    height: unquote(($i) + "0vh");
+  }
+
+  .vw-#{$i} {
     width: unquote(($i) + "0vw");
   }
 }
