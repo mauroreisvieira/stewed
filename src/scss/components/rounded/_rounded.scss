@@ -1,0 +1,29 @@
+.rounded {
+  &--none {
+    border-radius: none;
+  }
+
+  &--x-small {
+    border-radius: 2px;
+  }
+
+  &--small {
+    border-radius: 4px;
+  }
+
+  &__medium {
+    border-radius: 8px;
+  }
+
+  &__large {
+    border-radius: 12px;
+  }
+
+  &__x-large {
+    border-radius: 24px;
+  }
+}
+
+.circle {
+  border-radius: 50%;
+}

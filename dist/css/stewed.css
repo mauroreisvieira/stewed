@@ -1222,21 +1222,20 @@
   opacity: .3;
 }
 
-.form__fieldInputSwitch {
+.form__switch {
   display: none;
 }
 
-.form__fieldInputSwitch + label.form__fieldInputSwitch-label {
+.form__switch + .form__label {
   position: relative;
   display: inline-block;
   cursor: pointer;
   text-align: left;
   padding-left: 50px;
-  font-family: "Roboto", sans-serif;
+  padding-bottom: 0;
 }
 
-.form__fieldInputSwitch + label.form__fieldInputSwitch-label:before,
-.form__fieldInputSwitch + label.form__fieldInputSwitch-label:after {
+.form__switch + .form__label::before, .form__switch + .form__label::after {
   content: "";
   position: absolute;
   margin: 0;
@@ -1246,7 +1245,7 @@
   transition: all 0.3s ease;
 }
 
-.form__fieldInputSwitch + label.form__fieldInputSwitch-label:before {
+.form__switch + .form__label::before {
   left: 2px;
   width: 34px;
   height: 14px;
@@ -1255,7 +1254,7 @@
   border-radius: 8px;
 }
 
-.form__fieldInputSwitch + label.form__fieldInputSwitch-label:after {
+.form__switch + .form__label::after {
   left: 2px;
   width: 20px;
   height: 20px;
@@ -1264,39 +1263,19 @@
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.084);
 }
 
-.form__fieldInputSwitch:checked + label.form__fieldInputSwitch-label:after {
-  background-color: currentColor;
-  -webkit-transform: translate(80%, -50%);
-  transform: translate(80%, -50%);
-}
-
-.form__fieldInputSwitch:checked + label.form__fieldInputSwitch-label:before {
+.form__switch:checked + .form__label::before {
   background-color: currentColor;
   opacity: .5;
 }
 
-.form__fieldInputSwitch .form__fieldInputSwitch:checked + label.form__fieldInputSwitch-label:after {
+.form__switch:checked + .form__label::after {
   background-color: currentColor;
   -webkit-transform: translate(80%, -50%);
   transform: translate(80%, -50%);
 }
 
-.form__fieldInputSwitch:disabled + label.form__fieldInputSwitch-label:before {
-  background-color: #ccc;
-}
-
-.form__fieldInputSwitch:disabled + label.form__fieldInputSwitch-label:after {
-  background-color: #ccc;
-}
-
-.form__fieldInputSwitch-label {
-  color: currentColor;
-}
-
-.form__fieldInputSwitch-label .form__fieldInputSwitch-labelText {
-  color: #000;
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
+.form__switch:disabled + .form__label::before {
+  opacity: .3;
 }
 
 .form {
@@ -1329,6 +1308,7 @@
 .form__label {
   display: block;
   margin-top: 10px;
+  padding-bottom: 8px;
   color: currentColor;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
@@ -1624,6 +1604,42 @@
   .offset-large-0 {
     margin-left: 0;
   }
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+}
+
+.icon * {
+  font-size: 30px;
+}
+
+.icon--rounded {
+  background-color: red;
+  border-radius: 50%;
+}
+
+.icon--square {
+  background-color: red;
+}
+
+.icon--small {
+  width: 15px;
+  height: 15px;
+}
+
+.icon--small * {
+  font-size: 15px;
+}
+
+.icon--big {
+  width: 60px;
+  height: 60px;
+}
+
+.icon--big * {
+  font-size: 60px;
 }
 
 .label {
@@ -1932,6 +1948,34 @@
   background: currentColor;
   border-radius: 2px;
   box-shadow: none;
+}
+
+.rounded--none {
+  border-radius: none;
+}
+
+.rounded--x-small {
+  border-radius: 2px;
+}
+
+.rounded--small {
+  border-radius: 4px;
+}
+
+.rounded__medium {
+  border-radius: 8px;
+}
+
+.rounded__large {
+  border-radius: 12px;
+}
+
+.rounded__x-large {
+  border-radius: 24px;
+}
+
+.circle {
+  border-radius: 50%;
 }
 
 .shadow-none {
@@ -2987,40 +3031,4 @@ a:hover {
 
 .capitalize {
   text-transform: capitalize;
-}
-
-.icon {
-  width: 30px;
-  height: 30px;
-}
-
-.icon * {
-  font-size: 30px;
-}
-
-.icon--rounded {
-  background-color: red;
-  border-radius: 50%;
-}
-
-.icon--square {
-  background-color: red;
-}
-
-.icon--small {
-  width: 15px;
-  height: 15px;
-}
-
-.icon--small * {
-  font-size: 15px;
-}
-
-.icon--big {
-  width: 60px;
-  height: 60px;
-}
-
-.icon--big * {
-  font-size: 60px;
 }
