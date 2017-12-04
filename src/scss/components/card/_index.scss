@@ -1,14 +1,16 @@
-@import '../../utilities/variables';
-@import '../../utilities/mixins';
+@import "../../utilities/variables";
+@import "../../utilities/mixins";
+
+$card: ".card";
 
 // Card Padding
-$c-card-padding-x: 16px;
-$c-card-padding-y: 12px;
+$card-padding-x: 16px;
+$card-padding-y: 12px;
 
 // Card Width
-$c-card-large: $u-width-media-desktop;
-$c-card-medium: $u-width-media-tablet-min;
-$c-card-small: $u-width-media-mobile-min;
+$card-large: $global-width-media-desktop;
+$card-medium: $global-width-media-tablet-min;
+$card-small: $global-width-media-mobile-min;
 
 
-@import 'card';
+@import "card";

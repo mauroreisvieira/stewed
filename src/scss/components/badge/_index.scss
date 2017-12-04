@@ -1,4 +1,16 @@
-@import '../../utilities/variables';
-@import '../../utilities/mixins';
+@import "../../utilities/variables";
+@import "../../utilities/mixins";
 
-@import 'badge';
+$badge: ".badge";
+
+$badge-font-size: 12px;
+$badge-font-weight: $global-font-weight;
+
+$badge-text-color: $global-color-white;
+
+$badge-width: 24px;
+$badge-height: $badge-width;
+
+$badge-right-spacing: $badge-width;
+
+@import "badge";

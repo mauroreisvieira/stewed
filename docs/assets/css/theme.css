@@ -3,7 +3,7 @@
 }
 
 body {
-  font-size: 100%;
+  font-size: 14px;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -50,6 +50,7 @@ body.docs {
   grid-area: content;
   flex-direction: column;
   background-color: #fff;
+  min-height: 100vh;
 }
 
 .footer {

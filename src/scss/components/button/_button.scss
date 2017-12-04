@@ -1,21 +1,22 @@
-.button {
-  --button: $c-button-height;
-  background: none;
-  border-radius: $c-button-border-radius;
-  border: 1px solid;
-  color: inherit;
-  cursor: pointer;
+#{$button} {
+  --button: $button-height;
+
   display: inline-block;
-  font-family: $u-font-family-serif;
-  font-size: $c-button-font-size;
-  font-weight: $c-button-font-weight;
-  height: var(--button);
-  line-height: var(--button);
-  margin: 0;
-  padding: 0 $c-button-horizontal-padding;
   position: relative;
+  height: var(--button);
+  margin: 0;
+  padding: 0 $button-horizontal-padding;
+  border: 1px solid;
+  border-radius: $button-border-radius;
+  background: none;
+  color: inherit;
+  font-family: $global-font-family-serif;
+  font-size: $button-font-size;
+  font-weight: $button-font-weight;
+  line-height: var(--button);
   text-decoration: none;
   text-transform: uppercase;
+  cursor: pointer;
   vertical-align: middle;
   z-index: 0;
 
@@ -29,85 +30,87 @@
   }
 
   &--large {
-    --button-large: $c-button-height + 8px;
+    --button-large: $button-height + 8px;
+
     height: var(--button-large);
+    padding: 0 $button-horizontal-padding * 3;
     line-height: var(--button-large);
-    padding: 0 $c-button-horizontal-padding * 3;
   }
 
   &--medium {
-    --button-medium: $c-button-height + 4px;
+    --button-medium: $button-height + 4px;
+
     height: var(--button-medium);
+    padding: 0 $button-horizontal-padding * 2;
     line-height: var(--button-medium);
-    padding: 0 $c-button-horizontal-padding * 2;
   }
 
   &--small {
-    --button-small: $c-button-height - 4px;
+    --button-small: $button-height - 4px;
+
     height: var(--button-small);
+    padding: 0 $button-horizontal-padding - 2;
     line-height: var(--button-small);
-    padding: 0 $c-button-horizontal-padding - 2;
   }
 
   &--icon {
-    border-radius: 50%;
-    font-weight: $c-button-font-weight;
-    padding: 0;
     width: var(--button);
+    padding: 0;
+    border-radius: 50%;
+    font-weight: $button-font-weight;
 
     .icon {
       pointer-events: none;
     }
 
-    &.button--large {
+    &#{$button}--large {
       width: var(--button-large);
     }
 
-    &.button--medium {
+    &#{$button}--medium {
       width: var(--button-medium);
     }
 
-    &.button--small {
+    &#{$button}--small {
       width: var(--button-small);
     }
   }
+}
 
-  @each $key, $values in $buttons {
+@each $key, $values in $buttons {
+  #{$button}--#{$key} {
+    transition: border-color .3s, color .3s;
+    background-color: nth($values, 1);
+    color: nth($values, 2);
+    overflow: hidden;
 
-    &--#{$key} {
-      background-color: nth($values, 1);
-      color: nth($values, 2);
-      overflow: hidden;
-      transition: border-color .3s, color .3s;
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 150%;
+      height: 100%;
+      transform: rotate3d(0, 0, 1, -90deg);
+      transform-origin: left bottom;
+      transition: transform $button-transition-duration $button-transition-timing, background-color $button-transition-duration $button-transition-timing;
+      background-color: nth($values, 3);
+      content: "";
+      will-change: transform;
+      z-index: -1;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      color: nth($values, 4);
 
       &::before {
+        transform: rotate3d(0, 0, 1, 0deg);
+        transition-timing-function: $button-transition-timing;
         background-color: nth($values, 3);
-        content: '';
-        height: 100%;
-        left: 0;
-        position: absolute;
-        top: 0;
-        transform: rotate3d(0, 0, 1, -90deg);
-        transform-origin: left bottom;
-        transition: transform $c-button-transition-duration $c-button-transition-timing, background-color $c-button-transition-duration $c-button-transition-timing;
-        width: 150%;
-        will-change: transform;
-        z-index: -1;
-      }
-
-      &:focus {
-        outline: none;
-      }
-
-      &:hover {
-        color: nth($values, 4);
-
-        &::before {
-          background-color: nth($values, 3);
-          opacity: 1;
-          transform: rotate3d(0, 0, 1, 0deg);
-          transition-timing-function: $c-button-transition-timing;
-        }
+        opacity: 1;
       }
     }
   }

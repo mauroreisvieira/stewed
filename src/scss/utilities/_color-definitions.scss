@@ -1,96 +1,96 @@
-$u-color-aqua: (
-  'base': #36f7ce,
-  'lighten': #36f7ce,
-  'darken': #36f7ce
+$global-color-aqua: (
+  "base": #36f7ce,
+  "lighten": #36f7ce,
+  "darken": #36f7ce
 );
 
-$u-color-blue: (
-  'base': #3490dc,
-  'lighten': #6cb2eb,
-  'darken': #2779bd
+$global-color-blue: (
+  "base": #3490dc,
+  "lighten": #6cb2eb,
+  "darken": #2779bd
 );
 
-$u-color-cyan: (
-  'base': #0193a3,
-  'lighten': #0193a3,
-  'darken': #0193a3
+$global-color-cyan: (
+  "base": #0193a3,
+  "lighten": #0193a3,
+  "darken": #0193a3
 );
 
-$u-color-green: (
-  'base': #38c172,
-  'lighten': #51d88a,
-  'darken': #1f9d55
+$global-color-green: (
+  "base": #38c172,
+  "lighten": #51d88a,
+  "darken": #1f9d55
 );
 
-$u-color-grey: (
-  'base': #bdbdbd,
-  'lighten': #f2f2f2,
-  'darken': #212121
+$global-color-grey: (
+  "base": #bdbdbd,
+  "lighten": #f2f2f2,
+  "darken": #212121
 );
 
-$u-color-orange: (
-  'base': #f6993f,
-  'lighten': #faad63,
-  'darken': #de751f
+$global-color-orange: (
+  "base": #f6993f,
+  "lighten": #faad63,
+  "darken": #de751f
 );
 
-$u-color-pink: (
-  'base': #df1070,
-  'lighten': #df1070,
-  'darken': #df1070,
+$global-color-pink: (
+  "base": #df1070,
+  "lighten": #df1070,
+  "darken": #df1070,
 );
 
-$u-color-purple: (
-  'base': #800080,
-  'lighten': #800080,
-  'darken': #800080
+$global-color-purple: (
+  "base": #800080,
+  "lighten": #800080,
+  "darken": #800080
 );
 
-$u-color-red: (
-  'base': #e3342f,
-  'lighten': #f9acaa,
-  'darken': #cc1f1a
+$global-color-red: (
+  "base": #e3342f,
+  "lighten": #f9acaa,
+  "darken": #cc1f1a
 );
 
-$u-color-salmon: (
-  'base': #f86755,
-  'lighten': #f86755,
-  'darken': #f86755
+$global-color-salmon: (
+  "base": #f86755,
+  "lighten": #f86755,
+  "darken": #f86755
 );
 
-$u-color-violet: (
-  'base': #6f1efb,
-  'lighten': #6f1efb,
-  'darken': #6f1efb
+$global-color-violet: (
+  "base": #6f1efb,
+  "lighten": #6f1efb,
+  "darken": #6f1efb
 );
 
-$u-color-yellow: (
-  'base': #fdbc59,
-  'lighten': #fdbc59,
-  'darken': #fdbc59
+$global-color-yellow: (
+  "base": #fdbc59,
+  "lighten": #fdbc59,
+  "darken": #fdbc59
 );
 
-$u-color-teal: (
-  'base': #4dc0b5,
-  'lighten': #64d5ca,
-  'darken': #38a89d
+$global-color-teal: (
+  "base": #4dc0b5,
+  "lighten": #64d5ca,
+  "darken": #38a89d
 );
 
-$u-colors: (
-  'aqua': $u-color-aqua,
-  'blue': $u-color-blue,
-  'cyan': $u-color-cyan,
-  'green': $u-color-green,
-  'grey': $u-color-grey
-  'orange': $u-color-orange,
-  'pink': $u-color-pink,
-  'purple': $u-color-purple,
-  'red': $u-color-red,
-  'salmon': $u-color-salmon,
-  'teal': $u-color-teal,
-  'violet': $u-color-violet,
-  'yellow': $u-color-yellow,
+$global-color-white: #fff;
+$global-color-black: #000;
+
+$global-colors: (
+  "aqua": $global-color-aqua,
+  "blue": $global-color-blue,
+  "cyan": $global-color-cyan,
+  "green": $global-color-green,
+  "grey": $global-color-grey,
+  "orange": $global-color-orange,
+  "pink": $global-color-pink,
+  "purple": $global-color-purple,
+  "red": $global-color-red,
+  "salmon": $global-color-salmon,
+  "teal": $global-color-teal,
+  "violet": $global-color-violet,
+  "yellow": $global-color-yellow,
 ) !default;
-
-$u-color-white: #fff;
-$u-color-black: #000;

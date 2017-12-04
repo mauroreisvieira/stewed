@@ -1,43 +1,45 @@
-@import '../../utilities/variables';
-@import '../../utilities/mixins';
+@import "../../utilities/variables";
+@import "../../utilities/mixins";
 
-$c-button-font-size: $u-font-size; // 14px
-$c-button-font-weight: $u-font-weight; // 400
+$button: ".button";
+
+$button-font-size: $global-font-size; // 14px
+$button-font-weight: $global-font-weight; // 400
 
 // Button Size
-$c-button-height: 40px;
+$button-height: 40px;
 
 // Button Horizontal Padding
-$c-button-horizontal-padding: 16px;
+$button-horizontal-padding: 16px;
 
 // Border Radius
-$c-button-border-radius: 2px;
+$button-border-radius: 2px;
 
 // Button Danger
-$c-button-color-danger: map-get($u-color-red, 'base');
-$c-button-color-danger-hover: map-get($u-color-red, 'darken');
+$button-color-danger: map-get($global-color-red, "base");
+$button-color-danger-hover: map-get($global-color-red, "darken");
 
 // Button Success
-$c-button-color-success: map-get($u-color-green, 'base');
-$c-button-color-success-hover: map-get($u-color-green, 'darken');
+$button-color-success: map-get($global-color-green, "base");
+$button-color-success-hover: map-get($global-color-green, "darken");
 
 // Button Info
-$c-button-color-info: map-get($u-color-blue, 'base');
-$c-button-color-info-hover: map-get($u-color-blue, 'darken');
+$button-color-info: map-get($global-color-blue, "base");
+$button-color-info-hover: map-get($global-color-blue, "darken");
 
 // Button Default
-$c-button-color-default: map-get($u-color-grey, 'base');
-$c-button-color-default-hover: map-get($u-color-grey, 'darken');
+$button-color-default: map-get($global-color-grey, "base");
+$button-color-default-hover: map-get($global-color-grey, "darken");
 
 // Button Animation Transition
-$c-button-transition-timing: cubic-bezier(.2, 1, .3, 1);
-$c-button-transition-duration: .4s;
+$button-transition-timing: cubic-bezier(.2, 1, .3, 1);
+$button-transition-duration: .4s;
 
 $buttons: (
-  'danger': ($c-button-color-danger, $u-color-white, $c-button-color-danger-hover, $u-color-white),
-  'success': ($c-button-color-success, $u-color-white, $c-button-color-success-hover, $u-color-white),
-  'info': ($c-button-color-info, $u-color-white, $c-button-color-info-hover, $u-color-white),
-  'default': ($c-button-color-default, $u-color-white, $c-button-color-default-hover, $u-color-white)
+  "danger": ($button-color-danger, $global-color-white, $button-color-danger-hover, $global-color-white),
+  "success": ($button-color-success, $global-color-white, $button-color-success-hover, $global-color-white),
+  "info": ($button-color-info, $global-color-white, $button-color-info-hover, $global-color-white),
+  "default": ($button-color-default, $global-color-white, $button-color-default-hover, $global-color-white)
 );
 
-@import 'button';
+@import "button";

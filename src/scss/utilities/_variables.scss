@@ -1,36 +1,26 @@
-@import 'color-definitions';
-@import 'mixins';
+@import "color-definitions";
+@import "mixins";
 
 // Default Colors
-$u-color-text-default: map-get($u-color-red, 'base');
-$u-color-title-default: map-get($u-color-red, 'base');
-$u-color-border-default: map-get($u-color-red, 'base');
+$global-color-text-default: map-get($global-color-red, "base");
+$global-color-title-default: map-get($global-color-red, "base");
+$global-color-border-default: map-get($global-color-red, "base");
 
 // Font Size
-$u-font-size: 14px;
-$u-font-weight: 400;
-$u-baseline: 6px;
+$global-font-size: 14px;
+$global-font-weight: 400;
+$global-baseline: 6px;
 
 // Typography
-$u-font-family-serif: 'Roboto', sans-serif;
-$u-font-family-monospace: 'Roboto Mono', monospace;
+$global-font-family-serif: "Roboto", sans-serif;
+$global-font-family-monospace: "Roboto Mono", monospace;
 
 // Grid
-$u-width-media-desktop: 1281px;
-$u-width-media-tablet-min: 768px;
-$u-width-media-tablet-max: 1280px;
-$u-width-media-mobile-min: 280px;
-$u-width-media-mobile-max: 767px;
+$global-width-media-desktop: 1281px;
+$global-width-media-tablet-min: 768px;
+$global-width-media-tablet-max: 1280px;
+$global-width-media-mobile-min: 280px;
+$global-width-media-mobile-max: 767px;
 
-
-
-
-
-// Other
-$border-radius-default : 2px;
-$border-radius-card: 2px;
-$border-radius-inputs: 2px;
-$border-radius-buttons: 2px;
-
-
-
+// Border Radius
+$global-border-radius: 2px;

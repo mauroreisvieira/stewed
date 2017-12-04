@@ -7,24 +7,101 @@
 	<main class="wrapper" id="app">
 		<partial src="partials/header.html" selected="breadcrumbs"></partial>
 		<div class="content pb-40">
-			<partial src="partials/title.html" color="blue" title="Breadcrumbs" update="30 Nov 2017"></partial>
+			<partial src="partials/title.html" color="blue" title="Breadcrumbs" update="1 Dec 2017"></partial>
 			<section class="section p-20">
 				<div class="row">
 					<div class="col-large-12 col-medium-12 col-small-12">
 						<p class="monospace extrabold">Breadcrumbs Default</p>
-						<p>Optional, can use the buttons components with this specific colors applying the next modifiers.</p>
+						<p>Mandatory, defines the type of navigation.</p>
 					</div>
 					<div class="col-large-3 col-medium-6 col-small-12">
 						<ul class="list">
-							<li class="list__item py-10"><code>disabled</code></li>
+							<li class="list__item py-10"><code>.breadcrumbs</code></li>
+							<li class="list__item py-10"><code>.breadcrumbs__item</code></li>
+							<li class="list__item py-10"><code>.breadcrumbs__link</code></li>
 						</ul>
 					</div>
 					<div class="col-large-9 col-medium-6 col-small-12">
-						<div class="mt-40 breadcrumbs">
-							<ul class="">
-								<li><a href=""><i class="icon ion-home"></i></a></li>
-								<li><a href="">Library</a></li>
-								<li>Current</li>
+						<div class="mt-20">
+							<ul class="breadcrumbs">
+								<li class="breadcrumbs__item">
+									<a href="" class="breadcrumbs__link"><i class="icon ion-home"></i></a>
+								</li>
+								<li class="breadcrumbs__item">
+									<a href="" class="breadcrumbs__link">Framework</a>
+								</li>
+								<li class="breadcrumbs__item">
+									<a href="" class="breadcrumbs__link">Front End</a>
+								</li>
+								<li class="breadcrumbs__item is-active">CSS</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-large-12 col-medium-12 col-small-12">
+						<p class="monospace extrabold">Breadcrumbs with Helpers</p>
+						<p>Optional, can use the helpers to change default breadcrumb.</p>
+					</div>
+					<div class="col-large-3 col-medium-6 col-small-12">
+						<p class="bold">Helpers</p>
+						<ul class="list">
+							<li class="list__item py-10"><code>.bg-red</code></li>
+							<li class="list__item py-10"><code>.text-white</code></li>
+						</ul>
+						<p class="bold">Align</p>
+						<ul class="list">
+							<li class="list__item py-10"><code>.text-center</code></li>
+							<li class="list__item py-10"><code>.text-right</code></li>
+						</ul>
+					</div>
+					<div class="col-large-9 col-medium-6 col-small-12">
+						<!-- Breadcrumbs Align Left -->
+						<p class="bold mt-20">Left</p>
+						<div class="bg-red text-white">
+							<ul class="breadcrumbs pl-10">
+								<li class="breadcrumbs__item">
+									<a href="" class="breadcrumbs__link"><i class="icon ion-home"></i></a>
+								</li>
+								<li class="breadcrumbs__item">
+									<a href="" class="breadcrumbs__link">Framework</a>
+								</li>
+								<li class="breadcrumbs__item">
+									<a href="" class="breadcrumbs__link">Backend</a>
+								</li>
+								<li class="breadcrumbs__item is-active">PHP</li>
+							</ul>
+						</div>
+						<!-- Breadcrumbs Align Center -->
+						<p class="bold mt-20">Center</p>
+						<div class="bg-red text-white">
+							<ul class="breadcrumbs text-center">
+								<li class="breadcrumbs__item">
+									<a href="" class="breadcrumbs__link"><i class="icon ion-home"></i></a>
+								</li>
+								<li class="breadcrumbs__item">
+									<a href="" class="breadcrumbs__link">Framework</a>
+								</li>
+								<li class="breadcrumbs__item">
+									<a href="" class="breadcrumbs__link">Backend</a>
+								</li>
+								<li class="breadcrumbs__item is-active">PHP</li>
+							</ul>
+						</div>
+						<!-- Breadcrumbs Align Right -->
+						<p class="bold mt-20">Right</p>
+						<div class="bg-red text-white">
+							<ul class="breadcrumbs pr-10 text-right">
+								<li class="breadcrumbs__item">
+									<a href="" class="breadcrumbs__link"><i class="icon ion-home"></i></a>
+								</li>
+								<li class="breadcrumbs__item">
+									<a href="" class="breadcrumbs__link">Framework</a>
+								</li>
+								<li class="breadcrumbs__item">
+									<a href="" class="breadcrumbs__link">Backend</a>
+								</li>
+								<li class="breadcrumbs__item is-active">PHP</li>
 							</ul>
 						</div>
 					</div>
@@ -35,5 +112,3 @@
 	<partial src="partials/script.html"></partial>
 </body>
 </html>
-
-

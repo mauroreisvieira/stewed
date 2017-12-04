@@ -1,13 +1,13 @@
-@import '../../utilities/variables';
-@import '../../utilities/mixins';
+@import "../../utilities/variables";
+@import "../../utilities/mixins";
 
-$c-tooltip-font-size: $u-font-size; // 14px
-$c-tooltip-font-weight: $u-font-weight; // 400
+$tooltip-font-size: $global-font-size; // 14px
+$tooltip-font-weight: $global-font-weight; // 400
 
 // Border Radius
-$c-tooltip-border-radius: 2px;
+$tooltip-border-radius: 2px;
 
-$c-tooltip-background: $u-color-black;
-$c-tooltip-color: $u-color-white;
+$tooltip-background: $global-color-black;
+$tooltip-color: $global-color-white;
 
-@import 'tooltip';
+@import "tooltip";

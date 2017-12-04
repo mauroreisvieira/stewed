@@ -1,21 +1,21 @@
 @for $i from 1 through 10 {
   .b-#{$i} {
-    border: unquote(($i) + 'px') solid;
+    border: unquote(($i) + "px") solid;
   }
 
   .bt-#{$i} {
-    border-top: unquote(($i) + 'px') solid;
+    border-top: unquote(($i) + "px") solid;
   }
 
   .br-#{$i} {
-    border-right: unquote(($i) + 'px') solid;
+    border-right: unquote(($i) + "px") solid;
   }
 
   .bb-#{$i} {
-    border-bottom: unquote(($i) + 'px') solid;
+    border-bottom: unquote(($i) + "px") solid;
   }
 
   .bl-#{$i} {
-    border-left: unquote(($i) + 'px') solid;
+    border-left: unquote(($i) + "px") solid;
   }
 }

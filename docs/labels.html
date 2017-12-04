@@ -74,7 +74,7 @@
 
                     </p>
                 </div>
-                <input type="hidden" id="sidebarSelected" value="navbar">
+                <input type="hidden" id="sidebarSelected" value="labels">
                 <ul class="menu menu--vertical menu--inherit p-20">
                     <li class="menu__item"><a :class="{'is-active': isMenuSelected('installation')}" class="menu__link"
                         href="installation.html" class="">Getting Start</a> 
@@ -133,68 +133,57 @@
                     </li>
                 </ul>
             </div>
-            <div class="content">
-                <div class="container pt-60">
+            <div class="content pb-40">
+                <div class="px-20 flex flex--column flex--content-center bg-blue h-3 mb-40">
+                     <h2 class="monospace text-white">Labels</h2>
+
+                    <p class="monospace text-white"><strong>Last Updated:</strong> 1 Dec 2017</p>
+                </div>
+                <section class="section p-20">
                     <div class="row">
                         <div class="col-large-12 col-medium-12 col-small-12">
-                             <h2 class="monospace">Colors</h2>
-
+                            <p class="monospace extrabold">Label Default</p>
+                            <p>🤔</p>
                         </div>
-                    </div>
-                    <section class="section">
-                        <div class="row">
-                            <div class="col-large-12 col-medium-12 col-small-12">
-                                <p class="monospace extrabold">List of Existing colors</p>
-                            </div>
-                            <div class="col-large-12 col-medium-12 col-small-12">
-                                <div class="text-center p-10">
-                                    <div class="row">
-                                        <div v-for="color in ['white', 'black', 'red', 'green', 'blue']" class="col-large-3 col-medium-6 col-small-12">
-                                            <div class="card mb-20">
-                                                <div class="card__header color-white" :class="'bg-'+color">
-                                                    <p class="text-center">${{ color }}</p>
-                                                </div>
-                                                <div class="card__footer mt-10">
-                                                    <div class="mt-10"> <code>.color-{{ color }}</code>
-
-                                                    </div>
-                                                    <div class="mt-10"> <code>.bg-{{ color }}</code>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </main>
-        <footer class="footer bg-grey--lighten text-grey--darken">
-            <div class="container">
-                <div class="row">
-                    <div class="col-large-12 col-medium-12 col-small-12"></div>
-                    <div class="col-large-12 col-medium-12 col-small-12">
-                        <nav>
-                            <ul class="menu menu--horizontal menu--inherit float-right">
-                                <li class="menu__item"> <a class="menu__link" href="https://github.com/maurovieirareis/stewed"
-                                    target="_blank">View Source on Github</a>
-
-                                </li>
-                                <li class="menu__item"> <a class="menu__link" href="changelog.html">Changelog</a>
-
-                                </li>
-                                <li class="menu__item"> <a class="menu__link" href="https://twitter.com/StewedCSS" target="_blank">Twitter</a>
-
+                        <div class="col-large-3 col-medium-6 col-small-12">
+                            <ul class="list">
+                                <li class="list__item py-10"><code>disabled</code>
                                 </li>
                             </ul>
-                        </nav>
+                        </div>
+                        <div class="col-large-9 col-medium-6 col-small-12">
+                            <div class="mt-10">	<span class="label label--success">Success</span>
+	<span class="label label--info">Info</span>
+
+                                <span
+                                class="label label--warning">Warning</span>	<span class="label label--danger">Danger</span>
+
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </section>
             </div>
-        </footer>
+        </main>
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+            new Vue({
+                el: '#app',
+                mounted() {
+                    var sidebarActive = document.getElementById('sidebarSelected');
+                    this.selectedPage = sidebarActive.value;
+                },
+                data() {
+                    return {
+                        selectedPage: null
+                    }
+                },
+                methods: {
+                    isMenuSelected: function(page) {
+                        return this.selectedPage == page;
+                    }
+                }
+            });
+        </script>
     </body>
 
 </html>
