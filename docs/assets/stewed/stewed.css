@@ -1,6 +1,6 @@
 /*
  * Stewed Framework
- * http://github.com/Stewed/stewed.css
+ * https://github.com/maurovieirareis/stewed
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -2934,4 +2934,40 @@ a:hover {
 
 .capitalize {
   text-transform: capitalize;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+}
+
+.icon * {
+  font-size: 30px;
+}
+
+.icon--rounded {
+  background-color: red;
+  border-radius: 50%;
+}
+
+.icon--square {
+  background-color: red;
+}
+
+.icon--small {
+  width: 15px;
+  height: 15px;
+}
+
+.icon--small * {
+  font-size: 15px;
+}
+
+.icon--big {
+  width: 60px;
+  height: 60px;
+}
+
+.icon--big * {
+  font-size: 60px;
 }
