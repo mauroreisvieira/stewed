@@ -38,9 +38,9 @@
 									<span class="text-red">*</span>
 								</label>
 								<textarea class="form__textarea"
-								id="fieldMessage"
-								rows="5"
-								placeholder="Write something..."></textarea>
+									id="fieldMessage"
+									rows="5"
+									placeholder="Write something..."></textarea>
 							</div>
 							<div class="form__actions">
 								<button class="button button--info">Send</button>
@@ -78,9 +78,9 @@
 									<span class="text-red">*</span>
 								</label>
 								<textarea class="form__textarea"
-								id="fieldMessage"
-								rows="5"
-								placeholder="Write something..."></textarea>
+									id="fieldMessage"
+									rows="5"
+									placeholder="Write something..."></textarea>
 							</div>
 							<div class="form__actions flex--content-end">
 								<button class="button button--info">Send</button>
@@ -101,28 +101,44 @@
 					</div>
 					<div class="col-large-9 col-medium-6 col-small-12">
 						<form class="form form--vertical" action="" autocomplete="off">
-							<div class="form">
-								<input type="checkbox" id="checkbox-1" value="1" name="checkbox[]" class="form__fieldInputCheckbox" checked="true">
-								<label for="checkbox-1" class="form__fieldInputCheckbox-label">
-									<span class="form__fieldInputCheckbox-labelText">Checkbox 1</span>
+							<div class="form__field">
+								<input id="checkbox-1"
+									class="form__checkbox"
+									type="checkbox"
+									value="1"
+									name="checkbox[]" />
+								<label class="form__label" for="checkbox-1">
+									Checkbox 1
 								</label>
 							</div>
-							<div class="form">
-								<input type="checkbox" id="checkbox-2" value="2" name="checkbox[]" class="form__fieldInputCheckbox">
-								<label for="checkbox-2" class="form__fieldInputCheckbox-label">
-									<span class="form__fieldInputCheckbox-labelText">Checkbox 2</span>
+							<div class="form__field">
+								<input id="checkbox-2"
+									class="form__checkbox"
+									type="checkbox"
+									value="2"
+									name="checkbox[]" checked="" />
+								<label class="form__label" for="checkbox-2">
+									Checkbox 2
 								</label>
 							</div>
-							<div class="form">
-								<input type="checkbox" id="checkbox-3" value="3" name="checkbox[]" class="form__fieldInputCheckbox" checked="true" disabled="">
-								<label for="checkbox-3" class="form__fieldInputCheckbox-label">
-									<span class="form__fieldInputCheckbox-labelText">Checkbox Disabled Checked</span>
+							<div class="form__field">
+								<input id="checkbox-3"
+									class="form__checkbox"
+									type="checkbox"
+									value="2"
+									name="checkbox[]" disabled="" />
+								<label class="form__label" for="checkbox-3">
+									Checkbox 3
 								</label>
 							</div>
-							<div class="form">
-								<input type="checkbox" id="checkbox-4" value="4" name="checkbox[]" class="form__fieldInputCheckbox" disabled="">
-								<label for="checkbox-4" class="form__fieldInputCheckbox-label">
-									<span class="form__fieldInputCheckbox-labelText">Checkbox Disabled</span>
+							<div class="form__field">
+								<input id="checkbox-4"
+									class="form__checkbox"
+									type="checkbox"
+									value="2"
+									name="checkbox[]" checked="" disabled="" />
+								<label class="form__label" for="checkbox-4">
+									Checkbox 4
 								</label>
 							</div>
 						</form>

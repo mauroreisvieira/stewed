@@ -6,13 +6,14 @@
 
   &__field {
     display: flex;
-    align-items: baseline;
+    position: relative;
     flex-direction: column;
+    align-items: baseline;
+    margin: 8px 0;
   }
 
   &--horizontal {
     #{$form} {
-
       &__field {
         flex-direction: row;
       }
@@ -37,165 +38,9 @@
     letter-spacing: .4px;
   }
 
-  &__input,
-  &__textarea {
-    margin: 10px 0;
-
-    &:focus {
-      outline: none;
-      background-color: #fff;
-    }
-  }
-
   &__actions {
     display: flex;
     margin: 10px 0;
-  }
-}
-
-.form__fieldInputCheckbox {
-  position: absolute;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  border: 0;
-  top: 2px;
-
-  + label.form__fieldInputCheckbox-label:before {
-    box-shadow: 0 0 0 2px #000;
-    content: "";
-    display: inline-block;
-    font-family: $checkbox-family;
-    height: 16px;
-    left: 2px;
-    margin-right: .75em;
-    position: relative;
-    top: 0;
-    transition: .5s ease all;
-    vertical-align: -.25em;
-    width: 16px;
-  }
-
-  &:checked + label.form__fieldInputCheckbox-label:before {
-    background: currentColor;
-    box-shadow: 0 0 0 2px currentColor;
-  }
-
-  &:checked + label.form__fieldInputCheckbox-label:after {
-    top: 2px;
-    left: 4px;
-    height: 7px;
-    width: 9px;
-    content: "";
-    cursor: pointer;
-    position: absolute;
-    z-index: 2;
-    border-left: 4px solid #fff;
-    border-bottom: 8px solid #fff;
-    border-top: 0;
-    border-right: 0;
-    transform: rotate(-45deg) scaleY(.5);
-  }
-
-  &:disabled + label.form__fieldInputCheckbox-label:before {
-    background-color: #ccc;
-  }
-
-  &:disabled + label.form__fieldInputCheckbox-label:after {
-    background-color: #ccc;
-  }
-
-  &:disabled + label.form__fieldInputCheckbox-label:before {
-    box-shadow: 0 0 0 2px #ccc;
-  }
-}
-
-.form__fieldInputCheckbox-label {
-  color: currentColor;
-  position: relative;
-
-  .form__fieldInputCheckbox-labelText {
-    color: #000;
-    position: relative;
-    top: 3px;
-    font-family: $checkbox-family;
-    font-weight: $checkbox-weight;
-  }
-}
-
-.form__fieldInputSwitch {
-  display: none;
-
-  + label.form__fieldInputSwitch-label {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    text-align: left;
-    padding-left: 50px;
-    font-family: $switch-family;
-  }
-
-  + label.form__fieldInputSwitch-label:before,
-  + label.form__fieldInputSwitch-label:after {
-    content: "";
-    position: absolute;
-    margin: 0;
-    outline: 0;
-    top: 50%;
-    transform: translate(0, -50%);
-    transition: all 0.3s ease;
-  }
-
-  + label.form__fieldInputSwitch-label:before {
-    left: 2px;
-    width: 34px;
-    height: 14px;
-    background-color: #555;
-    border-radius: 8px;
-  }
-
-  + label.form__fieldInputSwitch-label:after {
-    left: 2px;
-    width: 20px;
-    height: 20px;
-    background-color: #888;
-    border-radius: 50%;
-    box-shadow: 0 3px 1px -2px rgba(#000, .14), 0 2px 2px 0 rgba(#000, .098), 0 1px 5px 0 rgba(#000, .084);
-  }
-
-  &:checked + label.form__fieldInputSwitch-label:after {
-    background-color: currentColor;
-    -webkit-transform: translate(80%, -50%);
-    transform: translate(80%, -50%);
-  }
-
-  &:checked + label.form__fieldInputSwitch-label:before {
-    background-color: currentColor;
-    opacity: .5;
-  }
-
-  .form__fieldInputSwitch:checked + label.form__fieldInputSwitch-label:after {
-    background-color: currentColor;
-    -webkit-transform: translate(80%, -50%);
-    transform: translate(80%, -50%);
-  }
-
-  &:disabled + label.form__fieldInputSwitch-label:before {
-    background-color: #ccc;
-  }
-
-  &:disabled + label.form__fieldInputSwitch-label:after {
-    background-color: #ccc;
-  }
-}
-
-.form__fieldInputSwitch-label {
-  color: currentColor;
-
-  .form__fieldInputSwitch-labelText {
-    color: #000;
-    font-family: $switch-family;
-    font-weight: $switch-weight;
   }
 }
 

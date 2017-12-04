@@ -1,72 +1,62 @@
 #{$form} {
-
   &__checkbox {
     position: absolute;
     padding: 0;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
     border: 0;
-    top: 2px;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
 
-    + label.form__fieldInputCheckbox-label:before {
-      box-shadow: 0 0 0 2px #000;
-      content: "";
-      display: inline-block;
-      font-family: $checkbox-family;
-      height: 16px;
-      left: 2px;
-      margin-right: .75em;
+    + .form__label {
+      display: flex;
       position: relative;
-      top: 0;
-      transition: .5s ease all;
-      vertical-align: -.25em;
-      width: 16px;
-    }
-
-    &:checked + label.form__fieldInputCheckbox-label:before {
-      background: currentColor;
-      box-shadow: 0 0 0 2px currentColor;
-    }
-
-    &:checked + label.form__fieldInputCheckbox-label:after {
-      top: 2px;
-      left: 4px;
-      height: 7px;
-      width: 9px;
-      content: "";
+      align-items: center;
+      height: 20px;
+      margin: 0;
+      padding: 0;
+      padding-left: 30px;
       cursor: pointer;
-      position: absolute;
-      z-index: 2;
-      border-left: 4px solid #fff;
-      border-bottom: 8px solid #fff;
-      border-top: 0;
-      border-right: 0;
-      transform: rotate(-45deg) scaleY(.5);
+
+      &::before {
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        transition: .5s ease all;
+        background-color: #ddd;
+        content: "";
+        vertical-align: text-top;
+      }
     }
 
-    &:disabled + label.form__fieldInputCheckbox-label:before {
-      background-color: #ccc;
+    &:checked {
+      + .form__label {
+        &::before {
+          background: currentColor;
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          left: 5px;
+          top: 9px;
+          background: white;
+          width: 2px;
+          height: 2px;
+          box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+        }
+      }
     }
 
-    &:disabled + label.form__fieldInputCheckbox-label:after {
-      background-color: #ccc;
-    }
+    &:disabled {
+      + .form__label {
 
-    &:disabled + label.form__fieldInputCheckbox-label:before {
-      box-shadow: 0 0 0 2px #ccc;
-    }
-  }
-
-  .form__fieldInputCheckbox-label {
-    color: currentColor;
-    position: relative;
-
-    .form__fieldInputCheckbox-labelText {
-      color: #000;
-      position: relative;
-      top: 3px;
-      font-family: $checkbox-family;
-      font-weight: $checkbox-weight;
+        &::before {
+          opacity: .3;
+        }
+      }
     }
   }
 }
