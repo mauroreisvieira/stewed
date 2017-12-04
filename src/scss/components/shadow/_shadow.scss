@@ -1,4 +1,25 @@
-.shadow-none {
-   box-shadow: 0;
-}
+.shadow {
+  &-none {
+    box-shadow: none;
+  }
 
+  &-x-small {
+    box-shadow: none;
+  }
+
+  &-small {
+    box-shadow: none;
+  }
+
+  &-medium {
+    box-shadow: none;
+  }
+
+  &-large {
+    box-shadow: none;
+  }
+
+  &-x-large {
+    box-shadow: none;
+  }
+}

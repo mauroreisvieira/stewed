@@ -1983,7 +1983,27 @@
 }
 
 .shadow-none {
-  box-shadow: 0;
+  box-shadow: none;
+}
+
+.shadow-x-small {
+  box-shadow: none;
+}
+
+.shadow-small {
+  box-shadow: none;
+}
+
+.shadow-medium {
+  box-shadow: none;
+}
+
+.shadow-large {
+  box-shadow: none;
+}
+
+.shadow-x-large {
+  box-shadow: none;
 }
 
 .h-1 {
