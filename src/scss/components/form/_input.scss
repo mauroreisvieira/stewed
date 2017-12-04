@@ -1,0 +1,16 @@
+#{$form} {
+
+  &__input {
+    background-color: #ddd;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    height: 36px;
+    padding: 0 12px;
+    width: 100%;
+
+    &:focus {
+      background-color: #fff;
+      outline: none;
+    }
+  }
+}

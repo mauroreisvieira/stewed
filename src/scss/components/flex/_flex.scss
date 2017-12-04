@@ -18,6 +18,14 @@
     justify-content: space-between;
   }
 
+  &--content-start {
+    justify-content: flex-start;
+  }
+
+  &--content-end {
+    justify-content: flex-end;
+  }
+
   &--items-center {
     align-items: center;
   }

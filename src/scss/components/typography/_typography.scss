@@ -19,8 +19,9 @@ p {
 
 a {
   @include typography($typography-font-size-base, $typography-font-weight-light);
-
+  text-decoration: none;
   color: $typography-color-link;
+
   &:hover {
     color: $typography-color-link-hover;
     text-decoration: none;

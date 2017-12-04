@@ -1,6 +1,8 @@
 @import "../../utilities/variables";
 @import "../../utilities/mixins";
 
+$form: ".form";
+
 // Input
 $form-input-text-font-size: 16px !default;
 $form-input-text-width: 100% !default;
@@ -22,6 +24,8 @@ $checkbox-weight: 300;
 $switch-family: $global-font-family-serif;
 $switch-weight: 300;
 
+@import "input";
+@import "textarea";
 @import "radio";
 @import "checkbox";
 @import "switch";

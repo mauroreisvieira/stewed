@@ -1079,44 +1079,19 @@
   justify-content: space-between;
 }
 
+.flex--content-start {
+  justify-content: flex-start;
+}
+
+.flex--content-end {
+  justify-content: flex-end;
+}
+
 .flex--items-center {
   align-items: center;
 }
 
-.form {
-  display: flex;
-  margin: 20px 0;
-  width: 100%;
-}
-
-.form--vertical {
-  display: block;
-  overflow: hidden;
-}
-
-.form--vertical .form__fieldInput {
-  margin: 10px 0;
-}
-
-.form--vertical .form__fieldLabel {
-  color: #555;
-  display: block;
-  font-family: "Roboto", sans-serif;
-  letter-spacing: .4px;
-  margin-top: 10px;
-  font-weight: 400;
-}
-
-.form--vertical .form__fieldLabel .form__fieldLabel-required {
-  color: red;
-}
-
-.form--vertical .button {
-  margin-top: 20px;
-  margin-left: 0;
-}
-
-.form .form__fieldInput {
+.form__input {
   background-color: #ddd;
   border: 1px solid #ddd;
   box-sizing: border-box;
@@ -1125,24 +1100,23 @@
   width: 100%;
 }
 
-.form .form__fieldInput.form__fieldInput-textarea {
+.form__input:focus {
+  background-color: #fff;
+  outline: none;
+}
+
+.form__textarea {
+  background-color: #ddd;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  height: 36px;
+  width: 100%;
   resize: none;
   height: auto;
   padding: 20px 12px;
 }
 
-.form .form__fieldInput--large {
-  height: 44px;
-  padding: 0 15px;
-  width: 100%;
-}
-
-.form .form__fieldInput:focus {
-  background-color: #fff;
-  outline: none;
-}
-
-.form .form__fieldInputCheckbox {
+.form__checkbox {
   position: absolute;
   padding: 0;
   overflow: hidden;
@@ -1151,7 +1125,7 @@
   top: 2px;
 }
 
-.form .form__fieldInputCheckbox + label.form__fieldInputCheckbox-label:before {
+.form__checkbox + label.form__fieldInputCheckbox-label:before {
   box-shadow: 0 0 0 2px #000;
   content: "";
   display: inline-block;
@@ -1166,12 +1140,12 @@
   width: 16px;
 }
 
-.form .form__fieldInputCheckbox:checked + label.form__fieldInputCheckbox-label:before {
+.form__checkbox:checked + label.form__fieldInputCheckbox-label:before {
   background: currentColor;
   box-shadow: 0 0 0 2px currentColor;
 }
 
-.form .form__fieldInputCheckbox:checked + label.form__fieldInputCheckbox-label:after {
+.form__checkbox:checked + label.form__fieldInputCheckbox-label:after {
   top: 2px;
   left: 4px;
   height: 7px;
@@ -1187,15 +1161,15 @@
   transform: rotate(-45deg) scaleY(0.5);
 }
 
-.form .form__fieldInputCheckbox:disabled + label.form__fieldInputCheckbox-label:before {
+.form__checkbox:disabled + label.form__fieldInputCheckbox-label:before {
   background-color: #ccc;
 }
 
-.form .form__fieldInputCheckbox:disabled + label.form__fieldInputCheckbox-label:after {
+.form__checkbox:disabled + label.form__fieldInputCheckbox-label:after {
   background-color: #ccc;
 }
 
-.form .form__fieldInputCheckbox:disabled + label.form__fieldInputCheckbox-label:before {
+.form__checkbox:disabled + label.form__fieldInputCheckbox-label:before {
   box-shadow: 0 0 0 2px #ccc;
 }
 
@@ -1212,11 +1186,129 @@
   font-weight: 300;
 }
 
-.form .form__fieldInputSwitch {
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.form__field {
+  display: flex;
+  align-items: baseline;
+  flex-direction: column;
+}
+
+.form--horizontal .form__field {
+  flex-direction: row;
+}
+
+.form--horizontal .form__label {
+  flex: 1;
+}
+
+.form--horizontal .form__input, .form--horizontal .form__textarea {
+  flex: 2;
+}
+
+.form__label {
+  display: block;
+  margin-top: 10px;
+  color: #555;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  letter-spacing: .4px;
+}
+
+.form__input, .form__textarea {
+  margin: 10px 0;
+}
+
+.form__input:focus, .form__textarea:focus {
+  outline: none;
+  background-color: #fff;
+}
+
+.form__actions {
+  display: flex;
+  margin: 10px 0;
+}
+
+.form__fieldInputCheckbox {
+  position: absolute;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+  top: 2px;
+}
+
+.form__fieldInputCheckbox + label.form__fieldInputCheckbox-label:before {
+  box-shadow: 0 0 0 2px #000;
+  content: "";
+  display: inline-block;
+  font-family: "Roboto", sans-serif;
+  height: 16px;
+  left: 2px;
+  margin-right: .75em;
+  position: relative;
+  top: 0;
+  transition: .5s ease all;
+  vertical-align: -.25em;
+  width: 16px;
+}
+
+.form__fieldInputCheckbox:checked + label.form__fieldInputCheckbox-label:before {
+  background: currentColor;
+  box-shadow: 0 0 0 2px currentColor;
+}
+
+.form__fieldInputCheckbox:checked + label.form__fieldInputCheckbox-label:after {
+  top: 2px;
+  left: 4px;
+  height: 7px;
+  width: 9px;
+  content: "";
+  cursor: pointer;
+  position: absolute;
+  z-index: 2;
+  border-left: 4px solid #fff;
+  border-bottom: 8px solid #fff;
+  border-top: 0;
+  border-right: 0;
+  transform: rotate(-45deg) scaleY(0.5);
+}
+
+.form__fieldInputCheckbox:disabled + label.form__fieldInputCheckbox-label:before {
+  background-color: #ccc;
+}
+
+.form__fieldInputCheckbox:disabled + label.form__fieldInputCheckbox-label:after {
+  background-color: #ccc;
+}
+
+.form__fieldInputCheckbox:disabled + label.form__fieldInputCheckbox-label:before {
+  box-shadow: 0 0 0 2px #ccc;
+}
+
+.form__fieldInputCheckbox-label {
+  color: currentColor;
+  position: relative;
+}
+
+.form__fieldInputCheckbox-label .form__fieldInputCheckbox-labelText {
+  color: #000;
+  position: relative;
+  top: 3px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+
+.form__fieldInputSwitch {
   display: none;
 }
 
-.form .form__fieldInputSwitch + label.form__fieldInputSwitch-label {
+.form__fieldInputSwitch + label.form__fieldInputSwitch-label {
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -1225,8 +1317,8 @@
   font-family: "Roboto", sans-serif;
 }
 
-.form .form__fieldInputSwitch + label.form__fieldInputSwitch-label:before,
-.form .form__fieldInputSwitch + label.form__fieldInputSwitch-label:after {
+.form__fieldInputSwitch + label.form__fieldInputSwitch-label:before,
+.form__fieldInputSwitch + label.form__fieldInputSwitch-label:after {
   content: "";
   position: absolute;
   margin: 0;
@@ -1236,7 +1328,7 @@
   transition: all 0.3s ease;
 }
 
-.form .form__fieldInputSwitch + label.form__fieldInputSwitch-label:before {
+.form__fieldInputSwitch + label.form__fieldInputSwitch-label:before {
   left: 2px;
   width: 34px;
   height: 14px;
@@ -1244,7 +1336,7 @@
   border-radius: 8px;
 }
 
-.form .form__fieldInputSwitch + label.form__fieldInputSwitch-label:after {
+.form__fieldInputSwitch + label.form__fieldInputSwitch-label:after {
   left: 2px;
   width: 20px;
   height: 20px;
@@ -1253,36 +1345,36 @@
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.084);
 }
 
-.form .form__fieldInputSwitch:checked + label.form__fieldInputSwitch-label:after {
+.form__fieldInputSwitch:checked + label.form__fieldInputSwitch-label:after {
   background-color: currentColor;
   -webkit-transform: translate(80%, -50%);
   transform: translate(80%, -50%);
 }
 
-.form .form__fieldInputSwitch:checked + label.form__fieldInputSwitch-label:before {
+.form__fieldInputSwitch:checked + label.form__fieldInputSwitch-label:before {
   background-color: currentColor;
   opacity: .5;
 }
 
-.form .form__fieldInputSwitch .form__fieldInputSwitch:checked + label.form__fieldInputSwitch-label:after {
+.form__fieldInputSwitch .form__fieldInputSwitch:checked + label.form__fieldInputSwitch-label:after {
   background-color: currentColor;
   -webkit-transform: translate(80%, -50%);
   transform: translate(80%, -50%);
 }
 
-.form .form__fieldInputSwitch:disabled + label.form__fieldInputSwitch-label:before {
+.form__fieldInputSwitch:disabled + label.form__fieldInputSwitch-label:before {
   background-color: #ccc;
 }
 
-.form .form__fieldInputSwitch:disabled + label.form__fieldInputSwitch-label:after {
+.form__fieldInputSwitch:disabled + label.form__fieldInputSwitch-label:after {
   background-color: #ccc;
 }
 
-.form .form__fieldInputSwitch-label {
+.form__fieldInputSwitch-label {
   color: currentColor;
 }
 
-.form .form__fieldInputSwitch-label .form__fieldInputSwitch-labelText {
+.form__fieldInputSwitch-label .form__fieldInputSwitch-labelText {
   color: #000;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
@@ -2820,6 +2912,7 @@ a {
   font-family: "Roboto", sans-serif;
   font-size: 14px;
   font-weight: 300;
+  text-decoration: none;
   color: #bdbdbd;
 }
 
