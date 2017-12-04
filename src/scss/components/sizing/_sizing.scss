@@ -4,6 +4,6 @@
   }
 
   .w-#{$i} {
-    width: unquote(($i) + "0vh");
+    width: unquote(($i) + "0vw");
   }
 }

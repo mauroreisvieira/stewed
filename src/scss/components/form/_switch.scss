@@ -14,11 +14,11 @@
       &::after {
         content: "";
         position: absolute;
-        margin: 0;
-        outline: 0;
         top: 50%;
+        margin: 0;
         transform: translate(0, -50%);
         transition: all 0.3s ease;
+        outline: 0;
       }
 
       &::before {

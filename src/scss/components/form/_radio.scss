@@ -19,12 +19,13 @@
       &::before {
         display: inline-block;
         position: absolute;
+        top: 0;
         left: 0;
         width: 20px;
         height: 20px;
         transition: .5s ease all;
-        background-color: #ddd;
         border-radius: 50%;
+        background-color: #ddd;
         content: "";
         vertical-align: text-top;
       }

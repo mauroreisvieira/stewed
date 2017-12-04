@@ -16,7 +16,8 @@ Using a combination of **HTML**, **CSS** and pure **JavaScript** allows you to c
 - Chrome 35+
 - Firefox 31+
 - Safari 9+
-- Internet Explorer 9+
+- Opera 48+
+
 
 ### Get Started
 
