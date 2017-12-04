@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<partial src="partials/head.html" title="Stewed Framework 1.0"></partial>
+</head>
+<body>
+	<main class="wrapper" id="app">
+		<partial src="partials/header.html" selected="icons"></partial>
+		<div class="content pb-40">
+			<partial src="partials/title.html" color="blue" title="Icons" update="4 Dec 2017"></partial>
+			<section class="section p-20">
+				<div class="row">
+					<div class="col-large-12 col-medium-12 col-small-12">
+						<p class="monospace extrabold">Icons Helpers</p>
+						<p>You can use your own icons library. For the examples we use <a target="_blank" href="https://material.io/icons">material design icons</a>.</p>
+					</div>
+					<div class="col-large-3 col-medium-6 col-small-12">
+						<ul class="list">
+							<li class="list__item py-10"><code>.icon</code></li>
+							<li class="list__item py-10"><code>.icon .icon--rounded</code></li>
+							<li class="list__item py-10"><code>.icon .icon--square</code></li>
+							<li class="list__item py-10"><code>.icon .icon--small</code></li>
+							<li class="list__item py-10"><code>.icon .icon--big</code></li>
+						</ul>
+					</div>
+					<div class="col-large-9 col-medium-6 col-small-12">
+						<ul class="list">
+							<li class="list__item py-10">
+								<span class="icon">
+									<i class="material-icons">play_arrow</i>
+								</span>
+							</li>
+							<li class="list__item py-10">
+								<span class="icon icon--rounded">
+									<i class="material-icons">play_arrow</i>
+								</span>
+							</li>
+							<li class="list__item py-10">
+								<span class="icon icon--square">
+									<i class="material-icons">play_arrow</i>
+								</span>
+							</li>
+							<li class="list__item py-10">
+								<span class="icon icon--small">
+									<i class="material-icons">play_arrow</i>
+								</span>
+							</li>
+							<li class="list__item py-10">
+								<span class="icon icon--big">
+									<i class="material-icons">play_arrow</i>
+								</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+	</main>
+	<partial src="partials/script.html"></partial>
+</body>
+</html>

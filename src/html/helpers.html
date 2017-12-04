@@ -5,510 +5,185 @@
 </head>
 <body>
     <main class="wrapper" id="app">
-        <partial src="partials/header.html" selected="navbar"></partial>
-
-        <section id="main">
-            <div class="content">
-
-                <div class="header-description box-shadow--4dp">
-                    <div class="container">
-                        <div class="master-header">
-                            <h1>CSS Helpers</h1>
-                            <p>These are custom classes available that can be used together with any elements of your HTML.</p>
-                        </div>
+        <partial src="partials/header.html" selected="helpers"></partial>
+        <div class="content pb-40">
+            <partial src="partials/title.html" color="yellow" title="CSS Helpers" update="28 Nov 2017"></partial>
+            <section class="section p-20">
+                <div class="row">
+                    <div class="col-large-12 col-medium-12 col-small-12">
+                        <p class="extrabold">Margins</p>
+                        <p>You can add margins to all elements of your html.</p>
+                        <p>For this classes you have available the numbers 10, 20, 30, ..., 90.</p>
+                    </div>
+                    <div class="col-large-3 col-medium-6 col-small-12">
+                        <ul class="list">
+                            <li class="list__item py-10"><code>.m-{YOUR NUMBER}</code></li>
+                            <li class="list__item py-10"><code>.mt-{YOUR NUMBER}</code></li>
+                            <li class="list__item py-10"><code>.mr-{YOUR NUMBER}</code></li>
+                            <li class="list__item py-10"><code>.mb-{YOUR NUMBER}</code></li>
+                            <li class="list__item py-10"><code>.ml-{YOUR NUMBER}</code></li>
+                            <li class="list__item py-10"><code>.mx-{YOUR NUMBER}</code></li>
+                            <li class="list__item py-10"><code>.my-{YOUR NUMBER}</code></li>
+                        </ul>
+                    </div>
+                    <div class="col-large-9 col-medium-6 col-small-12">
+                        <ul class="list">
+                            <li class="list__item py-10">Margin Top, Right, Bottom, Left</li>
+                            <li class="list__item py-10">Margin Top</li>
+                            <li class="list__item py-10">Margin Right</li>
+                            <li class="list__item py-10">Margin Bottom</li>
+                            <li class="list__item py-10">Margin Left</li>
+                            <li class="list__item py-10">Margin Left and Right</li>
+                            <li class="list__item py-10">Margin Top and Buttom</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="container margin-top-20">
-                    <div class="row row--gutter">
-                        <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-20">
-                            <h2>Typography</h2>
-                            <p>The sizes of the heading are the following classes <code>.h1</code>, <code>.h2</code>, <code>.h3</code>, <code>.h4</code>, <code>.h5</code>, <code>.h6</code></p>
-                        </div>
-                        <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-40">
-                            <h1 class="h1">Heading 1</h1>
-                            <h2 class="h2">Heading 2</h2>
-                            <h3 class="h3">Heading 3</h3>
-                            <h4 class="h4">Heading 4</h4>
-                            <h5 class="h5">Heading 5</h5>
-                            <h6 class="h6">Heading 6</h6>
-                        </div>
-                        <div class="col-large-12 col-medium-12 col-small-12">
-                            <p class="size-52 font-100">Thin (52px) </p>
-                            <p class="size-14 margin-bottom-20"><code>.size-52</code> and <code>.font-100</code></p>
-                            <p class="size-48 font-300">Light (48px)</p>
-                            <p class="size-14 margin-bottom-20"><code>.size-48</code> and <code>.font-300</code></p>
-                            <p class="size-44 font-400">Regular (44px) </p>
-                            <p class="size-14 margin-bottom-20"><code>.size-44</code> and <code>.font-400</code></p>
-                            <p class="size-40 font-500">Medium (40px) </p>
-                            <p class="size-14 margin-bottom-20"><code>.size-40</code> and <code>.font-500</code></p>
-                            <p class="size-36 font-700">Bold (36px) </p>
-                            <p class="size-14 margin-bottom-20"><code>.size-36</code> and <code>.font-700</code></p>
-                            <p class="size-32 font-900">Extra Bold (32px) </p>
-                            <p class="size-14 margin-bottom-20"><code>.size-32</code> and <code>.font-900</code></p>
-                        </div>
-                        <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-20">
-                            <h2>Blockquote</h2>
-                            <p>We can use the block quote at any time using the class <code>.blockquote</code> also can customize the color of your quote only used the color of class.</p>
-                        </div>
-                        <div class="col-large-12 col-medium-12 col-small-12">
-                            <blockquote class="blockquote color-indigo bg-white">
-                                <p class="color-black">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente iste perspiciatis cumque eos, id error quaerat minus enim architecto porro accusantium cupiditate ipsam esse ipsum sint.</p>
-                            </blockquote>
-                        </div>
-                        <div class="card margin-top-20">
-                            <div class="card__header ">
-                                <h4 class="card__header__title text-uppercase">Cooking</h4>
-                            </div>
-                            <div class="card__container card--border">
-                                <div id="view-html" class="code">
-                                    <pre class="brush: xml; toolbar: false; gutter: false;">
-                                        &lt;blockquote class="blockquote color-indigo bg-white">
-                                        &lt;p class="color-black">Lorem ipsum...&lt;/p>
-                                        &lt;/blockquote>
-                                    </pre>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-20 margin-top-40">
-                            <h2>Colors</h2>
-                        </div>
-                        <div class="col-large-3 col-medium-4 col-small-12">
-                            <div class="card margin-bottom-20">
-                                <div class="card__header color-white bg-amber">
-                                    <p class="text-center">$amber</p>
-                                </div>
-                                <div class="card__footer">
-                                    <code>.color-amber</code>
-                                    <code>.bg-amber</code>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-large-3 col-medium-4 col-small-12">
-                            <div class="card margin-bottom-20">
-                                <div class="card__header color-white bg-black">
-                                    <p class="text-center">$black</p>
-                                </div>
-                                <div class="card__footer">
-                                    <code>.color-black</code>
-                                    <code>.bg-black</code>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-large-3 col-medium-4 col-small-12">
-                            <div class="card margin-bottom-20">
-                                <div class="card__header color-white bg-blue">
-                                    <p class="text-center">$blue</p>
-                                </div>
-                                <div class="card__footer">
-                                    <code>.color-blue</code>
-                                    <code>.bg-blue</code>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-large-3 col-medium-4 col-small-12">
-                            <div class="card margin-bottom-20">
-                                <div class="card__header color-white bg-bluegrey">
-                                    <p class="text-center">$bluegrey</p>
-                                </div>
-                                <div class="card__footer">
-                                    <code>.color-bluegrey</code>
-                                    <code>.bg-bluegrey</code>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-large-3 col-medium-4 col-small-12">
-                            <div class="card margin-bottom-20">
-                                <div class="card__header color-white bg-darkbluegrey">
-                                    <p class="text-center">$darkbluegrey</p>
-                                </div>
-                                <div class="card__footer">
-                                    <code>.color-darkbluegrey</code>
-                                    <code>.bg-darkbluegrey</code>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-large-3 col-medium-4 col-small-12">
-                            <div class="card margin-bottom-20">
-                                <div class="card__header color-white bg-brown">
-                                    <p class="text-center">$brown</p>
-                                </div>
-                                <div class="card__footer">
-                                    <code>.color-brown</code>
-                                    <code>.bg-brown</code>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-large-3 col-medium-4 col-small-12">
-                            <div class="card margin-bottom-20">
-                                <div class="card__header color-white bg-cyan">
-                                    <p class="text-center">$cyan</p>
-                                </div>
-                                <div class="card__footer">
-                                    <code>.color-cyan</code>
-                                    <code>.bg-cyan</code>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-large-3 col-medium-4 col-small-12">
-                            <div class="card margin-bottom-20">
-                                <div class="card__header color-white bg-green">
-                                    <p class="text-center">$green</p>
-                                </div>
-                                <div class="card__footer">
-                                    <code>.color-green</code>
-                                    <code>.bg-green</code>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-large-3 col-medium-4 col-small-12">
-                            <div class="card margin-bottom-20">
-                                <div class="card__header color-white bg-grey">
-                                    <p class="text-center">$grey</p>
-                                </div>
-                                <div class="card__footer">
-                                    <code>.color-grey</code>
-                                    <code>.bg-grey</code>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-large-3 col-medium-4 col-small-12">
-                            <div class="card margin-bottom-20">
-                                <div class="card__header color-white bg-darkgrey">
-                                    <p class="text-center">$darkgrey</p>
-                                </div>
-                                <div class="card__footer">
-                                    <code>.color-darkgrey</code>
-                                    <code>.bg-darkgrey</code>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-large-3 col-medium-4 col-small-12">
-                            <div class="card margin-bottom-20">
-                                <div class="card__header color-white bg-indigo">
-                                    <p class="text-center">$indigo</p>
-                                </div>
-                                <div class="card__footer">
-                                    <code>.color-indigo</code>
-                                    <code>.bg-indigo</code>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-large-3 col-medium-4 col-small-12">
-                            <div class="card margin-bottom-20">
-                                <div class="card__header color-black bg-lightgrey">
-                                    <p class="text-center">$lightgrey</p>
-                                </div>
-                                <div class="card__footer">
-                                    <code>.color-lightgrey</code>
-                                    <code>.bg-lightgrey</code>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-large-3 col-medium-4 col-small-12">
-                            <div class="card margin-bottom-20">
-                                <div class="card__header color-white bg-orange">
-                                    <p class="text-center">$orange</p>
-                                </div>
-                                <div class="card__footer">
-                                    <code>.color-orange</code>
-                                    <code>.bg-orange</code>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-large-3 col-medium-4 col-small-12">
-                            <div class="card margin-bottom-20">
-                                <div class="card__header color-white bg-teal">
-                                    <p class="text-center">$teal</p>
-                                </div>
-                                <div class="card__footer">
-                                    <code>.color-teal</code>
-                                    <code>.bg-teal</code>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-large-3 col-medium-4 col-small-12">
-                            <div class="card margin-bottom-20">
-                                <div class="card__header color-white bg-pink">
-                                    <p class="text-center">$pink</p>
-                                </div>
-                                <div class="card__footer">
-                                    <code>.color-pink</code>
-                                    <code>.bg-pink</code>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-large-3 col-medium-4 col-small-12">
-                            <div class="card margin-bottom-20">
-                                <div class="card__header color-white bg-purple">
-                                    <p class="text-center">$purple</p>
-                                </div>
-                                <div class="card__footer">
-                                    <code>.color-purple</code>
-                                    <code>.bg-purple</code>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-large-3 col-medium-4 col-small-12">
-                            <div class="card margin-bottom-20">
-                                <div class="card__header color-white bg-red">
-                                    <p class="text-center">$red</p>
-                                </div>
-                                <div class="card__footer">
-                                    <code>.color-red</code>
-                                    <code>.bg-red</code>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-large-3 col-medium-4 col-small-12">
-                            <div class="card margin-bottom-20">
-                                <div class="card__header color-black bg-white">
-                                    <p class="text-center">$white</p>
-                                </div>
-                                <div class="card__footer">
-                                    <code>.color-white</code>
-                                    <code>.bg-white</code>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-large-3 col-medium-4 col-small-12">
-                            <div class="card margin-bottom-20">
-                                <div class="card__header color-black bg-yellow">
-                                    <p class="text-center">$yellow</p>
-                                </div>
-                                <div class="card__footer">
-                                    <code>.color-yellow</code>
-                                    <code>.bg-yellow</code>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            </section>
 
-                    <div class="row row--gutter">
-                        <div class="col-large-12 col-medium-12 col-small-12 margin-bottom-20">
-                            <h2>Shadow</h2>
-                        </div>
-                        <div class="col-large-3 col-medium-4 col-small-12">
-                            <div class="bg-lightgrey margin-bottom-40 box-shadow--2dp align-items--center justify-content--center" style="height: 80px;">
-                                <code>.box-shadow--2dp</code>
-                            </div>
-                        </div>
-                        <div class="col-large-3 col-medium-4 col-small-12">
-                            <div class="bg-lightgrey margin-bottom-40 box-shadow--3dp align-items--center justify-content--center" style="height: 80px;">
-                                <code>.box-shadow--3dp</code>
-                            </div>
-                        </div>
-                        <div class="col-large-3 col-medium-4 col-small-12">
-                            <div class="bg-lightgrey margin-bottom-40 box-shadow--4dp align-items--center justify-content--center" style="height: 80px;">
-                                <code>.box-shadow--4dp</code>
-                            </div>
-                        </div>
-                        <div class="col-large-3 col-medium-4 col-small-12">
-                            <div class="bg-lightgrey margin-bottom-40 box-shadow--6dp align-items--center justify-content--center" style="height: 80px;">
-                                <code>.box-shadow--6dp</code>
-                            </div>
-                        </div>
-                        <div class="col-large-3 col-medium-4 col-small-12">
-                            <div class="bg-lightgrey margin-bottom-40 box-shadow--8dp align-items--center justify-content--center" style="height: 80px;">
-                                <code>.box-shadow--8dp</code>
-                            </div>
-                        </div>
-                        <div class="col-large-3 col-medium-4 col-small-12">
-                            <div class="bg-lightgrey margin-bottom-40 box-shadow--16dp align-items--center justify-content--center" style="height: 80px;">
-                                <code>.box-shadow--16dp</code>
-                            </div>
-                        </div>
+            <section class="section p-20">
+                <div class="row">
+                    <div class="col-large-12 col-medium-12 col-small-12">
+                        <p class="extrabold">Paddings</p>
+                        <p>You can add paddings to all elements of your html.</p>
+                        <p>For this classes you have available the numbers 10, 20, 30, ..., 90.</p>
                     </div>
-                    <div class="row row--gutter margin-top-40">
-                        <div class="col-large-12 col-medium-12 col-small-12">
-                            <!-- Margin -->
-                            <div class="card margin-bottom-20">
-                                <div class="card__header">
-                                    <h5 class="card__header__title">Margin</h5>
-                                </div>
-                                <div class="card__container">
-                                    <strong class="display-block margin-top-10">Margin</strong>
-                                    <code>.margin-10</code>
-                                    <code>.margin-20</code>
-                                    <code>.margin-30</code>
-                                    <code>.margin-40</code>
-                                    <code>.margin-50</code>
-                                    <code>.margin-60</code>
-                                    <code>.margin-70</code>
-                                    <code>.margin-80</code>
-                                    <code>.margin-90</code>
-                                    <strong class="display-block margin-top-10">Margin Top</strong>
-                                    <code>.margin-top-10</code>
-                                    <code>.margin-top-20</code>
-                                    <code>.margin-top-30</code>
-                                    <code>.margin-top-40</code>
-                                    <code>.margin-top-50</code>
-                                    <code>.margin-top-60</code>
-                                    <code>.margin-top-70</code>
-                                    <code>.margin-top-80</code>
-                                    <code>.margin-top-90</code>
-                                    <strong class="display-block margin-top-10">Margin Right</strong>
-                                    <code>.margin-right-10</code>
-                                    <code>.margin-right-20</code>
-                                    <code>.margin-right-30</code>
-                                    <code>.margin-right-40</code>
-                                    <code>.margin-right-50</code>
-                                    <code>.margin-right-60</code>
-                                    <code>.margin-right-70</code>
-                                    <code>.margin-right-80</code>
-                                    <code>.margin-right-90</code>
-                                    <strong class="display-block margin-top-10">Margin Bottom</strong>
-                                    <code>.margin-bottom-10</code>
-                                    <code>.margin-bottom-20</code>
-                                    <code>.margin-bottom-30</code>
-                                    <code>.margin-bottom-40</code>
-                                    <code>.margin-bottom-50</code>
-                                    <code>.margin-bottom-60</code>
-                                    <code>.margin-bottom-70</code>
-                                    <code>.margin-bottom-80</code>
-                                    <code>.margin-bottom-90</code>
-                                    <strong class="display-block margin-top-10">Margin Left</strong>
-                                    <code>.margin-left-10</code>
-                                    <code>.margin-left-20</code>
-                                    <code>.margin-left-30</code>
-                                    <code>.margin-left-40</code>
-                                    <code>.margin-left-50</code>
-                                    <code>.margin-left-60</code>
-                                    <code>.margin-left-70</code>
-                                    <code>.margin-left-80</code>
-                                    <code>.margin-left-90</code>
-                                </div>
-                            </div>
-                            <!-- Font Format -->
-                            <div class="card margin-bottom-20">
-                                <div class="card__header">
-                                    <h5 class="card__header__title">Font Format</h5>
-                                </div>
-                                <div class="card__container">
-                                    <!-- Text Align -->
-                                    <strong class="display-block margin-top-10">Text Align</strong>
-                                    <code>.text-center</code>
-                                    <code>.text-right</code>
-                                    <code>.text-left</code>
-                                    <code>.text-justify</code>
-                                    <!-- Text Transform -->
-                                    <strong class="display-block margin-top-10">Text Transform</strong>
-                                    <code>.text-uppercase</code>
-                                    <code>.text-lowercase</code>
-                                    <code>.text-capitalize</code>
-                                    <code>.text-overline</code>
-                                    <code>.text-underline</code>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-large-12 col-medium-12 col-small-12">
-                            <!-- Paddingg -->
-                            <div class="card margin-bottom-20">
-                                <div class="card__header">
-                                    <h5 class="card__header__title">Paddingg</h5>
-                                </div>
-                                <div class="card__container">
-                                    <strong class="display-block margin-top-10">Paddingg</strong>
-                                    <code>.padding-10</code>
-                                    <code>.padding-20</code>
-                                    <code>.padding-30</code>
-                                    <code>.padding-40</code>
-                                    <code>.padding-50</code>
-                                    <code>.padding-60</code>
-                                    <code>.padding-70</code>
-                                    <code>.padding-80</code>
-                                    <code>.padding-90</code>
-                                    <strong class="display-block margin-top-10">Paddingg Top</strong>
-                                    <code>.padding-top-10</code>
-                                    <code>.padding-top-20</code>
-                                    <code>.padding-top-30</code>
-                                    <code>.padding-top-40</code>
-                                    <code>.padding-top-50</code>
-                                    <code>.padding-top-60</code>
-                                    <code>.padding-top-70</code>
-                                    <code>.padding-top-80</code>
-                                    <code>.padding-top-90</code>
-                                    <strong class="display-block margin-top-10">Paddingg Right</strong>
-                                    <code>.padding-right-10</code>
-                                    <code>.padding-right-20</code>
-                                    <code>.padding-right-30</code>
-                                    <code>.padding-right-40</code>
-                                    <code>.padding-right-50</code>
-                                    <code>.padding-right-60</code>
-                                    <code>.padding-right-70</code>
-                                    <code>.padding-right-80</code>
-                                    <code>.padding-right-90</code>
-                                    <strong class="display-block margin-top-10">Paddingg Bottom</strong>
-                                    <code>.padding-bottom-10</code>
-                                    <code></code>
-                                    <code>.padding-bottom-30</code>
-                                    <code>.padding-bottom-40</code>
-                                    <code>.padding-bottom-50</code>
-                                    <code>.padding-bottom-60</code>
-                                    <code>.padding-bottom-70</code>
-                                    <code>.padding-bottom-80</code>
-                                    <code>.padding-bottom-90</code>
-                                    <strong class="display-block margin-top-10">Paddingg Left</strong>
-                                    <code>.padding-left-10</code>
-                                    <code>.padding-left-20</code>
-                                    <code>.padding-left-30</code>
-                                    <code>.padding-left-40</code>
-                                    <code>.padding-left-50</code>
-                                    <code>.padding-left-60</code>
-                                    <code>.padding-left-70</code>
-                                    <code>.padding-left-80</code>
-                                    <code>.padding-left-90</code>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-large-3 col-medium-6 col-small-12">
+                        <ul class="list">
+                            <li class="list__item py-10"><code>.p-{YOUR NUMBER}</code></li>
+                            <li class="list__item py-10"><code>.pt-{YOUR NUMBER}</code></li>
+                            <li class="list__item py-10"><code>.pr-{YOUR NUMBER}</code></li>
+                            <li class="list__item py-10"><code>.pb-{YOUR NUMBER}</code></li>
+                            <li class="list__item py-10"><code>.pl-{YOUR NUMBER}</code></li>
+                            <li class="list__item py-10"><code>.px-{YOUR NUMBER}</code></li>
+                            <li class="list__item py-10"><code>.py-{YOUR NUMBER}</code></li>
+                        </ul>
                     </div>
-                    <div class="row row--gutter">
-                        <div class="col-large-4 col-medium-12 col-small-12">
-                            <!-- Position -->
-                            <div class="card margin-bottom-20">
-                                <div class="card__header">
-                                    <h5 class="card__header__title">Position</h5>
-                                </div>
-                                <div class="card__container">
-                                    <code>.position-relative</code>
-                                    <code>.position-absolute</code>
-                                    <code>.position-fixed</code>
-                                    <code>.position-static</code>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-large-4 col-medium-12 col-small-12">
-                            <!-- Float -->
-                            <div class="card margin-bottom-20">
-                                <div class="card__header">
-                                    <h5 class="card__header__title">Float</h5>
-                                </div>
-                                <div class="card__container">
-                                    <code>.pull-right</code>
-                                    <code>.pull-left</code>
-                                    <code>.pull-center</code>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-large-4 col-medium-12 col-small-12">
-                            <!-- Visibility -->
-                            <div class="card margin-bottom-20">
-                                <div class="card__header">
-                                    <h5 class="card__header__title">Visibility</h5>
-                                </div>
-                                <div class="card__container">
-                                    <code>.visibility-visible</code>
-                                    <code>.visibility-hidden</code>
-                                    <code>.visibility-collapse</code>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-large-9 col-medium-6 col-small-12">
+                        <ul class="list">
+                            <li class="list__item py-10">Padding Top, Right, Bottom, Left</li>
+                            <li class="list__item py-10">Padding Top</li>
+                            <li class="list__item py-10">Padding Right</li>
+                            <li class="list__item py-10">Padding Bottom</li>
+                            <li class="list__item py-10">Padding Left</li>
+                            <li class="list__item py-10">Padding Left and Right</li>
+                            <li class="list__item py-10">Padding Top and Bottom</li>
+                        </ul>
                     </div>
                 </div>
+            </section>
 
 
-            </div>
-        </section>
+            <section class="section p-20">
+                <div class="row">
+                    <div class="col-large-12 col-medium-12 col-small-12">
+                        <p class="extrabold">Shadow</p>
+                        <p></p>
+                    </div>
+                    <div class="col-large-12 col-medium-12 col-small-12">
+                        <div class="col-large-3 col-medium-6 col-small-12">
+                        <ul class="list">
+                            <li class="list__item py-10"><code>.box-shadow--2dp</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="section p-20">
+                <div class="row">
+                    <div class="col-large-12 col-medium-12 col-small-12">
+                        <p class="extrabold">Blockquote</p>
+                        <p>We can use the block quote at any time using the class <code>.blockquote</code> also can customize the color of your quote only used the color of class.</p>
+                    </div>
+                    <div class="col-large-12 col-medium-12 col-small-12">
+                        <blockquote class="blockquote">
+                            <p class="color-black">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente iste perspiciatis cumque eos, id error quaerat minus enim architecto porro accusantium cupiditate ipsam esse ipsum sint.</p>
+                        </blockquote>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="section p-20">
+                <div class="row">
+                    <div class="col-large-12 col-medium-12 col-small-12">
+                        <p class="extrabold">Font Format</p>
+                        <p></p>
+                    </div>
+                    <div class="col-large-3 col-medium-6 col-small-12">
+                        <!-- Text Align -->
+                        <strong class="display-block margin-top-10">Text Align</strong>
+                        <ul class="list">
+                            <li class="list__item py-10"><code>.text-center</code></li>
+                            <li class="list__item py-10"><code>.text-right</code></li>
+                            <li class="list__item py-10"><code>.text-left</code></li>
+                            <li class="list__item py-10"><code>.text-justify</code></li>
+                        </ul>
+                        <!-- Text Transform -->
+                        <strong class="display-block margin-top-10">Text Transform</strong>
+                        <ul class="list">
+                            <li class="list__item py-10"><code>.text-uppercase</code></li>
+                            <li class="list__item py-10"><code>.text-lowercase</code></li>
+                            <li class="list__item py-10"><code>.text-capitalize</code></li>
+                            <li class="list__item py-10"><code>.text-overline</code></li>
+                            <li class="list__item py-10"><code>.text-underline</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="section p-20">
+                <div class="row">
+                    <div class="col-large-12 col-medium-12 col-small-12">
+                        <p class="extrabold">Position</p>
+                        <p></p>
+                    </div>
+                    <div class="col-large-3 col-medium-6 col-small-12">
+                        <ul class="list">
+                            <li class="list__item py-10"><code>.position-relative</code></li>
+                            <li class="list__item py-10"><code>.position-absolute</code></li>
+                            <li class="list__item py-10"><code>.position-fixed</code></li>
+                            <li class="list__item py-10"><code>.position-static</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="section p-20">
+                <div class="row">
+                    <div class="col-large-12 col-medium-12 col-small-12">
+                        <p class="extrabold">Float</p>
+                        <p></p>
+                    </div>
+                    <div class="col-large-3 col-medium-6 col-small-12">
+                        <ul class="list">
+                            <li class="list__item py-10"><code>.pull-right</code></li>
+                            <li class="list__item py-10"><code>.pull-left</code></li>
+                            <li class="list__item py-10"><code>.pull-center</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="section p-20">
+                <div class="row">
+                    <div class="col-large-12 col-medium-12 col-small-12">
+                        <p class="extrabold">Visibility</p>
+                        <p></p>
+                    </div>
+                    <div class="col-large-3 col-medium-6 col-small-12">
+                        <ul class="list">
+                            <li class="list__item py-10"><code>.visibility-visible</code></li>
+                            <li class="list__item py-10"><code>.visibility-hidden</code></li>
+                            <li class="list__item py-10"><code>.visibility-collapse</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
     <partial src="partials/footer.html"></partial>
 
