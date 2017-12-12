@@ -1689,7 +1689,8 @@
   height: 32px;
 }
 
-.menu {
+.menu,
+.smenu {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1697,80 +1698,55 @@
   list-style: none;
 }
 
-.menu__item {
+.menu__item,
+.smenu__item {
   position: relative;
 }
 
-.menu__item .smenu {
-  list-style: none;
-  padding: 0;
-  min-width: 100%;
-  z-index: 50;
-  left: auto;
-  top: auto;
-  background: #fff;
+.menu__item .smenu,
+.smenu__item .smenu {
   display: none;
-  position: absolute;
 }
 
-.menu__item:hover .smenu {
-  display: block;
+.menu__item:hover .smenu,
+.smenu__item:hover .smenu {
+  display: flex;
 }
 
-.menu__item--separator {
+.menu__item--separator,
+.smenu__item--separator {
   margin: 6px 0;
   border: 1px solid #bdbdbd;
 }
 
-.menu__link {
+.menu__link,
+.smenu__link {
   display: block;
   position: relative;
+  box-sizing: border-box;
   padding: 14px;
   transition: color .2s linear;
-  box-sizing: border-box;
-  border-radius: 2px;
+  color: inherit;
   text-decoration: none;
 }
 
-.menu__link:hover {
-  opacity: .6;
+.menu__link:hover,
+.smenu__link:hover {
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
-.menu__link.is-active {
-  background-color: #fff;
+.menu__link.is-active,
+.smenu__link.is-active {
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
-.menu--horizontal {
+.menu--horizontal,
+.smenu--horizontal {
   flex-direction: row;
 }
 
-.menu--horizontal .menu__item {
-  display: inline-block;
-}
-
-.menu--horizontal .menu__item--horizontal {
-  position: absolute;
-  top: auto;
-  left: 0;
-  min-width: 100%;
-  border-radius: 0 0 2px;
-  z-index: 11;
-}
-
-.menu--horizontal .menu__item--horizontal .smenu__item {
-  width: 100%;
-}
-
-.menu--horizontal .menu__item:hover ul {
-  display: block;
-}
-
-.menu--horizontal .menu__item__link {
-  padding-bottom: 0;
-  padding-top: 0;
-}
-
-.menu--scroll {
+.menu--scroll,
+.smenu--scroll {
   display: inline-block;
   position: relative;
   white-space: nowrap;
@@ -1784,20 +1760,38 @@
   overflow-x: scroll;
 }
 
-.menu--scroll::-webkit-scrollbar {
+.menu--scroll::-webkit-scrollbar,
+.smenu--scroll::-webkit-scrollbar {
   display: none;
 }
 
-.menu--scroll li {
+.menu--scroll li,
+.smenu--scroll li {
   display: inline-block;
 }
 
-.menu--inherit .menu__item {
+.menu--inherit .menu__item,
+.smenu--inherit .menu__item {
   color: inherit;
 }
 
-.menu--inherit .menu__link {
+.menu--inherit .menu__link,
+.smenu--inherit .menu__link {
   color: inherit;
+}
+
+.smenu {
+  position: absolute;
+  top: auto;
+  left: auto;
+  min-width: 100%;
+  padding: 0;
+  list-style: none;
+  z-index: 50;
+}
+
+.smenu__item {
+  width: 100%;
 }
 
 .navbar {
