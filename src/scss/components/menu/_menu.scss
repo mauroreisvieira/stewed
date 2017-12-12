@@ -6,6 +6,27 @@
   list-style: none;
 
   &__item {
+    position: relative;
+
+    .smenu {
+      list-style: none;
+      padding: 0;
+      min-width: 100%;
+      z-index: 50;
+      left: auto;
+      top: auto;
+      background: #fff;
+      display: none;
+      position: absolute;
+    }
+
+    &:hover {
+
+      .smenu {
+        display: block;
+      }
+    }
+
     &--separator {
       margin: 6px 0;
       border: 1px solid $menu-separator-color;
@@ -17,8 +38,8 @@
     position: relative;
     padding: 14px;
     transition: color .2s linear;
-    border-radius: 2px;
     box-sizing: border-box;
+    border-radius: 2px;
     text-decoration: none;
 
     &:hover {
@@ -30,64 +51,63 @@
     }
   }
 
-  &--vertical {
-    li {
-      display: block;
-      width: 100%;
+  // &--vertical {
+  //   #{$menu} {
+  //     &__item {
+  //       display: block;
+  //       width: 100%;
 
-      ul {
-        display: none;
-        z-index: 11;
-        position: absolute;
-        min-width: 10em;
-        top: 0;
-      }
-      .navigation__vertical__submenu--right {
-        border-radius: 0 2px 2px;
-        left: 100%;
-      }
+  //       ul {
+  //         display: none;
+  //         z-index: 11;
+  //         position: absolute;
+  //         min-width: 10em;
+  //         top: 0;
+  //       }
 
-      .navigation__vertical__submenu--left {
-        right: 100%;
-        border-radius: 2px 0 2px;
-      }
+  //       .navigation__vertical__submenu--right {
+  //         border-radius: 0 2px 2px;
+  //         left: 100%;
+  //       }
 
-      &:hover {
-        ul {
-          display: block;
-        }
-      }
-    }
-  }
+  //       .navigation__vertical__submenu--left {
+  //         right: 100%;
+  //         border-radius: 2px 0 2px;
+  //       }
+
+  //       &:hover {
+  //         ul {
+  //           display: block;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
   &--horizontal {
-    display: inline;
+    flex-direction: row;
 
     #{$menu} {
 
       &__item {
         display: inline-block;
 
-        .smenu {
-          display: none;
+        &--horizontal {
+          position: absolute;
+          top: auto;
+          left: 0;
+          min-width: 100%;
+          border-radius: 0 0 2px;
+          z-index: 11;
 
-          &--horizontal {
-            position: absolute;
-            top: auto;
-            left: 0;
-            min-width: 100%;
-            border-radius: 0 0 2px;
-            z-index: 11;
-
-            .smenu__item {
-              width: 100%;
-            }
+          .smenu__item {
+            width: 100%;
           }
+        }
 
-          &:hover {
-            ul {
-              display: block;
-            }
+        &:hover {
+          ul {
+            display: block;
           }
         }
 
