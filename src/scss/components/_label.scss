@@ -1,0 +1,26 @@
+.label {
+  display: inline-block;
+  margin: .175em 0;
+  padding: .2em .6em .3em;
+  color: #fff;
+  line-height: normal;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+
+  &--success {
+    background-color: map-get($global-color-green, "base");
+  }
+
+  &--info {
+    background-color: map-get($global-color-blue, "base");
+  }
+
+  &--warning {
+    background-color: map-get($global-color-grey, "base");
+  }
+
+  &--danger {
+    background-color: map-get($global-color-red, "base");
+  }
+}

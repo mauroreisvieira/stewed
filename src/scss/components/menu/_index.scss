@@ -1,9 +1,0 @@
-@import "../../utilities/variables";
-@import "../../utilities/mixins";
-
-$menu: ".menu";
-$smenu: ".smenu";
-
-$menu-separator-color: map-get($global-color-grey, "base");
-
-@import "menu";

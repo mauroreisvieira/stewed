@@ -1,0 +1,71 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
+
+  &__item {
+    padding: 0;
+    cursor: pointer;
+    border: 0;
+    margin: 4px;
+    background: #fff;
+    color: #000;
+    border-radius: 50%;
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    transition: all .3s ease-in;
+    overflow: hidden;
+
+    &:hover {
+      background: darken(#fff, 12%);
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &--first,
+    &--last {
+      color: red;
+
+      @include mobile () {
+        display: none;
+      }
+
+      &:hover {
+        background: transparent;
+        color: darken(red, 12%);
+      }
+    }
+
+    &--prev,
+    &--next {
+      color: green;
+
+      &:hover {
+        background: transparent;
+        color: darken(green, 12%);
+      }
+    }
+
+    &--dots {
+
+      &:hover {
+        background: #fff;
+        color: #000;
+      }
+    }
+
+    &--active {
+      background: red;
+      color: #fff;
+    }
+
+    &[disabled] {
+      opacity: .4;
+      cursor: not-allowed;
+    }
+  }
+}

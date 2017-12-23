@@ -1,0 +1,38 @@
+.badge {
+  display: inline-block;
+  position: relative;
+  margin-right: $badge-right-spacing;
+  padding: 0;
+  white-space: nowrap;
+
+  &[data-badge] {
+    &::before,
+    &::after {
+      display: flex;
+      position: absolute;
+      top: -100%;
+      right: -$badge-right-spacing;
+      flex-flow: row wrap;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      width: $badge-width;
+      height: $badge-height;
+      border-radius: 50%;
+      transform: translateY(-100%);
+    }
+
+    &::before {
+      color: $badge-text-color;
+      font-size: $badge-font-size;
+      font-weight: $badge-font-weight;
+      content: attr(data-badge);
+      z-index: 1;
+    }
+
+    &::after {
+      background-color: currentColor;
+      content: "";
+    }
+  }
+}

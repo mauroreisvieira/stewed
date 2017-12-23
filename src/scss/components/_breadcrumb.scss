@@ -1,0 +1,25 @@
+.breadcrumb {
+  display: block;
+  width: 100%;
+  padding: 0;
+  list-style: none;
+
+  &__item {
+    display: inline-block;
+    cursor: default;
+
+    &.is-active {
+      font-weight: $breadcrumb-is-active;
+    }
+  }
+
+  &__link {
+    color: currentColor;
+    text-decoration: none;
+
+    &::after {
+      padding-left: 5px;
+      content: "/";
+    }
+  }
+}

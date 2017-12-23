@@ -48,7 +48,7 @@ body.docs {
 
 .content {
   grid-area: content;
-  flex-direction: column;
+  box-direction: column;
   background-color: #fff;
   min-height: 100vh;
 }

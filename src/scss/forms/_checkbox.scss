@@ -1,0 +1,62 @@
+.form {
+  &__checkbox {
+    position: absolute;
+    padding: 0;
+    border: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+
+    + .form__label {
+      display: flex;
+      position: relative;
+      align-items: center;
+      height: 20px;
+      margin: 0;
+      padding: 0;
+      padding-left: 30px;
+      cursor: pointer;
+
+      &::before {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        transition: .5s ease all;
+        background-color: $form-bg-color;
+        content: "";
+        vertical-align: text-top;
+      }
+    }
+
+    &:checked {
+      + .form__label {
+        &::before {
+          background: currentColor;
+        }
+
+        &::after {
+          position: absolute;
+          top: 9px;
+          left: 5px;
+          width: 2px;
+          height: 2px;
+          background: white;
+          box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+          transform: rotate(45deg);
+          content: "";
+        }
+      }
+    }
+
+    &:disabled {
+      + .form__label {
+
+        &::before {
+          opacity: .3;
+        }
+      }
+    }
+  }
+}

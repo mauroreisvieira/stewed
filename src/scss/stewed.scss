@@ -23,28 +23,47 @@
 @charset "UTF-8";
 
 // Utilities
-@import "utilities/variables";
+@import "utilities/color-definitions";
+@import "utilities/mixins";
+
+// Global Variables
+@import "global";
+
+// Component Variables
+@import "settings/settings";
+
+// Typography
+@import "typography/typography";
+
+// Grid
+@import "grid/grid";
+
+// Forms
+@import "forms/input";
+@import "forms/textarea";
+@import "forms/checkbox";
+@import "forms/radio";
+@import "forms/switch";
+@import "forms/form";
 
 // Components
-@import "components/badge/index";
-@import "components/border/index";
-@import "components/breadcrumb/index";
-@import "components/button/index";
-@import "components/card/index";
-@import "components/color/index";
-@import "components/flex/index";
-@import "components/form/index";
-@import "components/grid/index";
-@import "components/label/index";
-@import "components/list/index";
-@import "components/menu/index";
-@import "components/navbar/index";
-@import "components/pagination/index";
-@import "components/progress/index";
-@import "components/rounded/index";
-@import "components/shadow/index";
-@import "components/sizing/index";
-@import "components/spacing/index";
-@import "components/table/index";
-@import "components/tooltip/index";
-@import "components/typography/index";
+@import "components/badge";
+@import "components/border";
+@import "components/breadcrumb";
+@import "components/button";
+@import "components/card";
+@import "components/color";
+@import "components/box";
+@import "components/label";
+@import "components/list";
+@import "components/menu";
+@import "components/navbar";
+@import "components/pagination";
+@import "components/progress";
+@import "components/rounded";
+@import "components/shadow";
+@import "components/sizing";
+@import "components/spacing";
+@import "components/table";
+@import "components/tooltip";
+

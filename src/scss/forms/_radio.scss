@@ -1,0 +1,62 @@
+.form {
+  &__radio {
+    position: absolute;
+    padding: 0;
+    border: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+
+    + .form__label {
+      display: flex;
+      position: relative;
+      align-items: center;
+      height: 20px;
+      margin: 0;
+      padding: 0;
+      padding-left: 30px;
+      cursor: pointer;
+
+      &::before {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        transition: .5s ease all;
+        border-radius: 50%;
+        background-color: $form-bg-color;
+        content: "";
+        vertical-align: text-top;
+      }
+    }
+
+    &:checked {
+      + .form__label {
+        &::before {
+          background: currentColor;
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          left: 3px;
+          top: 3px;
+          background: white;
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+        }
+      }
+    }
+
+    &:disabled {
+      + .form__label {
+
+        &::before {
+          opacity: .3;
+        }
+      }
+    }
+  }
+}
