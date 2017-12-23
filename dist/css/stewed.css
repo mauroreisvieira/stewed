@@ -961,28 +961,28 @@ a:hover {
   border-left: 10px solid;
 }
 
-.breadcrumb {
+.breadcrumbs {
   display: block;
   width: 100%;
   padding: 0;
   list-style: none;
 }
 
-.breadcrumb__item {
+.breadcrumbs__item {
   display: inline-block;
   cursor: default;
 }
 
-.breadcrumb__item.is-active {
+.breadcrumbs__item.is-active {
   font-weight: 400;
 }
 
-.breadcrumb__link {
+.breadcrumbs__link {
   color: currentColor;
   text-decoration: none;
 }
 
-.breadcrumb__link::after {
+.breadcrumbs__link::after {
   padding-left: 5px;
   content: "/";
 }
