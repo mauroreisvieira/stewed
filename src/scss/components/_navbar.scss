@@ -10,7 +10,19 @@
     justify-content: space-between;
   }
 
+  &--vertical {
+    flex-direction: column;
+    align-items: flex-start;
+    width: auto;
+    height: auto;
+
+    .navbar__menu {
+      width: 100%;
+    }
+  }
+
   &__brand {
+    padding: 0 14px;
 
     a {
       font-size: 25px;
@@ -19,6 +31,6 @@
   }
 
   &__menu {
-
+    display: flex;
   }
 }
