@@ -1881,8 +1881,8 @@ a:hover {
 .menu,
 .smenu {
   display: flex;
-  width: 100%;
   flex-direction: column;
+  width: 100%;
   padding: 0;
   list-style: none;
 }
@@ -1936,27 +1936,17 @@ a:hover {
 
 .menu--scroll,
 .smenu--scroll {
-  display: inline-block;
+  display: inline-flex;
   position: relative;
-  white-space: nowrap;
-  overflow: hidden;
-  -webkit-user-select: none;
-  display: block;
-  overflow-y: hidden;
   padding: 0;
-  position: relative;
-  -webkit-overflow-scrolling: touch;
-  overflow-x: scroll;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .menu--scroll::-webkit-scrollbar,
 .smenu--scroll::-webkit-scrollbar {
   display: none;
-}
-
-.menu--scroll li,
-.smenu--scroll li {
-  display: inline-block;
 }
 
 .menu--inherit .menu__item,
@@ -2162,12 +2152,84 @@ a:hover {
   box-shadow: none;
 }
 
-.h-1 {
-  height: 1em;
+.h-10 {
+  height: 10%;
 }
 
-.w-1 {
-  width: 1em;
+.w-10 {
+  width: 10%;
+}
+
+.h-20 {
+  height: 20%;
+}
+
+.w-20 {
+  width: 20%;
+}
+
+.h-30 {
+  height: 30%;
+}
+
+.w-30 {
+  width: 30%;
+}
+
+.h-40 {
+  height: 40%;
+}
+
+.w-40 {
+  width: 40%;
+}
+
+.h-50 {
+  height: 50%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.h-60 {
+  height: 60%;
+}
+
+.w-60 {
+  width: 60%;
+}
+
+.h-70 {
+  height: 70%;
+}
+
+.w-70 {
+  width: 70%;
+}
+
+.h-80 {
+  height: 80%;
+}
+
+.w-80 {
+  width: 80%;
+}
+
+.h-90 {
+  height: 90%;
+}
+
+.w-90 {
+  width: 90%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.w-100 {
+  width: 100%;
 }
 
 .vh-1 {
@@ -2178,28 +2240,12 @@ a:hover {
   width: 10vw;
 }
 
-.h-2 {
-  height: 2em;
-}
-
-.w-2 {
-  width: 2em;
-}
-
 .vh-2 {
   height: 20vh;
 }
 
 .vw-2 {
   width: 20vw;
-}
-
-.h-3 {
-  height: 3em;
-}
-
-.w-3 {
-  width: 3em;
 }
 
 .vh-3 {
@@ -2210,28 +2256,12 @@ a:hover {
   width: 30vw;
 }
 
-.h-4 {
-  height: 4em;
-}
-
-.w-4 {
-  width: 4em;
-}
-
 .vh-4 {
   height: 40vh;
 }
 
 .vw-4 {
   width: 40vw;
-}
-
-.h-5 {
-  height: 5em;
-}
-
-.w-5 {
-  width: 5em;
 }
 
 .vh-5 {
@@ -2242,28 +2272,12 @@ a:hover {
   width: 50vw;
 }
 
-.h-6 {
-  height: 6em;
-}
-
-.w-6 {
-  width: 6em;
-}
-
 .vh-6 {
   height: 60vh;
 }
 
 .vw-6 {
   width: 60vw;
-}
-
-.h-7 {
-  height: 7em;
-}
-
-.w-7 {
-  width: 7em;
 }
 
 .vh-7 {
@@ -2274,14 +2288,6 @@ a:hover {
   width: 70vw;
 }
 
-.h-8 {
-  height: 8em;
-}
-
-.w-8 {
-  width: 8em;
-}
-
 .vh-8 {
   height: 80vh;
 }
@@ -2290,28 +2296,12 @@ a:hover {
   width: 80vw;
 }
 
-.h-9 {
-  height: 9em;
-}
-
-.w-9 {
-  width: 9em;
-}
-
 .vh-9 {
   height: 90vh;
 }
 
 .vw-9 {
   width: 90vw;
-}
-
-.h-10 {
-  height: 10em;
-}
-
-.w-10 {
-  width: 10em;
 }
 
 .vh-10 {

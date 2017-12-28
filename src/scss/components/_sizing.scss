@@ -1,12 +1,22 @@
+@for $i from 1 through 9 {
+  .h-#{$i}0 {
+    height: unquote(($i) + "0%");
+  }
+
+  .w-#{$i}0 {
+    width: unquote(($i) + "0%");
+  }
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
 @for $i from 1 through 10 {
-  .h-#{$i} {
-    height: unquote(($i) + "em");
-  }
-
-  .w-#{$i} {
-    width: unquote(($i) + "em");
-  }
-
   .vh-#{$i} {
     height: unquote(($i) + "0vh");
   }

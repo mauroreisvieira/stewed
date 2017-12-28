@@ -1,8 +1,8 @@
 .menu,
 .smenu {
   display: flex;
-  width: 100%;
   flex-direction: column;
+  width: 100%;
   padding: 0;
   list-style: none;
 
@@ -47,24 +47,16 @@
     flex-direction: row;
   }
 
-
   &--scroll {
-    display: inline-block;
+    display: inline-flex;
     position: relative;
-    white-space: nowrap;
-    overflow: hidden;
-    -webkit-user-select: none;
-    display: block;
-    overflow-y: hidden;
     padding: 0;
-    position: relative;
-    -webkit-overflow-scrolling: touch;
-    overflow-x: scroll;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+
     &::-webkit-scrollbar {
       display: none;
-    }
-    li {
-      display: inline-block;
     }
   }
 
