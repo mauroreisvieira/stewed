@@ -73,12 +73,14 @@ body {
   font-size: 14px;
   font-weight: 300;
   color: #000;
+  line-height: 1.4;
 }
 
 p {
   font-family: "Roboto", sans-serif;
   font-size: 14px;
   font-weight: 300;
+  line-height: 1.4;
 }
 
 a {
@@ -87,6 +89,7 @@ a {
   font-weight: 300;
   text-decoration: none;
   color: #bdbdbd;
+  line-height: 1.4;
 }
 
 a:hover {
@@ -1767,7 +1770,6 @@ a:hover {
 .box {
   display: flex;
   box-sizing: border-box;
-  line-height: 0;
 }
 
 .box--column {

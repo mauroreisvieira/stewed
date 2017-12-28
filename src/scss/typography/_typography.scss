@@ -9,18 +9,20 @@
 
 body {
   @include typography($typography-font-size-base, $typography-font-weight-light);
-
   color: $typography-color-text;
+  line-height: 1.4;
 }
 
 p {
   @include typography($typography-font-size-base, $typography-font-weight-light);
+  line-height: 1.4;
 }
 
 a {
   @include typography($typography-font-size-base, $typography-font-weight-light);
   text-decoration: none;
   color: $typography-color-link;
+  line-height: 1.4;
 
   &:hover {
     color: $typography-color-link-hover;
