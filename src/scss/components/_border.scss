@@ -1,21 +1,33 @@
-@for $i from 1 through 10 {
-  .b-#{$i} {
+.border-solid {
+  border-style: solid;
+}
+
+.border-dashed {
+  border-style: dashed;
+}
+
+.border-dotted {
+  border-style: dotted;
+}
+
+@for $i from 0 through 10 {
+  .border-#{$i} {
     border: unquote(($i) + "px") solid;
   }
 
-  .bt-#{$i} {
-    border-top: unquote(($i) + "px") solid;
+  .border-t-#{$i} {
+    border-top-width: unquote(($i) + "px") solid;
   }
 
-  .br-#{$i} {
-    border-right: unquote(($i) + "px") solid;
+  .border-r-#{$i} {
+    border-right-width: unquote(($i) + "px") solid;
   }
 
-  .bb-#{$i} {
-    border-bottom: unquote(($i) + "px") solid;
+  .border-b-#{$i} {
+    border-bottom-width: unquote(($i) + "px") solid;
   }
 
-  .bl-#{$i} {
-    border-left: unquote(($i) + "px") solid;
+  .border-l-#{$i} {
+    border-left-width: unquote(($i) + "px") solid;
   }
 }
