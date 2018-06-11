@@ -1054,21 +1054,21 @@ a:hover {
 }
 
 .button--large {
-  --button-large: 48px;
+  --button-large: calc(40px + 8px);
   height: var(--button-large);
   padding: 0 48px;
   line-height: var(--button-large);
 }
 
 .button--medium {
-  --button-medium: 44px;
+  --button-medium: calc(40px + 4px);
   height: var(--button-medium);
   padding: 0 32px;
   line-height: var(--button-medium);
 }
 
 .button--small {
-  --button-small: 36px;
+  --button-small: calc(40px - 4px);
   height: var(--button-small);
   padding: 0 14px;
   line-height: var(--button-small);

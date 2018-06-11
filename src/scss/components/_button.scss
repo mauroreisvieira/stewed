@@ -1,5 +1,5 @@
 .button {
-  --button: $button-height;
+  --button: #{$button-height};
 
   display: inline-block;
   position: relative;
@@ -30,7 +30,7 @@
   }
 
   &--large {
-    --button-large: $button-height + 8px;
+    --button-large: calc(#{$button-height} + 8px);
 
     height: var(--button-large);
     padding: 0 $button-horizontal-padding * 3;
@@ -38,7 +38,7 @@
   }
 
   &--medium {
-    --button-medium: $button-height + 4px;
+    --button-medium: calc(#{$button-height} + 4px);
 
     height: var(--button-medium);
     padding: 0 $button-horizontal-padding * 2;
@@ -46,7 +46,7 @@
   }
 
   &--small {
-    --button-small: $button-height - 4px;
+    --button-small: calc(#{$button-height} - 4px);
 
     height: var(--button-small);
     padding: 0 $button-horizontal-padding - 2;
