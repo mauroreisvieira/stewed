@@ -9,7 +9,7 @@
 ![Travis](https://img.shields.io/travis/rust-lang/rust.svg?style=flat-square)
 ![Travis](https://img.shields.io/dub/l/vibe-d.svg)
 
-[Stewed Framework](http://maurovieirareis.github.io/stewed) is the ideal tool for a rapid development of simple and lightweight web applications.
+[Stewed Framework](http://mauroreisvieira.github.io/stewed) is the ideal tool for a rapid development of simple and lightweight web applications.
 Using a combination of **HTML**, **CSS** and pure **JavaScript** allows you to create a fully customized application without losing its own special way it serves only one auxiliary base in its development.
 
 ### Supported Browsers:
@@ -24,7 +24,7 @@ Using a combination of **HTML**, **CSS** and pure **JavaScript** allows you to c
 #### Clone the repo using Git
 
 ```bash
-git clone https://github.com/maurovieirareis/stewed
+git clone https://github.com/mauroreisvieira/stewed
 ```
 
 #### Installation
@@ -41,7 +41,7 @@ bower install stewed --save
 yarn add stewed
 ```
 
-Alternatively you can [download](https://codeload.github.com/maurovieirareis/stewed/zip/master)
+Alternatively you can [download](https://codeload.github.com/mauroreisvieira/stewed/zip/master)
 this repository.
 
 #### License
@@ -49,5 +49,5 @@ this repository.
 The Stewed is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
 
 Created with ♥️ by [@mauroreisvieira](https://twitter.com/mauroreisvieira) in **Portugal**,
-thanks to [other contributors](https://github.com/maurovieirareis/stewed/graphs/contributors)
+thanks to [other contributors](https://github.com/mauroreisvieira/stewed/graphs/contributors)
 
