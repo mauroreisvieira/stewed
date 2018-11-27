@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="http://maurovieirareis.github.io/stewed/index.html" target="_blank">
+    <a href="http://mauroreisvieira.github.io/stewed/index.html" target="_blank">
     	<img width="140" src="docs/assets/images/logo/stewed_dark.jpg">
     </a><br>
 </p>
