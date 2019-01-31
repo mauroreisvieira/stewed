@@ -1,9 +1,6 @@
 extends: stylelint-config-standard
 ignoreFiles:
   - node_modules/**/*
-  - packages/**/node_modules/**/*
-  - src/html/assets/scss/**/*
-  - src/html/assets/scss/*
 plugins:
   - stylelint-selector-bem-pattern
   - stylelint-scss
@@ -219,7 +216,7 @@ rules:
   selector-no-vendor-prefix: true
   value-no-vendor-prefix: true
   # Usually if you're nesting past 3 levels deep there's a problem
-  max-nesting-depth: 3
+  max-nesting-depth: 4
   # Because we adhere to BEM we can limit the amount of necessary compound selectors. Most should
   # just be 1 level selector. However, modifiers can introduce an additional compound selector.
   # Futhermore, generic qualifying selectors (e.g. `[dir="rtl"]`) can introduce yet another level.

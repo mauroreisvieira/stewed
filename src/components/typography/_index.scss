@@ -1,8 +1,2 @@
-@each $key, $values in $headings {
-  #{$key} {
-    @include typography(nth($values, 2), nth($values, 3));
-
-    margin: $typography-baseline-heading 0;
-    color: nth($values, 1);
-  }
-}
+@import "variables";
+@import "base";
