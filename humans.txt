@@ -3,7 +3,6 @@
 
 # TEAM
     Mauro Reis Vieira -- Frond End Developer -- @mauroreisvieira
-    Pedro Mendes Ladeira -- Web Developer -- @PedroMLadeira
 
 # THANKS
     Mom and Dad

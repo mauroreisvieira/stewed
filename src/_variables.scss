@@ -1,0 +1,194 @@
+// 1. TYPOGRAPHY ------------------------------------------------------------------
+// Fonts Family
+$typography-serif: $global-font-family-serif !default;
+$typography-monospace: $global-font-family-monospace;
+
+
+// Border Radius
+$global-border-radius: 2px;
+
+// Font Size
+$typography-font-size-sx: 10px; // 10px
+$typography-font-size-sm: 12px; // 12px
+$typography-font-size-base: $global-font-size;
+$typography-font-size-md: 16px;
+$typography-font-size-lg: 20px;
+$typography-font-size-xl: 26px;
+$typography-font-size-xl-x: 34px;
+$typography-font-size-xl-xx: 42px;
+$typography-font-size-xl-xxx: 50px;
+
+// Font Weight
+$typography-font-weight-thin: 100;
+$typography-font-weight-light: 300;
+$typography-font-weight-normal: 400;
+$typography-font-weight-semibold: 500;
+$typography-font-weight-bold: 700;
+$typography-font-weight-x-bold: 900;
+
+// Color Heading
+$typography-color-heading-1: $global-color-black;
+$typography-color-heading-2: $global-color-black;
+$typography-color-heading-3: $global-color-black;
+$typography-color-heading-4: $global-color-black;
+$typography-color-heading-5: $global-color-black;
+$typography-color-heading-6: $global-color-black;
+
+// Color Text
+$typography-color-text: $global-color-black;
+$typography-color-link: map-get($global-color-grey, "base");
+$typography-color-link-hover: map-get($global-color-grey, "darken");
+
+// Baseline
+$typography-baseline-heading: $global-baseline * 3;
+
+$headings: (
+  "h1": ($typography-color-heading-1, $typography-font-size-xl-xxx, $typography-font-weight-thin),
+  "h2": ($typography-color-heading-2, $typography-font-size-xl-xx, $typography-font-weight-light),
+  "h3": ($typography-color-heading-3, $typography-font-size-xl-x, $typography-font-weight-semibold),
+  "h4": ($typography-color-heading-4, $typography-font-size-xl, $typography-font-weight-semibold),
+  "h5": ($typography-color-heading-5, $typography-font-size-lg, $typography-font-weight-bold),
+  "h6": ($typography-color-heading-6, $typography-font-size-md, $typography-font-weight-bold)
+);
+
+// 2. GRID -----------------------------------------------------------------------
+$grid-media-desktop: $global-width-media-desktop;
+$grid-media-tablet-min: $global-width-media-tablet-min;
+$grid-media-tablet-max: $global-width-media-tablet-max;
+$grid-media-mobile-min: $global-width-media-mobile-min;
+$grid-media-mobile-max: $global-width-media-mobile-max;
+
+$grid: 100%;
+$columns: 12;
+$gutter: 15px;
+
+$class-row: "row";
+$class-cell: "col";
+$class-off: "offset";
+
+// Breakpoints
+$min-device: 280px;
+$mobile: 767px;
+$tablet: 992px;
+$desktop: 1200px;
+
+$breakpoints: (
+  (small, $min-device),
+  (medium, $tablet),
+  (large, $desktop)
+);
+
+// 3. FORMS -----------------------------------------------------------------------
+$form-bg-color: map-get($global-color-grey, "lighten");
+// Input
+$form-input-text-font-size: 16px !default;
+$form-input-text-width: 100% !default;
+$form-input-text-padding: 4px !default;
+$form-input-text-vertical-spacing: 20px !default;
+$form-input-text-button-size: 32px !default;
+$form-input-border-color: $global-color-black;
+// Form Font Family
+$form-family: $global-font-family-serif;
+$form-weight: $global-font-weight;
+// Checkbox Font Family
+$checkbox-family: $global-font-family-serif;
+$checkbox-weight: 300;
+// Switch Font Family
+$switch-family: $global-font-family-serif;
+$switch-weight: 300;
+
+// 4. BADGE -----------------------------------------------------------------------
+$badge-font-size: 12px;
+$badge-font-weight: $global-font-weight;
+$badge-text-color: $global-color-white;
+$badge-width: 24px;
+$badge-height: $badge-width;
+$badge-right-spacing: $badge-width;
+
+// 5. BORDER ----------------------------------------------------------------------
+
+// 6. BOX -------------------------------------------------------------------------
+
+// 7. BREADCRUMB ------------------------------------------------------------------
+$breadcrumb-is-active: $global-font-weight; // 400
+$breadcrumb-border-radius: $global-border-radius; // 2px
+
+// 8. BUTTONS ---------------------------------------------------------------------
+$button-font-size: $global-font-size; // 14px
+$button-font-weight: $global-font-weight; // 400
+// Button Size
+$button-height: 40px;
+// Button Horizontal Padding
+$button-horizontal-padding: 16px;
+// Border Radius
+$button-border-radius: 2px;
+// Button Danger
+$button-color-danger: map-get($global-color-red, "base");
+$button-color-danger-hover: map-get($global-color-red, "darken");
+// Button Success
+$button-color-success: map-get($global-color-green, "base");
+$button-color-success-hover: map-get($global-color-green, "darken");
+// Button Info
+$button-color-info: map-get($global-color-blue, "base");
+$button-color-info-hover: map-get($global-color-blue, "darken");
+// Button Default
+$button-color-default: map-get($global-color-grey, "base");
+$button-color-default-hover: map-get($global-color-grey, "darken");
+// Button Animation Transition
+$button-transition-timing: cubic-bezier(.2, 1, .3, 1);
+$button-transition-duration: .4s;
+$buttons: (
+  "danger": ($button-color-danger, $global-color-white, $button-color-danger-hover, $global-color-white),
+  "success": ($button-color-success, $global-color-white, $button-color-success-hover, $global-color-white),
+  "info": ($button-color-info, $global-color-white, $button-color-info-hover, $global-color-white),
+  "default": ($button-color-default, $global-color-white, $button-color-default-hover, $global-color-white)
+);
+
+// 9. CARD ------------------------------------------------------------------------
+// Card Padding
+$card-padding-x: 16px;
+$card-padding-y: 12px;
+// Card Width
+$card-large: $global-width-media-desktop;
+$card-medium: $global-width-media-tablet-min;
+$card-small: $global-width-media-mobile-min;
+
+// 10. COLOR -----------------------------------------------------------------------
+$color-white: $global-color-white;
+$color-black: $global-color-black;
+
+// 11. LABEL -----------------------------------------------------------------------
+
+// 12. LIST ------------------------------------------------------------------------
+
+// 13. MENU ------------------------------------------------------------------------
+$menu-separator-color: map-get($global-color-grey, "base");
+
+// 14. NAVBAR ----------------------------------------------------------------------
+
+// 15. PAGINATION ------------------------------------------------------------------
+
+// 16. PROGRESS --------------------------------------------------------------------
+$progress-border-radius: 2px;
+$progress-background: $global-color-black;
+
+// 17. ROUNDED ---------------------------------------------------------------------
+
+// 18. SHADOW ----------------------------------------------------------------------
+
+// 19. SIZING ----------------------------------------------------------------------
+
+// 20. SPACING ---------------------------------------------------------------------
+
+// 21. TABLE -----------------------------------------------------------------------
+$table-font-family: $global-font-family-monospace;
+$table-font-size: $global-font-size;
+$table-padding-head: .7em 1.3em;
+$table-padding-body: .9em 1em;
+
+// 22. TOOLTIP ---------------------------------------------------------------------
+$tooltip-font-size: $global-font-size; // 14px
+$tooltip-font-weight: $global-font-weight; // 400
+$tooltip-border-radius: 2px;
+$tooltip-background: $global-color-black;
+$tooltip-color: $global-color-white;
