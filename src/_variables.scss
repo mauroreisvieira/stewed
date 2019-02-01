@@ -8,14 +8,6 @@ $grid-media-tablet-max: $global-width-media-tablet-max;
 $grid-media-mobile-min: $global-width-media-mobile-min;
 $grid-media-mobile-max: $global-width-media-mobile-max;
 
-$grid: 100%;
-$columns: 12;
-$gutter: 15px;
-
-$class-row: "row";
-$class-cell: "col";
-$class-off: "offset";
-
 // Breakpoints
 $min-device: 280px;
 $mobile: 767px;

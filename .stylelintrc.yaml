@@ -28,13 +28,15 @@ rules:
       disableFix: true
   # https://github.com/sasstools/sass-lint/blob/develop/lib/config/property-sort-orders/smacss.yml
   order/properties-order:
-    - display
     - position
     - top
     - right
     - bottom
     - left
 
+    - box-sizing
+
+    - display
     - flex
     - flex-basis
     - flex-direction
@@ -47,8 +49,6 @@ rules:
     - align-self
     - justify-content
     - order
-
-    - box-sizing
 
     - width
     - min-width

@@ -1,0 +1,105 @@
+.radio {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  outline: 0;
+  color: $radio-color-active;
+  overflow: hidden;
+
+  &::before {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: currentColor;
+    opacity: 0;
+    content: "";
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    &::before {
+      opacity: .04;
+    }
+  }
+
+  &__control {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    opacity: 0;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+
+    &:checked {
+      + .radio__background {
+        &::before {
+          border-color: currentColor;
+        }
+
+        &::after {
+          background-color: currentColor;
+        }
+      }
+    }
+
+    &:disabled {
+      + .radio__background {
+        &::before {
+          opacity: .3;
+        }
+      }
+    }
+  }
+
+  &__background {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    z-index: 0;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      box-sizing: border-box;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin: auto;
+      border: 2px solid $radio-color-default;
+      border-radius: 50%;
+      content: "";
+    }
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 10px;
+      height: 10px;
+      margin: auto;
+      border-radius: 50%;
+      background: white;
+      content: "";
+    }
+  }
+}

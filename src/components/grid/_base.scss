@@ -1,0 +1,48 @@
+.#{ $class-row } {
+  display: flex;
+  flex-flow: row wrap;
+  box-sizing: border-box;
+
+  @include spacing((-$gutter), margin, horizontal);
+}
+
+%#{ $class-cell } {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  min-height: 1px;
+
+  @include spacing(($gutter), padding, horizontal);
+}
+
+%#{ $class-cell }-flex {
+  @extend %#{ $class-cell };
+
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+}
+
+@each $val in $breakpoints {
+  $namespace: nth($val, 1);
+
+  @include grid-base( $namespace );
+}
+
+@each $val in $breakpoints {
+  @if length($val) == 1 {
+    $namespace: nth($val, 1);
+    @include grid-sizes( $namespace );
+  }
+
+  @else {
+    $namespace: nth($val, 1);
+    $size: nth($val, 2);
+
+    @media only screen and (min-width: #{$size}) {
+      @include grid-sizes( $namespace );
+    }
+  }
+}

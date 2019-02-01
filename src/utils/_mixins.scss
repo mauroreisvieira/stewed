@@ -10,22 +10,6 @@
   }
 }
 
-// Calculate column size percentage
-@function get-col-percent($column-num) {
-  @return $column-num / $columns * 100%;
-}
-
-// Spacing mixin to create uniform margin/padding
-@mixin spacing( $value, $type: margin, $orientation: vertical ) {
-  @if $orientation == vertical {
-    #{ $type }-top: $value;
-    #{ $type }-bottom: $value;
-  } @else {
-    #{ $type }-left: $value;
-    #{ $type }-right: $value;
-  }
-}
-
 @mixin mobile($max-w: $mobile) {
   @media (max-width: $max-w) {
     @content;
