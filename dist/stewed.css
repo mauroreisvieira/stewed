@@ -20,171 +20,25 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
 */
-.button {
-  --button: 40px;
-  display: inline-block;
+.stw-button {
+  -webkit-font-smoothing: antialiased;
   position: relative;
-  height: var(--button);
-  margin: 0;
-  padding: 0 16px;
-  border: 1px solid;
-  border-radius: 2px;
-  background: none;
-  color: inherit;
-  font-family: "Roboto", sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: var(--button);
-  text-decoration: none;
-  text-transform: uppercase;
+  display: flex;
+  overflow: hidden;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
+  font-weight: 500;
+  font-size: .875rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  height: 40px;
   vertical-align: middle;
-  z-index: 0; }
-  .button:hover {
-    text-decoration: none; }
-  .button[disabled] {
-    opacity: .7;
-    pointer-events: none; }
-  .button--large {
-    --button-large: calc(40px + 8px);
-    height: var(--button-large);
-    padding: 0 48px;
-    line-height: var(--button-large); }
-  .button--medium {
-    --button-medium: calc(40px + 4px);
-    height: var(--button-medium);
-    padding: 0 32px;
-    line-height: var(--button-medium); }
-  .button--small {
-    --button-small: calc(40px - 4px);
-    height: var(--button-small);
-    padding: 0 14px;
-    line-height: var(--button-small); }
-  .button--icon {
-    width: var(--button);
-    padding: 0;
-    border-radius: 50%;
-    font-weight: 400; }
-    .button--icon .icon {
-      pointer-events: none; }
-    .button--icon.button--large {
-      width: var(--button-large); }
-    .button--icon.button--medium {
-      width: var(--button-medium); }
-    .button--icon.button--small {
-      width: var(--button-small); }
-
-.button--danger {
-  transition: border-color .3s, color .3s;
-  background-color: #e3342f;
-  color: #fff;
-  overflow: hidden; }
-  .button--danger::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 150%;
-    height: 100%;
-    transform: rotate3d(0, 0, 1, -90deg);
-    transform-origin: left bottom;
-    transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1), background-color 0.4s cubic-bezier(0.2, 1, 0.3, 1);
-    background-color: #cc1f1a;
-    content: "";
-    will-change: transform;
-    z-index: -1; }
-  .button--danger:focus {
-    outline: none; }
-  .button--danger:hover {
-    color: #fff; }
-    .button--danger:hover::before {
-      transform: rotate3d(0, 0, 1, 0deg);
-      transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
-      background-color: #cc1f1a;
-      opacity: 1; }
-
-.button--success {
-  transition: border-color .3s, color .3s;
-  background-color: #38c172;
-  color: #fff;
-  overflow: hidden; }
-  .button--success::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 150%;
-    height: 100%;
-    transform: rotate3d(0, 0, 1, -90deg);
-    transform-origin: left bottom;
-    transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1), background-color 0.4s cubic-bezier(0.2, 1, 0.3, 1);
-    background-color: #1f9d55;
-    content: "";
-    will-change: transform;
-    z-index: -1; }
-  .button--success:focus {
-    outline: none; }
-  .button--success:hover {
-    color: #fff; }
-    .button--success:hover::before {
-      transform: rotate3d(0, 0, 1, 0deg);
-      transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
-      background-color: #1f9d55;
-      opacity: 1; }
-
-.button--info {
-  transition: border-color .3s, color .3s;
-  background-color: #3490dc;
-  color: #fff;
-  overflow: hidden; }
-  .button--info::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 150%;
-    height: 100%;
-    transform: rotate3d(0, 0, 1, -90deg);
-    transform-origin: left bottom;
-    transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1), background-color 0.4s cubic-bezier(0.2, 1, 0.3, 1);
-    background-color: #2779bd;
-    content: "";
-    will-change: transform;
-    z-index: -1; }
-  .button--info:focus {
-    outline: none; }
-  .button--info:hover {
-    color: #fff; }
-    .button--info:hover::before {
-      transform: rotate3d(0, 0, 1, 0deg);
-      transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
-      background-color: #2779bd;
-      opacity: 1; }
-
-.button--default {
-  transition: border-color .3s, color .3s;
-  background-color: #bdbdbd;
-  color: #fff;
-  overflow: hidden; }
-  .button--default::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 150%;
-    height: 100%;
-    transform: rotate3d(0, 0, 1, -90deg);
-    transform-origin: left bottom;
-    transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1), background-color 0.4s cubic-bezier(0.2, 1, 0.3, 1);
-    background-color: #212121;
-    content: "";
-    will-change: transform;
-    z-index: -1; }
-  .button--default:focus {
-    outline: none; }
-  .button--default:hover {
-    color: #fff; }
-    .button--default:hover::before {
-      transform: rotate3d(0, 0, 1, 0deg);
-      transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
-      background-color: #212121;
-      opacity: 1; }
+  transition: background .3s ease-out, color .2s ease-out;
+  background-color: #fff;
+  border: 2px solid #df1070;
+  color: #df1070; }
 
 .stw-form-field {
   display: inline-flex;
