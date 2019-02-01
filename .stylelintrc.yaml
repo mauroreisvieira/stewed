@@ -262,6 +262,7 @@ rules:
     - 0
     - ignoreTypes:
         - /fieldset/
+        - /label/
   # Styles for components should never need the universal selector.
   selector-max-universal: 0
 

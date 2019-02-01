@@ -1,14 +1,14 @@
-.stw-radio {
+.stw-checkbox {
   position: relative;
   display: inline-flex;
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
-  width: $stw-radio-width;
-  height: $stw-radio-height;
+  width: $stw-checkbox-width;
+  height: $stw-checkbox-height;
   border-radius: 50%;
   outline: 0;
-  color: $stw-radio-color-active;
+  color: $stw-checkbox-color-active;
   cursor: pointer;
   overflow: hidden;
   will-change: transform, opacity;
@@ -52,8 +52,8 @@
     z-index: 1;
 
     &:checked {
-      + .stw-radio__background {
-        color: $stw-radio-color-active;
+      + .stw-checkbox__background {
+        color: $stw-checkbox-color-active;
 
         &::before {
           border-color: currentColor;
@@ -67,7 +67,7 @@
     }
 
     &:disabled {
-      + .stw-radio__background {
+      + .stw-checkbox__background {
         color: rgba($global-color-black, .2);
       }
     }
@@ -81,7 +81,7 @@
     height: 100%;
     margin: 0;
     padding: 0;
-    color: $stw-radio-color-default;
+    color: $stw-checkbox-color-default;
     cursor: pointer;
     z-index: 0;
 
@@ -97,7 +97,6 @@
       height: 18px;
       margin: auto;
       border: 2px solid currentColor;
-      border-radius: 50%;
       content: "";
     }
 
@@ -112,7 +111,6 @@
       margin: auto;
       transform: scale(0, 0);
       transition: transform 100ms linear;
-      border-radius: 50%;
       background: white;
       content: "";
     }

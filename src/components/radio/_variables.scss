@@ -1,2 +1,4 @@
-$radio-color-default: map-get($global-color-grey, "darken");
-$radio-color-active: map-get($global-color-pink, "base");
+$stw-radio-width: $global-baseline * 5;
+$stw-radio-height: $global-baseline * 5;
+$stw-radio-color-default: map-get($global-color-grey, "darken");
+$stw-radio-color-active: map-get($global-color-pink, "base");

@@ -186,75 +186,23 @@
       background-color: #212121;
       opacity: 1; }
 
-.form__checkbox {
-  position: absolute;
-  padding: 0;
-  border: 0;
-  clip: rect(0 0 0 0);
-  overflow: hidden; }
-  .form__checkbox + .form__label {
-    display: flex;
-    position: relative;
-    align-items: center;
-    height: 20px;
-    margin: 0;
-    padding: 0;
-    padding-left: 30px;
-    cursor: pointer; }
-    .form__checkbox + .form__label::before {
-      display: inline-block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 20px;
-      height: 20px;
-      transition: .5s ease all;
-      background-color: #f2f2f2;
-      content: "";
-      vertical-align: text-top; }
-  .form__checkbox:checked + .form__label::before {
-    background: currentColor; }
-  .form__checkbox:checked + .form__label::after {
-    position: absolute;
-    top: 9px;
-    left: 5px;
-    width: 2px;
-    height: 2px;
-    background: white;
-    box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
-    transform: rotate(45deg);
-    content: ""; }
-  .form__checkbox:disabled + .form__label::before {
-    opacity: .3; }
-
-.form__input {
-  box-sizing: border-box;
-  width: 100%;
-  height: 36px;
-  padding: 0 12px;
-  border: 1px solid #f2f2f2;
-  background-color: #f2f2f2; }
-  .form__input:focus {
-    outline: none;
-    background-color: #fff; }
-
-.form-field {
+.stw-form-field {
   display: inline-flex;
   align-items: center;
+  font-family: "Roboto", sans-serif;
+  font-size: .875rem;
+  font-weight: 400;
   letter-spacing: .01786em;
+  line-height: 1.25rem;
   text-decoration: inherit;
   text-transform: inherit;
   vertical-align: middle; }
-  .form-field label {
+  .stw-form-field label {
     display: inline-flex;
     align-items: center;
-    padding-left: 6px;
+    padding-left: 4px;
     color: currentColor;
-    font-size: .875rem;
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    letter-spacing: .01786em;
-    line-height: 1.25rem; }
+    cursor: pointer; }
 
 .row {
   display: flex;
@@ -464,7 +412,7 @@
   .offset-large-0 {
     margin-left: 0; } }
 
-.radio {
+.stw-radio {
   position: relative;
   display: inline-flex;
   flex: 0 0 auto;
@@ -475,17 +423,26 @@
   border-radius: 50%;
   outline: 0;
   color: #df1070;
-  overflow: hidden; }
-  .radio::before {
+  cursor: pointer;
+  overflow: hidden;
+  will-change: transform, opacity; }
+  .stw-radio--disabled {
+    cursor: default;
+    pointer-events: none; }
+  .stw-radio::before {
     position: absolute;
     width: 100%;
     height: 100%;
+    transform: scale(0, 0);
+    transition: opacity 100ms linear, transform 200ms linear;
+    border-radius: 50%;
     background-color: currentColor;
     opacity: 0;
     content: ""; }
-  .radio:hover::before, .radio:active::before, .radio:focus::before {
-    opacity: .04; }
-  .radio__control {
+  .stw-radio:hover::before, .stw-radio:active::before, .stw-radio:focus::before {
+    transform: none;
+    opacity: .05; }
+  .stw-radio__control {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -496,13 +453,16 @@
     cursor: pointer;
     overflow: hidden;
     z-index: 1; }
-    .radio__control:checked + .radio__background::before {
-      border-color: currentColor; }
-    .radio__control:checked + .radio__background::after {
-      background-color: currentColor; }
-    .radio__control:disabled + .radio__background::before {
-      opacity: .3; }
-  .radio__background {
+    .stw-radio__control:checked + .stw-radio__background {
+      color: #df1070; }
+      .stw-radio__control:checked + .stw-radio__background::before {
+        border-color: currentColor; }
+      .stw-radio__control:checked + .stw-radio__background::after {
+        transform: none;
+        background-color: currentColor; }
+    .stw-radio__control:disabled + .stw-radio__background {
+      color: rgba(0, 0, 0, 0.2); }
+  .stw-radio__background {
     position: relative;
     display: flex;
     align-items: center;
@@ -510,9 +470,10 @@
     height: 100%;
     margin: 0;
     padding: 0;
+    color: #212121;
     cursor: pointer;
     z-index: 0; }
-    .radio__background::before {
+    .stw-radio__background::before {
       position: absolute;
       top: 0;
       right: 0;
@@ -520,13 +481,13 @@
       left: 0;
       box-sizing: border-box;
       display: inline-block;
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
       margin: auto;
-      border: 2px solid #212121;
+      border: 2px solid currentColor;
       border-radius: 50%;
       content: ""; }
-    .radio__background::after {
+    .stw-radio__background::after {
       position: absolute;
       top: 0;
       right: 0;
@@ -535,62 +496,138 @@
       width: 10px;
       height: 10px;
       margin: auto;
+      transform: scale(0, 0);
+      transition: transform 100ms linear;
       border-radius: 50%;
       background: white;
       content: ""; }
 
-.form__textarea {
-  box-sizing: border-box;
-  width: 100%;
-  height: auto;
-  padding: 20px 12px;
-  resize: none;
-  border: 1px solid #f2f2f2;
-  background-color: #f2f2f2; }
-  .form__textarea:focus {
-    outline: none;
-    background-color: #fff; }
-  .form__textarea--resize {
-    resize: auto; }
+.stw-checkbox {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  outline: 0;
+  color: #df1070;
+  cursor: pointer;
+  overflow: hidden;
+  will-change: transform, opacity; }
+  .stw-checkbox--disabled {
+    cursor: default;
+    pointer-events: none; }
+  .stw-checkbox::before {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: scale(0, 0);
+    transition: opacity 100ms linear, transform 200ms linear;
+    border-radius: 50%;
+    background-color: currentColor;
+    opacity: 0;
+    content: ""; }
+  .stw-checkbox:hover::before, .stw-checkbox:active::before, .stw-checkbox:focus::before {
+    transform: none;
+    opacity: .05; }
+  .stw-checkbox__control {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    opacity: 0;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1; }
+    .stw-checkbox__control:checked + .stw-checkbox__background {
+      color: #df1070; }
+      .stw-checkbox__control:checked + .stw-checkbox__background::before {
+        border-color: currentColor; }
+      .stw-checkbox__control:checked + .stw-checkbox__background::after {
+        transform: none;
+        background-color: currentColor; }
+    .stw-checkbox__control:disabled + .stw-checkbox__background {
+      color: rgba(0, 0, 0, 0.2); }
+  .stw-checkbox__background {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    color: #212121;
+    cursor: pointer;
+    z-index: 0; }
+    .stw-checkbox__background::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      box-sizing: border-box;
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      margin: auto;
+      border: 2px solid currentColor;
+      content: ""; }
+    .stw-checkbox__background::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 10px;
+      height: 10px;
+      margin: auto;
+      transform: scale(0, 0);
+      transition: transform 100ms linear;
+      background: white;
+      content: ""; }
 
 h1 {
   font-family: "Roboto", sans-serif;
   font-size: 50px;
   font-weight: 100;
-  margin: 18px 0;
+  margin: 24px 0;
   color: #000; }
 
 h2 {
   font-family: "Roboto", sans-serif;
   font-size: 42px;
   font-weight: 300;
-  margin: 18px 0;
+  margin: 24px 0;
   color: #000; }
 
 h3 {
   font-family: "Roboto", sans-serif;
   font-size: 34px;
   font-weight: 500;
-  margin: 18px 0;
+  margin: 24px 0;
   color: #000; }
 
 h4 {
   font-family: "Roboto", sans-serif;
   font-size: 26px;
   font-weight: 500;
-  margin: 18px 0;
+  margin: 24px 0;
   color: #000; }
 
 h5 {
   font-family: "Roboto", sans-serif;
   font-size: 20px;
   font-weight: 700;
-  margin: 18px 0;
+  margin: 24px 0;
   color: #000; }
 
 h6 {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   font-weight: 700;
-  margin: 18px 0;
+  margin: 24px 0;
   color: #000; }

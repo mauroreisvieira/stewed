@@ -1,8 +1,8 @@
 .button {
   --button: #{$button-height};
 
-  display: inline-block;
   position: relative;
+  display: inline-block;
   height: var(--button);
   margin: 0;
   padding: 0 $button-horizontal-padding;

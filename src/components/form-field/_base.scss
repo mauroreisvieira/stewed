@@ -1,7 +1,11 @@
-.form-field {
+.stw-form-field {
   display: inline-flex;
   align-items: center;
+  font-family: $stw-form-field-font-family;
+  font-size: .875rem;
+  font-weight: $stw-form-field-font-weight;
   letter-spacing: .01786em;
+  line-height: 1.25rem;
   text-decoration: inherit;
   text-transform: inherit;
   vertical-align: middle;
@@ -9,12 +13,8 @@
   label {
     display: inline-flex;
     align-items: center;
-    padding-left: $global-baseline;
+    padding-left: $stw-form-field-padding-left;
     color: currentColor;
-    font-size: .875rem;
-    font-family: $form-family;
-    font-weight: $form-weight;
-    letter-spacing: .01786em;
-    line-height: 1.25rem;
+    cursor: pointer;
   }
 }
