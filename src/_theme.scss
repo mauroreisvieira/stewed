@@ -1,10 +1,16 @@
+:root {
+    --theme-font-size: 14px;
+    --theme-font-weight: 400;
+    --theme-baseline: 1rem;
+    --theme-font-family-serif: "Roboto", sans-serif;
+    --theme-font-family-monospace: "Roboto Mono", monospace;
+}
+
 // Font Size
-$global-font-size: 14px;
-$global-font-weight: 400;
-$global-baseline: 8px;
-$global-icon-size: 30px;
+$theme-font-size: var(--theme-font-size);
+$theme-font-weight: var(--theme-font-weight);
 
 // Typography
-$global-font-family-serif: "Roboto", sans-serif;
-$global-font-family-monospace: "Roboto Mono", monospace;
+$theme-font-family-serif: var(--theme-font-family-serif);
+$theme-font-family-monospace: var(--theme-font-family-monospace);
 

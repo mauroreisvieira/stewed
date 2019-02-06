@@ -1,5 +1,5 @@
-$button-font-size: $global-font-size; // 14px
-$button-font-weight: $global-font-weight; // 400
+$button-font-size: $theme-font-size; // 14px
+$button-font-weight: $theme-font-weight; // 400
 // Button Size
 $button-height: 40px;
 // Button Horizontal Padding
@@ -7,23 +7,23 @@ $button-horizontal-padding: 16px;
 // Border Radius
 $button-border-radius: 2px;
 // Button Danger
-$button-color-danger: map-get($global-color-red, "base");
-$button-color-danger-hover: map-get($global-color-red, "darken");
+$button-color-danger: map-get($theme-color-red, "base");
+$button-color-danger-hover: map-get($theme-color-red, "darken");
 // Button Success
-$button-color-success: map-get($global-color-green, "base");
-$button-color-success-hover: map-get($global-color-green, "darken");
+$button-color-success: map-get($theme-color-green, "base");
+$button-color-success-hover: map-get($theme-color-green, "darken");
 // Button Info
-$button-color-info: map-get($global-color-blue, "base");
-$button-color-info-hover: map-get($global-color-blue, "darken");
+$button-color-info: map-get($theme-color-blue, "base");
+$button-color-info-hover: map-get($theme-color-blue, "darken");
 // Button Default
-$button-color-default: map-get($global-color-grey, "base");
-$button-color-default-hover: map-get($global-color-grey, "darken");
+$button-color-default: map-get($theme-color-grey, "base");
+$button-color-default-hover: map-get($theme-color-grey, "darken");
 // Button Animation Transition
 $button-transition-timing: cubic-bezier(.2, 1, .3, 1);
 $button-transition-duration: .4s;
 $buttons: (
-  "danger": ($button-color-danger, $global-color-white, $button-color-danger-hover, $global-color-white),
-  "success": ($button-color-success, $global-color-white, $button-color-success-hover, $global-color-white),
-  "info": ($button-color-info, $global-color-white, $button-color-info-hover, $global-color-white),
-  "default": ($button-color-default, $global-color-white, $button-color-default-hover, $global-color-white)
+  "danger": ($button-color-danger, $theme-color-white, $button-color-danger-hover, $theme-color-white),
+  "success": ($button-color-success, $theme-color-white, $button-color-success-hover, $theme-color-white),
+  "info": ($button-color-info, $theme-color-white, $button-color-info-hover, $theme-color-white),
+  "default": ($button-color-default, $theme-color-white, $button-color-default-hover, $theme-color-white)
 );

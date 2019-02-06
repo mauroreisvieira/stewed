@@ -68,7 +68,7 @@
 
     &:disabled {
       + .stw-radio__background {
-        color: rgba($global-color-black, .2);
+        color: rgba($theme-color-black, .2);
       }
     }
   }

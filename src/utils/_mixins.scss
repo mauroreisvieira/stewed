@@ -1,7 +1,7 @@
 @mixin typography (
-  $font-size: $global-font-size,
-  $font-weight: $global-font-weight,
-  $font: $global-font-family-serif
+  $font-size: $theme-font-size,
+  $font-weight: $theme-font-weight,
+  $font: $theme-font-family-serif
 ) {
   font: {
     family: $font;

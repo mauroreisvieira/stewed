@@ -1,10 +1,10 @@
-$typography-serif: $global-font-family-serif !default;
-$typography-monospace: $global-font-family-monospace;
+$typography-serif: $theme-font-family-serif !default;
+$typography-monospace: $theme-font-family-monospace;
 
 // Font Size
 $typography-font-size-sx: 10px;
 $typography-font-size-sm: 12px;
-$typography-font-size-base: $global-font-size;
+$typography-font-size-base: $theme-font-size;
 $typography-font-size-md: 16px;
 $typography-font-size-lg: 20px;
 $typography-font-size-xl: 26px;
@@ -21,17 +21,17 @@ $typography-font-weight-bold: 700;
 $typography-font-weight-x-bold: 900;
 
 // Color Text
-$typography-color-text: $global-color-black;
-$typography-color-link: map-get($global-color-grey, "base");
-$typography-color-link-hover: map-get($global-color-grey, "darken");
+$typography-color-text: $theme-color-black;
+$typography-color-link: map-get($theme-color-grey, "base");
+$typography-color-link-hover: map-get($theme-color-grey, "darken");
 
-$typography-baseline-heading: $global-baseline * 3;
+$typography-baseline-heading: $theme-baseline * 3;
 
 $headings: (
-  "h1": ($global-color-black, $typography-font-size-xl-xxx, $typography-font-weight-thin),
-  "h2": ($global-color-black, $typography-font-size-xl-xx, $typography-font-weight-light),
-  "h3": ($global-color-black, $typography-font-size-xl-x, $typography-font-weight-semibold),
-  "h4": ($global-color-black, $typography-font-size-xl, $typography-font-weight-semibold),
-  "h5": ($global-color-black, $typography-font-size-lg, $typography-font-weight-bold),
-  "h6": ($global-color-black, $typography-font-size-md, $typography-font-weight-bold)
+  "h1": ($theme-color-black, $typography-font-size-xl-xxx, $typography-font-weight-thin),
+  "h2": ($theme-color-black, $typography-font-size-xl-xx, $typography-font-weight-light),
+  "h3": ($theme-color-black, $typography-font-size-xl-x, $typography-font-weight-semibold),
+  "h4": ($theme-color-black, $typography-font-size-xl, $typography-font-weight-semibold),
+  "h5": ($theme-color-black, $typography-font-size-lg, $typography-font-weight-bold),
+  "h6": ($theme-color-black, $typography-font-size-md, $typography-font-weight-bold)
 );

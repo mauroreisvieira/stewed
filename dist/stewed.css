@@ -20,32 +20,37 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
 */
+:root {
+  --theme-font-size: 14px;
+  --theme-font-weight: 400;
+  --theme-baseline: 1rem;
+  --theme-font-family-serif: "Roboto", sans-serif;
+  --theme-font-family-monospace: "Roboto Mono", monospace; }
+
 .stw-button {
-  -webkit-font-smoothing: antialiased;
   position: relative;
   display: flex;
-  overflow: hidden;
-  border: none;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 16px;
   border-radius: 4px;
+  border: 2px solid #df1070;
+  overflow: hidden;
   cursor: pointer;
   font-weight: 500;
   font-size: .875rem;
-  align-items: center;
-  justify-content: center;
-  padding: 0 16px;
-  height: 40px;
-  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
   transition: background .3s ease-out, color .2s ease-out;
   background-color: #fff;
-  border: 2px solid #df1070;
   color: #df1070; }
 
 .stw-form-field {
   display: inline-flex;
   align-items: center;
-  font-family: "Roboto", sans-serif;
+  font-family: var(--theme-font-family-serif);
   font-size: .875rem;
-  font-weight: 400;
+  font-weight: var(--theme-font-weight);
   letter-spacing: .01786em;
   line-height: 1.25rem;
   text-decoration: inherit;
@@ -356,6 +361,68 @@
       background: white;
       content: ""; }
 
+.stw-table {
+  display: table;
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  white-space: nowrap;
+  border: 0;
+  font-family: var(--theme-font-family-serif);
+  font-size: var(--theme-font-size); }
+  .stw-table thead {
+    border-bottom: 1px solid #e9e9e9; }
+    .stw-table thead th {
+      font-weight: bold;
+      display: table-cell;
+      padding: 0.7em 1.3em;
+      text-align: left;
+      vertical-align: middle; }
+  .stw-table tbody tr td {
+    display: table-cell;
+    padding: 0.9em 1em;
+    text-align: left;
+    vertical-align: middle; }
+  .stw-table .textfield {
+    margin: 0; }
+  .stw-table--border tbody tr {
+    border-bottom: 1px solid #e9e9e9; }
+  .stw-table--hover tbody tr:hover {
+    background-color: #f1f1f1; }
+  .stw-table--striped tbody tr:nth-child(odd) {
+    background-color: #f1f1f1; }
+
+@media (max-width: 280px) {
+  .stw-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    display: block;
+    position: relative; }
+    .stw-table thead {
+      display: block;
+      float: left;
+      border: 0;
+      border-right: 1px solid #d0d0d0; }
+      .stw-table thead tr {
+        display: block;
+        padding: 0 10px 0 0; }
+        .stw-table thead tr th {
+          display: block;
+          text-align: right; }
+    .stw-table tbody {
+      display: block;
+      width: auto;
+      position: relative;
+      overflow-x: auto;
+      white-space: nowrap; }
+      .stw-table tbody tr {
+        display: inline-block;
+        vertical-align: top; }
+        .stw-table tbody tr td {
+          display: block;
+          text-align: left; } }
+
 .stw-checkbox {
   position: relative;
   display: inline-flex;
@@ -445,42 +512,42 @@
       content: ""; }
 
 h1 {
-  font-family: "Roboto", sans-serif;
+  font-family: var(--theme-font-family-serif);
   font-size: 50px;
   font-weight: 100;
   margin: 24px 0;
   color: #000; }
 
 h2 {
-  font-family: "Roboto", sans-serif;
+  font-family: var(--theme-font-family-serif);
   font-size: 42px;
   font-weight: 300;
   margin: 24px 0;
   color: #000; }
 
 h3 {
-  font-family: "Roboto", sans-serif;
+  font-family: var(--theme-font-family-serif);
   font-size: 34px;
   font-weight: 500;
   margin: 24px 0;
   color: #000; }
 
 h4 {
-  font-family: "Roboto", sans-serif;
+  font-family: var(--theme-font-family-serif);
   font-size: 26px;
   font-weight: 500;
   margin: 24px 0;
   color: #000; }
 
 h5 {
-  font-family: "Roboto", sans-serif;
+  font-family: var(--theme-font-family-serif);
   font-size: 20px;
   font-weight: 700;
   margin: 24px 0;
   color: #000; }
 
 h6 {
-  font-family: "Roboto", sans-serif;
+  font-family: var(--theme-font-family-serif);
   font-size: 16px;
   font-weight: 700;
   margin: 24px 0;

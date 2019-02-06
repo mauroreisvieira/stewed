@@ -1,4 +1,4 @@
-$stw-checkbox-width: $global-baseline * 5;
-$stw-checkbox-height: $global-baseline * 5;
-$stw-checkbox-color-default: map-get($global-color-grey, "darken");
-$stw-checkbox-color-active: map-get($global-color-pink, "base");
+$stw-checkbox-width: $theme-baseline * 5;
+$stw-checkbox-height: $theme-baseline * 5;
+$stw-checkbox-color-default: map-get($theme-color-grey, "darken");
+$stw-checkbox-color-active: map-get($theme-color-pink, "base");

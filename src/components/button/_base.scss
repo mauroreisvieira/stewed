@@ -6,7 +6,7 @@
   height: 40px;
   padding: 0 16px;
   border-radius: 4px;
-  border: 2px solid map-get($global-color-pink, "base");
+  border: 2px solid map-get($theme-color-pink, "base");
   overflow: hidden;
   cursor: pointer;
   font-weight: 500;
@@ -14,5 +14,5 @@
   -webkit-font-smoothing: antialiased;
   transition: background .3s ease-out, color .2s ease-out;
   background-color: #fff;
-  color: map-get($global-color-pink, "base");
+  color: map-get($theme-color-pink, "base");
 }
