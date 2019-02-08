@@ -6,9 +6,17 @@
 
 p,
 li {
+  margin-bottom: $baseline;
+
   @include get-typography(base);
 }
 
 a {
+  color: $color-primary;
+
   @include get-typography(link);
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

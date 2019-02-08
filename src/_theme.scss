@@ -1,8 +1,15 @@
 :root {
   --theme-font-family-serif: "Nunito", sans-serif;
   --theme-font-family-monospace: monospace;
-  --theme-color-primary: #{map-get($theme-color-pink, "base")};
+  --theme-color-primary: #5c8df6;
+  --theme-color-secondary: #f3628d;
+  --theme-color-base: #454b57;
 }
+
+// Colors
+$theme-color-primary: var(--theme-color-primary);
+$theme-color-secondary: var(--theme-color-secondary);
+$theme-color-base: var(--theme-color-base);
 
 // Font Size
 $theme-font-size: 16px;
@@ -32,4 +39,5 @@ body {
   font-size: $theme-font-size;
   font-weight: $theme-font-regular;
   line-height: 1.5;
+  color: $theme-color-base;
 }

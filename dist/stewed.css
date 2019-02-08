@@ -45,7 +45,9 @@
 :root {
   --theme-font-family-serif: "Nunito", sans-serif;
   --theme-font-family-monospace: monospace;
-  --theme-color-primary: #df1070; }
+  --theme-color-primary: #5c8df6;
+  --theme-color-secondary: #f3628d;
+  --theme-color-base: #454b57; }
 
 * {
   box-sizing: border-box; }
@@ -54,7 +56,88 @@ body {
   font-family: var(--theme-font-family-serif);
   font-size: 16px;
   font-weight: 400;
-  line-height: 1.5; }
+  line-height: 1.5;
+  color: var(--theme-color-base); }
+
+.h1 {
+  margin: 16px 0;
+  font-size: 4.75rem;
+  line-height: 1.5;
+  font-weight: 300;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: inherit;
+  text-transform: inherit; }
+
+.h2 {
+  margin: 16px 0;
+  font-size: 3.25rem;
+  line-height: 1.5;
+  font-weight: 700;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: inherit;
+  text-transform: inherit; }
+
+.h3 {
+  font-size: 2.125rem;
+  line-height: 1.5;
+  font-weight: 300;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: inherit;
+  text-transform: inherit; }
+
+.h4 {
+  margin: 16px 0;
+  font-size: 1.75rem;
+  line-height: 1.5;
+  font-weight: 600;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: inherit;
+  text-transform: inherit; }
+
+.h5 {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  font-weight: 600;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: inherit;
+  text-transform: inherit; }
+
+.h6 {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 700;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: inherit;
+  text-transform: inherit; }
+
+p,
+li {
+  margin-bottom: 8px;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 400;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: inherit;
+  text-transform: inherit; }
+
+a {
+  color: var(--theme-color-primary);
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 400;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: inherit;
+  text-transform: inherit; }
+  a:hover {
+    text-decoration: underline; }
 
 .button {
   position: relative;
@@ -63,16 +146,23 @@ body {
   justify-content: center;
   height: 40px;
   padding: 0 16px;
-  border-radius: 4px;
+  transition: border .222s ease-out, background .222s ease-out, color .111s ease-out;
   border: 2px solid currentColor;
-  overflow: hidden;
-  cursor: pointer;
-  font-weight: 500;
-  font-size: .875rem;
-  -webkit-font-smoothing: antialiased;
-  transition: background .3s ease-out, color .2s ease-out;
+  border-radius: 4px;
   background-color: #fff;
-  color: #38a89d; }
+  color: var(--theme-color-primary);
+  cursor: pointer;
+  overflow: hidden;
+  font-size: 0.875rem;
+  font-weight: 600;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: none;
+  text-transform: uppercase; }
+  .button:hover {
+    border-color: var(--theme-color-primary);
+    background-color: var(--theme-color-primary);
+    color: #fff; }
 
 .form-field {
   display: inline-flex;
@@ -308,7 +398,7 @@ body {
   height: 40px;
   border-radius: 50%;
   outline: 0;
-  color: #df1070;
+  color: var(--theme-color-primary);
   cursor: pointer;
   overflow: hidden;
   will-change: transform, opacity; }
@@ -340,7 +430,7 @@ body {
     overflow: hidden;
     z-index: 1; }
     .radio__control:checked + .radio__background {
-      color: #df1070; }
+      color: var(--theme-color-primary); }
       .radio__control:checked + .radio__background::before {
         border-color: currentColor; }
       .radio__control:checked + .radio__background::after {
@@ -356,7 +446,7 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    color: #212121;
+    color: var(--theme-color-base);
     cursor: pointer;
     z-index: 0; }
     .radio__background::before {
@@ -388,11 +478,12 @@ body {
       background: white;
       content: ""; }
 
-/* stylelint-disable selector-max-type */
+/* stylelint-disable selector-max-type, order/order */
 .table {
   position: relative;
   display: block;
   width: 100%;
+  border: 0;
   border-collapse: collapse;
   border-spacing: 0; }
   @media (min-width: 768px) {
@@ -400,13 +491,31 @@ body {
       display: table; } }
   .table thead {
     display: block;
+    padding: 16px;
     float: left;
     border: 0;
-    border-right: 1px solid #d0d0d0; }
+    border-right: 2px solid currentColor;
+    color: #212121;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 700;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-decoration: inherit;
+    text-transform: inherit; }
     @media (min-width: 768px) {
       .table thead {
         display: table-row-group;
-        float: none; } }
+        float: none;
+        border: 0;
+        border-bottom: 2px solid currentColor;
+        font-size: 1.5rem;
+        line-height: 1.5;
+        font-weight: 600;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        text-decoration: inherit;
+        text-transform: inherit; } }
     .table thead tr {
       display: block;
       padding: 0 10px 0 0; }
@@ -415,17 +524,26 @@ body {
           display: table-row; } }
       .table thead tr th {
         display: block;
+        padding: 16px;
         text-align: right; }
         @media (min-width: 768px) {
           .table thead tr th {
-            text-align: left;
-            display: table-cell; } }
+            display: table-cell;
+            text-align: left; } }
   .table tbody {
     position: relative;
     display: block;
     width: auto;
+    padding: 16px;
     white-space: nowrap;
-    overflow-x: auto; }
+    overflow-x: auto;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 400;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-decoration: inherit;
+    text-transform: inherit; }
     @media (min-width: 768px) {
       .table tbody {
         display: table-row-group;
@@ -436,33 +554,15 @@ body {
       vertical-align: top; }
       @media (min-width: 768px) {
         .table tbody tr {
-          display: table-row; } }
+          display: table-row;
+          border-bottom: 1px solid #f2f2f2; } }
       .table tbody tr td {
         display: block;
+        padding: 16px;
         text-align: left; }
-  @media (min-width: 768px) {
-    .table {
-      display: table;
-      width: 100%;
-      border: 0;
-      font-size: 16px;
-      white-space: nowrap;
-      border-collapse: collapse;
-      border-spacing: 0; }
-      .table thead {
-        border-bottom: 1px solid #e9e9e9;
-        border-right: 0; }
-        .table thead th {
-          display: table-cell;
-          padding: 0.7em 1.3em;
-          font-weight: bold;
-          text-align: left;
-          vertical-align: middle; }
-      .table tbody tr td {
-        display: table-cell;
-        padding: 0.9em 1em;
-        text-align: left;
-        vertical-align: middle; } }
+        @media (min-width: 768px) {
+          .table tbody tr td {
+            display: table-cell; } }
 
 .checkbox {
   position: relative;
@@ -474,7 +574,7 @@ body {
   height: 40px;
   border-radius: 50%;
   outline: 0;
-  color: #df1070;
+  color: var(--theme-color-primary);
   cursor: pointer;
   overflow: hidden;
   will-change: transform, opacity; }
@@ -506,7 +606,7 @@ body {
     overflow: hidden;
     z-index: 1; }
     .checkbox__control:checked + .checkbox__background {
-      color: #df1070; }
+      color: var(--theme-color-primary); }
       .checkbox__control:checked + .checkbox__background::before {
         border-color: currentColor; }
       .checkbox__control:checked + .checkbox__background::after {
@@ -522,7 +622,7 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    color: #212121;
+    color: var(--theme-color-base);
     cursor: pointer;
     z-index: 0; }
     .checkbox__background::before {
@@ -551,81 +651,3 @@ body {
       transition: transform 100ms linear;
       background: white;
       content: ""; }
-
-.h1 {
-  margin: 16px 0;
-  font-size: 4.75rem;
-  line-height: 1.5;
-  font-weight: 300;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  text-decoration: inherit;
-  text-transform: inherit; }
-
-.h2 {
-  margin: 16px 0;
-  font-size: 3.25rem;
-  line-height: 1.5;
-  font-weight: 700;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  text-decoration: inherit;
-  text-transform: inherit; }
-
-.h3 {
-  font-size: 2.125rem;
-  line-height: 1.5;
-  font-weight: 300;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  text-decoration: inherit;
-  text-transform: inherit; }
-
-.h4 {
-  margin: 16px 0;
-  font-size: 1.75rem;
-  line-height: 1.5;
-  font-weight: 600;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  text-decoration: inherit;
-  text-transform: inherit; }
-
-.h5 {
-  font-size: 1.5rem;
-  line-height: 1.5;
-  font-weight: 600;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  text-decoration: inherit;
-  text-transform: inherit; }
-
-.h6 {
-  font-size: 1rem;
-  line-height: 1.5;
-  font-weight: 700;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  text-decoration: inherit;
-  text-transform: inherit; }
-
-p,
-li {
-  margin: 0;
-  margin-bottom: 8px;
-  font-size: 1rem;
-  line-height: 1.5;
-  font-weight: 400;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  text-decoration: inherit;
-  text-transform: inherit; }
-
-a {
-  font-size: 1rem;
-  line-height: 1.5;
-  font-weight: 400;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  text-decoration: inherit;
-  text-transform: inherit; }

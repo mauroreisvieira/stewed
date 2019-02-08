@@ -1,4 +1,4 @@
 $radio-width: $baseline * 5;
 $radio-height: $baseline * 5;
-$radio-color-default: map-get($theme-color-gray, "darken");
-$radio-color-active: map-get($theme-color-pink, "base");
+$radio-color-default: $color-base;
+$radio-color-active: $color-primary;

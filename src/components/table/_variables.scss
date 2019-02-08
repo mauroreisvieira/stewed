@@ -1,6 +1,8 @@
-$table-font-family: $theme-font-family-serif;
-$table-font-size: $theme-font-size;
+$table-head-color: map-get($theme-color-gray, "darken");
+$table-head-font-size: headline-6 !default;
+$table-head-font-size-desktop: headline-5 !default;
+$table-head-padding: $baseline * 2;
 
-$table-padding-head: 0.70em 1.300em;
-$table-padding-body: 0.90em 1.000em;
-
+$table-body-font-size: base !default;
+$table-body-padding: $baseline * 2;
+$table-body-border-color: map-get($theme-color-gray, "lighten");

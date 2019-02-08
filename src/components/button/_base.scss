@@ -5,14 +5,22 @@
   justify-content: center;
   height: 40px;
   padding: 0 16px;
-  border-radius: 4px;
+  transition:
+    border .222s ease-out,
+    background .222s ease-out,
+    color .111s ease-out;
   border: 2px solid currentColor;
-  overflow: hidden;
-  cursor: pointer;
-  font-weight: 500;
-  font-size: .875rem;
-  -webkit-font-smoothing: antialiased;
-  transition: background .3s ease-out, color .2s ease-out;
+  border-radius: 4px;
   background-color: #fff;
-  color: map-get($theme-color-teal, "darken");
+  color: $color-primary;
+  cursor: pointer;
+  overflow: hidden;
+
+  @include get-typography(button);
+
+  &:hover {
+    border-color: $color-primary;
+    background-color: $color-primary;
+    color: #fff;
+  }
 }

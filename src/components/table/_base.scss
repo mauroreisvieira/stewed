@@ -1,9 +1,10 @@
-/* stylelint-disable selector-max-type */
+/* stylelint-disable selector-max-type, order/order */
 
 .table {
   position: relative;
   display: block;
   width: 100%;
+  border: 0;
   border-collapse: collapse;
   border-spacing: 0;
 
@@ -13,13 +14,21 @@
 
   thead {
     display: block;
+    padding: $table-head-padding;
     float: left;
     border: 0;
-    border-right: 1px solid #d0d0d0;
+    border-right: 2px solid currentColor;
+    color: $table-head-color;
+
+    @include get-typography($table-head-font-size);
 
     @include tablet {
       display: table-row-group;
       float: none;
+      border: 0;
+      border-bottom: 2px solid currentColor;
+
+      @include get-typography($table-head-font-size-desktop);
     }
 
     tr {
@@ -32,11 +41,12 @@
 
       th {
         display: block;
+        padding: $table-head-padding;
         text-align: right;
 
         @include tablet {
-          text-align: left;
           display: table-cell;
+          text-align: left;
         }
       }
     }
@@ -46,8 +56,11 @@
     position: relative;
     display: block;
     width: auto;
+    padding: $table-body-padding;
     white-space: nowrap;
     overflow-x: auto;
+
+    @include get-typography($table-body-font-size);
 
     @include tablet {
       display: table-row-group;
@@ -61,44 +74,16 @@
 
       @include tablet {
         display: table-row;
+        border-bottom: 1px solid $table-body-border-color;
       }
 
       td {
         display: block;
+        padding: $table-body-padding;
         text-align: left;
-      }
-    }
-  }
 
-  @include tablet {
-    display: table;
-    width: 100%;
-    border: 0;
-    font-size: $table-font-size;
-    white-space: nowrap;
-    border-collapse: collapse;
-    border-spacing: 0;
-
-    thead {
-      border-bottom: 1px solid #e9e9e9;
-      border-right: 0;
-
-      th {
-        display: table-cell;
-        padding: $table-padding-head;
-        font-weight: bold;
-        text-align: left;
-        vertical-align: middle;
-      }
-    }
-
-    tbody {
-      tr {
-        td {
+        @include tablet {
           display: table-cell;
-          padding: $table-padding-body;
-          text-align: left;
-          vertical-align: middle;
         }
       }
     }
