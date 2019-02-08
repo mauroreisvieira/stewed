@@ -1,8 +1,14 @@
-@each $key, $values in $headings {
-  #{$key} {
-    @include typography(nth($values, 2), nth($values, 3));
-
-    margin: $typography-baseline-heading 0;
-    color: nth($values, 1);
+@for $i from 1 through 5 {
+  .h#{$i} {
+    @include get-typography(headline-#{$i});
   }
+}
+
+p,
+li {
+  @include get-typography(base);
+}
+
+a {
+  @include get-typography(link);
 }

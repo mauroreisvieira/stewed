@@ -1,0 +1,47 @@
+/**
+* Calculates the rem.
+* @param {Size}  $size
+* @param {Size}  $theme-font-size
+* @return {Size}
+*/
+@function calculate-rem($size, $theme-font-size) {
+  $remSize: $size / $theme-font-size;
+
+  @return #{$remSize}rem;
+}
+
+/* Slightly lighten a color
+* @param {Color} $color - color to tint
+* @param {Number} $percentage - percentage of `$color` in returned color
+* @return {Color}
+*/
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+/* Slightly darken a color
+* @param {Color} $color - color to shade
+* @param {Number} $percentage - percentage of `$color` in returned color
+* @return {Color}
+*/
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+/**
+* Gets the color.
+* @param {Color}  $color
+* @param {String}  $tone
+* @return {Color}  $color
+*/
+@function get-color($color, $tone: base) {
+  $color-value: map-get($theme-colors, $color);
+
+  @if ($tone == dark) {
+    @return shade($color-value, 22%);
+  } @else if ($tone == light) {
+    @return tint($color-value, 92%);
+  } @else {
+    @return $color-value;
+  }
+}

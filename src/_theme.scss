@@ -1,9 +1,8 @@
 :root {
-    --theme-font-size: 14px;
-    --theme-font-weight: 400;
-    --theme-baseline: 1rem;
-    --theme-font-family-serif: "Roboto", sans-serif;
-    --theme-font-family-monospace: "Roboto Mono", monospace;
+  --theme-font-size: 14px;
+  --theme-font-weight: 400;
+  --theme-font-family-serif: "Roboto", sans-serif;
+  --theme-font-family-monospace: "Roboto Mono", monospace;
 }
 
 // Font Size
@@ -14,3 +13,4 @@ $theme-font-weight: var(--theme-font-weight);
 $theme-font-family-serif: var(--theme-font-family-serif);
 $theme-font-family-monospace: var(--theme-font-family-monospace);
 
+$theme-baseline: 8px;

@@ -23,10 +23,31 @@
 :root {
   --theme-font-size: 14px;
   --theme-font-weight: 400;
-  --theme-baseline: 1rem;
   --theme-font-family-serif: "Roboto", sans-serif;
   --theme-font-family-monospace: "Roboto Mono", monospace; }
 
+/**
+* Calculates the rem.
+* @param {Size}  $size
+* @param {Size}  $theme-font-size
+* @return {Size}
+*/
+/* Slightly lighten a color
+* @param {Color} $color - color to tint
+* @param {Number} $percentage - percentage of `$color` in returned color
+* @return {Color}
+*/
+/* Slightly darken a color
+* @param {Color} $color - color to shade
+* @param {Number} $percentage - percentage of `$color` in returned color
+* @return {Color}
+*/
+/**
+* Gets the color.
+* @param {Color}  $color
+* @param {String}  $tone
+* @return {Color}  $color
+*/
 .stw-button {
   position: relative;
   display: flex;
@@ -511,44 +532,71 @@
       background: white;
       content: ""; }
 
-h1 {
-  font-family: var(--theme-font-family-serif);
-  font-size: 50px;
-  font-weight: 100;
-  margin: 24px 0;
-  color: #000; }
+.h1 {
+  margin: 16px 0;
+  font-size: 76px/var(--theme-font-size)rem;
+  line-height: 1.5;
+  font-weight: 600;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: inherit;
+  text-transform: inherit; }
 
-h2 {
-  font-family: var(--theme-font-family-serif);
-  font-size: 42px;
+.h2 {
+  margin: 16px 0;
+  font-size: 52px/var(--theme-font-size)rem;
+  line-height: 1.5;
+  font-weight: 700;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: inherit;
+  text-transform: inherit; }
+
+.h3 {
+  font-size: 34px/var(--theme-font-size)rem;
+  line-height: 1.5;
   font-weight: 300;
-  margin: 24px 0;
-  color: #000; }
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: inherit;
+  text-transform: inherit; }
 
-h3 {
-  font-family: var(--theme-font-family-serif);
-  font-size: 34px;
-  font-weight: 500;
-  margin: 24px 0;
-  color: #000; }
+.h4 {
+  margin: 16px 0;
+  font-size: 28px/var(--theme-font-size)rem;
+  line-height: 1.5;
+  font-weight: 600;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: inherit;
+  text-transform: inherit; }
 
-h4 {
-  font-family: var(--theme-font-family-serif);
-  font-size: 26px;
-  font-weight: 500;
-  margin: 24px 0;
-  color: #000; }
+.h5 {
+  font-size: 22px/var(--theme-font-size)rem;
+  line-height: 1.5;
+  font-weight: 600;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: inherit;
+  text-transform: inherit; }
 
-h5 {
-  font-family: var(--theme-font-family-serif);
-  font-size: 20px;
-  font-weight: 700;
-  margin: 24px 0;
-  color: #000; }
+p,
+li {
+  margin: 0;
+  margin-bottom: 8px;
+  font-size: 16px/var(--theme-font-size)rem;
+  line-height: 1.5;
+  font-weight: 400;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: inherit;
+  text-transform: inherit; }
 
-h6 {
-  font-family: var(--theme-font-family-serif);
-  font-size: 16px;
-  font-weight: 700;
-  margin: 24px 0;
-  color: #000; }
+a {
+  font-size: 16px/var(--theme-font-size)rem;
+  line-height: 1.5;
+  font-weight: 400;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: inherit;
+  text-transform: inherit; }

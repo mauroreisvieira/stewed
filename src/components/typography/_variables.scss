@@ -1,37 +1,89 @@
-$typography-serif: $theme-font-family-serif !default;
-$typography-monospace: $theme-font-family-monospace;
+$typography: (
+  headline-1: (
+    margin: $theme-baseline * 2 0,
+    font-size: $font-huge,
+    line-height: 1.5,
+    font-weight: map-get($typography-font-weight, medium),
+    -moz-osx-font-smoothing: grayscale,
+    -webkit-font-smoothing: antialiased,
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  headline-2: (
+    margin: $theme-baseline * 2 0,
+    font-size: $font-xx-large,
+    line-height: 1.5,
+    font-weight: map-get($typography-font-weight, bold),
+    -moz-osx-font-smoothing: grayscale,
+    -webkit-font-smoothing: antialiased,
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  headline-3: (
+    font-size: $font-x-large,
+    line-height: 1.5,
+    font-weight: map-get($typography-font-weight, light),
+    -moz-osx-font-smoothing: grayscale,
+    -webkit-font-smoothing: antialiased,
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  headline-4: (
+    margin: $theme-baseline * 2 0,
+    font-size: $font-large,
+    line-height: 1.5,
+    font-weight: map-get($typography-font-weight, medium),
+    -moz-osx-font-smoothing: grayscale,
+    -webkit-font-smoothing: antialiased,
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  headline-5: (
+    font-size: $font-medium,
+    line-height: 1.5,
+    font-weight: map-get($typography-font-weight, medium),
+    -moz-osx-font-smoothing: grayscale,
+    -webkit-font-smoothing: antialiased,
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  headline-6: (
+    font-size: 1.25rem,
+    line-height: 1.5,
+    font-weight: map-get($typography-font-weight, medium),
+    -moz-osx-font-smoothing: grayscale,
+    -webkit-font-smoothing: antialiased,
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  base: (
+    margin: 0,
+    margin-bottom: $theme-baseline,
+    font-size: $font-base,
+    line-height: 1.5,
+    font-weight: map-get($typography-font-weight, regular),
+    -moz-osx-font-smoothing: grayscale,
+    -webkit-font-smoothing: antialiased,
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  link: (
+    font-size: $font-base,
+    line-height: 1.5,
+    font-weight: map-get($typography-font-weight, regular),
+    color: get-color(pink),
+    -moz-osx-font-smoothing: grayscale,
+    -webkit-font-smoothing: antialiased,
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  button: (
+    font-size: $font-small,
+    font-weight: map-get($typography-font-weight, medium),
+    -moz-osx-font-smoothing: grayscale,
+    -webkit-font-smoothing: antialiased,
+    text-decoration: none,
+    text-transform: uppercase
+  )
+) !default;
 
-// Font Size
-$typography-font-size-sx: 10px;
-$typography-font-size-sm: 12px;
-$typography-font-size-base: $theme-font-size;
-$typography-font-size-md: 16px;
-$typography-font-size-lg: 20px;
-$typography-font-size-xl: 26px;
-$typography-font-size-xl-x: 34px;
-$typography-font-size-xl-xx: 42px;
-$typography-font-size-xl-xxx: 50px;
-
-// Font Weight
-$typography-font-weight-thin: 100;
-$typography-font-weight-light: 300;
-$typography-font-weight-normal: 400;
-$typography-font-weight-semibold: 500;
-$typography-font-weight-bold: 700;
-$typography-font-weight-x-bold: 900;
-
-// Color Text
-$typography-color-text: $theme-color-black;
-$typography-color-link: map-get($theme-color-grey, "base");
-$typography-color-link-hover: map-get($theme-color-grey, "darken");
-
-$typography-baseline-heading: $theme-baseline * 3;
-
-$headings: (
-  "h1": ($theme-color-black, $typography-font-size-xl-xxx, $typography-font-weight-thin),
-  "h2": ($theme-color-black, $typography-font-size-xl-xx, $typography-font-weight-light),
-  "h3": ($theme-color-black, $typography-font-size-xl-x, $typography-font-weight-semibold),
-  "h4": ($theme-color-black, $typography-font-size-xl, $typography-font-weight-semibold),
-  "h5": ($theme-color-black, $typography-font-size-lg, $typography-font-weight-bold),
-  "h6": ($theme-color-black, $typography-font-size-md, $typography-font-weight-bold)
-);

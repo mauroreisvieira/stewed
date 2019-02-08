@@ -8,4 +8,23 @@ $breakpoints: (
   (large, $desktop)
 );
 
-$theme-baseline: 8px;
+$font-size-default: $theme-font-size !default;
+$baseline: $theme-baseline !default;
+
+// Defining font sizes
+$font-x-small: calculate-rem(12px, $font-size-default) !default;
+$font-small: calculate-rem(14px, $font-size-default) !default;
+$font-base: calculate-rem(16px, $font-size-default) !default;
+$font-medium: calculate-rem(22px, $font-size-default) !default;
+$font-large: calculate-rem(28px, $font-size-default) !default;
+$font-x-large: calculate-rem(34px, $font-size-default) !default;
+$font-xx-large: calculate-rem(52px, $font-size-default) !default;
+$font-huge: calculate-rem(76px, $font-size-default) !default;
+
+// Defining font weight
+$typography-font-weight: (
+  light: 300,
+  regular: 400,
+  medium: 600,
+  bold: 700
+) !default;
