@@ -478,6 +478,93 @@ a {
       background: white;
       content: ""; }
 
+.switch {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  outline: 0;
+  color: var(--theme-color-primary);
+  cursor: pointer;
+  overflow: hidden;
+  will-change: transform, opacity; }
+  .switch--disabled {
+    cursor: default;
+    pointer-events: none; }
+  .switch::before {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: scale(0, 0);
+    transition: opacity 100ms linear, transform 200ms linear;
+    border-radius: 50%;
+    background-color: currentColor;
+    opacity: 0;
+    content: ""; }
+  .switch:hover::before, .switch:active::before, .switch:focus::before {
+    transform: none;
+    opacity: .05; }
+  .switch__control {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    opacity: 0;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1; }
+    .switch__control:checked + .switch__background {
+      color: var(--theme-color-primary); }
+      .switch__control:checked + .switch__background::before {
+        background-color: currentColor;
+        opacity: .5; }
+      .switch__control:checked + .switch__background::after {
+        transform: translate(50%, -50%);
+        background-color: currentColor; }
+    .switch__control:disabled + .switch__background {
+      color: rgba(0, 0, 0, 0.2); }
+      .switch__control:disabled + .switch__background::after {
+        transform: translate(50%, -50%);
+        background-color: #ccc; }
+  .switch__background {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    cursor: pointer; }
+    .switch__background::before {
+      position: absolute;
+      top: 50%;
+      left: 2px;
+      width: 36px;
+      height: 16px;
+      margin: 0;
+      transform: translate(0, -50%);
+      transition: all .3s ease;
+      border-radius: 8px;
+      outline: 0;
+      background-color: var(--theme-color-base);
+      content: ""; }
+    .switch__background::after {
+      position: absolute;
+      top: 50%;
+      left: 2px;
+      width: 24px;
+      height: 24px;
+      margin: 0;
+      transform: translate(0, -50%);
+      transition: all .3s ease;
+      border-radius: 50%;
+      outline: 0;
+      background-color: #fafafa;
+      box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.084);
+      content: ""; }
+
 /* stylelint-disable selector-max-type, order/order */
 .table {
   position: relative;

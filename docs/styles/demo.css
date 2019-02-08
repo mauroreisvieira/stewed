@@ -16,5 +16,9 @@ body {
 }
 
 .demo-radio {
-  margin-right: 0 8px;
+  margin-right: 8px;
+}
+
+.demo-switch {
+  margin-right: 16px;
 }
