@@ -1,5 +1,18 @@
-section {
-margin: 32px 0;
+body {
+  max-width: 1440px;
+  margin: auto;
+}
+
+.demo-section {
+  position: relative;
+  margin: 1rem 0;
+  padding: 1rem;
+  border: solid #f8f9fa;
+  border-width: .2rem 0 0;
+}
+
+.demo-section .demo-title {
+  color: var(--theme-color-primary);
 }
 
 .demo-radio {

@@ -3,70 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <title>Stewed | Test</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700" rel="stylesheet">
     <link rel="stylesheet" href="styles/demo.css">
     <link rel="stylesheet" href="../dist/stewed.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700">
 </head>
 <body>
-    <h1>Stewed</h1>
-    <section>
-        <h2>Radio</h2>
-        <div class="stw-form-field demo-radio">
-            <div class="stw-radio" tabindex="1">
-                <input class="stw-radio__control" id="radio-1" type="radio" name="demo-radio" />
-                <div class="stw-radio__background"></div>
+    <section class="demo-section">
+        <h2 class="demo-title">Typography</h2>
+        <h1 class="h1">Heading 1</h1>
+        <h2 class="h2">Heading 2</h2>
+        <h3 class="h3">Heading 3</h3>
+        <h4 class="h4">Heading 4</h4>
+        <h5 class="h5">Heading 5</h5>
+        <h6 class="h6">Heading 6</h6>
+    </section>
+
+    <section class="demo-section">
+        <h2 class="demo-title">Radio</h2>
+        <div class="form-field demo-radio">
+            <div class="radio" tabindex="1">
+                <input class="radio__control" id="radio-1" type="radio" name="demo-radio" />
+                <div class="radio__background"></div>
             </div>
             <label for="radio-1">Yes</label>
         </div>
-        <div class="stw-form-field demo-radio">
-            <div class="stw-radio" tabindex="1">
-                <input class="stw-radio__control" id="radio-2" type="radio" name="demo-radio" />
-                <div class="stw-radio__background"></div>
+        <div class="form-field demo-radio">
+            <div class="radio" tabindex="1">
+                <input class="radio__control" id="radio-2" type="radio" name="demo-radio" />
+                <div class="radio__background"></div>
             </div>
             <label for="radio-2">No</label>
         </div>
-        <div class="stw-form-field demo-radio">
-            <div class="stw-radio stw-radio--disabled" tabindex="-1">
-                <input class="stw-radio__control" id="radio-3" type="radio" name="demo-radio" checked disabled="disabled" />
-                <div class="stw-radio__background"></div>
+        <div class="form-field demo-radio">
+            <div class="radio radio--disabled" tabindex="-1">
+                <input class="radio__control" id="radio-3" type="radio" name="demo-radio" checked disabled="disabled" />
+                <div class="radio__background"></div>
             </div>
             <label for="radio-3">Maybe</label>
         </div>
     </section>
 
-    <section>
-        <h2>Checkbox</h2>
-        <div class="stw-form-field">
-            <div class="stw-checkbox" tabindex="1">
-                <input class="stw-checkbox__control" id="checkbox-1" type="checkbox" />
-                <div class="stw-checkbox__background"></div>
+    <section class="demo-section">
+        <h2 class="demo-title">Checkbox</h2>
+        <div class="form-field">
+            <div class="checkbox" tabindex="1">
+                <input class="checkbox__control" id="checkbox-1" type="checkbox" />
+                <div class="checkbox__background"></div>
             </div>
             <label for="checkbox-1">Checkbox #01</label>
         </div>
-        <div class="stw-form-field">
-            <div class="stw-checkbox" tabindex="1">
-                <input class="stw-checkbox__control" id="checkbox-2" type="checkbox" />
-                <div class="stw-checkbox__background"></div>
+        <div class="form-field">
+            <div class="checkbox" tabindex="1">
+                <input class="checkbox__control" id="checkbox-2" type="checkbox" />
+                <div class="checkbox__background"></div>
             </div>
             <label for="checkbox-2">Checkbox #02</label>
         </div>
-        <div class="stw-form-field">
-            <div class="stw-checkbox stw-checkbox--disabled" tabindex="-1">
-                <input class="stw-checkbox__control" id="checkbox-3" type="checkbox" checked disabled="disabled" />
-                <div class="stw-checkbox__background"></div>
+        <div class="form-field">
+            <div class="checkbox checkbox--disabled" tabindex="-1">
+                <input class="checkbox__control" id="checkbox-3" type="checkbox" checked disabled="disabled" />
+                <div class="checkbox__background"></div>
             </div>
             <label for="checkbox-3">Checkbox #03</label>
         </div>
     </section>
 
-    <section>
-        <h2>Button</h2>
-        <button class="stw-button">Default Button</button>
+    <section class="demo-section">
+        <h2 class="demo-title">Button</h2>
+        <button class="button">Default Button</button>
     </section>
 
-    <section>
-        <h2>Table</h2>
-        <table class="stw-table">
+    <section class="demo-section">
+        <h2 class="demo-title">Table</h2>
+        <table class="table">
             <thead>
                 <tr>
                     <th>Name</th>

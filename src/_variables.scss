@@ -1,30 +1,31 @@
-$mobile: 280px;
-$tablet: 992px;
-$desktop: 1200px;
-
-$breakpoints: (
-  (small, $mobile),
-  (medium, $tablet),
-  (large, $desktop)
-);
-
-$font-size-default: $theme-font-size !default;
 $baseline: $theme-baseline !default;
 
-// Defining font sizes
-$font-x-small: calculate-rem(12px, $font-size-default) !default;
-$font-small: calculate-rem(14px, $font-size-default) !default;
-$font-base: calculate-rem(16px, $font-size-default) !default;
-$font-medium: calculate-rem(22px, $font-size-default) !default;
-$font-large: calculate-rem(28px, $font-size-default) !default;
-$font-x-large: calculate-rem(34px, $font-size-default) !default;
-$font-xx-large: calculate-rem(52px, $font-size-default) !default;
-$font-huge: calculate-rem(76px, $font-size-default) !default;
+// defining breakpoints
+$breakpoints: (
+  small: $theme-breakpoint-mobile,
+  medium: $theme-breakpoint-tablet,
+  large: $theme-breakpoint-desktop
+) !default;
 
-// Defining font weight
+// defining font family
+$typography-font-family: $theme-font-family-serif !default;
+
+// defining font sizes
+$typography-font-size: (
+  x-huge: calculate-rem(76px),
+  huge: calculate-rem(52px),
+  x-large: calculate-rem(34px),
+  large: calculate-rem(28px),
+  medium: calculate-rem(24px),
+  regular: calculate-rem(16px),
+  small: calculate-rem(14px),
+  x-small: calculate-rem(12px)
+) !default;
+
+// defining font weight
 $typography-font-weight: (
-  light: 300,
-  regular: 400,
-  medium: 600,
-  bold: 700
+  light: $theme-font-light,
+  regular: $theme-font-regular,
+  medium: $theme-font-medium,
+  bold: $theme-font-bold
 ) !default;

@@ -20,12 +20,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
 */
-:root {
-  --theme-font-size: 14px;
-  --theme-font-weight: 400;
-  --theme-font-family-serif: "Roboto", sans-serif;
-  --theme-font-family-monospace: "Roboto Mono", monospace; }
-
 /**
 * Calculates the rem.
 * @param {Size}  $size
@@ -48,7 +42,21 @@
 * @param {String}  $tone
 * @return {Color}  $color
 */
-.stw-button {
+:root {
+  --theme-font-family-serif: "Nunito", sans-serif;
+  --theme-font-family-monospace: monospace;
+  --theme-color-primary: #df1070; }
+
+* {
+  box-sizing: border-box; }
+
+body {
+  font-family: var(--theme-font-family-serif);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5; }
+
+.button {
   position: relative;
   display: flex;
   align-items: center;
@@ -56,7 +64,7 @@
   height: 40px;
   padding: 0 16px;
   border-radius: 4px;
-  border: 2px solid #df1070;
+  border: 2px solid currentColor;
   overflow: hidden;
   cursor: pointer;
   font-weight: 500;
@@ -64,20 +72,20 @@
   -webkit-font-smoothing: antialiased;
   transition: background .3s ease-out, color .2s ease-out;
   background-color: #fff;
-  color: #df1070; }
+  color: #38a89d; }
 
-.stw-form-field {
+.form-field {
   display: inline-flex;
   align-items: center;
   font-family: var(--theme-font-family-serif);
   font-size: .875rem;
-  font-weight: var(--theme-font-weight);
+  font-weight: 400;
   letter-spacing: .01786em;
   line-height: 1.25rem;
   text-decoration: inherit;
   text-transform: inherit;
   vertical-align: middle; }
-  .stw-form-field label {
+  .form-field label {
     display: inline-flex;
     align-items: center;
     padding-left: 4px;
@@ -87,7 +95,6 @@
 .row {
   display: flex;
   flex-flow: row wrap;
-  box-sizing: border-box;
   margin-left: -12px;
   margin-right: -12px; }
 
@@ -96,7 +103,6 @@
   flex-direction: column;
   flex-grow: 0;
   flex-shrink: 0;
-  box-sizing: border-box;
   min-height: 1px;
   padding-left: 12px;
   padding-right: 12px; }
@@ -168,7 +174,7 @@
   .offset-small-0 {
     margin-left: 0; } }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 768px) {
   .col-medium-1 {
     flex-basis: 8.33333%;
     max-width: 8.33333%; }
@@ -230,7 +236,7 @@
   .offset-medium-0 {
     margin-left: 0; } }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1024px) {
   .col-large-1 {
     flex-basis: 8.33333%;
     max-width: 8.33333%; }
@@ -292,7 +298,7 @@
   .offset-large-0 {
     margin-left: 0; } }
 
-.stw-radio {
+.radio {
   position: relative;
   display: inline-flex;
   flex: 0 0 auto;
@@ -306,10 +312,10 @@
   cursor: pointer;
   overflow: hidden;
   will-change: transform, opacity; }
-  .stw-radio--disabled {
+  .radio--disabled {
     cursor: default;
     pointer-events: none; }
-  .stw-radio::before {
+  .radio::before {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -319,10 +325,10 @@
     background-color: currentColor;
     opacity: 0;
     content: ""; }
-  .stw-radio:hover::before, .stw-radio:active::before, .stw-radio:focus::before {
+  .radio:hover::before, .radio:active::before, .radio:focus::before {
     transform: none;
     opacity: .05; }
-  .stw-radio__control {
+  .radio__control {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -333,16 +339,16 @@
     cursor: pointer;
     overflow: hidden;
     z-index: 1; }
-    .stw-radio__control:checked + .stw-radio__background {
+    .radio__control:checked + .radio__background {
       color: #df1070; }
-      .stw-radio__control:checked + .stw-radio__background::before {
+      .radio__control:checked + .radio__background::before {
         border-color: currentColor; }
-      .stw-radio__control:checked + .stw-radio__background::after {
+      .radio__control:checked + .radio__background::after {
         transform: none;
         background-color: currentColor; }
-    .stw-radio__control:disabled + .stw-radio__background {
+    .radio__control:disabled + .radio__background {
       color: rgba(0, 0, 0, 0.2); }
-  .stw-radio__background {
+  .radio__background {
     position: relative;
     display: flex;
     align-items: center;
@@ -353,7 +359,7 @@
     color: #212121;
     cursor: pointer;
     z-index: 0; }
-    .stw-radio__background::before {
+    .radio__background::before {
       position: absolute;
       top: 0;
       right: 0;
@@ -367,7 +373,7 @@
       border: 2px solid currentColor;
       border-radius: 50%;
       content: ""; }
-    .stw-radio__background::after {
+    .radio__background::after {
       position: absolute;
       top: 0;
       right: 0;
@@ -382,69 +388,83 @@
       background: white;
       content: ""; }
 
-.stw-table {
-  display: table;
+/* stylelint-disable selector-max-type */
+.table {
+  position: relative;
+  display: block;
   width: 100%;
-  border-spacing: 0;
   border-collapse: collapse;
-  white-space: nowrap;
-  border: 0;
-  font-family: var(--theme-font-family-serif);
-  font-size: var(--theme-font-size); }
-  .stw-table thead {
-    border-bottom: 1px solid #e9e9e9; }
-    .stw-table thead th {
-      font-weight: bold;
-      display: table-cell;
-      padding: 0.7em 1.3em;
-      text-align: left;
-      vertical-align: middle; }
-  .stw-table tbody tr td {
-    display: table-cell;
-    padding: 0.9em 1em;
-    text-align: left;
-    vertical-align: middle; }
-  .stw-table .textfield {
-    margin: 0; }
-  .stw-table--border tbody tr {
-    border-bottom: 1px solid #e9e9e9; }
-  .stw-table--hover tbody tr:hover {
-    background-color: #f1f1f1; }
-  .stw-table--striped tbody tr:nth-child(odd) {
-    background-color: #f1f1f1; }
-
-@media (max-width: 280px) {
-  .stw-table {
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0;
+  border-spacing: 0; }
+  @media (min-width: 768px) {
+    .table {
+      display: table; } }
+  .table thead {
     display: block;
-    position: relative; }
-    .stw-table thead {
+    float: left;
+    border: 0;
+    border-right: 1px solid #d0d0d0; }
+    @media (min-width: 768px) {
+      .table thead {
+        display: table-row-group;
+        float: none; } }
+    .table thead tr {
       display: block;
-      float: left;
-      border: 0;
-      border-right: 1px solid #d0d0d0; }
-      .stw-table thead tr {
+      padding: 0 10px 0 0; }
+      @media (min-width: 768px) {
+        .table thead tr {
+          display: table-row; } }
+      .table thead tr th {
         display: block;
-        padding: 0 10px 0 0; }
-        .stw-table thead tr th {
-          display: block;
-          text-align: right; }
-    .stw-table tbody {
-      display: block;
-      width: auto;
-      position: relative;
-      overflow-x: auto;
-      white-space: nowrap; }
-      .stw-table tbody tr {
-        display: inline-block;
-        vertical-align: top; }
-        .stw-table tbody tr td {
-          display: block;
-          text-align: left; } }
+        text-align: right; }
+        @media (min-width: 768px) {
+          .table thead tr th {
+            text-align: left;
+            display: table-cell; } }
+  .table tbody {
+    position: relative;
+    display: block;
+    width: auto;
+    white-space: nowrap;
+    overflow-x: auto; }
+    @media (min-width: 768px) {
+      .table tbody {
+        display: table-row-group;
+        white-space: normal;
+        overflow-x: hidden; } }
+    .table tbody tr {
+      display: inline-block;
+      vertical-align: top; }
+      @media (min-width: 768px) {
+        .table tbody tr {
+          display: table-row; } }
+      .table tbody tr td {
+        display: block;
+        text-align: left; }
+  @media (min-width: 768px) {
+    .table {
+      display: table;
+      width: 100%;
+      border: 0;
+      font-size: 16px;
+      white-space: nowrap;
+      border-collapse: collapse;
+      border-spacing: 0; }
+      .table thead {
+        border-bottom: 1px solid #e9e9e9;
+        border-right: 0; }
+        .table thead th {
+          display: table-cell;
+          padding: 0.7em 1.3em;
+          font-weight: bold;
+          text-align: left;
+          vertical-align: middle; }
+      .table tbody tr td {
+        display: table-cell;
+        padding: 0.9em 1em;
+        text-align: left;
+        vertical-align: middle; } }
 
-.stw-checkbox {
+.checkbox {
   position: relative;
   display: inline-flex;
   flex: 0 0 auto;
@@ -458,10 +478,10 @@
   cursor: pointer;
   overflow: hidden;
   will-change: transform, opacity; }
-  .stw-checkbox--disabled {
+  .checkbox--disabled {
     cursor: default;
     pointer-events: none; }
-  .stw-checkbox::before {
+  .checkbox::before {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -471,10 +491,10 @@
     background-color: currentColor;
     opacity: 0;
     content: ""; }
-  .stw-checkbox:hover::before, .stw-checkbox:active::before, .stw-checkbox:focus::before {
+  .checkbox:hover::before, .checkbox:active::before, .checkbox:focus::before {
     transform: none;
     opacity: .05; }
-  .stw-checkbox__control {
+  .checkbox__control {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -485,16 +505,16 @@
     cursor: pointer;
     overflow: hidden;
     z-index: 1; }
-    .stw-checkbox__control:checked + .stw-checkbox__background {
+    .checkbox__control:checked + .checkbox__background {
       color: #df1070; }
-      .stw-checkbox__control:checked + .stw-checkbox__background::before {
+      .checkbox__control:checked + .checkbox__background::before {
         border-color: currentColor; }
-      .stw-checkbox__control:checked + .stw-checkbox__background::after {
+      .checkbox__control:checked + .checkbox__background::after {
         transform: none;
         background-color: currentColor; }
-    .stw-checkbox__control:disabled + .stw-checkbox__background {
+    .checkbox__control:disabled + .checkbox__background {
       color: rgba(0, 0, 0, 0.2); }
-  .stw-checkbox__background {
+  .checkbox__background {
     position: relative;
     display: flex;
     align-items: center;
@@ -505,7 +525,7 @@
     color: #212121;
     cursor: pointer;
     z-index: 0; }
-    .stw-checkbox__background::before {
+    .checkbox__background::before {
       position: absolute;
       top: 0;
       right: 0;
@@ -518,7 +538,7 @@
       margin: auto;
       border: 2px solid currentColor;
       content: ""; }
-    .stw-checkbox__background::after {
+    .checkbox__background::after {
       position: absolute;
       top: 0;
       right: 0;
@@ -534,9 +554,9 @@
 
 .h1 {
   margin: 16px 0;
-  font-size: 76px/var(--theme-font-size)rem;
+  font-size: 4.75rem;
   line-height: 1.5;
-  font-weight: 600;
+  font-weight: 300;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-decoration: inherit;
@@ -544,7 +564,7 @@
 
 .h2 {
   margin: 16px 0;
-  font-size: 52px/var(--theme-font-size)rem;
+  font-size: 3.25rem;
   line-height: 1.5;
   font-weight: 700;
   -moz-osx-font-smoothing: grayscale;
@@ -553,7 +573,7 @@
   text-transform: inherit; }
 
 .h3 {
-  font-size: 34px/var(--theme-font-size)rem;
+  font-size: 2.125rem;
   line-height: 1.5;
   font-weight: 300;
   -moz-osx-font-smoothing: grayscale;
@@ -563,7 +583,7 @@
 
 .h4 {
   margin: 16px 0;
-  font-size: 28px/var(--theme-font-size)rem;
+  font-size: 1.75rem;
   line-height: 1.5;
   font-weight: 600;
   -moz-osx-font-smoothing: grayscale;
@@ -572,9 +592,18 @@
   text-transform: inherit; }
 
 .h5 {
-  font-size: 22px/var(--theme-font-size)rem;
+  font-size: 1.5rem;
   line-height: 1.5;
   font-weight: 600;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: inherit;
+  text-transform: inherit; }
+
+.h6 {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 700;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-decoration: inherit;
@@ -584,7 +613,7 @@ p,
 li {
   margin: 0;
   margin-bottom: 8px;
-  font-size: 16px/var(--theme-font-size)rem;
+  font-size: 1rem;
   line-height: 1.5;
   font-weight: 400;
   -moz-osx-font-smoothing: grayscale;
@@ -593,7 +622,7 @@ li {
   text-transform: inherit; }
 
 a {
-  font-size: 16px/var(--theme-font-size)rem;
+  font-size: 1rem;
   line-height: 1.5;
   font-weight: 400;
   -moz-osx-font-smoothing: grayscale;

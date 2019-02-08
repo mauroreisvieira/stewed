@@ -1,4 +1,4 @@
-@for $i from 1 through 5 {
+@for $i from 1 through 6 {
   .h#{$i} {
     @include get-typography(headline-#{$i});
   }

@@ -10,20 +10,20 @@
   }
 }
 
-@mixin mobile($max-w: $mobile) {
-  @media (max-width: $max-w) {
+@mixin mobile($value: map-get($breakpoints, small)) {
+  @media (min-width: $value) {
     @content;
   }
 }
 
-@mixin tablet($max-w: $tablet) {
-  @media (max-width: $max-w) {
+@mixin tablet($value: map-get($breakpoints, medium)) {
+  @media (min-width: $value) {
     @content;
   }
 }
 
-@mixin desktop($max-w: $desktop) {
-  @media (min-width: $max-w) {
+@mixin desktop($value: map-get($breakpoints, large)) {
+  @media (min-width: $value) {
     @content;
   }
 }

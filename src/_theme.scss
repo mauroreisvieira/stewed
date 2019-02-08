@@ -1,16 +1,35 @@
 :root {
-  --theme-font-size: 14px;
-  --theme-font-weight: 400;
-  --theme-font-family-serif: "Roboto", sans-serif;
-  --theme-font-family-monospace: "Roboto Mono", monospace;
+  --theme-font-family-serif: "Nunito", sans-serif;
+  --theme-font-family-monospace: monospace;
+  --theme-color-primary: #{map-get($theme-color-pink, "base")};
 }
 
 // Font Size
-$theme-font-size: var(--theme-font-size);
-$theme-font-weight: var(--theme-font-weight);
+$theme-font-size: 16px;
+
+// Font Weight
+$theme-font-light: 300;
+$theme-font-regular: 400;
+$theme-font-medium: 600;
+$theme-font-bold: 700;
 
 // Typography
 $theme-font-family-serif: var(--theme-font-family-serif);
 $theme-font-family-monospace: var(--theme-font-family-monospace);
 
 $theme-baseline: 8px;
+
+$theme-breakpoint-mobile: 280px;
+$theme-breakpoint-tablet: 768px;
+$theme-breakpoint-desktop: 1024px;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $theme-font-family-serif;
+  font-size: $theme-font-size;
+  font-weight: $theme-font-regular;
+  line-height: 1.5;
+}

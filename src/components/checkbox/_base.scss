@@ -1,14 +1,14 @@
-.stw-checkbox {
+.checkbox {
   position: relative;
   display: inline-flex;
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
-  width: $stw-checkbox-width;
-  height: $stw-checkbox-height;
+  width: $checkbox-width;
+  height: $checkbox-height;
   border-radius: 50%;
   outline: 0;
-  color: $stw-checkbox-color-active;
+  color: $checkbox-color-active;
   cursor: pointer;
   overflow: hidden;
   will-change: transform, opacity;
@@ -52,8 +52,8 @@
     z-index: 1;
 
     &:checked {
-      + .stw-checkbox__background {
-        color: $stw-checkbox-color-active;
+      + .checkbox__background {
+        color: $checkbox-color-active;
 
         &::before {
           border-color: currentColor;
@@ -67,7 +67,7 @@
     }
 
     &:disabled {
-      + .stw-checkbox__background {
+      + .checkbox__background {
         color: rgba($theme-color-black, .2);
       }
     }
@@ -81,7 +81,7 @@
     height: 100%;
     margin: 0;
     padding: 0;
-    color: $stw-checkbox-color-default;
+    color: $checkbox-color-default;
     cursor: pointer;
     z-index: 0;
 

@@ -1,14 +1,14 @@
-.stw-radio {
+.radio {
   position: relative;
   display: inline-flex;
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
-  width: $stw-radio-width;
-  height: $stw-radio-height;
+  width: $radio-width;
+  height: $radio-height;
   border-radius: 50%;
   outline: 0;
-  color: $stw-radio-color-active;
+  color: $radio-color-active;
   cursor: pointer;
   overflow: hidden;
   will-change: transform, opacity;
@@ -52,8 +52,8 @@
     z-index: 1;
 
     &:checked {
-      + .stw-radio__background {
-        color: $stw-radio-color-active;
+      + .radio__background {
+        color: $radio-color-active;
 
         &::before {
           border-color: currentColor;
@@ -67,7 +67,7 @@
     }
 
     &:disabled {
-      + .stw-radio__background {
+      + .radio__background {
         color: rgba($theme-color-black, .2);
       }
     }
@@ -81,7 +81,7 @@
     height: 100%;
     margin: 0;
     padding: 0;
-    color: $stw-radio-color-default;
+    color: $radio-color-default;
     cursor: pointer;
     z-index: 0;
 

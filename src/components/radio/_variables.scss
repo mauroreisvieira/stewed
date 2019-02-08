@@ -1,4 +1,4 @@
-$stw-radio-width: $theme-baseline * 5;
-$stw-radio-height: $theme-baseline * 5;
-$stw-radio-color-default: map-get($theme-color-grey, "darken");
-$stw-radio-color-active: map-get($theme-color-pink, "base");
+$radio-width: $baseline * 5;
+$radio-height: $baseline * 5;
+$radio-color-default: map-get($theme-color-gray, "darken");
+$radio-color-active: map-get($theme-color-pink, "base");
