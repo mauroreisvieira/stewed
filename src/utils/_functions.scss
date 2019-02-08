@@ -5,9 +5,9 @@
 * @return {Size}
 */
 @function calculate-rem($size, $font-size: $theme-font-size) {
-  $remSize: $size / $font-size;
+  $remSize: calc($size / $font-size);
 
-  @return #{$remSize}rem;
+  @return #{$remSize};
 }
 
 /* Slightly lighten a color

@@ -11,18 +11,19 @@ $color-primary: $theme-color-primary !default;
 $color-base: $theme-color-base !default;
 
 // defining font family
+$typography-font-size: $theme-font-size !default;
 $typography-font-family: $theme-font-family-serif !default;
 
 // defining font sizes
 $typography-font-size: (
-  x-huge: calculate-rem(76px),
-  huge: calculate-rem(52px),
-  x-large: calculate-rem(34px),
-  large: calculate-rem(28px),
-  medium: calculate-rem(24px),
-  regular: calculate-rem(16px),
-  small: calculate-rem(14px),
-  x-small: calculate-rem(12px)
+  x-huge: #{calculate-rem(76px)}rem,
+  huge: #{calculate-rem(52px)}rem,
+  x-large: #{calculate-rem(34px)}rem,
+  large: #{calculate-rem(28px)}rem,
+  medium: #{calculate-rem(24px)}rem,
+  regular: #{calculate-rem(16px)}rem,
+  small: #{calculate-rem(14px)}rem,
+  x-small: #{calculate-rem(12px)}rem
 ) !default;
 
 // defining font weight

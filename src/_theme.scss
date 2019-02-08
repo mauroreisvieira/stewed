@@ -1,6 +1,7 @@
 :root {
   --theme-font-family-serif: "Nunito", sans-serif;
   --theme-font-family-monospace: monospace;
+  --theme-font-family-size: 16px;
   --theme-color-primary: #5c8df6;
   --theme-color-secondary: #f3628d;
   --theme-color-base: #454b57;
@@ -35,9 +36,9 @@ $theme-breakpoint-desktop: 1024px;
 }
 
 body {
+  color: $theme-color-base;
   font-family: $theme-font-family-serif;
   font-size: $theme-font-size;
   font-weight: $theme-font-regular;
   line-height: 1.5;
-  color: $theme-color-base;
 }
