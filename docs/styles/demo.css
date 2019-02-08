@@ -12,7 +12,7 @@ body {
 }
 
 .demo-section .demo-title {
-  color: var(--theme-color-primary);
+  color: var(--theme-color-secondary);
 }
 
 .demo-radio {

@@ -18,7 +18,6 @@
     float: left;
     border: 0;
     border-right: 2px solid currentColor;
-    color: $table-head-color;
 
     @include get-typography($table-head-font-size);
 
