@@ -35,10 +35,10 @@ $theme-breakpoint-desktop: 1024px;
   box-sizing: border-box;
 }
 
-body {
+html {
   color: $theme-color-base;
   font-family: $theme-font-family-serif;
-  font-size: $theme-font-size;
+  font-size: var(--theme-font-family-size);
   font-weight: $theme-font-regular;
   line-height: 1.5;
 }
