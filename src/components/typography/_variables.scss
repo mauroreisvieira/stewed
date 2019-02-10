@@ -65,6 +65,10 @@ $typography: (
     text-decoration: inherit,
     text-transform: inherit
   ),
+  small: (
+    font-size: map-get($typography-font-size, small),
+    font-weight: map-get($typography-font-weight, regular),
+  ),
   link: (
     font-size: map-get($typography-font-size, regular),
     line-height: 1.5,
