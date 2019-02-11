@@ -744,21 +744,21 @@ a {
   cursor: pointer; }
   .tooltip::after {
     position: absolute;
-    z-index: 1000;
-    padding: 8px;
-    min-width: 160px;
-    background-color: #000;
-    color: #fff;
-    content: attr(data-tooltip);
-    border-radius: 4px;
-    text-transform: none;
     bottom: 100%;
     left: 50%;
-    transform: translate(-50%, 0px);
-    opacity: 0;
+    min-width: 160px;
+    padding: 8px;
+    transform: translate(-50%, 0);
     transition: opacity 0.2s ease-in-out, transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+    border-radius: 4px;
+    background-color: #212121;
+    opacity: 0;
+    color: #fff;
     text-align: center;
+    text-transform: none;
     pointer-events: none;
+    content: attr(data-tooltip);
+    z-index: 1000;
     word-break: break-all;
     font-size: 0.875rem;
     font-weight: 400; }
