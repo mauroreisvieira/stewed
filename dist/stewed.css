@@ -48,7 +48,8 @@
   --theme-font-family-size: 16px;
   --theme-color-primary: #5c8df6;
   --theme-color-secondary: #f3628d;
-  --theme-color-base: #454b57; }
+  --theme-color-base: #454b57;
+  --theme-border-radius: 4px; }
 
 * {
   box-sizing: border-box; }
@@ -145,11 +146,10 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 40px;
-  padding: 0 16px;
+  padding: 8px 16px;
   transition: border .222s ease-out, background .222s ease-out, color .111s ease-out;
   border: 2px solid currentColor;
-  border-radius: 4px;
+  border-radius: var(--theme-border-radius);
   background-color: #fff;
   color: var(--theme-color-primary);
   cursor: pointer;
@@ -750,7 +750,7 @@ a {
     padding: 8px;
     transform: translate(-50%, 0);
     transition: opacity 0.2s ease-in-out, transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
-    border-radius: 4px;
+    border-radius: var(--theme-border-radius);
     background-color: #212121;
     opacity: 0;
     color: #fff;

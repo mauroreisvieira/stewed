@@ -5,6 +5,7 @@
   --theme-color-primary: #5c8df6;
   --theme-color-secondary: #f3628d;
   --theme-color-base: #454b57;
+  --theme-border-radius: 4px;
 }
 
 // Colors
@@ -26,6 +27,7 @@ $theme-font-family-serif: var(--theme-font-family-serif);
 $theme-font-family-monospace: var(--theme-font-family-monospace);
 
 $theme-baseline: 8px;
+$theme-border-radius: var(--theme-border-radius);
 
 $theme-breakpoint-mobile: 280px;
 $theme-breakpoint-tablet: 768px;
