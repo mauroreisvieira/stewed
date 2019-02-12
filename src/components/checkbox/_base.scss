@@ -23,7 +23,9 @@
     width: 100%;
     height: 100%;
     transform: scale(0, 0);
-    transition: opacity 100ms linear, transform 200ms linear;
+    transition:
+      opacity $transition-duration-quickly $transition-function-quickly-accelerate-slowly-decelerate,
+      transform $transition-duration $transition-function-quickly-accelerate-slowly-decelerate;
     border-radius: 50%;
     background-color: currentColor;
     opacity: 0;
@@ -110,7 +112,7 @@
       height: 10px;
       margin: auto;
       transform: scale(0, 0);
-      transition: transform 100ms linear;
+      transition: transform $transition-duration-quickly $transition-function-quickly-accelerate-decelerate;
       background: white;
       content: "";
     }

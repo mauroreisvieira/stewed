@@ -1,13 +1,13 @@
 .button {
   position: relative;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: $baseline $baseline * 2;
   transition:
-    border .222s ease-out,
-    background .222s ease-out,
-    color .111s ease-out;
+    border $transition-duration $transition-function-quickly-accelerate-decelerate,
+    background $transition-duration $transition-function-quickly-accelerate-decelerate,
+    color $transition-duration-quickly $transition-function-quickly-accelerate-decelerate;
   border: 2px solid currentColor;
   border-radius: $border-radius;
   background-color: #fff;
@@ -16,6 +16,14 @@
   overflow: hidden;
 
   @include get-typography(button);
+
+  &--sm {
+    padding: $baseline / 2 $baseline * 2;
+  }
+
+  &--lg {
+    padding: $baseline * 2 $baseline * 3;
+  }
 
   &:hover {
     border-color: $color-primary;

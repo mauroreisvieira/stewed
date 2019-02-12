@@ -143,11 +143,11 @@ a {
 
 .button {
   position: relative;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 8px 16px;
-  transition: border .222s ease-out, background .222s ease-out, color .111s ease-out;
+  transition: border 222ms cubic-bezier(0.4, 0, 0.6, 1), background 222ms cubic-bezier(0.4, 0, 0.6, 1), color 100ms cubic-bezier(0.4, 0, 0.6, 1);
   border: 2px solid currentColor;
   border-radius: var(--theme-border-radius);
   background-color: #fff;
@@ -160,6 +160,10 @@ a {
   -webkit-font-smoothing: antialiased;
   text-decoration: none;
   text-transform: uppercase; }
+  .button--sm {
+    padding: 4px 16px; }
+  .button--lg {
+    padding: 16px 24px; }
   .button:hover {
     border-color: var(--theme-color-primary);
     background-color: var(--theme-color-primary);
@@ -411,7 +415,7 @@ a {
     width: 100%;
     height: 100%;
     transform: scale(0, 0);
-    transition: opacity 100ms linear, transform 200ms linear;
+    transition: opacity 100ms cubic-bezier(0.4, 0, 0.2, 1), transform 222ms cubic-bezier(0.4, 0, 0.2, 1);
     border-radius: 50%;
     background-color: currentColor;
     opacity: 0;
@@ -474,7 +478,7 @@ a {
       height: 10px;
       margin: auto;
       transform: scale(0, 0);
-      transition: transform 100ms linear;
+      transition: transform 100ms cubic-bezier(0.4, 0, 0.6, 1);
       border-radius: 50%;
       background: white;
       content: ""; }
@@ -496,19 +500,6 @@ a {
   .switch--disabled {
     cursor: default;
     pointer-events: none; }
-  .switch::before {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    transform: scale(0, 0);
-    transition: opacity 100ms linear, transform 200ms linear;
-    border-radius: 50%;
-    background-color: currentColor;
-    opacity: 0;
-    content: ""; }
-  .switch:hover::before, .switch:active::before, .switch:focus::before {
-    transform: none;
-    opacity: .05; }
   .switch__control {
     position: absolute;
     width: 100%;
@@ -546,7 +537,6 @@ a {
       height: 16px;
       margin: 0;
       transform: translate(0, -50%);
-      transition: all .3s ease;
       border-radius: 8px;
       outline: 0;
       background-color: var(--theme-color-base);
@@ -673,7 +663,7 @@ a {
     width: 100%;
     height: 100%;
     transform: scale(0, 0);
-    transition: opacity 100ms linear, transform 200ms linear;
+    transition: opacity 100ms cubic-bezier(0.4, 0, 0.2, 1), transform 222ms cubic-bezier(0.4, 0, 0.2, 1);
     border-radius: 50%;
     background-color: currentColor;
     opacity: 0;
@@ -735,7 +725,7 @@ a {
       height: 10px;
       margin: auto;
       transform: scale(0, 0);
-      transition: transform 100ms linear;
+      transition: transform 100ms cubic-bezier(0.4, 0, 0.6, 1);
       background: white;
       content: ""; }
 
