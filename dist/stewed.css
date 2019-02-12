@@ -45,7 +45,7 @@
 :root {
   --theme-font-family-serif: "Nunito", sans-serif;
   --theme-font-family-monospace: monospace;
-  --theme-font-family-size: 16px;
+  --theme-font-size: 16px;
   --theme-color-primary: #5c8df6;
   --theme-color-secondary: #f3628d;
   --theme-color-base: #454b57;
@@ -57,7 +57,7 @@
 html {
   color: var(--theme-color-base);
   font-family: var(--theme-font-family-serif);
-  font-size: var(--theme-font-family-size);
+  font-size: var(--theme-font-size);
   font-weight: 400;
   line-height: 1.5; }
 
@@ -94,7 +94,6 @@ html {
   margin: 16px 0;
   font-size: 1.75rem;
   line-height: 1.5;
-  font-weight: 600;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-decoration: inherit;
@@ -103,7 +102,6 @@ html {
 .h5 {
   font-size: 1.5rem;
   line-height: 1.5;
-  font-weight: 600;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-decoration: inherit;
@@ -131,7 +129,6 @@ li {
 
 a {
   color: var(--theme-color-primary);
-  font-size: 1rem;
   line-height: 1.5;
   font-weight: 400;
   -moz-osx-font-smoothing: grayscale;
@@ -155,7 +152,6 @@ a {
   cursor: pointer;
   overflow: hidden;
   font-size: 0.875rem;
-  font-weight: 600;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-decoration: none;
@@ -588,7 +584,6 @@ a {
         border-bottom: 2px solid currentColor;
         font-size: 1.5rem;
         line-height: 1.5;
-        font-weight: 600;
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
         text-decoration: inherit;

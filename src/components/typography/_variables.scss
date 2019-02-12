@@ -1,7 +1,7 @@
 $typography: (
   headline-1: (
     margin: $baseline * 2 0,
-    font-size: map-get($typography-font-size, x-huge),
+    font-size: map-get($typography-font-size, x-hg),
     line-height: 1.5,
     font-weight: map-get($typography-font-weight, light),
     -moz-osx-font-smoothing: grayscale,
@@ -11,7 +11,7 @@ $typography: (
   ),
   headline-2: (
     margin: $baseline * 2 0,
-    font-size: map-get($typography-font-size, huge),
+    font-size: map-get($typography-font-size, hg),
     line-height: 1.5,
     font-weight: map-get($typography-font-weight, bold),
     -moz-osx-font-smoothing: grayscale,
@@ -20,7 +20,7 @@ $typography: (
     text-transform: inherit
   ),
   headline-3: (
-    font-size: map-get($typography-font-size, x-large),
+    font-size: map-get($typography-font-size, x-lg),
     line-height: 1.5,
     font-weight: map-get($typography-font-weight, light),
     -moz-osx-font-smoothing: grayscale,
@@ -30,25 +30,25 @@ $typography: (
   ),
   headline-4: (
     margin: $baseline * 2 0,
-    font-size: map-get($typography-font-size, large),
+    font-size: map-get($typography-font-size, lg),
     line-height: 1.5,
-    font-weight: map-get($typography-font-weight, medium),
+    font-weight: map-get($typography-font-weight, md),
     -moz-osx-font-smoothing: grayscale,
     -webkit-font-smoothing: antialiased,
     text-decoration: inherit,
     text-transform: inherit
   ),
   headline-5: (
-    font-size: map-get($typography-font-size, medium),
+    font-size: map-get($typography-font-size, md),
     line-height: 1.5,
-    font-weight: map-get($typography-font-weight, medium),
+    font-weight: map-get($typography-font-weight, md),
     -moz-osx-font-smoothing: grayscale,
     -webkit-font-smoothing: antialiased,
     text-decoration: inherit,
     text-transform: inherit
   ),
   headline-6: (
-    font-size: map-get($typography-font-size, regular),
+    font-size: map-get($typography-font-size, base),
     line-height: 1.5,
     font-weight: map-get($typography-font-weight, bold),
     -moz-osx-font-smoothing: grayscale,
@@ -57,7 +57,7 @@ $typography: (
     text-transform: inherit
   ),
   base: (
-    font-size: map-get($typography-font-size, regular),
+    font-size: map-get($typography-font-size, base),
     line-height: 1.5,
     font-weight: map-get($typography-font-weight, regular),
     -moz-osx-font-smoothing: grayscale,
@@ -66,7 +66,7 @@ $typography: (
     text-transform: inherit
   ),
   small: (
-    font-size: map-get($typography-font-size, small),
+    font-size: map-get($typography-font-size, sm),
     font-weight: map-get($typography-font-weight, regular),
   ),
   link: (
@@ -80,8 +80,8 @@ $typography: (
     text-transform: inherit
   ),
   button: (
-    font-size: map-get($typography-font-size, small),
-    font-weight: map-get($typography-font-weight, medium),
+    font-size: map-get($typography-font-size, sm),
+    font-weight: map-get($typography-font-weight, md),
     -moz-osx-font-smoothing: grayscale,
     -webkit-font-smoothing: antialiased,
     text-decoration: none,

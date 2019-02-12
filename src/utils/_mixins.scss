@@ -1,29 +1,29 @@
-@mixin typography (
-  $font-size: $theme-font-size,
-  $font-weight: $theme-font-weight,
-  $font: $theme-font-family-serif
-) {
-  font: {
-    family: $font;
-    size: $font-size;
-    weight: $font-weight;
+@mixin mobile($breakpoint: small) {
+  @if not map-has-key($breakpoints, $breakpoint) {
+    @error "Invalid style specified! #{$breakpoint} doesn't exist. Choose one of #{map-keys($breakpoints)}";
   }
-}
 
-@mixin mobile($value: map-get($breakpoints, small)) {
-  @media (min-width: $value) {
+  @media (min-width: map-get($breakpoints, $breakpoint)) {
     @content;
   }
 }
 
-@mixin tablet($value: map-get($breakpoints, medium)) {
-  @media (min-width: $value) {
+@mixin tablet($breakpoint: medium) {
+  @if not map-has-key($breakpoints, $breakpoint) {
+    @error "Invalid style specified! #{$breakpoint} doesn't exist. Choose one of #{map-keys($breakpoints)}";
+  }
+
+  @media (min-width: map-get($breakpoints, $breakpoint)) {
     @content;
   }
 }
 
-@mixin desktop($value: map-get($breakpoints, large)) {
-  @media (min-width: $value) {
+@mixin desktop($breakpoint: large) {
+  @if not map-has-key($breakpoints, $breakpoint) {
+    @error "Invalid style specified! #{$breakpoint} doesn't exist. Choose one of #{map-keys($breakpoints)}";
+  }
+
+  @media (min-width: map-get($breakpoints, $breakpoint)) {
     @content;
   }
 }

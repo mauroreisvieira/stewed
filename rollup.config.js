@@ -1,10 +1,7 @@
-import replace from 'rollup-plugin-replace';
 import scss from 'rollup-plugin-scss';
 
 import rimraf from 'rimraf';
 import serve from 'rollup-plugin-serve';
-
-const { version, author } = require('./package.json');
 
 rimraf.sync('dist');
 
@@ -15,20 +12,12 @@ export default {
         format: 'iife'
     },
     watch: {
-        exclude: ['node_modules/**']
+        exclude: ['node_modules']
     },
     plugins: [
         scss({
             output: 'dist/stewed.css',
         }),
-        serve('./'),
-        replace({
-            delimiters: [
-                '{{',
-                '}}'
-            ],
-            version,
-            author
-        })
+        serve('./')
     ]
 };

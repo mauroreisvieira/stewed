@@ -15,14 +15,16 @@ $typography-font-family: $theme-font-family-serif !default;
 
 // defining font sizes
 $typography-font-size: (
-  x-huge: calculate-rem(76px),
-  huge: calculate-rem(52px),
-  x-large: calculate-rem(34px),
-  large: calculate-rem(28px),
-  medium: calculate-rem(24px),
-  regular: calculate-rem(16px),
-  small: calculate-rem(14px),
-  x-small: calculate-rem(12px)
+  x-hg: calculate-rem(76px),
+  hg: calculate-rem(52px),
+  x-lg: calculate-rem(34px),
+  lg: calculate-rem(28px),
+  md: calculate-rem(24px),
+  base: calculate-rem(16px),
+  sm: calculate-rem(14px),
+  x-sm: calculate-rem(12px),
+  xs: calculate-rem(10px),
+  x-xs: calculate-rem(8px),
 ) !default;
 
 // defining font weight
