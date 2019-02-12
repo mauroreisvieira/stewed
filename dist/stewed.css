@@ -148,6 +148,7 @@ a {
   border: 2px solid transparent;
   border-radius: var(--theme-border-radius);
   color: var(--theme-color-base);
+  line-height: 1.4;
   cursor: pointer;
   overflow: hidden;
   font-size: 0.875rem;
@@ -160,7 +161,7 @@ a {
     border-color: #f2f2f2;
     background-color: #f2f2f2; }
   .button--sm {
-    padding: 6px 12px;
+    padding: 8px;
     font-size: 0.75rem; }
   .button--lg {
     padding: 16px 24px; }
@@ -652,6 +653,17 @@ a {
         @media (min-width: 768px) {
           .table tbody tr td {
             display: table-cell; } }
+
+.tag {
+  font-size: .75rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 .5rem;
+  height: 1.25rem;
+  margin: .125rem;
+  border-radius: .9375rem;
+  background-color: #dfe3e6;
+  color: #394b54; }
 
 .checkbox {
   position: relative;
