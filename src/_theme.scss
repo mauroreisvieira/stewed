@@ -3,14 +3,14 @@
   --theme-font-family-monospace: monospace;
   --theme-font-size: 16px;
   --theme-color-primary: #5c8df6;
-  --theme-color-secondary: #f3628d;
+  --theme-color-accent: #f3628d;
   --theme-color-base: #454b57;
-  --theme-border-radius: 4px;
+  --theme-border-radius: 2px;
 }
 
 // Colors
 $theme-color-primary: var(--theme-color-primary);
-$theme-color-secondary: var(--theme-color-secondary);
+$theme-color-accent: var(--theme-color-accent);
 $theme-color-base: var(--theme-color-base);
 
 // Font Size

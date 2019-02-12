@@ -76,6 +76,30 @@ $theme-color-teal: (
   "darken": #38a89d
 );
 
+$theme-color-info: (
+  "base": #82a2ff,
+  "lighten": #82a2ff,
+  "darken": #82a2ff
+);
+
+$theme-color-success: (
+  "base": #69dd95,
+  "lighten": #69dd95,
+  "darken": #69dd95
+);
+
+$theme-color-error: (
+  "base": #f26175,
+  "lighten": #f26175,
+  "darken": #f26175
+);
+
+$theme-color-warning: (
+  "base": #f5c85c,
+  "lighten": #f5c85c,
+  "darken": #f5c85c
+);
+
 $theme-color-white: #fff;
 $theme-color-black: #000;
 

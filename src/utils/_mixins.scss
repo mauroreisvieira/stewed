@@ -1,4 +1,4 @@
-@mixin mobile($breakpoint: small) {
+@mixin mobile($breakpoint: sm) {
   @if not map-has-key($breakpoints, $breakpoint) {
     @error "Invalid style specified! #{$breakpoint} doesn't exist. Choose one of #{map-keys($breakpoints)}";
   }
@@ -8,7 +8,7 @@
   }
 }
 
-@mixin tablet($breakpoint: medium) {
+@mixin tablet($breakpoint: md) {
   @if not map-has-key($breakpoints, $breakpoint) {
     @error "Invalid style specified! #{$breakpoint} doesn't exist. Choose one of #{map-keys($breakpoints)}";
   }
@@ -18,7 +18,7 @@
   }
 }
 
-@mixin desktop($breakpoint: large) {
+@mixin desktop($breakpoint: lg) {
   @if not map-has-key($breakpoints, $breakpoint) {
     @error "Invalid style specified! #{$breakpoint} doesn't exist. Choose one of #{map-keys($breakpoints)}";
   }

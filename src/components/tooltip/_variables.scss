@@ -1,1 +1,4 @@
-$tooltip-background: map-get($theme-color-gray, "darken");
+$tooltip-background: map-get($theme-color-gray, darken);
+$tooltip-font-size: map-get($typography-font-size, x-sm);
+$tooltip-font-size-large: map-get($typography-font-size, base);
+$tooltip-border-radius: 2px;

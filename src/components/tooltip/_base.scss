@@ -1,27 +1,27 @@
 .tooltip {
   position: relative;
+  display: inline-flex;
   cursor: pointer;
 
   &::after {
     position: absolute;
     bottom: 100%;
     left: 50%;
-    min-width: $baseline * 20;
-    padding: $baseline;
+    min-width: $baseline * 10;
+    padding: $baseline / 2 $baseline;
     transform: translate(-50%, 0);
     transition: opacity .2s ease-in-out, transform .2s cubic-bezier(.71, 1.7, .77, 1.24);
-    border-radius: $border-radius;
+    border-radius: $tooltip-border-radius;
     background-color: $tooltip-background;
     opacity: 0;
     color: #fff;
+    font-size: $tooltip-font-size;
     text-align: center;
     text-transform: none;
     pointer-events: none;
     content: attr(data-tooltip);
     z-index: 1000;
     word-break: break-all;
-
-    @include get-typography(small);
   }
 
   &:hover {
@@ -29,6 +29,14 @@
       transform: translate(-50%, -8px);
       opacity: 1;
       pointer-events: all;
+    }
+  }
+
+  &--lg {
+    &::after {
+      min-width: $baseline * 20;
+      padding: $baseline;
+      font-size: $tooltip-font-size-large;
     }
   }
 }

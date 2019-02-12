@@ -70,7 +70,7 @@ $typography: (
     font-weight: map-get($typography-font-weight, regular),
   ),
   link: (
-    font-size: map-get($typography-font-size, regular),
+    font-size: map-get($typography-font-size, base),
     line-height: 1.5,
     font-weight: map-get($typography-font-weight, regular),
     color: get-color(pink),
@@ -81,7 +81,7 @@ $typography: (
   ),
   button: (
     font-size: map-get($typography-font-size, sm),
-    font-weight: map-get($typography-font-weight, md),
+    font-weight: map-get($typography-font-weight, medium),
     -moz-osx-font-smoothing: grayscale,
     -webkit-font-smoothing: antialiased,
     text-decoration: none,

@@ -2,12 +2,13 @@ $baseline: $theme-baseline !default;
 
 // defining breakpoints
 $breakpoints: (
-  small: $theme-breakpoint-mobile,
-  medium: $theme-breakpoint-tablet,
-  large: $theme-breakpoint-desktop
+  sm: $theme-breakpoint-mobile,
+  md: $theme-breakpoint-tablet,
+  lg: $theme-breakpoint-desktop
 ) !default;
 
 $color-primary: $theme-color-primary !default;
+$color-accent: $theme-color-accent !default;
 $color-base: $theme-color-base !default;
 
 // defining font family
