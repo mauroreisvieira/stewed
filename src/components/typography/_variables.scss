@@ -2,7 +2,7 @@ $typography: (
   headline-1: (
     margin: $baseline * 2 0,
     font-size: map-get($typography-font-size, x-hg),
-    line-height: 1.5,
+    line-height: 1.4,
     font-weight: map-get($typography-font-weight, light),
     -moz-osx-font-smoothing: grayscale,
     -webkit-font-smoothing: antialiased,
@@ -12,7 +12,7 @@ $typography: (
   headline-2: (
     margin: $baseline * 2 0,
     font-size: map-get($typography-font-size, hg),
-    line-height: 1.5,
+    line-height: 1.4,
     font-weight: map-get($typography-font-weight, bold),
     -moz-osx-font-smoothing: grayscale,
     -webkit-font-smoothing: antialiased,
@@ -21,7 +21,7 @@ $typography: (
   ),
   headline-3: (
     font-size: map-get($typography-font-size, x-lg),
-    line-height: 1.5,
+    line-height: 1.4,
     font-weight: map-get($typography-font-weight, light),
     -moz-osx-font-smoothing: grayscale,
     -webkit-font-smoothing: antialiased,
@@ -31,7 +31,7 @@ $typography: (
   headline-4: (
     margin: $baseline * 2 0,
     font-size: map-get($typography-font-size, lg),
-    line-height: 1.5,
+    line-height: 1.4,
     font-weight: map-get($typography-font-weight, md),
     -moz-osx-font-smoothing: grayscale,
     -webkit-font-smoothing: antialiased,
@@ -40,7 +40,7 @@ $typography: (
   ),
   headline-5: (
     font-size: map-get($typography-font-size, md),
-    line-height: 1.5,
+    line-height: 1.4,
     font-weight: map-get($typography-font-weight, md),
     -moz-osx-font-smoothing: grayscale,
     -webkit-font-smoothing: antialiased,
@@ -49,7 +49,7 @@ $typography: (
   ),
   headline-6: (
     font-size: map-get($typography-font-size, base),
-    line-height: 1.5,
+    line-height: 1.4,
     font-weight: map-get($typography-font-weight, bold),
     -moz-osx-font-smoothing: grayscale,
     -webkit-font-smoothing: antialiased,
@@ -58,7 +58,7 @@ $typography: (
   ),
   base: (
     font-size: map-get($typography-font-size, base),
-    line-height: 1.5,
+    line-height: 1.4,
     font-weight: map-get($typography-font-weight, regular),
     -moz-osx-font-smoothing: grayscale,
     -webkit-font-smoothing: antialiased,
@@ -71,7 +71,7 @@ $typography: (
   ),
   link: (
     font-size: map-get($typography-font-size, base),
-    line-height: 1.5,
+    line-height: 1.4,
     font-weight: map-get($typography-font-weight, regular),
     color: get-color(pink),
     -moz-osx-font-smoothing: grayscale,

@@ -1,10 +1,10 @@
 .tag {
   align-items: center;
   display: inline-flex;
-  margin: .125rem;
-  padding: 0 .5rem;
-  font-size: .75rem;
-  border-radius: 8px;
+  margin: $baseline / 3;
+  padding: 0 $baseline;
+  font-size: map-get($typography-font-size, sm);
+  border-radius: $border-radius;
   background-color: #dfe3e6;
   color: #394b54;
 }

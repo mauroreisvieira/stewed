@@ -64,7 +64,7 @@ html {
 .h1 {
   margin: 16px 0;
   font-size: 4.75rem;
-  line-height: 1.5;
+  line-height: 1.4;
   font-weight: 300;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -74,7 +74,7 @@ html {
 .h2 {
   margin: 16px 0;
   font-size: 3.25rem;
-  line-height: 1.5;
+  line-height: 1.4;
   font-weight: 700;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -83,7 +83,7 @@ html {
 
 .h3 {
   font-size: 2.125rem;
-  line-height: 1.5;
+  line-height: 1.4;
   font-weight: 300;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -93,7 +93,7 @@ html {
 .h4 {
   margin: 16px 0;
   font-size: 1.75rem;
-  line-height: 1.5;
+  line-height: 1.4;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-decoration: inherit;
@@ -101,7 +101,7 @@ html {
 
 .h5 {
   font-size: 1.5rem;
-  line-height: 1.5;
+  line-height: 1.4;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-decoration: inherit;
@@ -109,7 +109,7 @@ html {
 
 .h6 {
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.4;
   font-weight: 700;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -120,7 +120,7 @@ p,
 li {
   margin-bottom: 8px;
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.4;
   font-weight: 400;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -130,7 +130,7 @@ li {
 a {
   color: var(--theme-color-primary);
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.4;
   font-weight: 400;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -588,7 +588,7 @@ a {
     border: 0;
     border-right: 2px solid currentColor;
     font-size: 1rem;
-    line-height: 1.5;
+    line-height: 1.4;
     font-weight: 700;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -601,7 +601,7 @@ a {
         border: 0;
         border-bottom: 2px solid currentColor;
         font-size: 1.5rem;
-        line-height: 1.5;
+        line-height: 1.4;
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
         text-decoration: inherit;
@@ -628,7 +628,7 @@ a {
     white-space: nowrap;
     overflow-x: auto;
     font-size: 1rem;
-    line-height: 1.5;
+    line-height: 1.4;
     font-weight: 400;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -655,13 +655,12 @@ a {
             display: table-cell; } }
 
 .tag {
-  font-size: .75rem;
-  display: inline-flex;
   align-items: center;
-  padding: 0 .5rem;
-  height: 1.25rem;
-  margin: .125rem;
-  border-radius: .9375rem;
+  display: inline-flex;
+  margin: 2.66667px;
+  padding: 0 8px;
+  font-size: 0.875rem;
+  border-radius: var(--theme-border-radius);
   background-color: #dfe3e6;
   color: #394b54; }
 
