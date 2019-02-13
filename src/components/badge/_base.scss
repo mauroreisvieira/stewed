@@ -1,0 +1,31 @@
+.badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  transform: translate(50%, -50%);
+  border-radius: 10px;
+  font-size: map-get($typography-font-size, x-sm);
+  font-weight: map-get($typography-font-weight, base);
+  white-space: nowrap;
+  color: #fff;
+  z-index: 9;
+
+  &:empty {
+    min-width: $baseline;
+    height: $baseline;
+    padding: 0;
+  }
+
+  @each $key in $badge-keys {
+    &--#{$key} {
+      background-color: get-color(#{$key});
+    }
+  }
+}
