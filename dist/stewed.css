@@ -158,8 +158,8 @@ a {
   text-decoration: none;
   text-transform: uppercase; }
   .button:hover {
-    border-color: #e5e5e5;
-    background-color: #e5e5e5; }
+    border-color: #ebebeb;
+    background-color: #ebebeb; }
   .button--sm {
     padding: 8px;
     font-size: 0.75rem; }
@@ -645,7 +645,7 @@ a {
       @media (min-width: 768px) {
         .table tbody tr {
           display: table-row;
-          border-bottom: 1px solid #e5e5e5; } }
+          border-bottom: 1px solid #ebebeb; } }
       .table tbody tr td {
         display: block;
         padding: 16px;
@@ -656,21 +656,27 @@ a {
 
 .tag {
   display: inline-flex;
+  flex-wrap: nowrap;
   align-items: center;
-  margin: 2.66667px;
+  height: 24px;
   padding: 0 8px;
   border-radius: var(--theme-border-radius);
-  background-color: #e5e5e5;
+  background-color: #ebebeb;
   color: #bdbdbd;
-  font-size: 0.875rem; }
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer; }
   .tag--info {
-    background-color: #cddaff;
+    background-color: #dae3ff;
     color: #82a2ff; }
+  .tag--success {
+    background-color: #d2f5df;
+    color: #69dd95; }
   .tag--warning {
-    background-color: #fbe9be;
+    background-color: #fcefce;
     color: #f5c85c; }
-  .tag--error {
-    background-color: #fac0c8;
+  .tag--danger {
+    background-color: #fbd0d6;
     color: #f26175; }
 
 .checkbox {
@@ -774,7 +780,7 @@ a {
     transform: translate(-50%, 0);
     transition: opacity 0.2s ease-in-out, transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
     border-radius: 2px;
-    background-color: #5f5f5f;
+    background-color: #393939;
     opacity: 0;
     color: #fff;
     font-size: 0.75rem;
@@ -792,3 +798,33 @@ a {
     min-width: 160px;
     padding: 8px;
     font-size: 1rem; }
+
+.badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  transform: translate(50%, -50%);
+  border-radius: 10px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  color: #fff;
+  z-index: 9; }
+  .badge:empty {
+    min-width: 8px;
+    height: 8px;
+    padding: 0; }
+  .badge--info {
+    background-color: #82a2ff; }
+  .badge--success {
+    background-color: #69dd95; }
+  .badge--warning {
+    background-color: #f5c85c; }
+  .badge--danger {
+    background-color: #f26175; }

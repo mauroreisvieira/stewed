@@ -12,7 +12,7 @@ body {
 }
 
 .demo-section .demo-title {
-  color: var(--theme-color-secondary);
+  color: var(--theme-color-accent);
 }
 
 .demo-radio {
@@ -21,4 +21,17 @@ body {
 
 .demo-switch {
   margin-right: 16px;
+}
+
+.demo-head {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  border-radius: 4px;
+  background: #eee;
+  display: inline-block;
+}
+
+.demo-link {
+  position: relative;
 }

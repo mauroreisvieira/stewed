@@ -13,21 +13,21 @@ $palette-colors: (
   "violet": #6f1efb,
   "yellow": #fdbc59,
   "warning": #f5c85c,
-  "error": #f26175,
+  "danger": #f26175,
   "info": #82a2ff,
   "success": #69dd95
 ) !default;
 
 $tones-light: (
   10: 90%,
-  20: 60%,
+  20: 70%,
   30: 30%
 ) !default;
 
 $tones-dark: (
-  60: 30%,
-  70: 50%,
-  80: 90%,
+  60: 10%,
+  70: 40%,
+  80: 70%,
 ) !default;
 
 $palette-tones: (

@@ -1,25 +1,20 @@
 .tag {
   display: inline-flex;
+  flex-wrap: nowrap;
   align-items: center;
-  margin: $baseline / 3;
+  height: $baseline * 3;
   padding: 0 $baseline;
   border-radius: $border-radius;
   background-color: get-color("gray", lighter);
   color: get-color("gray");
   font-size: map-get($typography-font-size, sm);
+  font-weight: map-get($typography-font-weight, medium);
+  cursor: pointer;
 
-  &--info {
-    background-color: get-color("info", lighter);
-    color: get-color("info");
-  }
-
-  &--warning {
-    background-color: get-color("warning", lighter);
-    color: get-color("warning");
-  }
-
-  &--error {
-    background-color: get-color("error", lighter);
-    color: get-color("error");
+  @each $key in $tags-keys {
+    &--#{$key} {
+      background-color: get-color(#{$key}, lighter);
+      color: get-color(#{$key});
+    }
   }
 }
