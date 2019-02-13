@@ -4,4 +4,4 @@ $table-head-padding: $baseline * 2;
 
 $table-body-font-size: base !default;
 $table-body-padding: $baseline * 2;
-$table-body-border-color: map-get($theme-color-gray, "lighten");
+$table-body-border-color: get-color("gray", lighter);

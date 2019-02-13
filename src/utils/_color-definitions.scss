@@ -1,120 +1,41 @@
-$theme-color-aqua: (
-  "base": #36f7ce,
-  "lighten": #36f7ce,
-  "darken": #36f7ce
-);
+$palette-colors: (
+  "aqua": #36f7ce,
+  "blue": #3490dc,
+  "cyan": #0193a3,
+  "green": #38c172,
+  "gray": #bdbdbd,
+  "orange": #f6993f,
+  "pink": #df1070,
+  "purple": #800080,
+  "red": #e3342f,
+  "salmon": #f86755,
+  "teal": #4dc0b5,
+  "violet": #6f1efb,
+  "yellow": #fdbc59,
+  "warning": #f5c85c,
+  "error": #f26175,
+  "info": #82a2ff,
+  "success": #69dd95
+) !default;
 
-$theme-color-blue: (
-  "base": #3490dc,
-  "lighten": #6cb2eb,
-  "darken": #2779bd
-);
+$tones-light: (
+  10: 90%,
+  20: 60%,
+  30: 30%
+) !default;
 
-$theme-color-cyan: (
-  "base": #0193a3,
-  "lighten": #0193a3,
-  "darken": #0193a3
-);
+$tones-dark: (
+  60: 30%
+  70: 60%,
+  80: 90%,
+) !default;
 
-$theme-color-green: (
-  "base": #38c172,
-  "lighten": #51d88a,
-  "darken": #1f9d55
-);
-
-$theme-color-gray: (
-  "base": #bdbdbd,
-  "lighten": #f2f2f2,
-  "darken": #212121
-);
-
-$theme-color-orange: (
-  "base": #f6993f,
-  "lighten": #faad63,
-  "darken": #de751f
-);
-
-$theme-color-pink: (
-  "base": #df1070,
-  "lighten": #df1070,
-  "darken": #df1070,
-);
-
-$theme-color-purple: (
-  "base": #800080,
-  "lighten": #800080,
-  "darken": #800080
-);
-
-$theme-color-red: (
-  "base": #e3342f,
-  "lighten": #f9acaa,
-  "darken": #cc1f1a
-);
-
-$theme-color-salmon: (
-  "base": #f86755,
-  "lighten": #f86755,
-  "darken": #f86755
-);
-
-$theme-color-violet: (
-  "base": #6f1efb,
-  "lighten": #6f1efb,
-  "darken": #6f1efb
-);
-
-$theme-color-yellow: (
-  "base": #fdbc59,
-  "lighten": #fdbc59,
-  "darken": #fdbc59
-);
-
-$theme-color-teal: (
-  "base": #4dc0b5,
-  "lighten": #64d5ca,
-  "darken": #38a89d
-);
-
-$theme-color-info: (
-  "base": #82a2ff,
-  "lighten": #82a2ff,
-  "darken": #82a2ff
-);
-
-$theme-color-success: (
-  "base": #69dd95,
-  "lighten": #69dd95,
-  "darken": #69dd95
-);
-
-$theme-color-error: (
-  "base": #f26175,
-  "lighten": #f26175,
-  "darken": #f26175
-);
-
-$theme-color-warning: (
-  "base": #f5c85c,
-  "lighten": #f5c85c,
-  "darken": #f5c85c
-);
-
-$theme-color-white: #fff;
-$theme-color-black: #000;
-
-$theme-colors: (
-  "aqua": $theme-color-aqua,
-  "blue": $theme-color-blue,
-  "cyan": $theme-color-cyan,
-  "green": $theme-color-green,
-  "gray": $theme-color-gray,
-  "orange": $theme-color-orange,
-  "pink": $theme-color-pink,
-  "purple": $theme-color-purple,
-  "red": $theme-color-red,
-  "salmon": $theme-color-salmon,
-  "teal": $theme-color-teal,
-  "violet": $theme-color-violet,
-  "yellow": $theme-color-yellow,
+$palette-tones: (
+  lightest: 10,
+  lighter: 20,
+  light: 30,
+  base: 50,
+  dark: 60,
+  darker: 70,
+  darkest: 80
 ) !default;

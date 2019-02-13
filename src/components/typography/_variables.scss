@@ -73,7 +73,7 @@ $typography: (
     font-size: map-get($typography-font-size, base),
     line-height: 1.4,
     font-weight: map-get($typography-font-weight, regular),
-    color: get-color(pink),
+    color: $theme-color-primary,
     -moz-osx-font-smoothing: grayscale,
     -webkit-font-smoothing: antialiased,
     text-decoration: inherit,

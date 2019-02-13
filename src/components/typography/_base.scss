@@ -12,8 +12,6 @@ li {
 }
 
 a {
-  color: $color-primary;
-
   @include get-typography(link);
 
   &:hover {

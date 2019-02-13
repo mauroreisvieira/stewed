@@ -1,10 +1,16 @@
 .tag {
-  align-items: center;
   display: inline-flex;
+  align-items: center;
   margin: $baseline / 3;
   padding: 0 $baseline;
-  font-size: map-get($typography-font-size, sm);
   border-radius: $border-radius;
   background-color: #dfe3e6;
   color: #394b54;
+  font-size: map-get($typography-font-size, sm);
+
+  &--info {
+    border: 2px solid  get-color-alert("info", darker);
+    background-color: get-color-alert("info", lightest);
+    color: get-color-alert("info");
+  }
 }

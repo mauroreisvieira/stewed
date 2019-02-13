@@ -34,13 +34,26 @@
 * @param {String}  $tone
 * @return {Color}  $color
 */
-@function get-color($color, $tone: base) {
-  $color-value: map-get($theme-colors, $color);
+@function get-color($color, $tone: "base") {
+  @if not map-has-key($palette-colors, $color) {
+    @error "Invalid color specified! #{$color} doesn't exist. Choose one of #{map-keys($palette-colors)}";
+  }
 
-  @if ($tone == dark) {
-    @return shade($color-value, 22%);
-  } @else if ($tone == light) {
-    @return tint($color-value, 92%);
+  @if not map-has-key($palette-tones, $tone) {
+    @error "Invalid tone specified! #{$tone} doesn't exist. Choose one of #{map-keys($palette-tones)}";
+  }
+
+  $color-value: map-get($palette-colors, $color);
+  $tone-value: map-get($palette-tones, $tone);
+
+  @if ($tone-value < 50) {
+    $percent: map-get($tones-light, $tone-value);
+
+    @return tint($color-value, $percent);
+  } @else if ($tone-value > 50) {
+    $percent: map-get($tones-dark, $tone-value);
+
+    @return shade($color-value, $percent);
   } @else {
     @return $color-value;
   }

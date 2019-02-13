@@ -14,8 +14,8 @@
   @include get-typography(button);
 
   &:hover {
-    border-color: map-get($theme-color-gray, lighten);
-    background-color: map-get($theme-color-gray, lighten);
+    border-color: get-color("gray", lighter);
+    background-color: get-color("gray", lighter);
   }
 
   &--sm {

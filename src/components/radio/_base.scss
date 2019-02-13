@@ -70,7 +70,7 @@
 
     &:disabled {
       + .radio__background {
-        color: rgba($theme-color-black, .2);
+        color: rgba(#000, .2);
       }
     }
   }
