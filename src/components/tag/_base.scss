@@ -4,13 +4,22 @@
   margin: $baseline / 3;
   padding: 0 $baseline;
   border-radius: $border-radius;
-  background-color: #dfe3e6;
-  color: #394b54;
+  background-color: get-color("gray", lighter);
+  color: get-color("gray");
   font-size: map-get($typography-font-size, sm);
 
   &--info {
-    border: 2px solid  get-color-alert("info", darker);
-    background-color: get-color-alert("info", lightest);
-    color: get-color-alert("info");
+    background-color: get-color("info", lighter);
+    color: get-color("info");
+  }
+
+  &--warning {
+    background-color: get-color("warning", lighter);
+    color: get-color("warning");
+  }
+
+  &--error {
+    background-color: get-color("error", lighter);
+    color: get-color("error");
   }
 }
