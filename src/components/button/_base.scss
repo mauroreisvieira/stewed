@@ -13,9 +13,11 @@
 
   @include get-typography(button);
 
-  &:hover {
+  &:hover,
+  &:focus {
     border-color: get-color("gray", lighter);
     background-color: get-color("gray", lighter);
+    outline: none;
   }
 
   &--sm {

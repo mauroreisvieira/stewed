@@ -157,9 +157,10 @@ a {
   -webkit-font-smoothing: antialiased;
   text-decoration: none;
   text-transform: uppercase; }
-  .button:hover {
+  .button:hover, .button:focus {
     border-color: #ebebeb;
-    background-color: #ebebeb; }
+    background-color: #ebebeb;
+    outline: none; }
   .button--sm {
     padding: 8px;
     font-size: 0.75rem; }
@@ -667,16 +668,16 @@ a {
   font-weight: 600;
   cursor: pointer; }
   .tag--info {
-    --tag-bakground: #dae3ff;
+    --tag-bakground: #e6ecff;
     --tag-color: #82a2ff; }
   .tag--success {
-    --tag-bakground: #d2f5df;
+    --tag-bakground: #e1f8ea;
     --tag-color: #69dd95; }
   .tag--warning {
-    --tag-bakground: #fcefce;
+    --tag-bakground: #fdf4de;
     --tag-color: #f5c85c; }
   .tag--danger {
-    --tag-bakground: #fbd0d6;
+    --tag-bakground: #fcdfe3;
     --tag-color: #f26175; }
 
 .checkbox {
@@ -769,7 +770,7 @@ a {
 
 .tooltip {
   position: relative;
-  display: inline-flex;
+  display: inline-block;
   cursor: pointer; }
   .tooltip::after {
     position: absolute;
