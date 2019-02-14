@@ -661,23 +661,23 @@ a {
   height: 24px;
   padding: 0 8px;
   border-radius: var(--theme-border-radius);
-  background-color: #ebebeb;
-  color: #bdbdbd;
+  background-color: var(--tag-bakground, #ebebeb);
+  color: var(--tag-color, #bdbdbd);
   font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer; }
   .tag--info {
-    background-color: #dae3ff;
-    color: #82a2ff; }
+    --tag-bakground: #dae3ff;
+    --tag-color: #82a2ff; }
   .tag--success {
-    background-color: #d2f5df;
-    color: #69dd95; }
+    --tag-bakground: #d2f5df;
+    --tag-color: #69dd95; }
   .tag--warning {
-    background-color: #fcefce;
-    color: #f5c85c; }
+    --tag-bakground: #fcefce;
+    --tag-color: #f5c85c; }
   .tag--danger {
-    background-color: #fbd0d6;
-    color: #f26175; }
+    --tag-bakground: #fbd0d6;
+    --tag-color: #f26175; }
 
 .checkbox {
   position: relative;
@@ -812,19 +812,20 @@ a {
   padding: 0 6px;
   transform: translate(50%, -50%);
   border-radius: 10px;
+  background-color: var(--badge-background, #bdbdbd);
+  color: #fff;
   font-size: 0.75rem;
   white-space: nowrap;
-  color: #fff;
   z-index: 9; }
   .badge:empty {
     min-width: 8px;
     height: 8px;
     padding: 0; }
   .badge--info {
-    background-color: #82a2ff; }
+    --badge-background: #82a2ff; }
   .badge--success {
-    background-color: #69dd95; }
+    --badge-background: #69dd95; }
   .badge--warning {
-    background-color: #f5c85c; }
+    --badge-background: #f5c85c; }
   .badge--danger {
-    background-color: #f26175; }
+    --badge-background: #f26175; }

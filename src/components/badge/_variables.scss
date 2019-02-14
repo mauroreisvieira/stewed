@@ -1,1 +1,4 @@
 $badge-keys: info, success, warning, danger;
+
+$badge-background: var(--badge-background, get-color("gray"));
+

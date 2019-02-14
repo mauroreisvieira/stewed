@@ -5,16 +5,16 @@
   height: $baseline * 3;
   padding: 0 $baseline;
   border-radius: $border-radius;
-  background-color: get-color("gray", lighter);
-  color: get-color("gray");
+  background-color: $tag-background;
+  color: $tag-color;
   font-size: map-get($typography-font-size, sm);
   font-weight: map-get($typography-font-weight, medium);
   cursor: pointer;
 
-  @each $key in $tags-keys {
+  @each $key in $tag-keys {
     &--#{$key} {
-      background-color: get-color(#{$key}, lighter);
-      color: get-color(#{$key});
+      --tag-bakground: #{get-color(#{$key}, lighter)};
+      --tag-color: #{get-color(#{$key})};
     }
   }
 }

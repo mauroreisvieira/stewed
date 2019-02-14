@@ -11,10 +11,11 @@
   padding: 0 6px;
   transform: translate(50%, -50%);
   border-radius: 10px;
+  background-color: $badge-background;
+  color: #fff;
   font-size: map-get($typography-font-size, x-sm);
   font-weight: map-get($typography-font-weight, base);
   white-space: nowrap;
-  color: #fff;
   z-index: 9;
 
   &:empty {
@@ -25,7 +26,7 @@
 
   @each $key in $badge-keys {
     &--#{$key} {
-      background-color: get-color(#{$key});
+      --badge-background: #{get-color(#{$key})};
     }
   }
 }
