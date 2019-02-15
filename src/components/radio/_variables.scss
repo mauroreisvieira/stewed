@@ -1,7 +1,4 @@
---radio-active: $color-primary;
-
 $radio-width: $baseline * 5;
 $radio-height: $baseline * 5;
-$radio-color-active: var(--radio-active);
-$radio-color-default: $color-base;
-$radio-color-active: $color-primary;
+$radio-color-active: $color-primary !default;
+$radio-color-default: $color-base !default;
