@@ -1,0 +1,20 @@
+.alert {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-bottom: $baseline * 2;
+  padding: $baseline;
+  border-radius: $border-radius;
+  background-color: $alert-background;
+  color: $alert-color;
+  font-size: map-get($typography-font-size, base);
+  font-weight: map-get($typography-font-weight, medium);
+  cursor: pointer;
+
+  @each $key in $alert-keys {
+    &--#{$key} {
+      --alert-bakground: #{get-color(#{$key}, lightest)};
+      --alert-color: #{get-color(#{$key})};
+    }
+  }
+}

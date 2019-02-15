@@ -830,3 +830,28 @@ a {
     --badge-background: #f5c85c; }
   .badge--danger {
     --badge-background: #f26175; }
+
+.alert {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 8px;
+  border-radius: var(--theme-border-radius);
+  background-color: var(--alert-bakground, #ebebeb);
+  color: var(--alert-color, #bdbdbd);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer; }
+  .alert--info {
+    --alert-bakground: #e6ecff;
+    --alert-color: #82a2ff; }
+  .alert--success {
+    --alert-bakground: #e1f8ea;
+    --alert-color: #69dd95; }
+  .alert--warning {
+    --alert-bakground: #fdf4de;
+    --alert-color: #f5c85c; }
+  .alert--danger {
+    --alert-bakground: #fcdfe3;
+    --alert-color: #f26175; }
