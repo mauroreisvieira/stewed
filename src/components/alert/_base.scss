@@ -1,20 +1,27 @@
 .alert {
   display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
   margin-bottom: $baseline * 2;
-  padding: $baseline;
+  padding: $baseline * 2;
   border-radius: $border-radius;
   background-color: $alert-background;
   color: $alert-color;
   font-size: map-get($typography-font-size, base);
-  font-weight: map-get($typography-font-weight, medium);
   cursor: pointer;
+
+  &__title {
+    @include get-typography(headline-6);
+  }
+
+  &__description {
+    @include get-typography(small);
+  }
 
   @each $key in $alert-keys {
     &--#{$key} {
-      --alert-bakground: #{get-color(#{$key}, lightest)};
-      --alert-color: #{get-color(#{$key})};
+      --alert-bakground: #{get-color(#{$key})};
     }
   }
 }

@@ -8,7 +8,7 @@ rimraf.sync('dist');
 export default {
     input: 'src/scripts/app.js',
     output: {
-        file: 'dist/scripts/bundle.js',
+        file: 'dist/scripts/stewed.js',
         format: 'iife'
     },
     watch: {
