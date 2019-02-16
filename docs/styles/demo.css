@@ -7,7 +7,7 @@ body {
   position: relative;
   margin: 1rem 0;
   padding: 1rem;
-  border: solid #f8f9fa;
+  border: solid var(--theme-color-greyscale);
   border-width: .2rem 0 0;
 }
 
@@ -25,11 +25,11 @@ body {
 
 .demo-head {
   position: relative;
+  display: inline-block;
   width: 42px;
   height: 42px;
-  border-radius: 4px;
-  background: #eee;
-  display: inline-block;
+  border-radius: var(--theme-border-radius);
+  background: var(--theme-color-greyscale);
 }
 
 .demo-link {

@@ -4,14 +4,15 @@
   --theme-font-size: 16px;
   --theme-color-primary: #5c8df6;
   --theme-color-accent: #f3628d;
+  --theme-color-greyscale: #d8dce0;
   --theme-color-base: #454b57;
-  --theme-border-radius: 2px;
+  --theme-border-radius: 4px;
 }
 
 // Colors
-$theme-primary: --theme-color-primary;
 $theme-color-primary: var(--theme-color-primary);
 $theme-color-accent: var(--theme-color-accent);
+$theme-color-greyscale: var(--theme-color-greyscale);
 $theme-color-base: var(--theme-color-base);
 
 // Font Size

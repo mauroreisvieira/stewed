@@ -4,8 +4,9 @@
   align-items: center;
   justify-content: center;
   padding: $baseline $baseline * 2;
-  border: 2px solid transparent;
+  border: 0;
   border-radius: $border-radius;
+  outline: none;
   color: $color-base;
   line-height: 1.4;
   cursor: pointer;
@@ -15,9 +16,7 @@
 
   &:hover,
   &:focus {
-    border-color: get-color("gray", lighter);
     background-color: get-color("gray", lighter);
-    outline: none;
   }
 
   &--sm {
@@ -29,25 +28,14 @@
     padding: $baseline * 2 $baseline * 3;
   }
 
-  &--primary {
-    border-color: currentColor;
-    color: $color-primary;
-
-    &:hover {
-      border-color: $color-primary;
-      background-color: $color-primary;
+  @each $key, $values in $buttons {
+    &--#{$key} {
+      background-color: nth($values, 1);
       color: #fff;
-    }
-  }
 
-  &--accent {
-    border-color: currentColor;
-    color: $color-accent;
-
-    &:hover {
-      border-color: $color-accent;
-      background-color: $color-accent;
-      color: #fff;
+      &:hover {
+        background-color: nth($values, 1);
+      }
     }
   }
 

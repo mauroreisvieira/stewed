@@ -1,1 +1,10 @@
 $button-font-size-small: map-get($typography-font-size, x-sm);
+
+$buttons: (
+  primary: (
+    $color-primary
+  ),
+  accent: (
+    $color-accent
+  )
+);

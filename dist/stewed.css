@@ -48,8 +48,9 @@
   --theme-font-size: 16px;
   --theme-color-primary: #5c8df6;
   --theme-color-accent: #f3628d;
+  --theme-color-greyscale: #d8dce0;
   --theme-color-base: #454b57;
-  --theme-border-radius: 2px; }
+  --theme-border-radius: 4px; }
 
 * {
   box-sizing: border-box; }
@@ -145,8 +146,9 @@ a {
   align-items: center;
   justify-content: center;
   padding: 8px 16px;
-  border: 2px solid transparent;
+  border: 0;
   border-radius: var(--theme-border-radius);
+  outline: none;
   color: var(--theme-color-base);
   line-height: 1.4;
   cursor: pointer;
@@ -158,28 +160,22 @@ a {
   text-decoration: none;
   text-transform: uppercase; }
   .button:hover, .button:focus {
-    border-color: #ebebeb;
-    background-color: #ebebeb;
-    outline: none; }
+    background-color: #ebebeb; }
   .button--sm {
     padding: 8px;
     font-size: 0.75rem; }
   .button--lg {
     padding: 16px 24px; }
   .button--primary {
-    border-color: currentColor;
-    color: var(--theme-color-primary); }
+    background-color: var(--theme-color-primary);
+    color: #fff; }
     .button--primary:hover {
-      border-color: var(--theme-color-primary);
-      background-color: var(--theme-color-primary);
-      color: #fff; }
+      background-color: var(--theme-color-primary); }
   .button--accent {
-    border-color: currentColor;
-    color: var(--theme-color-accent); }
+    background-color: var(--theme-color-accent);
+    color: #fff; }
     .button--accent:hover {
-      border-color: var(--theme-color-accent);
-      background-color: var(--theme-color-accent);
-      color: #fff; }
+      background-color: var(--theme-color-accent); }
   .button:disabled {
     opacity: .5;
     pointer-events: none; }
