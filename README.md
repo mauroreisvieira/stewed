@@ -1,12 +1,11 @@
 <p align="center">
     <a href="http://mauroreisvieira.github.io/stewed/index.html" target="_blank">
-    	<img width="140" src="docs/assets/images/logo/stewed_dark.jpg">
+    	<img width="140" src="docs/images/logo/stewed.jpg">
     </a><br>
 </p>
 
 # Welcome to Stewed Framework
 
-![Travis](https://img.shields.io/travis/rust-lang/rust.svg?style=flat-square)
 ![Travis](https://img.shields.io/dub/l/vibe-d.svg)
 
 [Stewed Framework](http://mauroreisvieira.github.io/stewed) is the ideal tool for a rapid development of simple and lightweight web applications.
