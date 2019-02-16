@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Stewed | Test</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+    <title>Stewed Framework</title>
     <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700" rel="stylesheet">
-    <link rel="stylesheet" href="assest/styles/demo.css">
+    <link rel="stylesheet" href="assets/styles/demo.css">
     <link rel="stylesheet" href="dist/stewed.css">
 </head>
 <body>
@@ -125,6 +128,27 @@
     </section>
 
     <section class="demo-section">
+        <h2 class="demo-title">Textfield</h2>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="textfield">
+                    <input type="text" placeholder="Placeholder" value="Value" class="textfield__control" />
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="textfield textfield--required">
+                    <input type="text" placeholder="Required" class="textfield__control" required="" />
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="textfield textfield--error">
+                    <input type="text" placeholder="Placeholder" value="Error" class="textfield__control" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="demo-section">
         <h2 class="demo-title">Table</h2>
         <table class="table">
             <thead>
@@ -239,6 +263,6 @@
         </div>
     </section>
 
-    <script src="../dist/scripts/stewed.js"></script>
+    <script src="dist/scripts/stewed.js"></script>
 </body>
 </html>

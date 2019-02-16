@@ -1,0 +1,62 @@
+.textfield {
+  position: relative;
+  display: flex;
+
+  &__control {
+    width: 100%;
+    padding: 10px $baseline * 2;
+    border: 1px solid $theme-color-greyscale;
+    border-radius: $border-radius;
+    outline: none;
+    color: $color-base;
+
+    @include get-typography(base);
+
+    &:focus {
+      border-color: $color-primary;
+    }
+
+    &[disabled] {
+      opacity: .5;
+      pointer-events: none;
+    }
+  }
+
+  &--required {
+    &::after {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      display: block;
+      width: 8px;
+      height: 8px;
+      transform: translate(-16px, -50%);
+      border-radius: 50%;
+      background-color: $color-primary;
+      content: "";
+    }
+  }
+
+  &--error {
+    color: get-color(danger);
+
+    .textfield__control {
+      border-color: currentColor;
+      color: inherit;
+    }
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 16px;
+      height: 16px;
+      transform: translate(-16px, -50%);
+      color: currentColor;
+      content: "!";
+    }
+  }
+}

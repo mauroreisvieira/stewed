@@ -180,6 +180,57 @@ a {
     opacity: .5;
     pointer-events: none; }
 
+.textfield {
+  position: relative;
+  display: flex; }
+  .textfield__control {
+    width: 100%;
+    padding: 10px 16px;
+    border: 1px solid var(--theme-color-greyscale);
+    border-radius: var(--theme-border-radius);
+    outline: none;
+    color: var(--theme-color-base);
+    font-size: 1rem;
+    line-height: 1.4;
+    font-weight: 400;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-decoration: inherit;
+    text-transform: inherit; }
+    .textfield__control:focus {
+      border-color: var(--theme-color-primary); }
+    .textfield__control[disabled] {
+      opacity: .5;
+      pointer-events: none; }
+  .textfield--required::after {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    display: block;
+    width: 8px;
+    height: 8px;
+    transform: translate(-16px, -50%);
+    border-radius: 50%;
+    background-color: var(--theme-color-primary);
+    content: ""; }
+  .textfield--error {
+    color: #f26175; }
+    .textfield--error .textfield__control {
+      border-color: currentColor;
+      color: inherit; }
+    .textfield--error::after {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 16px;
+      height: 16px;
+      transform: translate(-16px, -50%);
+      color: currentColor;
+      content: "!"; }
+
 .form-field {
   display: inline-flex;
   align-items: center;
