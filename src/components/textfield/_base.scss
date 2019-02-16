@@ -1,10 +1,11 @@
 .textfield {
   position: relative;
   display: flex;
+  width: 100%;
 
   &__control {
     width: 100%;
-    padding: 10px $baseline * 2;
+    padding: $baseline $baseline * 2;
     border: 1px solid $theme-color-greyscale;
     border-radius: $border-radius;
     outline: none;
@@ -22,7 +23,17 @@
     }
   }
 
+  &--textarea {
+    .textfield__control {
+      resize: none;
+    }
+  }
+
   &--required {
+    .textfield__control {
+      padding-right: 32px;
+    }
+
     &::after {
       position: absolute;
       top: 50%;
@@ -41,6 +52,7 @@
     color: get-color(danger);
 
     .textfield__control {
+      padding-right: 32px;
       border-color: currentColor;
       color: inherit;
     }
@@ -52,11 +64,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 16px;
-      height: 16px;
       transform: translate(-16px, -50%);
       color: currentColor;
-      content: "!";
+      content: attr(data-error);
     }
   }
 }

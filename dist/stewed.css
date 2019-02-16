@@ -182,10 +182,11 @@ a {
 
 .textfield {
   position: relative;
-  display: flex; }
+  display: flex;
+  width: 100%; }
   .textfield__control {
     width: 100%;
-    padding: 10px 16px;
+    padding: 8px 16px;
     border: 1px solid var(--theme-color-greyscale);
     border-radius: var(--theme-border-radius);
     outline: none;
@@ -202,6 +203,10 @@ a {
     .textfield__control[disabled] {
       opacity: .5;
       pointer-events: none; }
+  .textfield--textarea .textfield__control {
+    resize: none; }
+  .textfield--required .textfield__control {
+    padding-right: 32px; }
   .textfield--required::after {
     position: absolute;
     top: 50%;
@@ -216,6 +221,7 @@ a {
   .textfield--error {
     color: #f26175; }
     .textfield--error .textfield__control {
+      padding-right: 32px;
       border-color: currentColor;
       color: inherit; }
     .textfield--error::after {
@@ -225,29 +231,35 @@ a {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 16px;
-      height: 16px;
       transform: translate(-16px, -50%);
       color: currentColor;
-      content: "!"; }
+      content: attr(data-error); }
 
 .form-field {
   display: inline-flex;
   align-items: center;
   font-family: var(--theme-font-family-serif);
-  font-size: .875rem;
-  font-weight: 400;
-  letter-spacing: .01786em;
-  line-height: 1.25rem;
-  text-decoration: inherit;
-  text-transform: inherit;
-  vertical-align: middle; }
+  margin-bottom: 16px; }
   .form-field label {
     display: inline-flex;
     align-items: center;
     padding-left: 4px;
     color: currentColor;
-    cursor: pointer; }
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1.4;
+    font-weight: 400;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-decoration: inherit;
+    text-transform: inherit; }
+  .form-field--column {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline; }
+    .form-field--column label {
+      margin-bottom: 8px;
+      font-weight: 700; }
 
 .row {
   display: flex;
