@@ -1,4 +1,4 @@
 $tooltip-background: get-color("gray", darkest);
 $tooltip-font-size: map-get($typography-font-size, x-sm);
 $tooltip-font-size-large: map-get($typography-font-size, base);
-$tooltip-border-radius: 2px;
+$tooltip-border-radius: $theme-border-radius;

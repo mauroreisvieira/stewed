@@ -24,8 +24,8 @@
     height: 100%;
     transform: scale(0, 0);
     transition:
-      opacity $transition-duration-quickly $transition-function-quickly-accelerate-slowly-decelerate,
-      transform $transition-duration $transition-function-quickly-accelerate-slowly-decelerate;
+    opacity $transition-duration-quickly $transition-function-quickly-accelerate-slowly-decelerate,
+    transform $transition-duration $transition-function-quickly-accelerate-slowly-decelerate;
     border-radius: 50%;
     background-color: currentColor;
     opacity: 0;
@@ -99,6 +99,7 @@
       height: 18px;
       margin: auto;
       border: 2px solid currentColor;
+      border-radius: $border-radius;
       content: "";
     }
 

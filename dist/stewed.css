@@ -750,6 +750,7 @@ a {
       height: 18px;
       margin: auto;
       border: 2px solid currentColor;
+      border-radius: var(--theme-border-radius);
       content: ""; }
     .checkbox__background::after {
       position: absolute;
@@ -777,7 +778,7 @@ a {
     padding: 4px 8px;
     transform: translate(-50%, 0);
     transition: opacity 0.2s ease-in-out, transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
-    border-radius: 2px;
+    border-radius: var(--theme-border-radius);
     background-color: #393939;
     opacity: 0;
     color: #fff;
