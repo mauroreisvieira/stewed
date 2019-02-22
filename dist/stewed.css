@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
  * Stewed Framework
  * https://github.com/mauroreisvieira/stewed
@@ -1134,17 +1135,24 @@ a {
 
 .breadcrumb {
   display: flex;
+  flex-wrap: nowrap;
   margin: 0;
   padding: 0;
-  list-style: none; }
+  list-style: none;
+  overflow-x: auto; }
+  .breadcrumb::-webkit-scrollbar {
+    display: none; }
   .breadcrumb__item {
     display: inline-flex;
+    align-items: center;
     margin-bottom: 0;
     padding: var(--space-sm);
-    padding-left: 0; }
+    padding-left: 0;
+    white-space: nowrap; }
     .breadcrumb__item::after {
       padding-left: var(--space-sm);
-      content: "/"; }
+      font-size: var(--typography-lg);
+      content: "›"; }
     .breadcrumb__item.is-active {
       font-weight: var(--typography-bold); }
       .breadcrumb__item.is-active::after {

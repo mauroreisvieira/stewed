@@ -33,3 +33,9 @@
     @content;
   }
 }
+
+@mixin no-scroll() {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

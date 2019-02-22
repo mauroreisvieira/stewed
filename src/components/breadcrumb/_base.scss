@@ -1,18 +1,25 @@
 .breadcrumb {
   display: flex;
+  flex-wrap: nowrap;
   margin: 0;
   padding: 0;
   list-style: none;
+  overflow-x: auto;
+
+  @include no-scroll;
 
   &__item {
     display: inline-flex;
+    align-items: center;
     margin-bottom: 0;
     padding: map-get($space, sm);
     padding-left: 0;
+    white-space: nowrap;
 
     &::after {
       padding-left: map-get($space, sm);
-      content: "/";
+      font-size: map-get($typography-font-size, lg);
+      content: "›";
     }
 
     &.is-active {
