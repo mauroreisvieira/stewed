@@ -216,8 +216,9 @@ a {
   -webkit-font-smoothing: antialiased;
   text-decoration: inherit;
   text-transform: inherit; }
-  a:hover {
-    text-decoration: underline; }
+  @media (hover: hover) {
+    a:hover {
+      text-decoration: underline; } }
 
 .btn {
   position: relative;

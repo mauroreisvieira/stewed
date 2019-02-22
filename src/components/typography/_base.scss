@@ -14,7 +14,9 @@ li {
 a {
   @include get-typography(link);
 
-  &:hover {
-    text-decoration: underline;
+  @include hover {
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
