@@ -1131,3 +1131,24 @@ a {
     --alert-background: var(--color-warning-base); }
   .alert--danger {
     --alert-background: var(--color-danger-base); }
+
+.breadcrumb {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+  .breadcrumb__item {
+    display: inline-flex;
+    padding-right: var(--space-sm); }
+    .breadcrumb__item::after {
+      padding-left: var(--space-sm);
+      content: "/"; }
+    .breadcrumb__item.is-active {
+      font-weight: var(--typography-bold); }
+      .breadcrumb__item.is-active::after {
+        display: none; }
+  .breadcrumb__link {
+    text-decoration: none; }
+    @media (hover: hover) {
+      .breadcrumb__link {
+        text-decoration: none !important; } }

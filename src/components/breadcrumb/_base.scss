@@ -1,0 +1,32 @@
+.breadcrumb {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &__item {
+    display: inline-flex;
+    padding-right: map-get($space, sm);
+
+    &::after {
+      padding-left: map-get($space, sm);
+      content: "/";
+    }
+
+    &.is-active {
+      font-weight: map-get($typography-font-weight, bold);
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+
+    @include hover {
+      text-decoration: none !important;
+    }
+  }
+}
