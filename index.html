@@ -209,10 +209,12 @@
             </tbody>
         </table>
     </section>
+
     <section class="demo-section">
         <h2 class="demo-title">Tooltip</h2>
         <p>Most programming languages <a href="" class="tooltip" data-tooltip="default tooltip">have support </a> for variables. But sadly, CSS has lacked support for native variables from the very beginning.</p>
     </section>
+
     <section class="demo-section">
         <h2 class="demo-title">Alert</h2>
         <div class="alert alert--success">
@@ -248,6 +250,7 @@
             </div>
         </div>
     </section>
+
     <section class="demo-section">
         <h2 class="demo-title">Tag</h2>
         <div class="tag">Default</div>
@@ -256,6 +259,7 @@
         <div class="tag tag--danger">Danger</div>
         <div class="tag tag--warning">Warning</div><br><br>
     </section>
+
     <section class="demo-section">
         <h2 class="demo-title">Badge</h2>
         <div class="demo-head">
@@ -285,6 +289,40 @@
         </div>
     </section>
 
+    <section class="demo-section">
+        <h2 class="demo-title">Grid</h2>
+
+        <div class="row">
+            <div class="col-lg-5 col-md-5 col-sm-12">
+                <div class="demo-grid"></div>
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-12">
+                <div class="demo-grid"></div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="demo-grid"></div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="demo-grid"></div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="demo-grid"></div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="demo-grid"></div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="demo-grid"></div>
+            </div>
+            <div class="col-lg-2 col-md-6 col-sm-12">
+                <div class="demo-grid"></div>
+            </div>
+            <div class="col-lg-10 col-md-6 col-sm-12">
+                <div class="demo-grid"></div>
+            </div>
+        </div>
+    </section>
+
     <script src="dist/scripts/stewed.js"></script>
     <script>
         const target = document.querySelector('.demo-color');
@@ -302,20 +340,17 @@
                 item = document.createElement('div');
                 item.className = 'demo-color-item';
                 preview = document.createElement('div');
-                preview.className = 'demo-color-item';
                 preview.className = 'demo-color-preview';
                 preview.style = `color: var(--color-${color}-${tone})`;
+                item.appendChild(preview);
                 info = document.createElement('div');
                 info.className = 'demo-color-info';
                 info.textContent = `${color} ${tone}`;
-                item.appendChild(preview);
                 item.appendChild(info);
                 list.appendChild(item);
             });
             target.appendChild(list);
         });
-
-        console.log(item);
     </script>
 </body>
 </html>
