@@ -1,4 +1,4 @@
 $tag-keys: info, success, warning, danger;
 
-$tag-background: var(--tag-bakground, get-color("gray", lighter));
-$tag-color: var(--tag-color, get-color("gray"));
+$tag-background: var(--tag-background, var(--color-grayscale-lighter));
+$tag-color: var(--tag-color, get-color("grayscale"));

@@ -13,7 +13,7 @@
 
   @each $key in $tag-keys {
     &--#{$key} {
-      --tag-bakground: #{get-color(#{$key}, lightest)};
+      --tag-background: #{get-color(#{$key}, lighter)};
       --tag-color: #{get-color(#{$key})};
     }
   }

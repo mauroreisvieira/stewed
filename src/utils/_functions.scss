@@ -34,7 +34,7 @@
 * @param {String}  $tone
 * @return {Color}  $color
 */
-@function get-color($color, $tone: "base") {
+@function build-color($color, $tone: "base") {
   @if not map-has-key($palette-colors, $color) {
     @error "Invalid color specified! #{$color} doesn't exist. Choose one of #{map-keys($palette-colors)}";
   }
@@ -57,4 +57,22 @@
   } @else {
     @return $color-value;
   }
+}
+
+/**
+* Gets the color.
+* @param {Color}  $color
+* @param {String}  $tone
+* @return {Color}  $color
+*/
+@function get-color($color, $tone: "base") {
+  @if not map-has-key($palette-colors, $color) {
+    @error "Invalid color specified! #{$color} doesn't exist. Choose one of #{map-keys($palette-colors)}";
+  }
+
+  @if not map-has-key($palette-tones, $tone) {
+    @error "Invalid tone specified! #{$tone} doesn't exist. Choose one of #{map-keys($palette-tones)}";
+  }
+
+  @return var(--color-#{$color}-#{$tone});
 }

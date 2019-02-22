@@ -7,12 +7,12 @@ body {
   position: relative;
   margin: 1rem 0;
   padding: 1rem;
-  border: solid var(--theme-color-greyscale);
+  border: solid var(--color-grayscale-lighter);
   border-width: .2rem 0 0;
 }
 
 .demo-section .demo-title {
-  color: var(--theme-color-accent);
+  color: var(--color-accent-base);
 }
 
 .demo-radio {
@@ -29,9 +29,24 @@ body {
   width: 42px;
   height: 42px;
   border-radius: var(--theme-border-radius);
-  background: var(--theme-color-greyscale);
+  background: var(--color-grayscale-lighter);
 }
 
 .demo-link {
   position: relative;
+}
+
+/* Demo Colors */
+.demo-color {
+  display: flex;
+}
+
+.demo-color-preview {
+  flex: 1;
+  height: 100px;
+  background-color: currentColor;
+}
+
+.demo-color-preview span {
+  color: rgba(0, 0, 0, .4);
 }

@@ -1,4 +1,4 @@
 $alert-keys: info, success, warning, danger;
 
-$alert-background: var(--alert-bakground, get-color("gray", lighter));
+$alert-background: var(--alert-background, var(--color-grayscale-lighter));
 $alert-color: var(--alert-color, #fff);

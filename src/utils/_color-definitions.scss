@@ -1,17 +1,7 @@
 $palette-colors: (
-  "aqua": #36f7ce,
-  "blue": #3490dc,
-  "cyan": #0193a3,
-  "green": #38c172,
-  "gray": #bdbdbd,
-  "orange": #f6993f,
-  "pink": #df1070,
-  "purple": #800080,
-  "red": #e3342f,
-  "salmon": #f86755,
-  "teal": #4dc0b5,
-  "violet": #6f1efb,
-  "yellow": #fdbc59,
+  "primary": #5c8df6,
+  "accent": #f3628d,
+  "grayscale": #454b57,
   "warning": #f5c85c,
   "danger": #f26175,
   "info": #82a2ff,
@@ -20,22 +10,18 @@ $palette-colors: (
 
 $tones-light: (
   10: 80%,
-  20: 70%,
   30: 30%
 ) !default;
 
 $tones-dark: (
   60: 10%,
-  70: 40%,
-  80: 70%,
+  80: 60%,
 ) !default;
 
 $palette-tones: (
-  lightest: 10,
-  lighter: 20,
+  lighter: 10,
   light: 30,
   base: 50,
   dark: 60,
-  darker: 70,
-  darkest: 80
+  darker: 80,
 ) !default;

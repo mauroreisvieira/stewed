@@ -21,7 +21,7 @@
 
   @each $key in $alert-keys {
     &--#{$key} {
-      --alert-bakground: #{get-color(#{$key})};
+      --alert-background: #{get-color(#{$key})};
     }
   }
 }

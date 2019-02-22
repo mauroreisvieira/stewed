@@ -2,9 +2,11 @@ $button-font-size-small: map-get($typography-font-size, x-sm);
 
 $buttons: (
   primary: (
-    $color-primary
+    var(--color-primary-base),
+    var(--color-primary-light)
   ),
   accent: (
-    $color-accent
+    var(--color-accent-base),
+    var(--color-accent-light)
   )
 );
