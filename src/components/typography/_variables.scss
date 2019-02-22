@@ -1,3 +1,48 @@
+:root {
+  --typography-x-hg: #{calculate-rem(76px)};
+  --typography-hg: #{calculate-rem(52px)};
+  --typography-x-lg: #{calculate-rem(34px)};
+  --typography-lg: #{calculate-rem(28px)};
+  --typography-md: #{calculate-rem(24px)};
+  --typography-base: #{calculate-rem(16px)};
+  --typography-sm: #{calculate-rem(14px)};
+  --typography-x-sm: #{calculate-rem(12px)};
+  --typography-xs: #{calculate-rem(10px)};
+  --typography-x-xs: #{calculate-rem(8px)};
+}
+
+:root {
+  --typography-light: #{$theme-font-light};
+  --typography-regular: #{$theme-font-regular};
+  --typography-medium: #{$theme-font-medium};
+  --typography-bold: #{$theme-font-bold};
+}
+
+// defining font family
+$typography-font-family: $theme-font-family-serif !default;
+
+// defining font sizes
+$typography-font-size: (
+  x-hg: var(--typography-x-hg),
+  hg: var(--typography-hg),
+  x-lg: var(--typography-x-lg),
+  lg: var(--typography-lg),
+  md: var(--typography-md),
+  base: var(--typography-base),
+  sm: var(--typography-sm),
+  x-sm: var(--typography-x-sm),
+  xs: var(--typography-xs),
+  x-xs: var(--typography-x-xs),
+) !default;
+
+// defining font weight
+$typography-font-weight: (
+  light: var(--typography-light),
+  regular: var(--typography-regular),
+  medium: var(--typography-medium),
+  bold: var(--typography-bold)
+) !default;
+
 $typography: (
   headline-1: (
     margin: $baseline * 2 0,

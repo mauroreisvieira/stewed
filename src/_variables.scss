@@ -11,31 +11,6 @@ $color-primary: $theme-color-primary !default;
 $color-accent: $theme-color-accent !default;
 $color-base: $theme-color-base !default;
 
-// defining font family
-$typography-font-family: $theme-font-family-serif !default;
-
-// defining font sizes
-$typography-font-size: (
-  x-hg: calculate-rem(76px),
-  hg: calculate-rem(52px),
-  x-lg: calculate-rem(34px),
-  lg: calculate-rem(28px),
-  md: calculate-rem(24px),
-  base: calculate-rem(16px),
-  sm: calculate-rem(14px),
-  x-sm: calculate-rem(12px),
-  xs: calculate-rem(10px),
-  x-xs: calculate-rem(8px),
-) !default;
-
-// defining font weight
-$typography-font-weight: (
-  light: $theme-font-light,
-  regular: $theme-font-regular,
-  medium: $theme-font-medium,
-  bold: $theme-font-bold
-) !default;
-
 $border-radius: $theme-border-radius !default;
 
 $transition-function-decelerate: cubic-bezier(0, 0, .2, 1) !default;
