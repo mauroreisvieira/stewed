@@ -8,7 +8,6 @@
 }
 
 // Colors
-
 :root {
   @each $color, $keyColor  in $palette-colors {
     @each $tone, $keyTone in $palette-tones {
@@ -35,21 +34,48 @@ $theme-font-bold: 700;
 $theme-font-family-serif: var(--theme-font-family-serif);
 $theme-font-family-monospace: var(--theme-font-family-monospace);
 
-$theme-baseline: 8px;
+// Border
 $theme-border-radius: var(--theme-border-radius);
 
+// Spaces
+:root {
+  --space-x-hg: #{calculate-rem(40px)};
+  --space-hg: #{calculate-rem(32px)};
+  --space-x-lg: #{calculate-rem(24px)};
+  --space-lg: #{calculate-rem(16px)};
+  --space-md: #{calculate-rem(12px)};
+  --space-sm: #{calculate-rem(8px)};
+  --space-x-sm: #{calculate-rem(6px)};
+  --space-xs: #{calculate-rem(4px)};
+  --space-x-xs: #{calculate-rem(2px)};
+}
+
+// Breakpoint
 $theme-breakpoint-mobile: 280px;
 $theme-breakpoint-tablet: 768px;
 $theme-breakpoint-desktop: 1024px;
+$theme-breakpoint-tv: 1440px;
+
+:root {
+  --breakpoint-sm: #{$theme-breakpoint-mobile};
+  --breakpoint-md: #{$theme-breakpoint-tablet};
+  --breakpoint-lg: #{$theme-breakpoint-desktop};
+  --breakpoint-hg: #{$theme-breakpoint-tv};
+}
 
 * {
   box-sizing: border-box;
 }
 
 html {
-  color: $theme-color-base;
   font-family: $theme-font-family-serif;
   font-size: var(--theme-font-size);
   font-weight: $theme-font-regular;
   line-height: 1.5;
+}
+
+body {
+  margin: 0 auto;
+  padding: 0;
+  color: $theme-color-base;
 }

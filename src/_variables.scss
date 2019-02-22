@@ -1,15 +1,26 @@
-$baseline: $theme-baseline !default;
-
 // defining breakpoints
 $breakpoints: (
   sm: $theme-breakpoint-mobile,
   md: $theme-breakpoint-tablet,
-  lg: $theme-breakpoint-desktop
+  lg: $theme-breakpoint-desktop,
+  hg: $theme-breakpoint-tv
 ) !default;
 
 $color-primary: $theme-color-primary !default;
 $color-accent: $theme-color-accent !default;
 $color-base: $theme-color-base !default;
+
+$space: (
+  x-hg: var(--space-x-hg),
+  hg: var(--space-hg),
+  x-lg: var(--space-x-lg),
+  lg: var(--space-lg),
+  md: var(--space-md),
+  sm: var(--space-sm),
+  x-sm: var(--space-x-sm),
+  xs: var(--space-xs),
+  x-xs: var(--space-x-xs)
+) !default;
 
 $border-radius: $theme-border-radius !default;
 

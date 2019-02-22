@@ -19,8 +19,8 @@
   z-index: 9;
 
   &:empty {
-    min-width: $baseline;
-    height: $baseline;
+    min-width: map-get($space, sm);
+    height: map-get($space, sm);
     padding: 0;
   }
 

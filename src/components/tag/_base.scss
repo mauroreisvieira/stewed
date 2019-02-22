@@ -2,8 +2,8 @@
   display: inline-flex;
   flex-wrap: nowrap;
   align-items: center;
-  height: $baseline * 3;
-  padding: 0 $baseline;
+  height: map-get($space, x-lg);
+  padding: 0 map-get($space, sm);
   border-radius: $border-radius;
   background-color: $tag-background;
   color: $tag-color;

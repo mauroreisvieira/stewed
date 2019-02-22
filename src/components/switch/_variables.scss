@@ -1,4 +1,4 @@
-$switch-width: $baseline * 5;
-$switch-height: $baseline * 5;
+$switch-width: map-get($space, x-hg);
+$switch-height: map-get($space, x-hg);
 $switch-color-default: $color-base;
 $switch-color-active: $color-primary;

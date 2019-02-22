@@ -3,8 +3,8 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  margin-bottom: $baseline * 2;
-  padding: $baseline * 2;
+  margin-bottom: map-get($space, lg);
+  padding: map-get($space, lg);
   border-radius: $border-radius;
   background-color: $alert-background;
   color: $alert-color;

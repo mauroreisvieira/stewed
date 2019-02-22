@@ -6,7 +6,7 @@
 
 p,
 li {
-  margin-bottom: $baseline;
+  margin-bottom: map-get($space, sm);
 
   @include get-typography(base);
 }

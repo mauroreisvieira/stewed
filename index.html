@@ -46,27 +46,7 @@
 
     <section class="demo-section">
         <h2 class="demo-title">Colors</h2>
-        <div class="demo-color">
-            <div class="demo-color-preview" style="color: var(--color-primary-lighter)"></div>
-            <div class="demo-color-preview" style="color: var(--color-primary-light)"></div>
-            <div class="demo-color-preview" style="color: var(--color-primary-base)"></div>
-            <div class="demo-color-preview" style="color: var(--color-primary-dark)"></div>
-            <div class="demo-color-preview" style="color: var(--color-primary-darker)"></div>
-        </div>
-        <div class="demo-color">
-            <div class="demo-color-preview" style="color: var(--color-accent-lighter)"></div>
-            <div class="demo-color-preview" style="color: var(--color-accent-light)"></div>
-            <div class="demo-color-preview" style="color: var(--color-accent-base)"></div>
-            <div class="demo-color-preview" style="color: var(--color-accent-dark)"></div>
-            <div class="demo-color-preview" style="color: var(--color-accent-darker)"></div>
-        </div>
-        <div class="demo-color">
-            <div class="demo-color-preview" style="color: var(--color-grayscale-lighter)"></div>
-            <div class="demo-color-preview" style="color: var(--color-grayscale-light)"></div>
-            <div class="demo-color-preview" style="color: var(--color-grayscale-base)"></div>
-            <div class="demo-color-preview" style="color: var(--color-grayscale-dark)"></div>
-            <div class="demo-color-preview" style="color: var(--color-grayscale-darker)"></div>
-        </div>
+        <div class="demo-color"></div>
     </section>
 
     <section class="demo-section">
@@ -146,10 +126,10 @@
 
     <section class="demo-section">
         <h2 class="demo-title">Button</h2>
-        <button class="button">Normal</button>
-        <button class="button button--primary">Primary</button>
-        <button class="button button--accent">Accent</button>
-        <button class="button" disabled="disabled">Disabled</button>
+        <button class="btn">Normal</button>
+        <button class="btn btn--primary">Primary</button>
+        <button class="btn btn--accent btn--lg">Accent</button>
+        <button class="btn" disabled="disabled">Disabled</button>
     </section>
 
     <section class="demo-section">
@@ -306,5 +286,36 @@
     </section>
 
     <script src="dist/scripts/stewed.js"></script>
+    <script>
+        const target = document.querySelector('.demo-color');
+        const palette = ["primary", "accent", "grayscale", "warning", "danger", "info", "success"];
+        const tones = ["lighter", "light", "base", "dark", "darker"];
+
+        let item = undefined;
+        let list = undefined;
+        let preview = undefined;
+        let info = undefined;
+        palette.map(color => {
+            list = document.createElement('div');
+            list.className = 'demo-color-list';
+            tones.map(tone => {
+                item = document.createElement('div');
+                item.className = 'demo-color-item';
+                preview = document.createElement('div');
+                preview.className = 'demo-color-item';
+                preview.className = 'demo-color-preview';
+                preview.style = `color: var(--color-${color}-${tone})`;
+                info = document.createElement('div');
+                info.className = 'demo-color-info';
+                info.textContent = `${color} ${tone}`;
+                item.appendChild(preview);
+                item.appendChild(info);
+                list.appendChild(item);
+            });
+            target.appendChild(list);
+        });
+
+        console.log(item);
+    </script>
 </body>
 </html>

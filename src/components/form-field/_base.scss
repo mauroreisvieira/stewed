@@ -1,8 +1,8 @@
 .form-field {
   display: inline-flex;
   align-items: center;
+  margin-bottom: map-get($space, lg);
   font-family: $form-field-font-family;
-  margin-bottom: $baseline * 2;
 
   label {
     display: inline-flex;
@@ -20,7 +20,7 @@
     align-items: baseline;
 
     label {
-      margin-bottom: $baseline;
+      margin-bottom:  map-get($space, sm);
       font-weight: map-get($typography-font-weight, bold);
     }
   }

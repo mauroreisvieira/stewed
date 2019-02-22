@@ -5,7 +5,7 @@
 
   &__control {
     width: 100%;
-    padding: $baseline $baseline * 2;
+    padding: map-get($space, sm) map-get($space, lg);
     border: 1px solid $theme-color-greyscale;
     border-radius: $border-radius;
     outline: none;

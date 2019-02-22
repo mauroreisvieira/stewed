@@ -1,9 +1,9 @@
-.button {
+.btn {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: $baseline $baseline * 2;
+  padding: map-get($space, sm) map-get($space, lg);
   border: 0;
   border-radius: $border-radius;
   outline: none;
@@ -20,12 +20,12 @@
   }
 
   &--sm {
-    padding: $baseline;
+    padding: map-get($space, sm);
     font-size: $button-font-size-small;
   }
 
   &--lg {
-    padding: $baseline * 2 $baseline * 3;
+    padding: map-get($space, lg) map-get($space, x-lg);
   }
 
   @each $key, $values in $buttons {

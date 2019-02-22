@@ -7,8 +7,8 @@
     position: absolute;
     bottom: 100%;
     left: 50%;
-    min-width: $baseline * 10;
-    padding: $baseline / 2 $baseline;
+    min-width: 80px;
+    padding: map-get($space, xs) map-get($space, sm);
     transform: translate(-50%, 0);
     transition: opacity .2s ease-in-out, transform .2s cubic-bezier(.71, 1.7, .77, 1.24);
     border-radius: $tooltip-border-radius;
@@ -34,8 +34,8 @@
 
   &--lg {
     &::after {
-      min-width: $baseline * 20;
-      padding: $baseline;
+      min-width: 160px;
+      padding: map-get($space, sm);
       font-size: $tooltip-font-size-large;
     }
   }
