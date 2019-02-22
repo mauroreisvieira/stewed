@@ -1,7 +1,21 @@
-.textfield {
+.select {
   position: relative;
   display: flex;
   width: 100%;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 100%;
+    color: currentColor;
+    font-size: map-get($typography-font-size, sm);
+    content: attr(data-arrow);
+  }
 
   &__control {
     width: 100%;
@@ -9,7 +23,14 @@
     border: 1px solid $theme-color-greyscale;
     border-radius: $border-radius;
     outline: none;
+    background-color: transparent;
     color: $color-base;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    -webkit-appearance: button;
+    appearance: none;
+    overflow: hidden;
 
     @include get-typography(base);
 
@@ -24,14 +45,13 @@
   }
 
   &--textarea {
-    .textfield__control {
-      min-height: 80px;
+    .select__control {
       resize: none;
     }
   }
 
   &--required {
-    .textfield__control {
+    .select__control {
       padding-right: 32px;
     }
 
@@ -52,22 +72,10 @@
   &--error {
     color: get-color(danger);
 
-    .textfield__control {
+    .select__control {
       padding-right: 32px;
       border-color: currentColor;
       color: inherit;
-    }
-
-    &::after {
-      position: absolute;
-      top: 50%;
-      right: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transform: translate(-16px, -50%);
-      color: currentColor;
-      content: attr(data-error);
     }
   }
 }

@@ -7,7 +7,7 @@ body {
   position: relative;
   margin: var(--space-lg) 0;
   padding: var(--space-lg);
-  border-bottom: 3px solid var(--color-grayscale-lighter);
+  border-top: 3px solid var(--color-grayscale-lighter);
 }
 
 .demo-section .demo-title {

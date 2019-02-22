@@ -283,6 +283,7 @@ a {
       opacity: .5;
       pointer-events: none; }
   .textfield--textarea .textfield__control {
+    min-height: 80px;
     resize: none; }
   .textfield--required .textfield__control {
     padding-right: 32px; }
@@ -313,6 +314,70 @@ a {
       transform: translate(-16px, -50%);
       color: currentColor;
       content: attr(data-error); }
+
+.select {
+  position: relative;
+  display: flex;
+  width: 100%; }
+  .select::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 100%;
+    color: currentColor;
+    font-size: var(--typography-sm);
+    content: attr(data-arrow); }
+  .select__control {
+    width: 100%;
+    padding: var(--space-sm) var(--space-lg);
+    border: 1px solid var(--color-grayscale-lighter);
+    border-radius: var(--theme-border-radius);
+    outline: none;
+    background-color: transparent;
+    color: var(--color-grayscale-base);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    -webkit-appearance: button;
+    appearance: none;
+    overflow: hidden;
+    font-size: var(--typography-base);
+    line-height: 1.4;
+    font-weight: var(--typography-regular);
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-decoration: inherit;
+    text-transform: inherit; }
+    .select__control:focus {
+      border-color: var(--color-primary-base); }
+    .select__control[disabled] {
+      opacity: .5;
+      pointer-events: none; }
+  .select--textarea .select__control {
+    resize: none; }
+  .select--required .select__control {
+    padding-right: 32px; }
+  .select--required::after {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    display: block;
+    width: 8px;
+    height: 8px;
+    transform: translate(-16px, -50%);
+    border-radius: 50%;
+    background-color: var(--color-primary-base);
+    content: ""; }
+  .select--error {
+    color: var(--color-danger-base); }
+    .select--error .select__control {
+      padding-right: 32px;
+      border-color: currentColor;
+      color: inherit; }
 
 .form-field {
   display: inline-flex;
