@@ -16,7 +16,7 @@ a {
 
   @include hover {
     &:hover {
-      text-decoration: underline;
+      color: var(--color-primary-dark);
     }
   }
 }

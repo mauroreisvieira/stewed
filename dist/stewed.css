@@ -218,7 +218,7 @@ a {
   text-transform: inherit; }
   @media (hover: hover) {
     a:hover {
-      text-decoration: underline; } }
+      color: var(--color-primary-dark); } }
 
 .btn {
   position: relative;
@@ -1139,7 +1139,9 @@ a {
   list-style: none; }
   .breadcrumb__item {
     display: inline-flex;
-    padding-right: var(--space-sm); }
+    margin-bottom: 0;
+    padding: var(--space-sm);
+    padding-left: 0; }
     .breadcrumb__item::after {
       padding-left: var(--space-sm);
       content: "/"; }
@@ -1147,8 +1149,3 @@ a {
       font-weight: var(--typography-bold); }
       .breadcrumb__item.is-active::after {
         display: none; }
-  .breadcrumb__link {
-    text-decoration: none; }
-    @media (hover: hover) {
-      .breadcrumb__link {
-        text-decoration: none !important; } }

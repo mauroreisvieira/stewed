@@ -6,7 +6,9 @@
 
   &__item {
     display: inline-flex;
-    padding-right: map-get($space, sm);
+    margin-bottom: 0;
+    padding: map-get($space, sm);
+    padding-left: 0;
 
     &::after {
       padding-left: map-get($space, sm);
@@ -19,14 +21,6 @@
       &::after {
         display: none;
       }
-    }
-  }
-
-  &__link {
-    text-decoration: none;
-
-    @include hover {
-      text-decoration: none !important;
     }
   }
 }
