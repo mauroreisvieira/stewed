@@ -200,8 +200,7 @@ body {
   text-decoration: inherit;
   text-transform: inherit; }
 
-p,
-li {
+p {
   margin-bottom: var(--space-sm);
   font-size: var(--typography-base);
   line-height: 1.4;
@@ -1193,3 +1192,24 @@ a {
       font-weight: var(--typography-bold); }
       .breadcrumb__item.is-active::after {
         display: none; }
+
+.list {
+  margin: 0 0 var(--space-lg);
+  padding: 0 0 0 var(--space-lg); }
+  .list--check {
+    list-style-type: none;
+    padding-left: 0; }
+    .list--check li {
+      margin-bottom: var(--space-sm);
+      padding-left: var(--space-sm);
+      font-size: var(--typography-base);
+      line-height: 1.4;
+      font-weight: var(--typography-regular);
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+      text-decoration: inherit;
+      text-transform: inherit; }
+      .list--check li::before {
+        position: relative;
+        right: var(--space-sm);
+        content: "✔"; }

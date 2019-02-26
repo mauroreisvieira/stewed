@@ -4,8 +4,7 @@
   }
 }
 
-p,
-li {
+p {
   margin-bottom: map-get($space, sm);
 
   @include get-typography(base);
