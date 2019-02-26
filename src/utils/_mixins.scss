@@ -28,12 +28,6 @@
   }
 }
 
-@mixin hover() {
-  @media (hover: hover) {
-    @content;
-  }
-}
-
 @mixin no-scroll() {
   &::-webkit-scrollbar {
     display: none;

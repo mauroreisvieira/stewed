@@ -7,6 +7,7 @@
   border: 0;
   border-radius: $border-radius;
   outline: none;
+  background-color: transparent;
   color: $color-base;
   line-height: 1.4;
   cursor: pointer;
@@ -14,9 +15,10 @@
 
   @include get-typography(button);
 
-  &:hover,
-  &:focus {
-    background-color: var(--color-grayscale-lighter);
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--color-grayscale-lighter);
+    }
   }
 
   &--sm {
@@ -33,9 +35,10 @@
       background-color: nth($values, 1);
       color: #fff;
 
-      &:hover,
-      &:focus {
-        background-color: nth($values, 2);
+      @media (hover: hover) {
+        &:hover {
+          background-color: nth($values, 2);
+        }
       }
     }
   }

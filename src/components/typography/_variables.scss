@@ -65,6 +65,7 @@ $typography: (
     text-transform: inherit
   ),
   headline-3: (
+    margin: map-get($space, lg) 0,
     font-size: map-get($typography-font-size, x-lg),
     line-height: 1.4,
     font-weight: map-get($typography-font-weight, light),
@@ -84,6 +85,7 @@ $typography: (
     text-transform: inherit
   ),
   headline-5: (
+    margin: map-get($space, lg) 0,
     font-size: map-get($typography-font-size, md),
     line-height: 1.4,
     font-weight: map-get($typography-font-weight, md),
@@ -93,6 +95,7 @@ $typography: (
     text-transform: inherit
   ),
   headline-6: (
+    margin: map-get($space, lg) 0,
     font-size: map-get($typography-font-size, base),
     line-height: 1.4,
     font-weight: map-get($typography-font-weight, bold),

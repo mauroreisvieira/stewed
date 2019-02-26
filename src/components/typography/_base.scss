@@ -14,7 +14,7 @@ li {
 a {
   @include get-typography(link);
 
-  @include hover {
+  @media (hover: hover) {
     &:hover {
       color: var(--color-primary-dark);
     }

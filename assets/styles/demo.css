@@ -71,4 +71,5 @@ body {
   height: 40px;
   margin-bottom: var(--space-md);
   background-color: var(--color-grayscale-lighter);
+  border-radius: var(--theme-border-radius);
 }
