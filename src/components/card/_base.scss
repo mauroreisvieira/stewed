@@ -40,7 +40,6 @@
 
   &__footer {
     width: 100%;
-    margin-top: map-get($space, lg);
     padding: map-get($space, lg);
     border-top: 1px solid var(--color-grayscale-lighter);
   }
