@@ -10,7 +10,7 @@
   height: 20px;
   padding: 0 6px;
   transform: translate(50%, -50%);
-  border-radius: 10px;
+  border-radius: map-get($radius, xl);
   background-color: $badge-background;
   color: #fff;
   font-size: map-get($typography-font-size, x-sm);

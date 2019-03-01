@@ -1,0 +1,58 @@
+.progress {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: map-get($space, lg);
+
+  &__label {
+    margin-bottom: map-get($space, x-sm);
+    font-size: map-get($typography-font-size, sm);
+    font-weight: map-get($typography-font-weight, bold);
+  }
+
+  &__control {
+    width: 100%;
+    height: $progress-height;
+    border: 0;
+    -webkit-appearance: none;
+    appearance: none;
+
+    &::-webkit-progress-bar {
+      border-radius: $progress-border-radius;
+      background-color: rgba(0, 0, 0, .2);
+      box-shadow: none;
+    }
+
+    &::-webkit-progress-value {
+      border-radius: $progress-border-radius;
+      background: $progress-background;
+      box-shadow: none;
+    }
+
+    &::after {
+      position: absolute;
+      top: 2px;
+      right: 0;
+      display: block;
+      font-size: map-get($typography-font-size, x-sm);
+      font-weight: map-get($typography-font-weight, bold);
+      content: attr(data-value);
+    }
+  }
+
+  &--sm {
+    --progress-height: #{map-get($space, x-sm)};
+  }
+
+  &--lg {
+    --progress-height: #{map-get($space, lg)};
+  }
+
+
+  @each $key in $progress-keys {
+    &--#{$key} {
+      --progress-background: #{get-color(#{$key})};
+    }
+  }
+}
+

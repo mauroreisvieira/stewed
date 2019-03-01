@@ -1,11 +1,14 @@
 @for $i from 1 through 6 {
   .h#{$i} {
-    @include get-typography(headline-#{$i});
+    @include get-typography(headline-#{$i + 1});
+
+    @include tablet() {
+      @include get-typography(headline-#{$i});
+    }
   }
 }
 
-p,
-li {
+p {
   margin-bottom: map-get($space, sm);
 
   @include get-typography(base);
@@ -14,7 +17,7 @@ li {
 a {
   @include get-typography(link);
 
-  @include hover {
+  @media (hover: hover) {
     &:hover {
       color: var(--color-primary-dark);
     }

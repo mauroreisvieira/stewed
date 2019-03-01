@@ -1,0 +1,5 @@
+$progress-keys: primary, accent, info, success, warning, danger;
+$progress-border-radius: map-get($radius, sm);
+$progress-height: var(--progress-height, map-get($space, md));
+$progress-background: var(--progress-background, var(--color-grayscale-lighter));
+

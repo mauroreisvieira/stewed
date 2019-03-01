@@ -1,0 +1,22 @@
+.list {
+  margin: 0 0 map-get($space, lg);
+  padding: 0 0 0 map-get($space, lg);
+
+  &--check {
+    list-style-type: none;
+    padding-left: 0;
+
+    li {
+      margin-bottom: map-get($space, sm);
+      padding-left: map-get($space, sm);
+
+      @include get-typography(base);
+
+      &::before {
+        position: relative;
+        right: map-get($space, sm);
+        content: "✔";
+      }
+    }
+  }
+}

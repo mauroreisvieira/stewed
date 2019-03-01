@@ -1,7 +1,8 @@
 :root {
   --typography-x-hg: #{calculate-rem(76px)};
   --typography-hg: #{calculate-rem(52px)};
-  --typography-x-lg: #{calculate-rem(34px)};
+  --typography-x-xl: #{calculate-rem(48px)};
+  --typography-xl: #{calculate-rem(34px)};
   --typography-lg: #{calculate-rem(28px)};
   --typography-md: #{calculate-rem(24px)};
   --typography-base: #{calculate-rem(16px)};
@@ -25,7 +26,8 @@ $typography-font-family: $theme-font-family-serif !default;
 $typography-font-size: (
   x-hg: var(--typography-x-hg),
   hg: var(--typography-hg),
-  x-lg: var(--typography-x-lg),
+  x-xl: var(--typography-x-xl),
+  xl: var(--typography-xl),
   lg: var(--typography-lg),
   md: var(--typography-md),
   base: var(--typography-base),
@@ -65,7 +67,8 @@ $typography: (
     text-transform: inherit
   ),
   headline-3: (
-    font-size: map-get($typography-font-size, x-lg),
+    margin: map-get($space, lg) 0,
+    font-size: map-get($typography-font-size, x-xl),
     line-height: 1.4,
     font-weight: map-get($typography-font-weight, light),
     -moz-osx-font-smoothing: grayscale,
@@ -75,7 +78,7 @@ $typography: (
   ),
   headline-4: (
     margin: map-get($space, lg) 0,
-    font-size: map-get($typography-font-size, lg),
+    font-size: map-get($typography-font-size, xl),
     line-height: 1.4,
     font-weight: map-get($typography-font-weight, md),
     -moz-osx-font-smoothing: grayscale,
@@ -84,7 +87,8 @@ $typography: (
     text-transform: inherit
   ),
   headline-5: (
-    font-size: map-get($typography-font-size, md),
+    margin: map-get($space, lg) 0,
+    font-size: map-get($typography-font-size, lg),
     line-height: 1.4,
     font-weight: map-get($typography-font-weight, md),
     -moz-osx-font-smoothing: grayscale,
@@ -93,6 +97,17 @@ $typography: (
     text-transform: inherit
   ),
   headline-6: (
+    margin: map-get($space, lg) 0,
+    font-size: map-get($typography-font-size, md),
+    line-height: 1.4,
+    font-weight: map-get($typography-font-weight, bold),
+    -moz-osx-font-smoothing: grayscale,
+    -webkit-font-smoothing: antialiased,
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  headline-7: (
+    margin: map-get($space, lg) 0,
     font-size: map-get($typography-font-size, base),
     line-height: 1.4,
     font-weight: map-get($typography-font-weight, bold),

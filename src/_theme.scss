@@ -4,7 +4,6 @@
   --theme-font-family-serif: "Nunito", sans-serif;
   --theme-font-family-monospace: monospace;
   --theme-font-size: 16px;
-  --theme-border-radius: 4px;
 }
 
 // Colors
@@ -34,9 +33,6 @@ $theme-font-bold: 700;
 $theme-font-family-serif: var(--theme-font-family-serif);
 $theme-font-family-monospace: var(--theme-font-family-monospace);
 
-// Border
-$theme-border-radius: var(--theme-border-radius);
-
 // Spaces
 :root {
   --space-x-hg: #{calculate-rem(40px)};
@@ -48,6 +44,16 @@ $theme-border-radius: var(--theme-border-radius);
   --space-x-sm: #{calculate-rem(6px)};
   --space-xs: #{calculate-rem(4px)};
   --space-x-xs: #{calculate-rem(2px)};
+}
+
+// Radius
+:root {
+  --radius-hg: #{calculate-rem(32px)};
+  --radius-xl: #{calculate-rem(42px)};
+  --radius-lg: #{calculate-rem(16px)};
+  --radius-md: #{calculate-rem(8px)};
+  --radius-sm: #{calculate-rem(4px)};
+  --radius-xs: #{calculate-rem(2px)};
 }
 
 // Breakpoint

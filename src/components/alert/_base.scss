@@ -5,14 +5,16 @@
   justify-content: center;
   margin-bottom: map-get($space, lg);
   padding: map-get($space, lg);
-  border-radius: $border-radius;
+  border-radius: map-get($radius, sm);
   background-color: $alert-background;
   color: $alert-color;
   font-size: map-get($typography-font-size, base);
   cursor: pointer;
 
   &__title {
-    @include get-typography(headline-6);
+    font-size: map-get($typography-font-size, base);
+    font-weight: map-get($typography-font-weight, bold);
+    line-height: 1.4;
   }
 
   &__description {
