@@ -8,9 +8,11 @@
     padding: map-get($space, sm) map-get($space, lg);
     border: 1px solid $theme-color-greyscale;
     border-radius: map-get($radius, sm);
-    background-color: transparent;
     outline: none;
+    background-color: transparent;
     color: $color-base;
+    -webkit-appearance: none;
+    box-shadow: none;
 
     @include get-typography(base);
 
