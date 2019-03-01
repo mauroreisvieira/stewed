@@ -27,7 +27,6 @@ body {
   display: inline-block;
   width: var(--space-x-hg);
   height: var(--space-x-hg);
-  border-radius: var(--theme-border-radius);
   background: var(--color-grayscale-lighter);
 }
 
@@ -71,5 +70,4 @@ body {
   height: 40px;
   margin-bottom: var(--space-md);
   background-color: var(--color-grayscale-lighter);
-  border-radius: var(--theme-border-radius);
 }

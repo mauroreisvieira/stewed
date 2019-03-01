@@ -16,7 +16,8 @@ $radius: (
   lg: var(--radius-lg),
   md: var(--radius-md),
   sm: var(--radius-sm),
-  xs: var(--radius-xs)
+  xs: var(--radius-xs),
+  none: 0,
 ) !default;
 
 $space: (
@@ -28,7 +29,8 @@ $space: (
   sm: var(--space-sm),
   x-sm: var(--space-x-sm),
   xs: var(--space-xs),
-  x-xs: var(--space-x-xs)
+  x-xs: var(--space-x-xs),
+  none: 0,
 ) !default;
 
 $transition-function-decelerate: cubic-bezier(0, 0, .2, 1) !default;
