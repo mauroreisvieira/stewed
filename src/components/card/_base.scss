@@ -4,13 +4,21 @@
   align-items: flex-start;
   justify-content: center;
   margin-bottom: map-get($space, lg);
-  border-radius: $border-radius;
+  border-radius: map-get($radius, sm);
   box-shadow: $card-shadow;
   overflow: hidden;
 
   &__header {
     width: 100%;
     padding: map-get($space, lg);
+
+    > :first-child {
+      margin-top: 0;
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
   }
 
   &__thumbnail {
@@ -27,6 +35,7 @@
   }
 
   &__body {
+    width: 100%;
     padding: map-get($space, lg);
 
     > :first-child {

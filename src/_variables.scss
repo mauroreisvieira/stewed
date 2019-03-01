@@ -10,6 +10,15 @@ $color-primary: $theme-color-primary !default;
 $color-accent: $theme-color-accent !default;
 $color-base: $theme-color-base !default;
 
+$radius: (
+  xl: var(--radius-xl),
+  hg: var(--radius-hg),
+  lg: var(--radius-lg),
+  md: var(--radius-md),
+  sm: var(--radius-sm),
+  xs: var(--radius-xs)
+) !default;
+
 $space: (
   x-hg: var(--space-x-hg),
   hg: var(--space-hg),
@@ -21,8 +30,6 @@ $space: (
   xs: var(--space-xs),
   x-xs: var(--space-x-xs)
 ) !default;
-
-$border-radius: $theme-border-radius !default;
 
 $transition-function-decelerate: cubic-bezier(0, 0, .2, 1) !default;
 $transition-function-accelerate: cubic-bezier(.4, 0, 1, 1) !default;

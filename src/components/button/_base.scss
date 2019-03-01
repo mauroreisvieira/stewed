@@ -5,7 +5,7 @@
   justify-content: center;
   padding: map-get($space, sm) map-get($space, lg);
   border: 0;
-  border-radius: $border-radius;
+  border-radius: map-get($radius, sm);
   outline: none;
   background-color: transparent;
   color: $color-base;

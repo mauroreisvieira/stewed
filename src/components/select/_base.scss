@@ -21,7 +21,7 @@
     width: 100%;
     padding: map-get($space, sm) map-get($space, lg);
     border: 1px solid $theme-color-greyscale;
-    border-radius: $border-radius;
+    border-radius: map-get($radius, sm);
     outline: none;
     background-color: transparent;
     color: $color-base;
