@@ -14,7 +14,6 @@
 
   thead {
     display: block;
-    padding: $table-head-padding;
     float: left;
     border: 0;
     border-right: 2px solid currentColor;
@@ -23,6 +22,7 @@
 
     @include tablet {
       display: table-row-group;
+      padding: $table-head-padding;
       float: none;
       border: 0;
       border-bottom: 2px solid currentColor;

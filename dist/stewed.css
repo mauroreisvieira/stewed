@@ -926,7 +926,6 @@ a {
       display: table; } }
   .table thead {
     display: block;
-    padding: var(--space-lg);
     float: left;
     border: 0;
     border-right: 2px solid currentColor;
@@ -941,12 +940,14 @@ a {
     @media (min-width: 768px) {
       .table thead {
         display: table-row-group;
+        padding: var(--space-lg);
         float: none;
         border: 0;
         border-bottom: 2px solid currentColor;
         margin: var(--space-lg) 0;
-        font-size: var(--typography-lg);
+        font-size: var(--typography-md);
         line-height: 1.4;
+        font-weight: var(--typography-bold);
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
         text-decoration: inherit;
@@ -1004,7 +1005,7 @@ a {
   flex-wrap: nowrap;
   align-items: center;
   height: var(--space-x-lg);
-  padding: 0 var(--space-sm);
+  padding: 0 var(--space-md);
   border-radius: var(--radius-xl);
   background-color: var(--tag-background, var(--color-grayscale-lighter));
   color: var(--tag-color, var(--color-grayscale-base));
@@ -1162,7 +1163,7 @@ a {
   justify-content: center;
   min-width: 20px;
   height: 20px;
-  padding: 0 6px;
+  padding: 0 var(--space-x-sm);
   transform: translate(50%, -50%);
   border-radius: var(--radius-xl);
   background-color: var(--badge-background, var(--color-grayscale-lighter));

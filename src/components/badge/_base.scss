@@ -8,7 +8,7 @@
   justify-content: center;
   min-width: 20px;
   height: 20px;
-  padding: 0 6px;
+  padding: 0 map-get($space, x-sm);
   transform: translate(50%, -50%);
   border-radius: map-get($radius, xl);
   background-color: $badge-background;
