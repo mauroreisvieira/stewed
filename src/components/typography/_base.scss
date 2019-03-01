@@ -1,6 +1,10 @@
 @for $i from 1 through 6 {
   .h#{$i} {
-    @include get-typography(headline-#{$i});
+    @include get-typography(headline-#{$i + 1});
+
+    @include tablet() {
+      @include get-typography(headline-#{$i});
+    }
   }
 }
 

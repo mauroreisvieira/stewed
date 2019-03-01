@@ -134,7 +134,8 @@ body {
 :root {
   --typography-x-hg: 4.75rem;
   --typography-hg: 3.25rem;
-  --typography-x-lg: 2.125rem;
+  --typography-x-xl: 3rem;
+  --typography-xl: 2.125rem;
   --typography-lg: 1.75rem;
   --typography-md: 1.5rem;
   --typography-base: 1rem;
@@ -151,16 +152,6 @@ body {
 
 .h1 {
   margin: var(--space-lg) 0;
-  font-size: var(--typography-x-hg);
-  line-height: 1.4;
-  font-weight: var(--typography-light);
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  text-decoration: inherit;
-  text-transform: inherit; }
-
-.h2 {
-  margin: var(--space-lg) 0;
   font-size: var(--typography-hg);
   line-height: 1.4;
   font-weight: var(--typography-bold);
@@ -168,16 +159,55 @@ body {
   -webkit-font-smoothing: antialiased;
   text-decoration: inherit;
   text-transform: inherit; }
+  @media (min-width: 768px) {
+    .h1 {
+      margin: var(--space-lg) 0;
+      font-size: var(--typography-x-hg);
+      line-height: 1.4;
+      font-weight: var(--typography-light);
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+      text-decoration: inherit;
+      text-transform: inherit; } }
 
-.h3 {
+.h2 {
   margin: var(--space-lg) 0;
-  font-size: var(--typography-x-lg);
+  font-size: var(--typography-x-xl);
   line-height: 1.4;
   font-weight: var(--typography-light);
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-decoration: inherit;
   text-transform: inherit; }
+  @media (min-width: 768px) {
+    .h2 {
+      margin: var(--space-lg) 0;
+      font-size: var(--typography-hg);
+      line-height: 1.4;
+      font-weight: var(--typography-bold);
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+      text-decoration: inherit;
+      text-transform: inherit; } }
+
+.h3 {
+  margin: var(--space-lg) 0;
+  font-size: var(--typography-xl);
+  line-height: 1.4;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: inherit;
+  text-transform: inherit; }
+  @media (min-width: 768px) {
+    .h3 {
+      margin: var(--space-lg) 0;
+      font-size: var(--typography-x-xl);
+      line-height: 1.4;
+      font-weight: var(--typography-light);
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+      text-decoration: inherit;
+      text-transform: inherit; } }
 
 .h4 {
   margin: var(--space-lg) 0;
@@ -187,15 +217,34 @@ body {
   -webkit-font-smoothing: antialiased;
   text-decoration: inherit;
   text-transform: inherit; }
+  @media (min-width: 768px) {
+    .h4 {
+      margin: var(--space-lg) 0;
+      font-size: var(--typography-xl);
+      line-height: 1.4;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+      text-decoration: inherit;
+      text-transform: inherit; } }
 
 .h5 {
   margin: var(--space-lg) 0;
   font-size: var(--typography-md);
   line-height: 1.4;
+  font-weight: var(--typography-bold);
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-decoration: inherit;
   text-transform: inherit; }
+  @media (min-width: 768px) {
+    .h5 {
+      margin: var(--space-lg) 0;
+      font-size: var(--typography-lg);
+      line-height: 1.4;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+      text-decoration: inherit;
+      text-transform: inherit; } }
 
 .h6 {
   margin: var(--space-lg) 0;
@@ -206,6 +255,16 @@ body {
   -webkit-font-smoothing: antialiased;
   text-decoration: inherit;
   text-transform: inherit; }
+  @media (min-width: 768px) {
+    .h6 {
+      margin: var(--space-lg) 0;
+      font-size: var(--typography-md);
+      line-height: 1.4;
+      font-weight: var(--typography-bold);
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+      text-decoration: inherit;
+      text-transform: inherit; } }
 
 p {
   margin-bottom: var(--space-sm);
@@ -870,7 +929,7 @@ a {
     border: 0;
     border-right: 2px solid currentColor;
     margin: var(--space-lg) 0;
-    font-size: var(--typography-base);
+    font-size: var(--typography-md);
     line-height: 1.4;
     font-weight: var(--typography-bold);
     -moz-osx-font-smoothing: grayscale;
@@ -884,7 +943,7 @@ a {
         border: 0;
         border-bottom: 2px solid currentColor;
         margin: var(--space-lg) 0;
-        font-size: var(--typography-md);
+        font-size: var(--typography-lg);
         line-height: 1.4;
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
