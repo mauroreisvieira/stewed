@@ -37,7 +37,7 @@ body {
 /* Demo Colors */
 .demo-color-list {
   display: flex;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-x-md);
 }
 
 .demo-color-item {
@@ -57,8 +57,8 @@ body {
   justify-content: center;
   height: 30%;
   padding: var(--space-sm) 0;
-  font-size: var(--typography-x-sm);
-  font-weight: var(--typography-medium);
+  font-size: var(--typography-xs);
+  font-weight: var(--typography-bold);
   text-align: center;
   text-transform: uppercase;
 }
