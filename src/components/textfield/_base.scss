@@ -28,7 +28,8 @@
 
   &--textarea {
     .textfield__control {
-      min-height: 80px;
+      min-height: $textfield-textarea-min-height;
+      max-height: $textfield-textarea-min-height * 2;
       resize: none;
     }
   }
