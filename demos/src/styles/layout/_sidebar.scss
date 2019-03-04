@@ -1,0 +1,14 @@
+.sidebar {
+  position: fixed;
+  width: 280px;
+  height: 100%;
+  padding: var(--space-x-lg) 0;
+  border-right: 1px solid rgba(0, 0, 0, .12);
+
+  &__title {
+    padding: var(--space-sm) var(--space-x-lg);
+    color: var(--color-grayscale-light);
+    font-size: var(--typography-x-sm);
+    text-transform: uppercase;
+  }
+}

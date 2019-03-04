@@ -1,8 +1,4 @@
-<p align="center">
-    <a href="http://mauroreisvieira.github.io/stewed/index.html" target="_blank">
-    	<img width="140" src="assets/images/logo/stewed.jpg">
-    </a><br>
-</p>
+![Stewed](assets/images/logo/stewed.jpg)
 
 # Welcome to Stewed Framework
 

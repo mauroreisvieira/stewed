@@ -1,7 +1,7 @@
 ## Alert
 
 #### Overview
-_TODO_
+Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
 
 #### HTML Structure
 ```html
@@ -13,23 +13,28 @@ _TODO_
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic maxime, ullam a.
     </div>
 </div>
+<div class="alert alert--info">
+    <div class="alert__title">
+        Info Text
+    </div>
+    <div class="alert__description">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic maxime, ullam a.
+    </div>
+</div>
+<div class="alert alert--warning">
+    <div class="alert__title">
+        Warning Text
+    </div>
+    <div class="alert__description">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic maxime, ullam a.
+    </div>
+</div>
+<div class="alert alert--danger">
+    <div class="alert__title">
+        Error Text
+    </div>
+    <div class="alert__description">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic maxime, ullam a.
+    </div>
+</div>
 ```
-
-#### CSS Classes
-
-| CSS Class  | Description |
-| --- | --- |
-| `alert`              | |
-| `alert__title`       | |
-| `alert__description` | |
-
-#### CSS Modifiers
-
-| CSS Class  | Description |
-| --- | --- |
-| `alert--primary` | |
-| `alert--accent`  | |
-| `alert--success` | |
-| `alert--info`    | |
-| `alert--warning` | |
-| `alert--danger`  | |

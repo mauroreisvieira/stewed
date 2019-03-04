@@ -137,8 +137,7 @@ html {
 body {
   margin: 0 auto;
   padding: 0;
-  color: var(--color-grayscale-base);
-  color: rgba(var(--color--text), 0.8); }
+  color: var(--color-grayscale-base); }
 
 :root {
   --typography-x-hg: 4.75rem;
@@ -1217,7 +1216,7 @@ a {
   color: #fff;
   font-size: var(--typography-x-sm);
   white-space: nowrap;
-  z-index: 9; }
+  z-index: 2; }
   .badge:empty {
     min-width: var(--space-sm);
     height: var(--space-sm);

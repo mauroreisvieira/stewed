@@ -1,0 +1,22 @@
+.navigation {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &__item {
+    display: flex;
+    width: 100%;
+  }
+
+  &__link {
+    width: 100%;
+    padding: var(--space-sm) var(--space-x-lg);
+    color: var(--color-grayscale-darker);
+    font-size: var(--typography-base);
+
+    &:hover {
+      background-color: var(--color-grayscale-lighter);
+    }
+  }
+}

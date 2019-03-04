@@ -1,7 +1,10 @@
-body {
-  max-width: var(--breakpoint-hg);
-  margin: auto;
-  padding: var(--space-lg);
+.main {
+  display: flex;
+  margin-top: 70px;
+}
+
+h2 {
+  color: var(--color-accent-base);
 }
 
 .demo-section {
@@ -71,3 +74,4 @@ body {
   margin-bottom: var(--space-md);
   background-color: var(--color-grayscale-lighter);
 }
+
