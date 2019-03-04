@@ -1,12 +1,13 @@
 .sidebar {
   position: fixed;
-  width: 280px;
+  width: $sidebar-width;
   height: 100%;
-  padding: var(--space-x-lg) 0;
+  padding: var(--space-xl) 0;
   border-right: 1px solid rgba(0, 0, 0, .12);
+  overflow-y: auto;
 
   &__title {
-    padding: var(--space-sm) var(--space-x-lg);
+    padding: var(--space-sm) var(--space-xl);
     color: var(--color-grayscale-light);
     font-size: var(--typography-x-sm);
     text-transform: uppercase;

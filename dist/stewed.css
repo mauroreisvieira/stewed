@@ -103,7 +103,7 @@
 :root {
   --space-x-hg: 2.5rem;
   --space-hg: 2rem;
-  --space-x-lg: 1.5rem;
+  --space-xl: 1.5rem;
   --space-lg: 1rem;
   --space-md: 0.75rem;
   --space-sm: 0.5rem;
@@ -357,7 +357,7 @@ a {
     padding: var(--space-sm);
     font-size: var(--typography-x-sm); }
   .btn--lg {
-    padding: var(--space-lg) var(--space-x-lg); }
+    padding: var(--space-lg) var(--space-xl); }
   .btn--primary {
     background-color: var(--color-primary-base);
     color: #fff; }
@@ -403,8 +403,7 @@ a {
       opacity: .5;
       pointer-events: none; }
   .textfield--textarea .textfield__control {
-    min-height: 80;
-    max-height: 160;
+    height: 160px;
     resize: none; }
   .textfield--required .textfield__control {
     padding-right: 32px; }
@@ -440,7 +439,7 @@ a {
   position: relative;
   display: flex;
   width: 100%; }
-  .select::before {
+  .select__arrow {
     position: absolute;
     top: 0;
     right: 0;
@@ -449,9 +448,10 @@ a {
     justify-content: center;
     width: 40px;
     height: 100%;
-    color: currentColor;
-    font-size: var(--typography-sm);
-    content: attr(data-arrow); }
+    color: currentColor; }
+    .select__arrow svg {
+      width: 18px;
+      fill: currentColor; }
   .select__control {
     width: 100%;
     padding: var(--space-sm) var(--space-lg);
@@ -1048,7 +1048,7 @@ a {
   display: inline-flex;
   flex-wrap: nowrap;
   align-items: center;
-  height: var(--space-x-lg);
+  height: var(--space-xl);
   padding: 0 var(--space-md);
   border-radius: var(--radius-sm);
   background-color: var(--tag-background, var(--color-grayscale-lighter));
@@ -1335,23 +1335,25 @@ a {
 .list {
   margin: 0 0 var(--space-lg);
   padding: 0 0 0 var(--space-lg); }
+  .list ul {
+    margin-left: var(--space-lg);
+    padding: 0; }
+  .list li {
+    padding-left: var(--space-xs);
+    font-size: var(--typography-base);
+    line-height: 1.4;
+    font-weight: var(--typography-regular);
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-decoration: inherit;
+    text-transform: inherit; }
   .list--check {
     list-style-type: none;
     padding-left: 0; }
-    .list--check li {
-      margin-bottom: var(--space-sm);
-      padding-left: var(--space-sm);
-      font-size: var(--typography-base);
-      line-height: 1.4;
-      font-weight: var(--typography-regular);
-      -moz-osx-font-smoothing: grayscale;
-      -webkit-font-smoothing: antialiased;
-      text-decoration: inherit;
-      text-transform: inherit; }
-      .list--check li::before {
-        position: relative;
-        right: var(--space-sm);
-        content: "✔"; }
+    .list--check li::before {
+      position: relative;
+      right: var(--space-sm);
+      content: "✔"; }
 
 .progress {
   position: relative;

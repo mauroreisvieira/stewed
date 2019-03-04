@@ -3,26 +3,10 @@
   margin-top: 70px;
 }
 
-h2 {
-  color: var(--color-accent-base);
-}
-
-.demo-section {
-  position: relative;
-  margin: var(--space-lg) 0;
-  border-top: 3px solid var(--color-grayscale-lighter);
-}
-
-.demo-section .demo-title {
-  color: var(--color-accent-base);
-}
-
-.demo-radio {
-  margin-right: 8px;
-}
-
-.demo-switch {
-  margin-right: 16px;
+.content {
+  > h2 {
+    color: var(--color-accent-base);
+  }
 }
 
 .demo-head {

@@ -31,7 +31,7 @@
   }
 
   &--lg {
-    padding: map-get($space, lg) map-get($space, x-lg);
+    padding: map-get($space, lg) map-get($space, xl);
   }
 
   @each $key, $values in $buttons {

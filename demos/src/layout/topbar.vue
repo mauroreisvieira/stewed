@@ -1,6 +1,11 @@
 <template>
     <header class="header">
-        <div class="logo">Stewed <span class="version">v{{ version }}</span></div>
+        <div class="header__wrapper">
+            <div class="logo">Stewed <span class="version tag tag--primary">v{{ version }}</span></div>
+            <div class="textfield textfield--shaped">
+                <input type="text" name="textfield-2" class="textfield__control" placeholder="Search the docs..." disabled />
+            </div>
+        </div>
         <navigation />
     </header>
 </template>

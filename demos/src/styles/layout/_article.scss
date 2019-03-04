@@ -1,7 +1,7 @@
 .article {
   position: relative;
   flex: 1;
-  margin-left: 280px;
-  padding: var(--space-x-lg);
+  margin-left: $sidebar-width;
+  padding: var(--space-xl);
   overflow: hidden;
 }

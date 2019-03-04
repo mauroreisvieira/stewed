@@ -9,17 +9,26 @@
   box-shadow: 2px 4px 10px rgba(0, 0, 0, .2);
   z-index: 9;
 
+  &__wrapper {
+    display: flex;
+    flex: 1;
+    align-items: center;
+
+    .textfield {
+      width: 50%;
+    }
+  }
+
   .logo {
     display: flex;
     align-items: center;
-    padding: var(--space-x-lg);
+    width: $sidebar-width;
+    padding: var(--space-xl);
     font-size: var(--typography-md);
+    font-weight: var(--typography-bold);
 
     .version {
       margin-left: var(--space-xs);
-      color: var(--color-grayscale-lighter);
-      font-size: var(--typography-sm);
-      font-weight: var(--typography-bold);
     }
   }
 }

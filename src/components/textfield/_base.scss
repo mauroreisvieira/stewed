@@ -34,8 +34,7 @@
 
   &--textarea {
     .textfield__control {
-      min-height: $textfield-textarea-min-height;
-      max-height: $textfield-textarea-min-height * 2;
+      height: $textfield-textarea-min-height * 2;
       resize: none;
     }
   }

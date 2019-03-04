@@ -41,7 +41,7 @@ $theme-font-family-monospace: var(--theme-font-family-monospace);
 :root {
   --space-x-hg: #{calculate-rem(40px)};
   --space-hg: #{calculate-rem(32px)};
-  --space-x-lg: #{calculate-rem(24px)};
+  --space-xl: #{calculate-rem(24px)};
   --space-lg: #{calculate-rem(16px)};
   --space-md: #{calculate-rem(12px)};
   --space-sm: #{calculate-rem(8px)};
