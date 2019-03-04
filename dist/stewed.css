@@ -38,18 +38,26 @@
 * @return {Color}
 */
 /**
-* Gets the color.
+* Build color.
 * @param {Color}  $color
 * @param {String}  $tone
 * @return {Color}  $color
 */
 /**
-* Gets the color.
+* Get color.
 * @param {Color}  $color
 * @param {String}  $tone
 * @return {Color}  $color
 */
+/**
+* Alpha Color
+* @param {Color}  $color
+* @param {Number}  $opacity
+ */
 /* stylelint-disable selector-max-universal, selector-max-type */
+:root {
+  --color--text: 18, 18, 26; }
+
 :root {
   --theme-font-family-serif: "Nunito", sans-serif;
   --theme-font-family-monospace: monospace;
@@ -129,7 +137,8 @@ html {
 body {
   margin: 0 auto;
   padding: 0;
-  color: var(--color-grayscale-base); }
+  color: var(--color-grayscale-base);
+  color: rgba(var(--color--text), 0.8); }
 
 :root {
   --typography-x-hg: 4.75rem;
@@ -831,7 +840,7 @@ a {
         transform: none;
         background-color: currentColor; }
     .radio__control:disabled + .radio__background {
-      color: rgba(0, 0, 0, 0.2); }
+      color: rgba(69, 75, 87, 0.2); }
   .radio__background {
     position: relative;
     display: flex;
@@ -909,7 +918,7 @@ a {
         transform: translate(50%, -50%);
         background-color: currentColor; }
     .switch__control:disabled + .switch__background {
-      color: rgba(0, 0, 0, 0.2); }
+      color: rgba(69, 75, 87, 0.2); }
       .switch__control:disabled + .switch__background::after {
         transform: translate(50%, -50%);
         background-color: #ccc; }
@@ -942,7 +951,7 @@ a {
       border-radius: 50%;
       outline: 0;
       background-color: #fafafa;
-      box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.084);
+      box-shadow: 0 3px 1px -2px rgba(69, 75, 87, 0.2), 0 2px 2px 0 rgba(69, 75, 87, 0.1), 0 1px 5px 0 rgba(69, 75, 87, 0.1);
       content: ""; }
 
 /* stylelint-disable selector-max-type, order/order */
@@ -1113,7 +1122,7 @@ a {
         transform: none;
         background-color: currentColor; }
     .checkbox__control:disabled + .checkbox__background {
-      color: rgba(0, 0, 0, 0.2); }
+      color: rgba(69, 75, 87, 0.2); }
   .checkbox__background {
     position: relative;
     display: flex;
@@ -1288,6 +1297,10 @@ a {
     width: 100%;
     padding: var(--space-lg);
     border-top: 1px solid var(--color-grayscale-lighter); }
+    .card__footer > :first-child {
+      margin-top: 0; }
+    .card__footer > :last-child {
+      margin-bottom: 0; }
 
 .breadcrumb {
   display: flex;
@@ -1352,7 +1365,7 @@ a {
     appearance: none; }
     .progress__control::-webkit-progress-bar {
       border-radius: var(--radius-sm);
-      background-color: rgba(0, 0, 0, 0.2);
+      background-color: rgba(69, 75, 87, 0.2);
       box-shadow: none; }
     .progress__control::-webkit-progress-value {
       border-radius: var(--radius-sm);

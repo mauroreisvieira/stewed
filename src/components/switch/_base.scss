@@ -48,7 +48,7 @@
 
     &:disabled {
       + .switch__background {
-        color: rgba(#000, .2);
+        color: alpha(grayscale, .2);
 
         &::after {
           transform: translate(50%, -50%);
@@ -90,7 +90,10 @@
       border-radius: 50%;
       outline: 0;
       background-color: #fafafa;
-      box-shadow: 0 3px 1px -2px rgba(#000, .14), 0 2px 2px 0 rgba(#000, .098), 0 1px 5px 0 rgba(#000, .084);
+      box-shadow:
+        0 3px 1px -2px alpha(grayscale, .2),
+        0 2px 2px 0 alpha(grayscale, .1),
+        0 1px 5px 0 alpha(grayscale, .1);
       content: "";
     }
   }

@@ -70,7 +70,7 @@
 
     &:disabled {
       + .radio__background {
-        color: rgba(#000, .2);
+        color: alpha(grayscale, .2);
       }
     }
   }

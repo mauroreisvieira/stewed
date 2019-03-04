@@ -29,7 +29,7 @@
 }
 
 /**
-* Gets the color.
+* Build color.
 * @param {Color}  $color
 * @param {String}  $tone
 * @return {Color}  $color
@@ -60,7 +60,7 @@
 }
 
 /**
-* Gets the color.
+* Get color.
 * @param {Color}  $color
 * @param {String}  $tone
 * @return {Color}  $color
@@ -75,4 +75,21 @@
   }
 
   @return var(--color-#{$color}-#{$tone});
+}
+
+/**
+* Alpha Color
+* @param {Color}  $color
+* @param {Number}  $opacity
+ */
+@function alpha($color, $opacity) {
+  @if type-of($color) == string {
+    @if not map-has-key($palette-colors, $color) {
+      @error "Invalid color specified! #{$color} doesn't exist. Choose one of #{map-keys($palette-colors)}";
+    }
+
+    @return rgba(map-get($palette-colors, $color), $opacity);
+  }
+
+  @return rgba($color, $opacity);
 }
