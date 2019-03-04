@@ -2,7 +2,10 @@
 
 # Welcome to Stewed Framework
 
-![Travis](https://img.shields.io/dub/l/vibe-d.svg)
+[![GitHub tag](https://img.shields.io/github/release/mauroreisvieira/stewed.svg?style=for-the-badge)](https://github.com/mauroreisvieira/stewed/releases)
+[![GitHub issues](https://img.shields.io/github/issues/mauroreisvieira/stewed.svg?style=for-the-badge)](https://github.com/mauroreisvieira/stewed/issues)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=for-the-badge)](https://github.com/prettier/prettier)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)](https://github.com/mauroreisvieira/stewed/blob/master/LICENSE)
 
 [Stewed Framework](http://mauroreisvieira.github.io/stewed) is the ideal tool for a rapid development of simple and lightweight web applications.
 Using a combination of **HTML**, **CSS** and pure **JavaScript** allows you to create a fully customized application without losing its own special way it serves only one auxiliary base in its development.

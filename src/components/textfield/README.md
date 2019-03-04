@@ -10,7 +10,7 @@ _TODO_
         <div class="form-field form-field--column">
             <label for="textfield-1">Textfield #01</label>
             <div class="textfield">
-                <input type="text" name="textfield-1" placeholder="Textfield Shaped" class="textfield__control" />
+                <input type="text" name="textfield-1" placeholder="Textfield" class="textfield__control" />
             </div>
         </div>
     </div>

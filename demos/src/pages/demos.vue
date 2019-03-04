@@ -20,6 +20,7 @@
           }
         },
         mounted() {
+            console.log('DEMO');
             const fiile = this.$route.path + '/README.md';
             const md = new Remarkable({
                 langPrefix: 'hljs language-'

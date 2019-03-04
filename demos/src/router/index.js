@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import home from '../pages/home.vue'
+import color from '../pages/color.vue'
 import demos from '../pages/demos.vue'
 import { store } from '../store/store';
 
@@ -13,13 +14,21 @@ routes.push({
     component: home
 });
 
+routes.push({
+    path: '/colors',
+    name: 'color',
+    component: color
+});
+
 store.state.menus.map(menu => {
     menu.data.map(link => {
-        routes.push({
-            path: link.url,
-            name: link.title,
-            component: demos
-        })
+        if (link.demo) {
+            routes.push({
+                path: '/' + link.url,
+                name: link.title,
+                component: demos
+            })
+        }
     })
 });
 

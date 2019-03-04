@@ -11,12 +11,13 @@
 
   &__link {
     width: 100%;
-    padding: var(--space-sm) var(--space-xl);
+    padding: var(--space-xs) var(--space-xl);
     color: var(--color-grayscale-darker);
-    font-size: var(--typography-base);
+    font-size: var(--typography-sm);
 
-    &:hover {
-      background-color: var(--color-grayscale-lighter);
+    &.router-link-active {
+      font-weight: var(--typography-bold);
+      color: var(--color-primary-base);
     }
   }
 }
