@@ -349,6 +349,8 @@ a {
   -webkit-font-smoothing: antialiased;
   text-decoration: none;
   text-transform: uppercase; }
+  .btn--shaped {
+    border-radius: var(--radius-hg); }
   @media (hover: hover) {
     .btn:hover {
       background-color: var(--color-grayscale-lighter); } }
@@ -377,6 +379,8 @@ a {
   position: relative;
   display: flex;
   width: 100%; }
+  .textfield--shaped .textfield__control {
+    border-radius: var(--radius-hg); }
   .textfield__control {
     width: 100%;
     padding: var(--space-sm) var(--space-lg);
@@ -1047,13 +1051,15 @@ a {
   align-items: center;
   height: var(--space-x-lg);
   padding: 0 var(--space-md);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-sm);
   background-color: var(--tag-background, var(--color-grayscale-lighter));
   color: var(--tag-color, var(--color-grayscale-base));
   font-size: var(--typography-xs);
   font-weight: var(--typography-bold);
   text-transform: uppercase;
   cursor: pointer; }
+  .tag--shaped {
+    border-radius: var(--radius-hg); }
   .tag--primary {
     --tag-background: var(--color-primary-lighter);
     --tag-color: var(--color-primary-base); }

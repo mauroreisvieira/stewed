@@ -13,6 +13,10 @@
   cursor: pointer;
   overflow: hidden;
 
+  &--shaped {
+    border-radius: map-get($radius, hg);
+  }
+
   @include get-typography(button);
 
   @media (hover: hover) {

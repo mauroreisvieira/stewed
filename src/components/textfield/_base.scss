@@ -3,6 +3,12 @@
   display: flex;
   width: 100%;
 
+  &--shaped {
+    .textfield__control {
+      border-radius: map-get($radius, hg);
+    }
+  }
+
   &__control {
     width: 100%;
     padding: map-get($space, sm) map-get($space, lg);

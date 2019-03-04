@@ -4,13 +4,17 @@
   align-items: center;
   height: map-get($space, x-lg);
   padding: 0 map-get($space, md);
-  border-radius: map-get($radius, xl);
+  border-radius: map-get($radius, sm);
   background-color: $tag-background;
   color: $tag-color;
   font-size: map-get($typography-font-size, xs);
   font-weight: map-get($typography-font-weight, bold);
   text-transform: uppercase;
   cursor: pointer;
+
+  &--shaped {
+    border-radius: map-get($radius, hg);
+  }
 
   @each $key in $tag-keys {
     &--#{$key} {
