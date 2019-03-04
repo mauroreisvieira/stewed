@@ -1,3 +1,5 @@
+/* stylelint-disable selector-max-type */
+
 @for $i from 1 through 6 {
   .h#{$i} {
     @include get-typography(headline-#{$i + 1});
@@ -22,4 +24,48 @@ a {
       color: var(--color-primary-dark);
     }
   }
+}
+
+// Font Weight
+.light {
+  font-weight: var($typography-font-weight, light);
+}
+
+.medium {
+  font-weight: var($typography-font-weight, medium);
+}
+
+.bold {
+  font-weight: var($typography-font-weight, bold);
+}
+
+// Font Style
+.italic {
+  font-style: italic;
+}
+
+// Text Transform
+.capitalize {
+  text-transform: capitalize;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+// Text Align
+.left {
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
 }

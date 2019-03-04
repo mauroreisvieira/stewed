@@ -150,6 +150,7 @@ body {
   --typography-medium: 600;
   --typography-bold: 700; }
 
+/* stylelint-disable selector-max-type */
 .h1 {
   margin: var(--space-lg) 0;
   font-size: var(--typography-hg);
@@ -289,6 +290,36 @@ a {
     a:hover {
       color: var(--color-primary-dark); } }
 
+.light {
+  font-weight: var((light: var(--typography-light), regular: var(--typography-regular), medium: var(--typography-medium), bold: var(--typography-bold)), light); }
+
+.medium {
+  font-weight: var((light: var(--typography-light), regular: var(--typography-regular), medium: var(--typography-medium), bold: var(--typography-bold)), medium); }
+
+.bold {
+  font-weight: var((light: var(--typography-light), regular: var(--typography-regular), medium: var(--typography-medium), bold: var(--typography-bold)), bold); }
+
+.italic {
+  font-style: italic; }
+
+.capitalize {
+  text-transform: capitalize; }
+
+.uppercase {
+  text-transform: uppercase; }
+
+.lowercase {
+  text-transform: lowercase; }
+
+.left {
+  text-align: left; }
+
+.center {
+  text-align: center; }
+
+.right {
+  text-align: right; }
+
 .btn {
   position: relative;
   display: inline-flex;
@@ -360,7 +391,8 @@ a {
       opacity: .5;
       pointer-events: none; }
   .textfield--textarea .textfield__control {
-    min-height: 80px;
+    min-height: 80;
+    max-height: 160;
     resize: none; }
   .textfield--required .textfield__control {
     padding-right: 32px; }
@@ -1323,6 +1355,10 @@ a {
       background-color: rgba(0, 0, 0, 0.2);
       box-shadow: none; }
     .progress__control::-webkit-progress-value {
+      border-radius: var(--radius-sm);
+      background: var(--progress-background, var(--color-grayscale-lighter));
+      box-shadow: none; }
+    .progress__control::-moz-progress-bar {
       border-radius: var(--radius-sm);
       background: var(--progress-background, var(--color-grayscale-lighter));
       box-shadow: none; }

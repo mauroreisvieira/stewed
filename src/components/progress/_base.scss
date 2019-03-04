@@ -29,6 +29,12 @@
       box-shadow: none;
     }
 
+    &::-moz-progress-bar {
+      border-radius: $progress-border-radius;
+      background: $progress-background;
+      box-shadow: none;
+    }
+
     &::after {
       position: absolute;
       top: 2px;
