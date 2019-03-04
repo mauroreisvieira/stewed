@@ -1,7 +1,7 @@
 ## Table
 
 #### Overview
-_TODO_
+**Table** omponent is an enhanced version of the standard HTML.
 
 #### HTML Structure
 ```html

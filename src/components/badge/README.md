@@ -1,7 +1,7 @@
 ## Badge
 
 #### Overview
-_TODO_
+**Badge** component is an on screen notification element.
 
 #### HTML Structure
 ```html

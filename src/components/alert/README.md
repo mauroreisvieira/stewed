@@ -1,7 +1,7 @@
 ## Alert
 
 #### Overview
-Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
+**Alert** component provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
 
 #### HTML Structure
 ```html

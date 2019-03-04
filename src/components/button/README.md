@@ -1,7 +1,7 @@
 ## Button
 
 #### Overview
-_TODO_
+**Button** component consists of text and/or an image that clearly communicates what action will occur when the user clicks or touches it.
 
 #### HTML Structure
 ```html

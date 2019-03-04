@@ -1,7 +1,7 @@
 ## Card
 
 #### Overview
-_TODO_
+**Card** component is a user interface element representing a virtual piece of paper that contains related data.
 
 #### HTML Structure
 ```html

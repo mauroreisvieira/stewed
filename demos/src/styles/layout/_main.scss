@@ -9,6 +9,21 @@
   }
 }
 
+.demo {
+  position: relative;
+  margin: var(--space-lg) 0;
+  padding: var(--space-lg);
+  border-bottom: 3px solid var(--color-grayscale-lighter);
+}
+
+.demo-radio {
+  margin-right: 8px;
+}
+
+.demo-switch {
+  margin-right: 16px;
+}
+
 .demo-head {
   position: relative;
   display: inline-block;
