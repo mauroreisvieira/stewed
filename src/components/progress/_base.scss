@@ -19,19 +19,19 @@
 
     &::-webkit-progress-bar {
       border-radius: $progress-border-radius;
-      background-color: rgba(0, 0, 0, .2);
+      background-color: $progress-background;
       box-shadow: none;
     }
 
     &::-webkit-progress-value {
       border-radius: $progress-border-radius;
-      background: $progress-background;
+      background: $progress-background-value;
       box-shadow: none;
     }
 
     &::-moz-progress-bar {
       border-radius: $progress-border-radius;
-      background: $progress-background;
+      background: $progress-background-value;
       box-shadow: none;
     }
 

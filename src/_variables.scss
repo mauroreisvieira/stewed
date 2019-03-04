@@ -1,3 +1,8 @@
+// defining colors default
+$color-primary: $theme-color-primary !default;
+$color-accent: $theme-color-accent !default;
+$color-base: $theme-color-base !default;
+
 // defining breakpoints
 $breakpoints: (
   sm: $theme-breakpoint-mobile,
@@ -6,10 +11,7 @@ $breakpoints: (
   hg: $theme-breakpoint-tv
 ) !default;
 
-$color-primary: $theme-color-primary !default;
-$color-accent: $theme-color-accent !default;
-$color-base: $theme-color-base !default;
-
+// defining border radius
 $radius: (
   xl: var(--radius-xl),
   hg: var(--radius-hg),

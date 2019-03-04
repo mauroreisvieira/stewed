@@ -28,15 +28,15 @@ a {
 
 // Font Weight
 .light {
-  font-weight: var($typography-font-weight, light);
+  font-weight: map-get($typography-font-weight, light);
 }
 
 .medium {
-  font-weight: var($typography-font-weight, medium);
+  font-weight: map-get($typography-font-weight, medium);
 }
 
 .bold {
-  font-weight: var($typography-font-weight, bold);
+  font-weight: map-get($typography-font-weight, bold);
 }
 
 // Font Style

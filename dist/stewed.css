@@ -291,13 +291,13 @@ a {
       color: var(--color-primary-dark); } }
 
 .light {
-  font-weight: var((light: var(--typography-light), regular: var(--typography-regular), medium: var(--typography-medium), bold: var(--typography-bold)), light); }
+  font-weight: var(--typography-light); }
 
 .medium {
-  font-weight: var((light: var(--typography-light), regular: var(--typography-regular), medium: var(--typography-medium), bold: var(--typography-bold)), medium); }
+  font-weight: var(--typography-medium); }
 
 .bold {
-  font-weight: var((light: var(--typography-light), regular: var(--typography-regular), medium: var(--typography-medium), bold: var(--typography-bold)), bold); }
+  font-weight: var(--typography-bold); }
 
 .italic {
   font-style: italic; }
