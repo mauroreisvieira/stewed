@@ -26,6 +26,7 @@ export const store = new Vuex.Store({
                     { demo: true, url: 'src/components/checkbox/', title: 'Checkbox' },
                     { demo: true, url: 'src/components/grid/', title: 'Grid' },
                     { demo: true, url: 'src/components/list/', title: 'List' },
+                    { demo: true, url: 'src/components/menu/', title: 'Menu' },
                     { demo: true, url: 'src/components/progress/', title: 'Progress' },
                     { demo: true, url: 'src/components/radio/', title: 'Radio' },
                     { demo: true, url: 'src/components/select/', title: 'Select' },

@@ -1,0 +1,28 @@
+/* stylelint-disable order/order */
+.menu {
+  list-style-type: none;
+
+  &__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: map-get($space, sm) map-get($space, lg);
+    border-radius: map-get($radius, sm);
+    color: inherit;
+    overflow: hidden;
+
+    @include get-typography(base);
+
+    &:hover {
+      background-color: #eee;
+      color: inherit;
+    }
+
+    &.is-active {
+      background-color: var(--color-primary-lighter);
+      color: var(--color-primary-base);
+    }
+  }
+}
