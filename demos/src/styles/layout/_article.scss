@@ -28,6 +28,7 @@
   }
 
   @include breakpoint {
+    max-width: 100%;
     transform: none;
   }
 }
