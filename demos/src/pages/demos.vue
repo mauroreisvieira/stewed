@@ -35,9 +35,7 @@
                 const hedingDemo = this.$el.querySelector('h3');
                 const parentDiv = hedingDemo.parentNode;
                 const htmlDemo = this.$el.querySelector('.language-html').textContent;
-                // console.log(this.$el.querySelectorAll('pre.language-html'));
                 [...this.$el.querySelectorAll('pre.language-html')].map(e => {
-                    console.log(e);
                     const demo = document.createElement('div');
                     demo.innerHTML = e.textContent;
                     demo.classList.add('demo');
