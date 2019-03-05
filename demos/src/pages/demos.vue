@@ -1,8 +1,6 @@
 <template>
     <div class="article">
-        <div class="container">
-            <div class="content" v-html="markdown"></div>
-        </div>
+        <div class="content" v-html="markdown"></div>
     </div>
 </template>
 
@@ -17,7 +15,7 @@
                 file: undefined,
                 markdown: undefined,
                 calendar: undefined
-          }
+            }
         },
         mounted() {
             const fiile = this.$route.path + '/README.md';
@@ -34,7 +32,7 @@
         },
         methods: {
             createDemo() {
-                const hedingDemo = this.$el.querySelector('h4');
+                const hedingDemo = this.$el.querySelector('h3');
                 const parentDiv = hedingDemo.parentNode;
                 const htmlDemo = this.$el.querySelector('.language-html').textContent;
                 const demo = document.createElement('div');
@@ -46,7 +44,7 @@
     }
 </script>
 <style lang="css">
-    @import "./../../assets/prism/prism.css";
+@import "./../../assets/prism/prism.css";
 </style>
 
 

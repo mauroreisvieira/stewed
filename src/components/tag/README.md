@@ -1,9 +1,9 @@
 ## Tag
 
-#### Overview
+### Overview
 _TODO_
 
-#### HTML Structure
+### HTML Structure
 ```html
 <div class="tag">Default</div>
 <div class="tag tag--primary">Primary</div>

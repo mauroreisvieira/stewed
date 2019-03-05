@@ -1,9 +1,9 @@
 ## Tooltip
 
-#### Overview
+### Overview
 _TODO_
 
-#### HTML Structure
+### HTML Structure
 ```html
  <p>
     Most programming languages <a href="" class="tooltip" data-tooltip="default tooltip">have support </a>

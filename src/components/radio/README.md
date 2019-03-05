@@ -1,9 +1,9 @@
 ## Radio
 
-#### Overview
-_TODO_
+### Overview
+**Radio** component communicate an action a user can take.
 
-#### HTML Structure
+### HTML Structure
 ```html
 <div class="form-field demo-radio">
     <div class="radio" tabindex="1">

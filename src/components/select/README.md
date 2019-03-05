@@ -1,9 +1,9 @@
 ## Select
 
-#### Overview
-_TODO_
+### Overview
+**Select** component allow users to select from a single-option menu.
 
-#### HTML Structure
+### HTML Structure
 ```html
 <div class="row">
     <div class="col-sm-12 col-md-4">

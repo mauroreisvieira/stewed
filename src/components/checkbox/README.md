@@ -1,9 +1,9 @@
 ## Checkbox
 
-#### Overview
-_TODO_
+### Overview
+**Checkboxes** component allow the user to select multiple options from a set.
 
-#### HTML Structure
+### HTML Structure
 ```html
 <div class="form-field">
     <div class="checkbox" tabindex="1">

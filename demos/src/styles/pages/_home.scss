@@ -1,5 +1,12 @@
 .home {
+
+  h1 {
+    text-align: center;
+  }
+
   [alt="Stewed"] {
-    width: 260px;
+    display: block;
+    width: 240px;
+    margin: auto;
   }
 }

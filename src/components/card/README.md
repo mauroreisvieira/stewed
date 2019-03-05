@@ -1,9 +1,9 @@
 ## Card
 
-#### Overview
+### Overview
 **Card** component is a user interface element representing a virtual piece of paper that contains related data.
 
-#### HTML Structure
+### HTML Structure
 ```html
 <div class="row">
     <div class="col-sm-12 col-md-6 col-lg-3">

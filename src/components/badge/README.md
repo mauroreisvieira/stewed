@@ -1,9 +1,9 @@
 ## Badge
 
-#### Overview
+### Overview
 **Badge** component is an on screen notification element.
 
-#### HTML Structure
+### HTML Structure
 ```html
 <div class="demo-head">
     <span class="badge badge--info">0</span>

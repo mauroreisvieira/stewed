@@ -1,9 +1,9 @@
 ## Progress
 
-#### Overview
-_TODO_
+### Overview
+**Progress** component indicators display the length of a process or express an unspecified wait time.
 
-#### HTML Structure
+### HTML Structure
 ```html
 <div class="progress progress--sm progress--success">
     <label class="progress__label">Example 1</label>

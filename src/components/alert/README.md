@@ -1,9 +1,9 @@
 ## Alert
 
-#### Overview
+### Overview
 **Alert** component provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
 
-#### HTML Structure
+### HTML Structure
 ```html
 <div class="alert alert--success">
     <div class="alert__title">

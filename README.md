@@ -10,22 +10,16 @@
 [Stewed Framework](http://mauroreisvieira.github.io/stewed) is the ideal tool for a rapid development of simple and lightweight web applications.
 Using a combination of **HTML**, **CSS** and pure **JavaScript** allows you to create a fully customized application without losing its own special way it serves only one auxiliary base in its development.
 
-### Supported Browsers:
-- Chrome 35+
-- Firefox 31+
-- Safari 9+
-- Opera 48+
 
+## Get Started
 
-### Get Started
-
-#### Clone the repo using Git
+### Clone the repo using Git
 
 ```bash
 git clone https://github.com/mauroreisvieira/stewed
 ```
 
-#### Installation
+### Installation
 
 ```bash
 npm install stewed --save
@@ -42,8 +36,14 @@ yarn add stewed
 Alternatively you can [download](https://codeload.github.com/mauroreisvieira/stewed/zip/master)
 this repository.
 
-#### License
 
+### Supported Browsers:
+- Chrome 35+
+- Firefox 31+
+- Safari 9+
+- Opera 48+
+
+### License
 The Stewed is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
 
 Created with ♥️ by [@mauroreisvieira](https://twitter.com/mauroreisvieira) in **Portugal**,

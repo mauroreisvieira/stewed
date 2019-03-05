@@ -1,9 +1,9 @@
 ## Switch
 
-#### Overview
-_TODO_
+### Overview
+**Switches** component communicate an action a user can take.
 
-#### HTML Structure
+### HTML Structure
 ```html
 <div class="form-field demo-switch">
     <div class="switch" tabindex="1">

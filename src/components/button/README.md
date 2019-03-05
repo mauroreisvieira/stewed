@@ -1,9 +1,9 @@
 ## Button
 
-#### Overview
+### Overview
 **Button** component consists of text and/or an image that clearly communicates what action will occur when the user clicks or touches it.
 
-#### HTML Structure
+### HTML Structure
 ```html
 <button class="btn">Normal</button>
 <button class="btn btn--primary">Primary</button>

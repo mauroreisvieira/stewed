@@ -1,9 +1,9 @@
 ## Typography
 
-#### Overview
+### Overview
 _TODO_
 
-#### HTML Structure
+### HTML Structure
 ```html
 <h1 class="h1">Heading 1</h1>
 <h2 class="h2">Heading 2</h2>

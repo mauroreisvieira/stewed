@@ -1,9 +1,9 @@
 ## List
 
-#### Overview
-_TODO_
+### Overview
+**List** component present multiple line items vertically as a single continuous element.
 
-#### HTML Structure
+### HTML Structure
 ```html
  <ul class="list">
     <li>Lorem ipsum</li>

@@ -1,9 +1,9 @@
 ## Table
 
-#### Overview
+### Overview
 **Table** omponent is an enhanced version of the standard HTML.
 
-#### HTML Structure
+### HTML Structure
 ```html
 <table class="table">
     <thead>
