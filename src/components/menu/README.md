@@ -1,9 +1,9 @@
 ## Menu
 
 ### Overview
-**Menu** component display a list of choices.
+Menu component display a list of choices.
 
-### HTML Structure
+### Basic
 ```html
 <nav class="menu" role="menu" aria-hidden="true">
     <a href="" class="menu__item">A Menu Item</a>

@@ -1,5 +1,6 @@
 /* stylelint-disable order/order */
 .menu {
+  width: 100%;
   list-style-type: none;
 
   &__item {
@@ -15,9 +16,11 @@
 
     @include get-typography(base);
 
-    &:hover {
-      background-color: #eee;
-      color: inherit;
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--color-grayscale-lighter);
+        color: inherit;
+      }
     }
 
     &.is-active {

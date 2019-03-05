@@ -1,9 +1,9 @@
 ## Radio
 
 ### Overview
-**Radio** component communicate an action a user can take.
+Radio component communicate an action a user can take.
 
-### HTML Structure
+### Basic
 ```html
 <div class="form-field demo-radio">
     <div class="radio" tabindex="1">
@@ -18,12 +18,5 @@
         <div class="radio__background"></div>
     </div>
     <label for="radio-2">No</label>
-</div>
-<div class="form-field demo-radio">
-    <div class="radio radio--disabled" tabindex="-1">
-        <input class="radio__control" id="radio-3" type="radio" name="demo-radio" checked disabled="disabled" />
-        <div class="radio__background"></div>
-    </div>
-    <label for="radio-3">Maybe</label>
 </div>
 ```

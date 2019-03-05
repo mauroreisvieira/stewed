@@ -1,7 +1,7 @@
 <template>
     <div class="app">
         <topbar logo="./assets/images/logo.png" />
-        <main class="main">
+        <main class="main" @click="hideSidebar">
             <div class="container">
                 <sidebar :menus="menus" />
                 <router-view :key="$route.fullPath"/>
@@ -22,7 +22,13 @@
                 menus: this.$store.state.menus
             }
         },
-        mounted() {
+        methods: {
+            hideSidebar(ev) {
+                const sidebar = document.querySelector('.sidebar');
+                const article = document.querySelector('.article');
+                sidebar.classList.remove('is-visible');
+                article.classList.remove('is-overlay');
+            }
         }
     }
 </script>

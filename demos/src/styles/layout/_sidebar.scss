@@ -1,12 +1,19 @@
 .sidebar {
   position: fixed;
   width: $sidebar-width;
-  height: calc(100vh - #{$header-height});
+  height: calc(100% - #{$header-height});
   padding: var(--space-xl);
   transform: none;
-  border-right: 1px solid rgba(0, 0, 0, .12);
+  transition: transform .22s ease-in;
+  border-right: 1px solid var(--color-grayscale-lighter);
+  background-color: #fff;
   overflow-y: auto;
   will-change: transform;
+  z-index: 10;
+
+  @include breakpoint {
+    transform: translateX($sidebar-width * -1);
+  }
 
   &__title {
     padding: var(--space-sm) var(--space-lg);
@@ -16,7 +23,7 @@
   }
 
   &.is-visible {
-    transform: translateX($sidebar-width);
+    transform: none;
   }
 
   .menu {
@@ -29,3 +36,4 @@
     }
   }
 }
+

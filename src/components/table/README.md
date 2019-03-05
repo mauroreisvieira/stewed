@@ -1,9 +1,9 @@
 ## Table
 
 ### Overview
-**Table** omponent is an enhanced version of the standard HTML.
+Table component is an enhanced version of the standard HTML.
 
-### HTML Structure
+### Basic
 ```html
 <table class="table">
     <thead>

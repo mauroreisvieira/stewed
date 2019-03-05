@@ -3,7 +3,7 @@
 ### Overview
 _TODO_
 
-### HTML Structure
+### Basic
 ```html
  <p>
     Most programming languages <a href="" class="tooltip" data-tooltip="default tooltip">have support </a>

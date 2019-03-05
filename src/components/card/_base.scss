@@ -3,8 +3,10 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  width: 100%;
   margin-bottom: map-get($space, lg);
   border-radius: map-get($radius, sm);
+  background-color: #fff;
   box-shadow: $card-shadow;
   overflow: hidden;
 

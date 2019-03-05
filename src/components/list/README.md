@@ -1,9 +1,9 @@
 ## List
 
 ### Overview
-**List** component present multiple line items vertically as a single continuous element.
+List component present multiple line items vertically as a single continuous element.
 
-### HTML Structure
+### Basic
 ```html
  <ul class="list">
     <li>Lorem ipsum</li>
@@ -15,14 +15,10 @@
     </ul>
     <li>Lorem ipsum dolor sit amet.</li>
 </ul>
+```
 
-<ol class="list">
-    <li>Lorem ipsum</li>
-    <li>Lorem ipsum dolor sit</li>
-    <li>Lorem ipsum dolor.</li>
-    <li>Lorem ipsum dolor sit amet.</li>
-</ol>
-
+### Check
+```html
 <ul class="list list--check">
     <li>Lorem ipsum</li>
     <li>Lorem ipsum dolor sit amet</li>

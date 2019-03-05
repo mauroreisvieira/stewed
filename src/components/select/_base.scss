@@ -23,6 +23,7 @@
   &__control {
     width: 100%;
     padding: map-get($space, sm) map-get($space, lg);
+    padding-right: map-get($space, x-hg);
     border: 1px solid $theme-color-greyscale;
     border-radius: map-get($radius, sm);
     outline: none;

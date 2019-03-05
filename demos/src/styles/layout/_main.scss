@@ -15,21 +15,14 @@
   > h2 {
     color: var(--color-accent-base);
   }
-}
 
-.demo {
-  position: relative;
-  margin: var(--space-lg) 0;
-  padding: var(--space-lg) 0;
-  border-bottom: 3px solid var(--color-grayscale-lighter);
+  > h3 {
+    margin-top: var(--space-xl);
+  }
 }
 
 .demo-radio {
-  margin-right: 8px;
-}
-
-.demo-switch {
-  margin-right: 16px;
+  margin: 8px;
 }
 
 .demo-head {
