@@ -61,8 +61,6 @@ $typography: (
     font-size: map-get($typography-font-size, hg),
     line-height: 1.4,
     font-weight: map-get($typography-font-weight, bold),
-    -moz-osx-font-smoothing: grayscale,
-    -webkit-font-smoothing: antialiased,
     text-decoration: inherit,
     text-transform: inherit
   ),
@@ -71,8 +69,6 @@ $typography: (
     font-size: map-get($typography-font-size, x-xl),
     line-height: 1.4,
     font-weight: map-get($typography-font-weight, light),
-    -moz-osx-font-smoothing: grayscale,
-    -webkit-font-smoothing: antialiased,
     text-decoration: inherit,
     text-transform: inherit
   ),
@@ -81,8 +77,6 @@ $typography: (
     font-size: map-get($typography-font-size, xl),
     line-height: 1.4,
     font-weight: map-get($typography-font-weight, md),
-    -moz-osx-font-smoothing: grayscale,
-    -webkit-font-smoothing: antialiased,
     text-decoration: inherit,
     text-transform: inherit
   ),
@@ -91,8 +85,6 @@ $typography: (
     font-size: map-get($typography-font-size, lg),
     line-height: 1.4,
     font-weight: map-get($typography-font-weight, md),
-    -moz-osx-font-smoothing: grayscale,
-    -webkit-font-smoothing: antialiased,
     text-decoration: inherit,
     text-transform: inherit
   ),
@@ -101,8 +93,6 @@ $typography: (
     font-size: map-get($typography-font-size, md),
     line-height: 1.4,
     font-weight: map-get($typography-font-weight, bold),
-    -moz-osx-font-smoothing: grayscale,
-    -webkit-font-smoothing: antialiased,
     text-decoration: inherit,
     text-transform: inherit
   ),
@@ -111,8 +101,6 @@ $typography: (
     font-size: map-get($typography-font-size, base),
     line-height: 1.4,
     font-weight: map-get($typography-font-weight, bold),
-    -moz-osx-font-smoothing: grayscale,
-    -webkit-font-smoothing: antialiased,
     text-decoration: inherit,
     text-transform: inherit
   ),
@@ -120,8 +108,6 @@ $typography: (
     font-size: map-get($typography-font-size, base),
     line-height: 1.4,
     font-weight: map-get($typography-font-weight, regular),
-    -moz-osx-font-smoothing: grayscale,
-    -webkit-font-smoothing: antialiased,
     text-decoration: inherit,
     text-transform: inherit
   ),
@@ -135,16 +121,12 @@ $typography: (
     line-height: 1.4,
     font-weight: map-get($typography-font-weight, regular),
     color: $theme-color-primary,
-    -moz-osx-font-smoothing: grayscale,
-    -webkit-font-smoothing: antialiased,
     text-decoration: inherit,
     text-transform: inherit
   ),
   button: (
     font-size: map-get($typography-font-size, sm),
     font-weight: map-get($typography-font-weight, medium),
-    -moz-osx-font-smoothing: grayscale,
-    -webkit-font-smoothing: antialiased,
     text-decoration: none,
     text-transform: uppercase
   )

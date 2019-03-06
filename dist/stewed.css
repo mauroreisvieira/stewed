@@ -131,6 +131,8 @@
 html {
   font-family: var(--theme-font-family-serif);
   font-size: var(--theme-font-size);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
   font-weight: 400;
   line-height: 1.5; }
 
@@ -164,8 +166,6 @@ body {
   font-size: var(--typography-hg);
   line-height: 1.4;
   font-weight: var(--typography-bold);
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
   text-decoration: inherit;
   text-transform: inherit; }
   @media (min-width: 768px) {
@@ -184,8 +184,6 @@ body {
   font-size: var(--typography-x-xl);
   line-height: 1.4;
   font-weight: var(--typography-light);
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
   text-decoration: inherit;
   text-transform: inherit; }
   @media (min-width: 768px) {
@@ -194,8 +192,6 @@ body {
       font-size: var(--typography-hg);
       line-height: 1.4;
       font-weight: var(--typography-bold);
-      -moz-osx-font-smoothing: grayscale;
-      -webkit-font-smoothing: antialiased;
       text-decoration: inherit;
       text-transform: inherit; } }
 
@@ -203,8 +199,6 @@ body {
   margin: var(--space-lg) 0;
   font-size: var(--typography-xl);
   line-height: 1.4;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
   text-decoration: inherit;
   text-transform: inherit; }
   @media (min-width: 768px) {
@@ -213,8 +207,6 @@ body {
       font-size: var(--typography-x-xl);
       line-height: 1.4;
       font-weight: var(--typography-light);
-      -moz-osx-font-smoothing: grayscale;
-      -webkit-font-smoothing: antialiased;
       text-decoration: inherit;
       text-transform: inherit; } }
 
@@ -222,8 +214,6 @@ body {
   margin: var(--space-lg) 0;
   font-size: var(--typography-lg);
   line-height: 1.4;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
   text-decoration: inherit;
   text-transform: inherit; }
   @media (min-width: 768px) {
@@ -231,8 +221,6 @@ body {
       margin: var(--space-lg) 0;
       font-size: var(--typography-xl);
       line-height: 1.4;
-      -moz-osx-font-smoothing: grayscale;
-      -webkit-font-smoothing: antialiased;
       text-decoration: inherit;
       text-transform: inherit; } }
 
@@ -241,8 +229,6 @@ body {
   font-size: var(--typography-md);
   line-height: 1.4;
   font-weight: var(--typography-bold);
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
   text-decoration: inherit;
   text-transform: inherit; }
   @media (min-width: 768px) {
@@ -250,8 +236,6 @@ body {
       margin: var(--space-lg) 0;
       font-size: var(--typography-lg);
       line-height: 1.4;
-      -moz-osx-font-smoothing: grayscale;
-      -webkit-font-smoothing: antialiased;
       text-decoration: inherit;
       text-transform: inherit; } }
 
@@ -260,8 +244,6 @@ body {
   font-size: var(--typography-base);
   line-height: 1.4;
   font-weight: var(--typography-bold);
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
   text-decoration: inherit;
   text-transform: inherit; }
   @media (min-width: 768px) {
@@ -270,8 +252,6 @@ body {
       font-size: var(--typography-md);
       line-height: 1.4;
       font-weight: var(--typography-bold);
-      -moz-osx-font-smoothing: grayscale;
-      -webkit-font-smoothing: antialiased;
       text-decoration: inherit;
       text-transform: inherit; } }
 
@@ -280,8 +260,6 @@ p {
   font-size: var(--typography-base);
   line-height: 1.4;
   font-weight: var(--typography-regular);
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
   text-decoration: inherit;
   text-transform: inherit; }
 
@@ -290,8 +268,6 @@ a {
   line-height: 1.4;
   font-weight: var(--typography-regular);
   color: var(--color-primary-base);
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
   text-decoration: inherit;
   text-transform: inherit; }
   @media (hover: hover) {
@@ -439,8 +415,6 @@ a {
   overflow: hidden;
   font-size: var(--typography-sm);
   font-weight: var(--typography-medium);
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
   text-decoration: none;
   text-transform: uppercase; }
   .btn--shaped {
@@ -614,8 +588,6 @@ a {
     font-size: var(--typography-base);
     line-height: 1.4;
     font-weight: var(--typography-regular);
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
     text-decoration: inherit;
     text-transform: inherit; }
   .form-field--column {
@@ -908,8 +880,6 @@ a {
     font-size: var(--typography-base);
     line-height: 1.4;
     font-weight: var(--typography-regular);
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
     text-decoration: inherit;
     text-transform: inherit; }
   .list--check {
@@ -937,8 +907,6 @@ a {
     font-size: var(--typography-base);
     line-height: 1.4;
     font-weight: var(--typography-regular);
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
     text-decoration: inherit;
     text-transform: inherit; }
     @media (hover: hover) {
@@ -1122,6 +1090,7 @@ a {
     color: var(--color-grayscale-base);
     text-overflow: ellipsis;
     white-space: nowrap;
+    cursor: pointer;
     -webkit-user-select: none;
     -webkit-appearance: button;
     appearance: none;
@@ -1129,8 +1098,6 @@ a {
     font-size: var(--typography-base);
     line-height: 1.4;
     font-weight: var(--typography-regular);
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
     text-decoration: inherit;
     text-transform: inherit; }
     .select__control:focus {
@@ -1253,8 +1220,6 @@ a {
     font-size: var(--typography-base);
     line-height: 1.4;
     font-weight: var(--typography-bold);
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
     text-decoration: inherit;
     text-transform: inherit; }
     @media (min-width: 768px) {
@@ -1268,8 +1233,6 @@ a {
         font-size: var(--typography-md);
         line-height: 1.4;
         font-weight: var(--typography-bold);
-        -moz-osx-font-smoothing: grayscale;
-        -webkit-font-smoothing: antialiased;
         text-decoration: inherit;
         text-transform: inherit; } }
     .table thead tr {
@@ -1296,8 +1259,6 @@ a {
     font-size: var(--typography-base);
     line-height: 1.4;
     font-weight: var(--typography-regular);
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
     text-decoration: inherit;
     text-transform: inherit; }
     @media (min-width: 768px) {
@@ -1403,8 +1364,6 @@ a {
     font-size: var(--typography-base);
     line-height: 1.4;
     font-weight: var(--typography-regular);
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
     text-decoration: inherit;
     text-transform: inherit; }
     .textfield__control:focus {

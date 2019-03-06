@@ -80,6 +80,8 @@ $theme-breakpoint-tv: 1440px;
 html {
   font-family: $theme-font-family-serif;
   font-size: var(--theme-font-size);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
   font-weight: $theme-font-regular;
   line-height: 1.5;
 }
