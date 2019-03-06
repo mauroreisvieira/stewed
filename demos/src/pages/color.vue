@@ -1,7 +1,7 @@
 <template>
     <div class="article">
         <div class="content">
-            <h2>Colors</h2>
+            <div class="content" v-html="markdown"></div>
             <div class="demo-color">
                 <div class="demo-color-list" v-for="color in palette">
                     <div class="demo-color-item" v-for="tone in tones">
@@ -15,18 +15,34 @@
 </template>
 
 <script>
+    import Prism from 'prismjs'
+    import Remarkable from 'remarkable'
+    import { Utils } from '../helpers/utils.js'
     export default {
         data: function () {
             return {
                 title: this.$route.name,
                 palette: ["primary", "accent", "grayscale", "warning", "danger", "info", "success"],
-                tones: ["lighter", "light", "base", "dark", "darker"]
+                tones: ["lighter", "light", "base", "dark", "darker"],
+                markdown: undefined
             }
+        },
+        mounted() {
+            const file = this.$route.path + '/../src/utils/COLOR.md';
+            console.log('file', file);
+            const md = new Remarkable({
+                langPrefix: 'hljs language-'
+            });
+            Utils.readFile(file, (responseText) => {
+                this.markdown = md.render(responseText);
+                console.log('this.markdown', this.markdown);
+                this.$nextTick(function () {
+                    Prism.highlightAll();
+                });
+            });
         }
     }
 </script>
 <style lang="css">
 @import "./../../assets/prism/prism.css";
 </style>
-
-

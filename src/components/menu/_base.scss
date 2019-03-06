@@ -18,8 +18,8 @@
 
     @media (hover: hover) {
       &:hover {
-        background-color: var(--color-grayscale-lighter);
-        color: inherit;
+        background-color: var(--color-primary-lighter);
+        color: var(--color-primary-base);
       }
     }
 

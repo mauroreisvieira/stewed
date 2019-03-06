@@ -1,9 +1,4 @@
 /* stylelint-disable selector-max-universal, selector-max-type */
-
-:root {
-  --color--text: 18, 18, 26;
-}
-
 :root {
   --theme-font-family-serif: "Nunito", sans-serif;
   --theme-font-family-monospace: monospace;
@@ -36,6 +31,27 @@ $theme-font-bold: 700;
 // Typography
 $theme-font-family-serif: var(--theme-font-family-serif);
 $theme-font-family-monospace: var(--theme-font-family-monospace);
+
+:root {
+  --typography-x-hg: #{calculate-rem(76px)};
+  --typography-hg: #{calculate-rem(52px)};
+  --typography-x-xl: #{calculate-rem(48px)};
+  --typography-xl: #{calculate-rem(34px)};
+  --typography-lg: #{calculate-rem(28px)};
+  --typography-md: #{calculate-rem(24px)};
+  --typography-base: #{calculate-rem(16px)};
+  --typography-sm: #{calculate-rem(14px)};
+  --typography-x-sm: #{calculate-rem(12px)};
+  --typography-xs: #{calculate-rem(10px)};
+  --typography-x-xs: #{calculate-rem(8px)};
+}
+
+:root {
+  --typography-light: #{$theme-font-light};
+  --typography-regular: #{$theme-font-regular};
+  --typography-medium: #{$theme-font-medium};
+  --typography-bold: #{$theme-font-bold};
+}
 
 // Spaces
 :root {
@@ -71,23 +87,4 @@ $theme-breakpoint-tv: 1440px;
   --breakpoint-md: #{$theme-breakpoint-tablet};
   --breakpoint-lg: #{$theme-breakpoint-desktop};
   --breakpoint-hg: #{$theme-breakpoint-tv};
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  font-family: $theme-font-family-serif;
-  font-size: var(--theme-font-size);
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-weight: $theme-font-regular;
-  line-height: 1.5;
-}
-
-body {
-  margin: 0 auto;
-  padding: 0;
-  color: $theme-color-base;
 }

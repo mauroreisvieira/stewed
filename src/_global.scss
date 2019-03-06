@@ -1,0 +1,19 @@
+/* stylelint-disable selector-max-type, selector-max-universal */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: $theme-font-family-serif;
+  font-size: var(--theme-font-size);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-weight: $theme-font-regular;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0 auto;
+  padding: 0;
+  color: $theme-color-base;
+}

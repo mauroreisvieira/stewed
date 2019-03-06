@@ -13,16 +13,15 @@
             return {
                 title: this.$route.name,
                 file: undefined,
-                markdown: undefined,
-                calendar: undefined
+                markdown: undefined
             }
         },
         mounted() {
-            const fiile = this.$route.path + '/README.md';
+            const file = this.$route.path + '/README.md';
             const md = new Remarkable({
                 langPrefix: 'hljs language-'
             });
-            Utils.readFile(fiile, (responseText) => {
+            Utils.readFile(file, (responseText) => {
                 this.markdown = md.render(responseText);
                 this.$nextTick(function () {
                     Prism.highlightAll();

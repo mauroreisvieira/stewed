@@ -13,8 +13,7 @@
             return {
                 title: this.$route.name,
                 file: undefined,
-                markdown: undefined,
-                calendar: undefined
+                markdown: undefined
             }
         },
         mounted() {
