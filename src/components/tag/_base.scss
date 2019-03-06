@@ -1,3 +1,4 @@
+/* stylelint-disable selector-no-qualifying-type */
 .tag {
   display: inline-flex;
   flex-wrap: nowrap;
@@ -6,11 +7,10 @@
   padding: 0 map-get($space, md);
   border-radius: map-get($radius, sm);
   background-color: $tag-background;
-  color: $tag-color;
+  color: $tag-color !important;
   font-size: map-get($typography-font-size, xs);
   font-weight: map-get($typography-font-weight, bold);
   text-transform: uppercase;
-  cursor: pointer;
 
   &--shaped {
     border-radius: map-get($radius, hg);
@@ -20,6 +20,19 @@
     &--#{$key} {
       --tag-background: #{get-color(#{$key}, lighter)};
       --tag-color: #{get-color(#{$key})};
+    }
+  }
+}
+
+a.tag {
+  @each $key in $tag-keys {
+    &--#{$key} {
+      @media (hover: hover) {
+        &:hover {
+          --tag-background: #{get-color(#{$key}, light)};
+          --tag-color: #{get-color(#{$key}, darker)};
+        }
+      }
     }
   }
 }

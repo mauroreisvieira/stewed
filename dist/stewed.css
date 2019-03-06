@@ -1092,6 +1092,7 @@ a {
       background: white;
       content: ""; }
 
+/* stylelint-disable selector-max-type, order/order */
 .select {
   position: relative;
   display: flex;
@@ -1105,7 +1106,8 @@ a {
     justify-content: center;
     width: 40px;
     height: 100%;
-    color: currentColor; }
+    color: currentColor;
+    pointer-events: none; }
     .select__arrow svg {
       width: 18px;
       fill: currentColor; }
@@ -1318,6 +1320,7 @@ a {
           .table tbody tr td {
             display: table-cell; } }
 
+/* stylelint-disable selector-no-qualifying-type */
 .tag {
   display: inline-flex;
   flex-wrap: nowrap;
@@ -1326,11 +1329,10 @@ a {
   padding: 0 var(--space-md);
   border-radius: var(--radius-sm);
   background-color: var(--tag-background, var(--color-grayscale-lighter));
-  color: var(--tag-color, var(--color-grayscale-base));
+  color: var(--tag-color, var(--color-grayscale-base)) !important;
   font-size: var(--typography-xs);
   font-weight: var(--typography-bold);
-  text-transform: uppercase;
-  cursor: pointer; }
+  text-transform: uppercase; }
   .tag--shaped {
     border-radius: var(--radius-hg); }
   .tag--primary {
@@ -1351,6 +1353,36 @@ a {
   .tag--danger {
     --tag-background: var(--color-danger-lighter);
     --tag-color: var(--color-danger-base); }
+
+@media (hover: hover) {
+  a.tag--primary:hover {
+    --tag-background: var(--color-primary-light);
+    --tag-color: var(--color-primary-darker); } }
+
+@media (hover: hover) {
+  a.tag--accent:hover {
+    --tag-background: var(--color-accent-light);
+    --tag-color: var(--color-accent-darker); } }
+
+@media (hover: hover) {
+  a.tag--info:hover {
+    --tag-background: var(--color-info-light);
+    --tag-color: var(--color-info-darker); } }
+
+@media (hover: hover) {
+  a.tag--success:hover {
+    --tag-background: var(--color-success-light);
+    --tag-color: var(--color-success-darker); } }
+
+@media (hover: hover) {
+  a.tag--warning:hover {
+    --tag-background: var(--color-warning-light);
+    --tag-color: var(--color-warning-darker); } }
+
+@media (hover: hover) {
+  a.tag--danger:hover {
+    --tag-background: var(--color-danger-light);
+    --tag-color: var(--color-danger-darker); } }
 
 .textfield {
   position: relative;
