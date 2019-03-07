@@ -34,7 +34,6 @@
                 const hedingDemo = this.$el.querySelector('h3');
                 const parentDiv = hedingDemo.parentNode;
                 const htmlDemo = this.$el.querySelector('.language-html').textContent;
-                const jsDemo = this.$el.querySelector('.language-js').textContent;
                 [...this.$el.querySelectorAll('pre.language-html')].map(e => {
                     const demo = document.createElement('div');
                     demo.innerHTML = e.textContent;
@@ -42,8 +41,8 @@
                     parentDiv.insertBefore(demo, e);
                 })
 
+                const jsDemo = this.$el.querySelector('.language-js').textContent;
                 if (jsDemo) {
-                    console.log(jsDemo);
                     const newScript = document.createElement("script");
                     const inlineScript = document.createTextNode(jsDemo);
                     newScript.appendChild(inlineScript);
