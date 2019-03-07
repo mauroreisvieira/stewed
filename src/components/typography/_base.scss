@@ -2,6 +2,13 @@
 
 @for $i from 1 through 6 {
   .h#{$i} {
+    margin: map-get($space, lg) 0;
+    font-size: var(--heading-font-size);
+    font-weight: var(--heading-font-weight);
+    line-height: 1.4;
+    text-decoration: inherit;
+    text-transform: inherit;
+
     @include get-typography(headline-#{$i + 1});
 
     @include tablet() {

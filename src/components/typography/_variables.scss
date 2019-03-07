@@ -26,62 +26,32 @@ $typography-font-weight: (
 
 $typography: (
   headline-1: (
-    margin: map-get($space, lg) 0,
-    font-size: map-get($typography-font-size, x-hg),
-    line-height: 1.4,
-    font-weight: map-get($typography-font-weight, light),
-    -moz-osx-font-smoothing: grayscale,
-    -webkit-font-smoothing: antialiased,
-    text-decoration: inherit,
-    text-transform: inherit
+    --heading-font-size: map-get($typography-font-size, x-hg),
+    --heading-font-weight: map-get($typography-font-weight, light)
   ),
   headline-2: (
-    margin: map-get($space, lg) 0,
-    font-size: map-get($typography-font-size, hg),
-    line-height: 1.4,
-    font-weight: map-get($typography-font-weight, bold),
-    text-decoration: inherit,
-    text-transform: inherit
+    --heading-font-size: map-get($typography-font-size, hg),
+    --heading-font-weight: map-get($typography-font-weight, bold)
   ),
   headline-3: (
-    margin: map-get($space, lg) 0,
-    font-size: map-get($typography-font-size, x-xl),
-    line-height: 1.4,
-    font-weight: map-get($typography-font-weight, light),
-    text-decoration: inherit,
-    text-transform: inherit
+    --heading-font-size: map-get($typography-font-size, x-xl),
+    --heading-font-weight: map-get($typography-font-weight, light)
   ),
   headline-4: (
-    margin: map-get($space, lg) 0,
-    font-size: map-get($typography-font-size, xl),
-    line-height: 1.4,
-    font-weight: map-get($typography-font-weight, md),
-    text-decoration: inherit,
-    text-transform: inherit
+    --heading-font-size: map-get($typography-font-size, xl),
+    --heading-font-weight: map-get($typography-font-weight, medium)
   ),
   headline-5: (
-    margin: map-get($space, lg) 0,
-    font-size: map-get($typography-font-size, lg),
-    line-height: 1.4,
-    font-weight: map-get($typography-font-weight, md),
-    text-decoration: inherit,
-    text-transform: inherit
+    --heading-font-size: map-get($typography-font-size, lg),
+    --heading-font-weight: map-get($typography-font-weight, medium)
   ),
   headline-6: (
-    margin: map-get($space, lg) 0,
-    font-size: map-get($typography-font-size, md),
-    line-height: 1.4,
-    font-weight: map-get($typography-font-weight, bold),
-    text-decoration: inherit,
-    text-transform: inherit
+    --heading-font-size: map-get($typography-font-size, md),
+    --heading-font-weight: map-get($typography-font-weight, bold)
   ),
   headline-7: (
-    margin: map-get($space, lg) 0,
-    font-size: map-get($typography-font-size, base),
-    line-height: 1.4,
-    font-weight: map-get($typography-font-weight, bold),
-    text-decoration: inherit,
-    text-transform: inherit
+    --heading-font-size: map-get($typography-font-size, base),
+    --heading-font-weight: map-get($typography-font-weight, bold)
   ),
   base: (
     font-size: map-get($typography-font-size, base),
