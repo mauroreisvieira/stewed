@@ -41,10 +41,10 @@
                     parentDiv.insertBefore(demo, e);
                 })
 
-                const jsDemo = this.$el.querySelector('.language-js').textContent;
+                const jsDemo = this.$el.querySelector('.language-js');
                 if (jsDemo) {
                     const newScript = document.createElement("script");
-                    const inlineScript = document.createTextNode(jsDemo);
+                    const inlineScript = document.createTextNode(jsDemo.textContent);
                     newScript.appendChild(inlineScript);
                     document.body.appendChild(newScript);
                 }
