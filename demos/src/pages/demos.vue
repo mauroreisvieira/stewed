@@ -34,12 +34,21 @@
                 const hedingDemo = this.$el.querySelector('h3');
                 const parentDiv = hedingDemo.parentNode;
                 const htmlDemo = this.$el.querySelector('.language-html').textContent;
+                const jsDemo = this.$el.querySelector('.language-js').textContent;
                 [...this.$el.querySelectorAll('pre.language-html')].map(e => {
                     const demo = document.createElement('div');
                     demo.innerHTML = e.textContent;
                     demo.classList.add('demo');
                     parentDiv.insertBefore(demo, e);
                 })
+
+                if (jsDemo) {
+                    console.log(jsDemo);
+                    const newScript = document.createElement("script");
+                    const inlineScript = document.createTextNode(jsDemo);
+                    newScript.appendChild(inlineScript);
+                    document.body.appendChild(newScript);
+                }
             }
         }
     }
