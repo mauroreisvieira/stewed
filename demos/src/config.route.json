@@ -11,6 +11,7 @@
         "isActive": true,
         "data": [
             { "demo": true, "url": "src/components/alert/", "title": "Alert" },
+            { "demo": true, "url": "src/components/dialog/", "title": "Dialog" },
             { "demo": true, "url": "src/components/badge/", "title": "Badge" },
             { "demo": true, "url": "src/components/breadcrumb/", "title": "Breadcrumb" },
             { "demo": true, "url": "src/components/button/", "title": "Button" },

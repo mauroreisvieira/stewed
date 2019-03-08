@@ -1,4 +1,4 @@
-.modal {
+.dialog {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -7,7 +7,7 @@
   margin-bottom: map-get($space, lg);
   border-radius: map-get($radius, sm);
   background-color: #fff;
-  box-shadow: $modal-shadow;
+  box-shadow: $dialog-shadow;
   overflow: hidden;
 
   &__header {
