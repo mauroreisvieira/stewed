@@ -6,7 +6,7 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
     state: {
         menus: [
- {
+             {
                 name: 'Getting Started',
                 isActive: true,
                 data: [
