@@ -29,13 +29,11 @@
         },
         mounted() {
             const file = this.$route.path + '/../src/utils/COLOR.md';
-            console.log('file', file);
             const md = new Remarkable({
                 langPrefix: 'hljs language-'
             });
             Utils.readFile(file, (responseText) => {
                 this.markdown = md.render(responseText);
-                console.log('this.markdown', this.markdown);
                 this.$nextTick(function () {
                     Prism.highlightAll();
                 });
