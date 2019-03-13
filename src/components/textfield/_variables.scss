@@ -1,13 +1,26 @@
 // Sizes
-$textfield-padding: --textfield-padding;
+$textfield-padding: textfield-padding;
 $textfield-padding-base: map-get($space, sm) map-get($space, lg);
-$textfield-padding-small: map-get($space, xs) map-get($space, lg);
+$textfield-padding-small: map-get($space, x-sm) map-get($space, lg);
 $textfield-padding-large: map-get($space, lg) map-get($space, lg);
 
 // Radius
-$textfield-radius: --textfield-radius;
+$textfield-radius: textfield-radius;
 $textfield-radius-base: map-get($radius, sm);
 $textfield-radius-large: map-get($radius, hg);
+
+// Color
+$textfield-color: textfield-color;
+$textfield-color-base: get-color(grayscale);
+$textfield-color-danger: get-color(danger);
+$textfield-color-base: get-color(grayscale);
+$textfield-required-color: textfield-color-required;
+$textfield-required-color-base: get-color(primary);
+
+// Border Color
+$textfield-border-color: textfield-border-color;
+$textfield-border-color-base: get-color(grayscale, lighter);
+$textfield-border-color-danger: get-color(danger);
 
 // Textarea
 $textfield-textarea-min-height: 80px;

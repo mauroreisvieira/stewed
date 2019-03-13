@@ -4,7 +4,7 @@
   flex-wrap: nowrap;
   align-items: center;
   height: map-get($space, xl);
-  padding: 0 map-get($space, md);
+  padding: 0 map-get($space, sm);
   border-radius: map-get($radius, sm);
   background-color: $tag-background;
   color: $tag-color !important;

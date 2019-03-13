@@ -93,3 +93,12 @@
 
   @return rgba($color, $opacity);
 }
+
+/**
+* Get Value of  Variable
+* @param {Color}  $color
+* @param {Number}  $opacity
+ */
+@function get($variable) {
+  @return var(--#{$variable});
+}

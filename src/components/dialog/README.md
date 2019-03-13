@@ -7,7 +7,7 @@ _TODO_
 ```html
 <div class="dialog">
     <div class="dialog__header">
-        <h3 class="h3">Dialog Header</h3>
+        <h5 class="h5">Dialog Header</h5>
     </div>
     <div class="dialog__body">
         <p>

@@ -33,3 +33,9 @@
     display: none;
   }
 }
+
+@mixin set($variable, $value: false) {
+  @if ($value) {
+    --#{$variable}: #{$value};
+  }
+}

@@ -54,6 +54,11 @@
 * @param {Color}  $color
 * @param {Number}  $opacity
  */
+/**
+* Get Value of  Variable
+* @param {Color}  $color
+* @param {Number}  $opacity
+ */
 /* stylelint-disable selector-max-universal, selector-max-type */
 :root {
   --theme-font-family-serif: "Nunito", sans-serif;
@@ -150,8 +155,7 @@ html {
   font-size: var(--theme-font-size);
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  font-weight: 400;
-  line-height: 1.5; }
+  font-weight: 400; }
 
 body {
   margin: 0 auto;
@@ -163,7 +167,7 @@ body {
   margin: var(--space-lg) 0;
   font-size: var(--heading-font-size);
   font-weight: var(--heading-font-weight);
-  line-height: 1.4;
+  line-height: 1.6;
   text-decoration: inherit;
   text-transform: inherit;
   --heading-font-size: var(--typography-hg);
@@ -177,7 +181,7 @@ body {
   margin: var(--space-lg) 0;
   font-size: var(--heading-font-size);
   font-weight: var(--heading-font-weight);
-  line-height: 1.4;
+  line-height: 1.6;
   text-decoration: inherit;
   text-transform: inherit;
   --heading-font-size: var(--typography-x-xl);
@@ -191,7 +195,7 @@ body {
   margin: var(--space-lg) 0;
   font-size: var(--heading-font-size);
   font-weight: var(--heading-font-weight);
-  line-height: 1.4;
+  line-height: 1.6;
   text-decoration: inherit;
   text-transform: inherit;
   --heading-font-size: var(--typography-xl);
@@ -205,7 +209,7 @@ body {
   margin: var(--space-lg) 0;
   font-size: var(--heading-font-size);
   font-weight: var(--heading-font-weight);
-  line-height: 1.4;
+  line-height: 1.6;
   text-decoration: inherit;
   text-transform: inherit;
   --heading-font-size: var(--typography-lg);
@@ -219,7 +223,7 @@ body {
   margin: var(--space-lg) 0;
   font-size: var(--heading-font-size);
   font-weight: var(--heading-font-weight);
-  line-height: 1.4;
+  line-height: 1.6;
   text-decoration: inherit;
   text-transform: inherit;
   --heading-font-size: var(--typography-md);
@@ -233,7 +237,7 @@ body {
   margin: var(--space-lg) 0;
   font-size: var(--heading-font-size);
   font-weight: var(--heading-font-weight);
-  line-height: 1.4;
+  line-height: 1.6;
   text-decoration: inherit;
   text-transform: inherit;
   --heading-font-size: var(--typography-base);
@@ -1275,7 +1279,7 @@ a {
   flex-wrap: nowrap;
   align-items: center;
   height: var(--space-xl);
-  padding: 0 var(--space-md);
+  padding: 0 var(--space-sm);
   border-radius: var(--radius-sm);
   background-color: var(--tag-background, var(--color-grayscale-lighter));
   color: var(--tag-color, var(--color-grayscale-base)) !important;
@@ -1341,19 +1345,21 @@ a {
   .textfield--shaped .textfield__control {
     --textfield-radius: var(--radius-hg); }
   .textfield--sm .textfield__control {
-    --textfield-padding: var(--space-xs) var(--space-lg); }
+    --textfield-padding: var(--space-x-sm) var(--space-lg); }
   .textfield--lg .textfield__control {
     --textfield-padding: var(--space-lg) var(--space-lg); }
   .textfield__control {
     --textfield-padding: var(--space-sm) var(--space-lg);
     --textfield-radius: var(--radius-sm);
+    --textfield-border-color: var(--color-grayscale-lighter);
+    --textfield-color: var(--color-grayscale-base);
     width: 100%;
     padding: var(--textfield-padding);
-    border: 1px solid var(--color-grayscale-lighter);
+    border: 1px solid var(--textfield-border-color);
     border-radius: var(--textfield-radius);
     outline: none;
     background-color: transparent;
-    color: var(--color-grayscale-base);
+    color: var(--textfield-color);
     -webkit-appearance: none;
     box-shadow: none;
     font-size: var(--typography-base);
@@ -1362,42 +1368,42 @@ a {
     text-decoration: inherit;
     text-transform: inherit; }
     .textfield__control:focus {
-      border-color: var(--color-primary-base); }
+      --textfield-border-color: var(--color-primary-base); }
     .textfield__control[disabled] {
       opacity: .5;
       pointer-events: none; }
   .textfield--textarea .textfield__control {
     height: 160px;
     resize: none; }
-  .textfield--required .textfield__control {
-    padding-right: 32px; }
-  .textfield--required::after {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    display: block;
-    width: 8px;
-    height: 8px;
-    transform: translate(-16px, -50%);
-    border-radius: 50%;
-    background-color: var(--color-primary-base);
-    content: ""; }
-  .textfield--error {
-    color: var(--color-danger-base); }
-    .textfield--error .textfield__control {
-      padding-right: 32px;
-      border-color: currentColor;
-      color: inherit; }
-    .textfield--error::after {
+  .textfield--required {
+    --textfield-color-required: var(--color-primary-base); }
+    .textfield--required .textfield__control {
+      padding-right: 32px; }
+    .textfield--required::after {
       position: absolute;
       top: 50%;
       right: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: block;
+      width: 8px;
+      height: 8px;
       transform: translate(-16px, -50%);
-      color: currentColor;
-      content: attr(data-error); }
+      border-radius: 50%;
+      background-color: var(--textfield-color-required);
+      content: ""; }
+  .textfield--error .textfield__control {
+    --textfield-border-color: var(--color-danger-base);
+    --textfield-color: var(--color-danger-base);
+    padding-right: 32px; }
+  .textfield--error::after {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-16px, -50%);
+    color: var(--color-danger-base);
+    content: attr(data-error); }
 
 .tooltip {
   position: relative;

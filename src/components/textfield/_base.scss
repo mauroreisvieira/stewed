@@ -6,39 +6,42 @@
 
   &--shaped {
     .textfield__control {
-      #{$textfield-radius}: #{$textfield-radius-large};
+      @include set($textfield-radius, $textfield-radius-large);
     }
   }
 
   &--sm {
     .textfield__control {
-      #{$textfield-padding}: #{$textfield-padding-small};
+      @include set($textfield-padding, $textfield-padding-small);
     }
   }
 
   &--lg {
     .textfield__control {
-      #{$textfield-padding}: #{$textfield-padding-large};
+      @include set($textfield-padding, $textfield-padding-large);
     }
   }
 
   &__control {
-    #{$textfield-padding}: #{$textfield-padding-base};
-    #{$textfield-radius}: #{$textfield-radius-base};
+    @include set($textfield-padding, $textfield-padding-base);
+    @include set($textfield-radius, $textfield-radius-base);
+    @include set($textfield-border-color, $textfield-border-color-base);
+    @include set($textfield-color, $textfield-color-base);
+
     width: 100%;
-    padding: var($textfield-padding);
-    border: 1px solid $theme-color-greyscale;
-    border-radius: var($textfield-radius);
+    padding: get($textfield-padding);
+    border: 1px solid get($textfield-border-color);
+    border-radius: get($textfield-radius);
     outline: none;
     background-color: transparent;
-    color: $color-base;
+    color: get($textfield-color);
     -webkit-appearance: none;
     box-shadow: none;
 
     @include get-typography(base);
 
     &:focus {
-      border-color: $color-primary;
+      @include set($textfield-border-color, $color-primary);
     }
 
     &[disabled] {
@@ -55,6 +58,8 @@
   }
 
   &--required {
+    @include set($textfield-required-color, $textfield-required-color-base);
+
     .textfield__control {
       padding-right: 32px;
     }
@@ -68,18 +73,17 @@
       height: 8px;
       transform: translate(-16px, -50%);
       border-radius: 50%;
-      background-color: $color-primary;
+      background-color: get($textfield-required-color);
       content: "";
     }
   }
 
   &--error {
-    color: get-color(danger);
-
     .textfield__control {
+      @include set($textfield-border-color, $textfield-border-color-danger);
+      @include set($textfield-color, $textfield-color-danger);
+
       padding-right: 32px;
-      border-color: currentColor;
-      color: inherit;
     }
 
     &::after {
@@ -90,7 +94,7 @@
       align-items: center;
       justify-content: center;
       transform: translate(-16px, -50%);
-      color: currentColor;
+      color: #{$textfield-color-danger};
       content: attr(data-error);
     }
   }
