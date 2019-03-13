@@ -1333,17 +1333,24 @@ a {
     --tag-background: var(--color-danger-light);
     --tag-color: var(--color-danger-darker); } }
 
+/* stylelint-disable order/order */
 .textfield {
   position: relative;
   display: flex;
   width: 100%; }
   .textfield--shaped .textfield__control {
-    border-radius: var(--radius-hg); }
+    --textfield-radius: var(--radius-hg); }
+  .textfield--sm .textfield__control {
+    --textfield-padding: var(--space-xs) var(--space-lg); }
+  .textfield--lg .textfield__control {
+    --textfield-padding: var(--space-lg) var(--space-lg); }
   .textfield__control {
+    --textfield-padding: var(--space-sm) var(--space-lg);
+    --textfield-radius: var(--radius-sm);
     width: 100%;
-    padding: var(--space-sm) var(--space-lg);
+    padding: var(--textfield-padding);
     border: 1px solid var(--color-grayscale-lighter);
-    border-radius: var(--radius-sm);
+    border-radius: var(--textfield-radius);
     outline: none;
     background-color: transparent;
     color: var(--color-grayscale-base);

@@ -1,3 +1,4 @@
+/* stylelint-disable order/order */
 .textfield {
   position: relative;
   display: flex;
@@ -5,15 +6,29 @@
 
   &--shaped {
     .textfield__control {
-      border-radius: map-get($radius, hg);
+      #{$textfield-radius}: #{$textfield-radius-large};
+    }
+  }
+
+  &--sm {
+    .textfield__control {
+      #{$textfield-padding}: #{$textfield-padding-small};
+    }
+  }
+
+  &--lg {
+    .textfield__control {
+      #{$textfield-padding}: #{$textfield-padding-large};
     }
   }
 
   &__control {
+    #{$textfield-padding}: #{$textfield-padding-base};
+    #{$textfield-radius}: #{$textfield-radius-base};
     width: 100%;
-    padding: map-get($space, sm) map-get($space, lg);
+    padding: var($textfield-padding);
     border: 1px solid $theme-color-greyscale;
-    border-radius: map-get($radius, sm);
+    border-radius: var($textfield-radius);
     outline: none;
     background-color: transparent;
     color: $color-base;

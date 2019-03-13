@@ -1,1 +1,13 @@
+// Sizes
+$textfield-padding: --textfield-padding;
+$textfield-padding-base: map-get($space, sm) map-get($space, lg);
+$textfield-padding-small: map-get($space, xs) map-get($space, lg);
+$textfield-padding-large: map-get($space, lg) map-get($space, lg);
+
+// Radius
+$textfield-radius: --textfield-radius;
+$textfield-radius-base: map-get($radius, sm);
+$textfield-radius-large: map-get($radius, hg);
+
+// Textarea
 $textfield-textarea-min-height: 80px;

@@ -22,3 +22,14 @@ Textfield component allow users to input, edit, and select text.
     </div>
 </div>
 ```
+
+### Shaped
+```html
+<div class="form-field form-field--column">
+    <label for="textfield-2">Textfield #03</label>
+    <div class="textfield textfield--shaped textfield--lg">
+        <input type="text" name="textfield-3" placeholder="Shaped" value="Shaped" class="textfield__control" />
+    </div>
+</div>
+```
+
