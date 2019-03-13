@@ -83,8 +83,7 @@
         }
 
         &::after {
-          height: $checkbox-border-width;
-          transform: none;
+          transform: scale(1, .2);
           background-color: currentColor;
         }
       }

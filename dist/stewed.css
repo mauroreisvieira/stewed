@@ -532,8 +532,7 @@ a {
       .checkbox__control:indeterminate + .checkbox__background::before {
         border-color: currentColor; }
       .checkbox__control:indeterminate + .checkbox__background::after {
-        height: 2px;
-        transform: none;
+        transform: scale(1, 0.2);
         background-color: currentColor; }
   .checkbox__background {
     position: relative;
