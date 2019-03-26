@@ -21,6 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
 */
+/* stylelint-disable selector-max-universal, selector-max-type */
 /**
 * Calculates the rem.
 * @param {Size}  $size
@@ -59,7 +60,6 @@
 * @param {Color}  $color
 * @param {Number}  $opacity
  */
-/* stylelint-disable selector-max-universal, selector-max-type */
 :root {
   --theme-font-family-serif: "Nunito", sans-serif;
   --theme-font-family-monospace: monospace;

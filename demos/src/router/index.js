@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import home from '../pages/home.vue'
-import color from '../pages/color.vue'
+import theme from '../pages/theme.vue'
 import demos from '../pages/demos.vue'
 import { store } from '../store/store';
 
@@ -15,9 +15,9 @@ routes.push({
 });
 
 routes.push({
-    path: '/colors',
-    name: 'color',
-    component: color
+    path: '/theme',
+    name: 'theme',
+    component: theme
 });
 
 store.state.menus.map(menu => {

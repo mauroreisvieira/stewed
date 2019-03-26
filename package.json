@@ -9,9 +9,8 @@
 	"scripts": {
 		"build": "rollup -c",
 		"dev": "rollup -c -w",
-		"demos:start": "webpack-dev-server --mode development",
-		"demos:build": "webpack --config ./demos/webpack.config.js --mode production",
-		"demos:dev": "webpack --config ./demos/webpack.config.js --watch --progress --mode development",
+		"build:demos": "webpack --config ./demos/webpack.config.js --mode production",
+		"dev:demos": "webpack --config ./demos/webpack.config.js --watch --progress --mode development",
 		"lint:scss": "stylelint \"src/**/*.scss\"",
 		"test": "echo \"Warning: no test specified\" && exit 0"
 	},

@@ -1,4 +1,8 @@
 /* stylelint-disable selector-max-universal, selector-max-type */
+@import "mixins";
+@import "functions";
+@import "color-definitions";
+
 :root {
   --theme-font-family-serif: "Nunito", sans-serif;
   --theme-font-family-monospace: monospace;

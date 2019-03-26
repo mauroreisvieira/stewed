@@ -3,7 +3,7 @@
         "name": "Getting Started",
         "isActive": true,
         "data": [
-            { "url": "colors", "title": "Colors" }
+            { "url": "theme", "title": "Theme" }
         ]
     },
     {

@@ -1,12 +1,14 @@
-## Color
+## Theme
 
 ### Overview
+_TODO_
+
+### Color Palette
 Color palette uses an organized approach to applying color to your UI.
 
 In this system, a primary and a accent color are typically selected to represent your brand.
 dark, darker, light and lighter variants of each color can then be applied to your UI in different ways.
 
-### Palette
 ```css
 :root {
     --color-primary-lighter: #dee8fd;

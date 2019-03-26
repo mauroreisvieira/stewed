@@ -28,7 +28,7 @@
             }
         },
         mounted() {
-            const file = this.$route.path + '/../src/utils/COLOR.md';
+            const file = this.$route.path + '/../src/theme/THEME.md';
             const md = new Remarkable({
                 langPrefix: 'hljs language-'
             });

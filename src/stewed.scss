@@ -22,13 +22,8 @@
 */
 @charset "UTF-8";
 
-// Utilities
-@import "utils/color-definitions";
-@import "utils/mixins";
-@import "utils/functions";
-
 // Theme
-@import "theme";
+@import "theme/index";
 
 // Variables
 @import "variables";
