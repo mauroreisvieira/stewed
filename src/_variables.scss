@@ -1,15 +1,22 @@
+// defining typography default
+$font-family-serif: var(--font-family-serif);
+$font-size-base: var(--font-size-base);
+$font-weight-base: var(--typography-regular);
+
 // defining colors default
-$color-primary: $theme-color-primary !default;
-$color-accent: $theme-color-accent !default;
-$color-base: $theme-color-base !default;
+$color-primary: var(--color-primary-base);
+$color-accent: var(--color-accent-base);
+$color-base: var(--color-grayscale-base);
 
 // defining breakpoints
+// @note: for this case is necessary to use the directly value of $theme variable,
+// because is more simple to use with media queries.
 $breakpoints: (
   sm: $theme-breakpoint-mobile,
   md: $theme-breakpoint-tablet,
   lg: $theme-breakpoint-desktop,
   hg: $theme-breakpoint-tv
-) !default;
+);
 
 // defining border radius
 $radius: (
@@ -20,8 +27,9 @@ $radius: (
   sm: var(--radius-sm),
   xs: var(--radius-xs),
   none: 0,
-) !default;
+);
 
+// defining spaces
 $space: (
   x-hg: var(--space-x-hg),
   hg: var(--space-hg),
@@ -33,13 +41,17 @@ $space: (
   xs: var(--space-xs),
   x-xs: var(--space-x-xs),
   none: 0,
-) !default;
+);
 
+// defining transitions function
+// @todo: WIP
 $transition-function-decelerate: cubic-bezier(0, 0, .2, 1) !default;
 $transition-function-accelerate: cubic-bezier(.4, 0, 1, 1) !default;
 $transition-function-quickly-accelerate-slowly-decelerate: cubic-bezier(.4, 0, .2, 1) !default;
 $transition-function-quickly-accelerate-decelerate: cubic-bezier(.4, 0, .6, 1) !default;
 
+// defining transitions duration
+// @todo: WIP
 $transition-duration-quickly: 100ms !default;
 $transition-duration: 222ms !default;
 $transition-duration-slowly: 333ms !default;

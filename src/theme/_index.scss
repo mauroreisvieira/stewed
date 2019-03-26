@@ -1,12 +1,12 @@
 /* stylelint-disable selector-max-universal, selector-max-type */
 @import "mixins";
 @import "functions";
-@import "color-definitions";
+@import "variables";
 
 :root {
-  --theme-font-family-serif: "Nunito", sans-serif;
-  --theme-font-family-monospace: monospace;
-  --theme-font-size: 16px;
+  --font-family-serif: #{$theme-font-family-serif};
+  --font-family-monospace: #{$theme-font-family-monospace};
+  --font-size-base: #{$theme-font-size};
 }
 
 // Colors
@@ -18,24 +18,7 @@
   }
 }
 
-$theme-color-primary: var(--color-primary-base);
-$theme-color-accent: var(--color-accent-base);
-$theme-color-greyscale: var(--color-grayscale-lighter);
-$theme-color-base: var(--color-grayscale-base);
-
-// Font Size
-$theme-font-size: 16px;
-
-// Font Weight
-$theme-font-light: 300;
-$theme-font-regular: 400;
-$theme-font-medium: 600;
-$theme-font-bold: 700;
-
 // Typography
-$theme-font-family-serif: var(--theme-font-family-serif);
-$theme-font-family-monospace: var(--theme-font-family-monospace);
-
 :root {
   --typography-x-hg: #{calculate-rem(76px)};
   --typography-hg: #{calculate-rem(52px)};
@@ -81,11 +64,6 @@ $theme-font-family-monospace: var(--theme-font-family-monospace);
 }
 
 // Breakpoint
-$theme-breakpoint-mobile: 280px;
-$theme-breakpoint-tablet: 768px;
-$theme-breakpoint-desktop: 1024px;
-$theme-breakpoint-tv: 1440px;
-
 :root {
   --breakpoint-sm: #{$theme-breakpoint-mobile};
   --breakpoint-md: #{$theme-breakpoint-tablet};

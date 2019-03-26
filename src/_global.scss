@@ -4,15 +4,15 @@
 }
 
 html {
-  font-family: $theme-font-family-serif;
-  font-size: var(--theme-font-size);
+  font-family: $font-family-serif;
+  font-size: $font-size-base;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  font-weight: $theme-font-regular;
+  font-weight: $font-weight-base;
 }
 
 body {
   margin: 0 auto;
   padding: 0;
-  color: $theme-color-base;
+  color: $color-base;
 }

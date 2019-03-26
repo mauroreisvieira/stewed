@@ -1,0 +1,44 @@
+// Font Size
+$theme-font-family-serif: "Nunito", sans-serif !default;
+$theme-font-family-monospace: monospace !default;
+$theme-font-size: 16px !default;
+
+// Font Weight
+$theme-font-light: 300 !default;
+$theme-font-regular: 400 !default;
+$theme-font-medium: 600 !default;
+$theme-font-bold: 700 !default;
+
+$palette-colors: (
+  "primary": #5c8df6,
+  "accent": #f3628d,
+  "grayscale": #454b57,
+  "warning": #f5c85c,
+  "danger": #f26175,
+  "info": #82a2ff,
+  "success": #69dd95
+) !default;
+
+$tones-light: (
+  10: 80%,
+  30: 30%
+) !default;
+
+$tones-dark: (
+  60: 10%,
+  80: 50%,
+) !default;
+
+$palette-tones: (
+  lighter: 10,
+  light: 30,
+  base: 50,
+  dark: 60,
+  darker: 80,
+) !default;
+
+// Breakpoints
+$theme-breakpoint-mobile: 280px !default;
+$theme-breakpoint-tablet: 768px !default;
+$theme-breakpoint-desktop: 1024px !default;
+$theme-breakpoint-tv: 1440px !default;

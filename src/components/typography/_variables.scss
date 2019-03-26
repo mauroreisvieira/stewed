@@ -1,5 +1,5 @@
 // defining font family
-$typography-font-family: $theme-font-family-serif !default;
+$typography-font-family: $font-family-serif;
 
 // defining font sizes
 $typography-font-size: (
@@ -14,7 +14,7 @@ $typography-font-size: (
   x-sm: var(--typography-x-sm),
   xs: var(--typography-xs),
   x-xs: var(--typography-x-xs),
-) !default;
+);
 
 // defining font weight
 $typography-font-weight: (
@@ -22,7 +22,7 @@ $typography-font-weight: (
   regular: var(--typography-regular),
   medium: var(--typography-medium),
   bold: var(--typography-bold)
-) !default;
+);
 
 $typography: (
   headline-1: (
@@ -69,7 +69,7 @@ $typography: (
     font-size: map-get($typography-font-size, base),
     line-height: 1.4,
     font-weight: map-get($typography-font-weight, regular),
-    color: $theme-color-primary,
+    color: $color-primary,
     text-decoration: inherit,
     text-transform: inherit
   ),
