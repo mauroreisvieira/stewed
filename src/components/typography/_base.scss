@@ -1,6 +1,7 @@
 /* stylelint-disable selector-max-type */
 
 @for $i from 1 through 6 {
+  h#{$i},
   .h#{$i} {
     margin: map-get($space, lg) 0;
     font-size: var(--heading-font-size);
