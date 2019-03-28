@@ -55,6 +55,18 @@ $theme-font-weight: (
   "bold"    : 700
 ) !default;
 
+$theme-spaces: (
+  "x-hg"  : 40px,
+  "hg"    : 32px,
+  "xl"    : 24px,
+  "lg"    : 16px,
+  "md"    : 12px,
+  "sm"   : 8px,
+  "x-sm" : 6px,
+  "xs"   : 4px,
+  "x-xs" : 2px
+) !default;
+
 // Breakpoints
 $theme-breakpoint-mobile: 280px !default;
 $theme-breakpoint-tablet: 768px !default;
