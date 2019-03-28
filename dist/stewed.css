@@ -100,11 +100,16 @@
   --color-success-light: #96e7b5;
   --color-success-base: #69dd95;
   --color-success-dark: #5fc786;
-  --color-success-darker: #356f4b; }
+  --color-success-darker: #356f4b;
+  --color-dider-lighter: #ffcccc;
+  --color-dider-light: #ff4d4d;
+  --color-dider-base: #f00;
+  --color-dider-dark: #e60000;
+  --color-dider-darker: maroon; }
 
 :root {
-  --typography-x-hg: 2.375rem;
-  --typography-hg: 2rem;
+  --typography-x-hg: 2.625rem;
+  --typography-hg: 2.125rem;
   --typography-x-xl: 1.75rem;
   --typography-xl: 1.625rem;
   --typography-lg: 1.25rem;
@@ -437,12 +442,12 @@ a {
     @media (hover: hover) {
       .btn--primary:hover {
         background-color: var(--color-primary-light); } }
-  .btn--accent {
-    background-color: var(--color-accent-base);
+  .btn--dider {
+    background-color: var(--color-dider-base);
     color: #fff; }
     @media (hover: hover) {
-      .btn--accent:hover {
-        background-color: var(--color-accent-light); } }
+      .btn--dider:hover {
+        background-color: var(--color-dider-light); } }
   .btn:disabled {
     opacity: .5;
     pointer-events: none; }

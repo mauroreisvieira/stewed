@@ -35,16 +35,16 @@
 * @return {Color}  $color
 */
 @function build-color($color, $tone: "base") {
-  @if not map-has-key($palette-colors, $color) {
-    @error "Invalid color specified! #{$color} doesn't exist. Choose one of #{map-keys($palette-colors)}";
+  @if not map-has-key($theme-colors, $color) {
+    @error "Invalid color specified! #{$color} doesn't exist. Choose one of #{map-keys($theme-colors)}";
   }
 
-  @if not map-has-key($palette-tones, $tone) {
-    @error "Invalid tone specified! #{$tone} doesn't exist. Choose one of #{map-keys($palette-tones)}";
+  @if not map-has-key($theme-tones, $tone) {
+    @error "Invalid tone specified! #{$tone} doesn't exist. Choose one of #{map-keys($theme-tones)}";
   }
 
-  $color-value: map-get($palette-colors, $color);
-  $tone-value: map-get($palette-tones, $tone);
+  $color-value: map-get($theme-colors, $color);
+  $tone-value: map-get($theme-tones, $tone);
 
   @if ($tone-value < 50) {
     $percent: map-get($tones-light, $tone-value);
@@ -66,12 +66,12 @@
 * @return {Color}  $color
 */
 @function get-color($color, $tone: "base") {
-  @if not map-has-key($palette-colors, $color) {
-    @error "Invalid color specified! #{$color} doesn't exist. Choose one of #{map-keys($palette-colors)}";
+  @if not map-has-key($theme-colors, $color) {
+    @error "Invalid color specified! #{$color} doesn't exist. Choose one of #{map-keys($theme-colors)}";
   }
 
-  @if not map-has-key($palette-tones, $tone) {
-    @error "Invalid tone specified! #{$tone} doesn't exist. Choose one of #{map-keys($palette-tones)}";
+  @if not map-has-key($theme-tones, $tone) {
+    @error "Invalid tone specified! #{$tone} doesn't exist. Choose one of #{map-keys($theme-tones)}";
   }
 
   @return var(--color-#{$color}-#{$tone});
@@ -84,11 +84,11 @@
  */
 @function alpha($color, $opacity) {
   @if type-of($color) == string {
-    @if not map-has-key($palette-colors, $color) {
-      @error "Invalid color specified! #{$color} doesn't exist. Choose one of #{map-keys($palette-colors)}";
+    @if not map-has-key($theme-colors, $color) {
+      @error "Invalid color specified! #{$color} doesn't exist. Choose one of #{map-keys($theme-colors)}";
     }
 
-    @return rgba(map-get($palette-colors, $color), $opacity);
+    @return rgba(map-get($theme-colors, $color), $opacity);
   }
 
   @return rgba($color, $opacity);

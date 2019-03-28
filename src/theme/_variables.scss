@@ -3,20 +3,15 @@ $theme-font-family-serif: "Nunito", sans-serif !default;
 $theme-font-family-monospace: monospace !default;
 $theme-font-size: 16px !default;
 
-// Font Weight
-$theme-font-light: 300 !default;
-$theme-font-regular: 400 !default;
-$theme-font-medium: 600 !default;
-$theme-font-bold: 700 !default;
-
-$palette-colors: (
-  "primary": #5c8df6,
-  "accent": #f3628d,
-  "grayscale": #454b57,
-  "warning": #f5c85c,
-  "danger": #f26175,
-  "info": #82a2ff,
-  "success": #69dd95
+$theme-colors: (
+  "primary"   : #5c8df6,
+  "accent"    : #f3628d,
+  "grayscale" : #454b57,
+  "warning"   : #f5c85c,
+  "danger"    : #f26175,
+  "info"      : #82a2ff,
+  "success"   : #69dd95,
+  "dider"   : #f00,
 ) !default;
 
 $tones-light: (
@@ -29,12 +24,35 @@ $tones-dark: (
   80: 50%,
 ) !default;
 
-$palette-tones: (
+$theme-tones: (
   lighter: 10,
   light: 30,
   base: 50,
   dark: 60,
   darker: 80,
+) !default;
+
+// Font Sizes
+$theme-font-sizes: (
+  "x-hg" : 42px,
+  "hg"   : 34px,
+  "x-xl" : 28px,
+  "xl"   : 26px,
+  "lg"   : 20px,
+  "md"   : 18px,
+  "base" : 16px,
+  "sm"   : 14px,
+  "x-sm" : 12px,
+  "xs"   : 10px,
+  "x-xs" : 8px
+) !default;
+
+// Font Weight
+$theme-font-weight: (
+  "light"   : 300,
+  "regular" : 400,
+  "medium"  : 600,
+  "bold"    : 700
 ) !default;
 
 // Breakpoints

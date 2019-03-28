@@ -11,8 +11,8 @@
 
 // Colors
 :root {
-  @each $color, $keyColor  in $palette-colors {
-    @each $tone, $keyTone in $palette-tones {
+  @each $color, $keyColor  in $theme-colors {
+    @each $tone, $keyTone in $theme-tones {
       --color-#{$color}-#{$tone}: #{build-color(#{$color}, #{$tone})};
     }
   }
@@ -20,24 +20,15 @@
 
 // Typography
 :root {
-  --typography-x-hg: #{calculate-rem(38px)};
-  --typography-hg: #{calculate-rem(32px)};
-  --typography-x-xl: #{calculate-rem(28px)};
-  --typography-xl: #{calculate-rem(26px)};
-  --typography-lg: #{calculate-rem(20px)};
-  --typography-md: #{calculate-rem(18px)};
-  --typography-base: #{calculate-rem(16px)};
-  --typography-sm: #{calculate-rem(14px)};
-  --typography-x-sm: #{calculate-rem(12px)};
-  --typography-xs: #{calculate-rem(10px)};
-  --typography-x-xs: #{calculate-rem(8px)};
+  @each $keySize, $sizes in $theme-font-sizes {
+    --typography-#{$keySize}: #{calculate-rem(map-get($theme-font-sizes, $keySize))};
+  }
 }
 
 :root {
-  --typography-light: #{$theme-font-light};
-  --typography-regular: #{$theme-font-regular};
-  --typography-medium: #{$theme-font-medium};
-  --typography-bold: #{$theme-font-bold};
+  @each $keyWeight, $weight in $theme-font-weight {
+    --typography-#{$keyWeight}: #{map-get($theme-font-weight, $keyWeight)};
+  }
 }
 
 // Spaces
