@@ -12,10 +12,10 @@ $color-base: var(--color-grayscale-base);
 // @note: for this case is necessary to use the directly value of $theme variable,
 // because is more simple to use with media queries.
 $breakpoints: (
-  sm: $theme-breakpoint-mobile,
-  md: $theme-breakpoint-tablet,
-  lg: $theme-breakpoint-desktop,
-  hg: $theme-breakpoint-tv
+  sm: map-get($theme-breakpoints, sm),
+  md: map-get($theme-breakpoints, md),
+  lg: map-get($theme-breakpoints, lg),
+  xl: map-get($theme-breakpoints, xl)
 );
 
 // defining border radius

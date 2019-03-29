@@ -10,8 +10,7 @@ $theme-colors: (
   "warning"   : #f5c85c,
   "danger"    : #f26175,
   "info"      : #82a2ff,
-  "success"   : #69dd95,
-  "dider"   : #f00,
+  "success"   : #69dd95
 ) !default;
 
 $tones-light: (
@@ -67,8 +66,20 @@ $theme-spaces: (
   "x-xs" : 2px
 ) !default;
 
+$theme-radius: (
+  "hg": 32px,
+  "xl": 42px,
+  "lg": 16px,
+  "md": 8px,
+  "sm": 4px,
+  "xs": 2px
+) !default;
+
 // Breakpoints
-$theme-breakpoint-mobile: 280px !default;
-$theme-breakpoint-tablet: 768px !default;
-$theme-breakpoint-desktop: 1024px !default;
-$theme-breakpoint-tv: 1440px !default;
+$theme-breakpoints: (
+  "sm": 280px,
+  "md": 768px,
+  "lg": 1024px,
+  "xl": 1440px
+) !default;
+

@@ -27,7 +27,7 @@ $typography-font-weight: (
 $typography: (
   headline-1: (
     --heading-font-size: map-get($typography-font-size, x-hg),
-    --heading-font-weight: map-get($typography-font-weight, light)
+    --heading-font-weight: map-get($typography-font-weight, bold)
   ),
   headline-2: (
     --heading-font-size: map-get($typography-font-size, hg),
@@ -35,7 +35,7 @@ $typography: (
   ),
   headline-3: (
     --heading-font-size: map-get($typography-font-size, x-xl),
-    --heading-font-weight: map-get($typography-font-weight, light)
+    --heading-font-weight: map-get($typography-font-weight, medium)
   ),
   headline-4: (
     --heading-font-size: map-get($typography-font-size, xl),

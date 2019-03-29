@@ -11,53 +11,44 @@
 
 // Colors
 :root {
-  @each $color, $keyColor  in $theme-colors {
+  @each $key, $value  in $theme-colors {
     @each $tone, $keyTone in $theme-tones {
-      --color-#{$color}-#{$tone}: #{build-color(#{$color}, #{$tone})};
+      --color-#{$key}-#{$tone}: #{build-color(#{$key}, #{$tone})};
     }
   }
 }
 
-// Typography
+// Typography Size
 :root {
-  @each $keySize, $sizes in $theme-font-sizes {
-    --typography-#{$keySize}: #{calculate-rem(map-get($theme-font-sizes, $keySize))};
+  @each $key, $value in $theme-font-sizes {
+    --typography-#{$key}: #{calculate-rem(map-get($theme-font-sizes, $key))};
   }
 }
 
+// Typography Weight
 :root {
-  @each $keyWeight, $weight in $theme-font-weight {
-    --typography-#{$keyWeight}: #{map-get($theme-font-weight, $keyWeight)};
+  @each $key, $value in $theme-font-weight {
+    --typography-#{$key}: #{map-get($theme-font-weight, $key)};
   }
 }
 
 // Spaces
 :root {
-  --space-x-hg: #{calculate-rem(40px)};
-  --space-hg: #{calculate-rem(32px)};
-  --space-xl: #{calculate-rem(24px)};
-  --space-lg: #{calculate-rem(16px)};
-  --space-md: #{calculate-rem(12px)};
-  --space-sm: #{calculate-rem(8px)};
-  --space-x-sm: #{calculate-rem(6px)};
-  --space-xs: #{calculate-rem(4px)};
-  --space-x-xs: #{calculate-rem(2px)};
+  @each $key, $value in $theme-spaces {
+    --space-#{$key}: #{map-get($theme-spaces, $key)};
+  }
 }
 
 // Radius
 :root {
-  --radius-hg: #{calculate-rem(32px)};
-  --radius-xl: #{calculate-rem(42px)};
-  --radius-lg: #{calculate-rem(16px)};
-  --radius-md: #{calculate-rem(8px)};
-  --radius-sm: #{calculate-rem(4px)};
-  --radius-xs: #{calculate-rem(2px)};
+  @each $key, $value in $theme-radius {
+    --radius-#{$key}: #{map-get($theme-radius, $key)};
+  }
 }
 
-// Breakpoint
+// Breakpoints
 :root {
-  --breakpoint-sm: #{$theme-breakpoint-mobile};
-  --breakpoint-md: #{$theme-breakpoint-tablet};
-  --breakpoint-lg: #{$theme-breakpoint-desktop};
-  --breakpoint-hg: #{$theme-breakpoint-tv};
+  @each $key, $value in $theme-breakpoints {
+    --breakpoints-#{$key}: #{map-get($theme-breakpoints, $key)};
+  }
 }
