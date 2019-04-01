@@ -54,7 +54,6 @@
     position: relative;
     display: block;
     width: auto;
-    padding: $table-body-padding;
     white-space: nowrap;
     overflow-x: auto;
 
@@ -62,6 +61,7 @@
 
     @include tablet {
       display: table-row-group;
+      padding: $table-body-padding;
       white-space: normal;
       overflow-x: hidden;
     }

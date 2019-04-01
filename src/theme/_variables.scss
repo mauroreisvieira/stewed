@@ -31,6 +31,10 @@ $theme-tones: (
   darker: 80,
 ) !default;
 
+$theme-color-primary: build-color(primary) !default;
+$theme-color-accent: build-color(primary) !default;
+$theme-color-base: build-color(grayscale) !default;
+
 // Font Sizes
 $theme-font-sizes: (
   "x-hg" : 42px,

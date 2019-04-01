@@ -4,9 +4,9 @@ $font-size-base: var(--font-size-base);
 $font-weight-base: var(--typography-regular);
 
 // defining colors default
-$color-primary: var(--color-primary-base);
-$color-accent: var(--color-accent-base);
-$color-base: var(--color-grayscale-base);
+$color-primary: $theme-color-primary;
+$color-accent: $theme-color-accent;
+$color-base: $theme-color-base;
 
 // defining breakpoints
 // @note: for this case is necessary to use the directly value of $theme variable,
