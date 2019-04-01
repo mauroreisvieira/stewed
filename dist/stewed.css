@@ -162,7 +162,7 @@ body {
   padding: 0;
   color: var(--color-grayscale-base); }
 
-/* stylelint-disable selector-max-type */
+/* stylelint-disable selector-max-type, order/order */
 h1,
 .h1 {
   margin: var(--space-lg) 0;
@@ -378,6 +378,7 @@ a {
   .badge--danger {
     --badge-background: var(--color-danger-base); }
 
+/* stylelint-disable order/order */
 .breadcrumb {
   display: flex;
   flex-wrap: nowrap;
@@ -404,7 +405,8 @@ a {
       .breadcrumb__item.is-active::after {
         display: none; }
 
-.btn {
+/* stylelint-disable order/order */
+.button {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -422,29 +424,29 @@ a {
   font-weight: var(--typography-medium);
   text-decoration: none;
   text-transform: uppercase; }
-  .btn--shaped {
+  .button--shaped {
     border-radius: var(--radius-hg); }
   @media (hover: hover) {
-    .btn:hover {
+    .button:hover {
       background-color: var(--color-grayscale-lighter); } }
-  .btn--sm {
+  .button--sm {
     padding: var(--space-sm);
     font-size: var(--typography-x-sm); }
-  .btn--lg {
+  .button--lg {
     padding: var(--space-lg) var(--space-xl); }
-  .btn--primary {
+  .button--primary {
     background-color: var(--color-primary-base);
     color: #fff; }
     @media (hover: hover) {
-      .btn--primary:hover {
+      .button--primary:hover {
         background-color: var(--color-primary-light); } }
-  .btn--accent {
+  .button--accent {
     background-color: var(--color-accent-base);
     color: #fff; }
     @media (hover: hover) {
-      .btn--accent:hover {
+      .button--accent:hover {
         background-color: var(--color-accent-light); } }
-  .btn:disabled {
+  .button:disabled {
     opacity: .5;
     pointer-events: none; }
 
@@ -586,6 +588,7 @@ a {
       background: white;
       content: ""; }
 
+/* stylelint-disable order/order */
 .form-field {
   display: inline-flex;
   align-items: center;
@@ -610,6 +613,8 @@ a {
       margin-bottom: var(--space-sm);
       font-weight: var(--typography-bold); }
 
+/* stylelint-disable at-rule-no-unknown, at-rule-blacklist */
+/* stylelint-disable selector-max-type, order/order, at-rule-no-unknown, at-rule-blacklist */
 .row {
   display: flex;
   flex-flow: row wrap;
@@ -1190,7 +1195,7 @@ a {
       content: ""; }
 
 /* stylelint-disable selector-max-type, order/order */
-.table {
+table, .table {
   position: relative;
   display: block;
   width: 100%;
@@ -1198,9 +1203,9 @@ a {
   border-collapse: collapse;
   border-spacing: 0; }
   @media (min-width: 768px) {
-    .table {
+    table, .table {
       display: table; } }
-  .table thead {
+  table thead, .table thead {
     display: block;
     float: left;
     border: 0;
@@ -1208,7 +1213,7 @@ a {
     --heading-font-size: var(--typography-base);
     --heading-font-weight: var(--typography-bold); }
     @media (min-width: 768px) {
-      .table thead {
+      table thead, .table thead {
         display: table-row-group;
         padding: var(--space-lg);
         float: none;
@@ -1216,21 +1221,21 @@ a {
         border-bottom: 2px solid currentColor;
         --heading-font-size: var(--typography-md);
         --heading-font-weight: var(--typography-bold); } }
-    .table thead tr {
+    table thead tr, .table thead tr {
       display: block;
       padding: 0 10px 0 0; }
       @media (min-width: 768px) {
-        .table thead tr {
+        table thead tr, .table thead tr {
           display: table-row; } }
-      .table thead tr th {
+      table thead tr th, .table thead tr th {
         display: block;
         padding: var(--space-lg);
         text-align: right; }
         @media (min-width: 768px) {
-          .table thead tr th {
+          table thead tr th, .table thead tr th {
             display: table-cell;
             text-align: left; } }
-  .table tbody {
+  table tbody, .table tbody {
     position: relative;
     display: block;
     width: auto;
@@ -1243,23 +1248,23 @@ a {
     text-decoration: inherit;
     text-transform: inherit; }
     @media (min-width: 768px) {
-      .table tbody {
+      table tbody, .table tbody {
         display: table-row-group;
         white-space: normal;
         overflow-x: hidden; } }
-    .table tbody tr {
+    table tbody tr, .table tbody tr {
       display: inline-block;
       vertical-align: top; }
       @media (min-width: 768px) {
-        .table tbody tr {
+        table tbody tr, .table tbody tr {
           display: table-row;
           border-bottom: 1px solid var(--color-grayscale-lighter); } }
-      .table tbody tr td {
+      table tbody tr td, .table tbody tr td {
         display: block;
         padding: var(--space-lg);
         text-align: left; }
         @media (min-width: 768px) {
-          .table tbody tr td {
+          table tbody tr td, .table tbody tr td {
             display: table-cell; } }
 
 /* stylelint-disable selector-no-qualifying-type */
