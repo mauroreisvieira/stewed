@@ -1,3 +1,4 @@
+/* stylelint-disable at-rule-no-unknown, at-rule-blacklist */
 @mixin spacing( $value, $type: margin, $orientation: vertical ) {
   @if $orientation == vertical {
     #{ $type }-top: $value;
@@ -40,4 +41,3 @@
     }
   }
 }
-

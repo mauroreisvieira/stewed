@@ -1,5 +1,5 @@
 /* stylelint-disable selector-no-qualifying-type */
-.tag {
+#{$tag-root} {
   display: inline-flex;
   flex-wrap: nowrap;
   align-items: center;
@@ -24,7 +24,7 @@
   }
 }
 
-a.tag {
+a#{$tag-root} {
   @each $key in $tag-keys {
     &--#{$key} {
       @media (hover: hover) {

@@ -1,4 +1,4 @@
-.progress {
+#{$progress-root} {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -54,7 +54,6 @@
   &--lg {
     --progress-height: #{map-get($space, lg)};
   }
-
 
   @each $key in $progress-keys {
     &--#{$key} {

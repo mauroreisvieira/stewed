@@ -1,3 +1,4 @@
+$textfield-root: ".textfield" !default;
 // Sizes
 $textfield-padding: textfield-padding;
 $textfield-padding-base: map-get($space, sm) map-get($space, lg);

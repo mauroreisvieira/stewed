@@ -1,3 +1,4 @@
+$tooltip-root: ".tooltip" !default;
 $tooltip-background: get-color("grayscale", darker);
 $tooltip-font-size: map-get($typography-font-size, x-sm);
 $tooltip-font-size-large: map-get($typography-font-size, base);

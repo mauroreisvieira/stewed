@@ -1,4 +1,5 @@
-.form-field {
+/* stylelint-disable order/order */
+#{$form-field-root} {
   display: inline-flex;
   align-items: center;
   margin-bottom: map-get($space, lg);
@@ -20,7 +21,7 @@
     align-items: baseline;
 
     label {
-      margin-bottom:  map-get($space, sm);
+      margin-bottom: map-get($space, sm);
       font-weight: map-get($typography-font-weight, bold);
     }
   }

@@ -1,5 +1,5 @@
 /* stylelint-disable selector-max-type, order/order */
-.select {
+#{$select-root} {
   position: relative;
   display: flex;
   width: 100%;

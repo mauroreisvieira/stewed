@@ -1,3 +1,4 @@
+/* stylelint-disable selector-max-type, order/order, at-rule-no-unknown, at-rule-blacklist */
 .#{ $class-row } {
   display: flex;
   flex-flow: row wrap;
@@ -35,12 +36,12 @@
     $namespace: nth($val, 1);
 
     @include grid-sizes($namespace);
-    } @else {
-      $namespace: nth($val, 1);
-      $size: nth($val, 2);
+  } @else {
+    $namespace: nth($val, 1);
+    $size: nth($val, 2);
 
-      @media only screen and (min-width: #{$size}) {
-        @include grid-sizes( $namespace );
-      }
+    @media only screen and (min-width: #{$size}) {
+      @include grid-sizes( $namespace );
     }
   }
+}
