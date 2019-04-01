@@ -1,6 +1,5 @@
 /* stylelint-disable selector-max-type, order/order */
-
-.table {
+#{$table-root} {
   position: relative;
   display: block;
   width: 100%;
