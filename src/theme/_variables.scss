@@ -32,7 +32,7 @@ $theme-tones: (
 ) !default;
 
 $theme-color-primary: build-color(primary) !default;
-$theme-color-accent: build-color(primary) !default;
+$theme-color-accent: build-color(accent) !default;
 $theme-color-base: build-color(grayscale) !default;
 
 // Font Sizes

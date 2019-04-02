@@ -35,14 +35,14 @@
 // Spaces
 :root {
   @each $key, $value in $theme-spaces {
-    --space-#{$key}: #{map-get($theme-spaces, $key)};
+    --space-#{$key}: #{calculate-rem(map-get($theme-spaces, $key))};
   }
 }
 
 // Radius
 :root {
   @each $key, $value in $theme-radius {
-    --radius-#{$key}: #{map-get($theme-radius, $key)};
+    --radius-#{$key}: #{calculate-rem(map-get($theme-radius, $key))};
   }
 }
 
