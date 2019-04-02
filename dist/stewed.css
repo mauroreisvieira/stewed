@@ -406,7 +406,7 @@ a {
         display: none; }
 
 /* stylelint-disable order/order */
-.button {
+button, .btn {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -424,29 +424,29 @@ a {
   font-weight: var(--typography-medium);
   text-decoration: none;
   text-transform: uppercase; }
-  .button--shaped {
+  button--shaped, .btn--shaped {
     border-radius: var(--radius-hg); }
   @media (hover: hover) {
-    .button:hover {
+    button:hover, .btn:hover {
       background-color: var(--color-grayscale-lighter); } }
-  .button--sm {
+  button--sm, .btn--sm {
     padding: var(--space-sm);
     font-size: var(--typography-x-sm); }
-  .button--lg {
+  button--lg, .btn--lg {
     padding: var(--space-lg) var(--space-xl); }
-  .button--primary {
+  button--primary, .btn--primary {
     background-color: var(--color-primary-base);
     color: #fff; }
     @media (hover: hover) {
-      .button--primary:hover {
+      button--primary:hover, .btn--primary:hover {
         background-color: var(--color-primary-light); } }
-  .button--accent {
+  button--accent, .btn--accent {
     background-color: var(--color-accent-base);
     color: #fff; }
     @media (hover: hover) {
-      .button--accent:hover {
+      button--accent:hover, .btn--accent:hover {
         background-color: var(--color-accent-light); } }
-  .button:disabled {
+  button:disabled, .btn:disabled {
     opacity: .5;
     pointer-events: none; }
 
@@ -1336,13 +1336,7 @@ table, .table {
   position: relative;
   display: flex;
   width: 100%; }
-  .textfield--shaped .textfield__control {
-    --textfield-radius: var(--radius-hg); }
-  .textfield--sm .textfield__control {
-    --textfield-padding: var(--space-x-sm) var(--space-lg); }
-  .textfield--lg .textfield__control {
-    --textfield-padding: var(--space-lg) var(--space-lg); }
-  .textfield__control {
+  .textfield .textfield__control {
     --textfield-padding: var(--space-sm) var(--space-lg);
     --textfield-radius: var(--radius-sm);
     --textfield-border-color: var(--color-grayscale-lighter);
@@ -1361,11 +1355,17 @@ table, .table {
     font-weight: var(--typography-regular);
     text-decoration: inherit;
     text-transform: inherit; }
-    .textfield__control:focus {
+    .textfield .textfield__control:focus {
       --textfield-border-color: #5c8df6; }
-    .textfield__control[disabled] {
+    .textfield .textfield__control[disabled] {
       opacity: .5;
       pointer-events: none; }
+  .textfield--shaped .textfield__control {
+    --textfield-radius: var(--radius-hg); }
+  .textfield--sm .textfield__control {
+    --textfield-padding: var(--space-x-sm) var(--space-lg); }
+  .textfield--lg .textfield__control {
+    --textfield-padding: var(--space-lg) var(--space-lg); }
   .textfield--textarea .textfield__control {
     height: 160px;
     resize: none; }

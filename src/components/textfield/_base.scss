@@ -4,25 +4,7 @@
   display: flex;
   width: 100%;
 
-  &--shaped {
-    .textfield__control {
-      @include set($textfield-radius, $textfield-radius-large);
-    }
-  }
-
-  &--sm {
-    .textfield__control {
-      @include set($textfield-padding, $textfield-padding-small);
-    }
-  }
-
-  &--lg {
-    .textfield__control {
-      @include set($textfield-padding, $textfield-padding-large);
-    }
-  }
-
-  &__control {
+  #{$textfield-control-root} {
     @include set($textfield-padding, $textfield-padding-base);
     @include set($textfield-radius, $textfield-radius-base);
     @include set($textfield-border-color, $textfield-border-color-base);
@@ -50,8 +32,26 @@
     }
   }
 
+  &--shaped {
+    #{$textfield-control-root} {
+      @include set($textfield-radius, $textfield-radius-large);
+    }
+  }
+
+  &--sm {
+    #{$textfield-control-root} {
+      @include set($textfield-padding, $textfield-padding-small);
+    }
+  }
+
+  &--lg {
+    #{$textfield-control-root} {
+      @include set($textfield-padding, $textfield-padding-large);
+    }
+  }
+
   &--textarea {
-    .textfield__control {
+    #{$textfield-control-root} {
       height: $textfield-textarea-min-height * 2;
       resize: none;
     }
@@ -60,7 +60,7 @@
   &--required {
     @include set($textfield-required-color, $textfield-required-color-base);
 
-    .textfield__control {
+    #{$textfield-control-root} {
       padding-right: 32px;
     }
 
@@ -79,7 +79,7 @@
   }
 
   &--error {
-    .textfield__control {
+    #{$textfield-control-root} {
       @include set($textfield-border-color, $textfield-border-color-danger);
       @include set($textfield-color, $textfield-color-danger);
 

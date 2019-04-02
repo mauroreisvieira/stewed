@@ -1,4 +1,4 @@
-$button-root: ".button" !default;
+$button-root: "button, .btn" !default;
 $button-font-size-small: map-get($typography-font-size, x-sm);
 
 $buttons: (
