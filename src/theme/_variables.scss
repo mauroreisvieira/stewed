@@ -13,12 +13,12 @@ $theme-colors: (
   "success"   : #69dd95
 ) !default;
 
-$tones-light: (
+$theme-tones-light: (
   10: 80%,
   30: 30%
 ) !default;
 
-$tones-dark: (
+$theme-tones-dark: (
   60: 10%,
   80: 50%,
 ) !default;
@@ -31,9 +31,9 @@ $theme-tones: (
   darker: 80,
 ) !default;
 
-$theme-color-primary: build-color(primary) !default;
-$theme-color-accent: build-color(accent) !default;
-$theme-color-base: build-color(grayscale) !default;
+$theme-color-primary: get-color(primary) !default;
+$theme-color-accent: get-color(accent) !default;
+$theme-color-base: get-color(grayscale) !default;
 
 // Font Sizes
 $theme-font-sizes: (

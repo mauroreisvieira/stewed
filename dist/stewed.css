@@ -160,7 +160,7 @@ html {
 body {
   margin: 0 auto;
   padding: 0;
-  color: #454b57; }
+  color: var(--color-grayscale-base); }
 
 /* stylelint-disable selector-max-type, order/order */
 h1,
@@ -272,7 +272,7 @@ a {
   font-size: var(--typography-base);
   line-height: 1.4;
   font-weight: var(--typography-regular);
-  color: #5c8df6;
+  color: var(--color-primary-base);
   text-decoration: inherit;
   text-transform: inherit; }
   @media (hover: hover) {
@@ -416,7 +416,7 @@ button, .btn {
   border-radius: var(--radius-sm);
   outline: none;
   background-color: transparent;
-  color: #454b57;
+  color: var(--color-grayscale-base);
   line-height: 1.4;
   cursor: pointer;
   overflow: hidden;
@@ -502,7 +502,7 @@ button, .btn {
   height: var(--space-x-hg);
   border-radius: 50%;
   outline: 0;
-  color: #5c8df6;
+  color: var(--color-primary-base);
   cursor: pointer;
   overflow: hidden;
   will-change: transform, opacity; }
@@ -534,7 +534,7 @@ button, .btn {
     overflow: hidden;
     z-index: 1; }
     .checkbox__control:checked + .checkbox__background {
-      color: #5c8df6; }
+      color: var(--color-primary-base); }
       .checkbox__control:checked + .checkbox__background::before {
         border-color: currentColor; }
       .checkbox__control:checked + .checkbox__background::after {
@@ -543,7 +543,7 @@ button, .btn {
     .checkbox__control:disabled + .checkbox__background {
       color: rgba(69, 75, 87, 0.2); }
     .checkbox__control:indeterminate + .checkbox__background {
-      color: #5c8df6; }
+      color: var(--color-primary-base); }
       .checkbox__control:indeterminate + .checkbox__background::before {
         border-color: currentColor; }
       .checkbox__control:indeterminate + .checkbox__background::after {
@@ -557,7 +557,7 @@ button, .btn {
     height: 100%;
     margin: 0;
     padding: 0;
-    color: #454b57;
+    color: var(--color-grayscale-base);
     cursor: pointer;
     z-index: 0; }
     .checkbox__background::before {
@@ -974,7 +974,7 @@ button, .btn {
   height: var(--space-x-hg);
   border-radius: 50%;
   outline: 0;
-  color: #5c8df6;
+  color: var(--color-primary-base);
   cursor: pointer;
   overflow: hidden;
   will-change: transform, opacity; }
@@ -1006,7 +1006,7 @@ button, .btn {
     overflow: hidden;
     z-index: 1; }
     .radio__control:checked + .radio__background {
-      color: #5c8df6; }
+      color: var(--color-primary-base); }
       .radio__control:checked + .radio__background::before {
         border-color: currentColor; }
       .radio__control:checked + .radio__background::after {
@@ -1022,7 +1022,7 @@ button, .btn {
     height: 100%;
     margin: 0;
     padding: 0;
-    color: #454b57;
+    color: var(--color-grayscale-base);
     cursor: pointer;
     z-index: 0; }
     .radio__background::before {
@@ -1081,7 +1081,7 @@ button, .btn {
     border-radius: var(--radius-sm);
     outline: none;
     background-color: transparent;
-    color: #454b57;
+    color: var(--color-grayscale-base);
     text-overflow: ellipsis;
     white-space: nowrap;
     cursor: pointer;
@@ -1095,7 +1095,7 @@ button, .btn {
     text-decoration: inherit;
     text-transform: inherit; }
     .select__control:focus {
-      border-color: #5c8df6; }
+      border-color: var(--color-primary-base); }
     .select__control[disabled] {
       opacity: .5;
       pointer-events: none; }
@@ -1112,7 +1112,7 @@ button, .btn {
     height: 8px;
     transform: translate(-16px, -50%);
     border-radius: 50%;
-    background-color: #5c8df6;
+    background-color: var(--color-primary-base);
     content: ""; }
   .select--error {
     color: var(--color-danger-base); }
@@ -1131,7 +1131,7 @@ button, .btn {
   height: var(--space-x-hg);
   border-radius: 50%;
   outline: 0;
-  color: #5c8df6;
+  color: var(--color-primary-base);
   cursor: pointer;
   overflow: hidden;
   will-change: transform, opacity; }
@@ -1150,7 +1150,7 @@ button, .btn {
     overflow: hidden;
     z-index: 1; }
     .switch__control:checked + .switch__background {
-      color: #5c8df6; }
+      color: var(--color-primary-base); }
       .switch__control:checked + .switch__background::before {
         background-color: currentColor;
         opacity: .5; }
@@ -1177,7 +1177,7 @@ button, .btn {
       transform: translate(0, -50%);
       border-radius: 8px;
       outline: 0;
-      background-color: #454b57;
+      background-color: var(--color-grayscale-base);
       content: ""; }
     .switch__background::after {
       position: absolute;
@@ -1356,7 +1356,7 @@ table, .table {
     text-decoration: inherit;
     text-transform: inherit; }
     .textfield .textfield__control:focus {
-      --textfield-border-color: #5c8df6; }
+      --textfield-border-color: var(--color-primary-base); }
     .textfield .textfield__control[disabled] {
       opacity: .5;
       pointer-events: none; }

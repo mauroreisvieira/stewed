@@ -47,11 +47,11 @@
   $tone-value: map-get($theme-tones, $tone);
 
   @if ($tone-value < 50) {
-    $percent: map-get($tones-light, $tone-value);
+    $percent: map-get($theme-tones-light, $tone-value);
 
     @return tint($color-value, $percent);
   } @else if ($tone-value > 50) {
-    $percent: map-get($tones-dark, $tone-value);
+    $percent: map-get($theme-tones-dark, $tone-value);
 
     @return shade($color-value, $percent);
   } @else {
