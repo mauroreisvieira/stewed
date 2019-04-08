@@ -1,7 +1,22 @@
 import chalk from 'chalk'
-import { ensureFileSync, existsSync, outputFileSync, readFileSync } from 'fs-extra'
+import shell from "shelljs";
 import * as emoji from './emoji'
+import { ensureFileSync, existsSync, outputFileSync, readFileSync } from 'fs-extra'
 
+/**
+ * Gets CLI parameters.
+ *
+ * @param {string[]} cliArgs
+ * @return {string[]}
+ */
+export function parseCliParams(cliArgs) {
+  console.log('cliArgs', cliArgs);
+  const firstOptionIndex = cliArgs.findIndex(cliArg => cliArg.startsWith('-'))
+  console.log('firstOptionIndex', firstOptionIndex);
+  console.log('cliArgs.slice(0, firstOptionIndex)', cliArgs.slice(0, firstOptionIndex));
+
+  return firstOptionIndex > -1 ? cliArgs.slice(0, firstOptionIndex) : cliArgs
+}
 
 /**
  * Prints messages to console.
@@ -35,7 +50,6 @@ export function success(...msgs) {
  */
 export function die(...msgs) {
   msgs.length && error(...msgs)
-  footer()
   process.exit(1) // eslint-disable-line
 }
 
@@ -71,3 +85,18 @@ export function writeFile(path, content) {
 
   return outputFileSync(path, content)
 }
+
+
+/**
+ * Creates a file.
+ *
+ * @param      {string}  filename   The filename
+ * @param      {string}  extension  The extension
+ * @return     {string}
+ */
+export function createFile(filename, extension) {
+  const filePath = `${process.cwd()}/${filename}.${extension}`
+  shell.touch(filePath);
+
+  return filePath;
+};

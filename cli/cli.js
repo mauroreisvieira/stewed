@@ -1,3 +1,5 @@
+import utils from './util/utils';
 import main from './main';
 
-main();
+main(process.argv);
+

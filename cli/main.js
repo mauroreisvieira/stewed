@@ -1,14 +1,9 @@
 #!/usr/bin/env node
 
-const utils = require("./utils");
+const utils = require("./util/utils");
+const commands = require("./commands");
 const inquirer = require("inquirer");
-const chalk = require("chalk");
-const figlet = require("figlet");
-const shell = require("shelljs");
 
-const init = () => {
-  utils.log('Welcome to Stewed CLI');
-};
 
 const askQuestions = () => {
   const questions = [
@@ -30,28 +25,32 @@ const askQuestions = () => {
   return inquirer.prompt(questions);
 };
 
-const createFile = (filename, extension) => {
-  const filePath = `${process.cwd()}/${filename}.${extension}`
-  shell.touch(filePath);
-  return filePath;
-};
-
-const run = async () => {
-  // show script introduction
-  init();
+const init = async () => {
+  utils.log('Welcome to Stewed CLI');
 
   // ask questions
   const answers = await askQuestions();
   const { FILENAME, EXTENSION } = answers;
 
   // create the file
-  const filePath = createFile(FILENAME, EXTENSION);
+  const filePath = utils.createFile(FILENAME, EXTENSION);
 
   // show success message
   utils.success(`Done! File created at ${filePath}`);
 };
 
 
-export default function main() {
-  run();
+export default function main(cliArgs) {
+  return new Promise((resolve, reject) => {
+    console.log('MAIN');
+    const params = utils.parseCliParams(cliArgs);
+    console.log('params', params);
+    const command = commands[params[0]];
+    console.log('command', command);
+    const options = command ? utils.parseCliOptions(cliArgs, command.optionMap) : {};
+    const commandPromise = command ? command.run(params.slice(1), options) : commands.help.run(params);
+
+    commandPromise.then(resolve).catch(reject);
+  })
 }
+
