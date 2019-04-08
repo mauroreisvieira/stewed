@@ -6,6 +6,9 @@
 	"homepage": "https://github.com/maurovieirareis/stewed",
 	"author": "Mauro Reis Vieira <maurovieirareis@gmail.com>",
 	"repository": "https://github.com/maurovieirareis/stewed",
+	"bin": {
+		"stewed": "./cli/index.js"
+	},
 	"scripts": {
 		"build": "rollup -c",
 		"dev": "rollup -c -w",
