@@ -2,8 +2,8 @@ import bytes from 'bytes'
 import chalk from 'chalk'
 import prettyHrtime from 'pretty-hrtime'
 
-import * as emoji from '../util/emoji'
-import * as utils from '../util/utils'
+import * as emoji from '../emoji'
+import * as utils from '../utils'
 import commands from '.'
 import compile from '../compile'
 

@@ -1,4 +1,4 @@
-import * as utils from './util/utils'
+import * as utils from './utils'
 
 /**
  * Compiler options

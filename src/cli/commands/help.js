@@ -2,8 +2,8 @@ import chalk from 'chalk'
 import { forEach, map, padEnd } from 'lodash'
 
 import commands from '.'
-import * as constants from '../util/constants'
-import * as utils from '../util/utils'
+import * as constants from '../constants'
+import * as utils from '../utils'
 
 export const usage = 'help [command]'
 export const description = 'More information about the command.'

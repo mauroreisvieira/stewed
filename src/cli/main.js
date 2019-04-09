@@ -2,7 +2,7 @@
 
 const inquirer = require("inquirer");
 
-const utils = require("./util/utils");
+const utils = require("./utils");
 const commands = require("./commands");
 
 const askQuestions = () => {
