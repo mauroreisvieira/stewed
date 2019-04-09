@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-const utils = require("./util/utils");
-const commands = require("./commands");
 const inquirer = require("inquirer");
 
+const utils = require("./util/utils");
+const commands = require("./commands");
 
 const askQuestions = () => {
   const questions = [
@@ -26,7 +26,7 @@ const askQuestions = () => {
 };
 
 const init = async () => {
-  utils.log('Welcome to Stewed CLI');
+  utils.header();
 
   // ask questions
   const answers = await askQuestions();
@@ -41,16 +41,6 @@ const init = async () => {
 
 
 export default function main(cliArgs) {
-  return new Promise((resolve, reject) => {
-    console.log('MAIN');
-    const params = utils.parseCliParams(cliArgs);
-    console.log('params', params);
-    const command = commands[params[0]];
-    console.log('command', command);
-    const options = command ? utils.parseCliOptions(cliArgs, command.optionMap) : {};
-    const commandPromise = command ? command.run(params.slice(1), options) : commands.help.run(params);
-
-    commandPromise.then(resolve).catch(reject);
-  })
+  init();
 }
 

@@ -3,6 +3,8 @@ import shell from "shelljs";
 import * as emoji from './emoji'
 import { ensureFileSync, existsSync, outputFileSync, readFileSync } from 'fs-extra'
 
+import pkg from '../../package.json';
+
 /**
  * Gets CLI parameters.
  *
@@ -16,6 +18,21 @@ export function parseCliParams(cliArgs) {
   console.log('cliArgs.slice(0, firstOptionIndex)', cliArgs.slice(0, firstOptionIndex));
 
   return firstOptionIndex > -1 ? cliArgs.slice(0, firstOptionIndex) : cliArgs
+}
+
+/**
+ * Prints application header to console.
+ */
+export function header() {
+  log()
+  log(chalk.bold(pkg.name), chalk.bold.cyan(pkg.version))
+}
+
+/**
+ * Prints application footer to console.
+ */
+export function footer() {
+  log()
 }
 
 /**
