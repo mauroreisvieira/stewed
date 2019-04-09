@@ -22,9 +22,11 @@ const defaultOptions = {
  * @return {Promise}
  */
 export default function compile(options = {}) {
-  // const config = { ...defaultOptions, ...options };
+    const config = Object.assign(defaultOptions, options);
+    console.log(config);
+    const css = utils.readFile(config.inputFile)
 
-  // return new Promise((resolve, reject) => {
-  //   utils.log(resolve);
-  // })
+    return new Promise((resolve, reject) => {
+        utils.log(resolve);
+    })
 }

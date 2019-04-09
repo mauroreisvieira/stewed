@@ -2,7 +2,6 @@ import bytes from 'bytes'
 import chalk from 'chalk'
 import prettyHrtime from 'pretty-hrtime'
 
-import * as emoji from '../emoji'
 import * as utils from '../utils'
 import commands from '.'
 import compile from '../compile'
@@ -43,7 +42,7 @@ function stopWithHelp(...msgs) {
 function buildToFile(compileOptions, startTime) {
   utils.header()
   utils.log()
-  utils.log(emoji.go, 'Building...', chalk.bold.cyan(compileOptions.inputFile))
+  utils.log('Building...', chalk.bold.cyan(compileOptions.inputFile))
 
   return compile(compileOptions).then(result => {
     utils.writeFile(compileOptions.outputFile, result.css)
@@ -51,9 +50,9 @@ function buildToFile(compileOptions, startTime) {
     const prettyTime = prettyHrtime(process.hrtime(startTime))
 
     utils.log()
-    utils.log(emoji.yes, 'Finished in', chalk.bold.magenta(prettyTime))
-    utils.log(emoji.pack, 'Size:', chalk.bold.magenta(bytes(result.css.length)))
-    utils.log(emoji.disk, 'Saved to', chalk.bold.cyan(compileOptions.outputFile))
+    utils.log('Finished in', chalk.bold.magenta(prettyTime))
+    utils.log('Size:', chalk.bold.magenta(bytes(result.css.length)))
+    utils.log('Saved to', chalk.bold.cyan(compileOptions.outputFile))
     utils.log()
   })
 }
@@ -65,13 +64,10 @@ function buildToFile(compileOptions, startTime) {
  * @param {object} cliOptions
  * @return {Promise}
  */
-export function run(cliParams, cliOptions) {
+export function run(inputFile, outputFile) {
   return new Promise((resolve, reject) => {
     const startTime = process.hrtime()
-    const inputFile = cliParams[0];
-    const outputFile = cliOptions.output && cliOptions.output[0];
-
-    !inputFile && stopWithHelp('CSS file is required.');
+    !inputFile && stopWithHelp('JS file is required.');
 
     const compileOptions = {inputFile, outputFile}
     const buildPromise = buildToFile(compileOptions, startTime);

@@ -5,42 +5,24 @@ const inquirer = require("inquirer");
 const utils = require("./utils");
 const commands = require("./commands");
 
-const askQuestions = () => {
-  const questions = [
-  {
-    name: "FILENAME",
-    type: "input",
-    message: "What is the name of the file without extension?"
-  },
-  {
-    type: "list",
-    name: "EXTENSION",
-    message: "What is the file extension?",
-    choices: [".rb", ".js", ".php", ".css"],
-    filter: function(val) {
-      return val.split(".")[1];
-    }
-  }
-  ];
-  return inquirer.prompt(questions);
-};
-
 const init = async () => {
   utils.header();
 
   // ask questions
-  const answers = await askQuestions();
-  const { FILENAME, EXTENSION } = answers;
+  // const answers = await askQuestions();
+  // const { FILENAME, EXTENSION } = answers;
 
   // create the file
-  const filePath = utils.createFile(FILENAME, EXTENSION);
+  const filePath = commands.default.build.run('sasasas.js', 'dist/');
+  // const filePath = utils.createFile(FILENAME, EXTENSION);
 
   // show success message
-  utils.success(`Done! File created at ${filePath}`);
+  // utils.success(`Done! File created at ${filePath}`);
 };
 
 
-export default function main(cliArgs) {
-  init();
+export default function run(cliArgs) {
+  return new Promise((resolve, reject) => {
+    commands.default.build.run();
+  })
 }
-

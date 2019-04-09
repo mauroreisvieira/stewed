@@ -1,6 +1,5 @@
 import chalk from 'chalk'
 import shell from "shelljs";
-import * as emoji from './emoji'
 import { ensureFileSync, existsSync, outputFileSync, readFileSync } from 'fs-extra'
 
 import pkg from '../../package.json';
@@ -12,12 +11,35 @@ import pkg from '../../package.json';
  * @return {string[]}
  */
 export function parseCliParams(cliArgs) {
-  console.log('cliArgs', cliArgs);
   const firstOptionIndex = cliArgs.findIndex(cliArg => cliArg.startsWith('-'))
-  console.log('firstOptionIndex', firstOptionIndex);
-  console.log('cliArgs.slice(0, firstOptionIndex)', cliArgs.slice(0, firstOptionIndex));
-
   return firstOptionIndex > -1 ? cliArgs.slice(0, firstOptionIndex) : cliArgs
+}
+
+/**
+ * Gets mapped CLI options.
+ *
+ * @param {string[]} cliArgs
+ * @param {object} [optionMap]
+ * @return {object}
+ */
+export function parseCliOptions(cliArgs, optionMap = {}) {
+  let options = {}
+  let currentOption = []
+
+  cliArgs.forEach(cliArg => {
+    const option = cliArg.startsWith('-') && trimStart(cliArg, '-').toLowerCase()
+    const resolvedOption = findKey(optionMap, aliases => aliases.includes(option))
+
+    if (resolvedOption) {
+      currentOption = options[resolvedOption] || (options[resolvedOption] = [])
+    } else if (option) {
+      currentOption = []
+    } else {
+      currentOption.push(cliArg)
+    }
+  })
+
+  return Object.assign(optionMap, options);
 }
 
 /**
@@ -51,13 +73,13 @@ export function log(...msgs) {
  */
 export function error(...msgs) {
   log()
-  console.error('  ', emoji.no, chalk.bold.red(msgs.join(' ')));
+  console.error('  ', chalk.bold.red(msgs.join(' ')));
 }
 
 
 export function success(...msgs) {
   log()
-  console.log('  ', emoji.yes, chalk.bold.green(msgs.join(' ')));
+  console.log('  ', chalk.bold.green(msgs.join(' ')));
 }
 
 /**
