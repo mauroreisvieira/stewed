@@ -6,7 +6,7 @@ export default {
     theme: {
         colors: colors,
         textSizes: textSizes,
-        textWeight: textWeight
+        textWeight: textWeight,
     },
-    components: all
+    components: all,
 };

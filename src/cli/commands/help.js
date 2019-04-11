@@ -1,29 +1,33 @@
-import chalk from 'chalk'
-import { forEach, map, padEnd } from 'lodash'
+import chalk from 'chalk';
+import { forEach, map, padEnd } from 'lodash';
 
-import commands from '.'
-import * as constants from '../constants'
-import * as utils from '../utils'
+import commands from '.';
+import * as constants from '../constants';
+import * as utils from '../utils';
 
-export const usage = 'help [command]'
-export const description = 'More information about the command.'
+export const usage = 'help [command]';
+export const description = 'More information about the command.';
 
-const PADDING_SIZE = 3
+const PADDING_SIZE = 3;
 
 /**
  * Prints general help.
  */
 export function forApp() {
-  const pad = Math.max(...map(commands, 'usage.length')) + PADDING_SIZE
+    const pad = Math.max(...map(commands, 'usage.length')) + PADDING_SIZE;
 
-  utils.log()
-  utils.log('Usage:')
-  utils.log('  ', chalk.bold(constants.cli + ' <command> [options]'))
-  utils.log()
-  utils.log('Commands:')
-  forEach(commands, command => {
-    utils.log('  ', chalk.bold(padEnd(command.usage, pad)), command.description)
-  })
+    utils.log();
+    utils.log('Usage:');
+    utils.log('  ', chalk.bold(constants.cli + ' <command> [options]'));
+    utils.log();
+    utils.log('Commands:');
+    forEach(commands, command => {
+        utils.log(
+            '  ',
+            chalk.bold(padEnd(command.usage, pad)),
+            command.description
+        );
+    });
 }
 
 /**
@@ -32,22 +36,27 @@ export function forApp() {
  * @param {object} command
  */
 export function forCommand(command) {
-  utils.log()
-  utils.log('Usage:')
-  utils.log('  ', chalk.bold(constants.cli, command.usage))
-  utils.log()
-  utils.log('Description:')
-  utils.log('  ', chalk.bold(command.description))
+    utils.log();
+    utils.log('Usage:');
+    utils.log('  ', chalk.bold(constants.cli, command.usage));
+    utils.log();
+    utils.log('Description:');
+    utils.log('  ', chalk.bold(command.description));
 
-  if (command.options) {
-    const pad = Math.max(...map(command.options, 'usage.length')) + PADDING_SIZE
+    if (command.options) {
+        const pad =
+            Math.max(...map(command.options, 'usage.length')) + PADDING_SIZE;
 
-    utils.log()
-    utils.log('Options:')
-    forEach(command.options, option => {
-      utils.log('  ', chalk.bold(padEnd(option.usage, pad)), option.description)
-    })
-  }
+        utils.log();
+        utils.log('Options:');
+        forEach(command.options, option => {
+            utils.log(
+                '  ',
+                chalk.bold(padEnd(option.usage, pad)),
+                option.description
+            );
+        });
+    }
 }
 
 /**
@@ -56,9 +65,9 @@ export function forCommand(command) {
  * @param {string} commandName
  */
 export function invalidCommand(commandName) {
-  utils.error('Invalid command:', chalk.bold.magenta(commandName))
-  forApp()
-  utils.die()
+    utils.error('Invalid command:', chalk.bold.magenta(commandName));
+    forApp();
+    utils.die();
 }
 
 /**
@@ -68,19 +77,19 @@ export function invalidCommand(commandName) {
  * @return {Promise}
  */
 export function run(cliParams) {
-  utils.log('RUN');
-  return new Promise(resolve => {
-    utils.log();
+    utils.log('RUN');
+    return new Promise(resolve => {
+        utils.log();
 
-    const commandName = cliParams[0]
-    const command = commands[commandName]
+        const commandName = cliParams[0];
+        const command = commands[commandName];
 
-    !commandName && forApp()
-    commandName && command && forCommand(command)
-    commandName && !command && invalidCommand(commandName)
+        !commandName && forApp();
+        commandName && command && forCommand(command);
+        commandName && !command && invalidCommand(commandName);
 
-    utils.log();
+        utils.log();
 
-    resolve()
-  });
+        resolve();
+    });
 }

@@ -1,6 +1,11 @@
-import chalk from 'chalk'
-import shell from "shelljs";
-import { ensureFileSync, existsSync, outputFileSync, readFileSync } from 'fs-extra'
+import chalk from 'chalk';
+import shell from 'shelljs';
+import {
+    ensureFileSync,
+    existsSync,
+    outputFileSync,
+    readFileSync,
+} from 'fs-extra';
 
 import pkg from '../../package.json';
 
@@ -11,8 +16,10 @@ import pkg from '../../package.json';
  * @return {string[]}
  */
 export function parseCliParams(cliArgs) {
-  const firstOptionIndex = cliArgs.findIndex(cliArg => cliArg.startsWith('-'))
-  return firstOptionIndex > -1 ? cliArgs.slice(0, firstOptionIndex) : cliArgs
+    const firstOptionIndex = cliArgs.findIndex(cliArg =>
+        cliArg.startsWith('-')
+    );
+    return firstOptionIndex > -1 ? cliArgs.slice(0, firstOptionIndex) : cliArgs;
 }
 
 /**
@@ -23,38 +30,42 @@ export function parseCliParams(cliArgs) {
  * @return {object}
  */
 export function parseCliOptions(cliArgs, optionMap = {}) {
-  let options = {}
-  let currentOption = []
+    let options = {};
+    let currentOption = [];
 
-  cliArgs.forEach(cliArg => {
-    const option = cliArg.startsWith('-') && trimStart(cliArg, '-').toLowerCase()
-    const resolvedOption = findKey(optionMap, aliases => aliases.includes(option))
+    cliArgs.forEach(cliArg => {
+        const option =
+            cliArg.startsWith('-') && trimStart(cliArg, '-').toLowerCase();
+        const resolvedOption = findKey(optionMap, aliases =>
+            aliases.includes(option)
+        );
 
-    if (resolvedOption) {
-      currentOption = options[resolvedOption] || (options[resolvedOption] = [])
-    } else if (option) {
-      currentOption = []
-    } else {
-      currentOption.push(cliArg)
-    }
-  })
+        if (resolvedOption) {
+            currentOption =
+                options[resolvedOption] || (options[resolvedOption] = []);
+        } else if (option) {
+            currentOption = [];
+        } else {
+            currentOption.push(cliArg);
+        }
+    });
 
-  return Object.assign(optionMap, options);
+    return Object.assign(optionMap, options);
 }
 
 /**
  * Prints application header to console.
  */
 export function header() {
-  log()
-  log(chalk.bold(pkg.name), chalk.bold.cyan(pkg.version))
+    log();
+    log(chalk.bold(pkg.name), chalk.bold.cyan(pkg.version));
 }
 
 /**
  * Prints application footer to console.
  */
 export function footer() {
-  log()
+    log();
 }
 
 /**
@@ -63,7 +74,7 @@ export function footer() {
  * @param {...string} [msgs]
  */
 export function log(...msgs) {
-  console.log('  ', ...msgs)
+    console.log('  ', ...msgs);
 }
 
 /**
@@ -72,14 +83,13 @@ export function log(...msgs) {
  * @param {...string} [msgs]
  */
 export function error(...msgs) {
-  log()
-  console.error('  ', chalk.bold.red(msgs.join(' ')));
+    log();
+    console.error('  ', chalk.bold.red(msgs.join(' ')));
 }
 
-
 export function success(...msgs) {
-  log()
-  console.log('  ', chalk.bold.green(msgs.join(' ')));
+    log();
+    console.log('  ', chalk.bold.green(msgs.join(' ')));
 }
 
 /**
@@ -88,8 +98,8 @@ export function success(...msgs) {
  * @param {...string} [msgs]
  */
 export function die(...msgs) {
-  msgs.length && error(...msgs)
-  process.exit(1) // eslint-disable-line
+    msgs.length && error(...msgs);
+    process.exit(1); // eslint-disable-line
 }
 
 /**
@@ -99,7 +109,7 @@ export function die(...msgs) {
  * @return {boolean}
  */
 export function exists(path) {
-  return existsSync(path)
+    return existsSync(path);
 }
 
 /**
@@ -109,7 +119,7 @@ export function exists(path) {
  * @return {string}
  */
 export function readFile(path) {
-  return readFileSync(path, 'utf-8')
+    return readFileSync(path, 'utf-8');
 }
 
 /**
@@ -120,11 +130,10 @@ export function readFile(path) {
  * @return {string}
  */
 export function writeFile(path, content) {
-  ensureFileSync(path)
+    ensureFileSync(path);
 
-  return outputFileSync(path, content)
+    return outputFileSync(path, content);
 }
-
 
 /**
  * Creates a file.
@@ -134,8 +143,8 @@ export function writeFile(path, content) {
  * @return     {string}
  */
 export function createFile(filename, extension) {
-  const filePath = `${process.cwd()}/${filename}.${extension}`
-  shell.touch(filePath);
+    const filePath = `${process.cwd()}/${filename}.${extension}`;
+    shell.touch(filePath);
 
-  return filePath;
-};
+    return filePath;
+}

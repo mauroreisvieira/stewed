@@ -14,7 +14,8 @@
 		"dev": "rollup -c -w",
 		"build:demos": "webpack --config ./demos/webpack.config.js --mode production",
 		"dev:demos": "webpack --config ./demos/webpack.config.js --watch --progress --mode development",
-		"lint:scss": "stylelint \"src/**/*.scss\"",
+		"lint": "stylelint \"src/**/*.scss\" && eslint \"src/**/*.js\" \"src/**/**/*.js\"",
+		"format": "prettier-stylelint --write \"src/**/*.+(css|scss)\" && prettier --write \"src/**/*.+(js|md|ts)\"",
 		"test": "echo \"Warning: no test specified\" && exit 0"
 	},
 	"devDependencies": {
@@ -28,7 +29,7 @@
 		"jsdom-global": "^3.0.2",
 		"mocha": "^5.2.0",
 		"node-sass": "^4.5.2",
-		"prettier": "1.6.1",
+		"prettier": "1.16.4",
 		"prettier-stylelint": "^0.4.2",
 		"prismjs": "^1.15.0",
 		"remarkable": "^1.7.1",

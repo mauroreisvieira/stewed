@@ -4,13 +4,13 @@ $theme-font-family-monospace: monospace !default;
 $theme-font-size: 16px !default;
 
 $theme-colors: (
-  "primary"   : #5c8df6,
-  "accent"    : #f3628d,
-  "grayscale" : #454b57,
-  "warning"   : #f5c85c,
-  "danger"    : #f26175,
-  "info"      : #82a2ff,
-  "success"   : #69dd95
+  "primary": #5c8df6,
+  "accent": #f3628d,
+  "grayscale": #454b57,
+  "warning": #f5c85c,
+  "danger": #f26175,
+  "info": #82a2ff,
+  "success": #69dd95
 ) !default;
 
 $theme-tones-light: (
@@ -20,7 +20,7 @@ $theme-tones-light: (
 
 $theme-tones-dark: (
   60: 10%,
-  80: 50%,
+  80: 50%
 ) !default;
 
 $theme-tones: (
@@ -28,7 +28,7 @@ $theme-tones: (
   light: 30,
   base: 50,
   dark: 60,
-  darker: 80,
+  darker: 80
 ) !default;
 
 $theme-color-primary: get-color(primary) !default;
@@ -37,37 +37,37 @@ $theme-color-base: get-color(grayscale) !default;
 
 // Font Sizes
 $theme-font-sizes: (
-  "x-hg" : 42px,
-  "hg"   : 34px,
-  "x-xl" : 28px,
-  "xl"   : 26px,
-  "lg"   : 20px,
-  "md"   : 18px,
-  "base" : 16px,
-  "sm"   : 14px,
-  "x-sm" : 12px,
-  "xs"   : 10px,
-  "x-xs" : 8px
+  "x-hg": 42px,
+  "hg": 34px,
+  "x-xl": 28px,
+  "xl": 26px,
+  "lg": 20px,
+  "md": 18px,
+  "base": 16px,
+  "sm": 14px,
+  "x-sm": 12px,
+  "xs": 10px,
+  "x-xs": 8px
 ) !default;
 
 // Font Weight
 $theme-font-weight: (
-  "light"   : 300,
-  "regular" : 400,
-  "medium"  : 600,
-  "bold"    : 700
+  "light": 300,
+  "regular": 400,
+  "medium": 600,
+  "bold": 700
 ) !default;
 
 $theme-spaces: (
-  "x-hg"  : 40px,
-  "hg"    : 32px,
-  "xl"    : 24px,
-  "lg"    : 16px,
-  "md"    : 12px,
-  "sm"   : 8px,
-  "x-sm" : 6px,
-  "xs"   : 4px,
-  "x-xs" : 2px
+  "x-hg": 40px,
+  "hg": 32px,
+  "xl": 24px,
+  "lg": 16px,
+  "md": 12px,
+  "sm": 8px,
+  "x-sm": 6px,
+  "xs": 4px,
+  "x-xs": 2px
 ) !default;
 
 $theme-radius: (
@@ -86,4 +86,3 @@ $theme-breakpoints: (
   "lg": 1024px,
   "xl": 1440px
 ) !default;
-

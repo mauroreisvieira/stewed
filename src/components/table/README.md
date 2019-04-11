@@ -1,9 +1,11 @@
 ## Table
 
 ### Overview
+
 Table component is an enhanced version of the standard HTML.
 
 ### Basic
+
 ```html
 <table class="table">
     <thead>

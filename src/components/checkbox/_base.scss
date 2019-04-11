@@ -23,9 +23,10 @@
     width: 100%;
     height: 100%;
     transform: scale(0, 0);
-    transition:
-      opacity $transition-duration-quickly $transition-function-quickly-accelerate-slowly-decelerate,
-      transform $transition-duration $transition-function-quickly-accelerate-slowly-decelerate;
+    transition: opacity $transition-duration-quickly
+      $transition-function-quickly-accelerate-slowly-decelerate,
+      transform $transition-duration
+      $transition-function-quickly-accelerate-slowly-decelerate;
     border-radius: 50%;
     background-color: currentColor;
     opacity: 0;
@@ -37,7 +38,7 @@
   &:focus {
     &::before {
       transform: none;
-      opacity: .05;
+      opacity: 0.05;
     }
   }
 
@@ -70,7 +71,7 @@
 
     &:disabled {
       + .checkbox__background {
-        color: alpha(grayscale, .2);
+        color: alpha(grayscale, 0.2);
       }
     }
 
@@ -83,7 +84,7 @@
         }
 
         &::after {
-          transform: scale(1, .2);
+          transform: scale(1, 0.2);
           background-color: currentColor;
         }
       }
@@ -128,7 +129,8 @@
       height: 10px;
       margin: auto;
       transform: scale(0, 0);
-      transition: transform $transition-duration-quickly $transition-function-quickly-accelerate-decelerate;
+      transition: transform $transition-duration-quickly
+        $transition-function-quickly-accelerate-decelerate;
       background: white;
       content: "";
     }

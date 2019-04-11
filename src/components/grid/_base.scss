@@ -28,7 +28,7 @@
 @each $val in $breakpoints {
   $namespace: nth($val, 1);
 
-  @include grid-base( $namespace );
+  @include grid-base($namespace);
 }
 
 @each $val in $breakpoints {
@@ -41,7 +41,7 @@
     $size: nth($val, 2);
 
     @media only screen and (min-width: #{$size}) {
-      @include grid-sizes( $namespace );
+      @include grid-sizes($namespace);
     }
   }
 }

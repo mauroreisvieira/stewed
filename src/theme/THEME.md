@@ -1,9 +1,11 @@
 ## Theme
 
 ### Overview
+
 _TODO_
 
 ### Color Palette
+
 Color palette uses an organized approach to applying color to your UI.
 
 In this system, a primary and a accent color are typically selected to represent your brand.

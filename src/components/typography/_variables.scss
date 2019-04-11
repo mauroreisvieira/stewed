@@ -13,7 +13,7 @@ $typography-font-size: (
   sm: var(--typography-sm),
   x-sm: var(--typography-x-sm),
   xs: var(--typography-xs),
-  x-xs: var(--typography-x-xs),
+  x-xs: var(--typography-x-xs)
 );
 
 // defining font weight
@@ -63,7 +63,7 @@ $typography: (
   small: (
     font-size: map-get($typography-font-size, sm),
     line-height: 1.3,
-    font-weight: map-get($typography-font-weight, regular),
+    font-weight: map-get($typography-font-weight, regular)
   ),
   link: (
     font-size: map-get($typography-font-size, base),
@@ -80,4 +80,3 @@ $typography: (
     text-transform: uppercase
   )
 ) !default;
-

@@ -1,9 +1,11 @@
 ## Badge
 
 ### Overview
+
 Badge component is an on screen notification element.
 
 ### Basic
+
 ```html
 <div class="demo-head">
     <span class="badge badge--info">0</span>
@@ -11,6 +13,7 @@ Badge component is an on screen notification element.
 ```
 
 ### Notification
+
 ```html
 <div class="demo-head">
     <span class="badge badge--danger"></span>

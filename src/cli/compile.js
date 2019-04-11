@@ -1,4 +1,4 @@
-import * as utils from './utils'
+import * as utils from './utils';
 
 /**
  * Compiler options
@@ -10,10 +10,10 @@ import * as utils from './utils'
  */
 
 const defaultOptions = {
-  inputFile: null,
-  outputFile: null,
-  plugins: [],
-}
+    inputFile: null,
+    outputFile: null,
+    plugins: [],
+};
 
 /**
  * Compiles CSS file.
@@ -24,9 +24,9 @@ const defaultOptions = {
 export default function compile(options = {}) {
     const config = Object.assign(defaultOptions, options);
     console.log(config);
-    const css = utils.readFile(config.inputFile)
+    const css = utils.readFile(config.inputFile);
 
     return new Promise((resolve, reject) => {
         utils.log(resolve);
-    })
+    });
 }

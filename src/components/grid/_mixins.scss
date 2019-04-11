@@ -1,5 +1,5 @@
 /* stylelint-disable at-rule-no-unknown, at-rule-blacklist */
-@mixin spacing( $value, $type: margin, $orientation: vertical ) {
+@mixin spacing($value, $type: margin, $orientation: vertical) {
   @if $orientation == vertical {
     #{ $type }-top: $value;
     #{ $type }-bottom: $value;
@@ -9,7 +9,7 @@
   }
 }
 
-@mixin grid-sizes( $namespace ) {
+@mixin grid-sizes($namespace) {
   @for $i from 1 through $columns {
     .#{ $class-cell }-#{$namespace}-#{$i} {
       flex-basis: get-col-percent($i);
@@ -18,7 +18,7 @@
   }
 
   @for $i from 1 through $columns {
-    @if ( $i != $columns ) {
+    @if ($i != $columns) {
       .#{ $class-off }-#{$namespace}-#{$i} {
         margin-left: get-col-percent($i);
       }
@@ -30,7 +30,7 @@
   }
 }
 
-@mixin grid-base( $namespace ) {
+@mixin grid-base($namespace) {
   .#{ $class-cell }-#{$namespace} {
     @extend %#{ $class-cell }-flex;
   }

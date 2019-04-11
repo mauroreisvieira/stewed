@@ -36,7 +36,7 @@
 
         &::before {
           background-color: currentColor;
-          opacity: .5;
+          opacity: 0.5;
         }
 
         &::after {
@@ -48,7 +48,7 @@
 
     &:disabled {
       + .switch__background {
-        color: alpha(grayscale, .2);
+        color: alpha(grayscale, 0.2);
 
         &::after {
           transform: translate(50%, -50%);
@@ -86,14 +86,12 @@
       height: 24px;
       margin: 0;
       transform: translate(0, -50%);
-      transition: all .3s ease;
+      transition: all 0.3s ease;
       border-radius: 50%;
       outline: 0;
       background-color: #fafafa;
-      box-shadow:
-        0 3px 1px -2px alpha(grayscale, .2),
-        0 2px 2px 0 alpha(grayscale, .1),
-        0 1px 5px 0 alpha(grayscale, .1);
+      box-shadow: 0 3px 1px -2px alpha(grayscale, 0.2),
+        0 2px 2px 0 alpha(grayscale, 0.1), 0 1px 5px 0 alpha(grayscale, 0.1);
       content: "";
     }
   }

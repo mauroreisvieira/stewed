@@ -10,7 +10,8 @@
     min-width: 80px;
     padding: map-get($space, xs) map-get($space, sm);
     transform: translate(-50%, 0);
-    transition: opacity .2s ease-in-out, transform .2s cubic-bezier(.71, 1.7, .77, 1.24);
+    transition: opacity 0.2s ease-in-out,
+      transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
     border-radius: $tooltip-border-radius;
     background-color: $tooltip-background;
     opacity: 0;

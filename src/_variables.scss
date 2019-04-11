@@ -26,7 +26,7 @@ $radius: (
   md: var(--radius-md),
   sm: var(--radius-sm),
   xs: var(--radius-xs),
-  none: 0,
+  none: 0
 );
 
 // defining spaces
@@ -40,15 +40,25 @@ $space: (
   x-sm: var(--space-x-sm),
   xs: var(--space-xs),
   x-xs: var(--space-x-xs),
-  none: 0,
+  none: 0
 );
 
 // defining transitions function
 // @todo: WIP
-$transition-function-decelerate: cubic-bezier(0, 0, .2, 1) !default;
-$transition-function-accelerate: cubic-bezier(.4, 0, 1, 1) !default;
-$transition-function-quickly-accelerate-slowly-decelerate: cubic-bezier(.4, 0, .2, 1) !default;
-$transition-function-quickly-accelerate-decelerate: cubic-bezier(.4, 0, .6, 1) !default;
+$transition-function-decelerate: cubic-bezier(0, 0, 0.2, 1) !default;
+$transition-function-accelerate: cubic-bezier(0.4, 0, 1, 1) !default;
+$transition-function-quickly-accelerate-slowly-decelerate: cubic-bezier(
+  0.4,
+  0,
+  0.2,
+  1
+) !default;
+$transition-function-quickly-accelerate-decelerate: cubic-bezier(
+  0.4,
+  0,
+  0.6,
+  1
+) !default;
 
 // defining transitions duration
 // @todo: WIP

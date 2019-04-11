@@ -2,6 +2,8 @@ $progress-root: ".progress" !default;
 $progress-keys: primary, accent, info, success, warning, danger;
 $progress-border-radius: map-get($radius, sm);
 $progress-height: var(--progress-height, map-get($space, md));
-$progress-background: alpha(grayscale, .2);
-$progress-background-value: var(--progress-background, var(--color-grayscale-lighter));
-
+$progress-background: alpha(grayscale, 0.2);
+$progress-background-value: var(
+  --progress-background,
+  var(--color-grayscale-lighter)
+);

@@ -278,7 +278,7 @@ rules:
       - /^FIXME:/
     - severity: warning
   # Part of google's style guide
-  number-leading-zero: never
+  number-leading-zero: null
   at-rule-empty-line-before:
     - always
     -

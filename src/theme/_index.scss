@@ -11,7 +11,7 @@
 
 // Colors
 :root {
-  @each $key, $value  in $theme-colors {
+  @each $key, $value in $theme-colors {
     @each $tone, $keyTone in $theme-tones {
       --color-#{$key}-#{$tone}: #{build-color(#{$key}, #{$tone})};
     }

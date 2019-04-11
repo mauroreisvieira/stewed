@@ -1,28 +1,28 @@
 #!/usr/bin/env node
 
-const inquirer = require("inquirer");
+const inquirer = require('inquirer');
 
-const utils = require("./utils");
-const commands = require("./commands");
+const utils = require('./utils');
+
+const commands = require('./commands');
 
 const init = async () => {
-  utils.header();
+    utils.header();
 
-  // ask questions
-  // const answers = await askQuestions();
-  // const { FILENAME, EXTENSION } = answers;
+    // ask questions
+    // const answers = await askQuestions();
+    // const { FILENAME, EXTENSION } = answers;
 
-  // create the file
-  const filePath = commands.default.build.run('sasasas.js', 'dist/');
-  // const filePath = utils.createFile(FILENAME, EXTENSION);
+    // create the file
+    const filePath = commands.default.build.run('sasasas.js', 'dist/');
+    // const filePath = utils.createFile(FILENAME, EXTENSION);
 
-  // show success message
-  // utils.success(`Done! File created at ${filePath}`);
+    // show success message
+    // utils.success(`Done! File created at ${filePath}`);
 };
 
-
 export default function run(cliArgs) {
-  return new Promise((resolve, reject) => {
-    commands.default.build.run();
-  })
+    return new Promise((resolve, reject) => {
+        commands.default.build.run();
+    });
 }

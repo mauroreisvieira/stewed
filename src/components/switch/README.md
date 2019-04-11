@@ -1,9 +1,11 @@
 ## Switch
 
 ### Overview
+
 Switch component communicate an action a user can take.
 
 ### Basic
+
 ```html
 <div class="form-field demo-switch">
     <div class="switch" tabindex="1">

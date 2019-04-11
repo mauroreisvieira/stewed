@@ -1,5 +1,5 @@
 class Dialog extends HTMLElement {
-   constructor(target, element) {
+    constructor(target, element) {
         super();
         this.target_ = target;
         this.element_ = element;
