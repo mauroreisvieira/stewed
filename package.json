@@ -10,10 +10,10 @@
 		"stewed": "./src/cli.js"
 	},
 	"scripts": {
-		"build": "rollup -c",
-		"dev": "rollup -c -w",
+		"server": "http-server",
+		"dev": "./node_modules/.bin/node-sass -w src/packages/stewed.scss dist/stewed.css",
+		"build": "./node_modules/.bin/node-sass src/packages/stewed.scss dist/stewed.min.css --output-style compressed",
 		"build:demos": "webpack --config ./demos/webpack.config.js --mode production",
-		"dev:demos": "webpack --config ./demos/webpack.config.js --watch --progress --mode development",
 		"lint": "stylelint \"src/**/*.scss\" && eslint \"src/**/*.js\" \"src/**/**/*.js\"",
 		"format": "yarn run lint && prettier-stylelint --write \"src/**/*.+(css|scss)\" && prettier --write \"src/**/*.+(js|md|ts)\"",
 		"test": "echo \"Warning: no test specified\" && exit 0"
@@ -36,12 +36,6 @@
 		"prettier-stylelint": "^0.4.2",
 		"prismjs": "^1.15.0",
 		"remarkable": "^1.7.1",
-		"rimraf": "^2.6.2",
-		"rollup": "^0.66.4",
-		"rollup-plugin-collect-sass": "^1.0.9",
-		"rollup-plugin-scss": "^0.4.0",
-		"rollup-plugin-serve": "^0.6.0",
-		"rollup-watch": "^4.3.1",
 		"sass-loader": "^7.0.1",
 		"script-loader": "^0.7.0",
 		"source-map-loader": "^0.2.3",

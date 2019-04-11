@@ -69,7 +69,7 @@ $typography: (
     font-size: map-get($typography-font-size, base),
     line-height: 1.4,
     font-weight: map-get($typography-font-weight, regular),
-    color: $color-primary,
+    color: $color-link,
     text-decoration: inherit,
     text-transform: inherit
   ),

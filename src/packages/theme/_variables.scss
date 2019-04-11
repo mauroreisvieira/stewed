@@ -34,6 +34,7 @@ $theme-tones: (
 $theme-color-primary: get-color(primary) !default;
 $theme-color-accent: get-color(accent) !default;
 $theme-color-base: get-color(grayscale) !default;
+$theme-color-link: get-color(primary) !default;
 
 // Font Sizes
 $theme-font-sizes: (
