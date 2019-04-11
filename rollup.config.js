@@ -6,7 +6,7 @@ import serve from 'rollup-plugin-serve';
 rimraf.sync('dist');
 
 export default {
-    input: 'src/scripts/app.js',
+    input: 'src/stewed.js',
     output: {
         file: 'dist/scripts/stewed.js',
         format: 'iife'
