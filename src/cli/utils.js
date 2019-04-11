@@ -87,6 +87,11 @@ export function error(...msgs) {
     console.error('  ', chalk.bold.red(msgs.join(' ')));
 }
 
+/**
+ * Prints success messages to console.
+ *
+ * @param {...string} [msgs]
+ */
 export function success(...msgs) {
     log();
     console.log('  ', chalk.bold.green(msgs.join(' ')));

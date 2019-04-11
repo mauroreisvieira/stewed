@@ -1,4 +1,4 @@
-export const textSizes = {
+export default {
     'x-hg': '42px',
     hg: '34px',
     'x-xl': '28px',

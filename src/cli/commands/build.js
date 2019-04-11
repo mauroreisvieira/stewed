@@ -25,6 +25,17 @@ export const optionMap = {
     config: ['config', 'c'],
 };
 
+/**
+ * Prints the error message and stops the process.
+ *
+ * @param {...string} [msgs]
+ */
+function stop(...msgs) {
+    utils.header();
+    utils.error(...msgs);
+    utils.die();
+}
+
 function stopWithHelp(...msgs) {
     utils.header();
     utils.error(...msgs);
@@ -64,10 +75,9 @@ function buildToFile(compileOptions, startTime) {
  * @return {Promise}
  */
 export function run(cliParams, cliOptions) {
-    console.log('cliParams', cliParams);
     return new Promise((resolve, reject) => {
         const startTime = process.hrtime();
-        const inputFile = cliParams[0];
+        const inputFile = cliParams;
         const configFile = cliOptions.config && cliOptions.config[0];
         const outputFile = cliOptions.output && cliOptions.output[0];
 

@@ -1,21 +1,20 @@
+import breakpoints from './plugins/breakpoints';
 import colors from './plugins/colors';
-import fonts from './plugins/fonts';
+import tones from './plugins/tones';
+// import fonts from './plugins/fonts';
+// import radius from './plugins/radius';
+// import spaces from './plugins/spaces';
 import textSizes from './plugins/textSizes';
 import textWeight from './plugins/textWeight';
-import spaces from './plugins/spaces';
-import radius from './plugins/radius';
-import breakpoints from './plugins/breakpoints';
+
+console.log('breakpoints', breakpoints);
 
 export default {
-    theme: {
-        colors: colors,
-        fonts: fonts,
-        textSizes: textSizes,
-        textWeight: textWeight,
-        spaces: spaces,
-        radius: radius,
-        breakpoints: breakpoints,
-    },
+    breakpoints: breakpoints,
+    colors: colors,
+    tones: tones,
+    textSizes: textSizes,
+    textWeight: textWeight,
     packages: [
         'typography',
         'alert',

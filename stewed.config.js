@@ -1,4 +1,7 @@
-export default {
-    theme: {},
-    packages: [],
+module.exports = {
+    colors: {
+        primary: '#f00',
+        accent: '#0ff',
+    },
+    packages: ['button'],
 };

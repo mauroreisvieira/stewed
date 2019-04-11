@@ -1,9 +1,7 @@
 #!/usr/bin/env node
 
 const inquirer = require('inquirer');
-
 const utils = require('./utils');
-
 const commands = require('./commands');
 
 const init = async () => {
@@ -14,7 +12,7 @@ const init = async () => {
     // const { FILENAME, EXTENSION } = answers;
 
     // create the file
-    const filePath = commands.default.build.run('sasasas.js', 'dist/');
+    const filePath = commands.default.build.run('stewed.config.js', 'dist/');
     // const filePath = utils.createFile(FILENAME, EXTENSION);
 
     // show success message
@@ -23,6 +21,6 @@ const init = async () => {
 
 export default function run(cliArgs) {
     return new Promise((resolve, reject) => {
-        commands.default.build.run();
+        commands.default.build.run('stewed.config.js', 'dist/');
     });
 }
