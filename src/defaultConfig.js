@@ -8,5 +8,5 @@ export default {
         textSizes: textSizes,
         textWeight: textWeight,
     },
-    components: all,
+    components: 'all',
 };
