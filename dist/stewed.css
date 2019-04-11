@@ -447,7 +447,7 @@ button, .btn {
       button--accent:hover, .btn--accent:hover {
         background-color: var(--color-accent-light); } }
   button:disabled, .btn:disabled {
-    opacity: .5;
+    opacity: 0.5;
     pointer-events: none; }
 
 .card {
@@ -510,18 +510,19 @@ button, .btn {
     cursor: default;
     pointer-events: none; }
   .checkbox::before {
+    transition: 222ms cubic-bezier(0.4, 0, 1, 1);
+    transition-property: opacity, transform;
     position: absolute;
     width: 100%;
     height: 100%;
     transform: scale(0, 0);
-    transition: opacity 100ms cubic-bezier(0.4, 0, 0.2, 1), transform 222ms cubic-bezier(0.4, 0, 0.2, 1);
     border-radius: 50%;
     background-color: currentColor;
     opacity: 0;
     content: ""; }
   .checkbox:hover::before, .checkbox:active::before, .checkbox:focus::before {
     transform: none;
-    opacity: .05; }
+    opacity: 0.05; }
   .checkbox__control {
     position: absolute;
     width: 100%;
@@ -575,6 +576,7 @@ button, .btn {
       border-radius: var(--radius-sm);
       content: ""; }
     .checkbox__background::after {
+      transition: transform 222ms cubic-bezier(0.4, 0, 1, 1);
       position: absolute;
       top: 0;
       right: 0;
@@ -584,7 +586,6 @@ button, .btn {
       height: 10px;
       margin: auto;
       transform: scale(0, 0);
-      transition: transform 100ms cubic-bezier(0.4, 0, 0.6, 1);
       background: white;
       content: ""; }
 
@@ -982,18 +983,19 @@ button, .btn {
     cursor: default;
     pointer-events: none; }
   .radio::before {
+    transition: 222ms cubic-bezier(0.4, 0, 1, 1);
+    transition-property: opacity, transform;
     position: absolute;
     width: 100%;
     height: 100%;
     transform: scale(0, 0);
-    transition: opacity 100ms cubic-bezier(0.4, 0, 0.2, 1), transform 222ms cubic-bezier(0.4, 0, 0.2, 1);
     border-radius: 50%;
     background-color: currentColor;
     opacity: 0;
     content: ""; }
   .radio:hover::before, .radio:active::before, .radio:focus::before {
     transform: none;
-    opacity: .05; }
+    opacity: 0.05; }
   .radio__control {
     position: absolute;
     width: 100%;
@@ -1040,6 +1042,7 @@ button, .btn {
       border-radius: 50%;
       content: ""; }
     .radio__background::after {
+      transition: transform 222ms cubic-bezier(0.4, 0, 1, 1);
       position: absolute;
       top: 0;
       right: 0;
@@ -1049,7 +1052,6 @@ button, .btn {
       height: 10px;
       margin: auto;
       transform: scale(0, 0);
-      transition: transform 100ms cubic-bezier(0.4, 0, 0.6, 1);
       border-radius: 50%;
       background: white;
       content: ""; }
@@ -1097,7 +1099,7 @@ button, .btn {
     .select__control:focus {
       border-color: var(--color-primary-base); }
     .select__control[disabled] {
-      opacity: .5;
+      opacity: 0.5;
       pointer-events: none; }
   .select--textarea .select__control {
     resize: none; }
@@ -1153,9 +1155,9 @@ button, .btn {
       color: var(--color-primary-base); }
       .switch__control:checked + .switch__background::before {
         background-color: currentColor;
-        opacity: .5; }
+        opacity: 0.5; }
       .switch__control:checked + .switch__background::after {
-        transform: translate(50%, -50%);
+        transform: translate(calc(50% + 2px), -50%);
         background-color: currentColor; }
     .switch__control:disabled + .switch__background {
       color: rgba(69, 75, 87, 0.2); }
@@ -1182,16 +1184,15 @@ button, .btn {
     .switch__background::after {
       position: absolute;
       top: 50%;
-      left: 2px;
+      left: 1px;
       width: 24px;
       height: 24px;
       margin: 0;
       transform: translate(0, -50%);
-      transition: all .3s ease;
+      transition: all 0.3s ease;
       border-radius: 50%;
       outline: 0;
       background-color: #fafafa;
-      box-shadow: 0 3px 1px -2px rgba(69, 75, 87, 0.2), 0 2px 2px 0 rgba(69, 75, 87, 0.1), 0 1px 5px 0 rgba(69, 75, 87, 0.1);
       content: ""; }
 
 /* stylelint-disable selector-max-type, order/order */
@@ -1358,7 +1359,7 @@ table, .table {
     .textfield .textfield__control:focus {
       --textfield-border-color: var(--color-primary-base); }
     .textfield .textfield__control[disabled] {
-      opacity: .5;
+      opacity: 0.5;
       pointer-events: none; }
   .textfield--shaped .textfield__control {
     --textfield-radius: var(--radius-hg); }
@@ -1404,13 +1405,14 @@ table, .table {
   display: inline-block;
   cursor: pointer; }
   .tooltip::after {
+    transition: 222ms cubic-bezier(0.4, 0, 1, 1);
+    transition-property: opacity, transform;
     position: absolute;
     bottom: 100%;
     left: 50%;
     min-width: 80px;
     padding: var(--space-xs) var(--space-sm);
     transform: translate(-50%, 0);
-    transition: opacity 0.2s ease-in-out, transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
     border-radius: var(--radius-sm);
     background-color: var(--color-grayscale-darker);
     opacity: 0;

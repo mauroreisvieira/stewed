@@ -39,3 +39,17 @@
     --#{$variable}: #{$value};
   }
 }
+
+@mixin transition(
+  $property,
+  $duration: $transition-duration,
+  $timing-function: $transition-function-accelerate,
+  $delay: null
+) {
+  @if (type-of($property) == list) {
+    transition: $duration $timing-function $delay;
+    transition-property: $property;
+  } @else {
+    transition: $property $duration $timing-function $delay;
+  }
+}

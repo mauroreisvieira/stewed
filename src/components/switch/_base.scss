@@ -40,7 +40,7 @@
         }
 
         &::after {
-          transform: translate(50%, -50%);
+          transform: translate(calc(50% + 2px), -50%);
           background-color: currentColor;
         }
       }
@@ -81,7 +81,7 @@
     &::after {
       position: absolute;
       top: 50%;
-      left: 2px;
+      left: 1px;
       width: 24px;
       height: 24px;
       margin: 0;
@@ -90,8 +90,6 @@
       border-radius: 50%;
       outline: 0;
       background-color: #fafafa;
-      box-shadow: 0 3px 1px -2px alpha(grayscale, 0.2),
-        0 2px 2px 0 alpha(grayscale, 0.1), 0 1px 5px 0 alpha(grayscale, 0.1);
       content: "";
     }
   }
