@@ -593,6 +593,7 @@ button, .btn {
 .form-field {
   display: inline-flex;
   align-items: center;
+  width: 100%;
   margin-bottom: var(--space-lg);
   font-family: var(--font-family-serif); }
   .form-field label {
@@ -1370,35 +1371,18 @@ table, .table {
   .textfield--textarea .textfield__control {
     height: 160px;
     resize: none; }
-  .textfield--required {
-    --textfield-color-required: var(--color-primary-base); }
-    .textfield--required .textfield__control {
-      padding-right: 32px; }
-    .textfield--required::after {
-      position: absolute;
-      top: 50%;
-      right: 0;
-      display: block;
-      width: 8px;
-      height: 8px;
-      transform: translate(-16px, -50%);
-      border-radius: 50%;
-      background-color: var(--textfield-color-required);
-      content: ""; }
-  .textfield--error .textfield__control {
-    --textfield-border-color: var(--color-danger-base);
+  .textfield.has-error .textfield__control {
     --textfield-color: var(--color-danger-base);
-    padding-right: 32px; }
-  .textfield--error::after {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: translate(-16px, -50%);
-    color: var(--color-danger-base);
-    content: attr(data-error); }
+    --textfield-border-color: var(--color-danger-base); }
+  .textfield.has-success .textfield__control {
+    --textfield-color: var(--color-success-base);
+    --textfield-border-color: var(--color-success-base); }
+  .textfield.has-warning .textfield__control {
+    --textfield-color: var(--color-warning-base);
+    --textfield-border-color: var(--color-warning-base); }
+  .textfield.has-required .textfield__control {
+    --textfield-color: var(--color-primary-base);
+    --textfield-border-color: var(--color-primary-base); }
 
 .tooltip {
   position: relative;

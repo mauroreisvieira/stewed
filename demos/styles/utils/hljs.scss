@@ -1,6 +1,7 @@
 /* stylelint-disable selector-max-type, selector-no-qualifying-type */
 .demo {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   width: 100%;

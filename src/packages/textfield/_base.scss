@@ -57,45 +57,12 @@
     }
   }
 
-  &--required {
-    @include set($textfield-required-color, $textfield-required-color-base);
-
-    #{$textfield-control-root} {
-      padding-right: 32px;
-    }
-
-    &::after {
-      position: absolute;
-      top: 50%;
-      right: 0;
-      display: block;
-      width: 8px;
-      height: 8px;
-      transform: translate(-16px, -50%);
-      border-radius: 50%;
-      background-color: get($textfield-required-color);
-      content: "";
-    }
-  }
-
-  &--error {
-    #{$textfield-control-root} {
-      @include set($textfield-border-color, $textfield-border-color-danger);
-      @include set($textfield-color, $textfield-color-danger);
-
-      padding-right: 32px;
-    }
-
-    &::after {
-      position: absolute;
-      top: 50%;
-      right: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transform: translate(-16px, -50%);
-      color: #{$textfield-color-danger};
-      content: attr(data-error);
+  @each $key, $value in $textfield-states {
+    &.has-#{$key} {
+      .textfield__control {
+        @include set($textfield-color, $value);
+        @include set($textfield-border-color, $value);
+      }
     }
   }
 }

@@ -14,15 +14,18 @@ $textfield-radius-large: map-get($radius, hg);
 // Color
 $textfield-color: textfield-color;
 $textfield-color-base: get-color(grayscale);
-$textfield-color-danger: get-color(danger);
 $textfield-color-base: get-color(grayscale);
-$textfield-required-color: textfield-color-required;
-$textfield-required-color-base: get-color(primary);
 
 // Border Color
 $textfield-border-color: textfield-border-color;
 $textfield-border-color-base: get-color(grayscale, lighter);
-$textfield-border-color-danger: get-color(danger);
+
+$textfield-states: (
+  "error": get-color(danger),
+  "success": get-color(success),
+  "warning": get-color(warning),
+  "required": get-color(primary),
+);
 
 // Textarea
 $textfield-textarea-min-height: 80px;

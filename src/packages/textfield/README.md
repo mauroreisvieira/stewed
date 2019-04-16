@@ -25,7 +25,7 @@ Textfield component allow users to input, edit, and select text.
 ```html
 <div class="form-field form-field--column">
     <label for="textfield-2">Textfield #02</label>
-    <div class="textfield textfield--sm textfield--error" data-error="!">
+    <div class="textfield textfield--sm has-error">
         <input
             type="text"
             name="textfield-2"
@@ -42,11 +42,11 @@ Textfield component allow users to input, edit, and select text.
 ```html
 <div class="form-field form-field--column">
     <label for="textfield-2">Textfield #03</label>
-    <div class="textfield textfield--shaped textfield--lg textfield--required">
+    <div class="textfield textfield--shaped has-success">
         <input
             type="text"
             name="textfield-3"
-            placeholder="Shaped"
+            placeholder="Warning"
             value="Shaped"
             class="textfield__control"
         />

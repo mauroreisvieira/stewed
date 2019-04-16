@@ -2,6 +2,7 @@
 #{$form-field-root} {
   display: inline-flex;
   align-items: center;
+  width: 100%;
   margin-bottom: map-get($space, lg);
   font-family: $form-field-font-family;
 
