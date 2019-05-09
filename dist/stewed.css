@@ -459,7 +459,7 @@ button,
     @media (hover: hover) {
       button--primary:hover,
       .btn--primary:hover {
-        background-color: var(--color-primary-light); } }
+        background-color: var(--color-primary-dark); } }
   button--accent,
   .btn--accent {
     background-color: var(--color-accent-base);
@@ -467,7 +467,7 @@ button,
     @media (hover: hover) {
       button--accent:hover,
       .btn--accent:hover {
-        background-color: var(--color-accent-light); } }
+        background-color: var(--color-accent-dark); } }
   button:disabled,
   .btn:disabled {
     opacity: 0.4;

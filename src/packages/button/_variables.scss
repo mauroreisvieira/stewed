@@ -1,6 +1,6 @@
 $button-font-size-small: map-get($typography-font-size, x-sm) !default;
 
 $buttons: (
-  primary: (bg: var(--color-primary-base),on-bg: var(--color-primary-light)),
-  accent: (bg: var(--color-accent-base),on-bg: var(--color-accent-light))
+  primary: (bg: var(--color-primary-base),on-bg: var(--color-primary-dark)),
+  accent: (bg: var(--color-accent-base),on-bg: var(--color-accent-dark))
 ) !default;
