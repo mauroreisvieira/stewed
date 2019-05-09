@@ -53,3 +53,9 @@
     transition: $property $duration $timing-function $delay;
   }
 }
+
+@mixin disabled($value: $disabled) {
+  opacity: $value;
+  cursor: default;
+  pointer-events: none;
+}

@@ -1,4 +1,4 @@
-#{$checkbox-root} {
+.checkbox {
   position: relative;
   display: inline-flex;
   flex: 0 0 auto;
@@ -12,11 +12,6 @@
   cursor: pointer;
   overflow: hidden;
   will-change: transform, opacity;
-
-  &--disabled {
-    cursor: default;
-    pointer-events: none;
-  }
 
   &::before {
     @include transition((opacity, transform));
@@ -69,7 +64,7 @@
 
     &:disabled {
       + .checkbox__background {
-        color: alpha(grayscale, 0.2);
+        @include disabled;
       }
     }
 

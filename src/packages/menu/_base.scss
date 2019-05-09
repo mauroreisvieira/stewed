@@ -1,5 +1,8 @@
 /* stylelint-disable order/order */
-#{$menu-root} {
+.menu {
+  --menu-bg: transparent;
+  --menu-fg: inherit;
+
   width: 100%;
   list-style-type: none;
 
@@ -11,21 +14,26 @@
     width: 100%;
     padding: map-get($space, sm) map-get($space, lg);
     border-radius: map-get($radius, sm);
-    color: inherit;
+    background-color: var(--menu-bg);
+    color: var(--menu-fg);
+    user-select: none;
     overflow: hidden;
 
     @include get-typography(base);
 
     @media (hover: hover) {
       &:hover {
-        background-color: var(--color-primary-lighter);
-        color: var(--color-primary-base);
+        --menu-bg: var(--color-primary-lighter);
+        --menu-fg: var(--color-primary-base);
       }
     }
 
     &.is-active {
-      background-color: var(--color-primary-lighter);
-      color: var(--color-primary-base);
+      &,
+      &:hover {
+        --menu-bg: transparent;
+        --menu-fg: var(--color-primary-dark);
+      }
     }
   }
 }

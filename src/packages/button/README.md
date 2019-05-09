@@ -16,7 +16,7 @@ Button component consists of text and/or an image that clearly communicates what
 <button class="btn btn--primary">Primary</button>
 ```
 
-### Shaped & Large
+### Shaped & Large & Accent
 
 ```html
 <button class="btn btn--shaped btn--lg btn--accent">Accent</button>

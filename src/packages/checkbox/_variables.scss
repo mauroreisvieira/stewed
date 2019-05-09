@@ -1,6 +1,5 @@
-$checkbox-root: ".checkbox" !default;
-$checkbox-width: map-get($space, x-hg);
-$checkbox-height: map-get($space, x-hg);
-$checkbox-color-default: $color-base;
-$checkbox-color-active: $color-primary;
-$checkbox-border-width: 2px;
+$checkbox-width: map-get($space, x-hg) !default;
+$checkbox-height: map-get($space, x-hg) !default;
+$checkbox-color-default: $color-base !default;
+$checkbox-color-active: $color-primary !default;
+$checkbox-border-width: 2px !default;

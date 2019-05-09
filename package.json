@@ -11,7 +11,7 @@
 	},
 	"scripts": {
 		"server": "http-server",
-		"dev": "./node_modules/.bin/node-sass -w src/packages/stewed.scss dist/stewed.css",
+		"watch": "./node_modules/.bin/node-sass -w src/packages/stewed.scss dist/stewed.css",
 		"build": "./node_modules/.bin/node-sass src/packages/stewed.scss dist/stewed.min.css --output-style compressed",
 		"build:demos": "webpack --config ./demos/webpack.config.js --mode production",
 		"lint": "stylelint \"src/**/*.scss\" && eslint \"src/**/*.js\" \"src/**/**/*.js\"",

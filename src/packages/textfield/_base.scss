@@ -1,57 +1,74 @@
 /* stylelint-disable order/order */
-#{$textfield-root} {
+.textfield {
   position: relative;
   display: flex;
   width: 100%;
 
-  #{$textfield-control-root} {
-    @include set($textfield-padding, $textfield-padding-base);
-    @include set($textfield-radius, $textfield-radius-base);
-    @include set($textfield-border-color, $textfield-border-color-base);
-    @include set($textfield-color, $textfield-color-base);
+  .textfield__control {
+    --textfield-padding: #{$textfield-padding};
+    --textfield-radius: #{$textfield-radius};
+    --textfield-fg: #{$textfield-color};
+    --textfield-bg: #{$textfield-background};
+    --textfield-caret: #{$textfield-color};
+    --textfield-border-color: #{$textfield-border-color};
 
     width: 100%;
-    padding: get($textfield-padding);
-    border: 1px solid get($textfield-border-color);
-    border-radius: get($textfield-radius);
+    padding: var(--textfield-padding);
+    border: 0;
+    border-radius: var(--textfield-radius);
     outline: none;
-    background-color: transparent;
-    color: get($textfield-color);
+    background-color: var(--textfield-bg);
+    color: var(--textfield-fg);
     -webkit-appearance: none;
     box-shadow: none;
+    caret-color: var(--textfield-caret);
 
     @include get-typography(base);
 
-    &:focus {
-      @include set($textfield-border-color, $color-primary);
+    &[disabled] {
+      @include disabled;
     }
 
-    &[disabled] {
-      opacity: 0.5;
-      pointer-events: none;
+    &:focus {
+      --textfield-bg: #{$textfield-on-background};
+    }
+  }
+
+  &--outlined {
+    --textfield-border-color: #{$textfield-border-color};
+
+    .textfield__control {
+      border: 1px solid var(--textfield-border-color);
+      background-color: transparent;
+
+      &:focus {
+        --textfield-border-color: #{$color-primary};
+
+        background-color: transparent;
+      }
     }
   }
 
   &--shaped {
-    #{$textfield-control-root} {
-      @include set($textfield-radius, $textfield-radius-large);
+    .textfield__control {
+      --textfield-radius: #{$textfield-radius-large};
     }
   }
 
   &--sm {
-    #{$textfield-control-root} {
-      @include set($textfield-padding, $textfield-padding-small);
+    .textfield__control {
+      --textfield-padding: #{$textfield-padding-small};
     }
   }
 
   &--lg {
-    #{$textfield-control-root} {
-      @include set($textfield-padding, $textfield-padding-large);
+    .textfield__control {
+      --textfield-padding: #{$textfield-padding-large};
     }
   }
 
   &--textarea {
-    #{$textfield-control-root} {
+    .textfield__control {
       height: $textfield-textarea-min-height * 2;
       resize: none;
     }
@@ -60,8 +77,9 @@
   @each $key, $value in $textfield-states {
     &.has-#{$key} {
       .textfield__control {
-        @include set($textfield-color, $value);
-        @include set($textfield-border-color, $value);
+        --textfield-fg: #{$value};
+        --textfield-border-color: #{$value};
+        --textfield-caret: #{$value};
       }
     }
   }

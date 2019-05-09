@@ -1,4 +1,4 @@
-#{$dialog-root} {
+.dialog {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -25,7 +25,7 @@
 
   &__body {
     width: 100%;
-    padding: map-get($space, lg);
+    padding: 0 map-get($space, lg) map-get($space, lg);
 
     > :first-child {
       margin-top: 0;
@@ -47,6 +47,25 @@
 
     > :last-child {
       margin-bottom: 0;
+    }
+  }
+
+  &__actions {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    margin: 0;
+    padding: map-get($space, lg);
+  }
+
+  &__btn {
+    margin-left: map-get($space, xs);
+
+    &:first-child {
+      margin-left: 0;
     }
   }
 }

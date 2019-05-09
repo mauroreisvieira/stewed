@@ -1,4 +1,3 @@
-$form-field-root: ".form-field" !default;
-$form-field-font-weight: map-get($typography-font-weight, regular);
-$form-field-font-family: $font-family-serif;
-$form-field-padding-left: map-get($space, xs);
+$form-field-font-weight: map-get($typography-font-weight, regular) !default;
+$form-field-font-family: $font-family-serif !default;
+$form-field-padding-left: map-get($space, xs) !default;

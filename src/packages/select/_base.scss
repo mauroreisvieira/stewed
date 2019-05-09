@@ -1,5 +1,6 @@
 /* stylelint-disable selector-max-type, order/order */
-#{$select-root} {
+select,
+.select {
   position: relative;
   display: flex;
   width: 100%;
@@ -45,9 +46,8 @@
       border-color: $color-primary;
     }
 
-    &[disabled] {
-      opacity: 0.5;
-      pointer-events: none;
+    &:disabled {
+      @include disabled;
     }
   }
 

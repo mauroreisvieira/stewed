@@ -1,13 +1,16 @@
 /* stylelint-disable selector-no-qualifying-type */
-#{$tag-root} {
+.tag {
+  --tag-bg: var(--color-grayscale-lighter);
+  --tag-fg: get-color("grayscale");
+
   display: inline-flex;
   flex-wrap: nowrap;
   align-items: center;
   height: map-get($space, xl);
   padding: 0 map-get($space, sm);
   border-radius: map-get($radius, sm);
-  background-color: $tag-background;
-  color: $tag-color !important;
+  background-color: var(--tag-bg);
+  color: var(--tag-fg) !important;
   font-size: map-get($typography-font-size, xs);
   font-weight: map-get($typography-font-weight, bold);
   text-transform: uppercase;
@@ -18,19 +21,19 @@
 
   @each $key in $tag-keys {
     &--#{$key} {
-      --tag-background: #{get-color(#{$key}, lighter)};
-      --tag-color: #{get-color(#{$key})};
+      --tag-bg: #{get-color(#{$key}, lighter)};
+      --tag-fg: #{get-color(#{$key})};
     }
   }
 }
 
-a#{$tag-root} {
+a.tag {
   @each $key in $tag-keys {
     &--#{$key} {
       @media (hover: hover) {
         &:hover {
-          --tag-background: #{get-color(#{$key}, light)};
-          --tag-color: #{get-color(#{$key}, darker)};
+          --tag-bg: #{get-color(#{$key}, light)};
+          --tag-fg: #{get-color(#{$key}, darker)};
         }
       }
     }

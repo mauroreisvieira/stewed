@@ -1,4 +1,4 @@
-#{$switch-root} {
+.switch {
   position: relative;
   display: inline-flex;
   flex: 0 0 auto;
@@ -13,9 +13,8 @@
   overflow: hidden;
   will-change: transform, opacity;
 
-  &--disabled {
-    cursor: default;
-    pointer-events: none;
+  &.is-disabled {
+    @include disabled;
   }
 
   &__control {
@@ -48,12 +47,7 @@
 
     &:disabled {
       + .switch__background {
-        color: alpha(grayscale, 0.2);
-
-        &::after {
-          transform: translate(50%, -50%);
-          background-color: #ccc;
-        }
+        @include disabled;
       }
     }
   }

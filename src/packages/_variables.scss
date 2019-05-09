@@ -9,6 +9,9 @@ $color-accent: $theme-color-accent;
 $color-base: $theme-color-base;
 $color-link: $theme-color-link;
 
+// defining disabled value
+$disabled: $theme-disabled;
+
 // defining breakpoints
 // @note: for this case is necessary to use the directly value of $theme variable,
 // because is more simple to use with media queries.

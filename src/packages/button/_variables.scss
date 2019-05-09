@@ -1,13 +1,6 @@
-$button-root: "button, .btn" !default;
-$button-font-size-small: map-get($typography-font-size, x-sm);
+$button-font-size-small: map-get($typography-font-size, x-sm) !default;
 
 $buttons: (
-  primary: (
-    var(--color-primary-base),
-    var(--color-primary-light)
-  ),
-  accent: (
-    var(--color-accent-base),
-    var(--color-accent-light)
-  )
-);
+  primary: (bg: var(--color-primary-base),on-bg: var(--color-primary-light)),
+  accent: (bg: var(--color-accent-base),on-bg: var(--color-accent-light))
+) !default;

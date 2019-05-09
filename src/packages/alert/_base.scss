@@ -1,4 +1,7 @@
-#{$alert-root} {
+.alert {
+  --alert-bg: var(--color-grayscale-lighter);
+  --alert-fg: var(--color-grayscale);
+
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -7,8 +10,8 @@
   margin-bottom: map-get($space, lg);
   padding: map-get($space, lg);
   border-radius: map-get($radius, sm);
-  background-color: $alert-background;
-  color: $alert-color;
+  background-color: var(--alert-bg);
+  color: var(--alert-fg);
   font-size: map-get($typography-font-size, base);
   cursor: pointer;
 
@@ -24,7 +27,8 @@
 
   @each $key in $alert-keys {
     &--#{$key} {
-      --alert-background: #{get-color(#{$key})};
+      --alert-bg: #{get-color(#{$key})};
+      --alert-fg: #fff;
     }
   }
 }

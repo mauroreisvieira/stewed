@@ -1,4 +1,6 @@
-#{$badge-root} {
+.badge {
+  --badge-bg: var(--color-grayscale-lighter);
+
   position: absolute;
   top: 0;
   right: 0;
@@ -11,7 +13,7 @@
   padding: 0 map-get($space, x-sm);
   transform: translate(50%, -50%);
   border-radius: map-get($radius, xl);
-  background-color: $badge-background;
+  background-color: var(--badge-bg);
   color: #fff;
   font-size: map-get($typography-font-size, x-sm);
   font-weight: map-get($typography-font-weight, base);
@@ -26,7 +28,7 @@
 
   @each $key in $badge-keys {
     &--#{$key} {
-      --badge-background: #{get-color(#{$key})};
+      --badge-bg: #{get-color(#{$key})};
     }
   }
 }

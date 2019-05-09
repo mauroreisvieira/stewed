@@ -1,4 +1,7 @@
-#{$progress-root} {
+.progress {
+  --progress-background: var(--color-grayscale-lighter);
+  --progress-size: #{map-get($space, md)};
+
   position: relative;
   display: flex;
   flex-direction: column;
@@ -13,26 +16,26 @@
 
   &__control {
     width: 100%;
-    height: $progress-height;
+    height: var(--progress-size);
     border: 0;
     -webkit-appearance: none;
     appearance: none;
 
     &::-webkit-progress-bar {
       border-radius: $progress-border-radius;
-      background-color: $progress-background;
+      background: var(--progress-background);
       box-shadow: none;
     }
 
     &::-webkit-progress-value {
       border-radius: $progress-border-radius;
-      background: $progress-background-value;
+      background: var(--progress-background);
       box-shadow: none;
     }
 
     &::-moz-progress-bar {
       border-radius: $progress-border-radius;
-      background: $progress-background-value;
+      background: var(--progress-background);
       box-shadow: none;
     }
 
@@ -48,11 +51,11 @@
   }
 
   &--sm {
-    --progress-height: #{map-get($space, x-sm)};
+    --progress-size: #{map-get($space, x-sm)};
   }
 
   &--lg {
-    --progress-height: #{map-get($space, lg)};
+    --progress-size: #{map-get($space, lg)};
   }
 
   @each $key in $progress-keys {

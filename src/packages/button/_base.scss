@@ -1,5 +1,6 @@
 /* stylelint-disable order/order */
-#{$button-root} {
+button,
+.btn {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -10,13 +11,10 @@
   outline: none;
   background-color: transparent;
   color: $color-base;
-  line-height: 1.4;
   cursor: pointer;
+  user-select: none;
+  -webkit-appearance: none;
   overflow: hidden;
-
-  &--shaped {
-    border-radius: map-get($radius, hg);
-  }
 
   @include get-typography(button);
 
@@ -24,6 +22,10 @@
     &:hover {
       background-color: var(--color-grayscale-lighter);
     }
+  }
+
+  &--shaped {
+    border-radius: map-get($radius, hg);
   }
 
   &--sm {
@@ -37,19 +39,18 @@
 
   @each $key, $values in $buttons {
     &--#{$key} {
-      background-color: nth($values, 1);
+      background-color: map-get($values, bg);
       color: #fff;
 
       @media (hover: hover) {
         &:hover {
-          background-color: nth($values, 2);
+          background-color: map-get($values, on-bg);
         }
       }
     }
   }
 
   &:disabled {
-    opacity: 0.5;
-    pointer-events: none;
+    @include disabled;
   }
 }

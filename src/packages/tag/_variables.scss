@@ -1,4 +1,1 @@
-$tag-root: ".tag" !default;
-$tag-keys: primary, accent, info, success, warning, danger;
-$tag-background: var(--tag-background, var(--color-grayscale-lighter));
-$tag-color: var(--tag-color, get-color("grayscale"));
+$tag-keys: primary, accent, info, success, warning, danger !default;
