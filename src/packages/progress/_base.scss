@@ -1,6 +1,6 @@
 .progress {
   --progress-bar-background: #{$progress-background};
-  --progress-background: #{get-color(primary)};;
+  --progress-background: #{get-color(primary)};
   --progress-size: #{map-get($space, md)};
   --progress-border-radius: #{map-get($radius, sm)};
 
