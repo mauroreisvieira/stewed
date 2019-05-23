@@ -1,6 +1,8 @@
 .progress {
-  --progress-background: var(--color-grayscale-lighter);
+  --progress-bar-background: #{$progress-background};
+  --progress-background: #{get-color(primary)};;
   --progress-size: #{map-get($space, md)};
+  --progress-border-radius: #{map-get($radius, sm)};
 
   position: relative;
   display: flex;
@@ -22,19 +24,19 @@
     appearance: none;
 
     &::-webkit-progress-bar {
-      border-radius: $progress-border-radius;
-      background: var(--progress-background);
-      box-shadow: none;
-    }
-
-    &::-webkit-progress-value {
-      border-radius: $progress-border-radius;
-      background: var(--progress-background);
+      border-radius: var(--progress-border-radius);
+      background: var(--progress-bar-background);
       box-shadow: none;
     }
 
     &::-moz-progress-bar {
-      border-radius: $progress-border-radius;
+      border-radius: var(--progress-border-radius);
+      background: var(--progress-bar-background);
+      box-shadow: none;
+    }
+
+    &::-webkit-progress-value {
+      border-radius: var(--progress-border-radius);
       background: var(--progress-background);
       box-shadow: none;
     }

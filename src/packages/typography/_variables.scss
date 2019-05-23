@@ -27,31 +27,45 @@ $typography-font-weight: (
 $typography: (
   headline-1: (
     --heading-font-size: map-get($typography-font-size, x-hg),
-    --heading-font-weight: map-get($typography-font-weight, bold)
+    --heading-font-weight: map-get($typography-font-weight, bold),
+    --heading-margin-top: map-get($space, xl),
+    --heading-margin-bottom: map-get($space, lg)
   ),
   headline-2: (
     --heading-font-size: map-get($typography-font-size, hg),
-    --heading-font-weight: map-get($typography-font-weight, bold)
+    --heading-font-weight: map-get($typography-font-weight, bold),
+    --heading-margin-top: map-get($space, xl),
+    --heading-margin-bottom: map-get($space, lg)
   ),
   headline-3: (
     --heading-font-size: map-get($typography-font-size, x-xl),
-    --heading-font-weight: map-get($typography-font-weight, medium)
+    --heading-font-weight: map-get($typography-font-weight, medium),
+    --heading-margin-top: map-get($space, xl),
+    --heading-margin-bottom: map-get($space, lg)
   ),
   headline-4: (
     --heading-font-size: map-get($typography-font-size, xl),
-    --heading-font-weight: map-get($typography-font-weight, medium)
+    --heading-font-weight: map-get($typography-font-weight, medium),
+    --heading-margin-top: map-get($space, xl),
+    --heading-margin-bottom: map-get($space, lg)
   ),
   headline-5: (
     --heading-font-size: map-get($typography-font-size, lg),
-    --heading-font-weight: map-get($typography-font-weight, medium)
+    --heading-font-weight: map-get($typography-font-weight, medium),
+    --heading-margin-top: map-get($space, xl),
+    --heading-margin-bottom: map-get($space, lg)
   ),
   headline-6: (
     --heading-font-size: map-get($typography-font-size, md),
-    --heading-font-weight: map-get($typography-font-weight, bold)
+    --heading-font-weight: map-get($typography-font-weight, bold),
+    --heading-margin-top: map-get($space, xl),
+    --heading-margin-bottom: map-get($space, lg)
   ),
   headline-7: (
     --heading-font-size: map-get($typography-font-size, base),
-    --heading-font-weight: map-get($typography-font-weight, bold)
+    --heading-font-weight: map-get($typography-font-weight, bold),
+    --heading-margin-top: map-get($space, xl),
+    --heading-margin-bottom: map-get($space, lg)
   ),
   base: (
     font-size: map-get($typography-font-size, base),

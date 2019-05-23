@@ -1,4 +1,2 @@
-
-$progress-keys: primary, accent, info, success, warning, danger !default;
-$progress-border-radius: map-get($radius, sm) !default;
+$progress-keys: accent, info, success, warning, danger !default;
 $progress-background: alpha(grayscale, 0.2) !default;
