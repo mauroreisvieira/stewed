@@ -5,9 +5,11 @@
   .h#{$i} {
     margin-top: var(--heading-margin-top);
     margin-bottom: var(--heading-margin-bottom);
+    color: var(--heading-color);
+    font-family: var(--heading-font-family);
     font-size: var(--heading-font-size);
     font-weight: var(--heading-font-weight);
-    line-height: 1.5;
+    line-height: var(--heading-line-height);
     text-decoration: inherit;
     text-transform: inherit;
 

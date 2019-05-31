@@ -1,5 +1,6 @@
 // Font Size
-$theme-font-family-serif: "Nunito", sans-serif !default;
+$theme-font-family-serif: "Merriweather", serif !default;
+$theme-font-family-sans-serif: "Nunito", sans-serif !default;
 $theme-font-family-monospace: monospace !default;
 $theme-font-size: 16px !default;
 
@@ -19,8 +20,8 @@ $theme-color-base: map-get($theme-colors, grayscale) !default;
 $theme-color-link: map-get($theme-colors, primary) !default;
 
 $theme-tones-light: (
-  10: 90%,
-  30: 78%
+  10: 94%,
+  30: 86%
 ) !default;
 
 $theme-tones-dark: (

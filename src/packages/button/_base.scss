@@ -3,6 +3,7 @@ button,
 .btn {
   position: relative;
   display: inline-flex;
+  flex: 1;
   align-items: center;
   justify-content: center;
   padding: map-get($space, sm) map-get($space, lg);
@@ -17,6 +18,10 @@ button,
   overflow: hidden;
 
   @include get-typography(button);
+
+  @include tablet {
+    flex: inherit;
+  }
 
   @media (hover: hover) {
     &:hover {

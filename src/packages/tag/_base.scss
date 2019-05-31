@@ -21,7 +21,7 @@
 
   @each $key in $tag-keys {
     &--#{$key} {
-      --tag-bg: #{get-color(#{$key}, lighter)};
+      --tag-bg: #{get-color(#{$key}, light)};
       --tag-fg: #{get-color(#{$key})};
     }
   }

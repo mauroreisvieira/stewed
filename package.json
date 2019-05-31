@@ -1,6 +1,6 @@
 {
 	"name": "stewed",
-	"version": "0.16.1",
+	"version": "0.17.0",
 	"description": "Stewed Framework in CSS",
 	"license": "MIT",
 	"homepage": "https://github.com/maurovieirareis/stewed",
@@ -10,7 +10,7 @@
 		"stewed": "./src/cli.js"
 	},
 	"scripts": {
-		"server": "http-server",
+		"start": "http-server",
 		"watch": "./node_modules/.bin/node-sass -w src/packages/stewed.scss dist/stewed.css",
 		"build": "./node_modules/.bin/node-sass src/packages/stewed.scss dist/stewed.min.css --output-style compressed",
 		"build:demos": "webpack --config ./demos/webpack.config.js --mode production",
