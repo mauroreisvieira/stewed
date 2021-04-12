@@ -1,0 +1,36 @@
+$theme-scope: ".theme-scope" !default;
+
+$theme-font-size: 16px;
+
+$theme-tones: (
+  "light": 60,
+  "base": 0,
+  "dark": 10
+);
+
+$theme-colors: (
+  "primary": #3f51b5,
+  "success": #4caf50,
+  "danger": #f44336,
+  "warning": #ffc10d
+);
+
+$theme-typography: (
+  large:  $theme-font-size * 1.125,
+  base: $theme-font-size * 1,
+  small: $theme-font-size * .875
+);
+
+$theme-font-weight: (
+  regular: 400,
+  medium:  500,
+  bold: 700
+);
+
+$theme-spacing: 8px;
+
+$theme-container-width: 1440px;
+$theme-container-padding: $theme-spacing * 9;
+
+$theme-disabled: 0.3;
+$theme-border-radius: 8px;

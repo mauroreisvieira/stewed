@@ -1,0 +1,67 @@
+#{$button-root} {
+  --button-border-radius: #{$button-border-radius};
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--button-size);
+  padding: 0 var(--button-spacing);
+  border: none;
+  border-radius: var(--button-border-radius);
+  background-color: var(--button-bg);
+  color: $button-color;
+  font-size: var(--button-font-size);
+  font-weight: $button-font-weight;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: top;
+  touch-action: manipulation;
+
+  &:hover {
+    background-color: var(--button-bg-hover);
+  }
+
+  &:focus {
+    outline: 2px solid transparent;
+    box-shadow: #fff 0 0 0 2px, var(--button-focus) 0 0 0 4px;
+  }
+
+  &:disabled,
+  &.is-disabled {
+    opacity: $theme-disabled;
+    pointer-events: none;
+  }
+
+  &--sm {
+    --button-size: #{map-get($button-sizes, "sm")};
+    --button-spacing: #{map-get($button-spacings, "sm")};
+    --button-font-size: #{map-get($theme-typography, "small")};
+  }
+
+  &--md {
+    --button-size: #{map-get($button-sizes, "md")};
+    --button-spacing: #{map-get($button-spacings, "md")};
+    --button-font-size: #{map-get($theme-typography, "base")};
+  }
+
+  &--lg {
+    --button-size: #{map-get($button-sizes, "lg")};
+    --button-spacing: #{map-get($button-spacings, "lg")};
+    --button-font-size: #{map-get($theme-typography, "large")};
+  }
+
+  &--rounded {
+    --button-border-radius: #{$button-border-radius * 4};
+
+    min-width: var(--button-size);
+  }
+
+  @each $key, $value in $button-skins {
+    &--#{$key} {
+      --button-bg: #{get-color($key)};
+      --button-bg-hover: #{get-color($key, "dark")};
+      --button-focus: #{get-color($key, "light")};
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@function tint($color, $percentage) {
+  @return mix(#fff, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+  @return mix(#000, $color, $percentage);
+}
+
+@function get-color($color, $tone: "base") {
+  @if not map-has-key($theme-colors, $color) {
+    @error "Invalid color specified! #{$color} doesn't exist. Choose one of #{map-keys($theme-colorss)}";
+  }
+
+  @if not map-has-key($theme-tones, $tone) {
+    @error "Invalid tone specified! #{$tone} doesn't exist. Choose one of #{map-keys($theme-tones)}";
+  }
+
+  $hex: map-get($theme-colors, $color);
+
+  @if ($tone == "light") {
+    $percentage: map-get($theme-tones, $tone);
+
+    @return tint($hex, $percentage);
+  } @else if ($tone == "dark") {
+    $percentage: map-get($theme-tones, $tone);
+
+    @return shade($hex, $percentage);
+  } @else {
+    @return $hex;
+  }
+}

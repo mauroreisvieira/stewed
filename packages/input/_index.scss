@@ -1,0 +1,6 @@
+@import "../theme/index";
+@import "variables";
+
+#{$theme-scope} {
+  @import "base";
+}

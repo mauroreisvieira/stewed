@@ -1,0 +1,18 @@
+$button-root: ".button";
+
+$button-color: #fff;
+$button-border-radius: $theme-border-radius;
+$button-skins: ("primary", "success", "warning", "danger");
+$button-font-weight: map-get($theme-font-weight, "regular");
+
+$button-sizes: (
+  sm: $theme-spacing * 4,
+  md: $theme-spacing * 5,
+  lg: $theme-spacing * 6
+);
+
+$button-spacings: (
+  sm: $theme-spacing,
+  md: $theme-spacing * 2,
+  lg: $theme-spacing * 3
+);
