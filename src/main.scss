@@ -33,5 +33,6 @@ a {
   margin-bottom: $theme-spacing * 2;
 }
 
+@import "./packages/alert/index";
 @import "./packages/button/index";
 @import "./packages/input/index";

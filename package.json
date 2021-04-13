@@ -9,7 +9,7 @@
   "main": "src/index.js",
   "scripts": {
     "build": "parcel build index.html --no-source-maps",
-    "dev": "NODE_ENV=development parcel index.html --open",
+    "dev": "parcel index.html --open",
     "lint:js": "eslint . --ext .js,.jsx,.ts,.tsx --quiet",
     "lint:css": "stylelint \"**/*.scss\""
   },
