@@ -1,3 +1,2 @@
-![Stewed](assets/images/logo/stewed.jpg)
-
-# Welcome to Stewed UI
+# Welcome to Stewed
+Stewed UI components in React.
