@@ -60,8 +60,8 @@
   @each $key, $value in $button-skins {
     &--#{$key} {
       --button-bg: #{get-color($key)};
-      --button-bg-hover: #{get-color($key, "dark")};
-      --button-focus: #{get-color($key, "light")};
+      --button-bg-hover: #{get-color($key, 600)};
+      --button-focus: #{get-color($key, 400)};
     }
   }
 }

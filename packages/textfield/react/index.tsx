@@ -1,22 +1,22 @@
-import classNames from 'classnames';
 import * as React from 'react';
+import classNames from 'classnames';
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface TextfieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
     skin?: 'primary' | 'success' | 'danger' | 'warning';
     disabled?: boolean;
 }
 
-export const Input = React.forwardRef(
+export const Textfield = React.forwardRef(
     (
         {
             skin = 'primary',
             disabled = false,
             ...otherProps
-        }: InputProps,
+        }: TextfieldProps,
         ref: React.Ref<HTMLInputElement>
     ): React.ReactElement => {
         const { className, onChange } = otherProps;
-        const rootClassName = 'input';
+        const rootClassName = 'textfield';
         const computedClasses = classNames(rootClassName, className, {
             [`${rootClassName}--${skin}`]: skin
         });
@@ -39,3 +39,5 @@ export const Input = React.forwardRef(
         return <input {...computedProps} />;
     }
 );
+
+Textfield.displayName = 'Textfield';

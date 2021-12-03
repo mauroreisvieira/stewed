@@ -1,11 +1,11 @@
 {
-  "name": "@stewed/utils",
-  "description": "Stewed UI Shared utilities",
+  "name": "@stewed/theme",
+  "description": "Stewed UI theming system",
   "version": "1.0.0",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/mauroreisvieira/stewed.git",
-    "directory": "packages/utils"
+    "directory": "packages/theme"
   }
 }

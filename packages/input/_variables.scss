@@ -1,8 +1,0 @@
-$input-root: ".input";
-
-$input-border-radius: $theme-border-radius;
-$input-skins: ("primary", "success", "warning", "danger");
-$input-font-weight: map-get($theme-font-weight, "regular");
-
-$input-sizes: $theme-spacing * 5;
-$input-spacings: $theme-spacing * 2;

@@ -1,0 +1,40 @@
+#{$textfield-root} {
+  --textfield-border-radius: #{$textfield-border-radius};
+  --textfield-size: #{$textfield-sizes};
+  --textfield-spacing: #{$textfield-spacings};
+  --textfield-font-size: #{map-get($theme-typography, "base")};
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--textfield-size);
+  padding: 0 var(--textfield-spacing);
+  border: 2px solid var(--textfield-border);
+  border-radius: var(--textfield-border-radius);
+  font-size: var(--textfield-font-size);
+  font-weight: $textfield-font-weight;
+  touch-action: manipulation;
+
+  &:hover {
+    border-color: var(--textfield-border-hover);
+  }
+
+  &:focus-within {
+    outline: 2px solid transparent;
+    box-shadow: #fff 0 0 0 2px, var(--textfield-focus) 0 0 0 4px;
+  }
+
+  &:disabled {
+    opacity: $theme-disabled;
+    pointer-events: none;
+  }
+
+  @each $key, $value in $textfield-skins {
+    &--#{$key} {
+      --textfield-border: #{get-color($key)};
+      --textfield-border-hover: #{get-color($key, 600)};
+      --textfield-focus: #{get-color($key, 400)};
+    }
+  }
+}

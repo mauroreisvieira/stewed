@@ -69,3 +69,5 @@ export const Button = React.forwardRef(
         return <Tag {...computedProps}>{ children }</Tag>;
     }
 );
+
+Button.displayName = 'Button';

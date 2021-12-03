@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import { Alert } from '../packages/alert/react';
 import { Button } from '../packages/button/react';
-import { Input } from '../packages/input/react';
+import { Textfield } from '../packages/textfield/react';
 
 import './main.scss';
 
@@ -34,10 +34,10 @@ const App = (): React.ReactElement => {
 
             <h1>Input</h1>
             <div className="demo">
-                <Input skin="primary" value="primary..." />
-                <Input skin="success" value="success..." />
-                <Input skin="warning" value="warning..." />
-                <Input skin="danger" value="danger..." />
+                <Textfield skin="primary" value="primary..." />
+                <Textfield skin="success" value="success..." />
+                <Textfield skin="warning" value="warning..." />
+                <Textfield skin="danger" value="danger..." />
             </div>
         </div>
     );
