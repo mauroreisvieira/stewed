@@ -1,0 +1,22 @@
+{
+  "name": "@stewed/utils",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "main": "dist/main.js",
+  "module": "dist/module.js",
+  "types": "dist/types.d.ts",
+  "source": "src/index.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0"
+  }
+}

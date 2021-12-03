@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { MutableRefObject, useState, useEffect } from 'react';
 
 export type DOMRectType = {
     x: number;
@@ -12,9 +12,9 @@ export type DOMRectType = {
 };
 
 export const useMeasure = (
-    ref: React.MutableRefObject<HTMLDivElement | undefined | null>
+    ref: MutableRefObject<HTMLDivElement | undefined | null>
 ): DOMRectType => {
-    const [rect, setRect] = React.useState<DOMRectType>({
+    const [rect, setRect] = useState<DOMRectType>({
         x: 0,
         y: 0,
         width: 0,
@@ -25,7 +25,7 @@ export const useMeasure = (
         left: 0,
     });
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (!ref.current) return;
         const myRef = ref.current;
 

@@ -6,7 +6,7 @@
   @return mix(#000, $color, $percentage);
 }
 
-@function get-color($color, $tone: "base") {
+@function get-color($color, $tone: 500) {
   @if not map-has-key($theme-colors, $color) {
     @error "Invalid color specified! #{$color} doesn't exist. Choose one of #{map-keys($theme-colorss)}";
   }
@@ -17,15 +17,17 @@
 
   $hex: map-get($theme-colors, $color);
 
-  @if ($tone == "light") {
+  @if ($tone < 500) {
     $percentage: map-get($theme-tones, $tone);
 
     @return tint($hex, $percentage);
-  } @else if ($tone == "dark") {
+  }
+
+  @if ($tone > 500) {
     $percentage: map-get($theme-tones, $tone);
 
     @return shade($hex, $percentage);
-  } @else {
-    @return $hex;
   }
+
+  @return $hex;
 }
