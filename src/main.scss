@@ -1,6 +1,6 @@
 /* stylelint-disable selector-max-universal, selector-max-type */
 
-@import "./packages/theme/index";
+@import "./packages/components/theme/index";
 
 * {
   box-sizing: border-box;
@@ -33,6 +33,6 @@ a {
   margin-bottom: $theme-spacing * 2;
 }
 
-@import "./packages/alert/index";
-@import "./packages/button/index";
-@import "./packages/textfield/index";
+@import "./packages/components/alert/index";
+@import "./packages/components/button/index";
+@import "./packages/components/textfield/index";

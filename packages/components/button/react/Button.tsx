@@ -1,5 +1,5 @@
-import classNames from 'classnames';
 import * as React from 'react';
+import { classNames } from '../../../utils/src/classNames';
 
 type ButtonType = React.ButtonHTMLAttributes<HTMLButtonElement> &
     React.AnchorHTMLAttributes<HTMLAnchorElement>;
@@ -27,12 +27,14 @@ export const Button = React.forwardRef(
         const { href, className, onClick } = otherProps;
         let Tag = 'button';
         const rootClassName = 'button';
-        const computedClasses = classNames(rootClassName, className, {
-            [`${rootClassName}--${skin}`]: skin,
-            [`${rootClassName}--${size}`]: size,
-            [`${rootClassName}--rounded`]: rounded,
-            'is-disabled': disabled,
-        });
+        const computedClasses = classNames(
+            rootClassName,
+            className,
+            `${rootClassName}--${skin}`,
+            `${rootClassName}--${size}`,
+            rounded && `${rootClassName}--rounded`,
+            disabled && 'is-disabled',
+        );
 
         const handleClick = (
             event: React.MouseEvent<HTMLButtonElement>

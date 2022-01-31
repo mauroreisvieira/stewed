@@ -6,18 +6,18 @@ const testPlatform = (re: RegExp) => typeof window !== 'undefined' && window.nav
     ? re.test(window.navigator.platform)
     : false;
 
-export const isMac = () => testPlatform(/^Mac/);
+export const isMac = (): boolean => testPlatform(/^Mac/);
 
-export const isIPhone = () => testPlatform(/^iPhone/);
+export const isIPhone = (): boolean => testPlatform(/^iPhone/);
 
-export const isIPad = () => testPlatform(/^iPad/) || (isMac() && navigator.maxTouchPoints > 1);
+export const isIPad = (): boolean => testPlatform(/^iPad/) || (isMac() && navigator.maxTouchPoints > 1);
 
-export const isIOS = () => isIPhone() || isIPad();
+export const isIOS = (): boolean => isIPhone() || isIPad();
 
-export const isAppleDevice = () => isMac() || isIOS();
+export const isAppleDevice = (): boolean => isMac() || isIOS();
 
-export const isWebKit = () => testUserAgent(/AppleWebKit/) && !isChrome();
+export const isChrome = (): boolean => testUserAgent(/Chrome/);
 
-export const isChrome = () => testUserAgent(/Chrome/);
+export const isWebKit = (): boolean => testUserAgent(/AppleWebKit/) && !isChrome();
 
-export const isAndroid = () => testUserAgent(/Android/);
+export const isAndroid = (): boolean => testUserAgent(/Android/);

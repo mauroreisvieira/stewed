@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { isIOS } from './platform';
+import { isIOS } from '@stewed/utils/platform';
 
 type Measure = {
   readonly height: number;

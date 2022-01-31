@@ -1,3 +1,3 @@
 # @stewed/utils
 
-Shared utilities used by Stewed.
+Shared Utilities used by Stewed.

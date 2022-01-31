@@ -1,9 +1,9 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Alert } from '../packages/alert/react';
-import { Button } from '../packages/button/react';
-import { Textfield } from '../packages/textfield/react';
+import { Alert } from '../packages/components/alert';
+import { Button } from '../packages/components/button';
+import { Textfield } from '../packages/components/textfield';
 
 import './main.scss';
 
@@ -32,7 +32,7 @@ const App = (): React.ReactElement => {
                 <Button skin="primary" size="lg">Button large</Button>
             </div>
 
-            <h1>Input</h1>
+            <h1>Textfield</h1>
             <div className="demo">
                 <Textfield skin="primary" value="primary..." />
                 <Textfield skin="success" value="success..." />

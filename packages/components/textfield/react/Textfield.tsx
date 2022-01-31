@@ -1,7 +1,7 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { classNames } from '../../../utils/src/classNames';
 
-interface TextfieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface TextfieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
     skin?: 'primary' | 'success' | 'danger' | 'warning';
 }
 
@@ -15,9 +15,7 @@ export const Textfield = React.forwardRef(
     ): React.ReactElement => {
         const { className, onChange, disabled } = otherProps;
         const rootClassName = 'textfield';
-        const computedClasses = classNames(rootClassName, className, {
-            [`${rootClassName}--${skin}`]: skin
-        });
+        const computedClasses = classNames(rootClassName, className, `${rootClassName}--${skin}`);
 
         const handleClick = (
             event: React.ChangeEvent<HTMLInputElement>

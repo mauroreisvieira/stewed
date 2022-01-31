@@ -1,8 +1,8 @@
-import classNames from 'classnames';
 import * as React from 'react';
+import { classNames } from '../../../utils/src/classNames';
 
-interface AlertProps {
-    skin: 'primary' | 'success';
+export interface AlertProps {
+    skin: 'primary' | 'success' | 'warning' | 'danger';
     className?: string;
 }
 
@@ -12,9 +12,11 @@ export const Alert: React.FC<AlertProps> = ({
     children,
 }: AlertProps & React.PropsWithChildren<AlertProps>): React.ReactElement => {
     const rootClassName = 'alert';
-    const computedClasses = classNames(rootClassName, className, {
-        [`${rootClassName}--${skin}`]: skin,
-    });
+    const computedClasses = classNames(
+        rootClassName,
+        className,
+        `${rootClassName}--${skin}`
+    );
     return (
         <div className={computedClasses}>
             { children }
