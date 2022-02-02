@@ -3,9 +3,15 @@ $theme-scope: ".theme-scope" !default;
 $theme-font-size: 16px;
 
 $theme-tones: (
+  100: 70,
+  200: 60,
+  300: 50,
   400: 40,
   500: 0,
-  600: 10
+  600: 15,
+  700: 20,
+  800: 30,
+  900: 45,
 );
 
 $theme-colors: (

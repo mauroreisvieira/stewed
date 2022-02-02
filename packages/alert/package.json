@@ -16,15 +16,16 @@
     "lint": "TIMING=1 eslint react --fix",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
-  "devDependencies": {
-    "@stewed/tsconfig": "*",
-    "@stewed/eslint-preset": "*",
+  "dependencies": {
     "@stewed/theme": "*",
     "@stewed/utils": "*",
     "@stewed/hooks": "*",
+    "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@stewed/tsconfig": "*",
+    "@stewed/eslint-preset": "*",
     "@types/react": "^17.0.13",
-    "@types/react-dom": "^17.0.8",
-    "react": "^17.0.2",
     "tsup": "^5.10.1",
     "stylelint": "^14.1.0",
     "stylelint-config-standard": "^24.0.0",

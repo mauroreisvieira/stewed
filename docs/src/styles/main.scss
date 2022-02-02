@@ -27,6 +27,7 @@ a {
 
 .demo {
   display: flex;
+  flex-direction: column;
   gap: $theme-spacing;
   margin-bottom: $theme-spacing * 2;
 }

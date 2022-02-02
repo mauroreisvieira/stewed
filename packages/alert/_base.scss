@@ -11,8 +11,8 @@
 
   @each $key, $value in $alert-skins {
     &--#{$key} {
-      --alert-bg: #{get-color($key, 400)};
-      --alert-color: #{get-color($key, 600)};
+      --alert-bg: #{get-color($key, 100)};
+      --alert-color: #{get-color($key, 900)};
     }
   }
 }

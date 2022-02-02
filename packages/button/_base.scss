@@ -22,6 +22,10 @@
     background-color: var(--button-bg-hover);
   }
 
+  &:active {
+    background-color: var(--button-bg-active);
+  }
+
   &:focus {
     outline: 2px solid transparent;
     box-shadow: #fff 0 0 0 2px, var(--button-focus) 0 0 0 4px;
@@ -61,6 +65,7 @@
     &--#{$key} {
       --button-bg: #{get-color($key)};
       --button-bg-hover: #{get-color($key, 600)};
+      --button-bg-active: #{get-color($key, 700)};
       --button-focus: #{get-color($key, 400)};
     }
   }
