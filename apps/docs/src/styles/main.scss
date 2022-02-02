@@ -1,36 +1,36 @@
-// @import "@stewed/theme/index";
+@import "@stewed/theme";
 
-// * {
-//   box-sizing: border-box;
-// }
+* {
+  box-sizing: border-box;
+}
 
-// html {
-//   font-family: system-ui, -apple-system;
-//   font-size: #{map-get($theme-typography, "large")};
-// }
+html {
+  font-family: system-ui, -apple-system;
+  font-size: #{map-get($theme-typography, "large")};
+}
 
-// body {
-//   margin: 0;
-//   padding: 0;
-// }
+body {
+  margin: 0;
+  padding: 0;
+}
 
-// a {
-//   color: inherit;
-//   text-decoration: inherit;
-// }
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
 
-// .app {
-//   max-width: $theme-container-width;
-//   margin: auto;
-//   padding: 0 $theme-container-padding;
-// }
+.app {
+  max-width: $theme-container-width;
+  margin: auto;
+  padding: 0 $theme-container-padding;
+}
 
-// .demo {
-//   display: flex;
-//   gap: $theme-spacing;
-//   margin-bottom: $theme-spacing * 2;
-// }
+.demo {
+  display: flex;
+  gap: $theme-spacing;
+  margin-bottom: $theme-spacing * 2;
+}
 
-// // @import "@stewed/alert/index";
-// // @import "@stewed/button/index";
-// // @import "@stewed/textfield/index";
+@import "@stewed/alert";
+@import "@stewed/button";
+@import "@stewed/textfield";

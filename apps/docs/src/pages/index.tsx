@@ -2,9 +2,13 @@ import * as React from "react";
 import { Alert } from "@stewed/alert";
 import { Button } from "@stewed/button";
 import { Textfield } from "@stewed/textfield";
+import Head from 'next/head'
 
 const Home: React.FC = (): React.ReactElement => (
   <>
+    <Head>
+      <title>Stewed</title>
+    </Head>
     <h1>Alert</h1>
     <div className="demo">
       <Alert skin="primary">Alert primary</Alert>

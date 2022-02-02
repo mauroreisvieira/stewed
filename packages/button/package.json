@@ -4,27 +4,28 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "sass": "_index.scss",
   "sideEffects": false,
   "license": "MIT",
   "files": [
     "dist/**"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts --external react",
-    "dev": "tsup src/index.ts --format esm,cjs --watch --dts --external react",
-    "lint": "TIMING=1 eslint src --fix",
+    "build": "tsup react/index.ts --format esm,cjs --dts --external react",
+    "dev": "tsup react/index.ts --format esm,cjs --watch --dts --external react",
+    "lint": "TIMING=1 eslint react --fix",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "devDependencies": {
     "@stewed/tsconfig": "*",
     "@stewed/eslint-preset": "*",
+    "@stewed/theme": "*",
     "@stewed/utils": "*",
     "@stewed/hooks": "*",
     "@types/react": "^17.0.13",
     "@types/react-dom": "^17.0.8",
     "react": "^17.0.2",
     "tsup": "^5.10.1",
-    "sass": "^1.44.0",
     "stylelint": "^14.1.0",
     "stylelint-config-standard": "^24.0.0",
     "stylelint-order": "^5.0.0",
