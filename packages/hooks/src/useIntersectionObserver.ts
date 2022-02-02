@@ -1,11 +1,11 @@
-import { RefObject, useState, useEffect } from 'react';
+import { RefObject, useState, useEffect } from "react";
 
 export function useIntersectionObserver(
   elementRef: RefObject<Element>,
   {
     threshold = 0,
     root = null,
-    rootMargin = '0%',
+    rootMargin = "0%",
     freezeOnceVisible = false,
   }: { freezeOnceVisible?: boolean } & IntersectionObserverInit
 ): IntersectionObserverEntry | undefined {

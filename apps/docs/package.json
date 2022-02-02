@@ -1,0 +1,32 @@
+{
+  "name": "@stewed/docs",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "start": "next start ",
+    "dev": "next dev -p 3002",
+    "lint": "TIMING=1 next lint",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf .next"
+  },
+  "dependencies": {
+    "@stewed/utils": "*",
+    "@stewed/hooks": "*",
+    "@stewed/theme": "*",
+    "@stewed/alert": "*",
+    "@stewed/button": "*",
+    "@stewed/textfield": "*",
+    "next": "^12.0.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@stewed/tsconfig": "*",
+    "@types/node": "^17.0.12",
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
+    "@stewed/eslint-preset": "*",
+    "sass": "^1.49.7",
+    "typescript": "^4.5.4"
+  }
+}
