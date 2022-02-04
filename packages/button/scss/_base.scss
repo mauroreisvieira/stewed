@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 #{$button-root} {
     --button-border-radius: #{$button-border-radius};
 
@@ -38,25 +40,25 @@
     }
 
     &--sm {
-        --button-size: #{map-get($button-sizes, 'sm')};
-        --button-spacing: #{map-get($button-spacings, 'sm')};
-        --button-font-size: #{map-get($typography, 'small')};
+        --button-size: #{map.get($button-sizes, 'sm')};
+        --button-spacing: #{map.get($button-spacings, 'sm')};
+        --button-font-size: #{map.get($font-sizes, 'small')};
     }
 
     &--md {
-        --button-size: #{map-get($button-sizes, 'md')};
-        --button-spacing: #{map-get($button-spacings, 'md')};
-        --button-font-size: #{map-get($typography, 'base')};
+        --button-size: #{map.get($button-sizes, 'md')};
+        --button-spacing: #{map.get($button-spacings, 'md')};
+        --button-font-size: #{map.get($font-sizes, 'base')};
     }
 
     &--lg {
-        --button-size: #{map-get($button-sizes, 'lg')};
-        --button-spacing: #{map-get($button-spacings, 'lg')};
-        --button-font-size: #{map-get($typography, 'large')};
+        --button-size: #{map.get($button-sizes, 'lg')};
+        --button-spacing: #{map.get($button-spacings, 'lg')};
+        --button-font-size: #{map.get($font-sizes, 'large')};
     }
 
     &--rounded {
-        --button-border-radius: #{$button-border-radius * 4};
+        --button-border-radius: #{map.get($radius, rounded)};
 
         min-width: var(--button-size);
     }

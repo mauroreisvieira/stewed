@@ -1,3 +1,27 @@
+@use 'sass:math';
+@use 'sass:map';
+
+@function rem($size-in-pixel) {
+  $size: math.div($size-in-pixel, 16);
+  @return #{$size}rem;
+}
+
+@function merge($maps...) {
+  $collection: ();
+  @each $map in $maps {
+    $collection: map.merge($collection, $map);
+  }
+  @return $collection;
+}
+
+@function deep-merge($maps...) {
+  $collection: ();
+  @each $map in $maps {
+    $collection: map.deep-merge($collection, $map);
+  }
+  @return $collection;
+}
+
 @function tint($color, $percentage) {
     @return mix(#fff, $color, $percentage);
 }
@@ -6,28 +30,30 @@
     @return mix(#000, $color, $percentage);
 }
 
-@function get-color($color, $tone: 500) {
-    @if not map-has-key($colors, $color) {
-        @error "Invalid color specified! #{$color} doesn't exist. Choose one of #{map-keys($colorss)}";
-    }
-
+@function set-color($color, $tone: 500) {
     @if not map-has-key($tones, $tone) {
         @error "Invalid tone specified! #{$tone} doesn't exist. Choose one of #{map-keys($tones)}";
     }
 
-    $hex: map-get($colors, $color);
-
     @if ($tone < 500) {
-        $percentage: map-get($tones, $tone);
+        $percentage: map.get($tones, $tone);
 
-        @return tint($hex, $percentage);
+        @return tint($color, $percentage);
     }
 
     @if ($tone > 500) {
-        $percentage: map-get($tones, $tone);
+        $percentage: map.get($tones, $tone);
 
-        @return shade($hex, $percentage);
+        @return shade($color, $percentage);
     }
 
-    @return $hex;
+    @return $color;
+}
+
+@function get-color($color, $tone: 500) {
+    @if not map-has-key($colors, "#{$color}-#{$tone}") {
+        @error "Invalid color specified! #{$color} doesn't exist. Choose one of #{map-keys($colors)}";
+    }
+
+    @return map.get($colors, "#{$color}-#{$tone}");
 }

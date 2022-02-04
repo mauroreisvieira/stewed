@@ -1,7 +1,9 @@
+@use 'sass:map';
+
 $alert-root: '.alert';
 
 $alert-color: #fff;
-$alert-border-radius: $border-radius;
+$alert-border-radius: map.get($radius, 'md');
 $alert-appearances: ('primary', 'secondary', 'success', 'warning', 'danger');
 
 $alert-spacing: $spacing * 2;

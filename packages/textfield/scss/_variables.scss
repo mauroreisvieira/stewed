@@ -1,12 +1,14 @@
+@use 'sass:map';
+
 $textfield-root: '.textfield';
 
 // Appearance
-$textfield-border-radius: $border-radius;
+$textfield-border-radius: map.get($radius, 'md');
 $textfield-appearances: ('primary', 'success', 'warning', 'danger');
 
 // Font
-$textfield-font-weight: map-get($font-weight, 'regular');
-$textfield-font-size: map-get($typography, 'base');
+$textfield-font-weight: map.get($font-weight, 'regular');
+$textfield-font-size: map.get($font-sizes, 'base');
 
 // Spacing's
 $textfield-sizes: $spacing * 5;

@@ -1,6 +1,4 @@
-$scope: '.theme-scope' !default;
-
-$font-size: 16px;
+@use 'sass:map';
 
 $tones: (
     100: 70,
@@ -11,33 +9,109 @@ $tones: (
     600: 15,
     700: 20,
     800: 30,
-    900: 45,
+    900: 45
 );
 
-$colors: (
+$pallete: (
     'primary': #1fb6ff,
     'secondary': #8492a6,
     'success': #4caf50,
     'danger': #f44336,
-    'warning': #ffc10d,
+    'warning': #ffc10d
 );
 
-$typography: (
-    large: $font-size * 1.125,
-    base: $font-size * 1,
-    small: $font-size * 0.875,
+$config: () !default;
+
+$default-config: (
+    scope: '.theme-scope',
+    spacing: 8px,
+    screens: (
+        sm: 768px,
+        md: 1024px,
+        lg: 1280px,
+        xl: 1440px,
+    ),
+    colors: (
+        primary-100: set-color(map.get($pallete, primary), 100),
+        primary-200: set-color(map.get($pallete, primary), 200),
+        primary-300: set-color(map.get($pallete, primary), 300),
+        primary-400: set-color(map.get($pallete, primary), 400),
+        primary-500: set-color(map.get($pallete, primary)),
+        primary-600: set-color(map.get($pallete, primary), 600),
+        primary-700: set-color(map.get($pallete, primary), 700),
+        primary-800: set-color(map.get($pallete, primary), 800),
+        primary-900: set-color(map.get($pallete, primary), 900),
+        secondary-100: set-color(map.get($pallete, secondary), 100),
+        secondary-200: set-color(map.get($pallete, secondary), 200),
+        secondary-300: set-color(map.get($pallete, secondary), 300),
+        secondary-400: set-color(map.get($pallete, secondary), 400),
+        secondary-500: set-color(map.get($pallete, secondary)),
+        secondary-600: set-color(map.get($pallete, secondary), 600),
+        secondary-700: set-color(map.get($pallete, secondary), 700),
+        secondary-800: set-color(map.get($pallete, secondary), 800),
+        secondary-900: set-color(map.get($pallete, secondary), 900),
+        success-100: set-color(map.get($pallete, success), 100),
+        success-200: set-color(map.get($pallete, success), 200),
+        success-300: set-color(map.get($pallete, success), 300),
+        success-400: set-color(map.get($pallete, success), 400),
+        success-500: set-color(map.get($pallete, success)),
+        success-600: set-color(map.get($pallete, success), 600),
+        success-700: set-color(map.get($pallete, success), 700),
+        success-800: set-color(map.get($pallete, success), 800),
+        success-900: set-color(map.get($pallete, success), 900),
+        danger-100: set-color(map.get($pallete, danger), 100),
+        danger-200: set-color(map.get($pallete, danger), 200),
+        danger-300: set-color(map.get($pallete, danger), 300),
+        danger-400: set-color(map.get($pallete, danger), 400),
+        danger-500: set-color(map.get($pallete, danger)),
+        danger-600: set-color(map.get($pallete, danger), 600),
+        danger-700: set-color(map.get($pallete, danger), 700),
+        danger-800: set-color(map.get($pallete, danger), 800),
+        danger-900: set-color(map.get($pallete, danger), 900),
+        warning-100: set-color(map.get($pallete, warning), 100),
+        warning-200: set-color(map.get($pallete, warning), 200),
+        warning-300: set-color(map.get($pallete, warning), 300),
+        warning-400: set-color(map.get($pallete, warning), 400),
+        warning-500: set-color(map.get($pallete, warning)),
+        warning-600: set-color(map.get($pallete, warning), 600),
+        warning-700: set-color(map.get($pallete, warning), 700),
+        warning-800: set-color(map.get($pallete, warning), 800),
+        warning-900: set-color(map.get($pallete, warning), 900),
+    ),
+    font-sizes: (
+        large: rem(18),
+        base: rem(16),
+        small: rem(14)
+    ),
+    font-weight: (
+        regular: 400,
+        medium: 500,
+        bold: 700
+    ),
+    radius: (
+        sm: rem(2),
+        md: rem(4),
+        lg: rem(8),
+        rounded: 100%
+    )
 );
 
-$font-weight: (
-    regular: 400,
-    medium: 500,
-    bold: 700,
-);
+$all-config: map.deep-merge($default-config, $config);
 
-$spacing: 8px;
+$scope: map.get($all-config, scope);
 
-$container-width: 1440px;
-$container-padding: $spacing * 9;
+$font-sizes: map.get($all-config, font-sizes);
+$font-weight: map.get($all-config, font-weight);
+
+$spacing: map.get($all-config, spacing);
+
+$radius: map.get($all-config, radius);
+
+$colors: map.get($all-config, colors);
+
+$screens: map.get($all-config, screens);
 
 $disabled: 0.3;
-$border-radius: 4px;
+
+$container-width: 1440px;
+$container-padding: $spacing;
