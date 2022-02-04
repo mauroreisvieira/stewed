@@ -1,0 +1,18 @@
+#{$alert-root} {
+    --alert-border-radius: #{$alert-border-radius};
+
+    position: relative;
+    display: flex;
+    width: 100%;
+    color: var(--alert-color);
+    padding: $alert-spacing;
+    border-radius: var(--alert-border-radius);
+    background-color: var(--alert-bg);
+
+    @each $key, $value in $alert-appearances {
+        &--#{$key} {
+            --alert-bg: #{get-color($key, 100)};
+            --alert-color: #{get-color($key, 900)};
+        }
+    }
+}

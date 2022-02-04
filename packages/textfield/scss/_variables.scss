@@ -1,0 +1,13 @@
+$textfield-root: '.textfield';
+
+// Appearance
+$textfield-border-radius: $border-radius;
+$textfield-appearances: ('primary', 'success', 'warning', 'danger');
+
+// Font
+$textfield-font-weight: map-get($font-weight, 'regular');
+$textfield-font-size: map-get($typography, 'base');
+
+// Spacing's
+$textfield-sizes: $spacing * 5;
+$textfield-spacings: $spacing * 2;

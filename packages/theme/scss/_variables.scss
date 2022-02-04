@@ -1,0 +1,43 @@
+$scope: '.theme-scope' !default;
+
+$font-size: 16px;
+
+$tones: (
+    100: 70,
+    200: 60,
+    300: 50,
+    400: 40,
+    500: 0,
+    600: 15,
+    700: 20,
+    800: 30,
+    900: 45,
+);
+
+$colors: (
+    'primary': #1fb6ff,
+    'secondary': #8492a6,
+    'success': #4caf50,
+    'danger': #f44336,
+    'warning': #ffc10d,
+);
+
+$typography: (
+    large: $font-size * 1.125,
+    base: $font-size * 1,
+    small: $font-size * 0.875,
+);
+
+$font-weight: (
+    regular: 400,
+    medium: 500,
+    bold: 700,
+);
+
+$spacing: 8px;
+
+$container-width: 1440px;
+$container-padding: $spacing * 9;
+
+$disabled: 0.3;
+$border-radius: 4px;

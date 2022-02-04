@@ -1,0 +1,18 @@
+$button-root: '.button';
+
+$button-color: #fff;
+$button-border-radius: $border-radius;
+$button-appearances: ('primary', 'success', 'warning', 'danger');
+$button-font-weight: map-get($font-weight, 'regular');
+
+$button-sizes: (
+    sm: $spacing * 4,
+    md: $spacing * 5,
+    lg: $spacing * 6,
+);
+
+$button-spacings: (
+    sm: $spacing,
+    md: $spacing * 2,
+    lg: $spacing * 3,
+);

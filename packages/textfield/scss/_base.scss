@@ -1,0 +1,35 @@
+#{$textfield-root} {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: $textfield-sizes;
+    padding: 0 $textfield-spacings;
+    border: 2px solid var(--textfield-border);
+    border-radius: $textfield-border-radius;
+    font-size: $textfield-font-size;
+    font-weight: $textfield-font-weight;
+    touch-action: manipulation;
+
+    &:hover {
+        border-color: var(--textfield-border-hover);
+    }
+
+    &:focus-within {
+        outline: 2px solid transparent;
+        box-shadow: #fff 0 0 0 2px, var(--textfield-focus) 0 0 0 4px;
+    }
+
+    &:disabled {
+        opacity: $disabled;
+        pointer-events: none;
+    }
+
+    @each $key, $value in $textfield-appearances {
+        &--#{$key} {
+            --textfield-border: #{get-color($key)};
+            --textfield-border-hover: #{get-color($key, 600)};
+            --textfield-focus: #{get-color($key, 400)};
+        }
+    }
+}

@@ -8,12 +8,13 @@
   "sideEffects": false,
   "license": "MIT",
   "files": [
-    "dist/**"
+    "dist/**",
+    "scss/**"
   ],
   "scripts": {
-    "build": "tsup react/index.ts --format esm,cjs --dts --external react",
-    "dev": "tsup react/index.ts --format esm,cjs --watch --dts --external react",
-    "lint": "TIMING=1 eslint react --fix",
+    "build": "tsup src/index.ts --format esm,cjs --dts --external react",
+    "dev": "tsup src/index.ts --format esm,cjs --watch --dts --external react",
+    "lint": "TIMING=1 eslint react --fix && stylelint \"**/*.scss\" --fix",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "dependencies": {

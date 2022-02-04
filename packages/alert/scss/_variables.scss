@@ -1,0 +1,13 @@
+$alert-root: '.alert';
+
+$alert-color: #fff;
+$alert-border-radius: $border-radius;
+$alert-appearances: ('primary', 'secondary', 'success', 'warning', 'danger');
+
+$alert-spacing: $spacing * 2;
+
+$alert-sizes: (
+    sm: $spacing * 4,
+    md: $spacing * 5,
+    lg: $spacing * 6,
+);

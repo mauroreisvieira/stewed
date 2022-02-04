@@ -10,12 +10,13 @@
         "lint": "turbo run lint",
         "test": "turbo run test",
         "clean": "turbo run clean && rm -rf node_modules",
-        "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+        "format": "prettier --write \"**/*.{ts,tsx,mdx,scss}\"",
         "prepublish": "lerna run prepublish",
         "publish-canary": "lerna version prerelease --preid canary --force-publish"
     },
     "devDependencies": {
         "eslint": "7.32.0",
+        "stylelint": "^13.13.1",
         "lerna": "^3.22.1",
         "prettier": "^2.5.1",
         "turbo": "latest"

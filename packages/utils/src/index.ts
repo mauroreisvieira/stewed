@@ -1,2 +1,2 @@
-export { classNames } from "./classNames";
-export * from "./platform";
+export { classNames } from './classNames';
+export * from './platform';
