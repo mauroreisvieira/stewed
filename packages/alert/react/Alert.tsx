@@ -2,12 +2,12 @@ import * as React from "react";
 import { classNames } from "@stewed/utils";
 
 export interface AlertProps {
-  skin: "primary" | "success" | "warning" | "danger";
+  appearance: "primary" | "success" | "warning" | "danger";
   className?: string;
 }
 
 export const Alert: React.FC<AlertProps> = ({
-  skin = "primary",
+  appearance = "primary",
   className,
   children,
 }: AlertProps & React.PropsWithChildren<AlertProps>): React.ReactElement => {
@@ -15,7 +15,7 @@ export const Alert: React.FC<AlertProps> = ({
   const computedClasses = classNames(
     rootClassName,
     className,
-    `${rootClassName}--${skin}`
+    `${rootClassName}--${appearance}`
   );
   return <div className={computedClasses}>{children}</div>;
 };

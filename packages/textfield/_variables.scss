@@ -1,7 +1,7 @@
 $textfield-root: ".textfield";
 
 $textfield-border-radius: $theme-border-radius;
-$textfield-skins: ("primary", "success", "warning", "danger");
+$textfield-appearances: ("primary", "success", "warning", "danger");
 $textfield-font-weight: map-get($theme-font-weight, "regular");
 
 $textfield-sizes: $theme-spacing * 5;

@@ -12,11 +12,11 @@ const TextfieldDocs: React.FC = (): React.ReactElement => (
         <Link href="/">Home</Link>
         <h1>Textfield</h1>
         <div className="demo">
-            <h2>Skins</h2>
-            <Textfield skin="primary" value="primary..." />
-            <Textfield skin="success" value="success..." />
-            <Textfield skin="warning" value="warning..." />
-            <Textfield skin="danger" value="danger..." />
+            <h2>Appearances</h2>
+            <Textfield appearance="primary" value="primary..." />
+            <Textfield appearance="success" value="success..." />
+            <Textfield appearance="warning" value="warning..." />
+            <Textfield appearance="danger" value="danger..." />
         </div>
     </>
 );

@@ -1,11 +1,10 @@
 import * as React from "react";
 import { classNames } from "@stewed/utils";
 
-type ButtonType = React.ButtonHTMLAttributes<HTMLButtonElement> &
-  React.AnchorHTMLAttributes<HTMLAnchorElement>;
+type ButtonType = React.ButtonHTMLAttributes<HTMLButtonElement> & React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
 export interface ButtonProps extends ButtonType {
-  skin?: "primary" | "success" | "danger" | "warning";
+  appearance?: "primary" | "success" | "danger" | "warning";
   size?: "sm" | "md" | "lg";
   rounded?: boolean;
   disabled?: boolean;
@@ -15,7 +14,7 @@ export interface ButtonProps extends ButtonType {
 export const Button = React.forwardRef(
   (
     {
-      skin = "primary",
+      appearance = "primary",
       size = "md",
       rounded = false,
       disabled = false,
@@ -30,7 +29,7 @@ export const Button = React.forwardRef(
     const computedClasses = classNames(
       rootClassName,
       className,
-      `${rootClassName}--${skin}`,
+      `${rootClassName}--${appearance}`,
       `${rootClassName}--${size}`,
       rounded && `${rootClassName}--rounded`,
       disabled && "is-disabled"

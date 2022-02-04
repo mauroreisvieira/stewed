@@ -5,12 +5,7 @@
   "sideEffects": false,
   "license": "MIT",
   "devDependencies": {
-    "stylelint": "^14.1.0",
-    "stylelint-config-standard": "^24.0.0",
-    "stylelint-order": "^5.0.0",
-    "stylelint-prettier": "^2.0.0",
-    "stylelint-scss": "^4.0.0",
-    "stylelint-selector-bem-pattern": "^2.1.0"
+    "@stewed/stylelint": "*"
   },
   "publishConfig": {
     "access": "public"

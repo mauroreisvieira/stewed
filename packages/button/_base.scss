@@ -61,7 +61,7 @@
     min-width: var(--button-size);
   }
 
-  @each $key, $value in $button-skins {
+  @each $key, $value in $button-appearances {
     &--#{$key} {
       --button-bg: #{get-color($key)};
       --button-bg-hover: #{get-color($key, 600)};

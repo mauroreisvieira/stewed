@@ -30,7 +30,7 @@
     pointer-events: none;
   }
 
-  @each $key, $value in $textfield-skins {
+  @each $key, $value in $textfield-appearances {
     &--#{$key} {
       --textfield-border: #{get-color($key)};
       --textfield-border-hover: #{get-color($key, 600)};

@@ -12,18 +12,18 @@ const ButtonDocs: React.FC = (): React.ReactElement => (
     <Link href="/">Home</Link>
     <h1>Button</h1>
     <div className="demo">
-      <Button skin="primary">Button primary</Button>
-      <Button skin="success">Button success</Button>
-      <Button skin="warning">Button warning</Button>
-      <Button skin="danger">Button danger</Button>
+      <Button appearance="primary">Button primary</Button>
+      <Button appearance="success">Button success</Button>
+      <Button appearance="warning">Button warning</Button>
+      <Button appearance="danger">Button danger</Button>
     </div>
 
     <div className="demo">
-      <Button skin="primary" size="sm">
+      <Button appearance="primary" size="sm">
         Button small
       </Button>
-      <Button skin="primary">Button default</Button>
-      <Button skin="primary" size="lg">
+      <Button appearance="primary">Button default</Button>
+      <Button appearance="primary" size="lg">
         Button large
       </Button>
     </div>

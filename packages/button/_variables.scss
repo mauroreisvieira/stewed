@@ -2,7 +2,7 @@ $button-root: ".button";
 
 $button-color: #fff;
 $button-border-radius: $theme-border-radius;
-$button-skins: ("primary", "success", "warning", "danger");
+$button-appearances: ("primary", "success", "warning", "danger");
 $button-font-weight: map-get($theme-font-weight, "regular");
 
 $button-sizes: (

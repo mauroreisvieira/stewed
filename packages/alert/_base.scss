@@ -9,7 +9,7 @@
   background-color: var(--alert-bg);
   color: var(--alert-color);
 
-  @each $key, $value in $alert-skins {
+  @each $key, $value in $alert-appearances {
     &--#{$key} {
       --alert-bg: #{get-color($key, 100)};
       --alert-color: #{get-color($key, 900)};
