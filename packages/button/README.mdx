@@ -16,13 +16,14 @@ $ npm install --save @stewed/button
 
 Button component extends from `React.ButtonHTMLAttributes<HTMLButtonElement> & React.AnchorHTMLAttributes<HTMLAnchorElement>` interface, that provide special properties and methods for manipulating the options.
 
-| Name          | Type                                                | Default   | Description                             |
-| ------------- | --------------------------------------------------- | --------- | --------------------------------------- |
-| `appearance?` | 'One of<"primary", "success", "danger", "warning">' | 'primary' | The base styling to apply to the button |
-| `size?`       | 'One of<"sm", "md", "lg">'                          | 'md'      |                                         |
-| `rounded?`    | boolean                                             | 'false'   |                                         |
-| `disabled?`   | boolean                                             | false     |                                         |
-| `children?`   | React.ReactNode                                     | -         |                                         |
+| Name          | Type                                                 | Default   | Description                                |
+| ------------- | ---------------------------------------------------- | --------- | ------------------------------------------ | --- |
+| `appearance?` | `One of<"primary", "success", "danger", "warning">`  | 'primary' | The base styling to apply to the component    |
+| `size?`       | `One of<"sm", "md", "lg">``                          | 'md'      |                                            |
+| `rounded?`    | `boolean`                                            | false     |                                            |
+| `disabled?`   | `boolean`                                            | false     | Set if the button is disabled              |
+| `className?`  | `string`                                             | -         | Add additional class name to the component |
+| `children?`   | `React.ReactNode`                                    | -         | The value displayed within the component   |     |
 
 ## References
 

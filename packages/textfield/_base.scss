@@ -2,7 +2,7 @@
   --textfield-border-radius: #{$textfield-border-radius};
   --textfield-size: #{$textfield-sizes};
   --textfield-spacing: #{$textfield-spacings};
-  --textfield-font-size: #{map-get($theme-typography, "base")};
+  --textfield-font-size: #{map-get($typography, "base")};
 
   position: relative;
   display: inline-flex;
@@ -26,7 +26,7 @@
   }
 
   &:disabled {
-    opacity: $theme-disabled;
+    opacity: $disabled;
     pointer-events: none;
   }
 

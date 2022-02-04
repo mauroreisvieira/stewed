@@ -33,26 +33,26 @@
 
   &:disabled,
   &.is-disabled {
-    opacity: $theme-disabled;
+    opacity: $disabled;
     pointer-events: none;
   }
 
   &--sm {
     --button-size: #{map-get($button-sizes, "sm")};
     --button-spacing: #{map-get($button-spacings, "sm")};
-    --button-font-size: #{map-get($theme-typography, "small")};
+    --button-font-size: #{map-get($typography, "small")};
   }
 
   &--md {
     --button-size: #{map-get($button-sizes, "md")};
     --button-spacing: #{map-get($button-spacings, "md")};
-    --button-font-size: #{map-get($theme-typography, "base")};
+    --button-font-size: #{map-get($typography, "base")};
   }
 
   &--lg {
     --button-size: #{map-get($button-sizes, "lg")};
     --button-spacing: #{map-get($button-spacings, "lg")};
-    --button-font-size: #{map-get($theme-typography, "large")};
+    --button-font-size: #{map-get($typography, "large")};
   }
 
   &--rounded {

@@ -1,8 +1,8 @@
-$theme-scope: ".theme-scope" !default;
+$scope: ".theme-scope" !default;
 
-$theme-font-size: 16px;
+$font-size: 16px;
 
-$theme-tones: (
+$tones: (
   100: 70,
   200: 60,
   300: 50,
@@ -14,29 +14,29 @@ $theme-tones: (
   900: 45,
 );
 
-$theme-colors: (
+$colors: (
   "primary": #3f51b5,
   "success": #4caf50,
   "danger": #f44336,
   "warning": #ffc10d
 );
 
-$theme-typography: (
-  large:  $theme-font-size * 1.125,
-  base: $theme-font-size * 1,
-  small: $theme-font-size * .875
+$typography: (
+  large:  $font-size * 1.125,
+  base: $font-size * 1,
+  small: $font-size * .875
 );
 
-$theme-font-weight: (
+$font-weight: (
   regular: 400,
   medium:  500,
   bold: 700
 );
 
-$theme-spacing: 8px;
+$spacing: 8px;
 
-$theme-container-width: 1440px;
-$theme-container-padding: $theme-spacing * 9;
+$container-width: 1440px;
+$container-padding: $spacing * 9;
 
-$theme-disabled: 0.3;
-$theme-border-radius: 4px;
+$disabled: 0.3;
+$border-radius: 4px;

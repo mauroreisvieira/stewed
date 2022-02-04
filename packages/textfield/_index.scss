@@ -1,6 +1,6 @@
 @import "@stewed/theme/index";
 @import "variables";
 
-#{$theme-scope} {
+#{$scope} {
   @import "base";
 }

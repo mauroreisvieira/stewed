@@ -7,24 +7,24 @@
 }
 
 @function get-color($color, $tone: 500) {
-  @if not map-has-key($theme-colors, $color) {
-    @error "Invalid color specified! #{$color} doesn't exist. Choose one of #{map-keys($theme-colorss)}";
+  @if not map-has-key($colors, $color) {
+    @error "Invalid color specified! #{$color} doesn't exist. Choose one of #{map-keys($colorss)}";
   }
 
-  @if not map-has-key($theme-tones, $tone) {
-    @error "Invalid tone specified! #{$tone} doesn't exist. Choose one of #{map-keys($theme-tones)}";
+  @if not map-has-key($tones, $tone) {
+    @error "Invalid tone specified! #{$tone} doesn't exist. Choose one of #{map-keys($tones)}";
   }
 
-  $hex: map-get($theme-colors, $color);
+  $hex: map-get($colors, $color);
 
   @if ($tone < 500) {
-    $percentage: map-get($theme-tones, $tone);
+    $percentage: map-get($tones, $tone);
 
     @return tint($hex, $percentage);
   }
 
   @if ($tone > 500) {
-    $percentage: map-get($theme-tones, $tone);
+    $percentage: map-get($tones, $tone);
 
     @return shade($hex, $percentage);
   }
