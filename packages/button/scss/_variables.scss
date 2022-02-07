@@ -1,20 +1,33 @@
 @use 'sass:map';
+@use '@stewed/theme/scss' as theme;
 
 $button-root: '.button';
 
 $button-color: #fff;
-$button-border-radius: map.get($radius, 'md');
-$button-appearances: ('primary', 'success', 'warning', 'danger');
-$button-font-weight: map.get($font-weight, 'regular');
+$button-border-radius: map.get(theme.$radius, 'md');
+$button-border-radius-rounded: map.get(theme.$radius, 'rounded');
+
+$button-appearances: (
+    'primary': primary,
+    'secondary': secondary,
+    'success': green,
+    'warning': yellow,
+    'danger': red
+);
+
+$button-font-sizes: theme.$font-sizes;
+$button-font-weight: map.get(theme.$font-weight, 'regular');
+
+$button-disabled: theme.$disabled;
 
 $button-sizes: (
-    sm: $spacing * 4,
-    md: $spacing * 5,
-    lg: $spacing * 6,
+    sm: theme.$spacing * 4,
+    md: theme.$spacing * 5,
+    lg: theme.$spacing * 6,
 );
 
 $button-spacings: (
-    sm: $spacing,
-    md: $spacing * 2,
-    lg: $spacing * 3,
+    sm: theme.$spacing,
+    md: theme.$spacing * 2,
+    lg: theme.$spacing * 3,
 );

@@ -1,15 +1,25 @@
 @use 'sass:map';
+@use '@stewed/theme/scss' as theme;
 
 $textfield-root: '.textfield';
 
 // Appearance
-$textfield-border-radius: map.get($radius, 'md');
-$textfield-appearances: ('primary', 'success', 'warning', 'danger');
+$textfield-border-radius: map.get(theme.$radius, 'md');
+$textfield-appearances: (
+    'primary': primary,
+    'secondary': secondary,
+    'success': green,
+    'warning': yellow,
+    'danger': red
+);
+
+// States
+$textfield-disabled: theme.$disabled;
 
 // Font
-$textfield-font-weight: map.get($font-weight, 'regular');
-$textfield-font-size: map.get($font-sizes, 'base');
+$textfield-font-weight: map.get(theme.$font-weight, 'regular');
+$textfield-font-size: map.get(theme.$font-sizes, 'base');
 
 // Spacing's
-$textfield-sizes: $spacing * 5;
-$textfield-spacings: $spacing * 2;
+$textfield-sizes: theme.$spacing * 5;
+$textfield-spacings: theme.$spacing * 2;

@@ -1,4 +1,12 @@
-@import '@stewed/theme/scss';
+@use '@stewed/theme/scss' as * with (
+    $config: (
+        colors: ()
+    )
+);
+
+@use '@stewed/alert/scss' as alert;
+@use '@stewed/button/scss' as button;
+@use '@stewed/textfield/scss' as textfield;
 
 * {
     box-sizing: border-box;
@@ -31,7 +39,3 @@ a {
     gap: $spacing;
     margin-bottom: $spacing * 2;
 }
-
-@import '@stewed/alert/scss';
-@import '@stewed/button/scss';
-@import '@stewed/textfield/scss';

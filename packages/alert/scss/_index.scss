@@ -1,6 +1,1 @@
-@import '@stewed/theme/scss';
-@import 'variables';
-
-#{$scope} {
-    @import 'base';
-}
+@forward 'base';
