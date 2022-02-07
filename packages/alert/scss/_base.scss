@@ -1,18 +1,24 @@
-#{$alert-root} {
-    --alert-border-radius: #{$alert-border-radius};
+@use '@stewed/theme/scss' as theme;
+@use 'variables' as *;
 
-    position: relative;
-    display: flex;
-    width: 100%;
-    color: var(--alert-color);
-    padding: $alert-spacing;
-    border-radius: var(--alert-border-radius);
-    background-color: var(--alert-bg);
+#{theme.$scope} {
+    #{$alert-root} {
+        --alert-border-radius: #{$alert-border-radius};
 
-    @each $key, $value in $alert-appearances {
-        &--#{$key} {
-            --alert-bg: #{get-color($key, 100)};
-            --alert-color: #{get-color($key, 900)};
+        position: relative;
+        display: flex;
+        width: 100%;
+        color: var(--alert-color);
+        padding: $alert-spacing;
+        border-radius: var(--alert-border-radius);
+        background-color: var(--alert-bg);
+
+        @each $key, $value in $alert-appearances {
+            @debug($value);
+            &--#{$key} {
+                --alert-bg: #{theme.get-color($value, 300)};
+                --alert-color: #{theme.get-color($value, 900)};
+            }
         }
     }
 }

@@ -1,15 +1,23 @@
 @use 'sass:map';
+@use '@stewed/theme/scss' as theme;
 
 $alert-root: '.alert';
 
 $alert-color: #fff;
-$alert-border-radius: map.get($radius, 'md');
-$alert-appearances: ('primary', 'secondary', 'success', 'warning', 'danger');
+$alert-border-radius: map.get(theme.$radius, 'md');
 
-$alert-spacing: $spacing * 2;
+$alert-appearances: (
+    'primary': primary,
+    'secondary': secondary,
+    'success': green,
+    'warning': yellow,
+    'danger': red
+);
+
+$alert-spacing: theme.$spacing * 2;
 
 $alert-sizes: (
-    sm: $spacing * 4,
-    md: $spacing * 5,
-    lg: $spacing * 6,
+    sm: theme.$spacing * 4,
+    md: theme.$spacing * 5,
+    lg: theme.$spacing * 6
 );

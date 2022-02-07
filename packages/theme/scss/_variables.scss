@@ -1,29 +1,19 @@
 @use 'sass:map';
-
-$tones: (
-    100: 70,
-    200: 60,
-    300: 50,
-    400: 40,
-    500: 0,
-    600: 15,
-    700: 20,
-    800: 30,
-    900: 45
-);
-
-$pallete: (
-    'primary': #1fb6ff,
-    'secondary': #8492a6,
-    'success': #4caf50,
-    'danger': #f44336,
-    'warning': #ffc10d
-);
+@use 'functions' as func;
 
 $config: () !default;
 
 $default-config: (
     scope: '.theme-scope',
+    extend: (
+        shadows: (),
+        colors: (),
+        screens: (),
+        font-sizes: (),
+        font-weights: (),
+        radiuses: (),
+        opacities: (),
+    ),
     spacing: 8px,
     screens: (
         sm: 768px,
@@ -32,66 +22,77 @@ $default-config: (
         xl: 1440px,
     ),
     colors: (
-        primary-100: set-color(map.get($pallete, primary), 100),
-        primary-200: set-color(map.get($pallete, primary), 200),
-        primary-300: set-color(map.get($pallete, primary), 300),
-        primary-400: set-color(map.get($pallete, primary), 400),
-        primary-500: set-color(map.get($pallete, primary)),
-        primary-600: set-color(map.get($pallete, primary), 600),
-        primary-700: set-color(map.get($pallete, primary), 700),
-        primary-800: set-color(map.get($pallete, primary), 800),
-        primary-900: set-color(map.get($pallete, primary), 900),
-        secondary-100: set-color(map.get($pallete, secondary), 100),
-        secondary-200: set-color(map.get($pallete, secondary), 200),
-        secondary-300: set-color(map.get($pallete, secondary), 300),
-        secondary-400: set-color(map.get($pallete, secondary), 400),
-        secondary-500: set-color(map.get($pallete, secondary)),
-        secondary-600: set-color(map.get($pallete, secondary), 600),
-        secondary-700: set-color(map.get($pallete, secondary), 700),
-        secondary-800: set-color(map.get($pallete, secondary), 800),
-        secondary-900: set-color(map.get($pallete, secondary), 900),
-        success-100: set-color(map.get($pallete, success), 100),
-        success-200: set-color(map.get($pallete, success), 200),
-        success-300: set-color(map.get($pallete, success), 300),
-        success-400: set-color(map.get($pallete, success), 400),
-        success-500: set-color(map.get($pallete, success)),
-        success-600: set-color(map.get($pallete, success), 600),
-        success-700: set-color(map.get($pallete, success), 700),
-        success-800: set-color(map.get($pallete, success), 800),
-        success-900: set-color(map.get($pallete, success), 900),
-        danger-100: set-color(map.get($pallete, danger), 100),
-        danger-200: set-color(map.get($pallete, danger), 200),
-        danger-300: set-color(map.get($pallete, danger), 300),
-        danger-400: set-color(map.get($pallete, danger), 400),
-        danger-500: set-color(map.get($pallete, danger)),
-        danger-600: set-color(map.get($pallete, danger), 600),
-        danger-700: set-color(map.get($pallete, danger), 700),
-        danger-800: set-color(map.get($pallete, danger), 800),
-        danger-900: set-color(map.get($pallete, danger), 900),
-        warning-100: set-color(map.get($pallete, warning), 100),
-        warning-200: set-color(map.get($pallete, warning), 200),
-        warning-300: set-color(map.get($pallete, warning), 300),
-        warning-400: set-color(map.get($pallete, warning), 400),
-        warning-500: set-color(map.get($pallete, warning)),
-        warning-600: set-color(map.get($pallete, warning), 600),
-        warning-700: set-color(map.get($pallete, warning), 700),
-        warning-800: set-color(map.get($pallete, warning), 800),
-        warning-900: set-color(map.get($pallete, warning), 900),
+        primary: (
+            100: #e0e7ff,
+            200: #c7d2fe,
+            300: #a5b4fc,
+            400: #818cf8,
+            500: #6366f1,
+            600: #4f46e5,
+            700: #4338ca,
+            800: #3730a3,
+            900: #312e81,
+        ),
+        secondary: (
+            100: #f5f5f5,
+            200: #e5e5e5,
+            300: #d4d4d4,
+            400: #a3a3a3,
+            500: #737373,
+            600: #525252,
+            700: #404040,
+            800: #262626,
+            900: #171717,
+        ),
+        green: (
+            100: #dcfce7,
+            200: #bbf7d0,
+            300: #86efac,
+            400: #4ade80,
+            500: #22c55e,
+            600: #16a34a,
+            700: #15803d,
+            800: #166534,
+            900: #14532d,
+        ),
+        red: (
+            100: #fee2e2,
+            200: #fecaca,
+            300: #fca5a5,
+            400: #f87171,
+            500: #ef4444,
+            600: #dc2626,
+            700: #b91c1c,
+            800: #991b1b,
+            900: #7f1d1d,
+        ),
+        yellow: (
+            100: #fef9c3,
+            200: #fef08a,
+            300: #fde047,
+            400: #facc15,
+            500: #eab308,
+            600: #ca8a04,
+            700: #a16207,
+            800: #854d0e,
+            900: #713f12,
+        ),
     ),
     font-sizes: (
-        large: rem(18),
-        base: rem(16),
-        small: rem(14)
+        large: func.rem(18),
+        base: func.rem(16),
+        small: func.rem(14)
     ),
     font-weight: (
         regular: 400,
         medium: 500,
+        semibold: 600,
         bold: 700
     ),
     radius: (
-        sm: rem(2),
-        md: rem(4),
-        lg: rem(8),
+        sm: func.rem(2),
+        md: func.rem(4),
+        lg: func.rem(8),
         rounded: 100%
     )
 );
@@ -113,5 +114,28 @@ $screens: map.get($all-config, screens);
 
 $disabled: 0.3;
 
-$container-width: 1440px;
+$container-width: map.get($screens, xl);
 $container-padding: $spacing;
+
+$extend-colors: map.get($all-config, extend, colors);
+
+// Merged Colors
+$merged-colors: ();
+@if $colors != null {
+  $merged-colors: map.deep-merge($merged-colors, $colors);
+}
+$merged-colors: map.deep-merge($merged-colors, $extend-colors);
+
+@function get-color($color, $tone: 500) {
+    @if not map.has-key($merged-colors, $color) {
+        @error "Invalid color specified! #{$color} doesn't exist. Choose one of #{map.keys($merged-colors)}";
+    }
+
+    $colorKey: map.get($merged-colors, $color);
+
+    @if not map.has-key($colorKey, $tone) {
+        @error "Invalid tone specified! #{$tone} doesn't exist. Choose one of #{map.keys($colorKey)}";
+    }
+
+    @return map.get($colorKey, $tone);
+}

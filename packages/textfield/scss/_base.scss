@@ -1,35 +1,40 @@
-#{$textfield-root} {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: $textfield-sizes;
-    padding: 0 $textfield-spacings;
-    border: 2px solid var(--textfield-border);
-    border-radius: $textfield-border-radius;
-    font-size: $textfield-font-size;
-    font-weight: $textfield-font-weight;
-    touch-action: manipulation;
+@use '@stewed/theme/scss' as theme;
+@use 'variables' as *;
 
-    &:hover {
-        border-color: var(--textfield-border-hover);
-    }
+#{theme.$scope} {
+    #{$textfield-root} {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: $textfield-sizes;
+        padding: 0 $textfield-spacings;
+        border: 2px solid var(--textfield-border);
+        border-radius: $textfield-border-radius;
+        font-size: $textfield-font-size;
+        font-weight: $textfield-font-weight;
+        touch-action: manipulation;
 
-    &:focus-within {
-        outline: 2px solid transparent;
-        box-shadow: #fff 0 0 0 2px, var(--textfield-focus) 0 0 0 4px;
-    }
+        &:hover {
+            border-color: var(--textfield-border-hover);
+        }
 
-    &:disabled {
-        opacity: $disabled;
-        pointer-events: none;
-    }
+        &:focus-within {
+            outline: 2px solid transparent;
+            box-shadow: #fff 0 0 0 2px, var(--textfield-focus) 0 0 0 4px;
+        }
 
-    @each $key, $value in $textfield-appearances {
-        &--#{$key} {
-            --textfield-border: #{get-color($key)};
-            --textfield-border-hover: #{get-color($key, 600)};
-            --textfield-focus: #{get-color($key, 400)};
+        &:disabled {
+            opacity: $textfield-disabled;
+            pointer-events: none;
+        }
+
+        @each $key, $value in $textfield-appearances {
+            &--#{$key} {
+                --textfield-border: #{theme.get-color($value)};
+                --textfield-border-hover: #{theme.get-color($value, 600)};
+                --textfield-focus: #{theme.get-color($value, 400)};
+            }
         }
     }
 }
