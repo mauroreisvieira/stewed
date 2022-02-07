@@ -6,7 +6,7 @@ class MyDocument extends Document {
         return (
             <Html lang="en">
                 <Head />
-                <body className="app theme-scope">
+                <body className="stewed-scope">
                     <Main />
                     <NextScript />
                 </body>

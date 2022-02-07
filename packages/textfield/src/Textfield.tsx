@@ -3,12 +3,12 @@ import { classNames } from '@stewed/utils';
 
 export interface TextfieldProps
     extends React.InputHTMLAttributes<HTMLInputElement> {
-    appearance?: 'primary' | 'success' | 'danger' | 'warning';
+    appearance?: 'default' | 'success' | 'danger' | 'warning';
 }
 
 export const Textfield = React.forwardRef(
     (
-        { appearance = 'primary', ...otherProps }: TextfieldProps,
+        { appearance = 'default', ...otherProps }: TextfieldProps,
         ref: React.Ref<HTMLInputElement>
     ): React.ReactElement => {
         const { className, onChange, disabled } = otherProps;

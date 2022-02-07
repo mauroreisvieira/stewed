@@ -1,6 +1,13 @@
+@use 'sass:map';
+
 @use '@stewed/theme/scss' as * with (
     $config: (
-        colors: ()
+        scope: '.stewed-scope',
+        extends: (
+            screens: (
+                xs: 480px,
+            )
+        )
     )
 );
 
@@ -18,24 +25,17 @@ html {
 }
 
 body {
-    margin: 0;
-    padding: 0;
-}
-
-a {
-    color: inherit;
-    text-decoration: inherit;
-}
-
-.app {
-    max-width: $container-width;
+    max-width: map.get($screens, xl);
     margin: auto;
-    padding: 0 $container-padding;
+    padding: $spacing * 4 $spacing * 2;
 }
 
 .demo {
     display: flex;
-    flex-direction: column;
     gap: $spacing;
     margin-bottom: $spacing * 2;
+
+    &--column {
+        flex-direction: column;
+    }
 }

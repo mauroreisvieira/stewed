@@ -11,9 +11,9 @@ const TextfieldDocs: React.FC = (): React.ReactElement => (
         </Head>
         <Link href="/">Home</Link>
         <h1>Textfield</h1>
+        <h2>Appearances</h2>
         <div className="demo">
-            <h2>Appearances</h2>
-            <Textfield appearance="primary" defaultValue="primary..." />
+            <Textfield defaultValue="primary..." />
             <Textfield appearance="success" defaultValue="success..." />
             <Textfield appearance="warning" defaultValue="warning..." />
             <Textfield appearance="danger" defaultValue="danger..." />
