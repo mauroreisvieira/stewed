@@ -1,0 +1,35 @@
+[
+    {
+        "name": "Getting Started",
+        "isActive": true,
+        "data": [
+            { "url": "theme", "title": "Theme" }
+        ]
+    },
+    {
+        "name": "Components",
+        "isActive": true,
+        "data": [
+            { "demo": true, "url": "src/packages/alert/", "title": "Alert" },
+            { "demo": true, "url": "src/packages/badge/", "title": "Badge" },
+            { "demo": true, "url": "src/packages/breadcrumb/", "title": "Breadcrumb" },
+            { "demo": true, "url": "src/packages/button/", "title": "Button" },
+            { "demo": true, "url": "src/packages/card/", "title": "Card" },
+            { "demo": true, "url": "src/packages/checkbox/", "title": "Checkbox" },
+            { "demo": true, "url": "src/packages/dialog/", "title": "Dialog" },
+            { "demo": true, "url": "src/packages/grid/", "title": "Grid" },
+            { "demo": true, "url": "src/packages/menu/", "title": "Menu" },
+            { "demo": true, "url": "src/packages/list/", "title": "List" },
+            { "demo": true, "url": "src/packages/progress/", "title": "Progress" },
+            { "demo": true, "url": "src/packages/radio/", "title": "Radio" },
+            { "demo": true, "url": "src/packages/select/", "title": "Select" },
+            { "demo": true, "url": "src/packages/switch/", "title": "Switch" },
+            { "demo": true, "url": "src/packages/table/", "title": "Table" },
+            { "demo": true, "url": "src/packages/tag/", "title": "Tag" },
+            { "demo": true, "url": "src/packages/top-bar/", "title": "Top Bar" },
+            { "demo": true, "url": "src/packages/textfield/", "title": "Textfield" },
+            { "demo": true, "url": "src/packages/tooltip/", "title": "Tooltip" },
+            { "demo": true, "url": "src/packages/typography/", "title": "Typography" }
+        ]
+    }
+]

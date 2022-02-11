@@ -1,0 +1,26 @@
+/* stylelint-disable selector-max-type, selector-no-qualifying-type */
+.demo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: auto;
+  padding: var(--space-lg);
+  border: 2px solid #f7f7f7;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+}
+
+.hljs {
+  font-size: var(--typography-x-sm);
+
+  .tag {
+    all: inherit;
+    color: var(--color-accent-dark) !important;
+  }
+}
+
+pre[class*="language-"] {
+  margin-top: 0 !important;
+  background-color: #f7f7f7 !important;
+}

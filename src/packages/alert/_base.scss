@@ -1,0 +1,34 @@
+.alert {
+  --alert-bg: var(--color-grayscale-lighter);
+  --alert-fg: var(--color-grayscale);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: map-get($space, lg);
+  padding: map-get($space, lg);
+  border-radius: map-get($radius, sm);
+  background-color: var(--alert-bg);
+  color: var(--alert-fg);
+  font-size: map-get($typography-font-size, base);
+  cursor: pointer;
+
+  &__title {
+    font-size: map-get($typography-font-size, base);
+    font-weight: map-get($typography-font-weight, bold);
+    line-height: 1.4;
+  }
+
+  &__description {
+    @include get-typography(small);
+  }
+
+  @each $key in $alert-keys {
+    &--#{$key} {
+      --alert-bg: #{get-color(#{$key})};
+      --alert-fg: #fff;
+    }
+  }
+}

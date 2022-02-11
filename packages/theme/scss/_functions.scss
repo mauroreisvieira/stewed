@@ -1,8 +1,0 @@
-@use 'sass:math';
-@use 'sass:map';
-
-@function rem($size-in-pixel) {
-  $size: math.div($size-in-pixel, 16);
-  @return #{$size}rem;
-}
-

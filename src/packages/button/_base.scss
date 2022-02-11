@@ -1,0 +1,61 @@
+/* stylelint-disable order/order */
+button,
+.btn {
+  position: relative;
+  display: inline-flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  padding: map-get($space, sm) map-get($space, lg);
+  border: 0;
+  border-radius: map-get($radius, sm);
+  outline: none;
+  background-color: transparent;
+  color: $color-base;
+  cursor: pointer;
+  user-select: none;
+  -webkit-appearance: none;
+  overflow: hidden;
+
+  @include get-typography(button);
+
+  @include tablet {
+    flex: inherit;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--color-grayscale-lighter);
+    }
+  }
+
+  &--shaped {
+    border-radius: map-get($radius, hg);
+  }
+
+  &--sm {
+    padding: map-get($space, sm);
+    font-size: $button-font-size-small;
+  }
+
+  &--lg {
+    padding: map-get($space, lg) map-get($space, xl);
+  }
+
+  @each $key, $values in $buttons {
+    &--#{$key} {
+      background-color: map-get($values, bg);
+      color: #fff;
+
+      @media (hover: hover) {
+        &:hover {
+          background-color: map-get($values, on-bg);
+        }
+      }
+    }
+  }
+
+  &:disabled {
+    @include disabled;
+  }
+}

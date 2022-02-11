@@ -1,0 +1,86 @@
+/* stylelint-disable order/order */
+.textfield {
+  position: relative;
+  display: flex;
+  width: 100%;
+
+  .textfield__control {
+    --textfield-padding: #{$textfield-padding};
+    --textfield-radius: #{$textfield-radius};
+    --textfield-fg: #{$textfield-color};
+    --textfield-bg: #{$textfield-background};
+    --textfield-caret: #{$textfield-color};
+    --textfield-border-color: #{$textfield-border-color};
+
+    width: 100%;
+    padding: var(--textfield-padding);
+    border: 0;
+    border-radius: var(--textfield-radius);
+    outline: none;
+    background-color: var(--textfield-bg);
+    color: var(--textfield-fg);
+    -webkit-appearance: none;
+    box-shadow: none;
+    caret-color: var(--textfield-caret);
+
+    @include get-typography(base);
+
+    &[disabled] {
+      @include disabled;
+    }
+
+    &:focus {
+      --textfield-bg: #{$textfield-on-background};
+    }
+  }
+
+  &--outlined {
+    --textfield-border-color: #{$textfield-border-color};
+
+    .textfield__control {
+      border: 1px solid var(--textfield-border-color);
+      background-color: transparent;
+
+      &:focus {
+        --textfield-border-color: #{$color-primary};
+
+        background-color: transparent;
+      }
+    }
+  }
+
+  &--shaped {
+    .textfield__control {
+      --textfield-radius: #{$textfield-radius-large};
+    }
+  }
+
+  &--sm {
+    .textfield__control {
+      --textfield-padding: #{$textfield-padding-small};
+    }
+  }
+
+  &--lg {
+    .textfield__control {
+      --textfield-padding: #{$textfield-padding-large};
+    }
+  }
+
+  &--textarea {
+    .textfield__control {
+      height: $textfield-textarea-min-height * 2;
+      resize: none;
+    }
+  }
+
+  @each $key, $value in $textfield-states {
+    &.has-#{$key} {
+      .textfield__control {
+        --textfield-fg: #{$value};
+        --textfield-border-color: #{$value};
+        --textfield-caret: #{$value};
+      }
+    }
+  }
+}

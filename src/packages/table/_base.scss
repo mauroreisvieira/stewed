@@ -1,0 +1,90 @@
+/* stylelint-disable selector-max-type, order/order */
+table,
+.table {
+  position: relative;
+  display: block;
+  width: 100%;
+  border: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  @include tablet {
+    display: table;
+  }
+
+  thead {
+    display: block;
+    float: left;
+    border: 0;
+    border-right: 2px solid currentColor;
+
+    @include get-typography($table-head-font-size);
+
+    @include tablet {
+      display: table-row-group;
+      padding: $table-head-padding;
+      float: none;
+      border: 0;
+      border-bottom: 2px solid currentColor;
+
+      @include get-typography($table-head-font-size-desktop);
+    }
+
+    tr {
+      display: block;
+      padding: 0 10px 0 0;
+
+      @include tablet {
+        display: table-row;
+      }
+
+      th {
+        display: block;
+        padding: $table-head-padding;
+        text-align: right;
+
+        @include tablet {
+          display: table-cell;
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  tbody {
+    position: relative;
+    display: block;
+    width: auto;
+    white-space: nowrap;
+    overflow-x: auto;
+
+    @include get-typography($table-body-font-size);
+
+    @include tablet {
+      display: table-row-group;
+      padding: $table-body-padding;
+      white-space: normal;
+      overflow-x: hidden;
+    }
+
+    tr {
+      display: inline-block;
+      vertical-align: top;
+
+      @include tablet {
+        display: table-row;
+        border-bottom: 1px solid $table-body-border-color;
+      }
+
+      td {
+        display: block;
+        padding: $table-body-padding;
+        text-align: left;
+
+        @include tablet {
+          display: table-cell;
+        }
+      }
+    }
+  }
+}

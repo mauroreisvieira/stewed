@@ -1,0 +1,4 @@
+// Calculate column size percentage
+@function get-col-percent($column-num) {
+  @return $column-num / $columns * 100%;
+}

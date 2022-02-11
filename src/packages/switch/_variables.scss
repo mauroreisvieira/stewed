@@ -1,0 +1,4 @@
+$switch-width: map-get($space, x-hg) !default;
+$switch-height: map-get($space, x-hg) !default;
+$switch-color-default: $color-base !default;
+$switch-color-active: $color-primary !default;

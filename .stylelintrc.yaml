@@ -206,7 +206,7 @@ rules:
     - visibility
     - will-change
     - z-index
-  declaration-property-unit-allowed-list:
+  declaration-property-unit-whitelist:
     font-size:
       - "rem"
       - "px"
@@ -241,7 +241,11 @@ rules:
       - return
       - warn
   # Disallow "@extend" in scss.
-  at-rule-disallowed-list:
+  # http://csswizardry.com/2016/02/mixins-better-for-performance/
+  # http://vanseodesign.com/css/sass-mixin-or-extend/
+  # Besides performance, @extend actually *changes* the selector precedence by creating a compound
+  # selector, which can lead to ambiguous results.
+  at-rule-blacklist:
     - extend
   # Extremely useful for typos, and anything emergent can be ignored by this rule
   property-no-unknown:
@@ -268,7 +272,7 @@ rules:
   function-url-no-scheme-relative: true
   # TODO: and FIXME: warnings are super useful because they remind us that we should address these
   # within our codebase
-  comment-word-disallowed-list:
+  comment-word-blacklist:
     -
       - /^TODO:/
       - /^FIXME:/
