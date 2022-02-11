@@ -2,7 +2,6 @@
 
 @use '@stewed/theme/scss' as * with (
     $config: (
-        scope: '.stewed-scope',
         extends: (
             screens: (
                 xs: 480px,
@@ -12,6 +11,7 @@
 );
 
 @use '@stewed/alert/scss' as alert;
+@use '@stewed/badge/scss' as badge;
 @use '@stewed/button/scss' as button;
 @use '@stewed/textfield/scss' as textfield;
 
@@ -27,13 +27,12 @@ html {
 body {
     max-width: map.get($screens, xl);
     margin: auto;
-    padding: $spacing * 4 $spacing * 2;
 }
 
 .demo {
     display: flex;
-    gap: $spacing;
-    margin-bottom: $spacing * 2;
+    margin-bottom: map.get($spacings, 'xl');
+    gap: map.get($spacings, 'md');
 
     &--column {
         flex-direction: column;

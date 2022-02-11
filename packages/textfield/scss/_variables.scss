@@ -38,5 +38,5 @@ $textfield-font-weight: map.get(theme.$font-weight, 'regular');
 $textfield-font-size: map.get(theme.$font-size, 'base');
 
 // Spacing's
-$textfield-sizes: theme.$spacing * 5;
-$textfield-spacings: theme.$spacing * 2;
+$textfield-sizes: map.get(theme.$spacings, 'md') * 5;
+$textfield-spacings: map.get(theme.$spacings, 'md') * 2;

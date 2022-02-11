@@ -20,13 +20,13 @@ $button-font-weight: map.get(theme.$font-weight, 'regular');
 $button-disabled: theme.$disabled;
 
 $button-sizes: (
-    sm: theme.$spacing * 4,
-    md: theme.$spacing * 5,
-    lg: theme.$spacing * 6,
+    sm: map.get(theme.$spacings, 'md') * 4,
+    md: map.get(theme.$spacings, 'md') * 5,
+    lg: map.get(theme.$spacings, 'md') * 6,
 );
 
 $button-spacings: (
-    sm: theme.$spacing,
-    md: theme.$spacing * 2,
-    lg: theme.$spacing * 3,
+    sm: map.get(theme.$spacings, 'md'),
+    md: map.get(theme.$spacings, 'md') * 2,
+    lg: map.get(theme.$spacings, 'md') * 3,
 );

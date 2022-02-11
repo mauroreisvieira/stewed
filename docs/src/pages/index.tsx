@@ -14,6 +14,11 @@ const Home: React.FC = (): React.ReactElement => (
                 </Link>
             </li>
             <li>
+                <Link href="/components/badge" passHref>
+                    Badge
+                </Link>
+            </li>
+            <li>
                 <Link href="/components/button" passHref>
                     Button
                 </Link>

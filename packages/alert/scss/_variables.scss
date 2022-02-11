@@ -16,13 +16,13 @@ $alert-appearances: (
     'danger': red
 );
 
-$alert-inner-spacing-x: theme.$spacing * 2;
-$alert-inner-spacing-y: theme.$spacing * 2;
+$alert-inner-spacing-x: map.get(theme.$spacings, 'xl');
+$alert-inner-spacing-y: map.get(theme.$spacings, 'xl');
 
-$alert-gap: theme.$spacing;
+$alert-gap: map.get(theme.$spacings, 'sm');
 
 $alert-sizes: (
-    sm: theme.$spacing * 4,
-    md: theme.$spacing * 5,
-    lg: theme.$spacing * 6
+    sm: map.get(theme.$spacings, 'md') * 4,
+    md: map.get(theme.$spacings, 'md') * 5,
+    lg: map.get(theme.$spacings, 'md') * 6
 );
