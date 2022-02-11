@@ -16,14 +16,30 @@ $ npm install --save @stewed/button
 
 Button component extends from `React.ButtonHTMLAttributes<HTMLButtonElement> & React.AnchorHTMLAttributes<HTMLAnchorElement>` interface, that provide special properties and methods for manipulating the options.
 
-| Name          | Type                                                            | Default   | Description                                |
-| ------------- | --------------------------------------------------------------- | --------- | ------------------------------------------ | --- |
-| `appearance?` | `One of<"primary", "secondary", success", "danger", "warning">` | 'primary' | The base styling to apply to the component |
-| `size?`       | `One of<"sm", "md", "lg">``                                     | 'md'      |                                            |
-| `rounded?`    | `boolean`                                                       | false     |                                            |
-| `disabled?`   | `boolean`                                                       | false     | Set if the button is disabled              |
-| `className?`  | `string`                                                        | -         | Add additional class name to the component |
-| `children?`   | `React.ReactNode`                                               | -         | The value displayed within the component   |     |
+| Name          | Type                                                            | Default   | Description                                      |
+| ------------- | --------------------------------------------------------------- | --------- | ------------------------------------------------ |
+| `appearance?` | `One of<"primary", "secondary", success", "danger", "warning">` | 'primary' | The base styling to apply to the component.      |
+| `size?`       | `One of<"sm", "md", "lg">`                                      | 'md'      |     The size of the component                                             |
+| `disabled?`   | `boolean`                                                       | false     | Set if the button is disabled.                   |
+| `className?`  | `string`                                                        | -         | Add additional class name to the root component. |
+| `children?`   | `React.ReactNode`                                               | -         | The value displayed within the component.        |
+
+The `ref` is forwarded to the root element.
+
+## CSS
+
+| Class name           | Description                                                     |
+| -------------------- | --------------------------------------------------------------- |
+| `.button`            | Styles applied to the root element.                             |
+| `.button--sm`        | Styles applied to the root element if `size="sm"`.              |
+| `.button--md`        | Styles applied to the root element if `size="md"`.              |
+| `.button--lg`        | Styles applied to the root element if `size="lg"`.              |
+| `.button--disabled`  | Styles applied to the root element if `disabled={true}`.        |
+| `.button--primary`   | Styles applied to the root element if `appearance="primary"`.   |
+| `.button--secondary` | Styles applied to the root element if `appearance="secondary"`. |
+| `.button--success`   | Styles applied to the root element if `appearance="success"`.   |
+| `.button--danger`    | Styles applied to the root element if `appearance="danger"`.    |
+| `.button--warning`   | Styles applied to the root element if `appearance="warning"`.   |
 
 ## References
 

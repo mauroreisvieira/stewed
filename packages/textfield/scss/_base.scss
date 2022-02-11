@@ -4,6 +4,10 @@
 
 #{theme.$scope} {
     #{$textfield-root} {
+        --textfield-border: #{map.get($textfield-appearances-default, border)};
+        --textfield-border-hover: #{map.get($textfield-appearances-default, border-hover)};
+        --textfield-focus: #{map.get($textfield-appearances-default, border-focus)};
+
         position: relative;
         display: inline-flex;
         align-items: center;
@@ -25,7 +29,8 @@
             box-shadow: #fff 0 0 0 2px, var(--textfield-focus) 0 0 0 4px;
         }
 
-        &:disabled {
+        &:disabled,
+        &--disabled {
             opacity: $textfield-disabled;
             pointer-events: none;
         }

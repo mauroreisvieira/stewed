@@ -10,7 +10,7 @@ $alert-title-font-weight: map.get(theme.$font-weight, 'semibold');
 $alert-body-font-size: map.get(theme.$font-size, 'sm');
 
 $alert-appearances: (
-    'primary': primary,
+    'info': blue,
     'success': green,
     'warning': yellow,
     'danger': red

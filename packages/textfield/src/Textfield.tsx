@@ -16,7 +16,8 @@ export const Textfield = React.forwardRef(
         const computedClasses = classNames(
             rootClassName,
             className,
-            `${rootClassName}--${appearance}`
+            disabled && `${rootClassName}--disabled`,
+            appearance !== 'default' && `${rootClassName}--${appearance}`
         );
 
         const onHandleChange = (

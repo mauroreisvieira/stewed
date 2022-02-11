@@ -3,13 +3,13 @@ import { classNames } from '@stewed/utils';
 
 export interface AlertProps {
     title?: string;
-    appearance?: 'primary' | 'success' | 'warning' | 'danger';
+    appearance?: 'info' | 'success' | 'warning' | 'danger';
     className?: string;
 }
 
 export const Alert: React.FC<AlertProps> = ({
     title,
-    appearance = 'primary',
+    appearance = 'info',
     className,
     children,
 }): React.ReactElement => {

@@ -6,12 +6,13 @@ $textfield-root: '.textfield';
 // Appearance
 $textfield-border-radius: map.get(theme.$radius, 'md');
 
+$textfield-appearances-default: (
+    'border': theme.get-color(secondary, 300),
+    'border-hover': theme.get-color(secondary, 400),
+    'border-focus': theme.get-color(secondary, 600),
+);
+
 $textfield-appearances: (
-    'default': (
-        'border': theme.get-color(secondary, 300),
-        'border-hover': theme.get-color(secondary, 400),
-        'border-focus': theme.get-color(secondary, 600),
-    ),
     'success': (
         'border': theme.get-color(green, 500),
         'border-hover': theme.get-color(green, 600),

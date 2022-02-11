@@ -9,17 +9,17 @@ const Home: React.FC = (): React.ReactElement => (
         </Head>
         <ul>
             <li>
-                <Link href="/packages/alert" passHref>
+                <Link href="/components/alert" passHref>
                     Alert
                 </Link>
             </li>
             <li>
-                <Link href="/packages/button" passHref>
+                <Link href="/components/button" passHref>
                     Button
                 </Link>
             </li>
             <li>
-                <Link href="/packages/textfield" passHref>
+                <Link href="/components/textfield" passHref>
                     Textfield
                 </Link>
             </li>

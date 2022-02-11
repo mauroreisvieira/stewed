@@ -7,7 +7,6 @@ type ButtonType = React.ButtonHTMLAttributes<HTMLButtonElement> &
 export interface ButtonProps extends ButtonType {
     appearance?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning';
     size?: 'sm' | 'md' | 'lg';
-    rounded?: boolean;
     disabled?: boolean;
     children: React.ReactNode;
 }
@@ -17,7 +16,6 @@ export const Button = React.forwardRef(
         {
             appearance = 'primary',
             size = 'md',
-            rounded = false,
             disabled = false,
             children,
             ...otherProps
@@ -32,8 +30,7 @@ export const Button = React.forwardRef(
             className,
             `${rootClassName}--${appearance}`,
             `${rootClassName}--${size}`,
-            rounded && `${rootClassName}--rounded`,
-            disabled && 'is-disabled'
+            disabled && `${rootClassName}--disabled`,
         );
 
         const handleClick = (

@@ -5,7 +5,6 @@ $button-root: '.button';
 
 $button-color: #fff;
 $button-border-radius: map.get(theme.$radius, 'md');
-$button-border-radius-rounded: map.get(theme.$radius, 'rounded');
 
 $button-appearances: (
     'primary': primary,

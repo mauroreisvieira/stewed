@@ -37,7 +37,7 @@
         }
 
         &:disabled,
-        &.is-disabled {
+        &--disabled {
             opacity: $button-disabled;
             pointer-events: none;
         }
@@ -58,12 +58,6 @@
             --button-size: #{map.get($button-sizes, 'lg')};
             --button-spacing: #{map.get($button-spacings, 'lg')};
             --button-font-size: #{map.get($button-font-sizes, 'lg')};
-        }
-
-        &--rounded {
-            --button-border-radius: #{$button-border-radius-rounded};
-
-            min-width: var(--button-size);
         }
 
         @each $key, $value in $button-appearances {
