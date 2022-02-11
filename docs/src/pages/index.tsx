@@ -7,15 +7,23 @@ const Home: React.FC = (): React.ReactElement => (
         <Head>
             <title>Stewed</title>
         </Head>
-        <Link href="/packages/alert" passHref>
-            Alert
-        </Link>
-        <Link href="/packages/button" passHref>
-            Button
-        </Link>
-        <Link href="/packages/textfield" passHref>
-            Textfield
-        </Link>
+        <ul>
+            <li>
+                <Link href="/packages/alert" passHref>
+                    Alert
+                </Link>
+            </li>
+            <li>
+                <Link href="/packages/button" passHref>
+                    Button
+                </Link>
+            </li>
+            <li>
+                <Link href="/packages/textfield" passHref>
+                    Textfield
+                </Link>
+            </li>
+        </ul>
     </>
 );
 

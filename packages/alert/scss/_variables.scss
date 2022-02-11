@@ -6,6 +6,9 @@ $alert-root: '.alert';
 $alert-color: #fff;
 $alert-border-radius: map.get(theme.$radius, 'md');
 
+$alert-title-font-weight: map.get(theme.$font-weight, 'semibold');
+$alert-body-font-size: map.get(theme.$font-size, 'sm');
+
 $alert-appearances: (
     'primary': primary,
     'success': green,
@@ -13,7 +16,10 @@ $alert-appearances: (
     'danger': red
 );
 
-$alert-spacing: theme.$spacing * 2;
+$alert-inner-spacing-x: theme.$spacing * 2;
+$alert-inner-spacing-y: theme.$spacing * 2;
+
+$alert-gap: theme.$spacing;
 
 $alert-sizes: (
     sm: theme.$spacing * 4,

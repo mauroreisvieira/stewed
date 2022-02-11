@@ -21,7 +21,7 @@
 
 html {
     font-family: system-ui, -apple-system;
-    font-size: #{map-get($font-sizes, 'large')};
+    font-size: #{map-get($font-size, 'base')};
 }
 
 body {

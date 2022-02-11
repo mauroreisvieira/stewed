@@ -1,0 +1,34 @@
+@use '@stewed/theme/scss' as theme;
+@use 'variables' as *;
+
+#{theme.$scope} {
+    #{$alert-root} {
+        --alert-border-radius: #{$alert-border-radius};
+
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        padding: $alert-inner-spacing-y $alert-inner-spacing-x;
+        border-radius: var(--alert-border-radius);
+        background-color: var(--alert-background);
+
+        &__title {
+            margin-bottom: $alert-gap;
+            color: var(--alert-title-color);
+            font-weight: $alert-title-font-weight;
+        }
+
+        &__body {
+            font-size: $alert-body-font-size;
+        }
+
+        @each $key, $value in $alert-appearances {
+            @debug($value);
+            &--#{$key} {
+                --alert-background: #{theme.get-color($value, 100)};
+                --alert-title-color: #{theme.get-color($value, 900)};
+            }
+        }
+    }
+}

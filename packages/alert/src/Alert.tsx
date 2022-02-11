@@ -2,11 +2,13 @@ import * as React from 'react';
 import { classNames } from '@stewed/utils';
 
 export interface AlertProps {
-    appearance: 'primary' | 'success' | 'warning' | 'danger';
+    title?: string;
+    appearance?: 'primary' | 'success' | 'warning' | 'danger';
     className?: string;
 }
 
 export const Alert: React.FC<AlertProps> = ({
+    title,
     appearance = 'primary',
     className,
     children,
@@ -17,5 +19,16 @@ export const Alert: React.FC<AlertProps> = ({
         className,
         `${rootClassName}--${appearance}`
     );
-    return <div className={computedClasses}>{children}</div>;
+    return (
+        <div className={computedClasses}>
+            { title && (
+                <div className={`${rootClassName}__title`}>
+                    { title }
+                </div>
+            ) }
+            <div className={`${rootClassName}__body`}>
+                {children}
+            </div>
+        </div>
+    );
 };

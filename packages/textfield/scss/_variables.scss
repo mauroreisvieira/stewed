@@ -34,7 +34,7 @@ $textfield-disabled: theme.$disabled;
 
 // Font
 $textfield-font-weight: map.get(theme.$font-weight, 'regular');
-$textfield-font-size: map.get(theme.$font-sizes, 'base');
+$textfield-font-size: map.get(theme.$font-size, 'base');
 
 // Spacing's
 $textfield-sizes: theme.$spacing * 5;

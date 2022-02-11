@@ -15,7 +15,7 @@ $button-appearances: (
     'danger': red
 );
 
-$button-font-sizes: theme.$font-sizes;
+$button-font-sizes: theme.$font-size;
 $button-font-weight: map.get(theme.$font-weight, 'regular');
 
 $button-disabled: theme.$disabled;

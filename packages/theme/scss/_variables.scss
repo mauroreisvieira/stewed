@@ -8,7 +8,7 @@ $default-config: (
     extend: (
         colors: (),
         screens: (),
-        font-sizes: (),
+        font-size: (),
         font-weights: (),
         radiuses: (),
         opacities: (),
@@ -77,10 +77,10 @@ $default-config: (
             900: #713f12,
         ),
     ),
-    font-sizes: (
-        large: func.rem(18),
+    font-size: (
+        lg: func.rem(18),
         base: func.rem(16),
-        small: func.rem(14)
+        sm: func.rem(14)
     ),
     font-weight: (
         regular: 400,
@@ -101,7 +101,7 @@ $all-config: map.deep-merge($default-config, $config);
 
 $scope: map.get($all-config, scope);
 
-$font-sizes: map.get($all-config, font-sizes);
+$font-size: map.get($all-config, font-size);
 $font-weight: map.get($all-config, font-weight);
 
 $spacing: map.get($all-config, spacing);
