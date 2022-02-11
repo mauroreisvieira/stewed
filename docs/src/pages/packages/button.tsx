@@ -13,7 +13,8 @@ const ButtonDocs: React.FC = (): React.ReactElement => (
         <h1>Button</h1>
         <h2>Appearance</h2>
         <div className="demo">
-            <Button appearance="primary">Button primary</Button>
+            <Button>Button default</Button>
+            <Button appearance="secondary">Button secondary</Button>
             <Button appearance="success">Button success</Button>
             <Button appearance="warning">Button warning</Button>
             <Button appearance="danger">Button danger</Button>
@@ -21,11 +22,11 @@ const ButtonDocs: React.FC = (): React.ReactElement => (
 
         <h2>Sizes</h2>
         <div className="demo">
-            <Button appearance="primary" size="sm">
+            <Button size="sm">
                 Button small
             </Button>
-            <Button appearance="primary">Button default</Button>
-            <Button appearance="primary" size="lg">
+            <Button>Button default</Button>
+            <Button size="lg">
                 Button large
             </Button>
         </div>

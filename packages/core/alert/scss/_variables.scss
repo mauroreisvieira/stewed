@@ -8,7 +8,6 @@ $alert-border-radius: map.get(theme.$radius, 'md');
 
 $alert-appearances: (
     'primary': primary,
-    'secondary': secondary,
     'success': green,
     'warning': yellow,
     'danger': red

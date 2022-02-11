@@ -5,7 +5,7 @@ type ButtonType = React.ButtonHTMLAttributes<HTMLButtonElement> &
     React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
 export interface ButtonProps extends ButtonType {
-    appearance?: 'primary' | 'success' | 'danger' | 'warning';
+    appearance?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning';
     size?: 'sm' | 'md' | 'lg';
     rounded?: boolean;
     disabled?: boolean;

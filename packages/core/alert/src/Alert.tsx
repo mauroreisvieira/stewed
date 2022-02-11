@@ -2,7 +2,7 @@ import * as React from 'react';
 import { classNames } from '@stewed/utils';
 
 export interface AlertProps {
-    appearance: 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+    appearance: 'primary' | 'success' | 'warning' | 'danger';
     className?: string;
 }
 

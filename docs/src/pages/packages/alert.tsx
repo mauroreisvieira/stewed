@@ -13,7 +13,6 @@ const AlertDocs: React.FC = (): React.ReactElement => (
         <h1>Alert</h1>
         <div className="demo">
             <Alert appearance="primary">Alert primary</Alert>
-            <Alert appearance="secondary">Alert seconday</Alert>
             <Alert appearance="success">Alert success</Alert>
             <Alert appearance="warning">Alert warning</Alert>
             <Alert appearance="danger">Alert danger</Alert>

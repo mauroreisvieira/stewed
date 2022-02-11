@@ -19,7 +19,7 @@ export const Textfield = React.forwardRef(
             `${rootClassName}--${appearance}`
         );
 
-        const handleClick = (
+        const onHandleChange = (
             event: React.ChangeEvent<HTMLInputElement>
         ): void => {
             if (disabled) return;
@@ -31,7 +31,7 @@ export const Textfield = React.forwardRef(
             ref,
             disabled,
             className: computedClasses,
-            onChange: handleClick,
+            onChange: onHandleChange,
         };
 
         return <input {...computedProps} />;
