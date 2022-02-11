@@ -12,8 +12,20 @@ $ npm install --save @stewed/alert
 
 ## Props
 
-| Name          | Type                                                | Default   | Description                                |
-| ------------- | --------------------------------------------------- | --------- | ------------------------------------------ |
-| `appearance?` | `One of<"primary", "success", "danger", "warning">` | 'primary' | The base styling to apply to the component |
-| `className?`  | `string`                                            | -         | Add additional class name to the component |
-| `children?`   | `React.ReactNode`                                   | -         | The value displayed within the component   |
+| Name          | Type                                                | Default   | Description                                 |
+| ------------- | --------------------------------------------------- | --------- | ------------------------------------------- |
+| `appearance?` | `One of<"primary", "success", "danger", "warning">` | 'primary' | The base styling to apply to the component. |
+| `title?`      | `string`                                            | -         | Slot for title content.                     |
+| `className?`  | `string`                                            | -         | Add additional class name to the component. |
+| `children?`   | `React.ReactNode`                                   | -         | The value displayed within the component.   |
+
+## CSS
+
+| Rule name | Global class      | Description                                                   |
+| --------- | ----------------- | ------------------------------------------------------------- |
+| root      | `.alert`          | Styles applied to the root element.                           |
+| title     | `.alert__title`   | Styles applied to the title wrapper element.                  |
+| success   | `.alert--success` | Styles applied to the root element if `appearance="success"`. |
+| danger    | `.alert--danger`  | Styles applied to the root element if `appearance="danger"`.  |
+| danger    | `.alert--danger`  | Styles applied to the root element if `appearance="danger"`.  |
+| warning   | `.alert--warning` | Styles applied to the root element if `appearance="warning"`. |

@@ -45,7 +45,7 @@
         &--sm {
             --button-size: #{map.get($button-sizes, 'sm')};
             --button-spacing: #{map.get($button-spacings, 'sm')};
-            --button-font-size: #{map.get($button-font-sizes, 'small')};
+            --button-font-size: #{map.get($button-font-sizes, 'sm')};
         }
 
         &--md {
@@ -57,7 +57,7 @@
         &--lg {
             --button-size: #{map.get($button-sizes, 'lg')};
             --button-spacing: #{map.get($button-spacings, 'lg')};
-            --button-font-size: #{map.get($button-font-sizes, 'large')};
+            --button-font-size: #{map.get($button-font-sizes, 'lg')};
         }
 
         &--rounded {

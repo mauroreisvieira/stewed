@@ -20,7 +20,7 @@ export const Alert: React.FC<AlertProps> = ({
         `${rootClassName}--${appearance}`
     );
     return (
-        <div className={computedClasses}>
+        <div className={computedClasses} role="alert">
             { title && (
                 <div className={`${rootClassName}__title`}>
                     { title }
