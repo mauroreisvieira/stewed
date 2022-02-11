@@ -6,10 +6,18 @@ A textfield is an input that allows a user to write or edit text.
 $ npm install --save @stewed/textfield
 ```
 
-## Style
+## Import
+
+### Styles
 
 ```scss
 @use '~@stewed/textfield/scss';
+```
+
+### Component
+
+```js
+import { Textfield } from '@stewed/textfield';
 ```
 
 ## Props
@@ -19,18 +27,20 @@ Textfield component extends from `React.InputHTMLAttributes<HTMLInputElement>` i
 | Name          | Type                                                | Default   | Description                                      |
 | ------------- | --------------------------------------------------- | --------- | ------------------------------------------------ |
 | `appearance?` | `One of<"default", "success", "danger", "warning">` | 'default' | The base styling to apply to the component.      |
+| `disabled?`   | `boolean`                                           | false     | Set if the component is disabled.                |
 | `className?`  | `string`                                            | -         | Add additional class name to the root component. |
 
 The `ref` is forwarded to the root element.
 
 ## CSS
 
-| Class name           | Description                                                     |
-| -------------------- | --------------------------------------------------------------- |
-| `.textfield`            | Styles applied to the root element.                             |
-| `.textfield--success`   | Styles applied to the root element if `appearance="success"`.   |
-| `.textfield--danger`    | Styles applied to the root element if `appearance="danger"`.    |
-| `.textfield--warning`   | Styles applied to the root element if `appearance="warning"`.   |
+| Class name             | Description                                                   |
+| ---------------------- | ------------------------------------------------------------- |
+| `.textfield`           | Styles applied to the root element.                           |
+| `.textfield--disabled` | Styles applied to the root element if `disabled={true}`.      |
+| `.textfield--success`  | Styles applied to the root element if `appearance="success"`. |
+| `.textfield--danger`   | Styles applied to the root element if `appearance="danger"`.  |
+| `.textfield--warning`  | Styles applied to the root element if `appearance="warning"`. |
 
 ## References
 
