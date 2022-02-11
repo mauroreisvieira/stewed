@@ -11,7 +11,7 @@ const AlertDocs: React.FC = (): React.ReactElement => (
         </Head>
         <Link href="/">Home</Link>
         <h1>Alert</h1>
-        <h2>Skin</h2>
+        <h2>Appearance</h2>
         <div className="demo">
             <Alert appearance="info" title="Message goes here">
                 The descriptipn should be straight to the point, informative and try to don’t go past the two lines of text.

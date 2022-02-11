@@ -22,8 +22,14 @@ const BadgeDocs: React.FC = (): React.ReactElement => (
         </Head>
         <Link href="/">Home</Link>
         <h1>Badge</h1>
-        <h2>Skin</h2>
+        <h2>Appearance</h2>
         <div className="demo">
+            <Badge count="78" appearance="primary">
+                <Square />
+            </Badge>
+            <Badge count="65" appearance="secondary">
+                <Square />
+            </Badge>
             <Badge count="1" appearance="info">
                 <Square />
             </Badge>
@@ -40,6 +46,12 @@ const BadgeDocs: React.FC = (): React.ReactElement => (
 
         <h2>Dot</h2>
         <div className="demo">
+            <Badge appearance="primary">
+                <Square />
+            </Badge>
+            <Badge appearance="secondary">
+                <Square />
+            </Badge>
             <Badge appearance="info">
                 <Square />
             </Badge>

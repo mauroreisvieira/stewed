@@ -26,13 +26,14 @@ html {
 
 body {
     max-width: map.get($screens, xl);
+    padding: map.get($spacings, 'hg');
     margin: auto;
 }
 
 .demo {
     display: flex;
     margin-bottom: map.get($spacings, 'xl');
-    gap: map.get($spacings, 'md');
+    gap: map.get($spacings, 'xl');
 
     &--column {
         flex-direction: column;

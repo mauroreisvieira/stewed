@@ -1,6 +1,6 @@
 # Badge
 
-A badge consists of a small circle, typically containing a number or other short set of characters, that appears in proximity to another object.
+A badge consists of a small circle notification element.
 
 ```bash
 $ npm install --save @stewed/badge
@@ -22,19 +22,21 @@ import { Badge } from '@stewed/badge';
 
 ## Props
 
-| Name          | Type                                             | Default | Description                                      |
-| ------------- | ------------------------------------------------ | ------- | ------------------------------------------------ |
-| `appearance?` | `One of<"info", "success", "danger", "warning">` | 'info'  | The base styling to apply to the component.      |
-| `className?`  | `string`                                         | -       | Add additional class name to the root component. |
-| `count?`      | `string`                                         | -       | The content rendered within the badge.           |
-| `children?`   | `React.ReactNode`                                | -       | The badge will be added relative to this node.   |
+| Name          | Type                                                                    | Default   | Description                                      |
+| ------------- | ----------------------------------------------------------------------- | --------- | ------------------------------------------------ |
+| `appearance?` | `One of<"primary", "secondary", info", "success", "danger", "warning">` | 'primary' | The base styling to apply to the component.      |
+| `className?`  | `string`                                                                | -         | Add additional class name to the root component. |
+| `count?`      | `string`                                                                | -         | The content rendered within the badge.           |
+| `children?`   | `React.ReactNode`                                                       | -         | The badge will be added relative to this node.   |
 
 ## CSS
 
-| Class name        | Description                                                   |
-| ----------------- | ------------------------------------------------------------- |
-| `.badge`          | Styles applied to the root element.                           |
-| `.badge--info`    | Styles applied to the root element if `appearance="info"`.    |
-| `.badge--success` | Styles applied to the root element if `appearance="success"`. |
-| `.badge--danger`  | Styles applied to the root element if `appearance="danger"`.  |
-| `.badge--warning` | Styles applied to the root element if `appearance="warning"`. |
+| Class name          | Description                                                     |
+| ------------------- | --------------------------------------------------------------- |
+| `.badge`            | Styles applied to the root element.                             |
+| `.badge--primary`   | Styles applied to the root element if `appearance="primary"`.   |
+| `.badge--secondary` | Styles applied to the root element if `appearance="secondary"`. |
+| `.badge--info`      | Styles applied to the root element if `appearance="info"`.      |
+| `.badge--success`   | Styles applied to the root element if `appearance="success"`.   |
+| `.badge--danger`    | Styles applied to the root element if `appearance="danger"`.    |
+| `.badge--warning`   | Styles applied to the root element if `appearance="warning"`.   |

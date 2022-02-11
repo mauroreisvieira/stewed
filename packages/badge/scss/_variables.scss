@@ -11,6 +11,8 @@ $badge-title-font-weight: map.get(theme.$font-weight, 'medium');
 $badge-body-font-size: map.get(theme.$font-size, 'xs');
 
 $badge-appearances: (
+    'primary': primary,
+    'secondary': secondary,
     'info': blue,
     'success': green,
     'warning': yellow,

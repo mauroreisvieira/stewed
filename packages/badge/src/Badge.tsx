@@ -2,13 +2,13 @@ import * as React from 'react';
 import { classNames } from '@stewed/utils';
 
 export interface BadgeProps {
-    appearance?: 'info' | 'success' | 'warning' | 'danger';
+    appearance?: 'primary' | 'secondary' | 'info' | 'success' | 'warning' | 'danger';
     count?: string;
     className?: string;
 }
 
 export const Badge: React.FC<BadgeProps> = ({
-    appearance = 'info',
+    appearance = 'primary',
     count,
     className,
     children,
