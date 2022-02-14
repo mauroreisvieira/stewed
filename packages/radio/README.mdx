@@ -1,5 +1,7 @@
 # Radio
 
+Radio buttons allow the user to select one option from a set.
+
 ```bash
 $ npm install --save @stewed/radio
 ```
@@ -25,6 +27,7 @@ Radio component extends from `React.InputHTMLAttributes<HTMLInputElement>` inter
 | Name          | Type                                                | Default   | Description                                      |
 | ------------- | --------------------------------------------------- | --------- | ------------------------------------------------ |
 | `appearance?` | `One of<"default", "success", "danger", "warning">` | 'default' | The base styling to apply to the component.      |
+| `size?`       | `One of<"sm", "md", "lg"`                           | 'md'      | The base size to apply to the component.         |
 | `disabled?`   | `boolean`                                           | false     | Set if the component is disabled.                |
 | `className?`  | `string`                                            | -         | Add additional class name to the root component. |
 
@@ -32,13 +35,14 @@ The `ref` is forwarded to the root element.
 
 ## CSS
 
-| Class name             | Description                                                   |
-| ---------------------- | ------------------------------------------------------------- |
-| `.radio`           | Styles applied to the root element.                           |
-| `.radio--disabled` | Styles applied to the root element if `disabled={true}`.      |
-| `.radio--success`  | Styles applied to the root element if `appearance="success"`. |
-| `.radio--danger`   | Styles applied to the root element if `appearance="danger"`.  |
-| `.radio--warning`  | Styles applied to the root element if `appearance="warning"`. |
+| Class name        | Description                                                   |
+| ----------------- | ------------------------------------------------------------- |
+| `.radio`          | Styles applied to the root element.                           |
+| `.radio--success` | Styles applied to the root element if `appearance="success"`. |
+| `.radio--danger`  | Styles applied to the root element if `appearance="danger"`.  |
+| `.radio--warning` | Styles applied to the root element if `appearance="warning"`. |
+| `.radio--sm`      | Styles applied to the root element if `size="sm"`.            |
+| `.radio--lg`      | Styles applied to the root element if `size="lg"`.            |
 
 ## References
 

@@ -7,6 +7,7 @@ const Home: React.FC = (): React.ReactElement => (
         <Head>
             <title>Stewed</title>
         </Head>
+        <h2>Feedback</h2>
         <ul>
             <li>
                 <Link href="/components/alert" passHref>
@@ -18,25 +19,23 @@ const Home: React.FC = (): React.ReactElement => (
                     Badge
                 </Link>
             </li>
+        </ul>
+        <h2>Forms</h2>
+        <ul>
             <li>
                 <Link href="/components/button" passHref>
                     Button
                 </Link>
             </li>
             <li>
-                Forms
-                <ul>
-                    <li>
-                        <Link href="/components/textfield" passHref>
-                            Textfield
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/components/radio" passHref>
-                            Radio
-                        </Link>
-                    </li>
-                </ul>
+                <Link href="/components/textfield" passHref>
+                    Textfield
+                </Link>
+            </li>
+            <li>
+                <Link href="/components/radio" passHref>
+                    Radio
+                </Link>
             </li>
         </ul>
     </>

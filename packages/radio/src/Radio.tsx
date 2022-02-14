@@ -3,12 +3,16 @@ import { classNames } from '@stewed/utils';
 
 export interface RadioProps
     extends React.InputHTMLAttributes<HTMLInputElement> {
-    size?: 'md' | 'lg';
+        appearance?: 'default' | 'success' | 'danger' | 'warning';
+        size?: 'sm'| 'md' | 'lg';
 }
 
 export const Radio = React.forwardRef(
     (
-        { size = 'md', ...otherProps }: RadioProps,
+        {
+            appearance = 'default',
+            size = 'md',
+            ...otherProps }: RadioProps,
         ref: React.Ref<HTMLInputElement>
     ): React.ReactElement => {
         const { className, onChange, disabled } = otherProps;
@@ -17,7 +21,8 @@ export const Radio = React.forwardRef(
             rootClassName,
             className,
             disabled && `${rootClassName}--disabled`,
-            size !== 'md' && `${rootClassName}--${size}`
+            size !== 'md' && `${rootClassName}--${size}`,
+            appearance !== 'default' && `${rootClassName}--${appearance}`
         );
 
         const onHandleChange = (
@@ -38,7 +43,7 @@ export const Radio = React.forwardRef(
         return (
             <div className={computedClasses}>
                 <input className={`${rootClassName}__control`} {...computedProps} />
-                <div className={`${rootClassName}__background`} />
+                <span className={`${rootClassName}__background`} />
             </div>
         );
     }

@@ -33,8 +33,9 @@ body {
 
 .demo {
     display: flex;
-    margin-bottom: map.get($spacings, 'xl');
+    align-items: center;
     gap: map.get($spacings, 'xl');
+    margin-bottom: map.get($spacings, 'xl');
 
     &--column {
         flex-direction: column;

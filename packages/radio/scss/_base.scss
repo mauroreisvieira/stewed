@@ -4,6 +4,9 @@
 
 #{$radio-root} {
     --radio-border: #{map.get($radio-appearances-default, border)};
+    --radio-border-hover: #{map.get($radio-appearances-default, border-hover)};
+    --radio-border-checked: #{map.get($radio-appearances-default, border-checked)};
+    --radio-size: #{map.get($radio-size, md)};
     --radio-border-size: #{map.get($radio-border-size, md)};
 
     position: relative;
@@ -11,8 +14,8 @@
     flex: 0 0 auto;
     align-items: center;
     justify-content: center;
-    width: $radio-size;
-    height: $radio-size;
+    width: var(--radio-size);
+    height: var(--radio-size);
     border-radius: 50%;
     outline: 0;
     cursor: pointer;
@@ -35,11 +38,16 @@
     &:hover,
     &:active,
     &:focus {
-        --radio-border: #{map.get($radio-appearances-default, border-hover)};
 
         &::before {
             transform: none;
             opacity: .05;
+        }
+
+        #{$radio-root}__background {
+            &::before {
+                border-color: var(--radio-border-hover);
+            }
         }
     }
 
@@ -57,11 +65,13 @@
 
         &:checked {
             + .radio__background {
-                --radio-border: #{map.get($radio-appearances-default, border-hover)};
+                &::before {
+                    border-color: var(--radio-border-checked);
+                }
 
                 &::after {
                   transform: none;
-                  background-color: var(--radio-border);
+                  background-color: var(--radio-border-checked);
                 }
             }
         }
@@ -119,7 +129,19 @@
         pointer-events: none;
     }
 
+    &--sm {
+        --radio-size: #{map.get($radio-size, sm)};
+        --radio-border-size: #{map.get($radio-border-size, sm)};
+    }
+
     &--lg {
+        --radio-size: #{map.get($radio-size, lg)};
         --radio-border-size: #{map.get($radio-border-size, lg)};
+    }
+
+    @each $key, $value in $radio-appearances {
+        &--#{$key} {
+            --radio-border-checked: #{map.get($value, border-checked)};
+        }
     }
 }

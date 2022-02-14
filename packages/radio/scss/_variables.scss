@@ -3,17 +3,35 @@
 
 $radio-root: '.radio';
 
-$radio-appearances-default: (
-    'border': theme.get-color(secondary, 300),
-    'border-hover': theme.get-color(primary, 600),
-);
-
 // States
 $radio-disabled: theme.$disabled;
 
-$radio-size: map.get(theme.$spacings, 'md') * 5;
+$radio-size: (
+    'sm': map.get(theme.$spacings, 'xs') * 19,
+    'md': map.get(theme.$spacings, 'xs') * 20,
+    'lg': map.get(theme.$spacings, 'xs') * 21,
+);
 
 $radio-border-size: (
-    'md': map.get(theme.$spacings, 'md') * 2,
-    'lg': map.get(theme.$spacings, 'sm') * 4,
-)
+    'sm': map.get(theme.$spacings, 'xs') * 8,
+    'md': map.get(theme.$spacings, 'xs') * 10,
+    'lg': map.get(theme.$spacings, 'xs') * 12,
+);
+
+$radio-appearances-default: (
+    'border': theme.get-color(secondary, 300),
+    'border-hover': theme.get-color(secondary, 600),
+    'border-checked': theme.get-color(primary, 500),
+);
+
+$radio-appearances: (
+    'success': (
+        'border-checked': theme.get-color(green, 500),
+    ),
+    'warning': (
+        'border-checked': theme.get-color(yellow, 500),
+    ),
+    'danger': (
+        'border-checked': theme.get-color(red, 500),
+    ),
+);
