@@ -17,10 +17,10 @@ const RadioDocs: React.FC = (): React.ReactElement => (
         </div>
         <h2>Appearances</h2>
         <div className="demo">
-            <Radio />
-            <Radio appearance="success" />
-            <Radio appearance="warning" />
-            <Radio appearance="danger" />
+            <Radio aria-label="A" value="A" name="appearance" />
+            <Radio aria-label="B" value="B" name="appearance" appearance="success" />
+            <Radio aria-label="C" value="C" name="appearance" appearance="warning" />
+            <Radio aria-label="D" value="D" name="appearance" appearance="danger" />
         </div>
         <h2>Sizes</h2>
         <div className="demo">
@@ -30,7 +30,7 @@ const RadioDocs: React.FC = (): React.ReactElement => (
         </div>
         <h2>Disabled</h2>
         <div className="demo">
-            <Radio aria-label="A" value="A" name="radio-disabled" checked disabled />
+            <Radio aria-label="A" value="A" checked disabled />
         </div>
     </>
 );

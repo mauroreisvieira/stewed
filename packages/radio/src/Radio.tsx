@@ -2,7 +2,7 @@ import * as React from 'react';
 import { classNames } from '@stewed/utils';
 
 export interface RadioProps
-    extends React.InputHTMLAttributes<HTMLInputElement> {
+    extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
         appearance?: 'default' | 'success' | 'danger' | 'warning';
         size?: 'sm'| 'md' | 'lg';
 }
