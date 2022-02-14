@@ -1,0 +1,45 @@
+# Radio
+
+```bash
+$ npm install --save @stewed/radio
+```
+
+## Import
+
+### Styles
+
+```scss
+@use '~@stewed/radio/scss';
+```
+
+### Component
+
+```js
+import { Radio } from '@stewed/radio';
+```
+
+## Props
+
+Radio component extends from `React.InputHTMLAttributes<HTMLInputElement>` interface, that provide special properties and methods for manipulating the options.
+
+| Name          | Type                                                | Default   | Description                                      |
+| ------------- | --------------------------------------------------- | --------- | ------------------------------------------------ |
+| `appearance?` | `One of<"default", "success", "danger", "warning">` | 'default' | The base styling to apply to the component.      |
+| `disabled?`   | `boolean`                                           | false     | Set if the component is disabled.                |
+| `className?`  | `string`                                            | -         | Add additional class name to the root component. |
+
+The `ref` is forwarded to the root element.
+
+## CSS
+
+| Class name             | Description                                                   |
+| ---------------------- | ------------------------------------------------------------- |
+| `.radio`           | Styles applied to the root element.                           |
+| `.radio--disabled` | Styles applied to the root element if `disabled={true}`.      |
+| `.radio--success`  | Styles applied to the root element if `appearance="success"`. |
+| `.radio--danger`   | Styles applied to the root element if `appearance="danger"`.  |
+| `.radio--warning`  | Styles applied to the root element if `appearance="warning"`. |
+
+## References
+
+-   [HTMLInputElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement)

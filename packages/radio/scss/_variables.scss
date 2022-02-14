@@ -1,0 +1,19 @@
+@use 'sass:map';
+@use '@stewed/theme/scss' as theme;
+
+$radio-root: '.radio';
+
+$radio-appearances-default: (
+    'border': theme.get-color(secondary, 300),
+    'border-hover': theme.get-color(primary, 600),
+);
+
+// States
+$radio-disabled: theme.$disabled;
+
+$radio-size: map.get(theme.$spacings, 'md') * 5;
+
+$radio-border-size: (
+    'md': map.get(theme.$spacings, 'md') * 2,
+    'lg': map.get(theme.$spacings, 'sm') * 4,
+)

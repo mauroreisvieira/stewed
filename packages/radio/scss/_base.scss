@@ -1,0 +1,125 @@
+@use 'sass:map';
+@use '@stewed/theme/scss' as theme;
+@use 'variables' as *;
+
+#{$radio-root} {
+    --radio-border: #{map.get($radio-appearances-default, border)};
+    --radio-border-size: #{map.get($radio-border-size, md)};
+
+    position: relative;
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    width: $radio-size;
+    height: $radio-size;
+    border-radius: 50%;
+    outline: 0;
+    cursor: pointer;
+    overflow: hidden;
+    will-change: transform, opacity;
+
+    &::before {
+        // @include transition((opacity, transform));
+
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform: scale(0, 0);
+        border-radius: 50%;
+        background-color: var(--radio-border);
+        opacity: 0;
+        content: '';
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+        --radio-border: #{map.get($radio-appearances-default, border-hover)};
+
+        &::before {
+            transform: none;
+            opacity: .05;
+        }
+    }
+
+    &__control {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        opacity: 0;
+        cursor: pointer;
+        overflow: hidden;
+        z-index: 1;
+
+        &:checked {
+            + .radio__background {
+                --radio-border: #{map.get($radio-appearances-default, border-hover)};
+
+                &::after {
+                  transform: none;
+                  background-color: var(--radio-border);
+                }
+            }
+        }
+    }
+
+    &__background {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        // color: $radio-color-default;
+        cursor: pointer;
+        z-index: 0;
+
+        &::before {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            box-sizing: border-box;
+            display: inline-block;
+            width: var(--radio-border-size);
+            height: var(--radio-border-size);
+            margin: auto;
+            border: 2px solid var(--radio-border);
+            border-radius: 50%;
+            content: '';
+        }
+
+        &::after {
+            // @include transition(transform);
+
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: calc(var(--radio-border-size) / 2);
+            height: calc(var(--radio-border-size) / 2);
+            margin: auto;
+            transform: scale(0, 0);
+            border-radius: 50%;
+            background: white;
+            content: '';
+        }
+    }
+
+    &:disabled,
+    &--disabled {
+        opacity: $radio-disabled;
+        pointer-events: none;
+    }
+
+    &--lg {
+        --radio-border-size: #{map.get($radio-border-size, lg)};
+    }
+}

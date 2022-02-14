@@ -18,6 +18,13 @@ const TextfieldDocs: React.FC = (): React.ReactElement => (
             <Textfield appearance="warning" defaultValue="warning..." />
             <Textfield appearance="danger" defaultValue="danger..." />
         </div>
+        <h2>Disabled</h2>
+        <div className="demo">
+            <Textfield defaultValue="primary..." disabled />
+            <Textfield appearance="success" defaultValue="success..." disabled />
+            <Textfield appearance="warning" defaultValue="warning..." disabled />
+            <Textfield appearance="danger" defaultValue="danger..." disabled />
+        </div>
     </>
 );
 
