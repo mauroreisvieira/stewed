@@ -12,19 +12,18 @@
     border-radius: var(--alert-border-radius);
     background-color: var(--alert-background);
 
-    &__title {
+    &-title {
         margin-bottom: $alert-gap;
         color: var(--alert-title-color);
         font-weight: $alert-title-font-weight;
     }
 
-    &__body {
+    &-body {
         font-size: $alert-body-font-size;
     }
 
     @each $key, $value in $alert-appearances {
-        @debug($value);
-        &--#{$key} {
+        &-#{$key} {
             --alert-background: #{theme.get-color($value, 100)};
             --alert-title-color: #{theme.get-color($value, 900)};
         }

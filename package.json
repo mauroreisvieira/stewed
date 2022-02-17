@@ -8,6 +8,7 @@
         "build": "turbo run build",
         "dev": "turbo run dev --no-cache --parallel --continue",
         "lint": "turbo run lint",
+        "lint:css": "stylelint \"**/*.scss\" --fix",
         "test": "turbo run test",
         "clean": "turbo run clean && rm -rf node_modules",
         "format": "prettier --write \"**/*.{ts,tsx,mdx,scss}\"",

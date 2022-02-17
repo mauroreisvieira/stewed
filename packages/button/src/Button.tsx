@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { classNames } from '@stewed/utils';
 
-type ButtonType = React.ButtonHTMLAttributes<HTMLButtonElement> &
-    React.AnchorHTMLAttributes<HTMLAnchorElement>;
+import classes from './button.module.scss';
+
+type ButtonType = React.ButtonHTMLAttributes<HTMLButtonElement> & React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
 export interface ButtonProps extends ButtonType {
     appearance?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning';
@@ -24,7 +25,7 @@ export const Button = React.forwardRef(
     ): React.ReactElement => {
         const { href, className, onClick } = otherProps;
         let Tag = 'button';
-        const rootClassName = 'button';
+        const rootClassName = classes.button;
         const computedClasses = classNames(
             rootClassName,
             className,
