@@ -6,12 +6,6 @@
   "files": [
     "scss/**"
   ],
-  "scripts": {
-    "lint": "stylelint \"**/*.scss\" --fix"
-  },
-  "devDependencies": {
-    "@stewed/stylelint": "*"
-  },
   "publishConfig": {
     "access": "public"
   }

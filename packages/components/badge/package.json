@@ -1,10 +1,9 @@
 {
-  "name": "@stewed/button",
+  "name": "@stewed/badge",
   "version": "0.0.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "sass": "_index.scss",
   "sideEffects": false,
   "license": "MIT",
   "files": [
@@ -14,7 +13,7 @@
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts --external react",
     "dev": "tsup src/index.ts --format esm,cjs --watch --dts --external react",
-    "lint": "TIMING=1 eslint react --fix && stylelint \"**/*.scss\" --fix",
+    "lint": "TIMING=1 eslint react --fix",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "dependencies": {
@@ -28,7 +27,6 @@
     "@types/react-dom": "^17.0.11",
     "@stewed/tsconfig": "*",
     "@stewed/eslint-preset": "*",
-    "@stewed/stylelint": "*",
     "tsup": "^5.10.1",
     "typescript": "^4.5.3"
   },

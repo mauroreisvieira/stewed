@@ -13,7 +13,7 @@ $alert-appearances: (
     'info': blue,
     'success': green,
     'warning': yellow,
-    'danger': red
+    'danger': red,
 );
 
 $alert-inner-spacing-x: map.get(theme.$spacings, 'xl');
@@ -24,5 +24,5 @@ $alert-gap: map.get(theme.$spacings, 'sm');
 $alert-sizes: (
     sm: map.get(theme.$spacings, 'md') * 4,
     md: map.get(theme.$spacings, 'md') * 5,
-    lg: map.get(theme.$spacings, 'md') * 6
+    lg: map.get(theme.$spacings, 'md') * 6,
 );

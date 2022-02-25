@@ -23,7 +23,6 @@
     }
 
     @each $key, $value in $alert-appearances {
-        @debug($value);
         &--#{$key} {
             --alert-background: #{theme.get-color($value, 100)};
             --alert-title-color: #{theme.get-color($value, 900)};

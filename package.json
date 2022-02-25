@@ -1,13 +1,16 @@
 {
     "private": true,
     "workspaces": [
-        "packages/*",
+        "packages/components/*",
+        "packages/eslint-present",
+        "packages/tsconfig",
         "docs"
     ],
     "scripts": {
         "build": "turbo run build",
         "dev": "turbo run dev --no-cache --parallel --continue",
         "lint": "turbo run lint",
+        "lint:css": "stylelint \"**/*.scss\" --fix",
         "test": "turbo run test",
         "clean": "turbo run clean && rm -rf node_modules",
         "format": "prettier --write \"**/*.{ts,tsx,mdx,scss}\"",
@@ -15,11 +18,14 @@
         "publish-canary": "lerna version prerelease --preid canary --force-publish"
     },
     "devDependencies": {
-        "eslint": "7.32.0",
-        "stylelint": "^13.13.1",
-        "lerna": "^3.22.1",
+        "eslint": "8.9.0",
+        "lerna": "^4.0.0",
         "prettier": "^2.5.1",
-        "turbo": "latest"
+        "stylelint": "^14.5.3",
+        "stylelint-config-recess-order": "^3.0.0",
+        "stylelint-prettier": "^2.0.0",
+        "stylelint-scss": "^4.1.0",
+        "turbo": "1.1.3"
     },
     "name": "stewed"
 }

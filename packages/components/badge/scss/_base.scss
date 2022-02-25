@@ -35,7 +35,6 @@
     }
 
     @each $key, $value in $badge-appearances {
-        @debug($value);
         &--#{$key} {
             --badge-background: #{theme.get-color($value, 500)};
         }
