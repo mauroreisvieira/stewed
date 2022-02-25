@@ -2,7 +2,7 @@
 @use '@stewed/theme/scss' as theme;
 @use 'variables' as *;
 
-#{$textfield-root} {
+@include theme.scope($textfield-root) {
     --textfield-border: #{map.get($textfield-appearances-default, border)};
     --textfield-border-hover: #{map.get($textfield-appearances-default, border-hover)};
     --textfield-focus: #{map.get($textfield-appearances-default, border-focus)};

@@ -136,7 +136,6 @@ $disabled: map.get($all-config, disabled);
 
 $extend-colors: map.get($all-config, extend, colors);
 
-// Merged Colors
 $merged-colors: ();
 @if $colors != null {
     $merged-colors: map.deep-merge($merged-colors, $colors);

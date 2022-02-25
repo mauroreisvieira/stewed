@@ -1,0 +1,5 @@
+@mixin scope($name: null) {
+    #{$name} {
+        @content;
+    }
+}

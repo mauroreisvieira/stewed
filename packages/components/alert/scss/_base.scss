@@ -1,7 +1,7 @@
 @use '@stewed/theme/scss' as theme;
 @use 'variables' as *;
 
-#{$alert-root} {
+@include theme.scope($alert-root) {
     --alert-border-radius: #{$alert-border-radius};
 
     position: relative;

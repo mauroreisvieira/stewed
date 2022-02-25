@@ -1,7 +1,7 @@
 @use '@stewed/theme/scss' as theme;
 @use 'variables' as *;
 
-#{$badge-root} {
+@include theme.scope($badge-root) {
     --badge-size: #{$badge-size};
 
     position: relative;

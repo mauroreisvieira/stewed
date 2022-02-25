@@ -2,9 +2,7 @@
 @use '@stewed/theme/scss' as theme;
 @use 'variables' as *;
 
-#{$button-root} {
-    --button-border-radius: #{$button-border-radius};
-
+@include theme.scope($button-root) {
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -12,7 +10,7 @@
     height: var(--button-size);
     padding: 0 var(--button-spacing);
     border: none;
-    border-radius: var(--button-border-radius);
+    border-radius: $button-border-radius;
     background-color: var(--button-bg);
     color: $button-color;
     font-size: var(--button-font-size);

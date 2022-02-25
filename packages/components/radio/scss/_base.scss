@@ -2,7 +2,7 @@
 @use '@stewed/theme/scss' as theme;
 @use 'variables' as *;
 
-#{$radio-root} {
+@include theme.scope($radio-root) {
     --radio-border: #{map.get($radio-appearances-default, border)};
     --radio-border-hover: #{map.get($radio-appearances-default, border-hover)};
     --radio-border-checked: #{map.get($radio-appearances-default, border-checked)};
