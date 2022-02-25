@@ -1,11 +1,1 @@
-module.exports = {
-  extends: ["next", "prettier"],
-  settings: {
-    next: {
-      rootDir: ["./apps/*/", "./packages/*/"],
-    },
-  },
-  rules: {
-    "@next/next/no-html-link-for-pages": "off",
-  },
-};
+module.exports = require("./packages/eslint-preset");
