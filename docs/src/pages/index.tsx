@@ -9,6 +9,7 @@ const Home: React.FC = (): React.ReactElement => (
         <Head>
             <title>Stewed</title>
         </Head>
+        <h1>Stewed</h1>
         <Menu>
             <Menu.Separator>Feedback</Menu.Separator>
             <Menu.Item>
@@ -21,17 +22,26 @@ const Home: React.FC = (): React.ReactElement => (
                     Badge
                 </Link>
             </Menu.Item>
+            <Menu.Item disabled>
+                Progress
+            </Menu.Item>
             <Menu.Separator>Navigation</Menu.Separator>
             <Menu.Item>
                 <Link href="/components/menu" passHref>
                     Menu
                 </Link>
             </Menu.Item>
+            <Menu.Item disabled>
+                Pagination
+            </Menu.Item>
             <Menu.Separator>Forms</Menu.Separator>
             <Menu.Item>
                 <Link href="/components/button" passHref>
                     Button
                 </Link>
+            </Menu.Item>
+            <Menu.Item disabled>
+                FormControl
             </Menu.Item>
             <Menu.Item>
                 <Link href="/components/textfield" passHref>
@@ -42,6 +52,12 @@ const Home: React.FC = (): React.ReactElement => (
                 <Link href="/components/radio" passHref>
                     Radio
                 </Link>
+            </Menu.Item>
+            <Menu.Item disabled>
+                Checkbox
+            </Menu.Item>
+            <Menu.Item disabled>
+                Switch
             </Menu.Item>
         </Menu>
     </>
