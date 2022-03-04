@@ -1,0 +1,82 @@
+@use 'sass:map';
+@use '@stewed/theme/scss' as theme;
+@use 'variables' as *;
+
+@include theme.scope($menu-root) {
+    --menu-item-background: transparent;
+    --menu-item-color: inherit;
+
+    width: 100%;
+    list-style: none;
+    margin: 0px;
+    padding: $menu-inner-spacing-y 0px;
+    position: relative;
+
+    &__item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        padding: $menu-item-inner-spacing-y $menu-item-inner-spacing-x;
+        background-color: var(--menu-item-background);
+        border-radius: $menu-item-border-radius;
+        color: var(--menu-item-color);
+        user-select: none;
+        overflow: hidden;
+        cursor: pointer;
+
+        [href] {
+            all: unset;
+            width: 100%;
+        }
+
+        &:hover {
+            --menu-item-background: #{$menu-item-background-hover};
+            --menu-item-color: #{$menu-item-color-hover};
+        }
+
+        &:active {
+            --menu-item-background: #{$menu-item-background-active};
+        }
+
+        @each $key, $value in $menu-item-appearances {
+            &--#{$key} {
+                --menu-item-background: #{theme.get-color($value, 50)};
+                --menu-item-color: #{theme.get-color($value, 600)};
+
+                &:hover {
+                    --menu-item-background: #{theme.get-color($value, 100)};
+                    --menu-item-color: #{theme.get-color($value, 600)};
+                }
+
+                &:active {
+                    --menu-item-background: #{theme.get-color($value, 200)};
+                }
+            }
+        }
+
+        &--disabled {
+            pointer-events: none;
+            opacity: $menu-item-disabled;
+        }
+    }
+
+    &__separator {
+        &:empty {
+            height: 1px;
+            margin: $menu-separator-spacing-min 0;
+            background-color: $menu-separator-background;
+        }
+
+        &:not(:empty) {
+            display: block;
+            padding: $menu-separator-spacing-max $menu-separator-spacing-max $menu-separator-spacing-min;
+            margin: 0;
+            font-size: $menu-separator-font-size;
+            font-weight: $menu-separator-font-weight;
+            color: $menu-separator-color;
+            text-transform: uppercase;
+        }
+    }
+}

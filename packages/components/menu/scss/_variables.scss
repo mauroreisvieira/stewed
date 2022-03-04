@@ -1,0 +1,34 @@
+@use 'sass:map';
+@use '@stewed/theme/scss' as theme;
+
+$menu-root: '.menu';
+
+$menu-inner-spacing-y: map.get(theme.$spacings, 'md');
+
+// Menu Item
+$menu-item-inner-spacing-x: map.get(theme.$spacings, 'xl');
+$menu-item-inner-spacing-y: map.get(theme.$spacings, 'sm');
+
+$menu-item-border-radius: map.get(theme.$radius, 'md');
+
+$menu-item-color-hover: #{theme.get-color(gray, 900)};
+
+$menu-item-background-hover: #{theme.get-color(gray, 50)};
+$menu-item-background-active: #{theme.get-color(gray, 100)};
+
+$menu-item-appearances: (
+    'selected': primary,
+    'danger': red,
+);
+
+$menu-item-disabled: theme.$disabled;
+
+// Menu Separator
+$menu-separator-spacing-max: map.get(theme.$spacings, 'xl');
+$menu-separator-spacing-min: map.get(theme.$spacings, 'md');
+
+$menu-separator-background: #{theme.get-color(gray, 100)};
+$menu-separator-color: #{theme.get-color(gray, 400)};
+
+$menu-separator-font-size: map.get(theme.$font-size, 'xs');
+$menu-separator-font-weight: map.get(theme.$font-weight, 'medium');
