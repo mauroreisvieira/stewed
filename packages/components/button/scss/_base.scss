@@ -11,7 +11,7 @@
     padding: 0 var(--button-spacing);
     border: none;
     border-radius: $button-border-radius;
-    background-color: var(--button-bg);
+    background-color: var(--button-background);
     color: $button-color;
     font-size: var(--button-font-size);
     font-weight: $button-font-weight;
@@ -21,11 +21,11 @@
     touch-action: manipulation;
 
     &:hover {
-        background-color: var(--button-bg-hover);
+        background-color: var(--button-background-hover);
     }
 
     &:active {
-        background-color: var(--button-bg-active);
+        background-color: var(--button-background-active);
     }
 
     &:focus {
@@ -59,9 +59,9 @@
 
     @each $key, $value in $button-appearances {
         &--#{$key} {
-            --button-bg: #{theme.get-color($value)};
-            --button-bg-hover: #{theme.get-color($value, 600)};
-            --button-bg-active: #{theme.get-color($value, 700)};
+            --button-background: #{theme.get-color($value)};
+            --button-background-hover: #{theme.get-color($value, 600)};
+            --button-background-active: #{theme.get-color($value, 700)};
             --button-focus: #{theme.get-color($value, 400)};
         }
     }
