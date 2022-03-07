@@ -32,6 +32,13 @@ const TagDocs: React.FC = (): React.ReactElement => (
                 Warning
             </Tag>
         </div>
+
+        <h2>Href</h2>
+        <div className="demo">
+            <Tag appearance="primary" href="https://www.google.com" target="_blank">
+                Primary
+            </Tag>
+        </div>
     </>
 );
 

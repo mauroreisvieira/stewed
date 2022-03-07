@@ -18,11 +18,16 @@
     font-size: $tag-body-font-size;
     font-weight: $tag-title-font-weight;
     white-space: nowrap;
+    text-decoration: none;
     z-index: 2;
 
     @each $key, $value in $tag-appearances {
         &--#{$key} {
             --tag-background: #{theme.get-color($value, 500)};
+
+            &[href]:hover {
+                --tag-background: #{theme.get-color($value, 600)};
+            }
         }
     }
 }
