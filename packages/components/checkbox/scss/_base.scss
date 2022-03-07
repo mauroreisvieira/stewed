@@ -2,20 +2,20 @@
 @use '@stewed/theme/scss' as theme;
 @use 'variables' as *;
 
-@include theme.scope($radio-root) {
-    --radio-border: #{map.get($radio-appearances-default, border)};
-    --radio-border-hover: #{map.get($radio-appearances-default, border-hover)};
-    --radio-border-checked: #{map.get($radio-appearances-default, border-checked)};
-    --radio-size: #{map.get($radio-size, md)};
-    --radio-border-size: #{map.get($radio-border-size, md)};
+@include theme.scope($checkbox-root) {
+    --checkbox-border: #{map.get($checkbox-appearances-default, border)};
+    --checkbox-border-hover: #{map.get($checkbox-appearances-default, border-hover)};
+    --checkbox-border-checked: #{map.get($checkbox-appearances-default, border-checked)};
+    --checkbox-size: #{map.get($checkbox-size, md)};
+    --checkbox-border-size: #{map.get($checkbox-border-size, md)};
 
     position: relative;
     display: inline-flex;
     flex: 0 0 auto;
     align-items: center;
     justify-content: center;
-    width: var(--radio-size);
-    height: var(--radio-size);
+    width: var(--checkbox-size);
+    height: var(--checkbox-size);
     border-radius: 50%;
     outline: 0;
     cursor: pointer;
@@ -30,7 +30,7 @@
         height: 100%;
         transform: scale(0, 0);
         border-radius: 50%;
-        background-color: var(--radio-border);
+        background-color: var(--checkbox-border);
         opacity: 0;
         content: '';
     }
@@ -38,15 +38,14 @@
     &:hover,
     &:active,
     &:focus {
-
         &::before {
             transform: none;
             opacity: .05;
         }
 
-        #{$radio-root}__background {
+        #{$checkbox-root}__background {
             &::before {
-                border-color: var(--radio-border-hover);
+                border-color: var(--checkbox-border-hover);
             }
         }
     }
@@ -64,14 +63,14 @@
         z-index: 1;
 
         &:checked {
-            + .radio__background {
+            + .checkbox__background {
                 &::before {
-                    border-color: var(--radio-border-checked);
+                    border-color: var(--checkbox-border-checked);
                 }
 
                 &::after {
                   transform: none;
-                  background-color: var(--radio-border-checked);
+                  background-color: var(--checkbox-border-checked);
                 }
             }
         }
@@ -85,7 +84,6 @@
         height: 100%;
         margin: 0;
         padding: 0;
-        // color: $radio-color-default;
         cursor: pointer;
         z-index: 0;
 
@@ -97,11 +95,11 @@
             left: 0;
             box-sizing: border-box;
             display: inline-block;
-            width: var(--radio-border-size);
-            height: var(--radio-border-size);
+            width: var(--checkbox-border-size);
+            height: var(--checkbox-border-size);
             margin: auto;
-            border: 2px solid var(--radio-border);
-            border-radius: 50%;
+            border: 2px solid var(--checkbox-border);
+            border-radius: $checkbox-border-radius;
             content: '';
         }
 
@@ -113,11 +111,11 @@
             right: 0;
             bottom: 0;
             left: 0;
-            width: calc(var(--radio-border-size) / 2);
-            height: calc(var(--radio-border-size) / 2);
+            width: calc(var(--checkbox-border-size) / 2);
+            height: calc(var(--checkbox-border-size) / 2);
             margin: auto;
             transform: scale(0, 0);
-            border-radius: 50%;
+            border-radius: $checkbox-border-radius;
             background: white;
             content: '';
         }
@@ -125,23 +123,23 @@
 
     &:disabled,
     &--disabled {
-        opacity: $radio-disabled;
+        opacity: $checkbox-disabled;
         pointer-events: none;
     }
 
     &--sm {
-        --radio-size: #{map.get($radio-size, sm)};
-        --radio-border-size: #{map.get($radio-border-size, sm)};
+        --checkbox-size: #{map.get($checkbox-size, sm)};
+        --checkbox-border-size: #{map.get($checkbox-border-size, sm)};
     }
 
     &--lg {
-        --radio-size: #{map.get($radio-size, lg)};
-        --radio-border-size: #{map.get($radio-border-size, lg)};
+        --checkbox-size: #{map.get($checkbox-size, lg)};
+        --checkbox-border-size: #{map.get($checkbox-border-size, lg)};
     }
 
-    @each $key, $value in $radio-appearances {
+    @each $key, $value in $checkbox-appearances {
         &--#{$key} {
-            --radio-border-checked: #{map.get($value, border-checked)};
+            --checkbox-border-checked: #{map.get($value, border-checked)};
         }
     }
 }

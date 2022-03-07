@@ -53,8 +53,10 @@ const Home: React.FC = (): React.ReactElement => (
                     Radio
                 </Link>
             </Menu.Item>
-            <Menu.Item disabled>
-                Checkbox
+            <Menu.Item>
+                <Link href="/components/checkbox" passHref>
+                    Checkbox
+                </Link>
             </Menu.Item>
             <Menu.Item disabled>
                 Switch

@@ -1,0 +1,39 @@
+@use 'sass:map';
+@use '@stewed/theme/scss' as theme;
+
+$checkbox-root: '.checkbox';
+
+// States
+$checkbox-disabled: theme.$disabled;
+
+$checkbox-size: (
+    'sm': map.get(theme.$spacings, 'xs') * 19,
+    'md': map.get(theme.$spacings, 'xs') * 20,
+    'lg': map.get(theme.$spacings, 'xs') * 21,
+);
+
+$checkbox-border-size: (
+    'sm': map.get(theme.$spacings, 'xs') * 8,
+    'md': map.get(theme.$spacings, 'xs') * 10,
+    'lg': map.get(theme.$spacings, 'xs') * 12,
+);
+
+$checkbox-border-radius: map.get(theme.$radius, 'xs');
+
+$checkbox-appearances-default: (
+    'border': theme.get-color(secondary, 300),
+    'border-hover': theme.get-color(secondary, 600),
+    'border-checked': theme.get-color(primary, 500),
+);
+
+$checkbox-appearances: (
+    'success': (
+        'border-checked': theme.get-color(green, 500),
+    ),
+    'warning': (
+        'border-checked': theme.get-color(yellow, 500),
+    ),
+    'danger': (
+        'border-checked': theme.get-color(red, 500),
+    ),
+);

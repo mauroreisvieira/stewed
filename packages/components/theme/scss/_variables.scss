@@ -135,6 +135,19 @@ $default-config: (
         rounded: 100%,
     ),
     disabled: 0.3,
+    transition: (
+        duration: (
+            quickly: 100ms,
+            normal: 222ms,
+            slowly: 333ms,
+        ),
+        timing-function: (
+            decelerate: cubic-bezier(0, 0, 0.2, 1),
+            accelerate: cubic-bezier(0.4, 0, 1, 1),
+            quickly-accelerate-slowly-decelerate: cubic-bezier(.4, 0, .2, 1),
+            quickly-accelerate-decelerate: cubic-bezier(.4, 0, .6, 1),
+        )
+    )
 );
 
 $all-config: map.deep-merge($default-config, $config);
@@ -159,6 +172,24 @@ $merged-colors: ();
     $merged-colors: map.deep-merge($merged-colors, $colors);
 }
 $merged-colors: map.deep-merge($merged-colors, $extend-colors);
+
+$transition: map.get($all-config, transition);
+$duration: map.get($transition, duration);
+$function: map.get($transition, timing-function);
+
+@mixin transition(
+  $property,
+  $duration: map.get($duration, normal),
+  $timing-function: map.get($function, accelerate),
+  $delay: null
+) {
+  @if (type-of($property) == list) {
+    transition: $duration $timing-function $delay;
+    transition-property: $property;
+  } @else {
+    transition: $property $duration $timing-function $delay;
+  }
+}
 
 @function get-color($color, $tone: 500) {
     @if not map.has-key($merged-colors, $color) {
