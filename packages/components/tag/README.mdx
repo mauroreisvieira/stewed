@@ -1,0 +1,41 @@
+# Tag
+
+Tag components add contextual metadata to a design.
+
+```bash
+$ npm install --save @stewed/tag
+```
+
+## Import
+
+### Styles
+
+```scss
+@use '~@stewed/tag/scss';
+```
+
+### Component
+
+```js
+import { Tag } from '@stewed/tag';
+```
+
+## Props
+
+| Name          | Type                                                                    | Default   | Description                                      |
+| ------------- | ----------------------------------------------------------------------- | --------- | ------------------------------------------------ |
+| `appearance?` | `One of<"primary", "secondary", info", "success", "danger", "warning">` | 'primary' | The base styling to apply to the component.      |
+| `className?`  | `string`                                                                | -         | Add additional class name to the root component. |
+| `children?`   | `React.ReactNode`                                                       | -         | The tag will be added relative to this node.   |
+
+## CSS
+
+| Class name          | Description                                                     |
+| ------------------- | --------------------------------------------------------------- |
+| `.tag`            | Styles applied to the root element.                             |
+| `.tag--primary`   | Styles applied to the root element if `appearance="primary"`.   |
+| `.tag--secondary` | Styles applied to the root element if `appearance="secondary"`. |
+| `.tag--info`      | Styles applied to the root element if `appearance="info"`.      |
+| `.tag--success`   | Styles applied to the root element if `appearance="success"`.   |
+| `.tag--danger`    | Styles applied to the root element if `appearance="danger"`.    |
+| `.tag--warning`   | Styles applied to the root element if `appearance="warning"`.   |

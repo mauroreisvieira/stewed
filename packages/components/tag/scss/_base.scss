@@ -1,0 +1,28 @@
+@use '@stewed/theme/scss' as theme;
+@use 'variables' as *;
+
+@include theme.scope($tag-root) {
+    --tag-size: #{$tag-size};
+
+    position: relative;
+    display: inline-flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    min-width: var(--tag-size);
+    height: var(--tag-size);
+    padding: 0 $tag-inner-spacing-x;
+    border-radius: $tag-border-radius;
+    background-color: var(--tag-background);
+    color: $tag-color;
+    font-size: $tag-body-font-size;
+    font-weight: $tag-title-font-weight;
+    white-space: nowrap;
+    z-index: 2;
+
+    @each $key, $value in $tag-appearances {
+        &--#{$key} {
+            --tag-background: #{theme.get-color($value, 500)};
+        }
+    }
+}

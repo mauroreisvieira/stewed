@@ -14,6 +14,8 @@
     "@stewed/hooks": "*",
     "@stewed/theme": "*",
     "@stewed/alert": "*",
+    "@stewed/badge": "*",
+    "@stewed/tag": "*",
     "@stewed/menu": "*",
     "@stewed/button": "*",
     "@stewed/textfield": "*",

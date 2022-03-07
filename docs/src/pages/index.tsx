@@ -22,6 +22,11 @@ const Home: React.FC = (): React.ReactElement => (
                     Badge
                 </Link>
             </Menu.Item>
+            <Menu.Item>
+                <Link href="/components/tag" passHref>
+                    Tag
+                </Link>
+            </Menu.Item>
             <Menu.Item disabled>
                 Progress
             </Menu.Item>
