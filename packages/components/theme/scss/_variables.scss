@@ -144,10 +144,10 @@ $default-config: (
         timing-function: (
             decelerate: cubic-bezier(0, 0, 0.2, 1),
             accelerate: cubic-bezier(0.4, 0, 1, 1),
-            quickly-accelerate-slowly-decelerate: cubic-bezier(.4, 0, .2, 1),
-            quickly-accelerate-decelerate: cubic-bezier(.4, 0, .6, 1),
-        )
-    )
+            quickly-accelerate-slowly-decelerate: cubic-bezier(0.4, 0, 0.2, 1),
+            quickly-accelerate-decelerate: cubic-bezier(0.4, 0, 0.6, 1),
+        ),
+    ),
 );
 
 $all-config: map.deep-merge($default-config, $config);
@@ -178,17 +178,17 @@ $duration: map.get($transition, duration);
 $function: map.get($transition, timing-function);
 
 @mixin transition(
-  $property,
-  $duration: map.get($duration, normal),
-  $timing-function: map.get($function, accelerate),
-  $delay: null
+    $property,
+    $duration: map.get($duration, normal),
+    $timing-function: map.get($function, accelerate),
+    $delay: null
 ) {
-  @if (type-of($property) == list) {
-    transition: $duration $timing-function $delay;
-    transition-property: $property;
-  } @else {
-    transition: $property $duration $timing-function $delay;
-  }
+    @if (type-of($property) == list) {
+        transition: $duration $timing-function $delay;
+        transition-property: $property;
+    } @else {
+        transition: $property $duration $timing-function $delay;
+    }
 }
 
 @function get-color($color, $tone: 500) {

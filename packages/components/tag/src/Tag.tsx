@@ -5,7 +5,6 @@ type TagType = React.HTMLAttributes<HTMLSpanElement> & React.AnchorHTMLAttribute
 export interface TagProps extends TagType {
     appearance?: 'primary' | 'secondary' | 'info' | 'success' | 'warning' | 'danger';
     size?: 'sm' | 'md' | 'lg';
-    count?: string;
     className?: string;
 }
 
