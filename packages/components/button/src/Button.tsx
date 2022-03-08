@@ -23,7 +23,6 @@ export const Button = React.forwardRef(
         ref: React.Ref<HTMLButtonElement & HTMLAnchorElement>
     ): React.ReactElement => {
         const { href, className, onClick } = otherProps;
-        let Tag = 'button';
         const rootClassName = 'button';
         const computedClasses = classNames(
             rootClassName,
@@ -32,6 +31,7 @@ export const Button = React.forwardRef(
             `${rootClassName}--${size}`,
             disabled && `${rootClassName}--disabled`,
         );
+        let Tag = 'button';
 
         const handleClick = (
             event: React.MouseEvent<HTMLButtonElement>
