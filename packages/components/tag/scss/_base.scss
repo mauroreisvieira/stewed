@@ -1,9 +1,8 @@
+@use 'sass:map';
 @use '@stewed/theme/scss' as theme;
 @use 'variables' as *;
 
 @include theme.scope($tag-root) {
-    --tag-size: #{$tag-size};
-
     position: relative;
     display: inline-flex;
     align-content: center;
@@ -11,15 +10,33 @@
     justify-content: center;
     min-width: var(--tag-size);
     height: var(--tag-size);
-    padding: 0 $tag-inner-spacing-x;
+    padding: 0 var(--tag-spacing);
     border-radius: $tag-border-radius;
     background-color: var(--tag-background);
     color: $tag-color;
-    font-size: $tag-body-font-size;
+    font-size: var(--tag-font-size);
     font-weight: $tag-title-font-weight;
     white-space: nowrap;
     text-decoration: none;
     z-index: 2;
+
+    &--sm {
+        --tag-size: #{map.get($tag-sizes, 'sm')};
+        --tag-spacing: #{map.get(theme.$spacings, 'md')};
+        --tag-font-size: #{map.get($tag-font-sizes, 'xs')};
+    }
+
+    &--md {
+        --tag-size: #{map.get($tag-sizes, 'md')};
+        --tag-spacing: #{map.get(theme.$spacings, 'md')};
+        --tag-font-size: #{map.get($tag-font-sizes, 'sm')};
+    }
+
+    &--lg {
+        --tag-size: #{map.get($tag-sizes, 'lg')};
+        --tag-spacing: #{map.get(theme.$spacings, 'md')};
+        --tag-font-size: #{map.get($tag-font-sizes, 'md')};
+    }
 
     @each $key, $value in $tag-appearances {
         &--#{$key} {

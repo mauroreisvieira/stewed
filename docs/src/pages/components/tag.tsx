@@ -33,10 +33,23 @@ const TagDocs: React.FC = (): React.ReactElement => (
             </Tag>
         </div>
 
+        <h2>Size</h2>
+        <div className="demo">
+            <Tag appearance="primary" size="sm">
+                Small
+            </Tag>
+            <Tag appearance="primary">
+                Default
+            </Tag>
+                    <Tag appearance="primary" size="lg">
+                Large
+            </Tag>
+        </div>
+
         <h2>Href</h2>
         <div className="demo">
-            <Tag appearance="primary" href="https://www.google.com" target="_blank">
-                Primary
+            <Tag appearance="secondary" href="https://www.google.com" target="_blank">
+                Href
             </Tag>
         </div>
     </>

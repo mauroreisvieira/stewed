@@ -5,7 +5,7 @@
 $tag-root: '.tag';
 
 $tag-color: #fff;
-$tag-border-radius: map.get(theme.$radius, 'md');
+$tag-border-radius: map.get(theme.$radius, 'xl');
 
 $tag-title-font-weight: map.get(theme.$font-weight, 'medium');
 $tag-body-font-size: map.get(theme.$font-size, 'xs');
@@ -19,14 +19,11 @@ $tag-appearances: (
     'danger': red,
 );
 
-$tag-inner-spacing-x: map.get(theme.$spacings, 'md');
-
-$tag-size: map.get(theme.$spacings, 'xs') * 10;
-
-$tag-dot-size: map.get(theme.$spacings, 'md');
+$tag-font-sizes: theme.$font-size;
+$tag-font-weight: map.get(theme.$font-weight, 'regular');
 
 $tag-sizes: (
-    sm: map.get(theme.$spacings, 'md') * 4,
-    md: map.get(theme.$spacings, 'md') * 5,
-    lg: map.get(theme.$spacings, 'md') * 6,
+    sm: map.get(theme.$spacings, 'sm') * 3,
+    md: map.get(theme.$spacings, 'xs') * 10,
+    lg: map.get(theme.$spacings, 'sm') * 4,
 );

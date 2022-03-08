@@ -25,13 +25,14 @@ import { Tag } from '@stewed/tag';
 | Name          | Type                                                                    | Default   | Description                                      |
 | ------------- | ----------------------------------------------------------------------- | --------- | ------------------------------------------------ |
 | `appearance?` | `One of<"primary", "secondary", info", "success", "danger", "warning">` | 'primary' | The base styling to apply to the component.      |
+| `size?`       | `One of<"sm", "md", "lg">`                                              | 'md'      | The size of the component                        |
 | `className?`  | `string`                                                                | -         | Add additional class name to the root component. |
-| `children?`   | `React.ReactNode`                                                       | -         | The tag will be added relative to this node.   |
+| `children?`   | `React.ReactNode`                                                       | -         | The tag will be added relative to this node.     |
 
 ## CSS
 
-| Class name          | Description                                                     |
-| ------------------- | --------------------------------------------------------------- |
+| Class name        | Description                                                     |
+| ----------------- | --------------------------------------------------------------- |
 | `.tag`            | Styles applied to the root element.                             |
 | `.tag--primary`   | Styles applied to the root element if `appearance="primary"`.   |
 | `.tag--secondary` | Styles applied to the root element if `appearance="secondary"`. |
@@ -39,3 +40,11 @@ import { Tag } from '@stewed/tag';
 | `.tag--success`   | Styles applied to the root element if `appearance="success"`.   |
 | `.tag--danger`    | Styles applied to the root element if `appearance="danger"`.    |
 | `.tag--warning`   | Styles applied to the root element if `appearance="warning"`.   |
+| `.tag--sm`        | Styles applied to the root element if `size="sm"`.              |
+| `.tag--md`        | Styles applied to the root element if `size="md"`.              |
+| `.tag--lg`        | Styles applied to the root element if `size="lg"`.              |
+
+## References
+
+-   [HTMLSpanElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSpanElement)
+-   [HTMLAnchorElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLAnchorElement)
