@@ -7,8 +7,8 @@ $badge-root: '.badge';
 $badge-color: #fff;
 $badge-border-radius: map.get(theme.$radius, 'xl');
 
-$badge-title-font-weight: map.get(theme.$font-weight, 'medium');
-$badge-body-font-size: map.get(theme.$font-size, 'xs');
+$badge-font-weight: map.get(theme.$font-weight, 'medium');
+$badge-font-size: map.get(theme.$font-size, 'xs');
 
 $badge-appearances: (
     'primary': primary,
@@ -24,9 +24,3 @@ $badge-inner-spacing-x: map.get(theme.$spacings, 'sm');
 $badge-size: map.get(theme.$spacings, 'xs') * 10;
 
 $badge-dot-size: map.get(theme.$spacings, 'md');
-
-$badge-sizes: (
-    sm: map.get(theme.$spacings, 'md') * 4,
-    md: map.get(theme.$spacings, 'md') * 5,
-    lg: map.get(theme.$spacings, 'md') * 6,
-);
