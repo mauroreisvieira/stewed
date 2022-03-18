@@ -16,6 +16,7 @@ export const Tag: React.FC<TagProps> = ({
     ...otherProps
 }): React.ReactElement => {
     const { href } = otherProps;
+    const Tag = href ? 'a' : 'span';
     const rootClassName = 'tag';
     const computedClasses = classNames(
         rootClassName,
@@ -23,7 +24,6 @@ export const Tag: React.FC<TagProps> = ({
         `${rootClassName}--${appearance}`,
         `${rootClassName}--${size}`,
     );
-    let Tag = href ? 'a' : 'span';
 
     return (
         <Tag className={computedClasses} href={href} {...otherProps}>
