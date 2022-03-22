@@ -1,6 +1,6 @@
-import * as React from 'react';
+import { useState, ChangeEvent, SyntheticEvent } from 'react';
 
-type NativeElement = React.ChangeEvent<HTMLInputElement & HTMLTextAreaElement>;
+type NativeElement = ChangeEvent<HTMLInputElement & HTMLTextAreaElement>;
 
 export function useForm<T>(
     initialValues: T,
@@ -9,10 +9,10 @@ export function useForm<T>(
 ): [
     T,
     (event: NativeElement) => void,
-    (event: React.SyntheticEvent) => void,
+    (event: SyntheticEvent) => void,
     () => void
 ] {
-    const [formData, setFormData] = React.useState<T>(initialValues);
+    const [formData, setFormData] = useState<T>(initialValues);
 
     const handleInputChange = (event: NativeElement) => {
         const { name, value, checked } = event.target;
@@ -23,7 +23,7 @@ export function useForm<T>(
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleSubmit = (event: React.SyntheticEvent) => {
+    const handleSubmit = (event: SyntheticEvent) => {
         event.preventDefault();
         if (onSubmit) onSubmit(formData);
     };

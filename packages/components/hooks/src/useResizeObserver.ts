@@ -1,26 +1,32 @@
-import * as React from 'react';
+import { useEffect } from 'react';
 
 export type ResizeObserverCallback = (
-    entry: ResizeObserverEntry[],
+    entries: ResizeObserverEntry[],
     observer: ResizeObserver,
 ) => void;
 
-export const useResizeObserver = <T extends HTMLElement>(
-    element: T,
-    callback: ResizeObserverCallback,
-) => {
-    const storedCallback = React.useRef(callback);
-    React.useEffect(() => {
-        storedCallback.current = callback;
-    }, [callback]);
+interface ResizeObserverProps<T> {
+    element: T;
+    enabled: boolean;
+    callback: ResizeObserverCallback | null;
+}
 
-    React.useEffect(() => {
-        const cb = (entry: ResizeObserverEntry[], observer: ResizeObserver) =>
-            storedCallback.current(entry, observer);
+export const useResizeObserver = <T extends HTMLElement>({
+    element,
+    enabled,
+    callback,
+}: ResizeObserverProps<T>) => {
+    useEffect(() => {
+        if (!element || !enabled || callback === null) return;
+
+        const cb = (entries: ResizeObserverEntry[], observer: ResizeObserver) => {
+            callback(entries, observer);
+        };
 
         const resizeObserver = new ResizeObserver(cb);
         resizeObserver.observe(element);
 
+        // eslint-disable-next-line consistent-return
         return () => resizeObserver.disconnect();
-    }, [element, storedCallback]);
+    }, [element, callback, enabled]);
 };
