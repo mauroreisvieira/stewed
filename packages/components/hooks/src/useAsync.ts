@@ -7,7 +7,7 @@ export function useAsync<T>(asyncFunction: () => Promise<T>, immediate = true) {
     const [value, setValue] = useState<T | null>(null);
     const [error, setError] = useState<Error | null>(null);
 
-    const execute = useCallback(() => {
+    const execute = useCallback(async () => {
         setStatus('pending');
         setValue(null);
         setError(null);
