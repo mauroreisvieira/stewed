@@ -4,3 +4,4 @@ export { useIntersectionObserver } from './useIntersectionObserver';
 export { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
 export { useResizeObserver } from './useResizeObserver';
 export { useVisualViewport } from './useVisualViewport';
+export { useDebouncedValue } from './useDebouncedValue';

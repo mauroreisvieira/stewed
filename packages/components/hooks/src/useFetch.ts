@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
 
+type LooseAutoComplete<T extends string> = T | Omit<string, T>;
+
+type Status = LooseAutoComplete<'loading' | 'loaded' | 'aborted'>;
+
 type Response<T> = {
-    loading: boolean;
-    error?: string;
-    data: T | undefined;
+    status: Status;
+    data?: T;
 }
 
 type FetchOptions = RequestInit & {
@@ -11,36 +14,39 @@ type FetchOptions = RequestInit & {
 };
 
 export function useFetch<T>(url: RequestInfo, options: FetchOptions = {}): Response<T> {
-    const { aborted, ...rest } = options;
+    const { aborted, ...init } = options;
     const [data, setData] = useState<T>();
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState();
+    const [status, setStatus] = useState<Status>('');
 
     const controller = new AbortController();
     const { signal } = controller;
 
     const fetchData = async () =>
-        fetch(url, rest)
+        fetch(url, {
+            signal,
+            ...init
+        })
             .then((response) => response.json())
             .then((results) => {
+                setStatus('loaded');
                 setData(results);
-                setLoading(false);
                 return true;
             });
 
     useEffect(() => {
-        fetchData().catch((error) => setError(error.name === 'AbortError' ? 'Aborted' : error));
+        if (url) setStatus('loading');
+        fetchData().catch((error) => setStatus(error.name === 'AbortError' ? 'aborted' : error));
 
         return () => controller.abort();
-    }, [controller, rest, signal, url]);
+    }, [url]);
 
     useEffect(() => {
+        setStatus('aborted');
         if (aborted) controller.abort();
     }, [aborted]);
 
     return {
         data,
-        error,
-        loading,
+        status,
     };
 };
