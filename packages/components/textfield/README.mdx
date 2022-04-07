@@ -3,7 +3,7 @@
 A textfield is an input that allows a user to write or edit text.
 
 ```bash
-$ npm install --save @stewed/textfield
+npm install --save @stewed/textfield
 ```
 
 ## Import
@@ -11,24 +11,24 @@ $ npm install --save @stewed/textfield
 ### Styles
 
 ```scss
-@use '~@stewed/textfield/scss';
+@use "~@stewed/textfield/scss";
 ```
 
 ### Component
 
 ```js
-import { Textfield } from '@stewed/textfield';
+import { Textfield } from "@stewed/textfield";
 ```
 
 ## Props
 
 Textfield component extends from `React.InputHTMLAttributes<HTMLInputElement>` interface, that provide special properties and methods for manipulating the options.
 
-| Name          | Type                                                | Default   | Description                                      |
-| ------------- | --------------------------------------------------- | --------- | ------------------------------------------------ |
-| `appearance?` | `One of<"default", "success", "danger", "warning">` | 'default' | The base styling to apply to the component.      |
-| `disabled?`   | `boolean`                                           | false     | Set if the component is disabled.                |
-| `className?`  | `string`                                            | -         | Add additional class name to the root component. |
+| Name          | Type                                              | Default   | Description                                      |
+| ------------- | ------------------------------------------------- | --------- | ------------------------------------------------ |
+| `appearance?` | `"default" \| "success" \| "danger" \| "warning"` | "default" | The base styling to apply to the component.      |
+| `disabled?`   | `boolean`                                         | false     | Set if the component is disabled.                |
+| `className?`  | `string`                                          | -         | Add additional class name to the root component. |
 
 The `ref` is forwarded to the root element.
 

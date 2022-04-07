@@ -3,7 +3,7 @@
 Radio buttons allow the user to select one option from a set.
 
 ```bash
-$ npm install --save @stewed/radio
+npm install --save @stewed/radio
 ```
 
 ## Import
@@ -11,25 +11,25 @@ $ npm install --save @stewed/radio
 ### Styles
 
 ```scss
-@use '~@stewed/radio/scss';
+@use "~@stewed/radio/scss";
 ```
 
 ### Component
 
 ```js
-import { Radio } from '@stewed/radio';
+import { Radio } from "@stewed/radio";
 ```
 
 ## Props
 
 Radio component extends from `React.InputHTMLAttributes<HTMLInputElement>` interface, that provide special properties and methods for manipulating the options.
 
-| Name          | Type                                                | Default   | Description                                      |
-| ------------- | --------------------------------------------------- | --------- | ------------------------------------------------ |
-| `appearance?` | `One of<"default", "success", "danger", "warning">` | 'default' | The base styling to apply to the component.      |
-| `size?`       | `One of<"sm", "md", "lg"`                           | 'md'      | The base size to apply to the component.         |
-| `disabled?`   | `boolean`                                           | false     | Set if the component is disabled.                |
-| `className?`  | `string`                                            | -         | Add additional class name to the root component. |
+| Name          | Type                                              | Default   | Description                                      |
+| ------------- | ------------------------------------------------- | --------- | ------------------------------------------------ |
+| `appearance?` | `"default" \| "success" \| "danger" \| "warning"` | "default" | The base styling to apply to the component.      |
+| `size?`       | `"sm" \| "md" \| "lg"`                            | "md"      | The base size to apply to the component.         |
+| `disabled?`   | `boolean`                                         | false     | Set if the component is disabled.                |
+| `className?`  | `string`                                          | -         | Add additional class name to the root component. |
 
 The `ref` is forwarded to the root element.
 

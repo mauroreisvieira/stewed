@@ -3,7 +3,7 @@
 Menu display a list of choices that can be selected.
 
 ```bash
-$ npm install --save @stewed/menu
+npm install --save @stewed/menu
 ```
 
 ## Import
@@ -11,13 +11,13 @@ $ npm install --save @stewed/menu
 ### Styles
 
 ```scss
-@use '~@stewed/menu/scss';
+@use "~@stewed/menu/scss";
 ```
 
 ### Component
 
 ```js
-import { Menu } from '@stewed/menu';
+import { Menu } from "@stewed/menu";
 ```
 
 ## Props
@@ -31,13 +31,13 @@ import { Menu } from '@stewed/menu';
 
 ### Menu Item
 
-| Name          | Type                          | Default   | Description                                      |
-| ------------- | ----------------------------- | --------- | ------------------------------------------------ |
-| `className?`  | `string`                      | -         | Add additional class name to the root component. |
-| `appearance?` | `One of<"default", "danger">` | 'default' | The base styling to apply to the component.      |
-| `selected?`   | `boolean`                     | false     | Set if the component is selected.                |
-| `disabled?`   | `boolean`                     | false     | Set if the component is disabled.                |
-| `children?`   | `React.ReactNode`             | -         | The value displayed within the component.        |
+| Name          | Type                    | Default   | Description                                      |
+| ------------- | ----------------------- | --------- | ------------------------------------------------ |
+| `className?`  | `string`                | -         | Add additional class name to the root component. |
+| `appearance?` | `"default" \| "danger"` | "default" | The base styling to apply to the component.      |
+| `selected?`   | `boolean`               | false     | Set if the component is selected.                |
+| `disabled?`   | `boolean`               | false     | Set if the component is disabled.                |
+| `children?`   | `React.ReactNode`       | -         | The value displayed within the component.        |
 
 ### Menu Separator
 
