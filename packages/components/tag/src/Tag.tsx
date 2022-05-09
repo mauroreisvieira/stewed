@@ -8,13 +8,13 @@ export interface TagProps extends TagType {
     className?: string;
 }
 
-export const Tag: React.FC<TagProps> = ({
+export const Tag = ({
     appearance = 'primary',
     size = 'md',
     className,
     children,
     ...otherProps
-}): React.ReactElement => {
+}: React.PropsWithChildren<TagProps>): React.ReactElement => {
     const { href } = otherProps;
     const Tag = href ? 'a' : 'span';
     const rootClassName = 'tag';

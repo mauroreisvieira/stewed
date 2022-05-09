@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import { Alert } from '@stewed/alert';
 
-const AlertDocs: React.FC = (): React.ReactElement => (
+const AlertDocs = (): React.ReactElement => (
     <>
         <Head>
             <title>Stewed | Alert</title>

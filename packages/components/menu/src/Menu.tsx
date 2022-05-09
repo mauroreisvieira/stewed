@@ -5,10 +5,10 @@ export interface MenuProps {
     className?: string;
 }
 
-export const Menu: React.FC<MenuProps> = ({
+export const Menu = ({
     className,
     children,
-}): React.ReactElement => {
+}: React.PropsWithChildren<MenuProps>): React.ReactElement => {
     const rootClassName = 'menu';
     const computedClasses = classNames(
         rootClassName,

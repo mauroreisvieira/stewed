@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import { Checkbox } from '@stewed/checkbox';
 
-const CheckboxDocs: React.FC = (): React.ReactElement => (
+const CheckboxDocs = (): React.ReactElement => (
     <>
         <Head>
             <title>Stewed | Checkbox</title>

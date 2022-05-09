@@ -7,12 +7,12 @@ export interface BadgeProps {
     className?: string;
 }
 
-export const Badge: React.FC<BadgeProps> = ({
+export const Badge = ({
     appearance = 'primary',
     count,
     className,
     children,
-}): React.ReactElement => {
+}: React.PropsWithChildren<BadgeProps>): React.ReactElement => {
     const rootClassName = 'badge';
     const computedClasses = classNames(
         rootClassName,

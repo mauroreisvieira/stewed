@@ -15,7 +15,7 @@ const Square = (): React.ReactElement => (
     />
 );
 
-const BadgeDocs: React.FC = (): React.ReactElement => (
+const BadgeDocs = (): React.ReactElement => (
     <>
         <Head>
             <title>Stewed | Badge</title>

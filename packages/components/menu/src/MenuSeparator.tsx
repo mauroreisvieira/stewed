@@ -5,10 +5,10 @@ export interface SeparatorProps {
     className?: string;
 }
 
-export const MenuSeparator: React.FC<SeparatorProps> = ({
+export const MenuSeparator = ({
     className,
     children,
-}): React.ReactElement => {
+}: React.PropsWithChildren<SeparatorProps>): React.ReactElement => {
     const rootClassName = 'menu__separator';
     const computedClasses = classNames(
         rootClassName,

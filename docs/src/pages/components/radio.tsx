@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import { Radio } from '@stewed/radio';
 
-const RadioDocs: React.FC = (): React.ReactElement => (
+const RadioDocs = (): React.ReactElement => (
     <>
         <Head>
             <title>Stewed | Radio</title>

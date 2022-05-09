@@ -8,13 +8,13 @@ export interface MenuItemProps {
     disabled?: boolean;
 }
 
-export const MenuItem: React.FC<MenuItemProps> = ({
+export const MenuItem = ({
     className,
     appearance = 'default',
     selected,
     disabled,
     children,
-}): React.ReactElement => {
+}: React.PropsWithChildren<MenuItemProps>): React.ReactElement => {
     const rootClassName = 'menu__item';
     const computedClasses = classNames(
         rootClassName,

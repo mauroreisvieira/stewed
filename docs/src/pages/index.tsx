@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import { Menu } from '@stewed/menu';
 
-const Home: React.FC = (): React.ReactElement => (
+const Home = (): React.ReactElement => (
     <>
         <Head>
             <title>Stewed</title>

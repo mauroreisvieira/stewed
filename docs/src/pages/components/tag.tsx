@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import { Tag } from '@stewed/tag';
 
-const TagDocs: React.FC = (): React.ReactElement => (
+const TagDocs = (): React.ReactElement => (
     <>
         <Head>
             <title>Stewed | Tag</title>

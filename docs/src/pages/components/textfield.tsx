@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import { Textfield } from '@stewed/textfield';
 
-const TextfieldDocs: React.FC = (): React.ReactElement => (
+const TextfieldDocs = (): React.ReactElement => (
     <>
         <Head>
             <title>Stewed | Textfield</title>

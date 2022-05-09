@@ -7,12 +7,12 @@ export interface AlertProps {
     className?: string;
 }
 
-export const Alert: React.FC<AlertProps> = ({
+export const Alert = ({
     title,
     appearance = 'info',
     className,
     children,
-}): React.ReactElement => {
+}: React.PropsWithChildren<AlertProps>): React.ReactElement => {
     const rootClassName = 'alert';
     const computedClasses = classNames(
         rootClassName,

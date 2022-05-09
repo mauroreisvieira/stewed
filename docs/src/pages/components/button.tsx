@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import { Button } from '@stewed/button';
 
-const ButtonDocs: React.FC = (): React.ReactElement => (
+const ButtonDocs = (): React.ReactElement => (
     <>
         <Head>
             <title>Stewed | Button</title>
