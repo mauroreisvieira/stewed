@@ -1,0 +1,67 @@
+@use 'sass:map';
+@use '../theme/scss' as theme;
+@use './variables' as *;
+
+@include theme.scope($button-root) {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--button-size);
+    padding: 0 var(--button-spacing);
+    border: none;
+    border-radius: $button-border-radius;
+    background-color: var(--button-background);
+    color: $button-color;
+    font-size: var(--button-font-size);
+    font-weight: $button-font-weight;
+    cursor: pointer;
+    user-select: none;
+    vertical-align: top;
+    touch-action: manipulation;
+
+    &:hover {
+        background-color: var(--button-background-hover);
+    }
+
+    &:active {
+        background-color: var(--button-background-active);
+    }
+
+    &:focus {
+        outline: 0px solid transparent;
+        box-shadow: #fff 0 0 0 2px, #{theme.get-color("primary")} 0 0 0 4px;
+    }
+
+    &:disabled,
+    &--disabled {
+        opacity: $button-disabled;
+        pointer-events: none;
+    }
+
+    &--sm {
+        --button-size: #{map.get($button-sizes, 'sm')};
+        --button-spacing: #{map.get($button-spacings, 'sm')};
+        --button-font-size: #{map.get($button-font-sizes, 'sm')};
+    }
+
+    &--md {
+        --button-size: #{map.get($button-sizes, 'md')};
+        --button-spacing: #{map.get($button-spacings, 'md')};
+        --button-font-size: #{map.get($button-font-sizes, 'base')};
+    }
+
+    &--lg {
+        --button-size: #{map.get($button-sizes, 'lg')};
+        --button-spacing: #{map.get($button-spacings, 'lg')};
+        --button-font-size: #{map.get($button-font-sizes, 'lg')};
+    }
+
+    @each $key, $value in $button-appearances {
+        &--#{$key} {
+            --button-background: #{theme.get-color($value)};
+            --button-background-hover: #{theme.get-color($value, 600)};
+            --button-background-active: #{theme.get-color($value, 700)};
+        }
+    }
+}

@@ -1,1 +1,1 @@
-module.exports = require("@stewed/eslint-preset");
+module.exports = require("@stewed/lint");
