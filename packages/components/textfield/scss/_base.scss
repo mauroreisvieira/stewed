@@ -1,11 +1,10 @@
 @use 'sass:map';
-@use '@stewed/theme/scss' as theme;
-@use 'variables' as *;
+@use '../theme/scss' as theme;
+@use './variables' as *;
 
 @include theme.scope($textfield-root) {
     --textfield-border: #{map.get($textfield-appearances-default, border)};
     --textfield-border-hover: #{map.get($textfield-appearances-default, border-hover)};
-    --textfield-focus: #{map.get($textfield-appearances-default, border-focus)};
 
     position: relative;
     display: inline-flex;
@@ -24,8 +23,8 @@
     }
 
     &:focus-within {
-        outline: 2px solid transparent;
-        box-shadow: #fff 0 0 0 2px, var(--textfield-focus) 0 0 0 4px;
+        outline: 0px solid transparent;
+        box-shadow: #fff 0 0 0 2px, #{theme.get-color("primary")} 0 0 0 4px;
     }
 
     &:disabled,
@@ -38,7 +37,6 @@
         &--#{$key} {
             --textfield-border: #{map.get($value, border)};
             --textfield-border-hover: #{map.get($value, border-hover)};
-            --textfield-focus: #{map.get($value, border-focus)};
         }
     }
 }

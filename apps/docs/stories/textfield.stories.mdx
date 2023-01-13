@@ -1,0 +1,48 @@
+import { Textfield } from '../../../packages/core/src/index.ts';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+
+<Meta
+    title="Components/Textfield"
+    argTypes={{ onChange: { action: 'change' } }}
+    component={Textfield}
+/>
+
+# Textfield
+
+A textfield is an input that allows a user to write or edit text.
+
+### Installation
+
+```bash
+npm install --save @stewed/textfield
+```
+
+### Import
+
+```js
+import { Textfield } from '@stewed/textfield';
+```
+
+## Examples
+
+export const Template = (args) => <Textfield {...args} />;
+
+### Default
+
+<Canvas>
+    <Story
+        name="Base"
+        args={{
+            placeholder: 'Type your value...',
+            defaultValue: '',
+            skin: 'default',
+            disabled: false,
+        }}
+    >
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Textfield} />

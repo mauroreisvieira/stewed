@@ -29,8 +29,8 @@
     }
 
     &:focus {
-        outline: 2px solid transparent;
-        box-shadow: #fff 0 0 0 2px, var(--button-focus) 0 0 0 4px;
+        outline: 0px solid transparent;
+        box-shadow: #fff 0 0 0 2px, #{theme.get-color("primary")} 0 0 0 4px;
     }
 
     &:disabled,
@@ -62,7 +62,6 @@
             --button-background: #{theme.get-color($value)};
             --button-background-hover: #{theme.get-color($value, 600)};
             --button-background-active: #{theme.get-color($value, 700)};
-            --button-focus: #{theme.get-color($value, 400)};
         }
     }
 }

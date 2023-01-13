@@ -1,5 +1,5 @@
 @use 'sass:map';
-@use '@stewed/theme/scss' as theme;
+@use '../theme/scss' as theme;
 
 $textfield-root: '.textfield';
 
@@ -9,24 +9,20 @@ $textfield-border-radius: map.get(theme.$radius, 'md');
 $textfield-appearances-default: (
     'border': theme.get-color(secondary, 300),
     'border-hover': theme.get-color(secondary, 400),
-    'border-focus': theme.get-color(secondary, 600),
 );
 
 $textfield-appearances: (
     'success': (
         'border': theme.get-color(green, 500),
         'border-hover': theme.get-color(green, 600),
-        'border-focus': theme.get-color(green, 600),
     ),
     'warning': (
         'border': theme.get-color(yellow, 500),
         'border-hover': theme.get-color(yellow, 600),
-        'border-focus': theme.get-color(yellow, 600),
     ),
-    'danger': (
+    'error': (
         'border': theme.get-color(red, 500),
         'border-hover': theme.get-color(red, 600),
-        'border-focus': theme.get-color(red, 600),
     ),
 );
 

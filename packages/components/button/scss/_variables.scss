@@ -9,8 +9,6 @@ $button-border-radius: map.get(theme.$radius, 'md');
 $button-appearances: (
     'primary': primary,
     'secondary': secondary,
-    'success': green,
-    'warning': yellow,
     'danger': red,
 );
 

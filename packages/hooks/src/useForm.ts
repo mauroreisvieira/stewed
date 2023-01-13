@@ -1,37 +1,55 @@
-import { useState, ChangeEvent, SyntheticEvent } from 'react';
+import React, { useReducer } from 'react';
 
-type NativeElement = ChangeEvent<HTMLInputElement & HTMLTextAreaElement>;
+type NativeChangeEvents = React.ChangeEvent<
+    HTMLInputElement & HTMLTextAreaElement
+>;
 
+/**
+ * Hook for managing forms with ease, it takes one object as optional argument.
+ *
+ * @param defaultValues - used to populate the entire form values.
+ * @param onSubmit?:(data:T) => void - will trigger on the submit event.
+ * @param onReset?:(data:T) => void - will restore initial values
+ * @return [data, (event:NativeChangeEvents) =>void, (event:React.SyntheticEvent) => void, () => void]}
+ *
+ * @example
+ * const [{ firstName, lastName }, handleChange] = useForm({ firstName: "", lastName: ""});
+ *
+ * <input name="firstName" value={firstName} onChange={handleChange} />
+ * <input name="lastName" value={lastName} onChange={handleChange} />
+ */
 export function useForm<T>(
-    initialValues: T,
+    defaultValues: T,
     onSubmit?: (data: T) => void,
-    onCancel?: (data: T) => void
+    onReset?: (data: T) => void
 ): [
     T,
-    (event: NativeElement) => void,
-    (event: SyntheticEvent) => void,
+    (event: NativeChangeEvents) => void,
+    (event: React.SyntheticEvent) => void,
     () => void
 ] {
-    const [formData, setFormData] = useState<T>(initialValues);
+    const [formData, setFormData] = useReducer((prev: T, next: Partial<T>) => {
+        return { ...prev, ...next };
+    }, defaultValues);
 
-    const handleInputChange = (event: NativeElement) => {
+    const onHandleChange = (event: NativeChangeEvents) => {
         const { name, value, checked } = event.target;
-        if (['checkbox', 'radio'].includes(event.target.type)) {
+        if (['checkbox'].includes(event.target.type)) {
             setFormData({ ...formData, [name]: checked });
             return;
         }
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleSubmit = (event: SyntheticEvent) => {
+    const onHandleSubmit = (event: React.SyntheticEvent) => {
         event.preventDefault();
         if (onSubmit) onSubmit(formData);
     };
 
-    const handleCancel = () => {
-        setFormData(initialValues);
-        if (onCancel) onCancel(initialValues);
+    const onHandleReset = () => {
+        setFormData(defaultValues);
+        if (onReset) onReset(defaultValues);
     };
 
-    return [formData, handleInputChange, handleSubmit, handleCancel];
+    return [formData, onHandleChange, onHandleSubmit, onHandleReset];
 }
