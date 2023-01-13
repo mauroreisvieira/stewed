@@ -1,5 +1,6 @@
-@use '@stewed/theme/scss' as theme;
-@use 'variables' as *;
+@use 'sass:map';
+@use '../theme/scss' as theme;
+@use './variables' as *;
 
 @include theme.scope($alert-root) {
     --alert-border-radius: #{$alert-border-radius};

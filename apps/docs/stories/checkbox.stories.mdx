@@ -1,0 +1,46 @@
+import { Checkbox } from '../../../packages/components/src/index.ts';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+
+<Meta
+    title="Components/Checkbox"
+    argTypes={{ onChange: { action: 'change' } }}
+    component={Checkbox}
+/>
+
+# Checkbox
+
+Checkbox component allow the user to select multiple options from a set.
+
+### Installation
+
+```bash
+npm install --save @stewed/checkbox
+```
+
+### Import
+
+```js
+import { Checkbox } from '@stewed/checkbox';
+```
+
+## Examples
+
+export const Template = (args) => <Checkbox {...args} />;
+
+### Default
+
+<Canvas>
+    <Story
+        name="Base"
+        args={{
+            skin: 'default',
+            disabled: false,
+        }}
+    >
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Checkbox} />

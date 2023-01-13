@@ -1,0 +1,44 @@
+import { Alert } from '../../../packages/components/src/index.ts';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+
+<Meta title="Components/Alert" component={Alert} />
+
+# Alert
+
+An alert displays a short and important message in a way that attracts the user attention.
+
+### Installation
+
+```bash
+npm install --save @stewed/alert
+```
+
+### Import
+
+```js
+import { Alert } from '@stewed/alert';
+```
+
+## Examples
+
+export const Template = (args) => <Alert {...args} />;
+
+### Default
+
+<Canvas>
+    <Story
+        name="Base"
+        args={{
+            skin: 'danger',
+            title: 'Are you absolutely sure?',
+            children:
+                'This action cannot be undone. This will permanently delete your account and remove your data from our servers.',
+        }}
+    >
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Alert} />

@@ -1,12 +1,6 @@
 {
     "name": "stewed",
     "private": true,
-    "workspaces": [
-        "packages/components/*",
-        "packages/eslint-preset",
-        "packages/tsconfig",
-        "docs"
-    ],
     "scripts": {
         "build": "turbo run build",
         "dev": "turbo run dev --no-cache --continue",
@@ -18,9 +12,9 @@
         "release": "turbo run build --filter=docs^... && changeset publish"
     },
     "devDependencies": {
+        "@stewed/lint": "workspace:0.0.0",
         "@changesets/cli": "^2.25.2",
         "eslint": "^8.29.0",
-        "@stewed/lint": "workspace:0.0.0",
         "prettier": "^2.8.0",
         "turbo": "latest"
     },

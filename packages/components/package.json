@@ -1,5 +1,5 @@
 {
-  "name": "@stewed/core",
+  "name": "@stewed/components",
   "version": "0.0.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
