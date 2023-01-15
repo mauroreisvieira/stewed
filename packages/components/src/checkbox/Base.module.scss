@@ -4,9 +4,16 @@
 
 @include theme.scope($checkbox-root) {
     --checkbox-border: #{map.get($checkbox-appearances-default, border)};
-    --checkbox-border-hover: #{map.get($checkbox-appearances-default, border-hover)};
-    --checkbox-border-checked: #{map.get($checkbox-appearances-default, border-checked)};
+    --checkbox-border-hover: #{map.get(
+            $checkbox-appearances-default,
+            border-hover
+        )};
+    --checkbox-border-checked: #{map.get(
+            $checkbox-appearances-default,
+            border-checked
+        )};
     --checkbox-size: #{map.get($checkbox-size, md)};
+    --checkbox-font-size: #{map.get($checkbox-font-size, md)};
     --checkbox-border-size: #{map.get($checkbox-border-size, md)};
 
     position: relative;
@@ -16,6 +23,7 @@
     justify-content: center;
     width: var(--checkbox-size);
     height: var(--checkbox-size);
+    font-size: var(--checkbox-font-size);
     border-radius: 50%;
     outline: 0;
     cursor: pointer;
@@ -40,13 +48,11 @@
     &:focus {
         &::before {
             transform: none;
-            opacity: .05;
+            opacity: 0.05;
         }
 
         #{$checkbox-root}__background {
-            &::before {
-                border-color: var(--checkbox-border-hover);
-            }
+            color: var(--checkbox-border-hover);
         }
     }
 
@@ -64,13 +70,14 @@
 
         &:checked {
             + .checkbox__background {
+              color: var(--checkbox-border-checked);
+
                 &::before {
-                    border-color: var(--checkbox-border-checked);
+                    background-color: var(--checkbox-border-checked);
                 }
 
-                &::after {
-                  transform: none;
-                  background-color: var(--checkbox-border-checked);
+                svg {
+                    transform: none;
                 }
             }
         }
@@ -86,6 +93,17 @@
         padding: 0;
         cursor: pointer;
         z-index: 0;
+        color: var(--checkbox-border);
+
+        svg {
+            @include theme.transition(transform);
+
+            width: 1em;
+            margin: auto;
+            fill: #fff;
+            transform: scale(0, 0);
+            z-index: 1;
+        }
 
         &::before {
             position: absolute;
@@ -98,25 +116,8 @@
             width: var(--checkbox-border-size);
             height: var(--checkbox-border-size);
             margin: auto;
-            border: 2px solid var(--checkbox-border);
+            border: 2px solid currentColor;
             border-radius: $checkbox-border-radius;
-            content: '';
-        }
-
-        &::after {
-            @include theme.transition(transform);
-
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            width: calc(var(--checkbox-border-size) / 2);
-            height: calc(var(--checkbox-border-size) / 2);
-            margin: auto;
-            transform: scale(0, 0);
-            border-radius: $checkbox-border-radius-check;
-            background: white;
             content: '';
         }
     }
@@ -128,11 +129,13 @@
     }
 
     &--sm {
+        --checkbox-font-size: #{map.get($checkbox-font-size, sm)};
         --checkbox-size: #{map.get($checkbox-size, sm)};
         --checkbox-border-size: #{map.get($checkbox-border-size, sm)};
     }
 
     &--lg {
+        --checkbox-font-size: #{map.get($checkbox-font-size, lg)};
         --checkbox-size: #{map.get($checkbox-size, lg)};
         --checkbox-border-size: #{map.get($checkbox-border-size, lg)};
     }

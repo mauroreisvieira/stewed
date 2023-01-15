@@ -179,7 +179,7 @@ $function: map.get($transition, timing-function);
 
 @mixin transition(
     $property,
-    $duration: map.get($duration, normal),
+    $duration: map.get($duration, quickly),
     $timing-function: map.get($function, accelerate),
     $delay: null
 ) {
