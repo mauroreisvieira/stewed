@@ -18,7 +18,7 @@ export const Alert = ({
 }: AlertProps): React.ReactElement => {
     const rootClassName = 'alert';
 
-    const computedClasses = {
+    const cssClasses = {
         root: classNames(
             styles[rootClassName],
             styles[`${rootClassName}--${skin}`],
@@ -29,9 +29,9 @@ export const Alert = ({
     };
 
     return (
-        <div className={computedClasses.root} role="alert">
-            {title && <div className={computedClasses.title}>{title}</div>}
-            <div className={computedClasses.body}>{children}</div>
+        <div className={cssClasses.root} role="alert">
+            {title && <div className={cssClasses.title}>{title}</div>}
+            <div className={cssClasses.body}>{children}</div>
         </div>
     );
 };

@@ -14,17 +14,19 @@ export const Textfield = React.forwardRef(
         ref: React.Ref<HTMLInputElement>
     ): React.ReactElement => {
         const rootClassName = 'textfield';
-        const computedClasses = classNames(
-            styles[rootClassName],
-            disabled && `${styles[rootClassName]}--disabled`,
-            skin !== 'default' && styles[`${rootClassName}--${skin}`],
-            className
-        );
+        const cssClasses = {
+            root: classNames(
+                styles[rootClassName],
+                disabled && `${styles[rootClassName]}--disabled`,
+                skin !== 'default' && styles[`${rootClassName}--${skin}`],
+                className
+            ),
+        };
 
         return (
             <input
                 ref={ref}
-                className={computedClasses}
+                className={cssClasses.root}
                 disabled={disabled}
                 {...otherProps}
             />

@@ -20,18 +20,24 @@ export const Button = React.forwardRef(
             size = 'md',
             disabled = false,
             children,
+            href,
+            className,
+            onClick,
             ...otherProps
         }: ButtonProps,
         ref: React.Ref<HTMLButtonElement & HTMLAnchorElement>
     ): React.ReactElement => {
         const rootClassName = 'button';
-        const { href, className, onClick } = otherProps;
-        const computedClasses = classNames(
-            styles[rootClassName],
-            styles[`${rootClassName}--${skin}`],
-            styles[`${rootClassName}--${size}`],
-            disabled && styles[`${rootClassName}--${disabled}`]
-        );
+        const cssClasses = {
+            root: classNames(
+                styles[rootClassName],
+                styles[`${rootClassName}--${skin}`],
+                styles[`${rootClassName}--${size}`],
+                disabled && styles[`${rootClassName}--${disabled}`],
+                className
+            ),
+        };
+
         let Tag = 'button';
 
         const handleClick = (
@@ -44,7 +50,7 @@ export const Button = React.forwardRef(
         let computedProps = {
             ...otherProps,
             ref,
-            className: computedClasses,
+            className: cssClasses.root,
             onClick: handleClick,
         };
 
