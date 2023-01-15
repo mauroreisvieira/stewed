@@ -1,0 +1,42 @@
+import { Badge } from '../../../packages/components/src/index.ts';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+
+<Meta title="Components/Badge" component={Badge} />
+
+# Badge
+
+A badge consists of a small circle notification element.
+
+### Installation
+
+```bash
+npm install --save @stewed/badge
+```
+
+### Import
+
+```js
+import { Badge } from '@stewed/badge';
+```
+
+## Examples
+
+export const Template = (args) => <Badge {...args} />;
+
+### Default
+
+<Canvas>
+    <Story
+        name="Base"
+        args={{
+            skin: 'success',
+            count: '99+'
+        }}
+    >
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Badge} />

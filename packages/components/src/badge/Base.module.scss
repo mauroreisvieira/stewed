@@ -1,5 +1,5 @@
-@use '@stewed/theme/scss' as theme;
-@use 'variables' as *;
+@use '../theme/scss' as theme;
+@use './variables' as *;
 
 @include theme.scope($badge-root) {
     --badge-size: #{$badge-size};

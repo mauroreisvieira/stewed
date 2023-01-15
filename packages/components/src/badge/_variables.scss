@@ -1,6 +1,6 @@
-@use 'sass:map';
 @use 'sass:math';
-@use '@stewed/theme/scss' as theme;
+@use 'sass:map';
+@use '../theme/scss' as theme;
 
 $badge-root: '.badge';
 
