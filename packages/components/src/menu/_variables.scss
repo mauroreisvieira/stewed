@@ -1,13 +1,13 @@
 @use 'sass:map';
-@use '@stewed/theme/scss' as theme;
+@use '../theme/scss' as theme;
 
 $menu-root: '.menu';
 
-$menu-inner-spacing-y: map.get(theme.$spacings, 'md');
+$menu-inner-spacing-block: map.get(theme.$spacings, 'md');
 
 // Menu Item
-$menu-item-inner-spacing-x: map.get(theme.$spacings, 'xl');
-$menu-item-inner-spacing-y: map.get(theme.$spacings, 'sm');
+$menu-item-inner-spacing-inline: map.get(theme.$spacings, 'xl');
+$menu-item-inner-spacing-block: map.get(theme.$spacings, 'sm');
 
 $menu-item-border-radius: map.get(theme.$radius, 'md');
 

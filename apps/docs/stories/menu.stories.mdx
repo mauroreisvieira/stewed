@@ -1,0 +1,57 @@
+import { Menu } from '../../../packages/components/src/index.ts';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+
+<Meta
+    title="Components/Menu"
+    argTypes={{ onClick: { action: 'clicked' } }}
+    component={Menu}
+/>
+
+# Menu
+
+Menu display a list of choices that can be selected.
+
+### Installation
+
+```bash
+npm install --save @stewed/components
+```
+
+### Import
+
+```js
+import { Menu } from '@stewed/components/menu';
+```
+
+## Examples
+
+export const Template = (args) => (
+    <Menu {...args}>
+        <Menu.Item>Menu 1</Menu.Item>
+        <Menu.Item selected>Menu 2</Menu.Item>
+        <Menu.Item>Menu 3</Menu.Item>
+        <Menu.Item>Menu 4</Menu.Item>
+        <Menu.Separator>Separator</Menu.Separator>
+        <Menu.Item>Menu 5</Menu.Item>
+    </Menu>
+);
+
+### Default
+
+<Canvas>
+    <Story
+        name="Base"
+        args={{
+            disabled: false,
+            size: 'md',
+            skin: 'primary',
+            children: 'Menu',
+        }}
+    >
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Menu} />
