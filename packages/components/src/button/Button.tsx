@@ -1,12 +1,16 @@
-import * as React from 'react';
-import { classNames } from '@stewed/utils';
+import React, { forwardRef } from 'react';
+import {
+    classNames,
+    PolymorphicPropsWithRef,
+    PolymorphicForwardRefExoticComponent,
+} from '@stewed/utils';
 
 import styles from './Base.module.scss';
 
-type ButtonType = React.ButtonHTMLAttributes<HTMLButtonElement> &
-    React.AnchorHTMLAttributes<HTMLAnchorElement>;
+const defaultElement = 'button';
 
-export interface ButtonProps extends ButtonType {
+export interface ButtonBaseProps
+    extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     /** Change the visual style of the button. */
     skin?: 'primary' | 'secondary' | 'danger';
     /** Changes the size of the button, giving it more or less padding. */
@@ -18,6 +22,9 @@ export interface ButtonProps extends ButtonType {
     /** The content to display inside the button. */
     children: React.ReactNode;
 }
+
+export type ButtonProps<T extends React.ElementType = typeof defaultElement> =
+    PolymorphicPropsWithRef<ButtonBaseProps, T>;
 
 /**
  * This component displays an button component.
@@ -32,19 +39,20 @@ export interface ButtonProps extends ButtonType {
  * @remarks This component is a polymorphic component can be rendered as a different element
  * and support all native props from the element passed on `as` prop.
  */
-export const Button = React.forwardRef(
-    (
+export const Button: PolymorphicForwardRefExoticComponent<
+    ButtonProps,
+    typeof defaultElement
+> = forwardRef(
+    <T extends React.ElementType = typeof defaultElement>(
         {
             skin = 'primary',
             size = 'md',
-            disabled = false,
             children,
-            href,
             className,
-            onClick,
+            as,
             ...otherProps
-        }: ButtonProps,
-        ref: React.Ref<HTMLButtonElement & HTMLAnchorElement>
+        }: PolymorphicPropsWithRef<ButtonProps, T>,
+        ref: React.ComponentPropsWithRef<T>['ref']
     ): React.ReactElement => {
         const rootClassName = 'button';
         const cssClasses = {
@@ -52,46 +60,18 @@ export const Button = React.forwardRef(
                 styles[rootClassName],
                 styles[`${rootClassName}--${skin}`],
                 styles[`${rootClassName}--${size}`],
-                disabled && styles[`${rootClassName}--${disabled}`],
+                otherProps.disabled &&
+                    styles[`${rootClassName}--${otherProps.disabled}`],
                 className
             ),
         };
+        const ComputedTag = as || defaultElement;
 
-        let Tag = 'button';
-
-        const handleClick = (
-            event: React.MouseEvent<HTMLButtonElement>
-        ): void => {
-            if (disabled) return;
-            if (onClick) onClick(event);
-        };
-
-        let computedProps = {
-            ...otherProps,
-            ref,
-            className: cssClasses.root,
-            onClick: handleClick,
-        };
-
-        if (href) {
-            Tag = 'a';
-            computedProps = {
-                ...computedProps,
-                ...{
-                    tabIndex: disabled ? -1 : undefined,
-                    href,
-                },
-            };
-        } else {
-            computedProps = {
-                ...computedProps,
-                ...{
-                    disabled,
-                },
-            };
-        }
-
-        return <Tag {...computedProps}>{children}</Tag>;
+        return (
+            <ComputedTag ref={ref} className={cssClasses.root} {...otherProps}>
+                {children}
+            </ComputedTag>
+        );
     }
 );
 

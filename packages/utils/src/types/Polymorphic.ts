@@ -1,7 +1,10 @@
 import React from 'react';
-import { Merge } from "./Merge";
+import { Merge } from './merge';
 
-type PropsWithAs<P, T extends React.ElementType> = P & { as?: T };
+type PropsWithAs<P, T extends React.ElementType> = P & {
+    /** Allow component render with different HTML tag. */
+    as?: T;
+};
 
 export type PolymorphicPropsWithoutRef<P, T extends React.ElementType> = Merge<
     T extends keyof JSX.IntrinsicElements

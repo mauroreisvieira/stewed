@@ -18,6 +18,7 @@
   "devDependencies": {
     "@stewed/tsconfig": "workspace:*",
     "@stewed/lint": "workspace:*",
+    "@types/react": "^18.0.9",
     "eslint": "^8.15.0",
     "react": "^18.1.0",
     "tsup": "^5.10.1",

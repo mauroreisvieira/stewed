@@ -19,6 +19,7 @@
     user-select: none;
     vertical-align: top;
     touch-action: manipulation;
+    text-decoration: none;
 
     &:hover {
         background-color: var(--button-background-hover);

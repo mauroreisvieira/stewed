@@ -43,6 +43,22 @@ export const Template = (args) => <Button {...args} />;
     </Story>
 </Canvas>
 
+### Polymorphic
+
+<Canvas>
+    <Story
+        name="Polymorphic"
+        args={{
+            as: 'a',
+            href: '#',
+            skin: "secondary",
+            children: 'Button',
+        }}
+    >
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
 ## Props
 
 <ArgsTable of={Button} />
