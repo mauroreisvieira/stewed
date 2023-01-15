@@ -7,12 +7,31 @@ type ButtonType = React.ButtonHTMLAttributes<HTMLButtonElement> &
     React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
 export interface ButtonProps extends ButtonType {
+    /** Change the visual style of the button. */
     skin?: 'primary' | 'secondary' | 'danger';
+    /** Changes the size of the button, giving it more or less padding. */
     size?: 'sm' | 'md' | 'lg';
+    /** Allows the button to grow to the width of its container. */
+    fullWidth?: boolean;
+    /** Disables the button, disallowing merchant interaction. */
     disabled?: boolean;
+    /** The content to display inside the button. */
     children: React.ReactNode;
 }
 
+/**
+ * This component displays an button component.
+ * Use button for the main actions on a page or form.
+ *
+ * @example
+ * ```tsx
+ * <Button skin="secondary">Button</Button>
+ * ```
+ *
+ * @param props - ButtonProps
+ * @remarks This component is a polymorphic component can be rendered as a different element
+ * and support all native props from the element passed on `as` prop.
+ */
 export const Button = React.forwardRef(
     (
         {
