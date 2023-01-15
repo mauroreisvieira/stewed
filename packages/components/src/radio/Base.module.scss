@@ -1,6 +1,6 @@
 @use 'sass:map';
-@use '@stewed/theme/scss' as theme;
-@use 'variables' as *;
+@use '../theme/scss' as theme;
+@use './variables' as *;
 
 @include theme.scope($radio-root) {
     --radio-border: #{map.get($radio-appearances-default, border)};
