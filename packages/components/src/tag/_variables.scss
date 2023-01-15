@@ -1,11 +1,11 @@
 @use 'sass:map';
 @use 'sass:math';
-@use '@stewed/theme/scss' as theme;
+@use '../theme/scss' as theme;
 
 $tag-root: '.tag';
 
 $tag-color: #fff;
-$tag-border-radius: map.get(theme.$radius, 'xl');
+$tag-border-radius: map.get(theme.$radius, 'md');
 
 $tag-title-font-weight: map.get(theme.$font-weight, 'medium');
 $tag-body-font-size: map.get(theme.$font-size, 'xs');

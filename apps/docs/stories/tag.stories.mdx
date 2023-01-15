@@ -1,0 +1,43 @@
+import { Tag } from '../../../packages/components/src/index.ts';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+
+<Meta title="Components/Tag" component={Tag} />
+
+# Tag
+
+Tag components add contextual metadata to a design.
+
+### Installation
+
+```bash
+npm install --save @stewed/tag
+```
+
+### Import
+
+```js
+import { Tag } from '@stewed/tag';
+```
+
+## Examples
+
+export const Template = (args) => <Tag {...args} />;
+
+### Default
+
+<Canvas>
+    <Story
+        name="Base"
+        args={{
+            skin: 'primary',
+            size: 'md',
+            children: 'Wholesale',
+        }}
+    >
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Tag} />
