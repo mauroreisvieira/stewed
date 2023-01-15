@@ -58,6 +58,10 @@
         --button-font-size: #{map.get($button-font-sizes, 'lg')};
     }
 
+    &--fullWidth {
+      width: 100%;
+    }
+
     @each $key, $value in $button-appearances {
         &--#{$key} {
             --button-background: #{theme.get-color($value)};

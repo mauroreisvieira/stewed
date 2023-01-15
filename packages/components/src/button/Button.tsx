@@ -47,9 +47,10 @@ export const Button: PolymorphicForwardRefExoticComponent<
         {
             skin = 'primary',
             size = 'md',
-            children,
-            className,
             as,
+            fullWidth,
+            className,
+            children,
             ...otherProps
         }: PolymorphicPropsWithRef<ButtonProps, T>,
         ref: React.ComponentPropsWithRef<T>['ref']
@@ -60,6 +61,7 @@ export const Button: PolymorphicForwardRefExoticComponent<
                 styles[rootClassName],
                 styles[`${rootClassName}--${skin}`],
                 styles[`${rootClassName}--${size}`],
+                fullWidth && styles[`${rootClassName}--fullWidth`],
                 otherProps.disabled &&
                     styles[`${rootClassName}--${otherProps.disabled}`],
                 className
