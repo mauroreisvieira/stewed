@@ -10,7 +10,7 @@ $tag-border-radius: map.get(theme.$radius, 'md');
 $tag-title-font-weight: map.get(theme.$font-weight, 'medium');
 $tag-body-font-size: map.get(theme.$font-size, 'xs');
 
-$tag-appearances: (
+$tag-skins: (
     'primary': primary,
     'secondary': secondary,
     'info': blue,

@@ -18,13 +18,13 @@ $radio-border-size: (
     'lg': map.get(theme.$spacings, 'xs') * 12
 );
 
-$radio-appearances-default: (
+$radio-skins-default: (
     'border': theme.get-color(secondary, 300),
     'border-hover': theme.get-color(secondary, 600),
     'border-checked': theme.get-color(primary, 500)
 );
 
-$radio-appearances: (
+$radio-skins: (
     'danger': (
         'border-checked': theme.get-color(red, 500)
     )

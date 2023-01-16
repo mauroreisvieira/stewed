@@ -21,7 +21,11 @@ import { Badge } from '@stewed/react';
 
 ## Examples
 
-export const Template = (args) => <Badge {...args} />;
+export const Template = (args) => (
+    <Badge {...args}>
+        <div style={{ width: 50, height: 50, backgroundColor: '#ddd' }} />
+    </Badge>
+);
 
 ### Default
 
@@ -29,9 +33,8 @@ export const Template = (args) => <Badge {...args} />;
     <Story
         name="Base"
         args={{
-            skin: 'success',
+            skin: 'primary',
             count: '99+',
-            children: <button>Button</button>
         }}
     >
         {Template.bind({})}

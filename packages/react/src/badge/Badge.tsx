@@ -17,10 +17,12 @@ export const Badge = ({
     children,
 }: BadgeProps): React.ReactElement => {
     const rootClassName = 'badge';
+
     const cssClasses = {
         root: classNames(
             styles[rootClassName],
             styles[`${rootClassName}--${skin}`],
+            count && count.length > 2 && styles[`${rootClassName}--padded`],
             className
         ),
         count: styles[`${rootClassName}__count`],

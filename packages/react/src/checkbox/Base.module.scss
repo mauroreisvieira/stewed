@@ -3,13 +3,13 @@
 @use './variables' as *;
 
 @include theme.scope($checkbox-root) {
-    --checkbox-border: #{map.get($checkbox-appearances-default, border)};
+    --checkbox-border: #{map.get($checkbox-skins-default, border)};
     --checkbox-border-hover: #{map.get(
-            $checkbox-appearances-default,
+            $checkbox-skins-default,
             border-hover
         )};
     --checkbox-border-checked: #{map.get(
-            $checkbox-appearances-default,
+            $checkbox-skins-default,
             border-checked
         )};
     --checkbox-size: #{map.get($checkbox-size, md)};
@@ -132,7 +132,7 @@
         --checkbox-border-size: #{map.get($checkbox-border-size, lg)};
     }
 
-    @each $key, $value in $checkbox-appearances {
+    @each $key, $value in $checkbox-skins {
         &--#{$key} {
             --checkbox-border-checked: #{map.get($value, border-checked)};
         }

@@ -9,7 +9,7 @@ $alert-border-radius: map.get(theme.$radius, 'md');
 $alert-title-font-weight: map.get(theme.$font-weight, 'semibold');
 $alert-body-font-size: map.get(theme.$font-size, 'sm');
 
-$alert-appearances: (
+$alert-skins: (
     'info': blue,
     'success': green,
     'warning': yellow,

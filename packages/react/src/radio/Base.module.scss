@@ -3,9 +3,9 @@
 @use './variables' as *;
 
 @include theme.scope($radio-root) {
-    --radio-border: #{map.get($radio-appearances-default, border)};
-    --radio-border-hover: #{map.get($radio-appearances-default, border-hover)};
-    --radio-border-checked: #{map.get($radio-appearances-default, border-checked)};
+    --radio-border: #{map.get($radio-skins-default, border)};
+    --radio-border-hover: #{map.get($radio-skins-default, border-hover)};
+    --radio-border-checked: #{map.get($radio-skins-default, border-checked)};
     --radio-size: #{map.get($radio-size, md)};
     --radio-border-size: #{map.get($radio-border-size, md)};
 
@@ -139,7 +139,7 @@
         --radio-border-size: #{map.get($radio-border-size, lg)};
     }
 
-    @each $key, $value in $radio-appearances {
+    @each $key, $value in $radio-skins {
         &--#{$key} {
             --radio-border-checked: #{map.get($value, border-checked)};
         }

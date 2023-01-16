@@ -5,12 +5,12 @@
 $badge-root: '.badge';
 
 $badge-color: #fff;
-$badge-border-radius: map.get(theme.$radius, 'xl');
+$badge-border-radius: map.get(theme.$radius, xl);
 
-$badge-font-weight: map.get(theme.$font-weight, 'medium');
-$badge-font-size: map.get(theme.$font-size, 'xs');
+$badge-font-weight: map.get(theme.$font-weight, medium);
+$badge-font-size: map.get(theme.$font-size, xxs);
 
-$badge-appearances: (
+$badge-skins: (
     'primary': primary,
     'secondary': secondary,
     'info': blue,
@@ -19,8 +19,8 @@ $badge-appearances: (
     'danger': red,
 );
 
-$badge-inner-spacing-x: map.get(theme.$spacings, 'sm');
+$badge-inner-spacing-inline: map.get(theme.$spacings, xs) * 2;
 
-$badge-size: map.get(theme.$spacings, 'xs') * 10;
+$badge-size: map.get(theme.$spacings, xs) * 10;
 
-$badge-dot-size: map.get(theme.$spacings, 'md');
+$badge-dot-size: map.get(theme.$spacings, md);

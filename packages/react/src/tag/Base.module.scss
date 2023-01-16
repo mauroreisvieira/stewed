@@ -38,7 +38,7 @@
         --tag-font-size: #{map.get($tag-font-sizes, 'md')};
     }
 
-    @each $key, $value in $tag-appearances {
+    @each $key, $value in $tag-skins {
         &--#{$key} {
             --tag-background: #{theme.get-color($value, 500)};
 

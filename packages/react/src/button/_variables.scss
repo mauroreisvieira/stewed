@@ -6,7 +6,7 @@ $button-root: '.button';
 $button-color: #fff;
 $button-border-radius: map.get(theme.$radius, 'md');
 
-$button-appearances: (
+$button-skins: (
     'primary': primary,
     'secondary': secondary,
     'danger': red,

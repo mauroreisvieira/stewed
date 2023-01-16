@@ -27,13 +27,13 @@ $checkbox-border-size: (
 $checkbox-border-radius: map.get(theme.$radius, 'md');
 $checkbox-border-radius-check: map.get(theme.$radius, 'xs');
 
-$checkbox-appearances-default: (
+$checkbox-skins-default: (
     'border': theme.get-color(secondary, 300),
     'border-hover': theme.get-color(secondary, 600),
     'border-checked': theme.get-color(primary, 500)
 );
 
-$checkbox-appearances: (
+$checkbox-skins: (
     'danger': (
         'border-checked': theme.get-color(red, 500)
     )

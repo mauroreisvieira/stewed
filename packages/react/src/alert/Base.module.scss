@@ -23,7 +23,7 @@
         font-size: $alert-body-font-size;
     }
 
-    @each $key, $value in $alert-appearances {
+    @each $key, $value in $alert-skins {
         &--#{$key} {
             --alert-background: #{theme.get-color($value, 100)};
             --alert-title-color: #{theme.get-color($value, 900)};

@@ -39,7 +39,7 @@
             --menu-item-background: #{$menu-item-background-active};
         }
 
-        @each $key, $value in $menu-item-appearances {
+        @each $key, $value in $menu-item-skins {
             &--#{$key} {
                 --menu-item-background: #{theme.get-color($value, 50)};
                 --menu-item-color: #{theme.get-color($value, 600)};

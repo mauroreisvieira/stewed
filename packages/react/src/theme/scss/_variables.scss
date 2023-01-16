@@ -113,6 +113,7 @@ $default-config: (
         ),
     ),
     font-size: (
+        xxs: func.rem(10),
         xs: func.rem(12),
         sm: func.rem(14),
         base: func.rem(16),

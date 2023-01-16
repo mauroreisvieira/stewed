@@ -6,12 +6,12 @@ $input-root: '.input';
 // Appearance
 $input-border-radius: map.get(theme.$radius, 'md');
 
-$input-appearances-default: (
+$input-skins-default: (
     'border': theme.get-color(secondary, 300),
     'border-hover': theme.get-color(secondary, 400),
 );
 
-$input-appearances: (
+$input-skins: (
     'success': (
         'border': theme.get-color(green, 500),
         'border-hover': theme.get-color(green, 600),

@@ -13,6 +13,7 @@
     border-radius: $button-border-radius;
     background-color: var(--button-background);
     color: $button-color;
+    font-family: inherit;
     font-size: var(--button-font-size);
     font-weight: $button-font-weight;
     cursor: pointer;
@@ -62,7 +63,7 @@
       width: 100%;
     }
 
-    @each $key, $value in $button-appearances {
+    @each $key, $value in $button-skins {
         &--#{$key} {
             --button-background: #{theme.get-color($value)};
             --button-background-hover: #{theme.get-color($value, 600)};

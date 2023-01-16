@@ -12,12 +12,11 @@
         top: 0;
         right: 0;
         display: inline-flex;
-        align-content: center;
         align-items: center;
         justify-content: center;
         min-width: var(--badge-size);
         height: var(--badge-size);
-        padding: 0 $badge-inner-spacing-x;
+        padding-block: 0;
         transform: translate(50%, -50%);
         border-radius: $badge-border-radius;
         background-color: var(--badge-background);
@@ -25,7 +24,6 @@
         font-size: $badge-font-size;
         font-weight: $badge-font-weight;
         white-space: nowrap;
-        z-index: 2;
 
         &:empty {
             --badge-size: #{$badge-dot-size};
@@ -34,9 +32,15 @@
         }
     }
 
-    @each $key, $value in $badge-appearances {
+    @each $key, $value in $badge-skins {
         &--#{$key} {
             --badge-background: #{theme.get-color($value, 500)};
+        }
+    }
+
+    &--padded {
+        #{$badge-root}__count {
+            padding-inline: $badge-inner-spacing-inline;
         }
     }
 }

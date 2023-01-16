@@ -3,8 +3,8 @@
 @use './variables' as *;
 
 @include theme.scope($input-root) {
-    --input-border: #{map.get($input-appearances-default, border)};
-    --input-border-hover: #{map.get($input-appearances-default, border-hover)};
+    --input-border: #{map.get($input-skins-default, border)};
+    --input-border-hover: #{map.get($input-skins-default, border-hover)};
 
     position: relative;
     display: inline-flex;
@@ -33,7 +33,7 @@
         pointer-events: none;
     }
 
-    @each $key, $value in $input-appearances {
+    @each $key, $value in $input-skins {
         &--#{$key} {
             --input-border: #{map.get($value, border)};
             --input-border-hover: #{map.get($value, border-hover)};
