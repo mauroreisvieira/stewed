@@ -1,0 +1,43 @@
+import { Progress } from '../../../packages/react/src';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+
+<Meta title="Components/Progress" component={Progress} />
+
+# Progress
+
+Bar displaying progress for a task that takes a long time or consists of several steps.
+
+### Installation
+
+```bash
+npm install --save @stewed/react
+```
+
+### Import
+
+```js
+import { Progress } from '@stewed/react';
+```
+
+## Examples
+
+export const Template = (args) => <Progress {...args} />;
+
+### Default
+
+<Canvas>
+    <Story
+        name="Base"
+        args={{
+            skin: 'primary',
+            size: 'md',
+            value: 50,
+        }}
+    >
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Progress} />
