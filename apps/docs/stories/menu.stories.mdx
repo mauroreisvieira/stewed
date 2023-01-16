@@ -32,24 +32,14 @@ export const Template = (args) => (
         <Menu.Item>Menu 3</Menu.Item>
         <Menu.Item>Menu 4</Menu.Item>
         <Menu.Separator>Separator</Menu.Separator>
-        <Menu.Item>Menu 5</Menu.Item>
+        <Menu.Item skin="danger">Menu 5</Menu.Item>
     </Menu>
 );
 
 ### Default
 
 <Canvas>
-    <Story
-        name="Base"
-        args={{
-            disabled: false,
-            size: 'md',
-            skin: 'primary',
-            children: 'Menu',
-        }}
-    >
-        {Template.bind({})}
-    </Story>
+    <Story name="Base">{Template.bind({})}</Story>
 </Canvas>
 
 ## Props
