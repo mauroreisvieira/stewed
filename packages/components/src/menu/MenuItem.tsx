@@ -21,7 +21,7 @@ export const MenuItem = ({
     const cssClasses = {
         root: classNames(
             styles[rootClassName],
-            skin !== 'default' && `${rootClassName}--${skin}`,
+            skin !== 'default' && styles[`${rootClassName}--${skin}`],
             selected && styles[`${rootClassName}--selected`],
             disabled && styles[`${rootClassName}--disabled`],
             className
