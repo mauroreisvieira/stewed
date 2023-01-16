@@ -7,7 +7,7 @@ $tag-root: '.tag';
 $tag-color: #fff;
 $tag-border-radius: map.get(theme.$radius, 'md');
 
-$tag-title-font-weight: map.get(theme.$font-weight, 'medium');
+$tag-title-font-weight: map.get(theme.$font-weight, 'regular');
 $tag-body-font-size: map.get(theme.$font-size, 'xs');
 
 $tag-skins: (

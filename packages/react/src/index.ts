@@ -7,3 +7,4 @@ export { Menu, type MenuProps } from "./menu";
 export { Progress, type ProgressProps } from "./progress";
 export { Radio, type RadioProps } from "./radio";
 export { Tag, type TagProps } from "./tag";
+export { Typography, type TypographyProps } from "./typography";

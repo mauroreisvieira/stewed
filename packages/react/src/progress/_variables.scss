@@ -4,7 +4,7 @@
 
 $progress-root: '.progress';
 
-$progress-background: theme.get-color(gray, 100);
+$progress-background: theme.get-color(gray, 50);
 $progress-border-radius: map.get(theme.$radius, 'xl');
 
 $progress-sizes: (

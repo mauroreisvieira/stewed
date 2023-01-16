@@ -28,7 +28,9 @@ export type ButtonProps<T extends React.ElementType = typeof defaultElement> =
 
 /**
  * This component displays an button component.
- * Use button for the main actions on a page or form.
+ * Button component is used to trigger an action or event,
+ * such as submitting a form, opening a Dialog, canceling an action,
+ * or performing a delete operation.
  *
  * @example
  * ```tsx
