@@ -1,31 +1,31 @@
-import { Textfield } from '../../../packages/components/src/index.ts';
+import { Input } from '../../../packages/react/src';
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 
 <Meta
-    title="Components/Textfield"
+    title="Components/Input"
     argTypes={{ onChange: { action: 'change' } }}
-    component={Textfield}
+    component={Input}
 />
 
-# Textfield
+# Input
 
-A textfield is an input that allows a user to write or edit text.
+A Input is an input that allows a user to write or edit text.
 
 ### Installation
 
 ```bash
-npm install --save @stewed/components
+npm install --save @stewed/react
 ```
 
 ### Import
 
 ```js
-import { Textfield } from '@stewed/components/textfield';
+import { Input } from '@stewed/react';
 ```
 
 ## Examples
 
-export const Template = (args) => <Textfield {...args} />;
+export const Template = (args) => <Input {...args} />;
 
 ### Default
 
@@ -45,4 +45,4 @@ export const Template = (args) => <Textfield {...args} />;
 
 ## Props
 
-<ArgsTable of={Textfield} />
+<ArgsTable of={Input} />

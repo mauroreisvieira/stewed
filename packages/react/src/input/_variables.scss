@@ -1,17 +1,17 @@
 @use 'sass:map';
 @use '../theme/scss' as theme;
 
-$textfield-root: '.textfield';
+$input-root: '.input';
 
 // Appearance
-$textfield-border-radius: map.get(theme.$radius, 'md');
+$input-border-radius: map.get(theme.$radius, 'md');
 
-$textfield-appearances-default: (
+$input-appearances-default: (
     'border': theme.get-color(secondary, 300),
     'border-hover': theme.get-color(secondary, 400),
 );
 
-$textfield-appearances: (
+$input-appearances: (
     'success': (
         'border': theme.get-color(green, 500),
         'border-hover': theme.get-color(green, 600),
@@ -27,12 +27,12 @@ $textfield-appearances: (
 );
 
 // States
-$textfield-disabled: theme.$disabled;
+$input-disabled: theme.$disabled;
 
 // Font
-$textfield-font-weight: map.get(theme.$font-weight, 'regular');
-$textfield-font-size: map.get(theme.$font-size, 'base');
+$input-font-weight: map.get(theme.$font-weight, 'regular');
+$input-font-size: map.get(theme.$font-size, 'base');
 
 // Spacing's
-$textfield-sizes: map.get(theme.$spacings, 'md') * 5;
-$textfield-spacings: map.get(theme.$spacings, 'md') * 2;
+$input-sizes: map.get(theme.$spacings, 'md') * 5;
+$input-spacings: map.get(theme.$spacings, 'md') * 2;

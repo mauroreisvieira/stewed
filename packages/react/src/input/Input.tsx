@@ -3,17 +3,17 @@ import { classNames } from '@stewed/utils';
 
 import styles from './Base.module.scss';
 
-export interface TextfieldProps
+export interface InputProps
     extends React.InputHTMLAttributes<HTMLInputElement> {
     skin?: 'default' | 'error' | 'success' | 'warning';
 }
 
-export const Textfield = React.forwardRef(
+export const Input = React.forwardRef(
     (
-        { skin, className, disabled, ...otherProps }: TextfieldProps,
+        { skin, className, disabled, ...otherProps }: InputProps,
         ref: React.Ref<HTMLInputElement>
     ): React.ReactElement => {
-        const rootClassName = 'textfield';
+        const rootClassName = 'input';
         const cssClasses = {
             root: classNames(
                 styles[rootClassName],
@@ -34,4 +34,4 @@ export const Textfield = React.forwardRef(
     }
 );
 
-Textfield.displayName = 'Textfield';
+Input.displayName = 'Input';
