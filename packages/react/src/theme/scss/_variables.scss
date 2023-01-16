@@ -117,7 +117,12 @@ $default-config: (
         xs: func.rem(12),
         sm: func.rem(14),
         base: func.rem(16),
-        lg: func.rem(18),
+        md: func.rem(24),
+        lg: func.rem(28),
+        xl: func.rem(34),
+        xxl: func.rem(40),
+        hg: func.rem(44),
+        xhg: func.rem(52),
     ),
     font-weight: (
         thin: 100,

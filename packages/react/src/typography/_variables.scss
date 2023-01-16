@@ -1,0 +1,73 @@
+@use 'sass:map';
+@use '../theme/scss' as theme;
+
+$typography-root: '.typography';
+
+$typography-sizes: (
+    headline-1: (
+        --typography-font-size: map.get(theme.$font-size, xhg),
+        --typography-font-weight: map.get(theme.$font-weight, bold),
+        --typography-line-height: 1.5,
+        --typography-color: theme.get-color(gray, 900),
+        --typography-margin-top: map.get(theme.$spacings, xl),
+        --typography-margin-bottom: map.get(theme.$spacings, lg)
+    ),
+    headline-2: (
+        --typography-font-size: map.get(theme.$font-size, hg),
+        --typography-font-weight: map.get(theme.$font-weight, bold),
+        --typography-color: theme.get-color(gray, 900),
+        --typography-line-height: 1.5,
+        --typography-margin-top: map.get(theme.$spacings, xl),
+        --typography-margin-bottom: map.get(theme.$spacings, lg)
+    ),
+    headline-3: (
+        --typography-font-size: map.get(theme.$font-size, xxl),
+        --typography-font-weight: map.get(theme.$font-weight, medium),
+        --typography-color: theme.get-color(gray, 900),
+        --typography-line-height: 1.5,
+        --typography-margin-top: map.get(theme.$spacings, xl),
+        --typography-margin-bottom: map.get(theme.$spacings, lg)
+    ),
+    headline-4: (
+        --typography-font-size: map.get(theme.$font-size, xl),
+        --typography-font-weight: map.get(theme.$font-weight, medium),
+        --typography-color: theme.get-color(gray, 900),
+        --typography-line-height: 1.5,
+        --typography-margin-top: map.get(theme.$spacings, xl),
+        --typography-margin-bottom: map.get(theme.$spacings, lg)
+    ),
+    headline-5: (
+        --typography-font-size: map.get(theme.$font-size, lg),
+        --typography-font-weight: map.get(theme.$font-weight, medium),
+        --typography-color: theme.get-color(gray, 900),
+        --typography-line-height: 1.5,
+        --typography-margin-top: map.get(theme.$spacings, xl),
+        --typography-margin-bottom: map.get(theme.$spacings, lg)
+    ),
+    headline-6: (
+        --typography-font-size: map.get(theme.$font-size, md),
+        --typography-font-weight: map.get(theme.$font-weight, bold),
+        --typography-color: theme.get-color(gray, 900),
+        --typography-line-height: 1.5,
+        --typography-margin-top: map.get(theme.$spacings, xl),
+        --typography-margin-bottom: map.get(theme.$spacings, lg)
+    ),
+    base: (
+        --typography-font-size: map.get(theme.$font-size, base),
+        --typography-font-weight: map.get(theme.$font-weight, regular),
+        --typography-color: theme.get-color(gray, 900),
+        line-height: 1.4
+    ),
+    link: (
+        --typography-font-size: map.get(theme.$font-size, base),
+        --typography-font-weight: map.get(theme.$font-weight, regular),
+        --typography-color: theme.get-color(primary),
+        line-height: 1.4
+    )
+);
+
+$typography-skins: (
+    'primary': theme.get-color(primary),
+    'secondary': theme.get-color(secondary),
+    'danger': theme.get-color(red)
+);

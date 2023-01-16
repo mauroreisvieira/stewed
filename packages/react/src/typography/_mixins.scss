@@ -1,0 +1,14 @@
+@use 'sass:map';
+@use './variables' as *;
+
+@mixin typography($style) {
+  $style-props: map.get($typography-sizes, $style);
+
+  @if not map.has-key($typography-sizes, $style) {
+    @error "Invalid typography specified! #{$style} doesn't exist. Choose one of #{map.keys($typography-sizes)}";
+  }
+
+  @each $key, $value in $style-props {
+    #{$key}: $value;
+  }
+}

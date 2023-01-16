@@ -1,0 +1,33 @@
+@use 'sass:map';
+@use '../theme/scss' as theme;
+@use './variables' as *;
+@use './mixins' as mix;
+
+@include theme.scope($typography-root) {
+    margin-top: var(--typography-margin-top);
+    margin-bottom: var(--typography-margin-bottom);
+    color: var(--typography-color);
+    font-size: var(--typography-font-size);
+    font-weight: var(--typography-font-weight);
+    line-height: var(--typography-line-height);
+    text-decoration: none;
+    vertical-align: baseline;
+
+    &[href] {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    @each $key, $value in $typography-sizes {
+        &--#{$key} {
+            @include mix.typography($key);
+        }
+    }
+
+    @each $key, $value in $typography-skins {
+        &--#{$key} {
+            --typography-color: #{$value};
+        }
+    }
+}

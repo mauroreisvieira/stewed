@@ -1,0 +1,75 @@
+import { Typography } from '../../../packages/react/src';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+
+<Meta title="Components/Typography" component={Typography} />
+
+# Typography
+
+Typography is the used to render headings and paragraphs within an interface.
+
+### Installation
+
+```bash
+npm install --save @stewed/react
+```
+
+### Import
+
+```js
+import { Typography } from '@stewed/react';
+```
+
+## Examples
+
+export const Template = (args) => <Typography {...args} />;
+
+### Default
+
+<Canvas>
+    <Story
+        name="Base"
+        args={{
+            as: 'p',
+            size: 'h1',
+            skin: 'default',
+            children: 'Aa',
+        }}
+    >
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+### Heading
+
+<Canvas>
+    <Story name="Heading">
+        <Typography as="h1">Heading 1</Typography>
+        <Typography as="h2">Heading 2</Typography>
+        <Typography as="h3">Heading 3</Typography>
+        <Typography as="h4">Heading 4</Typography>
+        <Typography as="h5">Heading 5</Typography>
+        <Typography as="h6">Heading 6</Typography>
+    </Story>
+</Canvas>
+
+### Paragraph
+
+<Canvas>
+    <Story name="Paragraph">
+        <Typography>Lorem ipsum, dolor sit amet consectetur adipisicing elit</Typography>
+    </Story>
+</Canvas>
+
+### Anchor
+
+<Canvas>
+    <Story name="Anchor">
+        <Typography as="a" href="/">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit
+        </Typography>
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Typography} />
