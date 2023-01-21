@@ -18,6 +18,7 @@ const SizeMap = {
     h6: 'headline-6',
     a: 'link',
     p: 'base',
+    small: 'small',
 };
 
 interface TypographyOwnProps

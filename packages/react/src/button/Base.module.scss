@@ -3,24 +3,24 @@
 @use './variables' as *;
 
 @include theme.scope($button-root) {
+    @include theme.button-base();
+
     position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     height: var(--button-size);
     padding: 0 var(--button-spacing);
-    border: none;
     border-radius: $button-border-radius;
     background-color: var(--button-background);
     color: $button-color;
     font-family: inherit;
     font-size: var(--button-font-size);
     font-weight: $button-font-weight;
-    cursor: pointer;
     user-select: none;
-    vertical-align: top;
     touch-action: manipulation;
-    text-decoration: none;
+
+    @include theme.focus-styles();
 
     &:hover {
         background-color: var(--button-background-hover);
@@ -30,16 +30,7 @@
         background-color: var(--button-background-active);
     }
 
-    &:focus {
-        outline: 0px solid transparent;
-        box-shadow: #fff 0 0 0 2px, #{theme.get-color("primary")} 0 0 0 4px;
-    }
-
-    &:disabled,
-    &--disabled {
-        opacity: $button-disabled;
-        pointer-events: none;
-    }
+    @include theme.disabled-styles();
 
     &--sm {
         --button-size: #{map.get($button-sizes, 'sm')};
@@ -60,7 +51,7 @@
     }
 
     &--fullWidth {
-      width: 100%;
+        width: 100%;
     }
 
     @each $key, $value in $button-skins {

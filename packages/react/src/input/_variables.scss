@@ -26,9 +26,6 @@ $input-skins: (
     ),
 );
 
-// States
-$input-disabled: theme.$disabled;
-
 // Font
 $input-font-weight: map.get(theme.$font-weight, 'regular');
 $input-font-size: map.get(theme.$font-size, 'base');

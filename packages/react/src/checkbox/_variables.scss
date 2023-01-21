@@ -3,9 +3,6 @@
 
 $checkbox-root: '.checkbox';
 
-// States
-$checkbox-disabled: theme.$disabled;
-
 $checkbox-size: (
     'sm': map.get(theme.$spacings, 'xs') * 19,
     'md': map.get(theme.$spacings, 'xs') * 20,

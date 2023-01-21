@@ -7,28 +7,22 @@
     --menu-item-color: inherit;
 
     width: 100%;
-    list-style: none;
-    margin: 0px;
     padding: $menu-inner-spacing-block 0px;
     position: relative;
 
     &__item {
+          @include theme.button-base();
+
         position: relative;
         display: flex;
         align-items: center;
         justify-content: flex-start;
+        width: 100%;
         padding: $menu-item-inner-spacing-block $menu-item-inner-spacing-inline;
         background-color: var(--menu-item-background);
         border-radius: $menu-item-border-radius;
         color: var(--menu-item-color);
-        user-select: none;
         overflow: hidden;
-        cursor: pointer;
-
-        [href] {
-            all: unset;
-            width: 100%;
-        }
 
         &:hover {
             --menu-item-background: #{$menu-item-background-hover};
@@ -55,27 +49,10 @@
             }
         }
 
-        &--disabled {
-            pointer-events: none;
-            opacity: $menu-item-disabled;
-        }
+        @include theme.disabled-styles();
     }
 
-    &__separator {
-        &:empty {
-            height: 1px;
-            margin: $menu-separator-spacing-min 0;
-            background-color: $menu-separator-background;
-        }
-
-        &:not(:empty) {
-            display: block;
-            padding: $menu-separator-spacing-max $menu-separator-spacing-max $menu-separator-spacing-min;
-            margin: 0;
-            font-size: $menu-separator-font-size;
-            font-weight: $menu-separator-font-weight;
-            color: $menu-separator-color;
-            text-transform: uppercase;
-        }
+    &__section {
+        border-bottom: 1px solid red;
     }
 }

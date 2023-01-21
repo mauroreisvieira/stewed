@@ -28,12 +28,12 @@ export const MenuItem = ({
         ),
     };
     return (
-        <li
+        <button
             className={cssClasses.root}
             role="menuitem"
             tabIndex={disabled ? -1 : 0}
         >
             {children}
-        </li>
+        </button>
     );
 };

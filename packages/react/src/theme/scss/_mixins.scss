@@ -1,6 +1,28 @@
+@use './variables' as *;
+
 @mixin scope($name: null) {
     #{$name} {
         @content;
     }
 }
 
+@mixin button-base {
+    appearance: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    user-select: none;
+    touch-action: manipulation;
+
+    &:not(disabled) {
+        cursor: pointer;
+    }
+}
+
+@mixin disabled-styles {
+    &:disabled,
+    &--disabled {
+        pointer-events: none;
+        opacity: $disabled;
+    }
+}

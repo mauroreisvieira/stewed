@@ -35,6 +35,8 @@
         content: '';
     }
 
+    @include theme.focus-styles();
+
     &:hover,
     &:active,
     &:focus {
@@ -123,11 +125,7 @@
         }
     }
 
-    &:disabled,
-    &--disabled {
-        opacity: $radio-disabled;
-        pointer-events: none;
-    }
+    @include theme.disabled-styles();
 
     &--sm {
         --radio-size: #{map.get($radio-size, sm)};

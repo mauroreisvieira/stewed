@@ -40,6 +40,8 @@
         content: '';
     }
 
+    @include theme.focus-styles();
+
     &:hover,
     &:active,
     &:focus {
@@ -114,11 +116,7 @@
         }
     }
 
-    &:disabled,
-    &--disabled {
-        opacity: $checkbox-disabled;
-        pointer-events: none;
-    }
+    @include theme.disabled-styles();
 
     &--sm {
         --checkbox-font-size: #{map.get($checkbox-font-size, sm)};

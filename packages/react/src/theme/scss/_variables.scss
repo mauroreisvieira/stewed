@@ -210,3 +210,12 @@ $function: map.get($transition, timing-function);
 
     @return map.get($colorKey, $tone);
 }
+
+@mixin focus-styles($color: get-color('primary'), $offset: 2px, $width: 2px) {
+    &:focus-within {
+        outline-color: #{$color};
+        outline-offset: $offset;
+        outline-width: $width;
+        outline-style: solid;
+    }
+}

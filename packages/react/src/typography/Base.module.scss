@@ -17,6 +17,8 @@
       &:hover {
         text-decoration: underline;
       }
+
+      @include theme.focus-styles();
     }
 
     @each $key, $value in $typography-sizes {

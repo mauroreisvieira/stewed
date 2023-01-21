@@ -22,16 +22,8 @@
         border-color: var(--input-border-hover);
     }
 
-    &:focus-within {
-        outline: 0px solid transparent;
-        box-shadow: #fff 0 0 0 2px, #{theme.get-color("primary")} 0 0 0 4px;
-    }
-
-    &:disabled,
-    &--disabled {
-        opacity: $input-disabled;
-        pointer-events: none;
-    }
+    @include theme.focus-styles();
+    @include theme.disabled-styles();
 
     @each $key, $value in $input-skins {
         &--#{$key} {

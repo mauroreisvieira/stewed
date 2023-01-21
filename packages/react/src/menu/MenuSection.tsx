@@ -3,22 +3,22 @@ import { classNames } from '@stewed/utils';
 
 import styles from './Base.module.scss';
 
-export interface SeparatorProps {
+export interface SectionProps {
     className?: string;
 }
 
-export const MenuSeparator = ({
+export const MenuSection = ({
     className,
     children,
-}: React.PropsWithChildren<SeparatorProps>): React.ReactElement => {
-    const rootClassName = 'menu__separator';
+}: React.PropsWithChildren<SectionProps>): React.ReactElement => {
+    const rootClassName = 'menu__section';
     const cssClasses = {
         root: classNames(styles[rootClassName], className),
     };
 
     return (
-        <li className={cssClasses.root} role="separator" tabIndex={-1}>
+        <div className={cssClasses.root}>
             {children}
-        </li>
+        </div>
     );
 };

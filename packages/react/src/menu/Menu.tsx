@@ -18,8 +18,8 @@ export const Menu = ({
         root: classNames(styles[rootClassName], className),
     };
     return (
-        <ul className={cssClasses.root} role="menu">
+        <div className={cssClasses.root} role="menu">
             {children}
-        </ul>
+        </div>
     );
 };

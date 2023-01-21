@@ -21,14 +21,7 @@ $menu-item-skins: (
     'danger': red,
 );
 
-$menu-item-disabled: theme.$disabled;
-
-// Menu Separator
-$menu-separator-spacing-max: map.get(theme.$spacings, 'xl');
-$menu-separator-spacing-min: map.get(theme.$spacings, 'md');
-
-$menu-separator-background: #{theme.get-color(gray, 100)};
-$menu-separator-color: #{theme.get-color(gray, 400)};
-
-$menu-separator-font-size: map.get(theme.$font-size, 'xs');
-$menu-separator-font-weight: map.get(theme.$font-weight, 'medium');
+// Menu Section
+$menu-section-title-color: #{theme.get-color(gray, 400)};
+$menu-section-title-font-size: map.get(theme.$font-size, 'xs');
+$menu-section-title-font-weight: map.get(theme.$font-weight, 'medium');
