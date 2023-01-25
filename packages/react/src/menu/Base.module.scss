@@ -52,7 +52,7 @@
         @include theme.disabled-styles();
     }
 
-    &__section {
+    &__group {
         border-bottom: 1px solid red;
     }
 }

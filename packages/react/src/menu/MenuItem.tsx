@@ -5,6 +5,8 @@ import styles from './Base.module.scss';
 
 export interface MenuItemProps {
     skin?: 'default' | 'danger';
+    startSlot?: React.ReactNode;
+    endSlot?: React.ReactNode;
     className?: string;
     selected?: boolean;
     disabled?: boolean;

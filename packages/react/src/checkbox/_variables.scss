@@ -31,7 +31,7 @@ $checkbox-skins-default: (
 );
 
 $checkbox-skins: (
-    'danger': (
+    'error': (
         'border-checked': theme.get-color(red, 500)
     )
 );

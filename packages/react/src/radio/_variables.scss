@@ -22,7 +22,7 @@ $radio-skins-default: (
 );
 
 $radio-skins: (
-    'danger': (
+    'error': (
         'border-checked': theme.get-color(red, 500)
     )
 );

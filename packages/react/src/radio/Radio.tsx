@@ -5,7 +5,7 @@ import styles from './Base.module.scss';
 
 export interface RadioProps
     extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
-    skin?: 'default' | 'danger';
+    skin?: 'default' | 'error';
     size?: 'sm' | 'md' | 'lg';
 }
 
