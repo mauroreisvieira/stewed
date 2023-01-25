@@ -1,4 +1,5 @@
 export { Alert, type AlertProps } from "./alert";
+export { AspectRatio, type AspectRatioProps } from "./aspect-ratio";
 export { Badge, type BadgeProps } from "./badge";
 export { Button, type ButtonProps } from "./button";
 export { Checkbox, type CheckboxProps } from "./checkbox";
@@ -8,3 +9,4 @@ export { Progress, type ProgressProps } from "./progress";
 export { Radio, type RadioProps } from "./radio";
 export { Tag, type TagProps } from "./tag";
 export { Typography, type TypographyProps } from "./typography";
+export { Textarea, type TextareaProps } from "./textarea";

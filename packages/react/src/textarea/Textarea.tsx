@@ -5,12 +5,12 @@ import styles from './Base.module.scss';
 
 export interface TextareaProps
     extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
-    skin?: 'default' | 'error' | 'success' | 'warning';
+    skin?: 'default' | 'error' | 'success';
 }
 
 export const Textarea = React.forwardRef(
     (
-        { skin, className, disabled, ...otherProps }: TextareaProps,
+        { skin, className, disabled, children, ...otherProps }: TextareaProps,
         ref: React.Ref<HTMLTextAreaElement>
     ): React.ReactElement => {
         const rootClassName = 'textarea';
@@ -29,7 +29,9 @@ export const Textarea = React.forwardRef(
                 className={cssClasses.root}
                 disabled={disabled}
                 {...otherProps}
-            />
+            >
+                {children}
+            </textarea>
         );
     }
 );

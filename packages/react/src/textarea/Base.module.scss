@@ -11,10 +11,11 @@
     align-items: center;
     justify-content: center;
     height: $textarea-sizes;
-    padding: 0 $textarea-spacings;
+    padding: $textarea-spacings;
     border: 1px solid var(--textarea-border);
     border-radius: $textarea-border-radius;
     font-size: $textarea-font-size;
+    font-family: inherit;
     font-weight: $textarea-font-weight;
     touch-action: manipulation;
 

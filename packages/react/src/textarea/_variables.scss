@@ -16,10 +16,6 @@ $textarea-skins: (
         'border': theme.get-color(green, 500),
         'border-hover': theme.get-color(green, 600),
     ),
-    'warning': (
-        'border': theme.get-color(yellow, 500),
-        'border-hover': theme.get-color(yellow, 600),
-    ),
     'error': (
         'border': theme.get-color(red, 500),
         'border-hover': theme.get-color(red, 600),

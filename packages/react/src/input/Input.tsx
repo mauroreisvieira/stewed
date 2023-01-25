@@ -5,7 +5,7 @@ import styles from './Base.module.scss';
 
 export interface InputProps
     extends React.InputHTMLAttributes<HTMLInputElement> {
-    skin?: 'default' | 'error' | 'success' | 'warning';
+    skin?: 'default' | 'error' | 'success';
 }
 
 export const Input = React.forwardRef(

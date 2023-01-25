@@ -13,6 +13,7 @@
     box-shadow: none;
     user-select: none;
     touch-action: manipulation;
+    text-decoration: none;
 
     &:not(disabled) {
         cursor: pointer;
