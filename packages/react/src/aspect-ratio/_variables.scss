@@ -1,0 +1,11 @@
+@use 'sass:math';
+@use 'sass:map';
+@use '../theme/scss' as theme;
+
+$aspect-ratio-root: '.aspect-ratio';
+
+$aspect-ratio-sizes: (
+    '1-1': 1 / 1,
+    '4-3': 4 / 3,
+    '16-9': 16 / 9
+);

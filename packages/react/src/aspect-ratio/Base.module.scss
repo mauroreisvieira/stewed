@@ -1,0 +1,18 @@
+@use 'sass:map';
+@use '../theme/scss' as theme;
+@use './variables' as *;
+
+@include theme.scope($aspect-ratio-root) {
+    position: relative;
+
+    @each $key, $value in $aspect-ratio-sizes {
+        &--#{$key} {
+            --aspect-ratio-size: #{map.get($aspect-ratio-sizes, $key)};
+        }
+    }
+
+    img {
+        object-fit: cover;
+        aspect-ratio: var(--aspect-ratio-size);
+    }
+}
