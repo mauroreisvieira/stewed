@@ -65,7 +65,7 @@ export const Button: PolymorphicForwardRefExoticComponent<
             className,
             iconOnly,
             children,
-            ...otherProps
+            ...restProps
         }: PolymorphicPropsWithRef<ButtonProps, T>,
         ref: React.ComponentPropsWithRef<T>['ref']
     ): React.ReactElement => {
@@ -78,8 +78,8 @@ export const Button: PolymorphicForwardRefExoticComponent<
                 styles[`${rootClassName}--${size}`],
                 iconOnly && styles[`${rootClassName}--icon-only`],
                 fullWidth && styles[`${rootClassName}--fullWidth`],
-                otherProps.disabled &&
-                    styles[`${rootClassName}--${otherProps.disabled}`],
+                restProps.disabled &&
+                    styles[`${rootClassName}--${restProps.disabled}`],
                 className
             ),
             left: classNames(styles[`${rootClassName}__left`]),
@@ -88,7 +88,7 @@ export const Button: PolymorphicForwardRefExoticComponent<
         const ComputedTag = as || defaultElement;
 
         return (
-            <ComputedTag ref={ref} className={cssClasses.root} {...otherProps}>
+            <ComputedTag ref={ref} {...restProps} className={cssClasses.root}>
                 {leftIcon && <span className={cssClasses.left}>{leftIcon}</span>}
                 {children}
                 {rightIcon && <span className={cssClasses.right}>{rightIcon}</span>}
