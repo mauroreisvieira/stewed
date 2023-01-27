@@ -9,11 +9,10 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 8px;
     height: var(--button-size);
     padding: 0 var(--button-spacing);
     border-radius: $button-border-radius;
-    background-color: var(--button-background);
-    color: $button-color;
     font-family: inherit;
     font-size: var(--button-font-size);
     font-weight: $button-font-weight;
@@ -22,15 +21,36 @@
 
     @include theme.focus-styles();
 
-    &:hover {
-        background-color: var(--button-background-hover);
-    }
-
-    &:active {
-        background-color: var(--button-background-active);
-    }
-
     @include theme.disabled-styles();
+
+    &--filled {
+        background-color: var(--button-background);
+        color: $button-color;
+
+        &:hover {
+            background-color: var(--button-background-hover);
+        }
+
+        &:active {
+            background-color: var(--button-background-active);
+        }
+    }
+
+    &--ghost {
+        background-color: transparent;
+        color: var(--button-background);
+    }
+
+    &--outline {
+        background-color: transparent;
+        color: var(--button-background);
+        border: 1px solid currentColor;
+    }
+
+    &__left,
+    &__right {
+        display: flex;
+    }
 
     &--sm {
         --button-size: #{map.get($button-sizes, 'sm')};
@@ -47,7 +67,7 @@
     &--lg {
         --button-size: #{map.get($button-sizes, 'lg')};
         --button-spacing: #{map.get($button-spacings, 'lg')};
-        --button-font-size: #{map.get($button-font-sizes, 'lg')};
+        --button-font-size: #{map.get($button-font-sizes, 'base')};
     }
 
     &--fullWidth {

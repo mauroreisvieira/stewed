@@ -9,12 +9,18 @@ import styles from './Base.module.scss';
 
 const defaultElement = 'button';
 
-export interface ButtonBaseProps
+export interface ButtonOwnProps
     extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     /** Change the visual style of the button. */
     skin?: 'primary' | 'secondary' | 'danger';
+    /** Change the visual appearance of the button. */
+    variant?: 'filled' | 'ghost' | 'outline' ;
     /** Changes the size of the button, giving it more or less padding. */
     size?: 'sm' | 'md' | 'lg';
+    /** Slot for icon before button text. */
+    leftIcon?: React.ReactNode;
+    /** Slot for icon after button text. */
+    rightIcon?: React.ReactNode;
     /** Allows the button to grow to the width of its container. */
     fullWidth?: boolean;
     /** Disables the button, disallowing merchant interaction. */
@@ -24,7 +30,7 @@ export interface ButtonBaseProps
 }
 
 export type ButtonProps<T extends React.ElementType = typeof defaultElement> =
-    PolymorphicPropsWithRef<ButtonBaseProps, T>;
+    PolymorphicPropsWithRef<ButtonOwnProps, T>;
 
 /**
  * This component displays an button component.
@@ -48,7 +54,10 @@ export const Button: PolymorphicForwardRefExoticComponent<
     <T extends React.ElementType = typeof defaultElement>(
         {
             skin = 'primary',
+            variant = 'filled',
             size = 'md',
+            leftIcon,
+            rightIcon,
             as,
             fullWidth,
             className,
@@ -62,18 +71,23 @@ export const Button: PolymorphicForwardRefExoticComponent<
             root: classNames(
                 styles[rootClassName],
                 styles[`${rootClassName}--${skin}`],
+                styles[`${rootClassName}--${variant}`],
                 styles[`${rootClassName}--${size}`],
                 fullWidth && styles[`${rootClassName}--fullWidth`],
                 otherProps.disabled &&
                     styles[`${rootClassName}--${otherProps.disabled}`],
                 className
             ),
+            left: classNames(styles[`${rootClassName}__left`]),
+            right: classNames(styles[`${rootClassName}__right`]),
         };
         const ComputedTag = as || defaultElement;
 
         return (
             <ComputedTag ref={ref} className={cssClasses.root} {...otherProps}>
+                {leftIcon && <span className={cssClasses.left}>{leftIcon}</span>}
                 {children}
+                {rightIcon && <span className={cssClasses.right}>{rightIcon}</span>}
             </ComputedTag>
         );
     }
