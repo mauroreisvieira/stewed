@@ -15,14 +15,13 @@ $checkbox-font-size: (
     'lg': 24px
 );
 
-$checkbox-border-size: (
+$checkbox-size: (
     'sm': map.get(theme.$spacings, 'xs') * 8,
     'md': map.get(theme.$spacings, 'xs') * 10,
     'lg': map.get(theme.$spacings, 'xs') * 12
 );
 
-$checkbox-border-radius: map.get(theme.$radius, 'md');
-$checkbox-border-radius-check: map.get(theme.$radius, 'xs');
+$checkbox-border-radius: map.get(theme.$radius, 'sm');
 
 $checkbox-skins-default: (
     'border': theme.get-color(secondary, 300),

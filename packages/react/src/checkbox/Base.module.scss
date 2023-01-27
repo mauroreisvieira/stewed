@@ -12,9 +12,8 @@
             $checkbox-skins-default,
             border-checked
         )};
-    --checkbox-size: #{map.get($checkbox-size, md)};
     --checkbox-font-size: #{map.get($checkbox-font-size, md)};
-    --checkbox-border-size: #{map.get($checkbox-border-size, md)};
+    --checkbox-size: #{map.get($checkbox-size, md)};
 
     position: relative;
     display: inline-flex;
@@ -24,21 +23,10 @@
     width: var(--checkbox-size);
     height: var(--checkbox-size);
     font-size: var(--checkbox-font-size);
-    border-radius: 50%;
+    border-radius: $checkbox-border-radius;
     outline: 0;
     cursor: pointer;
     overflow: hidden;
-
-    &::before {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        transform: scale(0, 0);
-        border-radius: 50%;
-        background-color: var(--checkbox-border);
-        opacity: 0;
-        content: '';
-    }
 
     @include theme.focus-styles();
 
@@ -107,8 +95,8 @@
             left: 0;
             box-sizing: border-box;
             display: inline-block;
-            width: var(--checkbox-border-size);
-            height: var(--checkbox-border-size);
+            width: var(--checkbox-size);
+            height: var(--checkbox-size);
             margin: auto;
             border: 2px solid currentColor;
             border-radius: $checkbox-border-radius;
@@ -121,13 +109,11 @@
     &--sm {
         --checkbox-font-size: #{map.get($checkbox-font-size, sm)};
         --checkbox-size: #{map.get($checkbox-size, sm)};
-        --checkbox-border-size: #{map.get($checkbox-border-size, sm)};
     }
 
     &--lg {
         --checkbox-font-size: #{map.get($checkbox-font-size, lg)};
         --checkbox-size: #{map.get($checkbox-size, lg)};
-        --checkbox-border-size: #{map.get($checkbox-border-size, lg)};
     }
 
     @each $key, $value in $checkbox-skins {
