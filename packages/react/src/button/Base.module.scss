@@ -49,7 +49,14 @@
 
     &__left,
     &__right {
+        font-size: inherit;
         display: flex;
+    }
+
+    &--icon-only {
+        max-width: var(--button-size);
+        font-size: 0;
+        gap: 0;
     }
 
     &--sm {

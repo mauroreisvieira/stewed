@@ -17,12 +17,14 @@ export interface ButtonOwnProps
     variant?: 'filled' | 'ghost' | 'outline' ;
     /** Changes the size of the button, giving it more or less padding. */
     size?: 'sm' | 'md' | 'lg';
-    /** Slot for icon before button text. */
+    /** Slot for icon to display before the button text. */
     leftIcon?: React.ReactNode;
-    /** Slot for icon after button text. */
+    /** Slot for icon to display after the button text. */
     rightIcon?: React.ReactNode;
     /** Allows the button to grow to the width of its container. */
     fullWidth?: boolean;
+    /** Hide content and show only the icon. */
+    iconOnly?: boolean;
     /** Disables the button, disallowing merchant interaction. */
     disabled?: boolean;
     /** The content to display inside the button. */
@@ -61,6 +63,7 @@ export const Button: PolymorphicForwardRefExoticComponent<
             as,
             fullWidth,
             className,
+            iconOnly,
             children,
             ...otherProps
         }: PolymorphicPropsWithRef<ButtonProps, T>,
@@ -73,6 +76,7 @@ export const Button: PolymorphicForwardRefExoticComponent<
                 styles[`${rootClassName}--${skin}`],
                 styles[`${rootClassName}--${variant}`],
                 styles[`${rootClassName}--${size}`],
+                iconOnly && styles[`${rootClassName}--icon-only`],
                 fullWidth && styles[`${rootClassName}--fullWidth`],
                 otherProps.disabled &&
                     styles[`${rootClassName}--${otherProps.disabled}`],
