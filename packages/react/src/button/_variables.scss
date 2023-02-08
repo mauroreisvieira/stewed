@@ -4,7 +4,11 @@
 $button-root: '.button';
 
 $button-color: #fff;
-$button-border-radius: map.get(theme.$radius, 'md');
+
+$button-border-radius: (
+  square: map.get(theme.$radius, 'md'),
+  round: 999px
+);
 
 $button-skins: (
     'primary': primary,
