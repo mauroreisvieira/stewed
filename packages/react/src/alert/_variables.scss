@@ -16,10 +16,12 @@ $alert-skins: (
     'danger': red,
 );
 
+
 $alert-inner-spacing-x: map.get(theme.$spacings, 'xl');
 $alert-inner-spacing-y: map.get(theme.$spacings, 'xl');
 
-$alert-gap: map.get(theme.$spacings, 'sm');
+$alert-slot-gap: map.get(theme.$spacings, 'lg');
+$alert-gap: map.get(theme.$spacings, 'md');
 
 $alert-sizes: (
     sm: map.get(theme.$spacings, 'md') * 4,

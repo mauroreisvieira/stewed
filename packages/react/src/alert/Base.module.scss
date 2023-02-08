@@ -7,16 +7,27 @@
 
     position: relative;
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: row;
+    gap: $alert-slot-gap;
     padding: $alert-inner-spacing-y $alert-inner-spacing-x;
     border-radius: var(--alert-border-radius);
     background-color: var(--alert-background);
 
     &__title {
-        margin-bottom: $alert-gap;
-        color: var(--alert-title-color);
         font-weight: $alert-title-font-weight;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: $alert-gap;
+        flex: 1;
+    }
+
+    &__title,
+    &__left,
+    &__right {
+        color: var(--alert-title-color);
     }
 
     &__body {

@@ -8,6 +8,10 @@ export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
     title?: string;
     /** Change the visual style of the alert. */
     skin?: 'info' | 'success' | 'warning' | 'danger';
+    /** Slot to display before the alert content. */
+    leftSlot?: React.ReactNode;
+    /** Slot to display after the alert content. */
+    rightSlot?: React.ReactNode;
 }
 
 /**
@@ -29,6 +33,8 @@ export const Alert = ({
     title,
     skin = 'info',
     className,
+    leftSlot,
+    rightSlot,
     children,
     ...restProps
 }: AlertProps): React.ReactElement => {
@@ -42,12 +48,19 @@ export const Alert = ({
         ),
         title: styles[`${rootClassName}__title`],
         body: styles[`${rootClassName}__body`],
+        wrapper: styles[`${rootClassName}__wrapper`],
+        left: styles[`${rootClassName}__left`],
+        right: styles[`${rootClassName}right`],
     };
 
     return (
         <div {...restProps} className={cssClasses.root} role="alert">
-            {title && <div className={cssClasses.title}>{title}</div>}
-            <div className={cssClasses.body}>{children}</div>
+            {leftSlot && <div className={cssClasses.left}>{leftSlot}</div>}
+            <div className={cssClasses.wrapper}>
+                {title && <div className={cssClasses.title}>{title}</div>}
+                <div className={cssClasses.body}>{children}</div>
+            </div>
+            {rightSlot && <div className={cssClasses.right}>{rightSlot}</div>}
         </div>
     );
 };
