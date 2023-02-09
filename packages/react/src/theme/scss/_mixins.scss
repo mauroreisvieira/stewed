@@ -6,18 +6,10 @@
     }
 }
 
-@mixin button-base {
-    appearance: none;
-    border: none;
-    outline: none;
-    box-shadow: none;
-    user-select: none;
-    touch-action: manipulation;
-    text-decoration: none;
-
-    &:not(disabled) {
-        cursor: pointer;
-    }
+@mixin button-reset {
+    all: unset;
+    cursor: pointer;
+    box-sizing: border-box;
 }
 
 @mixin disabled-styles {

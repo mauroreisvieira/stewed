@@ -3,7 +3,7 @@
 @use './variables' as *;
 
 @include theme.scope($button-root) {
-    @include theme.button-base();
+    @include theme.button-reset();
 
     position: relative;
     display: inline-flex;
@@ -62,7 +62,7 @@
     }
 
     &--icon-only {
-        max-width: var(--button-size);
+        width: var(--button-size);
         gap: 0;
 
         #{$button-root} {
