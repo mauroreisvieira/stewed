@@ -1,0 +1,15 @@
+@use '@stewed/react/src/theme/scss' as * with (
+    $config: (
+        extend: (
+            colors: (
+                sb: (
+                    50: #f6f9fc,
+                ),
+            ),
+        ),
+    )
+);
+
+body {
+    background-color: #{get-color(sb, 50)};
+}
