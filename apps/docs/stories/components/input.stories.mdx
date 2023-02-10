@@ -1,15 +1,15 @@
-import { Textarea } from '../../../packages/react/src';
+import { Input } from '../../../../packages/react/src';
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 
 <Meta
-    title="Components/Textarea"
+    title="Components/Input"
     argTypes={{ onChange: { action: 'change' } }}
-    component={Textarea}
+    component={Input}
 />
 
-# Textarea
+# Input
 
-Form field to enter and edit multiline text.
+Form field to enter and edit single-line text.
 
 ### Installation
 
@@ -20,12 +20,12 @@ npm install --save @stewed/react
 ### Import
 
 ```js
-import { Textarea } from '@stewed/react';
+import { Input } from '@stewed/react';
 ```
 
 ## Examples
 
-export const Template = (args) => <Textarea {...args} />;
+export const Template = (args) => <Input {...args} />;
 
 ### Default
 
@@ -34,6 +34,7 @@ export const Template = (args) => <Textarea {...args} />;
         name="Base"
         args={{
             placeholder: 'Type your value...',
+            defaultValue: '',
             skin: 'default',
             disabled: false,
         }}
@@ -44,4 +45,4 @@ export const Template = (args) => <Textarea {...args} />;
 
 ## Props
 
-<ArgsTable of={Textarea} />
+<ArgsTable of={Input} />

@@ -4,6 +4,7 @@
 
 @include theme.scope($aspect-ratio-root) {
     position: relative;
+    overflow: hidden;
 
     @each $key, $value in $aspect-ratio-sizes {
         &--#{$key} {
@@ -12,6 +13,7 @@
     }
 
     img {
+        max-width: 100%;
         object-fit: cover;
         aspect-ratio: var(--aspect-ratio-size);
     }

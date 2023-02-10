@@ -4,7 +4,7 @@ import { classNames } from '@stewed/utils';
 import styles from './Base.module.scss';
 
 export interface AspectRatioProps extends React.HTMLAttributes<HTMLDivElement> {
-    ratio?: '1:1' | '4:3' | '16:9';
+    ratio?: '1:1' | '2:3' | '3:2' |  '4:3' | '16:9';
 }
 
 export const AspectRatio = ({
