@@ -10,17 +10,17 @@ import styles from './Base.module.scss';
 const defaultElement = 'p';
 
 const SizeMap = {
-    h1: 'headline-1',
-    h2: 'headline-2',
-    h3: 'headline-3',
-    h4: 'headline-4',
-    h5: 'headline-5',
-    h6: 'headline-6',
-    a: 'link',
-    p: 'base',
+    'display-1': 'h1',
+    'display-2': 'h2',
+    'display-3': 'h3',
+    'display-4': 'h4',
+    'display-5': 'h5',
+    'display-6': 'h6',
+    link: 'a',
+    base: 'p',
     small: 'small',
     span: 'span',
-};
+} as const;
 
 interface TypographyOwnProps
     extends React.HtmlHTMLAttributes<HTMLParagraphElement> {
@@ -63,21 +63,17 @@ export const Typography: PolymorphicForwardRefExoticComponent<
         ref: React.ComponentPropsWithRef<T>['ref']
     ): React.ReactElement => {
         const rootClassName = 'typography';
+        const objectKeys: <Obj>(o: Obj) => (keyof Obj)[] = Object.keys;
 
         const defaultSize =
             size ||
-            (Object.keys(SizeMap).find(
-                (key) => key === as
-            ) as TypographyOwnProps['size']) ||
-            defaultElement;
-
-        console.log(as, size);
+            objectKeys(SizeMap).find((key) => SizeMap[key] === as);
 
         const cssClasses = {
             root: classNames(
                 styles[rootClassName],
                 defaultSize &&
-                    styles[`${rootClassName}--${SizeMap[defaultSize]}`],
+                    styles[`${rootClassName}--${defaultSize}`],
                 skin && styles[`${rootClassName}--${skin}`],
                 className
             ),

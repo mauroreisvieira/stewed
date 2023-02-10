@@ -20,33 +20,56 @@
     font-weight: $button-font-weight;
     user-select: none;
     touch-action: manipulation;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 
     @include theme.focus-styles();
 
     @include theme.disabled-styles();
 
     &--filled {
-        background-color: var(--button-background);
+        --filled-color: var(--button-color);
+        background-color: var(--filled-color);
         color: $button-color;
 
         &:hover {
-            background-color: var(--button-background-hover);
+            --filled-color: var(--button-color-hover);
         }
 
         &:active {
-            background-color: var(--button-background-active);
+            --filled-color: var(--button-color-active);
         }
     }
 
     &--ghost {
+        --ghost-color: var(--button-color);
         background-color: transparent;
-        color: var(--button-background);
+        color: var(--ghost-color);
+
+        &:hover {
+            --ghost-color: var(--button-color-hover);
+        }
+
+        &:active {
+            --ghost-color: var(--button-color-active);
+        }
     }
 
     &--outline {
+        --outline-color: var(--button-color);
+
         background-color: transparent;
-        color: var(--button-background);
+        color: var(--outline-color);
         border: 1px solid currentColor;
+
+        &:hover {
+            --outline-color: var(--button-color-hover);
+        }
+
+        &:active {
+            --outline-color: var(--button-color-active);
+        }
     }
 
     &__left,
@@ -90,9 +113,9 @@
 
     @each $key, $value in $button-skins {
         &--#{$key} {
-            --button-background: #{theme.get-color($value)};
-            --button-background-hover: #{theme.get-color($value, 600)};
-            --button-background-active: #{theme.get-color($value, 700)};
+            --button-color: #{theme.get-color($value)};
+            --button-color-hover: #{theme.get-color($value, 600)};
+            --button-color-active: #{theme.get-color($value, 700)};
         }
     }
 }

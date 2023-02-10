@@ -15,11 +15,14 @@ export const App = () => {
                 background: '#fff',
                 borderRadius: 8,
                 overflow: 'hidden',
+                maxWidth: 600,
             }}
         >
-            <AspectRatio ratio="1:1" style={{ maxWidth: 220 }}>
-                <img src="https://uniformcss.com/assets/img/uniform-hoodie.jpg" />
-            </AspectRatio>
+            <Flex grow>
+                <AspectRatio ratio="3:2">
+                    <img src="https://uniformcss.com/assets/img/uniform-hoodie.jpg" />
+                </AspectRatio>
+            </Flex>
             <Flex
                 direction="column"
                 items="stretch"
@@ -27,17 +30,22 @@ export const App = () => {
                 style={{ padding: 24 }}
             >
                 <Flex justify="between">
-                    <Text as="h2" size="h6">
+                    <Text as="h2" size="display-6">
                         Classic Utility Jacket
                     </Text>
-                    <Text size="h6">50€</Text>
+                    <Text size="display-6">50€</Text>
                 </Flex>
                 <Flex gap="sm">
                     <Text size="small">In stock</Text>
                 </Flex>
                 <Flex direction="column">
                     <Flex gap="sm">
-                        <Button size="sm" skin="secondary">
+                        <Button
+                            size="sm"
+                            skin="secondary"
+                            variant="ghost"
+                            disabled
+                        >
                             XS
                         </Button>
                         <Button size="sm" skin="secondary" variant="ghost">
@@ -46,7 +54,7 @@ export const App = () => {
                         <Button size="sm" skin="secondary" variant="ghost">
                             M
                         </Button>
-                        <Button size="sm" skin="secondary" variant="ghost">
+                        <Button size="sm" skin="secondary">
                             L
                         </Button>
                         <Button size="sm" skin="secondary" variant="ghost">
@@ -55,7 +63,7 @@ export const App = () => {
                     </Flex>
                 </Flex>
                 <hr />
-                <Flex justify="between" gap='md'>
+                <Flex justify="between" gap="md">
                     <Flex gap="md">
                         <Button>Buy now</Button>
                         <Button skin="secondary" variant="outline">
@@ -86,9 +94,8 @@ export const App = () => {
                         Wishlist
                     </Button>
                 </Flex>
-                <Text size="small">
-                    Free shipping on orders over 100€.
-                </Text>
+                <br />
+                <Text size="small">Free shipping on orders over 100€.</Text>
             </Flex>
         </Flex>
     );
