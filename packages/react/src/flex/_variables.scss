@@ -1,0 +1,7 @@
+@use 'sass:map';
+@use '../theme/scss' as theme;
+
+$flex-root: '.flex';
+
+$flex-gap: theme.$spacings;
+

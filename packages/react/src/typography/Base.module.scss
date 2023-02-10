@@ -4,7 +4,7 @@
 @use './mixins' as mix;
 
 @include theme.scope($typography-root) {
-    margin-top: var(--typography-margin-top);
+  margin-top: 0;
     margin-bottom: var(--typography-margin-bottom);
     color: var(--typography-color);
     font-size: var(--typography-font-size);

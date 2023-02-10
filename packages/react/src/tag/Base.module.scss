@@ -5,11 +5,10 @@
 @include theme.scope($tag-root) {
     position: relative;
     display: inline-flex;
-    align-content: center;
     align-items: center;
     justify-content: center;
-    min-width: var(--tag-size);
     height: var(--tag-size);
+    max-width: fit-content;
     padding: 0 var(--tag-spacing);
     border-radius: $tag-border-radius;
     background-color: var(--tag-background);
@@ -18,7 +17,6 @@
     font-weight: $tag-title-font-weight;
     white-space: nowrap;
     text-decoration: none;
-    z-index: 2;
 
     &--sm {
         --tag-size: #{map.get($tag-sizes, 'sm')};

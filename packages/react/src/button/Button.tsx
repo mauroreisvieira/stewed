@@ -15,8 +15,6 @@ export interface ButtonOwnProps
     skin?: 'primary' | 'secondary' | 'danger';
     /** Change the visual appearance of the button. */
     variant?: 'filled' | 'ghost' | 'outline' ;
-    /** Change the shape of the button. */
-    shape?: 'round' | 'square' ;
     /** Changes the size of the button, giving it more or less padding. */
     size?: 'sm' | 'md' | 'lg';
     /** Slot for icon to display before the button text. */
@@ -59,7 +57,6 @@ export const Button: PolymorphicForwardRefExoticComponent<
         {
             skin = 'primary',
             variant = 'filled',
-            shape = 'square',
             size = 'md',
             leftIcon,
             rightIcon,
@@ -78,7 +75,6 @@ export const Button: PolymorphicForwardRefExoticComponent<
                 styles[rootClassName],
                 styles[`${rootClassName}--${skin}`],
                 styles[`${rootClassName}--${variant}`],
-                styles[`${rootClassName}--${shape}`],
                 styles[`${rootClassName}--${size}`],
                 iconOnly && styles[`${rootClassName}--icon-only`],
                 fullWidth && styles[`${rootClassName}--fullWidth`],

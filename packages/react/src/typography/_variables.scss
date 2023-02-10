@@ -9,67 +9,63 @@ $typography-sizes: (
         --typography-font-weight: map.get(theme.$font-weight, bold),
         --typography-line-height: 1.5,
         --typography-color: theme.get-color(gray, 900),
-        --typography-margin-top: map.get(theme.$spacings, xl),
-        --typography-margin-bottom: map.get(theme.$spacings, lg)
+        --typography-margin-bottom: map.get(theme.$spacings, xl)
     ),
     headline-2: (
         --typography-font-size: map.get(theme.$font-size, hg),
         --typography-font-weight: map.get(theme.$font-weight, bold),
         --typography-color: theme.get-color(gray, 900),
         --typography-line-height: 1.5,
-        --typography-margin-top: map.get(theme.$spacings, xl),
-        --typography-margin-bottom: map.get(theme.$spacings, lg)
+        --typography-margin-bottom: map.get(theme.$spacings, xl)
     ),
     headline-3: (
         --typography-font-size: map.get(theme.$font-size, xxl),
         --typography-font-weight: map.get(theme.$font-weight, medium),
         --typography-color: theme.get-color(gray, 900),
         --typography-line-height: 1.5,
-        --typography-margin-top: map.get(theme.$spacings, xl),
-        --typography-margin-bottom: map.get(theme.$spacings, lg)
+        --typography-margin-bottom: map.get(theme.$spacings, xl)
     ),
     headline-4: (
         --typography-font-size: map.get(theme.$font-size, xl),
         --typography-font-weight: map.get(theme.$font-weight, medium),
         --typography-color: theme.get-color(gray, 900),
         --typography-line-height: 1.5,
-        --typography-margin-top: map.get(theme.$spacings, xl),
-        --typography-margin-bottom: map.get(theme.$spacings, lg)
+        --typography-margin-bottom: map.get(theme.$spacings, xl)
     ),
     headline-5: (
         --typography-font-size: map.get(theme.$font-size, lg),
         --typography-font-weight: map.get(theme.$font-weight, medium),
         --typography-color: theme.get-color(gray, 900),
         --typography-line-height: 1.5,
-        --typography-margin-top: map.get(theme.$spacings, xl),
-        --typography-margin-bottom: map.get(theme.$spacings, lg)
+        --typography-margin-bottom: map.get(theme.$spacings, xl)
     ),
     headline-6: (
         --typography-font-size: map.get(theme.$font-size, md),
         --typography-font-weight: map.get(theme.$font-weight, bold),
         --typography-color: theme.get-color(gray, 900),
         --typography-line-height: 1.5,
-        --typography-margin-top: map.get(theme.$spacings, xl),
-        --typography-margin-bottom: map.get(theme.$spacings, lg)
+        --typography-margin-bottom: map.get(theme.$spacings, xl)
     ),
     base: (
         --typography-font-size: map.get(theme.$font-size, base),
         --typography-font-weight: map.get(theme.$font-weight, regular),
         --typography-color: theme.get-color(gray, 900),
-        line-height: 1.4
+        --typography-line-height: 1.4,
+        --typography-margin-bottom: map.get(theme.$spacings, xl)
     ),
     link: (
         --typography-font-size: map.get(theme.$font-size, base),
         --typography-font-weight: map.get(theme.$font-weight, regular),
         --typography-color: theme.get-color(primary),
-        line-height: 1.4
+        --typography-line-height: 1.4
     ),
     small: (
         --typography-font-size: map.get(theme.$font-size, sm),
         --typography-font-weight: map.get(theme.$font-weight, regular),
         --typography-color: theme.get-color(gray, 900),
-        line-height: 1.4
-    ),
+        --typography-line-height: 1.4,
+        --typography-margin-bottom: map.get(theme.$spacings, xl)
+    )
 );
 
 $typography-skins: (

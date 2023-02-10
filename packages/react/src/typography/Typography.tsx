@@ -19,6 +19,7 @@ const SizeMap = {
     a: 'link',
     p: 'base',
     small: 'small',
+    span: 'span',
 };
 
 interface TypographyOwnProps
@@ -47,7 +48,7 @@ export type TypographyProps<
  * and support all native props from the element passed on `as` prop.
  */
 export const Typography: PolymorphicForwardRefExoticComponent<
-    TypographyProps,
+    TypographyOwnProps,
     typeof defaultElement
 > = forwardRef(
     <T extends React.ElementType = typeof defaultElement>(
@@ -58,7 +59,7 @@ export const Typography: PolymorphicForwardRefExoticComponent<
             className,
             children,
             ...otherProps
-        }: PolymorphicPropsWithRef<TypographyProps, T>,
+        }: PolymorphicPropsWithRef<TypographyOwnProps, T>,
         ref: React.ComponentPropsWithRef<T>['ref']
     ): React.ReactElement => {
         const rootClassName = 'typography';
@@ -69,6 +70,8 @@ export const Typography: PolymorphicForwardRefExoticComponent<
                 (key) => key === as
             ) as TypographyOwnProps['size']) ||
             defaultElement;
+
+        console.log(as, size);
 
         const cssClasses = {
             root: classNames(

@@ -4,6 +4,7 @@
 
 @include theme.scope($button-root) {
     @include theme.button-reset();
+    --button-radius: #{map.get($button-border-radius, 'square')};
 
     position: relative;
     display: inline-flex;
@@ -23,14 +24,6 @@
     @include theme.focus-styles();
 
     @include theme.disabled-styles();
-
-    &--round {
-      --button-radius: #{map.get($button-border-radius, 'round')};
-    }
-
-    &--square {
-      --button-radius: #{map.get($button-border-radius, 'square')};
-    }
 
     &--filled {
         background-color: var(--button-background);
