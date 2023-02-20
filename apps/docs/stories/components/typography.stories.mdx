@@ -1,11 +1,11 @@
-import { Typography } from '../../../../packages/react/src';
+import { Text } from '../../../../packages/react/src';
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 
-<Meta title="Components/Typography" component={Typography} />
+<Meta title="Components/Text" component={Text} />
 
-# Typography
+# Text
 
-Typography is the used to render headings and paragraphs within an interface.
+Text is the used to render headings and paragraphs within an interface.
 
 ### Installation
 
@@ -16,12 +16,12 @@ npm install --save @stewed/react
 ### Import
 
 ```js
-import { Typography } from '@stewed/react';
+import { Text } from '@stewed/react';
 ```
 
 ## Examples
 
-export const Template = (args) => <Typography {...args} />;
+export const Template = (args) => <Text {...args} />;
 
 ### Default
 
@@ -43,12 +43,12 @@ export const Template = (args) => <Typography {...args} />;
 
 <Canvas>
     <Story name="Heading">
-        <Typography as="h1">Heading 1</Typography>
-        <Typography as="h2">Heading 2</Typography>
-        <Typography as="h3">Heading 3</Typography>
-        <Typography as="h4">Heading 4</Typography>
-        <Typography as="h5">Heading 5</Typography>
-        <Typography as="h6">Heading 6</Typography>
+        <Text as="h1">Heading 1</Text>
+        <Text as="h2">Heading 2</Text>
+        <Text as="h3">Heading 3</Text>
+        <Text as="h4">Heading 4</Text>
+        <Text as="h5">Heading 5</Text>
+        <Text as="h6">Heading 6</Text>
     </Story>
 </Canvas>
 
@@ -56,7 +56,7 @@ export const Template = (args) => <Typography {...args} />;
 
 <Canvas>
     <Story name="Paragraph">
-        <Typography>Lorem ipsum, dolor sit amet consectetur adipisicing elit</Typography>
+        <Text>Lorem ipsum, dolor sit amet consectetur adipisicing elit</Text>
     </Story>
 </Canvas>
 
@@ -64,12 +64,12 @@ export const Template = (args) => <Typography {...args} />;
 
 <Canvas>
     <Story name="Anchor">
-        <Typography as="a" href="/">
+        <Text as="a" href="/">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit
-        </Typography>
+        </Text>
     </Story>
 </Canvas>
 
 ## Props
 
-<ArgsTable of={Typography} />
+<ArgsTable of={Text} />

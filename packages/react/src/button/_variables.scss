@@ -17,7 +17,7 @@ $button-skins: (
 );
 
 $button-font-sizes: theme.$font-size;
-$button-font-weight: map.get(theme.$font-weight, 'regular');
+$button-font-weight: map.get(theme.$font-weight, 'normal');
 
 $button-sizes: (
     sm: map.get(theme.$spacings, 'md') * 4,

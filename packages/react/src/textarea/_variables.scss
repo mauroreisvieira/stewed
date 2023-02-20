@@ -23,8 +23,8 @@ $textarea-skins: (
 );
 
 // Font
-$textarea-font-weight: map.get(theme.$font-weight, 'regular');
-$textarea-font-size: map.get(theme.$font-size, 'base');
+$textarea-font-weight: map.get(theme.$font-weight, 'normal');
+$textarea-font-size: map.get(theme.$font-size, 'md');
 
 // Spacing's
 $textarea-sizes: map.get(theme.$spacings, 'md') * 5;

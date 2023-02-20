@@ -4,7 +4,12 @@
 @use './mixins' as mix;
 
 @include theme.scope($typography-root) {
-  margin-top: 0;
+    --typography-font-size: #{map.get(theme.$font-size, md)};
+    --typography-font-weight: #{map.get(theme.$font-weight, normal)};
+    --typography-line-height: 1.4;
+    --typography-margin-bottom: #{map.get(theme.$spacings, xl)};
+
+    all: unset;
     margin-bottom: var(--typography-margin-bottom);
     color: var(--typography-color);
     font-size: var(--typography-font-size);
@@ -14,22 +19,62 @@
     vertical-align: baseline;
 
     &[href] {
-      &:hover {
-        text-decoration: underline;
-      }
-
-      @include theme.focus-styles();
-    }
-
-    @each $key, $value in $typography-sizes {
-        &--#{$key} {
-            @include mix.typography($key);
+        &:hover {
+            text-decoration: underline;
         }
+
+        @include theme.focus-styles();
     }
 
     @each $key, $value in $typography-skins {
         &--#{$key} {
             --typography-color: #{$value};
         }
+    }
+
+    @each $key, $value in $typography-headings {
+        &--#{$key} {
+            @include mix.typography($key);
+        }
+    }
+
+    @each $key, $value in $typography-sizes {
+        &--#{$key} {
+            --typography-font-size: #{$value};
+        }
+    }
+
+    @each $key, $value in $typography-weights {
+        &--#{$key} {
+            --typography-font-weight: #{$value};
+        }
+    }
+
+    &--base {
+        --typography-color: theme.get-color(gray, 900);
+    }
+
+    &--link {
+        --typography-color: theme.get-color(primary);
+    }
+
+    &--normal {
+      font-style: normal;
+    }
+
+    &--italic {
+      font-style: italic;
+    }
+
+    &--uppercase {
+      text-transform: uppercase;
+    }
+
+    &--lowercase {
+      text-transform: lowercase;
+    }
+
+    &--capitalize {
+      text-transform: capitalize;
     }
 }

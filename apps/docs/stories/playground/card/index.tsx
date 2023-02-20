@@ -4,18 +4,20 @@ import {
     AspectRatio,
     Button,
     Flex,
-    Tag,
-    Typography as Text,
+    Text as Text,
 } from '../../../../../packages/react/src';
 
 export const App = () => {
     return (
         <Flex
+            wrap="wrap"
             style={{
                 background: '#fff',
                 borderRadius: 8,
                 overflow: 'hidden',
                 maxWidth: 600,
+                boxShadow:
+                    '0 0 #0000, 0 0 #0000, 0 20px 25px -5px rgba(0, 0, 0, .1), 0 8px 10px -6px rgba(0, 0, 0, .1)',
             }}
         >
             <Flex grow>
@@ -30,13 +32,13 @@ export const App = () => {
                 style={{ padding: 24 }}
             >
                 <Flex justify="between">
-                    <Text as="h2" size="display-6">
-                        Classic Utility Jacket
-                    </Text>
-                    <Text size="display-6">50€</Text>
+                    <Text as="h1" size="lg">Classic Utility Jacket</Text>
+                    <Text size="lg">50€</Text>
                 </Flex>
                 <Flex gap="sm">
-                    <Text size="small">In stock</Text>
+                    <Text size="sm" weight="medium">
+                        In stock
+                    </Text>
                 </Flex>
                 <Flex direction="column">
                     <Flex gap="sm">
@@ -95,7 +97,9 @@ export const App = () => {
                     </Button>
                 </Flex>
                 <br />
-                <Text size="small">Free shipping on orders over 100€.</Text>
+                <Text size="xs" variation="italic">
+                    Free shipping on orders over 100€.
+                </Text>
             </Flex>
         </Flex>
     );

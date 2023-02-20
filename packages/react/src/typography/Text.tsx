@@ -17,64 +17,73 @@ const SizeMap = {
     'display-5': 'h5',
     'display-6': 'h6',
     link: 'a',
-    base: 'p',
-    small: 'small',
-    span: 'span',
+    base: defaultElement,
 } as const;
 
-interface TypographyOwnProps
+type TextVariation = "italic" | "normal" | "uppercase" | "lowercase" | "capitalize";
+
+interface TextOwnProps
     extends React.HtmlHTMLAttributes<HTMLParagraphElement> {
-    /** Changes the size of the typography, giving it more or less font size. */
-    size?: keyof typeof SizeMap;
-    /** Change the visual style of the button. */
+    /** Changes the size of the text, giving it more or less font size. */
+    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl';
+    /** Changes the weight of the text, giving it more or less weight. */
+    weight?: 'thin' | 'light' | 'normal' | 'medium' | 'semibold' | 'bold';
+    /** Changes the font styles and transforming text. */
+    variation?: TextVariation | TextVariation[];
+    /** Change the visual style of the text. */
     skin?: 'default' | 'primary' | 'secondary' | 'danger';
 }
 
-export type TypographyProps<
+export type TextProps<
     T extends React.ElementType = typeof defaultElement
-> = PolymorphicPropsWithRef<TypographyOwnProps, T>;
+> = PolymorphicPropsWithRef<TextOwnProps, T>;
 
 /**
- * This component displays an Typography component.
- * Typography is the used to render headings and paragraphs within an interface.
+ * This component displays an Text component.
+ * Text is the used to render headings and paragraphs within an interface.
  *
  * @example
  * ```tsx
- * <Typography as="h1">Heading 1</Typography>
+ * <Text as="h1">Heading 1</Text>
  * ```
  *
- * @param props - TypographyProps
+ * @param props - TextProps
  * @remarks This component is a polymorphic component can be rendered as a different element
  * and support all native props from the element passed on `as` prop.
  */
-export const Typography: PolymorphicForwardRefExoticComponent<
-    TypographyOwnProps,
+export const Text: PolymorphicForwardRefExoticComponent<
+    TextOwnProps,
     typeof defaultElement
 > = forwardRef(
     <T extends React.ElementType = typeof defaultElement>(
         {
             as,
             size,
+            weight,
             skin,
+            variation,
             className,
             children,
             ...otherProps
-        }: PolymorphicPropsWithRef<TypographyOwnProps, T>,
+        }: PolymorphicPropsWithRef<TextOwnProps, T>,
         ref: React.ComponentPropsWithRef<T>['ref']
     ): React.ReactElement => {
         const rootClassName = 'typography';
         const objectKeys: <Obj>(o: Obj) => (keyof Obj)[] = Object.keys;
+        const computedVariation = Array.isArray(variation) ? variation : [variation];
 
-        const defaultSize =
+        const computedSize =
             size ||
             objectKeys(SizeMap).find((key) => SizeMap[key] === as);
 
         const cssClasses = {
             root: classNames(
                 styles[rootClassName],
-                defaultSize &&
-                    styles[`${rootClassName}--${defaultSize}`],
+                computedSize &&
+                    styles[`${rootClassName}--${computedSize}`],
                 skin && styles[`${rootClassName}--${skin}`],
+                weight && styles[`${rootClassName}--${weight}`],
+                ...computedVariation.map((i) => styles[`${rootClassName}--${i}`]),
                 className
             ),
         };
@@ -88,4 +97,4 @@ export const Typography: PolymorphicForwardRefExoticComponent<
     }
 );
 
-Typography.displayName = 'Typography';
+Text.displayName = 'Text';

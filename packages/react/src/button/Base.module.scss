@@ -98,13 +98,13 @@
     &--md {
         --button-size: #{map.get($button-sizes, 'md')};
         --button-spacing: #{map.get($button-spacings, 'md')};
-        --button-font-size: #{map.get($button-font-sizes, 'base')};
+        --button-font-size: #{map.get($button-font-sizes, 'md')};
     }
 
     &--lg {
         --button-size: #{map.get($button-sizes, 'lg')};
         --button-spacing: #{map.get($button-spacings, 'lg')};
-        --button-font-size: #{map.get($button-font-sizes, 'base')};
+        --button-font-size: #{map.get($button-font-sizes, 'md')};
     }
 
     &--fullWidth {
