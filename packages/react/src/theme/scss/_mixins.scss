@@ -6,10 +6,8 @@
     }
 }
 
-@mixin button-reset {
+@mixin reset {
     all: unset;
-    cursor: pointer;
-    box-sizing: border-box;
 }
 
 @mixin disabled-styles {

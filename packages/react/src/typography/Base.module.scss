@@ -7,7 +7,7 @@
     --typography-font-size: #{map.get(theme.$font-size, md)};
     --typography-font-weight: #{map.get(theme.$font-weight, normal)};
     --typography-line-height: 1.4;
-    --typography-margin-bottom: #{map.get(theme.$spacings, xl)};
+    --typography-margin-bottom: 0;
 
     all: unset;
     margin-bottom: var(--typography-margin-bottom);
@@ -52,10 +52,12 @@
 
     &--base {
         --typography-color: theme.get-color(gray, 900);
+        --typography-margin-bottom: #{map.get(theme.$spacings, xl)};
     }
 
     &--link {
         --typography-color: theme.get-color(primary);
+        --typography-margin-bottom: #{map.get(theme.$spacings, xl)};
     }
 
     &--normal {

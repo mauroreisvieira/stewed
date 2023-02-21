@@ -20,12 +20,28 @@ const SizeMap = {
     base: defaultElement,
 } as const;
 
-type TextVariation = "italic" | "normal" | "uppercase" | "lowercase" | "capitalize";
+type TextVariation =
+    | 'italic'
+    | 'normal'
+    | 'uppercase'
+    | 'lowercase'
+    | 'capitalize';
 
-interface TextOwnProps
-    extends React.HtmlHTMLAttributes<HTMLParagraphElement> {
+interface TextOwnProps extends React.HtmlHTMLAttributes<HTMLParagraphElement> {
     /** Changes the size of the text, giving it more or less font size. */
-    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl';
+    size?:
+        | 'xs'
+        | 'sm'
+        | 'md'
+        | 'lg'
+        | 'xl'
+        | '2xl'
+        | '3xl'
+        | '4xl'
+        | '5xl'
+        | '6xl'
+        | '7xl'
+        | '8xl';
     /** Changes the weight of the text, giving it more or less weight. */
     weight?: 'thin' | 'light' | 'normal' | 'medium' | 'semibold' | 'bold';
     /** Changes the font styles and transforming text. */
@@ -34,9 +50,8 @@ interface TextOwnProps
     skin?: 'default' | 'primary' | 'secondary' | 'danger';
 }
 
-export type TextProps<
-    T extends React.ElementType = typeof defaultElement
-> = PolymorphicPropsWithRef<TextOwnProps, T>;
+export type TextProps<T extends React.ElementType = typeof defaultElement> =
+    PolymorphicPropsWithRef<TextOwnProps, T>;
 
 /**
  * This component displays an Text component.
@@ -70,20 +85,24 @@ export const Text: PolymorphicForwardRefExoticComponent<
     ): React.ReactElement => {
         const rootClassName = 'typography';
         const objectKeys: <Obj>(o: Obj) => (keyof Obj)[] = Object.keys;
-        const computedVariation = Array.isArray(variation) ? variation : [variation];
+        const computedVariation = Array.isArray(variation)
+            ? variation
+            : [variation];
 
-        const computedSize =
-            size ||
-            objectKeys(SizeMap).find((key) => SizeMap[key] === as);
+        const computedSize = objectKeys(SizeMap).find(
+            (key) => SizeMap[key] === (as || defaultElement)
+        );
 
         const cssClasses = {
             root: classNames(
                 styles[rootClassName],
-                computedSize &&
-                    styles[`${rootClassName}--${computedSize}`],
+                computedSize && styles[`${rootClassName}--${computedSize}`],
                 skin && styles[`${rootClassName}--${skin}`],
+                size && styles[`${rootClassName}--${size}`],
                 weight && styles[`${rootClassName}--${weight}`],
-                ...computedVariation.map((i) => styles[`${rootClassName}--${i}`]),
+                ...computedVariation.map(
+                    (i) => styles[`${rootClassName}--${i}`]
+                ),
                 className
             ),
         };

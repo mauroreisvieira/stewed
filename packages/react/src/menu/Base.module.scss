@@ -11,10 +11,11 @@
     position: relative;
 
     &__item {
-        @include theme.button-reset();
+        @include theme.reset();
 
         position: relative;
         display: flex;
+        gap: 8px;
         align-items: center;
         justify-content: flex-start;
         width: 100%;
@@ -23,6 +24,16 @@
         border-radius: $menu-item-border-radius;
         color: var(--menu-item-color);
         overflow: hidden;
+        cursor: pointer;
+        box-sizing: border-box;
+
+        &:not(:last-child) {
+            margin-bottom: $menu-item-outer-spacing-bottom;
+        }
+
+        @include theme.focus-styles();
+
+        @include theme.disabled-styles();
 
         &:hover {
             --menu-item-background: #{$menu-item-background-hover};
@@ -31,6 +42,18 @@
 
         &:active {
             --menu-item-background: #{$menu-item-background-active};
+        }
+
+        &__text {
+          flex-grow: 1;
+        }
+
+        &__left,
+        &__right {
+            align-items: center;
+            display: flex;
+            flex-shrink: 0;
+            position: relative;
         }
 
         @each $key, $value in $menu-item-skins {

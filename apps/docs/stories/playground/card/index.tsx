@@ -12,9 +12,7 @@ export const App = () => {
         <Flex
             wrap="wrap"
             style={{
-                background: '#fff',
                 borderRadius: 8,
-                overflow: 'hidden',
                 maxWidth: 600,
                 boxShadow:
                     '0 0 #0000, 0 0 #0000, 0 20px 25px -5px rgba(0, 0, 0, .1), 0 8px 10px -6px rgba(0, 0, 0, .1)',
