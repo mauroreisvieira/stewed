@@ -8,6 +8,72 @@ import {
     Text as Text,
 } from '../../../../../packages/react/src';
 
+const projects = [
+{
+        id: 'new-benefits-plan',
+        title: 'New Benefits Plan',
+        category: 'Human Resources',
+        members: [
+            {
+                id: 'mauro-vieira',
+                name: 'Mauro Vieira',
+            },
+            {
+                id: 'bruna-santos',
+                name: 'Bruna Santos',
+            },
+            {
+                id: 'lourençco-vieira',
+                name: 'Lourenço Vieira',
+            },
+        ],
+    },
+    {
+        id: 'onboarding-emails',
+        title: 'Onboarding Emails',
+        category: 'Customer Success',
+        members: [
+            {
+                id: 'janne-bosh',
+                name: 'Janne Bosh',
+                picture:
+                    'https://images.unsplash.com/photo-1494790108377-be9c29b29330',
+            },
+            {
+                id: 'mauro-vieira',
+                name: 'Mauro Vieira',
+            },
+            {
+                id: 'bruna-santos',
+                name: 'Bruna Santos',
+            },
+            {
+                id: 'lourençco-vieira',
+                name: 'Lourenço Vieira',
+            },
+        ],
+    },
+    {
+        id: 'api-integration',
+        title: 'API Integration',
+        category: 'Engineering',
+        members: [
+            {
+                id: 'mauro-vieira',
+                name: 'Mauro Vieira',
+            },
+            {
+                id: 'bruna-santos',
+                name: 'Bruna Santos',
+            },
+            {
+                id: 'lourençco-vieira',
+                name: 'Lourenço Vieira',
+            },
+        ],
+    },
+];
+
 export const App = () => {
     return (
         <div
@@ -72,35 +138,37 @@ export const App = () => {
                     }
                 />
             </div>
-            <Flex gap="md" grow>
-                <div
-                    style={{
-                        width: '100%',
-                        padding: 24,
-                        borderRadius: 4,
-                        border: '1px solid #ddd',
-                    }}
-                >
-                    <Flex direction="column" gap="sm" space={{ y: 'xl' }}>
-                        <Text weight="bold" size="lg">
-                            API Integration
-                        </Text>
-                        <Text skin="secondary">Engineering</Text>
+            <Flex gap="lg">
+                {projects.map(({ id, title,category,  members }) => (
+                    <Flex key={id} gap="md" grow>
+                        <div
+                            style={{
+                                width: '100%',
+                                padding: 24,
+                                borderRadius: 4,
+                                border: '1px solid #ddd',
+                            }}
+                        >
+                            <Flex
+                                direction="column"
+                                gap="sm"
+                                space={{ y: 'xl' }}
+                            >
+                                <Text weight="bold" size="lg">
+                                    {title}
+                                </Text>
+                                <Text skin="secondary">{category}</Text>
+                            </Flex>
+                            <Avatar.Group>
+                                {members.map(({ id, name, picture }) => (
+                                    <Avatar key={id} src={picture} size="xs">
+                                        {name}
+                                    </Avatar>
+                                ))}
+                            </Avatar.Group>
+                        </div>
                     </Flex>
-                    <Avatar.Group>
-                        <Avatar
-                            src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=facearea&facepad=2&w=48&h=48&q=80"
-                            size="sm"
-                        />
-                        <Avatar
-                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=facearea&facepad=2&w=48&h=48&q=80"
-                            size="sm"
-                        />
-                        <Avatar size="sm">Mauro Vieira</Avatar>
-                        <Avatar size="sm">Bruna Santos</Avatar>
-                        <Avatar size="sm">Lourenço Vieira</Avatar>
-                    </Avatar.Group>
-                </div>
+                ))}
             </Flex>
         </div>
     );

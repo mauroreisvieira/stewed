@@ -2,7 +2,16 @@
 @use 'sass:map';
 @use '../theme/scss' as theme;
 
+// Avatar Group
+$avatar-group-root: '.avatar-group';
+
+// Avatar
 $avatar-root: '.avatar';
+
+$avatar-border-radius: (
+  square: map.get(theme.$radius, 'md'),
+  round: 50%
+);
 
 $avatar-skins: (
     'primary': primary,
@@ -18,4 +27,3 @@ $avatar-sizes: (
     hg: map.get(theme.$spacings, 'md') * 9,
 );
 
-$avatar-group-root: '.avatar-group';

@@ -17,5 +17,6 @@
         height: 100%;
         object-fit: cover;
         aspect-ratio: var(--aspect-ratio-size);
+        border-radius: inherit;
     }
 }

@@ -1,0 +1,29 @@
+@use 'sass:map';
+@use '../theme/scss' as theme;
+@use './variables' as *;
+
+@include theme.scope($tabs-root) {
+    --tabs-border-radius: #{map.get($tabs-border-radius, 'square')};
+
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #ddd;
+    padding: 4px;
+    user-select: none;
+    border-radius: var(--tabs-border-radius);
+}
+
+@include theme.scope($tab-item-root) {
+    all: unset;
+    display: flex;
+    padding: 8px 16px;
+    border-radius: var(--tabs-border-radius);
+    cursor: pointer;
+
+    @include theme.disabled-styles();
+
+    &--selected {
+        background: #fff;
+    }
+}

@@ -13,6 +13,7 @@ export const App = () => {
             wrap="wrap"
             style={{
                 borderRadius: 8,
+                overflow: 'hidden',
                 maxWidth: 600,
                 boxShadow:
                     '0 0 #0000, 0 0 #0000, 0 20px 25px -5px rgba(0, 0, 0, .1), 0 8px 10px -6px rgba(0, 0, 0, .1)',
@@ -29,7 +30,7 @@ export const App = () => {
                 grow
                 style={{ padding: 24 }}
             >
-                <Flex justify="between" space={{ y: 'md' }}>
+                <Flex justify="between" space={{ y: 'lg' }}>
                     <Text size="xl" weight="medium">
                         Classic Utility Jacket
                     </Text>
@@ -37,9 +38,7 @@ export const App = () => {
                         150€
                     </Text>
                 </Flex>
-                <Flex>
-                    <Text>In stock</Text>
-                </Flex>
+                <Text>In stock</Text>
                 <Flex direction="column">
                     <Flex gap="sm">
                         <Button
@@ -96,7 +95,6 @@ export const App = () => {
                         Wishlist
                     </Button>
                 </Flex>
-                <br />
                 <Text size="sm">Free shipping on orders over 100€.</Text>
             </Flex>
         </Flex>

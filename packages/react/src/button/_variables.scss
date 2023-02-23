@@ -6,14 +6,13 @@ $button-root: '.button';
 $button-color: #fff;
 
 $button-border-radius: (
-  square: map.get(theme.$radius, 'md'),
-  round: 999px
+    square: map.get(theme.$radius, 'md')
 );
 
 $button-skins: (
     'primary': primary,
     'secondary': secondary,
-    'danger': red,
+    'danger': red
 );
 
 $button-font-sizes: theme.$font-size;
@@ -22,11 +21,11 @@ $button-font-weight: map.get(theme.$font-weight, 'normal');
 $button-sizes: (
     sm: map.get(theme.$spacings, 'md') * 4,
     md: map.get(theme.$spacings, 'md') * 5,
-    lg: map.get(theme.$spacings, 'md') * 6,
+    lg: map.get(theme.$spacings, 'md') * 6
 );
 
 $button-spacings: (
     sm: map.get(theme.$spacings, 'md'),
     md: map.get(theme.$spacings, 'md') * 2,
-    lg: map.get(theme.$spacings, 'md') * 3,
+    lg: map.get(theme.$spacings, 'md') * 3
 );

@@ -1,0 +1,56 @@
+import { useState } from "react";
+import { Tabs } from '../../../../packages/react/src';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+
+<Meta
+    title="Components/Tabs"
+    component={Tabs}
+    subcomponents={{ Tabs: Tabs, 'Tab Item': Tabs.Item }}
+/>
+
+# Tabs
+
+Navigation between multiple pages or content sections.
+
+### Installation
+
+```bash
+npm install --save @stewed/react
+```
+
+### Import
+
+```js
+import { Tabs } from '@stewed/react';
+```
+
+## Examples
+
+export const Template = (args) => {
+    const [selected, setSelected] = useState(args.selected);
+    return (
+        <Tabs selected={selected} onChange={setSelected}>
+            <Tabs.Item value="1">Item 1</Tabs.Item>
+            <Tabs.Item value="2">Item 2</Tabs.Item>
+            <Tabs.Item value="3">Item 3</Tabs.Item>
+            <Tabs.Item value="4" disabled>Item 4</Tabs.Item>
+        </Tabs>
+    );
+};
+
+### Base
+
+<Canvas>
+    <Story
+        name="Base"
+        args={{
+            selected: '1',
+        }}
+    >
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Tabs} />

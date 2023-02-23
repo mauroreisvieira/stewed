@@ -1,0 +1,14 @@
+@use 'sass:math';
+@use 'sass:map';
+@use '../theme/scss' as theme;
+
+$tabs-root: '.tabs';
+
+// Tabs
+$tabs-border-radius: (
+    square: map.get(theme.$radius, 'md'),
+);
+
+
+// Tab Items
+$tab-item-root: '.tab__item';
