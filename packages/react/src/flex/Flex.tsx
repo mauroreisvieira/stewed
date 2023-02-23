@@ -3,12 +3,18 @@ import { classNames } from '@stewed/utils';
 
 import styles from './Base.module.scss';
 
+type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'hg';
+
 export interface FlexProps extends React.HTMLAttributes<HTMLDivElement> {
     direction?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
-    gap?: 'xs' | "sm" | "md" | "lg" | "xl" | "hg";
-    justify?: 'start' | "end" | "center" | "between" | "around" | "evenly";
-    items?: 'start' | "end" | "center" | "baseline" | "stretch";
-    wrap?: 'wrap' | "wrap-reverse" | "nowrap";
+    gap?: Sizes;
+    justify?: 'start' | 'end' | 'center' | 'between' | 'around' | 'evenly';
+    items?: 'start' | 'end' | 'center' | 'baseline' | 'stretch';
+    wrap?: 'wrap' | 'wrap-reverse' | 'nowrap';
+    space?: {
+        x?: Sizes;
+        y?: Sizes;
+    };
     inline?: boolean;
     grow?: boolean;
 }
@@ -19,6 +25,7 @@ export const Flex = ({
     justify,
     items,
     wrap,
+    space,
     inline,
     grow,
     className,
@@ -33,6 +40,8 @@ export const Flex = ({
             gap && styles[`${rootClassName}--gap-${gap}`],
             justify && styles[`${rootClassName}--justify-${justify}`],
             items && styles[`${rootClassName}--items-${items}`],
+            space?.x && styles[`${rootClassName}--space-x-${space.x}`],
+            space?.y && styles[`${rootClassName}--space-y-${space.y}`],
             wrap && styles[`${rootClassName}--${wrap}`],
             inline && styles[`${rootClassName}--inline`],
             grow && styles[`${rootClassName}--grow`],
@@ -40,5 +49,9 @@ export const Flex = ({
         ),
     };
 
-    return <div className={cssClasses.root} {...otherProps}>{children}</div>;
+    return (
+        <div className={cssClasses.root} {...otherProps}>
+            {children}
+        </div>
+    );
 };

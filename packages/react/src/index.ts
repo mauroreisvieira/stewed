@@ -1,4 +1,5 @@
 export { Alert, type AlertProps } from "./alert";
+export { Avatar, type AvatarProps } from "./avatar";
 export { AspectRatio, type AspectRatioProps } from "./aspect-ratio";
 export { Badge, type BadgeProps } from "./badge";
 export { Button, type ButtonProps } from "./button";

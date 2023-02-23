@@ -10,7 +10,6 @@
     --typography-margin-bottom: 0;
 
     all: unset;
-    margin-bottom: var(--typography-margin-bottom);
     color: var(--typography-color);
     font-size: var(--typography-font-size);
     font-weight: var(--typography-font-weight);
@@ -26,15 +25,67 @@
         @include theme.focus-styles();
     }
 
-    @each $key, $value in $typography-skins {
-        &--#{$key} {
-            --typography-color: #{$value};
-        }
-    }
-
     @each $key, $value in $typography-headings {
         &--#{$key} {
             @include mix.typography($key);
+        }
+    }
+
+    &--base {
+        --typography-color: #{theme.get-color(gray, 900)};
+    }
+
+    &--link {
+        --typography-color: #{theme.get-color(primary)};
+    }
+
+    &--normal {
+        font-style: normal;
+    }
+
+    &--italic {
+        font-style: italic;
+    }
+
+    &--uppercase {
+        text-transform: uppercase;
+    }
+
+    &--lowercase {
+        text-transform: lowercase;
+    }
+
+    &--capitalize {
+        text-transform: capitalize;
+    }
+
+    &--line-through {
+      text-decoration: line-through;
+    }
+
+    &--overline {
+      text-decoration: overline;
+    }
+
+    &--underline {
+      text-decoration: underline;
+    }
+
+    &-alignment-left {
+      text-align: left;
+    }
+
+    &-alignment-center {
+      text-align: center;
+    }
+
+    &-alignment-right {
+      text-align: right;
+    }
+
+    @each $key, $value in $typography-skins {
+        &--#{$key} {
+            --typography-color: #{$value};
         }
     }
 
@@ -48,35 +99,5 @@
         &--#{$key} {
             --typography-font-weight: #{$value};
         }
-    }
-
-    &--base {
-        --typography-color: theme.get-color(gray, 900);
-        --typography-margin-bottom: #{map.get(theme.$spacings, xl)};
-    }
-
-    &--link {
-        --typography-color: theme.get-color(primary);
-        --typography-margin-bottom: #{map.get(theme.$spacings, xl)};
-    }
-
-    &--normal {
-      font-style: normal;
-    }
-
-    &--italic {
-      font-style: italic;
-    }
-
-    &--uppercase {
-      text-transform: uppercase;
-    }
-
-    &--lowercase {
-      text-transform: lowercase;
-    }
-
-    &--capitalize {
-      text-transform: capitalize;
     }
 }

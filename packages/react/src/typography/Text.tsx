@@ -25,7 +25,10 @@ type TextVariation =
     | 'normal'
     | 'uppercase'
     | 'lowercase'
-    | 'capitalize';
+    | 'capitalize'
+    | 'line-through'
+    | 'overline'
+    | 'underline';
 
 interface TextOwnProps extends React.HtmlHTMLAttributes<HTMLParagraphElement> {
     /** Changes the size of the text, giving it more or less font size. */
@@ -48,6 +51,8 @@ interface TextOwnProps extends React.HtmlHTMLAttributes<HTMLParagraphElement> {
     variation?: TextVariation | TextVariation[];
     /** Change the visual style of the text. */
     skin?: 'default' | 'primary' | 'secondary' | 'danger';
+    /** Adjust horizontal alignment of text. */
+    alignment?: 'left' | 'center' | 'right';
 }
 
 export type TextProps<T extends React.ElementType = typeof defaultElement> =
@@ -77,6 +82,7 @@ export const Text: PolymorphicForwardRefExoticComponent<
             weight,
             skin,
             variation,
+            alignment,
             className,
             children,
             ...otherProps
@@ -100,6 +106,7 @@ export const Text: PolymorphicForwardRefExoticComponent<
                 skin && styles[`${rootClassName}--${skin}`],
                 size && styles[`${rootClassName}--${size}`],
                 weight && styles[`${rootClassName}--${weight}`],
+                alignment && styles[`${rootClassName}--alignment-${alignment}`],
                 ...computedVariation.map(
                     (i) => styles[`${rootClassName}--${i}`]
                 ),

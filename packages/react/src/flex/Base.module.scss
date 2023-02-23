@@ -30,6 +30,17 @@
         }
     }
 
+    // Space
+    @each $key, $value in $flex-gap {
+        &--space-x-#{$key}:not([hidden]) ~ :not([hidden]) {
+            margin-left: #{$value};
+        }
+
+        &--space-y-#{$key}:not([hidden]) ~ :not([hidden]) {
+            margin-top: #{$value};
+        }
+    }
+
     // Justify Content
     &--justify-start {
         justify-content: flex-start;

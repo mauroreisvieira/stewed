@@ -30,11 +30,11 @@ export const App = () => {
                 style={{ padding: 24 }}
             >
                 <Flex justify="between">
-                    <Text as="h1" size="lg">Classic Utility Jacket</Text>
-                    <Text size="lg">50€</Text>
+                    <Text size="xl" weight='medium'>Classic Utility Jacket</Text>
+                    <Text size="xl" weight='medium' skin='secondary'>150€</Text>
                 </Flex>
                 <Flex gap="sm">
-                    <Text size="sm" weight="medium">
+                    <Text >
                         In stock
                     </Text>
                 </Flex>
@@ -95,7 +95,7 @@ export const App = () => {
                     </Button>
                 </Flex>
                 <br />
-                <Text size="xs" variation="italic">
+                <Text size="sm">
                     Free shipping on orders over 100€.
                 </Text>
             </Flex>

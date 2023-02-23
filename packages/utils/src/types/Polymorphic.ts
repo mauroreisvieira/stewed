@@ -1,5 +1,5 @@
 import React from 'react';
-import { Merge } from './merge';
+import { Merge } from './Merge';
 
 type PropsWithAs<P, T extends React.ElementType> = P & {
     /** Allow component render with different HTML tag. */

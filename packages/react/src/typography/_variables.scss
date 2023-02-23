@@ -7,39 +7,33 @@ $typography-headings: (
     display-1: (
         --typography-font-size: map.get(theme.$font-size, 5xl),
         --typography-font-weight: map.get(theme.$font-weight, bold),
-        --typography-line-height: 1.5,
-        --typography-margin-bottom: map.get(theme.$spacings, xl)
+        --typography-line-height: 1.5
     ),
     display-2: (
         --typography-font-size: map.get(theme.$font-size, 4xl),
         --typography-font-weight: map.get(theme.$font-weight, bold),
-        --typography-line-height: 1.5,
-        --typography-margin-bottom: map.get(theme.$spacings, xl)
+        --typography-line-height: 1.5
     ),
     display-3: (
         --typography-font-size: map.get(theme.$font-size, 3xl),
         --typography-font-weight: map.get(theme.$font-weight, bold),
-        --typography-line-height: 1.5,
-        --typography-margin-bottom: map.get(theme.$spacings, xl)
+        --typography-line-height: 1.5
     ),
     display-4: (
         --typography-font-size: map.get(theme.$font-size, 2xl),
         --typography-font-weight: map.get(theme.$font-weight, bold),
-        --typography-line-height: 1.5,
-        --typography-margin-bottom: map.get(theme.$spacings, xl)
+        --typography-line-height: 1.5
     ),
     display-5: (
         --typography-font-size: map.get(theme.$font-size, xl),
         --typography-font-weight: map.get(theme.$font-weight, bold),
-        --typography-line-height: 1.5,
-        --typography-margin-bottom: map.get(theme.$spacings, xl)
+        --typography-line-height: 1.5
     ),
     display-6: (
         --typography-font-size: map.get(theme.$font-size, lg),
         --typography-font-weight: map.get(theme.$font-weight, bold),
-        --typography-line-height: 1.5,
-        --typography-margin-bottom: map.get(theme.$spacings, xl)
-    ),
+        --typography-line-height: 1.5
+    )
 );
 
 $typography-sizes: theme.$font-size;
