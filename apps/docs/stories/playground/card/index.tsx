@@ -29,14 +29,16 @@ export const App = () => {
                 grow
                 style={{ padding: 24 }}
             >
-                <Flex justify="between">
-                    <Text size="xl" weight='medium'>Classic Utility Jacket</Text>
-                    <Text size="xl" weight='medium' skin='secondary'>150€</Text>
-                </Flex>
-                <Flex gap="sm">
-                    <Text >
-                        In stock
+                <Flex justify="between" space={{ y: 'md' }}>
+                    <Text size="xl" weight="medium">
+                        Classic Utility Jacket
                     </Text>
+                    <Text size="xl" weight="medium">
+                        150€
+                    </Text>
+                </Flex>
+                <Flex>
+                    <Text>In stock</Text>
                 </Flex>
                 <Flex direction="column">
                     <Flex gap="sm">
@@ -95,9 +97,7 @@ export const App = () => {
                     </Button>
                 </Flex>
                 <br />
-                <Text size="sm">
-                    Free shipping on orders over 100€.
-                </Text>
+                <Text size="sm">Free shipping on orders over 100€.</Text>
             </Flex>
         </Flex>
     );
