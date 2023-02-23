@@ -1,0 +1,21 @@
+@use 'sass:math';
+@use 'sass:map';
+@use '../theme/scss' as theme;
+
+$avatar-root: '.avatar';
+
+$avatar-skins: (
+    'primary': primary,
+    'secondary': secondary,
+);
+
+$avatar-sizes: (
+    xs: map.get(theme.$spacings, 'md') * 3,
+    sm: map.get(theme.$spacings, 'md') * 4,
+    md: map.get(theme.$spacings, 'md') * 5,
+    lg: map.get(theme.$spacings, 'md') * 6,
+    xl: map.get(theme.$spacings, 'md') * 8,
+    hg: map.get(theme.$spacings, 'md') * 9,
+);
+
+$avatar-group-root: '.avatar-group';
