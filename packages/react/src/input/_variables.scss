@@ -23,8 +23,7 @@ $input-skins: (
 );
 
 // Font
-$input-font-weight: map.get(theme.$font-weight, 'normal');
-$input-font-size: map.get(theme.$font-size, 'md');
+$input-font-size: map.get(theme.$font-size, 'sm');
 
 // Spacing's
 $input-sizes: map.get(theme.$spacings, 'md') * 5;

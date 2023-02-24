@@ -15,7 +15,7 @@ $checkbox-font-size: (
     'lg': 24px
 );
 
-$checkbox-size: (
+$checkbox-sizes: (
     'sm': map.get(theme.$spacings, 'xs') * 8,
     'md': map.get(theme.$spacings, 'xs') * 10,
     'lg': map.get(theme.$spacings, 'xs') * 12

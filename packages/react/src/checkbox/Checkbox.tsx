@@ -25,7 +25,7 @@ export const Checkbox = React.forwardRef(
             root: classNames(
                 styles[rootClassName],
                 disabled && styles[`${rootClassName}--disabled`],
-                size !== 'md' && styles[`${rootClassName}--${size}`],
+                styles[`${rootClassName}--${size}`],
                 styles[`${rootClassName}--${skin}`],
                 className
             ),

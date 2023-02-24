@@ -18,7 +18,6 @@
     border: 1px solid var(--button-border-color);
     color: var(--button-color);
     border-radius: map.get($button-border-radius, 'square');
-    font-size: var(--button-font-size);
     user-select: none;
     touch-action: manipulation;
     white-space: nowrap;
@@ -84,7 +83,10 @@
     &__text {
         @include text.typography(
             base,
-            $overrides: (--typography-color: inherit)
+            $overrides: (
+              --typography-color: inherit,
+              --typography-font-size: var(--button-font-size),
+              )
         );
     }
 
@@ -108,13 +110,13 @@
     &--sm {
         --button-size: #{map.get($button-sizes, 'sm')};
         --button-spacing: #{map.get($button-spacings, 'sm')};
-        --button-font-size: #{map.get($button-font-sizes, 'sm')};
+        --button-font-size: #{map.get($button-font-sizes, 'xs')};
     }
 
     &--md {
         --button-size: #{map.get($button-sizes, 'md')};
         --button-spacing: #{map.get($button-spacings, 'md')};
-        --button-font-size: #{map.get($button-font-sizes, 'md')};
+        --button-font-size: #{map.get($button-font-sizes, 'sm')};
     }
 
     &--lg {

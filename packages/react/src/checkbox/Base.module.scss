@@ -4,22 +4,17 @@
 
 @include theme.scope($checkbox-root) {
     --checkbox-color: #{theme.get-color(secondary, 300)};
-    --checkbox-font-size: #{map.get($checkbox-font-size, md)};
-    --checkbox-size: #{map.get($checkbox-size, md)};
 
     display: inline-block;
     position: relative;
     width: var(--checkbox-size);
     height: var(--checkbox-size);
-    font-size: var(--checkbox-font-size);
     border-radius: $checkbox-border-radius;
 
     @include theme.focus-styles();
     @include theme.disabled-styles();
 
-    &:hover,
-    &:active,
-    &:focus {
+    @include theme.hover {
         #{$checkbox-root}__background {
             --checkbox-color: #{theme.get-color(secondary, 400)};
         }
@@ -59,7 +54,7 @@
         svg {
             @include theme.transition(transform);
 
-            width: 1em;
+            width: var(--checkbox-size);
             margin: auto;
             fill: #fff;
             opacity: 0;
@@ -78,16 +73,6 @@
         }
     }
 
-    &--sm {
-        --checkbox-font-size: #{map.get($checkbox-font-size, sm)};
-        --checkbox-size: #{map.get($checkbox-size, sm)};
-    }
-
-    &--lg {
-        --checkbox-font-size: #{map.get($checkbox-font-size, lg)};
-        --checkbox-size: #{map.get($checkbox-size, lg)};
-    }
-
     @each $key, $value in $checkbox-skins {
         &--#{$key} {
             #{$checkbox-root} {
@@ -99,6 +84,12 @@
                     }
                 }
             }
+        }
+    }
+
+    @each $key, $value in $checkbox-sizes {
+        &--#{$key} {
+            --checkbox-size: #{$value};
         }
     }
 }

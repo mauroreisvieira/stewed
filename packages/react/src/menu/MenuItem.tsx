@@ -5,7 +5,7 @@ import styles from './Base.module.scss';
 
 export interface MenuItemProps extends React.HTMLAttributes<HTMLDivElement> {
     /** Change the visual style of the menu item. */
-    skin?: 'default' | 'danger';
+    skin?: 'primary' | 'danger';
     /** Slot to display before the item children. */
     leftSlot?: React.ReactNode;
     /** Slot to display after the item children. */
@@ -16,7 +16,7 @@ export interface MenuItemProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export const MenuItem = ({
     className,
-    skin = 'default',
+    skin = 'primary',
     selected,
     disabled,
     leftSlot,
@@ -27,7 +27,7 @@ export const MenuItem = ({
     const cssClasses = {
         root: classNames(
             styles[rootClassName],
-            skin !== 'default' && styles[`${rootClassName}--${skin}`],
+            skin !== 'primary' && styles[`${rootClassName}--${skin}`],
             selected && styles[`${rootClassName}--selected`],
             disabled && styles[`${rootClassName}--disabled`],
             className
