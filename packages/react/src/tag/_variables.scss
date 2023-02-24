@@ -1,6 +1,6 @@
 @use 'sass:map';
 @use 'sass:math';
-@use '../theme/scss' as theme;
+@use '../theme' as theme;
 
 $tag-root: '.tag';
 

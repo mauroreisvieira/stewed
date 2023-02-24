@@ -1,5 +1,5 @@
 @use 'sass:map';
-@use '../theme/scss' as theme;
+@use '../theme' as theme;
 
 $checkbox-root: '.checkbox';
 
@@ -23,14 +23,7 @@ $checkbox-size: (
 
 $checkbox-border-radius: map.get(theme.$radius, 'sm');
 
-$checkbox-skins-default: (
-    'border': theme.get-color(secondary, 300),
-    'border-hover': theme.get-color(secondary, 600),
-    'border-checked': theme.get-color(primary, 500)
-);
-
 $checkbox-skins: (
-    'error': (
-        'border-checked': theme.get-color(red, 500)
-    )
+    'primary': primary,
+    'error': red
 );

@@ -7,7 +7,7 @@ export interface AvatarProps extends React.ImgHTMLAttributes<HTMLImageElement> {
     /** Change the visual style of the avatar. */
     skin?: 'primary' | 'secondary';
     /** Changes the size of the avatar. */
-    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'hg';
+    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
     /** If true, the avatar will be square instead of circular. */
     square?: boolean;
     children?: React.ReactNode;

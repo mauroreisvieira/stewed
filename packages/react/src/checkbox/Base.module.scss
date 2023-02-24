@@ -1,40 +1,27 @@
 @use 'sass:map';
-@use '../theme/scss' as theme;
+@use '../theme' as theme;
 @use './variables' as *;
 
 @include theme.scope($checkbox-root) {
-    --checkbox-border: #{map.get($checkbox-skins-default, border)};
-    --checkbox-border-hover: #{map.get(
-            $checkbox-skins-default,
-            border-hover
-        )};
-    --checkbox-border-checked: #{map.get(
-            $checkbox-skins-default,
-            border-checked
-        )};
+    --checkbox-color: #{theme.get-color(secondary, 300)};
     --checkbox-font-size: #{map.get($checkbox-font-size, md)};
     --checkbox-size: #{map.get($checkbox-size, md)};
 
+    display: inline-block;
     position: relative;
-    display: inline-flex;
-    flex: 0 0 auto;
-    align-items: center;
-    justify-content: center;
     width: var(--checkbox-size);
     height: var(--checkbox-size);
     font-size: var(--checkbox-font-size);
     border-radius: $checkbox-border-radius;
-    outline: 0;
-    cursor: pointer;
-    overflow: hidden;
 
     @include theme.focus-styles();
+    @include theme.disabled-styles();
 
     &:hover,
     &:active,
     &:focus {
         #{$checkbox-root}__background {
-            color: var(--checkbox-border-hover);
+            --checkbox-color: #{theme.get-color(secondary, 400)};
         }
     }
 
@@ -42,20 +29,15 @@
         position: absolute;
         width: 100%;
         height: 100%;
-        margin: 0;
-        padding: 0;
-        border: 0;
         opacity: 0;
+        margin: 0;
         cursor: pointer;
         overflow: hidden;
-        z-index: 1;
 
         &:checked {
             + .checkbox__background {
-              color: var(--checkbox-border-checked);
-
                 &::before {
-                    background-color: var(--checkbox-border-checked);
+                    background-color: currentColor;
                 }
 
                 svg {
@@ -66,16 +48,13 @@
     }
 
     &__background {
+        pointer-events: none;
         position: relative;
         display: flex;
         align-items: center;
         width: 100%;
         height: 100%;
-        margin: 0;
-        padding: 0;
-        cursor: pointer;
-        z-index: 0;
-        color: var(--checkbox-border);
+        color: var(--checkbox-color);
 
         svg {
             @include theme.transition(transform);
@@ -93,18 +72,11 @@
             right: 0;
             bottom: 0;
             left: 0;
-            box-sizing: border-box;
-            display: inline-block;
-            width: var(--checkbox-size);
-            height: var(--checkbox-size);
-            margin: auto;
             border: 2px solid currentColor;
             border-radius: $checkbox-border-radius;
             content: '';
         }
     }
-
-    @include theme.disabled-styles();
 
     &--sm {
         --checkbox-font-size: #{map.get($checkbox-font-size, sm)};
@@ -118,7 +90,15 @@
 
     @each $key, $value in $checkbox-skins {
         &--#{$key} {
-            --checkbox-border-checked: #{map.get($value, border-checked)};
+            #{$checkbox-root} {
+                &__control {
+                    &:checked {
+                        + .checkbox__background {
+                            --checkbox-color: #{theme.get-color($value, 500)};
+                        }
+                    }
+                }
+            }
         }
     }
 }

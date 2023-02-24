@@ -7,9 +7,7 @@ const definitionError = (): null => {
 };
 
 export interface TabsContextProps {
-    /** Checked value on children component. */
     selected: string;
-    /** Callback fired when the item is changed. */
     onChange: (value: string) => void;
 }
 

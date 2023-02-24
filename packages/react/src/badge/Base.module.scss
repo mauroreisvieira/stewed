@@ -1,4 +1,5 @@
-@use '../theme/scss' as theme;
+@use '../theme' as theme;
+@use '../typography' as text;
 @use './variables' as *;
 
 @include theme.scope($badge-root) {
@@ -8,6 +9,14 @@
     display: inline-flex;
 
     &__count {
+        @include text.typography(
+            base,
+            $overrides: (
+                --typography-color: $badge-color,
+                --typography-font-size: $badge-font-size
+            )
+        );
+
         position: absolute;
         top: 0;
         right: 0;
@@ -16,13 +25,9 @@
         justify-content: center;
         min-width: var(--badge-size);
         height: var(--badge-size);
-        padding-block: 0;
         transform: translate(50%, -50%);
         border-radius: $badge-border-radius;
         background-color: var(--badge-background);
-        color: $badge-color;
-        font-size: $badge-font-size;
-        font-weight: $badge-font-weight;
         white-space: nowrap;
 
         &:empty {

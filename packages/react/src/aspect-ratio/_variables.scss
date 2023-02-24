@@ -1,6 +1,6 @@
 @use 'sass:math';
 @use 'sass:map';
-@use '../theme/scss' as theme;
+@use '../theme' as theme;
 
 $aspect-ratio-root: '.aspect-ratio';
 

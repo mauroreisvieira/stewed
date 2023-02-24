@@ -1,6 +1,6 @@
 @use 'sass:math';
 @use 'sass:map';
-@use '../theme/scss' as theme;
+@use '../theme' as theme;
 
 $badge-root: '.badge';
 
@@ -8,7 +8,7 @@ $badge-color: #fff;
 $badge-border-radius: map.get(theme.$radius, xl);
 
 $badge-font-weight: map.get(theme.$font-weight, medium);
-$badge-font-size: map.get(theme.$font-size, xxs);
+$badge-font-size: map.get(theme.$font-size, xs);
 
 $badge-skins: (
     'primary': primary,

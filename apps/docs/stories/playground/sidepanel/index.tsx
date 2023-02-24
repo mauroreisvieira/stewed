@@ -162,7 +162,7 @@ export const App = () => {
                     <Text weight="medium">Trash</Text>
                 </Menu.Item>
             </Menu>
-            <div>
+            <Flex direction="column" gap="lg">
                 <Text weight="medium" size="sm" skin="secondary">
                     Pinned messages
                 </Text>
@@ -190,7 +190,7 @@ export const App = () => {
                     <Menu.Item>Reflect roadmap</Menu.Item>
                     <Menu.Item>Top of mind</Menu.Item>
                 </Menu>
-            </div>
+            </Flex>
         </Flex>
     );
 };

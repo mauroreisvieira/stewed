@@ -1,21 +1,13 @@
 @use 'sass:map';
-@use '../theme/scss' as theme;
+@use '../theme' as theme;
 @use './variables' as *;
 @use './mixins' as mix;
 
 @include theme.scope($typography-root) {
-    --typography-font-size: #{map.get(theme.$font-size, md)};
-    --typography-font-weight: #{map.get(theme.$font-weight, normal)};
-    --typography-line-height: 1.4;
-    --typography-margin-bottom: 0;
-
     all: unset;
-    color: var(--typography-color);
-    font-size: var(--typography-font-size);
-    font-weight: var(--typography-font-weight);
-    line-height: var(--typography-line-height);
-    text-decoration: none;
-    vertical-align: baseline;
+    display: block;
+
+    @include mix.typography-base;
 
     &[href] {
         &:hover {
@@ -25,18 +17,10 @@
         @include theme.focus-styles();
     }
 
-    @each $key, $value in $typography-headings {
+    @each $key, $value in $typography-styles {
         &--#{$key} {
-            @include mix.typography($key);
+            @include mix.typography-init($key);
         }
-    }
-
-    &--base {
-        --typography-color: #{theme.get-color(gray, 900)};
-    }
-
-    &--link {
-        --typography-color: #{theme.get-color(primary)};
     }
 
     &--normal {
@@ -71,16 +55,20 @@
       text-decoration: underline;
     }
 
-    &-alignment-left {
-      text-align: left;
+    &--alignment-start {
+      text-align: start;
     }
 
-    &-alignment-center {
+    &--alignment-center {
       text-align: center;
     }
 
-    &-alignment-right {
-      text-align: right;
+    &--alignment-end {
+      text-align: end;
+    }
+
+    &--alignment-justify {
+      text-align: justify;
     }
 
     @each $key, $value in $typography-skins {

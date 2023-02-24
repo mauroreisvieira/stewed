@@ -1,4 +1,4 @@
-@use '@stewed/react/src/theme/scss' as * with (
+@use '@stewed/react/src/theme' as * with (
     $config: (
         extend: (
             colors: (
@@ -11,6 +11,5 @@
 );
 
 html {
-    font-size: 14px;
     -webkit-text-size-adjust: 100%;
 }

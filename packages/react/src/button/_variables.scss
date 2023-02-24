@@ -1,5 +1,5 @@
 @use 'sass:map';
-@use '../theme/scss' as theme;
+@use '../theme' as theme;
 
 $button-root: '.button';
 
@@ -14,6 +14,8 @@ $button-skins: (
     'secondary': secondary,
     'danger': red
 );
+
+$button-gap: map.get(theme.$spacings, 'md');
 
 $button-font-sizes: theme.$font-size;
 $button-font-weight: map.get(theme.$font-weight, 'normal');

@@ -3,17 +3,17 @@ import { classNames } from '@stewed/utils';
 import { useTabsContext } from './TabsContext';
 import styles from './Base.module.scss';
 
-export interface TabItemProps
+export interface TabsItemProps
     extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+    /** Sets or retrieves the value of a tab list. */
     value: string;
     /** Slot to display before the item children. */
     leftSlot?: React.ReactNode;
     /** Slot to display after the item children. */
     rightSlot?: React.ReactNode;
-    children?: React.ReactNode;
 }
 
-export const TabItem = ({
+export const TabsItem = ({
     value,
     disabled,
     leftSlot,
@@ -22,11 +22,11 @@ export const TabItem = ({
     onClick,
     children,
     ...otherProps
-}: TabItemProps): React.ReactElement => {
+}: TabsItemProps): React.ReactElement => {
     const { onChange, selected } = useTabsContext();
 
     const isSelected = selected === value;
-    const rootClassName = 'tab__item';
+    const rootClassName = 'tabs__item';
     const cssClasses = {
         root: classNames(
             styles[rootClassName],

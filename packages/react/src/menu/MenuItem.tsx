@@ -3,14 +3,13 @@ import { classNames } from '@stewed/utils';
 
 import styles from './Base.module.scss';
 
-export interface MenuItemProps {
+export interface MenuItemProps extends React.HTMLAttributes<HTMLDivElement> {
     /** Change the visual style of the menu item. */
     skin?: 'default' | 'danger';
     /** Slot to display before the item children. */
     leftSlot?: React.ReactNode;
     /** Slot to display after the item children. */
     rightSlot?: React.ReactNode;
-    className?: string;
     selected?: boolean;
     disabled?: boolean;
 }

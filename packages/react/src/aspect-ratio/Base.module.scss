@@ -1,5 +1,5 @@
 @use 'sass:map';
-@use '../theme/scss' as theme;
+@use '../theme' as theme;
 @use './variables' as *;
 
 @include theme.scope($aspect-ratio-root) {

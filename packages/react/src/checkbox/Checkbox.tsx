@@ -5,14 +5,14 @@ import styles from './Base.module.scss';
 
 export interface CheckboxProps
     extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
-    skin?: 'default' | 'error';
+    skin?: 'primary' | 'error';
     size?: 'sm' | 'md' | 'lg';
 }
 
 export const Checkbox = React.forwardRef(
     (
         {
-            skin = 'default',
+            skin = 'primary',
             size = 'md',
             className,
             disabled,
@@ -26,7 +26,7 @@ export const Checkbox = React.forwardRef(
                 styles[rootClassName],
                 disabled && styles[`${rootClassName}--disabled`],
                 size !== 'md' && styles[`${rootClassName}--${size}`],
-                skin !== 'default' && styles[`${rootClassName}--${skin}`],
+                styles[`${rootClassName}--${skin}`],
                 className
             ),
             control: styles[`${rootClassName}__control`],

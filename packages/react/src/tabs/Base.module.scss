@@ -1,29 +1,47 @@
 @use 'sass:map';
-@use '../theme/scss' as theme;
+@use '../theme' as theme;
+@use '../typography' as text;
 @use './variables' as *;
 
 @include theme.scope($tabs-root) {
-    --tabs-border-radius: #{map.get($tabs-border-radius, 'square')};
+    --tabs-background: #{theme.get-color(secondary, 100)};
 
     display: inline-flex;
     align-items: center;
-    gap: 4px;
-    background: #ddd;
+    gap: 6px;
+    background: var(--tabs-background);
     padding: 4px;
     user-select: none;
-    border-radius: var(--tabs-border-radius);
-}
+    border-radius: map.get($tabs-border-radius, 'square');
 
-@include theme.scope($tab-item-root) {
-    all: unset;
-    display: flex;
-    padding: 8px 16px;
-    border-radius: var(--tabs-border-radius);
-    cursor: pointer;
+    &__item {
+        --tab-item-background: transparent;
 
-    @include theme.disabled-styles();
+        all: unset;
+        display: flex;
+        padding: 8px 16px;
+        border-radius: map.get($tabs-border-radius, 'inner');
+        background-color: var(--tab-item-background);
+        cursor: pointer;
 
-    &--selected {
-        background: #fff;
+        @include theme.focus-styles();
+        @include theme.disabled-styles();
+
+        &__text {
+            flex-grow: 1;
+            @include text.typography(base);
+        }
+
+        &__left,
+        &__right {
+            align-items: center;
+            display: flex;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        &--selected {
+            --tab-item-background: #fff;
+        }
     }
 }

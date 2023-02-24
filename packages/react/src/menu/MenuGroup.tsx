@@ -3,10 +3,8 @@ import { classNames } from '@stewed/utils';
 
 import styles from './Base.module.scss';
 
-export interface MenuGroupProps {
-    className?: string;
+export interface MenuGroupProps extends React.HTMLAttributes<HTMLDivElement> {
     title?: string;
-    children?: React.ReactNode;
 }
 
 export const MenuGroup = ({
@@ -22,7 +20,7 @@ export const MenuGroup = ({
 
     return (
         <div className={cssClasses.root}>
-            {title && <div>{title}</div>}
+            {title && <div className={cssClasses.title}>{title}</div>}
             {children}
         </div>
     );

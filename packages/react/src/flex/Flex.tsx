@@ -3,7 +3,7 @@ import { classNames } from '@stewed/utils';
 
 import styles from './Base.module.scss';
 
-type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'hg';
+type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 
 export interface FlexProps extends React.HTMLAttributes<HTMLDivElement> {
     direction?: 'row' | 'column' | 'row-reverse' | 'column-reverse';

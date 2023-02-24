@@ -126,6 +126,15 @@ $default-config: (
         7xl: func.rem(72),
         8xl: func.rem(96),
     ),
+    line-height: (
+        sm: func.rem(20),
+        md: func.rem(24),
+        lg: func.rem(28),
+        xl: func.rem(34),
+        2xl: func.rem(42),
+        3xl: func.rem(50),
+        4xl: func.rem(64),
+    ),
     font-weight: (
         thin: 100,
         light: 300,
@@ -161,6 +170,7 @@ $default-config: (
 $all-config: map.deep-merge($default-config, $config);
 
 $font-size: map.get($all-config, font-size);
+$line-height: map.get($all-config, line-height);
 $font-weight: map.get($all-config, font-weight);
 
 $spacings: map.get($all-config, spacings);
@@ -211,6 +221,7 @@ $function: map.get($transition, timing-function);
     }
 
     @return map.get($colorKey, $tone);
+
 }
 
 @mixin focus-styles($color: get-color('primary'), $offset: 1px, $width: 1px) {

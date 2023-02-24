@@ -52,7 +52,7 @@ interface TextOwnProps extends React.HtmlHTMLAttributes<HTMLParagraphElement> {
     /** Change the visual style of the text. */
     skin?: 'default' | 'primary' | 'secondary' | 'danger';
     /** Adjust horizontal alignment of text. */
-    alignment?: 'left' | 'center' | 'right';
+    alignment?: 'start' | 'center' | 'end' | 'justify';
 }
 
 export type TextProps<T extends React.ElementType = typeof defaultElement> =

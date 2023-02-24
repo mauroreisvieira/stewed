@@ -1,5 +1,6 @@
 @use 'sass:map';
-@use '../theme/scss' as theme;
+@use '../theme' as theme;
+@use '../typography' as text;
 @use './variables' as *;
 
 @include theme.scope($menu-root) {
@@ -7,11 +8,15 @@
     --menu-item-color: inherit;
 
     width: 100%;
-    padding: $menu-inner-spacing-block 0px;
     position: relative;
 
     &__item {
         @include theme.reset();
+
+        @include text.typography(
+            base,
+            $overrides: (--typography-color: var(--menu-item-color))
+        );
 
         position: relative;
         display: flex;
@@ -19,10 +24,10 @@
         align-items: center;
         justify-content: flex-start;
         width: 100%;
-        padding: $menu-item-inner-spacing-block $menu-item-inner-spacing-inline;
+        padding-block: $menu-item-inner-spacing-block;
+        padding-inline: $menu-item-inner-spacing-inline;
         background-color: var(--menu-item-background);
         border-radius: $menu-item-border-radius;
-        color: var(--menu-item-color);
         overflow: hidden;
         cursor: pointer;
         box-sizing: border-box;
@@ -45,7 +50,7 @@
         }
 
         &__text {
-          flex-grow: 1;
+            flex-grow: 1;
         }
 
         &__left,
@@ -58,16 +63,20 @@
 
         @each $key, $value in $menu-item-skins {
             &--#{$key} {
-                --menu-item-background: #{theme.get-color($value, 50)};
+                --menu-item-background: transparent;
                 --menu-item-color: #{theme.get-color($value, 600)};
 
                 &:hover {
-                    --menu-item-background: #{theme.get-color($value, 100)};
+                    --menu-item-background: #{theme.get-color($value, 50)};
                     --menu-item-color: #{theme.get-color($value, 600)};
                 }
 
                 &:active {
-                    --menu-item-background: #{theme.get-color($value, 200)};
+                    --menu-item-background: #{theme.get-color($value, 100)};
+                }
+
+                &#{$menu-root}__item--selected {
+                  --menu-item-background: #{theme.get-color($value, 50)};
                 }
             }
         }
@@ -76,6 +85,22 @@
     }
 
     &__group {
-        border-bottom: 1px solid red;
+        padding-block: 4px;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid #{theme.get-color(gray, 200)};
+            margin-bottom: $menu-item-outer-spacing-bottom;
+        }
+
+        &__title {
+            @include text.typography(
+                base,
+                $overrides: (
+                    --typography-color: theme.get-color(gray, 400),
+                    --typography-font-size: $menu-section-title-font-size
+                )
+            );
+            margin-bottom: 8px;
+        }
     }
 }

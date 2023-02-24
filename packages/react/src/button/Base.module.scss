@@ -1,5 +1,6 @@
 @use 'sass:map';
-@use '../theme/scss' as theme;
+@use '../theme' as theme;
+@use '../typography' as text;
 @use './variables' as *;
 
 @include theme.scope($button-root) {
@@ -9,14 +10,15 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: $button-gap;
     height: var(--button-size);
     min-width: var(--button-size);
     padding: 0 var(--button-spacing);
+    background-color: var(--button-background);
+    border: 1px solid var(--button-border-color);
+    color: var(--button-color);
     border-radius: map.get($button-border-radius, 'square');
-    font-family: inherit;
     font-size: var(--button-font-size);
-    font-weight: $button-font-weight;
     user-select: none;
     touch-action: manipulation;
     white-space: nowrap;
@@ -29,48 +31,61 @@
 
     @include theme.disabled-styles();
 
+    @each $key, $value in $button-skins {
+        &--#{$key} {
+            --button-color: #{theme.get-color($value)};
+            --button-border-color: transparent;
+            --button-color-hover: #{theme.get-color($value, 600)};
+            --button-background: #{theme.get-color($value)};
+            --button-background-hover: #{theme.get-color($value, 600)};
+            --button-background-active: #{theme.get-color($value, 700)};
+            --button-background-ghost-hover: #{theme.get-color($value, 50)};
+            --button-background-ghost-active: #{theme.get-color($value, 100)};
+        }
+    }
+
     &--filled {
-        --filled-color: var(--button-color);
-        background-color: var(--filled-color);
-        color: $button-color;
+        --button-color: #{$button-color};
 
         &:hover {
-            --filled-color: var(--button-color-hover);
+            --button-background: var(--button-background-hover);
         }
 
         &:active {
-            --filled-color: var(--button-color-active);
+            --button-background: var(--button-background-active);
         }
     }
 
     &--ghost {
-        --ghost-color: var(--button-color);
-        background-color: transparent;
-        color: var(--ghost-color);
+        --button-background: transparent;
 
         &:hover {
-            --ghost-color: var(--button-color-hover);
+            --button-background: var(--button-background-ghost-hover);
         }
 
         &:active {
-            --ghost-color: var(--button-color-active);
+            --button-background: var(--button-background-ghost-active);
         }
     }
 
     &--outline {
-        --outline-color: var(--button-color);
-
-        background-color: transparent;
-        color: var(--outline-color);
-        border: 1px solid currentColor;
+        --button-background: transparent;
+        --button-border-color: currentColor;
 
         &:hover {
-            --outline-color: var(--button-color-hover);
+            --button-color: var(--button-color-hover);
         }
 
         &:active {
-            --outline-color: var(--button-color-active);
+            --button-color: var(--button-color-active);
         }
+    }
+
+    &__text {
+        @include text.typography(
+            base,
+            $overrides: (--typography-color: inherit)
+        );
     }
 
     &__left,
@@ -110,13 +125,5 @@
 
     &--fullWidth {
         width: 100%;
-    }
-
-    @each $key, $value in $button-skins {
-        &--#{$key} {
-            --button-color: #{theme.get-color($value)};
-            --button-color-hover: #{theme.get-color($value, 600)};
-            --button-color-active: #{theme.get-color($value, 700)};
-        }
     }
 }
