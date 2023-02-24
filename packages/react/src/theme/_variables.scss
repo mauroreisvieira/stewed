@@ -18,7 +18,7 @@ $default-config: (
         md: 8px,
         lg: 12px,
         xl: 16px,
-        hg: 24px,
+        2xl: 24px,
     ),
     screens: (
         sm: 768px,
@@ -224,9 +224,9 @@ $function: map.get($transition, timing-function);
 
 }
 
-@mixin focus-styles($color: get-color('primary'), $offset: 1px, $width: 1px) {
+@mixin focus-styles($color: #{get-color('primary')}, $offset: 1px, $width: 1px) {
     &:focus-within {
-        outline-color: #{$color};
+        outline-color: $color;
         outline-offset: $offset;
         outline-width: $width;
         outline-style: solid;

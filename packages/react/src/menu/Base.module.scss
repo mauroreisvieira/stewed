@@ -12,7 +12,10 @@
     &__item {
         @include text.typography(
             base,
-            $overrides: (--typography-color: var(--menu-item-color))
+            $overrides: (
+              --typography-color: var(--menu-item-color),
+              --typography-line-height: map.get(theme.$line-height, sm)
+            )
         );
         --menu-item-background: transparent;
         --menu-item-color: inherit;

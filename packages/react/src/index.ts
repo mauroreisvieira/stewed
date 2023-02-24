@@ -11,5 +11,6 @@ export * from "./progress";
 export * from "./radio";
 export * from "./tabs";
 export * from "./tag";
-export * from "./typography";
 export * from "./textarea";
+export * from "./theme";
+export * from "./typography";

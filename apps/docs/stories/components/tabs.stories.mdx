@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useState } from 'react';
 import { Tabs } from '../../../../packages/react/src';
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 
 <Meta
     title="Components/Tabs"
     component={Tabs}
-    subcomponents={{ Tabs: Tabs, 'Tab Item': Tabs.Item }}
+    subcomponents={{
+        Tabs: Tabs,
+        'Tabs List': Tabs.List,
+        'Tabs Item': Tabs.Item,
+        'Tabs Panel': Tabs.Panel,
+    }}
 />
 
 # Tabs
@@ -26,16 +31,15 @@ import { Tabs } from '@stewed/react';
 
 ## Examples
 
-export const Template = (args) => {
-    const [selected, setSelected] = useState(args.selected);
-    return (
-        <Tabs selected={selected} onChange={setSelected}>
+export const Template = (args) => (
+    <Tabs {...args}>
+        <Tabs.List>
             <Tabs.Item value="1">Item 1</Tabs.Item>
             <Tabs.Item value="2">Item 2</Tabs.Item>
             <Tabs.Item value="3">Item 3</Tabs.Item>
-        </Tabs>
-    );
-};
+        </Tabs.List>
+    </Tabs>
+);
 
 ### Base
 
@@ -43,7 +47,7 @@ export const Template = (args) => {
     <Story
         name="Base"
         args={{
-            selected: '1',
+            value: '1',
         }}
     >
         {Template.bind({})}

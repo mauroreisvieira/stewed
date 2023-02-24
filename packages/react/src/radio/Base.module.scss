@@ -3,53 +3,20 @@
 @use './variables' as *;
 
 @include theme.scope($radio-root) {
-    --radio-border: #{map.get($radio-skins-default, border)};
-    --radio-border-hover: #{map.get($radio-skins-default, border-hover)};
-    --radio-border-checked: #{map.get($radio-skins-default, border-checked)};
-    --radio-size: #{map.get($radio-size, md)};
-    --radio-border-size: #{map.get($radio-border-size, md)};
+    --radio-color: #{theme.get-color(secondary, 300)};
 
+    display: inline-block;
     position: relative;
-    display: inline-flex;
-    flex: 0 0 auto;
-    align-items: center;
-    justify-content: center;
     width: var(--radio-size);
     height: var(--radio-size);
     border-radius: 50%;
-    outline: 0;
-    cursor: pointer;
-    overflow: hidden;
-    will-change: transform, opacity;
-
-    &::before {
-        @include theme.transition((opacity, transform));
-
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        transform: scale(0, 0);
-        border-radius: 50%;
-        background-color: var(--radio-border);
-        opacity: 0;
-        content: '';
-    }
 
     @include theme.focus-styles();
+    @include theme.disabled-styles();
 
-    &:hover,
-    &:active,
-    &:focus {
-
-        &::before {
-            transform: none;
-            opacity: .05;
-        }
-
+    @include theme.hover {
         #{$radio-root}__background {
-            &::before {
-                border-color: var(--radio-border-hover);
-            }
+            --radio-color: #{theme.get-color(secondary, 400)};
         }
     }
 
@@ -57,39 +24,28 @@
         position: absolute;
         width: 100%;
         height: 100%;
-        margin: 0;
-        padding: 0;
-        border: 0;
         opacity: 0;
+        margin: 0;
         cursor: pointer;
         overflow: hidden;
-        z-index: 1;
 
         &:checked {
             + .radio__background {
-                &::before {
-                    border-color: var(--radio-border-checked);
-                }
-
                 &::after {
-                  transform: none;
-                  background-color: var(--radio-border-checked);
+                  scale: 1;
                 }
             }
         }
     }
 
     &__background {
+        pointer-events: none;
         position: relative;
         display: flex;
         align-items: center;
         width: 100%;
         height: 100%;
-        margin: 0;
-        padding: 0;
-        // color: $radio-color-default;
-        cursor: pointer;
-        z-index: 0;
+        color: var(--radio-color);
 
         &::before {
             position: absolute;
@@ -97,49 +53,44 @@
             right: 0;
             bottom: 0;
             left: 0;
-            box-sizing: border-box;
-            display: inline-block;
-            width: var(--radio-border-size);
-            height: var(--radio-border-size);
-            margin: auto;
-            border: 2px solid var(--radio-border);
+            border: 2px solid currentColor;
             border-radius: 50%;
             content: '';
         }
 
         &::after {
-            @include theme.transition(transform);
-
             position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            width: calc(var(--radio-border-size) / 2);
-            height: calc(var(--radio-border-size) / 2);
-            margin: auto;
-            transform: scale(0, 0);
+            top: 50%;
+            left: 50%;
+            background-color: currentColor;
             border-radius: 50%;
-            background: white;
+            width: calc(var(--radio-size) / 2);
+            height: calc(var(--radio-size) / 2);
+            translate: -50% -50%;
+            scale: 0;
             content: '';
+
+            @include theme.transition(scale);
         }
-    }
-
-    @include theme.disabled-styles();
-
-    &--sm {
-        --radio-size: #{map.get($radio-size, sm)};
-        --radio-border-size: #{map.get($radio-border-size, sm)};
-    }
-
-    &--lg {
-        --radio-size: #{map.get($radio-size, lg)};
-        --radio-border-size: #{map.get($radio-border-size, lg)};
     }
 
     @each $key, $value in $radio-skins {
         &--#{$key} {
-            --radio-border-checked: #{map.get($value, border-checked)};
+            #{$radio-root} {
+                &__control {
+                    &:checked {
+                        + .radio__background {
+                            --radio-color: #{theme.get-color($value, 500)};
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @each $key, $value in $radio-sizes {
+        &--#{$key} {
+            --radio-size: #{$value};
         }
     }
 }

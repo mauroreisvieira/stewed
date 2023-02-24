@@ -9,20 +9,21 @@ $radio-size: (
     'lg': map.get(theme.$spacings, 'xs') * 21
 );
 
-$radio-border-size: (
+$radio-font-size: (
+    'sm': 16px,
+    'md': 20px,
+    'lg': 24px
+);
+
+$radio-sizes: (
     'sm': map.get(theme.$spacings, 'xs') * 8,
     'md': map.get(theme.$spacings, 'xs') * 10,
     'lg': map.get(theme.$spacings, 'xs') * 12
 );
 
-$radio-skins-default: (
-    'border': theme.get-color(secondary, 300),
-    'border-hover': theme.get-color(secondary, 600),
-    'border-checked': theme.get-color(primary, 500)
-);
+$radio-border-radius: map.get(theme.$radius, 'sm');
 
 $radio-skins: (
-    'error': (
-        'border-checked': theme.get-color(red, 500)
-    )
+    'primary': primary,
+    'error': red
 );

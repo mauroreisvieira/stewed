@@ -24,6 +24,6 @@ $avatar-sizes: (
     md: map.get(theme.$spacings, 'md') * 5,
     lg: map.get(theme.$spacings, 'md') * 6,
     xl: map.get(theme.$spacings, 'md') * 8,
-    hg: map.get(theme.$spacings, 'md') * 9,
+    2xl: map.get(theme.$spacings, 'md') * 9,
 );
 

@@ -7,9 +7,9 @@
     all: unset;
     display: block;
 
-    @include mix.typography-base;
-
     &[href] {
+        cursor: pointer;
+
         &:hover {
             text-decoration: underline;
         }
@@ -19,7 +19,7 @@
 
     @each $key, $value in $typography-styles {
         &--#{$key} {
-            @include mix.typography-init($key);
+            @include mix.typography($key);
         }
     }
 

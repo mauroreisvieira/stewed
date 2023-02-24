@@ -12,7 +12,7 @@ import {
 
 export const App = () => {
     return (
-        <Flex gap="hg" direction="column">
+        <Flex gap="2xl" direction="column">
             <Input
                 placeholder="Search anything..."
                 leftSlot={

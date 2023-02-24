@@ -9,18 +9,6 @@
     color: var(--typography-color);
 }
 
-@mixin typography-init($key) {
-    $style-props: map.get($typography-styles, $key);
-
-    @if not map.has-key($typography-styles, $key) {
-        @error "Invalid typography specified! #{$key} doesn't exist. Choose one of #{map.keys($typography-styles)}";
-    }
-
-    @each $key, $value in $style-props {
-        #{$key}: $value;
-    }
-}
-
 @mixin typography($key, $overrides: ()) {
 
     @if not map.has-key($typography-styles, $key) {

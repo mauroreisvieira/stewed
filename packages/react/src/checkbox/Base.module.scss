@@ -36,7 +36,7 @@
                 }
 
                 svg {
-                    opacity: 1;
+                    scale: 1;
                 }
             }
         }
@@ -52,12 +52,12 @@
         color: var(--checkbox-color);
 
         svg {
-            @include theme.transition(transform);
+            @include theme.transition(scale);
 
             width: var(--checkbox-size);
             margin: auto;
             fill: #fff;
-            opacity: 0;
+            scale: 0;
             z-index: 1;
         }
 
