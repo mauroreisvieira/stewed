@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { classNames } from '@stewed/utils';
 import { useTabsContext } from './TabsContext';
+
 import styles from './Base.module.scss';
 
 export interface TabsItemProps
@@ -14,7 +15,7 @@ export interface TabsItemProps
 }
 
 export const TabsItem = ({
-    value,
+    value: receivedValue,
     disabled,
     leftSlot,
     rightSlot,
@@ -23,9 +24,9 @@ export const TabsItem = ({
     children,
     ...otherProps
 }: TabsItemProps): React.ReactElement => {
-    const { onChange, selected } = useTabsContext();
+    const { onValueChange, value } = useTabsContext();
 
-    const isSelected = selected === value;
+    const isSelected = value === receivedValue;
     const rootClassName = 'tabs__item';
     const cssClasses = {
         root: classNames(
@@ -42,7 +43,7 @@ export const TabsItem = ({
         if (disabled) return;
 
         if (onClick) onClick(event);
-        onChange(value);
+        onValueChange?.(value);
     };
 
     return (

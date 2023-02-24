@@ -7,13 +7,13 @@ const definitionError = (): null => {
 };
 
 export interface TabsContextProps {
-    selected: string;
-    onChange: (value: string) => void;
+    value: string;
+    onValueChange?: (value: string) => void;
 }
 
 export const TabsContext = createContext<TabsContextProps>({
-    selected: '',
-    onChange: definitionError,
+    value: '',
+    onValueChange: definitionError,
 });
 
 export const useTabsContext = (): TabsContextProps => useContext(TabsContext);

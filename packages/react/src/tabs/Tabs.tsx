@@ -5,18 +5,17 @@ import { TabsContext, TabsContextProps } from './TabsContext';
 
 import styles from './Base.module.scss';
 
-export interface TabsProps
-    extends Omit<React.HTMLAttributes<HTMLElement>, 'onChange'> {
+export interface TabsProps extends React.HTMLAttributes<HTMLElement> {
     /** Sets value of tab item selected. */
-    selected: TabsContextProps['selected'];
-    /** Callback fired when the Tab is changed. */
-    onChange: TabsContextProps['onChange'];
+    value: TabsContextProps['value'];
+    /** Callback fired when the value changes. */
+    onValueChange?: TabsContextProps['onValueChange'];
 }
 
 export const Tabs = ({
-    selected,
+    value,
     className,
-    onChange,
+    onValueChange,
     children,
     ...otherProps
 }: TabsProps): React.ReactElement => {
@@ -26,15 +25,15 @@ export const Tabs = ({
     };
 
     return (
-        <nav className={cssClasses.root} role="tablist" {...otherProps}>
+        <div className={cssClasses.root} {...otherProps}>
             <TabsContext.Provider
                 value={{
-                    selected,
-                    onChange,
+                    value,
+                    onValueChange,
                 }}
             >
                 {children}
             </TabsContext.Provider>
-        </nav>
+        </div>
     );
 };

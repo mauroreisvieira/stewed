@@ -6,13 +6,15 @@
 @include theme.scope($tabs-root) {
     --tabs-background: #{theme.get-color(secondary, 100)};
 
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--tabs-background);
-    padding: 4px;
-    user-select: none;
-    border-radius: map.get($tabs-border-radius, 'square');
+    &__list {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--tabs-background);
+        padding: 4px;
+        user-select: none;
+        border-radius: map.get($tabs-border-radius, 'square');
+    }
 
     &__item {
         --tab-item-background: transparent;
@@ -29,7 +31,9 @@
 
         &__text {
             flex-grow: 1;
-            @include text.typography(base);
+            @include text.typography(base, $overrides: (
+              --typography-line-height: map.get(theme.$line-height, sm)
+            ));
         }
 
         &__left,
