@@ -5,11 +5,12 @@ import {
     Button,
     Flex,
     Input,
-    Text as Text,
+    Text,
 } from '../../../../../packages/react/src';
+import { useInput } from '../../../../../packages/hooks/src';
 
 const projects = [
-{
+    {
         id: 'new-benefits-plan',
         title: 'New Benefits Plan',
         category: 'Human Resources',
@@ -23,7 +24,7 @@ const projects = [
                 name: 'Bruna Santos',
             },
             {
-                id: 'lourençco-vieira',
+                id: 'lourenco-vieira',
                 name: 'Lourenço Vieira',
             },
         ],
@@ -48,7 +49,7 @@ const projects = [
                 name: 'Bruna Santos',
             },
             {
-                id: 'lourençco-vieira',
+                id: 'lourenco-vieira',
                 name: 'Lourenço Vieira',
             },
         ],
@@ -67,7 +68,7 @@ const projects = [
                 name: 'Bruna Santos',
             },
             {
-                id: 'lourençco-vieira',
+                id: 'lourenco-vieira',
                 name: 'Lourenço Vieira',
             },
         ],
@@ -75,6 +76,7 @@ const projects = [
 ];
 
 export const App = () => {
+    const placeholder = useInput();
     return (
         <div
             style={{
@@ -119,6 +121,7 @@ export const App = () => {
             </Flex>
             <div>
                 <Input
+                    {...placeholder}
                     placeholder="Filter projects..."
                     leftSlot={
                         <svg
@@ -139,7 +142,7 @@ export const App = () => {
                 />
             </div>
             <Flex gap="lg">
-                {projects.map(({ id, title,category,  members }) => (
+                {projects.map(({ id, title, category, members }) => (
                     <Flex key={id} gap="md" grow>
                         <div
                             style={{

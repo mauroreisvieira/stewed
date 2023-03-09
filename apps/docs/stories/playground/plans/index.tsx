@@ -1,12 +1,10 @@
 import React from 'react';
 
 import {
-    Avatar,
     Button,
     Flex,
-    Input,
     Tabs,
-    Text as Text,
+    Text,
 } from '../../../../../packages/react/src';
 
 export const App = () => {

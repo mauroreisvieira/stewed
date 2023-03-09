@@ -4,7 +4,7 @@ import {
     AspectRatio,
     Button,
     Flex,
-    Text as Text,
+    Text,
 } from '../../../../../packages/react/src';
 
 export const App = () => {
