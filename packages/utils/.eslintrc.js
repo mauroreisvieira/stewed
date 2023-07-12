@@ -1,4 +1,1 @@
-module.exports = {
-  root: true,
-  extends: ["stewed"],
-};
+module.exports = require("@stewed/lint");

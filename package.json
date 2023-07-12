@@ -13,9 +13,9 @@
     },
     "devDependencies": {
         "@stewed/lint": "workspace:0.0.0",
-        "@changesets/cli": "^2.26.0",
-        "eslint": "^8.35.0",
-        "prettier": "^2.8.4",
+        "@changesets/cli": "^2.26.2",
+        "eslint": "^8.44.0",
+        "prettier": "^3.0.0",
         "turbo": "latest"
     },
     "packageManager": "pnpm@7.15.0"

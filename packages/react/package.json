@@ -12,7 +12,7 @@
   "scripts": {
     "dev": "npx vite",
     "build": "npx vite build",
-    "lint": "TIMING=1 eslint \"src/**/*.ts*\"",
+    "lint": "eslint",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "devDependencies": {
