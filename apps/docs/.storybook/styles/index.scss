@@ -2,7 +2,7 @@
     $config: (
         extend: (
             colors: (
-                sb: (
+                new-color: (
                     50: #f6f9fc,
                 ),
             ),
@@ -29,7 +29,7 @@ html {
 }
 
 body {
-    background-color: #{get-color(primary, 50)};
+    background-color: #{get-color(new-color, 50)};
 }
 
 :root {
