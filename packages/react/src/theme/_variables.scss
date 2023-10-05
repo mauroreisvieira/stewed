@@ -214,13 +214,13 @@ $function: map.get($transition, timing-function);
         @error "Invalid color specified! #{$color} doesn't exist. Choose one of #{map.keys($merged-colors)}";
     }
 
-    $colorKey: map.get($merged-colors, $color);
+    $color-tone: map.get($merged-colors, $color);
 
-    @if not map.has-key($colorKey, $tone) {
-        @error "Invalid tone specified! #{$tone} doesn't exist. Choose one of #{map.keys($colorKey)}";
+    @if not map.has-key($color-tone, $tone) {
+        @error "Invalid tone specified! #{$tone} doesn't exist. Choose one of #{map.keys($color-key)}";
     }
 
-    @return map.get($colorKey, $tone);
+    @return var(--#{$color}-#{$tone});
 
 }
 
