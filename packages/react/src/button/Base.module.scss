@@ -84,7 +84,7 @@
         @include text.typography(
             base,
             $overrides: (
-              --typography-color: inherit,
+              theme.define-var(typography-color, inherit),
               --typography-font-size: var(--button-font-size),
               --typography-line-height: map.get(theme.$line-height, sm)
               )

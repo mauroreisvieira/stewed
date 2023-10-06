@@ -32,10 +32,4 @@ body {
     background-color: #{get-color(new-color, 50)};
 }
 
-:root {
-    @each $name, $colors in $merged-colors {
-        @each $tone, $value in $colors {
-            --#{$name}-#{$tone}: #{$value};
-        }
-    }
-}
+@include use-theme("#root");

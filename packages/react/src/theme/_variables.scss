@@ -1,9 +1,12 @@
 @use 'sass:map';
 @use 'functions' as func;
 
+/// Holds the default configuration for styles. Customize this to modify default values.
 $config: () !default;
 
+/// Default configuration for styles.
 $default-config: (
+    prefix: null,
     extend: (
         colors: (),
         screens: (),
@@ -167,38 +170,57 @@ $default-config: (
     ),
 );
 
+/// Merged configuration of default and user-defined styles.
 $all-config: map.deep-merge($default-config, $config);
 
+/// Prefix value for CSS variables, allowing for customization and theming.
+$prefix: map.get($all-config, prefix);
+
+/// Defines font sizes for elements like headings, paragraphs, etc.
 $font-size: map.get($all-config, font-size);
+
+/// Specifies line heights corresponding to different font sizes.
 $line-height: map.get($all-config, line-height);
+
+/// Defines font weights (thin, light, normal, medium, semibold, bold).
 $font-weight: map.get($all-config, font-weight);
 
+/// Defines spacing values for different sizes (xs, sm, md, lg, xl, 2xl).
 $spacings: map.get($all-config, spacings);
 
+/// Specifies border radius values for elements (sm, md, lg, xl, none, rounded).
 $radius: map.get($all-config, radius);
 
+/// Defines color palettes for primary, secondary, gray, blue, green, red, yellow shades.
 $colors: map.get($all-config, colors);
 
+/// Defines responsive breakpoints for screen sizes (sm, md, lg, xl).
 $screens: map.get($all-config, screens);
 
+/// Opacity value for disabled elements.
 $disabled: map.get($all-config, disabled);
 
-$extend-colors: map.get($all-config, extend, colors);
+/// Merges default colors with additional colors from configuration.
+$merged-colors: map.deep-merge($colors, map.get($all-config, extend, colors));
 
-$merged-colors: ();
-@if $colors != null {
-    $merged-colors: map.deep-merge($merged-colors, $colors);
-}
-$merged-colors: map.deep-merge($merged-colors, $extend-colors);
-
+/// Transition settings for animations.
 $transition: map.get($all-config, transition);
-$duration: map.get($transition, duration);
-$function: map.get($transition, timing-function);
 
+/// Duration values for CSS transitions (quickly, normal, slowly).
+$duration: map.get($transition, duration);
+
+/// Timing function values for CSS transitions.
+$timing-function: map.get($transition, timing-function);
+
+/// Defines CSS transitions with given property, duration, timing function, and optional delay.
+/// @param {string|list} $property - The CSS property or a list of properties to be transitioned.
+/// @param {string} [$duration=quickly] - Duration of the transition.
+/// @param {string} [$timing-function=accelerate] - Timing function of the transition.
+/// @param {string} [$delay=null] - Delay before the transition starts.
 @mixin transition(
     $property,
     $duration: map.get($duration, quickly),
-    $timing-function: map.get($function, accelerate),
+    $timing-function: map.get($timing-function, accelerate),
     $delay: null
 ) {
     @if (type-of($property) == list) {
@@ -209,6 +231,10 @@ $function: map.get($transition, timing-function);
     }
 }
 
+/// Retrieves the specific tone of a color from the `$merged-colors` map.
+/// @param {string} $color - The base color name.
+/// @param {number} [$tone=500] - Tone of the color.
+/// @returns {string} - The CSS variable representing the specified color tone.
 @function get-color($color, $tone: 500) {
     @if not map.has-key($merged-colors, $color) {
         @error "Invalid color specified! #{$color} doesn't exist. Choose one of #{map.keys($merged-colors)}";
@@ -220,15 +246,67 @@ $function: map.get($transition, timing-function);
         @error "Invalid tone specified! #{$tone} doesn't exist. Choose one of #{map.keys($color-key)}";
     }
 
-    @return var(--#{$color}-#{$tone});
-
+    @return get-var(#{$color}-#{$tone});
 }
 
-@mixin focus-styles($color: #{get-color('primary')}, $offset: 1px, $width: 1px) {
+/// Defines focus styles on elements with specified color, outline offset, and width.
+/// @param {string} [$color=get-color('primary')] - Color of the focus outline.
+/// @param {string} [$offset=1px] - Offset of the focus outline.
+/// @param {string} [$width=1px] - Width of the focus outline.
+@mixin focus-styles(
+    $color: #{get-color('primary')},
+    $offset: 1px,
+    $width: 1px
+) {
     &:focus-within {
         outline-color: $color;
         outline-offset: $offset;
         outline-width: $width;
         outline-style: solid;
+    }
+}
+
+/// Returns value of CSS variable. Accepts variable name, applies prefix if defined, and returns the variable value.
+/// @param {string} $name - Name of the CSS variable.
+/// @returns {string} - The value of the specified CSS variable.
+@function get-var($name) {
+    @if ($prefix) {
+        @return var(--#{$prefix}-#{$name});
+    }
+
+    @return var(--#{$name});
+}
+
+/// Defines CSS variables with provided name and value.
+/// @param {string} $name - Name of the CSS variable.
+/// @param {string} $value - Value to be assigned to the CSS variable.
+@mixin define-var($name, $value) {
+    @if ($prefix) {
+        --#{$prefix}-#{$name}: #{$value};
+    } @else {
+        --#{$name}: #{$value};
+    }
+}
+
+/// Defines CSS variables for colors based on `$merged-colors` map.
+@mixin define-theme() {
+    @each $name, $colors in $merged-colors {
+        @each $tone, $value in $colors {
+            @include define-var(#{$name}-#{$tone}, $value);
+        }
+    }
+}
+
+/// Applies the defined theme by setting CSS variables based on the `$merged-colors` map.
+/// @param {string} [$scope=null] - Scope where the theme should be applied. Default is `null` which applies to `:root`.
+@mixin use-theme($scope: null) {
+    @if ($scope) {
+        :global(#{$scope}) {
+            @include define-theme;
+        }
+    } @else {
+        :root {
+            @include define-theme;
+        }
     }
 }
