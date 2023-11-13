@@ -1,0 +1,128 @@
+@use 'sass:map';
+@use '../theme' as theme;
+@use '../typography' as text;
+@use './variables' as *;
+
+@include theme.scope($carousel-root) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 16px;
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        width: 100%;
+    }
+
+    &__content {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    &__track {
+        display: flex;
+        transition: transform 0.25s ease-in;
+        transform-style: preserve-3d;
+
+        @include theme.define-var(
+            (
+                slides: 1,
+            )
+        );
+    }
+
+    &__item {
+        backface-visibility: hidden;
+        width: calc(100% / #{theme.get-var('slides')});
+        flex-shrink: 0;
+        flex-grow: 1;
+    }
+
+    &__slide {
+        height: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__bottom {
+        display: flex;
+        position: relative;
+        width: 100%;
+        min-height: $carousel-bottom-min-height;
+        justify-content: flex-end;
+        margin-top: 2px;
+        gap: $carousel-safe-margin;
+    }
+
+    &__indicator {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        gap: calc(#{$carousel-safe-margin} * 0.5);
+    }
+
+    &__dot {
+        background-color: theme.get-var('dash-background');
+        width: theme.get-var('dash-width');
+        width: 6px;
+        height: 6px;
+        border-radius: $carousel-dash-radius;
+
+        @include theme.define-var(
+            (
+                dash-background: #{$carousel-dash-background},
+                dash-width: calc(#{$carousel-dash-width} * 0.5),
+            )
+        );
+
+        &.is-active {
+            @include theme.define-var(
+                (
+                    dash-background: #{$carousel-dash-background-active},
+                    dash-width: #{$carousel-dash-width},
+                )
+            );
+        }
+    }
+
+    &--center {
+        #{$carousel-root} {
+            &__prev,
+            &__next {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 9;
+            }
+
+            &__prev {
+                left: $carousel-safe-margin;
+            }
+
+            &__next {
+                right: $carousel-safe-margin;
+            }
+        }
+    }
+
+    &--batch {
+        #{$carousel-root} {
+            &__track {
+                margin-inline: calc(#{$carousel-gap} * -1);
+            }
+
+            &__slide {
+                padding-inline: $carousel-gap;
+            }
+        }
+    }
+}
