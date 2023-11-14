@@ -52,6 +52,22 @@
         }
     }
 
+    &__prev,
+    &__next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 9;
+    }
+
+    &__prev {
+        left: $carousel-safe-margin;
+    }
+
+    &__next {
+        right: $carousel-safe-margin;
+    }
+
     &__bottom {
         display: flex;
         position: relative;
@@ -91,26 +107,6 @@
                     dash-width: #{$carousel-dash-width},
                 )
             );
-        }
-    }
-
-    &--center {
-        #{$carousel-root} {
-            &__prev,
-            &__next {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                z-index: 9;
-            }
-
-            &__prev {
-                left: $carousel-safe-margin;
-            }
-
-            &__next {
-                right: $carousel-safe-margin;
-            }
         }
     }
 

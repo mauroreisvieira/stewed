@@ -280,11 +280,13 @@ $timing-function: map.get($transition, timing-function);
 /// Defines CSS variables with provided name and value.
 /// @param {string} $name - Name of the CSS variable.
 /// @param {string} $value - Value to be assigned to the CSS variable.
-@mixin define-var($name, $value) {
-    @if ($prefix) {
-        --#{$prefix}-#{$name}: #{$value};
-    } @else {
-        --#{$name}: #{$value};
+@mixin define-var($values) {
+    @each $name, $value in $values {
+        @if ($prefix) {
+            --#{$prefix}-#{$name}: #{$value};
+        } @else {
+            --#{$name}: #{$value};
+        }
     }
 }
 
@@ -292,7 +294,7 @@ $timing-function: map.get($transition, timing-function);
 @mixin define-theme() {
     @each $name, $colors in $merged-colors {
         @each $tone, $value in $colors {
-            @include define-var(#{$name}-#{$tone}, $value);
+            @include define-var((#{$name}-#{$tone}: $value));
         }
     }
 }

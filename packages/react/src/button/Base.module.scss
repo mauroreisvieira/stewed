@@ -11,12 +11,12 @@
     align-items: center;
     justify-content: center;
     gap: $button-gap;
-    height: var(--button-size);
-    min-width: var(--button-size);
-    padding: 0 var(--button-spacing);
-    background-color: var(--button-background);
-    border: 1px solid var(--button-border-color);
-    color: var(--button-color);
+    height: theme.get-var(button-size);
+    min-width: theme.get-var(button-size);
+    padding: 0 theme.get-var(button-spacing);
+    background-color: theme.get-var(button-background);
+    border: 1px solid theme.get-var(button-border-color);
+    color: theme.get-var(button-color);
     border-radius: map.get($button-border-radius, 'square');
     user-select: none;
     touch-action: manipulation;
@@ -27,56 +27,75 @@
     cursor: pointer;
 
     @include theme.focus-styles();
-
     @include theme.disabled-styles();
 
     @each $key, $value in $button-skins {
         &--#{$key} {
-            --button-color: #{theme.get-color($value)};
-            --button-border-color: transparent;
-            --button-color-hover: #{theme.get-color($value, 600)};
-            --button-background: #{theme.get-color($value)};
-            --button-background-hover: #{theme.get-color($value, 600)};
-            --button-background-active: #{theme.get-color($value, 700)};
-            --button-background-ghost-hover: #{theme.get-color($value, 50)};
-            --button-background-ghost-active: #{theme.get-color($value, 100)};
+            @include theme.define-var(
+                (
+                    button-color: theme.get-color($value),
+                    border-color: transparent,
+                    button-color-hover: theme.get-color($value, 600),
+                    button-background: theme.get-color($value),
+                    button-background-hover: theme.get-color($value, 600),
+                    button-background-active: theme.get-color($value, 700),
+                    button-background-ghost-hover: theme.get-color($value, 50),
+                    button-background-ghost-active: theme.get-color($value, 100),
+                )
+            );
         }
     }
 
     &--filled {
-        --button-color: #{$button-color};
+        @include theme.define-var(
+            (
+                button-color: #fff,
+            )
+        );
 
         &:hover {
-            --button-background: var(--button-background-hover);
+            @include theme.define-var(
+                (
+                    button-background: theme.get-var(button-background-hover),
+                )
+            );
         }
 
         &:active {
-            --button-background: var(--button-background-active);
+            --button-background: theme.get-var(button-background-active);
         }
     }
 
     &--ghost {
-        --button-background: transparent;
+        @include theme.define-var(
+            (
+                button-background: transparent,
+            )
+        );
 
         &:hover {
-            --button-background: var(--button-background-ghost-hover);
+            --button-background: theme.get-var(button-background-ghost-hover);
         }
 
         &:active {
-            --button-background: var(--button-background-ghost-active);
+            --button-background: theme.get-var(button-background-ghost-active);
         }
     }
 
     &--outline {
-        --button-background: transparent;
-        --button-border-color: currentColor;
+        @include theme.define-var(
+            (
+                button-background: transparent,
+                button-border-color: currentColor,
+            )
+        );
 
         &:hover {
-            --button-color: var(--button-color-hover);
+            --button-color: theme.get-var(button-color-hover);
         }
 
         &:active {
-            --button-color: var(--button-color-active);
+            --button-color: theme.get-var(button-color-active);
         }
     }
 
@@ -84,10 +103,9 @@
         @include text.typography(
             base,
             $overrides: (
-              theme.define-var(typography-color, inherit),
-              --typography-font-size: var(--button-font-size),
-              --typography-line-height: map.get(theme.$line-height, sm)
-              )
+                --typography-color: theme.get-var(button-color),
+                --typography-font-size: theme.get-var(button-font-size)
+            )
         );
     }
 
@@ -98,7 +116,7 @@
     }
 
     &--icon-only {
-        width: var(--button-size);
+        width: theme.get-var(button-size);
         gap: 0;
 
         #{$button-root} {
