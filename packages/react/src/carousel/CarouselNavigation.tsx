@@ -5,6 +5,7 @@ import { Button } from '../button';
 import { classNames } from '@stewed/utils';
 // Style
 import styles from './Base.module.scss';
+import { Icon } from '../icon/Icon';
 
 interface CarouselNavigationProps {
     type: 'next' | 'prev';
@@ -34,20 +35,7 @@ export const CarouselNavigation = ({
             iconOnly
             leftIcon={
                 type === 'prev' ? (
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.5}
-                        stroke="currentColor"
-                        width={18}
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
-                        />
-                    </svg>
+                    <Icon iconName='arrow-left'/>
                 ) : (
                     <svg
                         xmlns="http://www.w3.org/2000/svg"

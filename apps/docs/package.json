@@ -15,19 +15,19 @@
     },
     "devDependencies": {
         "@stewed/tsconfig": "workspace:0.0.0",
-        "sass": "^1.57.1",
-        "sass-loader": "^13.2.0",
-        "@babel/core": "^7.20.7",
+        "sass": "^1.69.5",
+        "sass-loader": "^13.3.2",
+        "@babel/core": "^7.23.3",
         "@storybook/preset-scss": "^1.0.3",
-        "@storybook/addon-docs": "^6.5.15",
-        "@storybook/addon-actions": "^6.5.15",
-        "@storybook/builder-webpack5": "^6.5.15",
-        "@storybook/manager-webpack5": "^6.5.15",
-        "@storybook/addon-essentials": "^6.5.15",
-        "@storybook/addon-interactions": "^6.5.15",
-        "@storybook/addon-links": "^6.5.15",
-        "@storybook/react": "^6.5.15",
-        "@storybook/testing-library": "^0.0.13",
-        "babel-loader": "^8.3.0"
+        "@storybook/addon-docs": "^7.5.3",
+        "@storybook/addon-actions": "^7.5.3",
+        "@storybook/builder-webpack5": "^7.5.3",
+        "@storybook/manager-webpack5": "^6.5.16",
+        "@storybook/addon-essentials": "^7.5.3",
+        "@storybook/addon-interactions": "^7.5.3",
+        "@storybook/addon-links": "^7.5.3",
+        "@storybook/react": "^7.5.3",
+        "@storybook/testing-library": "^0.2.2",
+        "babel-loader": "^9.1.3"
     }
 }

@@ -12,10 +12,15 @@
         "release": "turbo run build --filter=docs^... && changeset publish"
     },
     "devDependencies": {
-        "@stewed/lint": "workspace:0.0.0",
+        "@harmonix-hub/tsconfig": "^1.0.1",
+        "@harmonix-hub/eslint": "^1.0.1",
+        "@harmonix-hub/prettier": "^1.0.1",
+        "webpack": "^5.89.0",
+        "webpack-cli": "^5.1.4",
+        "@svgr/webpack": "^8.1.0",
         "@changesets/cli": "^2.26.2",
-        "eslint": "^8.44.0",
-        "prettier": "^3.0.0",
+        "eslint": "^8.53.0",
+        "prettier": "^3.1.0",
         "turbo": "latest"
     },
     "packageManager": "pnpm@7.15.0"
