@@ -1,0 +1,89 @@
+/* stylelint-disable selector-max-type, order/order */
+
+@for $i from 1 through 6 {
+  h#{$i},
+  .h#{$i} {
+    margin-top: var(--heading-margin-top);
+    margin-bottom: var(--heading-margin-bottom);
+    color: var(--heading-color);
+    font-family: var(--heading-font-family);
+    font-size: var(--heading-font-size);
+    font-weight: var(--heading-font-weight);
+    line-height: var(--heading-line-height);
+    text-decoration: inherit;
+    text-transform: inherit;
+
+    @include get-typography(headline-#{$i + 1});
+
+    @include tablet() {
+      @include get-typography(headline-#{$i});
+    }
+  }
+}
+
+p,
+li {
+  margin-bottom: map-get($space, sm);
+
+  @include get-typography(base);
+}
+
+a {
+  @include get-typography(link);
+
+  @media (hover: hover) {
+    &:hover {
+      color: var(--color-primary-dark);
+    }
+  }
+}
+
+// Font Weight
+.light {
+  font-weight: map-get($typography-font-weight, light);
+}
+
+.medium {
+  font-weight: map-get($typography-font-weight, medium);
+}
+
+.bold {
+  font-weight: map-get($typography-font-weight, bold);
+}
+
+// Font Style
+.italic {
+  font-style: italic;
+}
+
+// Text Transform
+.capitalize {
+  text-transform: capitalize;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+// Text Align
+.left {
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+// Text Sizes
+.sm {
+  font-size: map-get($typography-font-size, sm);
+}
+

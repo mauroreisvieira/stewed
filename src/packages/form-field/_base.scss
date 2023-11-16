@@ -1,0 +1,33 @@
+/* stylelint-disable order/order */
+.form-field {
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: map-get($space, lg);
+  font-family: $form-field-font-family;
+
+  &.is-disabled {
+    @include disabled;
+  }
+
+  label {
+    display: inline-flex;
+    align-items: center;
+    padding-left: $form-field-padding-left;
+    color: currentColor;
+    cursor: pointer;
+
+    @include get-typography(base);
+  }
+
+  &--column {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+
+    label {
+      margin-bottom: map-get($space, sm);
+      font-weight: map-get($typography-font-weight, bold);
+    }
+  }
+}

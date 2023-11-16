@@ -1,0 +1,41 @@
+/* stylelint-disable selector-no-qualifying-type */
+.tag {
+  --tag-bg: var(--color-grayscale-lighter);
+  --tag-fg: get-color("grayscale");
+
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  height: map-get($space, xl);
+  padding: 0 map-get($space, sm);
+  border-radius: map-get($radius, sm);
+  background-color: var(--tag-bg);
+  color: var(--tag-fg) !important;
+  font-size: map-get($typography-font-size, xs);
+  font-weight: map-get($typography-font-weight, bold);
+  text-transform: uppercase;
+
+  &--shaped {
+    border-radius: map-get($radius, hg);
+  }
+
+  @each $key in $tag-keys {
+    &--#{$key} {
+      --tag-bg: #{get-color(#{$key}, light)};
+      --tag-fg: #{get-color(#{$key})};
+    }
+  }
+}
+
+a.tag {
+  @each $key in $tag-keys {
+    &--#{$key} {
+      @media (hover: hover) {
+        &:hover {
+          --tag-bg: #{get-color(#{$key}, light)};
+          --tag-fg: #{get-color(#{$key}, darker)};
+        }
+      }
+    }
+  }
+}

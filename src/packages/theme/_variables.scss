@@ -1,0 +1,92 @@
+// Font Size
+$theme-font-family-serif: "Merriweather", serif !default;
+$theme-font-family-sans-serif: "Nunito", sans-serif !default;
+$theme-font-family-monospace: monospace !default;
+$theme-font-size: 16px !default;
+
+$theme-colors: (
+  "primary": #5c8df6,
+  "accent": #f3628d,
+  "grayscale": #454b57,
+  "warning": #f5c85c,
+  "danger": #f26175,
+  "info": #82a2ff,
+  "success": #69dd95
+) !default;
+
+$theme-color-primary: map-get($theme-colors, primary) !default;
+$theme-color-accent: map-get($theme-colors, accent) !default;
+$theme-color-base: map-get($theme-colors, grayscale) !default;
+$theme-color-link: map-get($theme-colors, primary) !default;
+
+$theme-tones-light: (
+  10: 94%,
+  30: 86%
+) !default;
+
+$theme-tones-dark: (
+  60: 10%,
+  80: 50%
+) !default;
+
+$theme-tones: (
+  lighter: 10,
+  light: 30,
+  base: 50,
+  dark: 60,
+  darker: 80
+) !default;
+
+$theme-disabled: .4 !default;
+
+// Font Sizes
+$theme-font-sizes: (
+  "x-hg": 42px,
+  "hg": 34px,
+  "x-xl": 28px,
+  "xl": 26px,
+  "lg": 20px,
+  "md": 18px,
+  "base": 16px,
+  "sm": 14px,
+  "x-sm": 12px,
+  "xs": 10px,
+  "x-xs": 8px
+) !default;
+
+// Font Weight
+$theme-font-weight: (
+  "light": 300,
+  "regular": 400,
+  "medium": 600,
+  "bold": 700
+) !default;
+
+$theme-spaces: (
+  "x-hg": 40px,
+  "hg": 32px,
+  "xl": 24px,
+  "lg": 16px,
+  "md": 12px,
+  "sm": 8px,
+  "x-sm": 6px,
+  "xs": 4px,
+  "x-xs": 2px
+) !default;
+
+$theme-radius: (
+  "hg": 32px,
+  "xl": 42px,
+  "lg": 16px,
+  "md": 8px,
+  "sm": 4px,
+  "xs": 2px
+) !default;
+
+// Breakpoints
+$theme-breakpoints: (
+  "sm": 280px,
+  "md": 768px,
+  "lg": 1024px,
+  "xl": 1440px
+) !default;

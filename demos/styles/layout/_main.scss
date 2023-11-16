@@ -1,0 +1,77 @@
+/* stylelint-disable selector-max-type */
+.main {
+  display: flex;
+  margin-top: 70px;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  max-width: 1280px;
+  margin: auto;
+}
+
+.content {
+  > h2 {
+    color: var(--color-accent-base);
+  }
+
+  > h3 {
+    margin-top: var(--space-xl);
+  }
+}
+
+.demo-radio {
+  margin: 8px;
+}
+
+.demo-head {
+  position: relative;
+  display: inline-block;
+  width: var(--space-x-hg);
+  height: var(--space-x-hg);
+  background: var(--color-grayscale-lighter);
+}
+
+.demo-link {
+  position: relative;
+}
+
+/* Demo Colors */
+.demo-color-list {
+  display: flex;
+  margin-bottom: var(--space-x-md);
+}
+
+.demo-color-item {
+  flex: 1;
+  height: 120px;
+}
+
+.demo-color-preview {
+  width: 100%;
+  height: 70%;
+  background-color: currentColor;
+}
+
+.demo-color-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30%;
+  padding: var(--space-sm) 0;
+  font-size: var(--typography-xs);
+  font-weight: var(--typography-bold);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* Demo Grid */
+
+.demo-grid {
+  width: 100%;
+  height: 40px;
+  margin-bottom: var(--space-md);
+  background-color: var(--color-grayscale-lighter);
+}
+

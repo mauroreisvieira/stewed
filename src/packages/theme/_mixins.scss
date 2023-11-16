@@ -1,0 +1,61 @@
+@mixin mobile($breakpoint: sm) {
+  @if not map-has-key($breakpoints, $breakpoint) {
+    @error "Invalid style specified! #{$breakpoint} doesn't exist. Choose one of #{map-keys($breakpoints)}";
+  }
+
+  @media (min-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin tablet($breakpoint: md) {
+  @if not map-has-key($breakpoints, $breakpoint) {
+    @error "Invalid style specified! #{$breakpoint} doesn't exist. Choose one of #{map-keys($breakpoints)}";
+  }
+
+  @media (min-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin desktop($breakpoint: lg) {
+  @if not map-has-key($breakpoints, $breakpoint) {
+    @error "Invalid style specified! #{$breakpoint} doesn't exist. Choose one of #{map-keys($breakpoints)}";
+  }
+
+  @media (min-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin no-scroll() {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@mixin set($variable, $value: false) {
+  @if ($value) {
+    --#{$variable}: #{$value};
+  }
+}
+
+@mixin transition(
+  $property,
+  $duration: $transition-duration,
+  $timing-function: $transition-function-accelerate,
+  $delay: null
+) {
+  @if (type-of($property) == list) {
+    transition: $duration $timing-function $delay;
+    transition-property: $property;
+  } @else {
+    transition: $property $duration $timing-function $delay;
+  }
+}
+
+@mixin disabled($value: $disabled) {
+  opacity: $value;
+  cursor: default;
+  pointer-events: none;
+}

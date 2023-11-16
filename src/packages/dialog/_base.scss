@@ -1,0 +1,71 @@
+.dialog {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: map-get($space, lg);
+  border-radius: map-get($radius, sm);
+  background-color: #fff;
+  box-shadow: $dialog-shadow;
+  overflow: hidden;
+
+  &__header {
+    width: 100%;
+    padding: map-get($space, lg);
+
+    > :first-child {
+      margin-top: 0;
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__body {
+    width: 100%;
+    padding: 0 map-get($space, lg) map-get($space, lg);
+
+    > :first-child {
+      margin-top: 0;
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__footer {
+    width: 100%;
+    padding: map-get($space, lg);
+    border-top: 1px solid var(--color-grayscale-lighter);
+
+    > :first-child {
+      margin-top: 0;
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__actions {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    margin: 0;
+    padding: map-get($space, lg);
+  }
+
+  &__btn {
+    margin-left: map-get($space, xs);
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}

@@ -1,0 +1,118 @@
+// defining font family
+$typography-font-family: $font-family-sans-serif !default;
+$typography-color: $color-base !default;
+
+// defining font sizes
+$typography-font-size: (
+  x-hg: var(--typography-x-hg),
+  hg: var(--typography-hg),
+  x-xl: var(--typography-x-xl),
+  xl: var(--typography-xl),
+  lg: var(--typography-lg),
+  md: var(--typography-md),
+  base: var(--typography-base),
+  sm: var(--typography-sm),
+  x-sm: var(--typography-x-sm),
+  xs: var(--typography-xs),
+  x-xs: var(--typography-x-xs)
+);
+
+// defining font weight
+$typography-font-weight: (
+  light: var(--typography-light),
+  regular: var(--typography-regular),
+  medium: var(--typography-medium),
+  bold: var(--typography-bold)
+);
+
+$typography: (
+  headline-1: (
+    --heading-font-size: map-get($typography-font-size, x-hg),
+    --heading-font-weight: map-get($typography-font-weight, bold),
+    --heading-font-family: $typography-font-family,
+    --heading-color: $typography-color,
+    --heading-line-height: 1.5,
+    --heading-margin-top: map-get($space, xl),
+    --heading-margin-bottom: map-get($space, lg)
+  ),
+  headline-2: (
+    --heading-font-size: map-get($typography-font-size, hg),
+    --heading-font-weight: map-get($typography-font-weight, bold),
+    --heading-font-family: $typography-font-family,
+    --heading-color: $typography-color,
+    --heading-line-height: 1.5,
+    --heading-margin-top: map-get($space, xl),
+    --heading-margin-bottom: map-get($space, lg)
+  ),
+  headline-3: (
+    --heading-font-size: map-get($typography-font-size, x-xl),
+    --heading-font-weight: map-get($typography-font-weight, medium),
+    --heading-font-family: $typography-font-family,
+    --heading-color: $typography-color,
+    --heading-line-height: 1.5,
+    --heading-margin-top: map-get($space, xl),
+    --heading-margin-bottom: map-get($space, lg)
+  ),
+  headline-4: (
+    --heading-font-size: map-get($typography-font-size, xl),
+    --heading-font-weight: map-get($typography-font-weight, medium),
+    --heading-font-family: $typography-font-family,
+    --heading-color: $typography-color,
+    --heading-line-height: 1.5,
+    --heading-margin-top: map-get($space, xl),
+    --heading-margin-bottom: map-get($space, lg)
+  ),
+  headline-5: (
+    --heading-font-size: map-get($typography-font-size, lg),
+    --heading-font-weight: map-get($typography-font-weight, medium),
+    --heading-font-family: $typography-font-family,
+    --heading-color: $typography-color,
+    --heading-line-height: 1.5,
+    --heading-margin-top: map-get($space, xl),
+    --heading-margin-bottom: map-get($space, lg)
+  ),
+  headline-6: (
+    --heading-font-size: map-get($typography-font-size, md),
+    --heading-font-weight: map-get($typography-font-weight, bold),
+    --heading-font-family: $typography-font-family,
+    --heading-color: $typography-color,
+    --heading-line-height: 1.5,
+    --heading-margin-top: map-get($space, xl),
+    --heading-margin-bottom: map-get($space, lg)
+  ),
+  headline-7: (
+    --heading-font-size: map-get($typography-font-size, base),
+    --heading-font-weight: map-get($typography-font-weight, bold),
+    --heading-font-family: $typography-font-family,
+    --heading-color: $typography-color,
+    --heading-line-height: 1.5,
+    --heading-margin-top: map-get($space, xl),
+    --heading-margin-bottom: map-get($space, lg)
+  ),
+  base: (
+    font-size: map-get($typography-font-size, base),
+    line-height: 1.4,
+    font-weight: map-get($typography-font-weight, regular),
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  small: (
+    font-size: map-get($typography-font-size, sm),
+    line-height: 1.3,
+    font-weight: map-get($typography-font-weight, regular)
+  ),
+  link: (
+    font-size: map-get($typography-font-size, base),
+    line-height: 1.4,
+    font-weight: map-get($typography-font-weight, regular),
+    color: $color-link,
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  button: (
+    font-size: map-get($typography-font-size, sm),
+    font-weight: map-get($typography-font-weight, medium),
+    text-decoration: none,
+    text-transform: uppercase
+  )
+) !default;

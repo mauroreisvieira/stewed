@@ -1,0 +1,39 @@
+/* stylelint-disable order/order */
+.menu {
+  --menu-bg: transparent;
+  --menu-fg: inherit;
+
+  width: 100%;
+  list-style-type: none;
+
+  &__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: map-get($space, sm) map-get($space, lg);
+    border-radius: map-get($radius, sm);
+    background-color: var(--menu-bg);
+    color: var(--menu-fg);
+    user-select: none;
+    overflow: hidden;
+
+    @include get-typography(base);
+
+    @media (hover: hover) {
+      &:hover {
+        --menu-bg: var(--color-primary-lighter);
+        --menu-fg: var(--color-primary-base);
+      }
+    }
+
+    &.is-active {
+      &,
+      &:hover {
+        --menu-bg: transparent;
+        --menu-fg: var(--color-primary-dark);
+      }
+    }
+  }
+}

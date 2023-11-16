@@ -1,0 +1,12 @@
+/* stylelint-disable selector-max-type */
+.home {
+  h1 {
+    text-align: center;
+  }
+
+  [alt="Stewed"] {
+    display: block;
+    width: 240px;
+    margin: auto;
+  }
+}

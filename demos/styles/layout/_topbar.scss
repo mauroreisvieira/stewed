@@ -1,0 +1,23 @@
+.topbar {
+  display: flex;
+  align-items: center;
+
+  @include breakpoint {
+    display: none;
+  }
+
+  &__menu {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__link {
+    display: flex;
+    padding: var(--space-xl);
+    color: var(--color-grayscale-darker);
+    font-size: var(--typography-base);
+    font-weight: var(--typography-bold);
+  }
+}

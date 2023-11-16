@@ -1,0 +1,104 @@
+/**
+* Calculates the rem.
+* @param {Size}  $size
+* @param {Size}  $theme-font-size
+* @return {Size}
+*/
+@function calculate-rem($size, $font-size: $theme-font-size) {
+  $remSize: $size / $font-size;
+
+  @return #{$remSize}rem;
+}
+
+/* Slightly lighten a color
+* @param {Color} $color - color to tint
+* @param {Number} $percentage - percentage of `$color` in returned color
+* @return {Color}
+*/
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+/* Slightly darken a color
+* @param {Color} $color - color to shade
+* @param {Number} $percentage - percentage of `$color` in returned color
+* @return {Color}
+*/
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+/**
+* Build color.
+* @param {Color}  $color
+* @param {String}  $tone
+* @return {Color}  $color
+*/
+@function build-color($color, $tone: "base") {
+  @if not map-has-key($theme-colors, $color) {
+    @error "Invalid color specified! #{$color} doesn't exist. Choose one of #{map-keys($theme-colors)}";
+  }
+
+  @if not map-has-key($theme-tones, $tone) {
+    @error "Invalid tone specified! #{$tone} doesn't exist. Choose one of #{map-keys($theme-tones)}";
+  }
+
+  $color-value: map-get($theme-colors, $color);
+  $tone-value: map-get($theme-tones, $tone);
+
+  @if ($tone-value < 50) {
+    $percent: map-get($theme-tones-light, $tone-value);
+
+    @return tint($color-value, $percent);
+  } @else if ($tone-value > 50) {
+    $percent: map-get($theme-tones-dark, $tone-value);
+
+    @return shade($color-value, $percent);
+  } @else {
+    @return $color-value;
+  }
+}
+
+/**
+* Get color.
+* @param {Color}  $color
+* @param {String}  $tone
+* @return {Color}  $color
+*/
+@function get-color($color, $tone: "base") {
+  @if not map-has-key($theme-colors, $color) {
+    @error "Invalid color specified! #{$color} doesn't exist. Choose one of #{map-keys($theme-colors)}";
+  }
+
+  @if not map-has-key($theme-tones, $tone) {
+    @error "Invalid tone specified! #{$tone} doesn't exist. Choose one of #{map-keys($theme-tones)}";
+  }
+
+  @return var(--color-#{$color}-#{$tone});
+}
+
+/**
+* Alpha Color
+* @param {Color}  $color
+* @param {Number}  $opacity
+ */
+@function alpha($color, $opacity) {
+  @if type-of($color) == string {
+    @if not map-has-key($theme-colors, $color) {
+      @error "Invalid color specified! #{$color} doesn't exist. Choose one of #{map-keys($theme-colors)}";
+    }
+
+    @return rgba(map-get($theme-colors, $color), $opacity);
+  }
+
+  @return rgba($color, $opacity);
+}
+
+/**
+* Get Value of  Variable
+* @param {Color}  $color
+* @param {Number}  $opacity
+ */
+@function get($variable) {
+  @return var(--#{$variable});
+}
