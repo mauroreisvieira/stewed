@@ -1,0 +1,150 @@
+@use 'sass:map';
+@use '../theme' as theme;
+@use '../typography' as text;
+@use './variables' as *;
+
+@include theme.scope($button-root) {
+    @include theme.reset();
+
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: $button-gap;
+    height: theme.get-var(button-size);
+    min-width: theme.get-var(button-size);
+    padding: 0 theme.get-var(button-spacing);
+    background-color: theme.get-var(button-background);
+    border: 1px solid theme.get-var(button-border-color);
+    color: theme.get-var(button-color);
+    border-radius: map.get($button-border-radius, 'square');
+    user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    @include theme.focus-styles();
+    @include theme.disabled-styles();
+
+    @each $key, $value in $button-skins {
+        &--#{$key} {
+            @include theme.define-var(
+                (
+                    button-color: theme.get-color($value),
+                    border-color: transparent,
+                    button-color-hover: theme.get-color($value, 600),
+                    button-background: theme.get-color($value),
+                    button-background-hover: theme.get-color($value, 600),
+                    button-background-active: theme.get-color($value, 700),
+                    button-background-ghost-hover: theme.get-color($value, 50),
+                    button-background-ghost-active: theme.get-color($value, 100),
+                )
+            );
+        }
+    }
+
+    &--filled {
+        @include theme.define-var(
+            (
+                button-color: #fff,
+            )
+        );
+
+        &:hover {
+            @include theme.define-var(
+                (
+                    button-background: theme.get-var(button-background-hover),
+                )
+            );
+        }
+
+        &:active {
+            --button-background: theme.get-var(button-background-active);
+        }
+    }
+
+    &--ghost {
+        @include theme.define-var(
+            (
+                button-background: transparent,
+            )
+        );
+
+        &:hover {
+            --button-background: theme.get-var(button-background-ghost-hover);
+        }
+
+        &:active {
+            --button-background: theme.get-var(button-background-ghost-active);
+        }
+    }
+
+    &--outline {
+        @include theme.define-var(
+            (
+                button-background: transparent,
+                button-border-color: currentColor,
+            )
+        );
+
+        &:hover {
+            --button-color: theme.get-var(button-color-hover);
+        }
+
+        &:active {
+            --button-color: theme.get-var(button-color-active);
+        }
+    }
+
+    &__text {
+        @include text.typography(
+            base,
+            $overrides: (
+                --typography-color: theme.get-var(button-color),
+                --typography-font-size: theme.get-var(button-font-size)
+            )
+        );
+    }
+
+    &__left,
+    &__right {
+        font-size: inherit;
+        display: flex;
+    }
+
+    &--icon-only {
+        width: theme.get-var(button-size);
+        gap: 0;
+
+        #{$button-root} {
+            &__text {
+                font-size: 0;
+            }
+        }
+    }
+
+    &--sm {
+        --button-size: #{map.get($button-sizes, 'sm')};
+        --button-spacing: #{map.get($button-spacings, 'sm')};
+        --button-font-size: #{map.get($button-font-sizes, 'xs')};
+    }
+
+    &--md {
+        --button-size: #{map.get($button-sizes, 'md')};
+        --button-spacing: #{map.get($button-spacings, 'md')};
+        --button-font-size: #{map.get($button-font-sizes, 'sm')};
+    }
+
+    &--lg {
+        --button-size: #{map.get($button-sizes, 'lg')};
+        --button-spacing: #{map.get($button-spacings, 'lg')};
+        --button-font-size: #{map.get($button-font-sizes, 'md')};
+    }
+
+    &--fullWidth {
+        width: 100%;
+    }
+}

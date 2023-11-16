@@ -1,0 +1,29 @@
+@use 'sass:math';
+@use 'sass:map';
+@use '../theme' as theme;
+
+// Avatar Group
+$avatar-group-root: '.avatar-group';
+
+// Avatar
+$avatar-root: '.avatar';
+
+$avatar-border-radius: (
+  square: map.get(theme.$radius, 'md'),
+  round: 50%
+);
+
+$avatar-skins: (
+    'primary': primary,
+    'secondary': secondary,
+);
+
+$avatar-sizes: (
+    xs: map.get(theme.$spacings, 'md') * 3,
+    sm: map.get(theme.$spacings, 'md') * 4,
+    md: map.get(theme.$spacings, 'md') * 5,
+    lg: map.get(theme.$spacings, 'md') * 6,
+    xl: map.get(theme.$spacings, 'md') * 8,
+    2xl: map.get(theme.$spacings, 'md') * 9,
+);
+

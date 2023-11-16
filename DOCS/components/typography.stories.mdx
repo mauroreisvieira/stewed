@@ -1,0 +1,75 @@
+import { Text } from '../../../packages/react/src';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+
+<Meta title="Components/Text" component={Text} />
+
+# Text
+
+Text is the used to render headings and paragraphs within an interface.
+
+### Installation
+
+```bash
+npm install --save @stewed/react
+```
+
+### Import
+
+```js
+import { Text } from '@stewed/react';
+```
+
+## Examples
+
+export const Template = (args) => <Text {...args} />;
+
+### Base
+
+<Canvas>
+    <Story
+        name="Base"
+        args={{
+            as: 'p',
+            size: 'display-1',
+            skin: 'primary',
+            children: 'Aa',
+        }}
+    >
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+### Heading
+
+<Canvas>
+    <Story name="Heading">
+        <Text as="h1">Heading 1</Text>
+        <Text as="h2">Heading 2</Text>
+        <Text as="h3">Heading 3</Text>
+        <Text as="h4">Heading 4</Text>
+        <Text as="h5">Heading 5</Text>
+        <Text as="h6">Heading 6</Text>
+    </Story>
+</Canvas>
+
+### Paragraph
+
+<Canvas>
+    <Story name="Paragraph">
+        <Text>Lorem ipsum, dolor sit amet consectetur adipisicing elit</Text>
+    </Story>
+</Canvas>
+
+### Anchor
+
+<Canvas>
+    <Story name="Anchor">
+        <Text as="a" href="/">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit
+        </Text>
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Text} />

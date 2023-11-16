@@ -1,0 +1,31 @@
+@use 'sass:map';
+@use '../theme' as theme;
+
+$textarea-root: '.textarea';
+
+// Appearance
+$textarea-border-radius: map.get(theme.$radius, 'md');
+
+$textarea-skins-default: (
+    'border': theme.get-color(secondary, 300),
+    'border-hover': theme.get-color(secondary, 400),
+);
+
+$textarea-skins: (
+    'success': (
+        'border': theme.get-color(green, 500),
+        'border-hover': theme.get-color(green, 600),
+    ),
+    'error': (
+        'border': theme.get-color(red, 500),
+        'border-hover': theme.get-color(red, 600),
+    ),
+);
+
+// Font
+$textarea-font-weight: map.get(theme.$font-weight, 'normal');
+$textarea-font-size: map.get(theme.$font-size, 'md');
+
+// Spacing's
+$textarea-sizes: map.get(theme.$spacings, 'md') * 5;
+$textarea-spacings: map.get(theme.$spacings, 'md') * 2;

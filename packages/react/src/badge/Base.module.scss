@@ -1,0 +1,51 @@
+@use '../theme' as theme;
+@use '../typography' as text;
+@use './variables' as *;
+
+@include theme.scope($badge-root) {
+    --badge-size: #{$badge-size};
+
+    position: relative;
+    display: inline-flex;
+
+    &__count {
+        @include text.typography(
+            base,
+            $overrides: (
+                --typography-color: $badge-color,
+                --typography-font-size: $badge-font-size
+            )
+        );
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: var(--badge-size);
+        height: var(--badge-size);
+        transform: translate(50%, -50%);
+        border-radius: $badge-border-radius;
+        background-color: var(--badge-background);
+        white-space: nowrap;
+
+        &:empty {
+            --badge-size: #{$badge-dot-size};
+
+            padding: 0;
+        }
+    }
+
+    @each $key, $value in $badge-skins {
+        &--#{$key} {
+            --badge-background: #{theme.get-color($value, 500)};
+        }
+    }
+
+    &--padded {
+        #{$badge-root}__count {
+            padding-inline: $badge-inner-spacing-inline;
+        }
+    }
+}

@@ -19,20 +19,6 @@ Using a combination of **HTML**, **CSS** and pure **JavaScript** allows you to c
 git clone https://github.com/mauroreisvieira/stewed
 ```
 
-### Installation
-
-```bash
-npm install stewed --save
-```
-
-```bash
-bower install stewed --save
-```
-
-```bash
-yarn add stewed
-```
-
 Alternatively you can [download](https://codeload.github.com/mauroreisvieira/stewed/zip/master)
 this repository.
 
@@ -48,4 +34,3 @@ The Stewed is open-sourced software licensed under the [MIT license](http://open
 
 Created with ♥️ by [@mauroreisvieira](https://twitter.com/mauroreisvieira) in **Portugal**,
 thanks to [other contributors](https://github.com/mauroreisvieira/stewed/graphs/contributors)
-

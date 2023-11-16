@@ -1,0 +1,55 @@
+import { AspectRatio } from '../../../packages/react/src';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+
+<Meta title="Components/Aspect Ratio" component={AspectRatio} />
+
+# Aspect Ratio
+
+Displays content within a desired ratio.
+
+### Installation
+
+```bash
+npm install --save @stewed/react
+```
+
+### Import
+
+```js
+import { AspectRatio } from '@stewed/react';
+```
+
+## Examples
+
+export const Template = (args) => <AspectRatio {...args} />;
+
+### Base
+
+<Canvas>
+    <Story
+        name="Base"
+        args={{
+            ratio: "4:3",
+            children: (
+                <img
+                    style={{ width: 300 }}
+                    src="https://images.unsplash.com/photo-1535025183041-0991a977e25b?w=300&dpr=2&q=80"
+                    alt="Landscape photograph by Tobias Tullius"
+                />
+            ),
+        }}
+        argTypes={{
+            children: {
+                table: {
+                    disable: true,
+                },
+            },
+        }}
+    >
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={AspectRatio} />

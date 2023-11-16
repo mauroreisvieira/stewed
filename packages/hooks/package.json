@@ -1,0 +1,21 @@
+{
+  "name": "@stewed/hooks",
+  "description": "Stewed UI Shared hooks",
+  "version": "0.0.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint . --ext ts",
+    "format": "prettier . --check --cache --ignore-unknown",
+    "clean": "rm -rf dist node_modules"
+  },
+  "devDependencies": {
+    "@stewed/utilities": "^0.1.0",
+    "@harmonix-hub/tsconfig": "^1.0.3",
+    "@types/react": "^18.2.37"
+  }
+}

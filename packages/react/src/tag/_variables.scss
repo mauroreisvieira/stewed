@@ -1,0 +1,29 @@
+@use 'sass:map';
+@use 'sass:math';
+@use '../theme' as theme;
+
+$tag-root: '.tag';
+
+$tag-color: #fff;
+$tag-border-radius: map.get(theme.$radius, 'md');
+
+$tag-title-font-weight: map.get(theme.$font-weight, 'normal');
+$tag-body-font-size: map.get(theme.$font-size, 'xs');
+
+$tag-skins: (
+    'primary': primary,
+    'secondary': secondary,
+    'info': blue,
+    'success': green,
+    'warning': yellow,
+    'danger': red,
+);
+
+$tag-font-sizes: theme.$font-size;
+$tag-font-weight: map.get(theme.$font-weight, 'normal');
+
+$tag-sizes: (
+    sm: map.get(theme.$spacings, 'sm') * 3,
+    md: map.get(theme.$spacings, 'xs') * 10,
+    lg: map.get(theme.$spacings, 'sm') * 4,
+);

@@ -1,0 +1,43 @@
+@use 'sass:map';
+@use '../theme' as theme;
+@use './variables' as *;
+
+@include theme.scope($alert-root) {
+    --alert-border-radius: #{$alert-border-radius};
+
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: $alert-slot-gap;
+    padding: $alert-inner-spacing-y $alert-inner-spacing-x;
+    border-radius: var(--alert-border-radius);
+    background-color: var(--alert-background);
+
+    &__title {
+        font-weight: $alert-title-font-weight;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: $alert-gap;
+        flex: 1;
+    }
+
+    &__title,
+    &__left,
+    &__right {
+        color: var(--alert-title-color);
+    }
+
+    &__body {
+        font-size: $alert-body-font-size;
+    }
+
+    @each $key, $value in $alert-skins {
+        &--#{$key} {
+            --alert-background: #{theme.get-color($value, 100)};
+            --alert-title-color: #{theme.get-color($value, 900)};
+        }
+    }
+}

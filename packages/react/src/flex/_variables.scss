@@ -1,0 +1,9 @@
+@use 'sass:map';
+@use '../theme' as theme;
+
+$flex-root: '.flex';
+
+$flex-gap: theme.$spacings;
+
+$flex-space: theme.$spacings;
+

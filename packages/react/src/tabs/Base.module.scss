@@ -1,0 +1,51 @@
+@use 'sass:map';
+@use '../theme' as theme;
+@use '../typography' as text;
+@use './variables' as *;
+
+@include theme.scope($tabs-root) {
+    --tabs-background: #{theme.get-color(secondary, 100)};
+
+    &__list {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--tabs-background);
+        padding: 4px;
+        user-select: none;
+        border-radius: map.get($tabs-border-radius, 'square');
+    }
+
+    &__item {
+        --tab-item-background: transparent;
+
+        all: unset;
+        display: flex;
+        padding: 8px 16px;
+        border-radius: map.get($tabs-border-radius, 'inner');
+        background-color: var(--tab-item-background);
+        cursor: pointer;
+
+        @include theme.focus-styles();
+        @include theme.disabled-styles();
+
+        &__text {
+            flex-grow: 1;
+            @include text.typography(base, $overrides: (
+              --typography-line-height: map.get(theme.$line-height, sm)
+            ));
+        }
+
+        &__left,
+        &__right {
+            align-items: center;
+            display: flex;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        &--selected {
+            --tab-item-background: #fff;
+        }
+    }
+}

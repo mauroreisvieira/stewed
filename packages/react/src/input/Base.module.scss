@@ -1,0 +1,68 @@
+@use 'sass:map';
+@use '../theme' as theme;
+@use '../typography' as text;
+@use './variables' as *;
+
+@include theme.scope($input-root) {
+    --input-border: #{map.get($input-skins-default, border)};
+    --input-border-hover: #{map.get($input-skins-default, border-hover)};
+
+    @include text.typography(
+        base,
+        $overrides: (--typography-font-size: $input-font-size)
+    );
+
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 $input-spacings;
+    border: 1px solid var(--input-border);
+    width: 100%;
+    border-radius: $input-border-radius;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    @include theme.focus-styles();
+
+    &__input {
+        all: unset;
+        flex-grow: 1;
+        height: $input-sizes;
+        margin-inline: -50%;
+        padding-block: $input-spacings;
+        padding-inline: 50%;
+        touch-action: manipulation;
+        width: 100%;
+        box-sizing: border-box;
+
+        &:hover {
+            border-color: var(--input-border-hover);
+        }
+
+        @include theme.disabled-styles();
+
+        @each $key, $value in $input-skins {
+            &--#{$key} {
+                --input-border: #{map.get($value, border)};
+                --input-border-hover: #{map.get($value, border-hover)};
+            }
+        }
+    }
+
+    &__left,
+    &__right {
+        align-items: center;
+        display: flex;
+        flex-shrink: 0;
+        position: relative;
+    }
+
+    &__left {
+        padding-inline-end: $input-spacings;
+    }
+
+    &__right {
+        padding-inline-start: $input-spacings;
+    }
+}
