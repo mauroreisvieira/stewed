@@ -1,5 +1,5 @@
 {
-  "private": true,
+  "private": false,
   "description": "Stewed UI components in React.",
   "scripts": {
     "prepare": "husky install",
@@ -13,8 +13,13 @@
     "publish": "lerna publish from-package --yes"
   },
   "workspaces": [
-    "packages/*/*"
+    "packages/*"
   ],
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
   "devDependencies": {
     "@types/react": "^18.2.37",
     "@harmonix-hub/tsconfig": "^1.0.3",

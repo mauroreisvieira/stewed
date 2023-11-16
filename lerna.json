@@ -1,6 +1,10 @@
 {
   "packages": ["packages/**"],
   "version": "independent",
+  "npmClient": "npm",
+  "registry": "https://registry.npmjs.org/",
+  "ignoreChanges": ["**/*.md", "**/*.test.js"],
+  "allowBranch": ["main", "next"],
   "command": {
     "publish": {
       "message": "chore(release): packages publish",
