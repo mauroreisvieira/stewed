@@ -1,5 +1,3 @@
-export { ReactComponent as ArrowDownIcon } from './Arrow/arrow-down.svg';
-
 import i0 from './Arrow/arrow-down.svg';
 import i1 from './Arrow/arrow-left.svg';
 import i2 from './Arrow/arrow-right.svg';

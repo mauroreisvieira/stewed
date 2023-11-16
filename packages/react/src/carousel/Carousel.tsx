@@ -155,6 +155,7 @@ export const Carousel = forwardRef(
 
         const handleTouchStart = useCallback(
             (event: React.TouchEvent<HTMLDivElement>) => {
+                if (!event.touches[0]) return;
                 setTouchPosition(event.touches[0].clientX);
             },
             []
@@ -162,7 +163,7 @@ export const Carousel = forwardRef(
 
         const handleTouchMove = useCallback(
             (event: React.TouchEvent<HTMLDivElement>) => {
-                if (!touchPosition) return;
+                if (!touchPosition || !event.touches[0]) return;
                 const currentTouch = event.touches[0].clientX;
                 const diff = touchPosition - currentTouch;
                 if (diff > 5) handleNext();

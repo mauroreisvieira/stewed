@@ -30,7 +30,7 @@ export const Icon = forwardRef(
         const cssClasses = classNames(
             styles['icon'],
             styles[`$icon--${size}`],
-            styles[`$icon--text`] && skin === 'text',
+            styles[`$icon--${skin}`],
             className
         );
 

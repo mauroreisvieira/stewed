@@ -22,7 +22,7 @@ export const CarouselIndicator = ({
 
     const numberOfSlides = useMemo(
         () => Array.from({ length: slidesCount / slidesPerView }),
-        []
+        [slidesCount, slidesPerView]
     );
 
     return (

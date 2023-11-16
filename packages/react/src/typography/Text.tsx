@@ -1,11 +1,8 @@
-import React, { forwardRef } from 'react';
-import {
-    classNames,
-    PolymorphicPropsWithRef,
-    PolymorphicForwardRefExoticComponent,
-} from '@stewed/utilities';
+import React from 'react';
+import { classNames } from '@stewed/utilities';
 
 import styles from './Base.module.scss';
+import { DistributiveOmit, fixedForwardRef } from '../types/Polymorphic';
 
 const defaultElement = 'p';
 
@@ -30,7 +27,9 @@ type TextVariation =
     | 'overline'
     | 'underline';
 
-interface TextOwnProps extends React.HtmlHTMLAttributes<HTMLParagraphElement> {
+export interface TextProps<T>
+    extends React.HtmlHTMLAttributes<HTMLParagraphElement> {
+    as?: T;
     /** Changes the size of the text, giving it more or less font size. */
     size?:
         | 'xs'
@@ -55,9 +54,6 @@ interface TextOwnProps extends React.HtmlHTMLAttributes<HTMLParagraphElement> {
     alignment?: 'start' | 'center' | 'end' | 'justify';
 }
 
-export type TextProps<T extends React.ElementType = typeof defaultElement> =
-    PolymorphicPropsWithRef<TextOwnProps, T>;
-
 /**
  * This component displays an Text component.
  * Text is the used to render headings and paragraphs within an interface.
@@ -71,56 +67,57 @@ export type TextProps<T extends React.ElementType = typeof defaultElement> =
  * @remarks This component is a polymorphic component can be rendered as a different element
  * and support all native props from the element passed on `as` prop.
  */
-export const Text: PolymorphicForwardRefExoticComponent<
-    TextOwnProps,
-    typeof defaultElement
-> = forwardRef(
-    <T extends React.ElementType = typeof defaultElement>(
-        {
-            as,
-            size,
-            weight,
-            skin,
-            variation,
-            alignment,
-            className,
-            children,
-            ...otherProps
-        }: PolymorphicPropsWithRef<TextOwnProps, T>,
-        ref: React.ComponentPropsWithRef<T>['ref']
-    ): React.ReactElement => {
-        const rootClassName = 'typography';
-        const objectKeys: <Obj>(o: Obj) => (keyof Obj)[] = Object.keys;
-        const computedVariation = Array.isArray(variation)
-            ? variation
-            : [variation];
+export const UnwrappedText = <T extends React.ElementType>(
+    {
+        as,
+        size,
+        weight,
+        skin,
+        variation,
+        alignment,
+        className,
+        children,
+        ...otherProps
+    }: TextProps<T> &
+        DistributiveOmit<
+            React.ComponentPropsWithRef<
+                React.ElementType extends T ? 'p' : T
+            >,
+            'as'
+        >,
+    ref: React.ForwardedRef<unknown>
+): React.ReactElement => {
+    const rootClassName = 'typography';
+    const objectKeys: <Obj>(o: Obj) => (keyof Obj)[] = Object.keys;
+    const computedVariation = Array.isArray(variation)
+        ? variation
+        : [variation];
 
-        const computedSize = objectKeys(SizeMap).find(
-            (key) => SizeMap[key] === (as || defaultElement)
-        );
+    const computedSize = objectKeys(SizeMap).find(
+        (key) => SizeMap[key] === (as || defaultElement)
+    );
 
-        const cssClasses = {
-            root: classNames(
-                styles[rootClassName],
-                computedSize && styles[`${rootClassName}--${computedSize}`],
-                skin && styles[`${rootClassName}--${skin}`],
-                size && styles[`${rootClassName}--${size}`],
-                weight && styles[`${rootClassName}--${weight}`],
-                alignment && styles[`${rootClassName}--alignment-${alignment}`],
-                ...computedVariation.map(
-                    (i) => styles[`${rootClassName}--${i}`]
-                ),
-                className
-            ),
-        };
-        const ComputedTag = as || defaultElement;
+    const cssClasses = {
+        root: classNames(
+            styles[rootClassName],
+            computedSize && styles[`${rootClassName}--${computedSize}`],
+            skin && styles[`${rootClassName}--${skin}`],
+            size && styles[`${rootClassName}--${size}`],
+            weight && styles[`${rootClassName}--${weight}`],
+            alignment && styles[`${rootClassName}--alignment-${alignment}`],
+            ...computedVariation.map((i) => styles[`${rootClassName}--${i}`]),
+            className
+        ),
+    };
+    const ComputedTag = as || defaultElement;
 
-        return (
-            <ComputedTag ref={ref} className={cssClasses.root} {...otherProps}>
-                {children}
-            </ComputedTag>
-        );
-    }
-);
+    return (
+        <ComputedTag ref={ref} className={cssClasses.root} {...otherProps}>
+            {children}
+        </ComputedTag>
+    );
+};
 
-Text.displayName = 'Text';
+UnwrappedText.displayName = 'Text';
+
+export const Text = fixedForwardRef(UnwrappedText);

@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react';
 
 type SelectHandler<T> = {
     index: number;
-    item: T;
+    item: T | undefined;
     setIndex: (newIndex: number) => void;
     setItem: (newItem: T) => void;
 };

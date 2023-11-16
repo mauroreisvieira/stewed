@@ -14,7 +14,7 @@
     "clean": "rm -rf dist node_modules"
   },
   "devDependencies": {
-    "@stewed/utilities": "*",
+    "@stewed/utilities": "^0.1.0",
     "@harmonix-hub/tsconfig": "^1.0.3",
     "@types/react": "^18.2.37"
   }

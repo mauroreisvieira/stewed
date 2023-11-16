@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@harmonix-hub/tsconfig": "^1.0.3",
-    "@stewed/utilities": "*",
+    "@stewed/utilities": "^0.1.0",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "@vitejs/plugin-react": "^4.1.1",
