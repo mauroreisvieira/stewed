@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { classNames } from '@stewed/utils';
+import { classNames } from '@stewed/utilities';
 
 import styles from './Base.module.scss';
 
@@ -36,11 +36,11 @@ export const Radio = React.forwardRef(
         return (
             <div className={cssClasses.root}>
                 <input
-                    ref={ref}
-                    type="radio"
-                    disabled={disabled}
-                    className={cssClasses.control}
-                    {...otherProps}
+                  ref={ref}
+                  type="radio"
+                  disabled={disabled}
+                  className={cssClasses.control}
+                  {...otherProps}
                 />
                 <span className={cssClasses.background} />
             </div>

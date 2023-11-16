@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { classNames } from '@stewed/utils';
+import { classNames } from '@stewed/utilities';
 
 import styles from './Base.module.scss';
 
@@ -38,9 +38,9 @@ export const MenuItem = ({
     };
     return (
         <div
-            className={cssClasses.root}
-            role="menuitem"
-            tabIndex={disabled ? -1 : 0}
+          className={cssClasses.root}
+          role="menuitem"
+          tabIndex={disabled ? -1 : 0}
         >
             {leftSlot && <span className={cssClasses.left}>{leftSlot}</span>}
             {children && <span className={cssClasses.text}>{children}</span>}

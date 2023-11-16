@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { classNames } from '@stewed/utils';
+import { classNames } from '@stewed/utilities';
 
 import styles from './Base.module.scss';
 
@@ -35,10 +35,10 @@ export const Input = React.forwardRef(
             <div className={cssClasses.root}>
             {leftSlot && <span className={cssClasses.left}>{leftSlot}</span>}
             <input
-                ref={ref}
-                className={cssClasses.input}
-                disabled={disabled}
-                {...otherProps}
+              ref={ref}
+              className={cssClasses.input}
+              disabled={disabled}
+              {...otherProps}
             />
             {rightSlot && <span className={cssClasses.right}>{rightSlot}</span>}
             </div>

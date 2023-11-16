@@ -10,7 +10,7 @@ import React, {
 import { CarouselIndicator } from './CarouselIndicator';
 import { CarouselNavigation } from './CarouselNavigation';
 // Utilities
-import { classNames } from '@stewed/utils';
+import { classNames } from '@stewed/utilities';
 // Style
 import styles from './Base.module.scss';
 
@@ -281,14 +281,14 @@ export const Carousel = forwardRef(
             <div className={cssClasses.root}>
                 <div className={cssClasses.wrapper}>
                     <div
-                        className={cssClasses.content}
-                        onTouchStart={handleTouchStart}
-                        onTouchMove={handleTouchMove}
+                      className={cssClasses.content}
+                      onTouchStart={handleTouchStart}
+                      onTouchMove={handleTouchMove}
                     >
                         <div
-                            className={cssClasses.track}
-                            style={computedStyles}
-                            onTransitionEnd={handleTransitionEnd}
+                          className={cssClasses.track}
+                          style={computedStyles}
+                          onTransitionEnd={handleTransitionEnd}
                         >
                             {slidesCount > slidesPerView && renderPrevItems}
                             {numberOfEmptySlots > 0 && renderEmptySlots}
@@ -299,22 +299,22 @@ export const Carousel = forwardRef(
                         {showNavigation && (
                             <>
                                 <CarouselNavigation
-                                    disabled={
+                                  disabled={
                                         slidesCount <= slidesPerView ||
                                         (!hasLooping && currentSlide === 0)
                                     }
-                                    type="prev"
-                                    onClick={handlePrev}
+                                  type="prev"
+                                  onClick={handlePrev}
                                 />
                                 <CarouselNavigation
-                                    disabled={
+                                  disabled={
                                         slidesCount <= slidesPerView ||
                                         (!hasLooping &&
                                             currentSlide ===
                                                 numberOfIndicators - 1)
                                     }
-                                    type="next"
-                                    onClick={handleNext}
+                                  type="next"
+                                  onClick={handleNext}
                                 />
                             </>
                         )}
@@ -322,9 +322,9 @@ export const Carousel = forwardRef(
                 </div>
                 {showIndicator && (
                     <CarouselIndicator
-                        currentSlide={currentSlide}
-                        slidesPerView={slidesPerView}
-                        slidesCount={slidesCount}
+                      currentSlide={currentSlide}
+                      slidesPerView={slidesPerView}
+                      slidesCount={slidesCount}
                     />
                 )}
             </div>

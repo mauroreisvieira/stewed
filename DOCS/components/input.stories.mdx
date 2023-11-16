@@ -1,0 +1,48 @@
+import { Input } from '../../../packages/react/src';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+
+<Meta
+    title="Components/Input"
+    argTypes={{ onChange: { action: 'change' } }}
+    component={Input}
+/>
+
+# Input
+
+Form field to enter and edit single-line text.
+
+### Installation
+
+```bash
+npm install --save @stewed/react
+```
+
+### Import
+
+```js
+import { Input } from '@stewed/react';
+```
+
+## Examples
+
+export const Template = (args) => <Input {...args} />;
+
+### Base
+
+<Canvas>
+    <Story
+        name="Base"
+        args={{
+            placeholder: 'Type your value...',
+            defaultValue: '',
+            skin: 'default',
+            disabled: false,
+        }}
+    >
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Input} />

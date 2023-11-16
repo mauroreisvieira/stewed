@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 // Utilities
-import { classNames } from '@stewed/utils';
+import { classNames } from '@stewed/utilities';
 // Style
 import styles from './Base.module.scss';
 
@@ -29,8 +29,8 @@ export const CarouselIndicator = ({
         <div className={cssClasses.root}>
             {numberOfSlides.map((_, k) => (
                 <div
-                    key={`carousel__dot-${k}`}
-                    className={classNames(
+                  key={`carousel__dot-${k}`}
+                  className={classNames(
                         cssClasses.dot,
                         currentSlide === k && styles['is-active']
                     )}

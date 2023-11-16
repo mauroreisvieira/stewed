@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { classNames } from '@stewed/utils';
+import { classNames } from '@stewed/utilities';
 
 import { TabsContext, TabsContextProps } from './TabsContext';
 
@@ -27,7 +27,7 @@ export const Tabs = ({
     return (
         <div className={cssClasses.root} {...otherProps}>
             <TabsContext.Provider
-                value={{
+              value={{
                     value,
                     onValueChange,
                 }}

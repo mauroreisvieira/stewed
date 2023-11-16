@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { classNames } from '@stewed/utils';
+import { classNames } from '@stewed/utilities';
 import { AvatarGroup } from './AvatarGroup';
 import styles from './Base.module.scss';
 
@@ -37,9 +37,9 @@ export const Avatar = ({
         <div className={cssClasses.root}>
             {src ? (
                 <img
-                    src={src}
-                    alt={children?.toString() || otherProps.alt}
-                    {...otherProps}
+                  src={src}
+                  alt={children?.toString() || otherProps.alt}
+                  {...otherProps}
                 />
             ) : children && typeof children === 'string' ? (
                 children.match(/[A-Z]/g)?.join('').slice(0, 2).toUpperCase()

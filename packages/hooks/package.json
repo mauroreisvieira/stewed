@@ -3,28 +3,19 @@
   "description": "Stewed UI Shared hooks",
   "version": "0.0.0",
   "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "sideEffects": false,
-  "license": "MIT",
   "files": [
     "dist/**"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts --external react",
-    "dev": "tsup src/index.ts --format esm,cjs --watch --dts --external react",
-    "lint": "eslint",
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint . --ext ts",
+    "format": "prettier . --check --cache --ignore-unknown",
+    "clean": "rm -rf dist node_modules"
   },
   "devDependencies": {
-    "@harmonix-hub/eslint": "^1.0.1",
-    "@stewed/utils": "workspace:*",
-    "@types/react": "^18.2.37",
-    "react": "^18.2.0",
-    "tsup": "^7.2.0",
-    "typescript": "^5.2.2"
-  },
-  "publishConfig": {
-    "access": "public"
+    "@stewed/utilities": "*",
+    "@harmonix-hub/tsconfig": "^1.0.3",
+    "@types/react": "^18.2.37"
   }
 }

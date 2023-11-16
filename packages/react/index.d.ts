@@ -1,7 +1,3 @@
-/**
- * Required to avoid errors when importing these types of files
- */
-
 declare module "*.svg?url" {
   const content: string;
   export default content;

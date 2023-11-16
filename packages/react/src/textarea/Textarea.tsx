@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { classNames } from '@stewed/utils';
+import { classNames } from '@stewed/utilities';
 
 import styles from './Base.module.scss';
 
@@ -25,10 +25,10 @@ export const Textarea = React.forwardRef(
 
         return (
             <textarea
-                ref={ref}
-                className={cssClasses.root}
-                disabled={disabled}
-                {...otherProps}
+              ref={ref}
+              className={cssClasses.root}
+              disabled={disabled}
+              {...otherProps}
             >
                 {children}
             </textarea>

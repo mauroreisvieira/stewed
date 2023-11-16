@@ -3,7 +3,7 @@ import {
     classNames,
     PolymorphicPropsWithRef,
     PolymorphicForwardRefExoticComponent,
-} from '@stewed/utils';
+} from '@stewed/utilities';
 
 import styles from './Base.module.scss';
 

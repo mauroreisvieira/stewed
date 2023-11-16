@@ -10,25 +10,19 @@
     "dist/**"
   ],
   "scripts": {
-    "dev": "npx vite",
-    "build": "npx vite build",
+    "build": "tsc -p tsconfig.json",
     "lint": "eslint",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "devDependencies": {
-    "@harmonix-hub/eslint": "^1.0.1",
-    "@stewed/utils": "workspace:*",
+    "@harmonix-hub/tsconfig": "^1.0.3",
+    "@stewed/utilities": "*",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
-    "eslint": "^8.53.0",
-    "react": "^18.2.0",
-    "tsup": "^7.2.0",
-    "typescript": "^5.2.2",
-    "sass": "^1.69.5",
     "@vitejs/plugin-react": "^4.1.1",
-    "vite": "^4.5.0"
+    "sass": "^1.69.5"
   },
-  "publishConfig": {
-    "access": "public"
+  "peerDependencies": {
+    "react": "^18.2.0"
   }
 }

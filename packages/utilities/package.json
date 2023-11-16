@@ -1,0 +1,19 @@
+{
+  "name": "@stewed/utilities",
+  "description": "Stewed UI Shared utilities",
+  "version": "0.1.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint . --ext ts",
+    "format": "prettier . --check --cache --ignore-unknown",
+    "clean": "rm -rf dist node_modules"
+  },
+  "devDependencies": {
+    "@harmonix-hub/tsconfig": "^1.0.3"
+  }
+}

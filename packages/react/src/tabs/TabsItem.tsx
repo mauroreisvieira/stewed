@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { classNames } from '@stewed/utils';
+import { classNames } from '@stewed/utilities';
 import { useTabsContext } from './TabsContext';
 
 import styles from './Base.module.scss';
@@ -48,14 +48,14 @@ export const TabsItem = ({
 
     return (
         <button
-            role="tab"
-            type="button"
-            disabled={disabled}
-            aria-disabled={disabled}
-            aria-selected={isSelected}
-            className={cssClasses.root}
-            onClick={onHandleClick}
-            {...otherProps}
+          role="tab"
+          type="button"
+          disabled={disabled}
+          aria-disabled={disabled}
+          aria-selected={isSelected}
+          className={cssClasses.root}
+          onClick={onHandleClick}
+          {...otherProps}
         >
             {leftSlot && <span className={cssClasses.left}>{leftSlot}</span>}
             {children && <span className={cssClasses.text}>{children}</span>}

@@ -1,27 +1,35 @@
 {
-    "name": "stewed",
-    "private": true,
-    "scripts": {
-        "build": "turbo run build",
-        "dev": "turbo run dev --no-cache --continue",
-        "lint": "turbo run lint",
-        "clean": "turbo run clean && rm -rf node_modules",
-        "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-        "changeset": "changeset",
-        "version-packages": "changeset version",
-        "release": "turbo run build --filter=docs^... && changeset publish"
-    },
-    "devDependencies": {
-        "@harmonix-hub/tsconfig": "^1.0.1",
-        "@harmonix-hub/eslint": "^1.0.1",
-        "@harmonix-hub/prettier": "^1.0.1",
-        "webpack": "^5.89.0",
-        "webpack-cli": "^5.1.4",
-        "@svgr/webpack": "^8.1.0",
-        "@changesets/cli": "^2.26.2",
-        "eslint": "^8.53.0",
-        "prettier": "^3.1.0",
-        "turbo": "latest"
-    },
-    "packageManager": "pnpm@7.15.0"
+  "private": true,
+  "description": "Stewed UI components in React.",
+  "scripts": {
+    "prepare": "husky install",
+    "start": "lerna run start --parallel --stream",
+    "build": "lerna run build",
+    "postbuild": "lerna run postbuild",
+    "test": "lerna run test --parallel",
+    "lint": "lerna run lint --parallel",
+    "format": "lerna run format",
+    "clean": "lerna exec -- rm -rf node_modules && rm -rf node_modules",
+    "publish": "lerna publish from-package --yes"
+  },
+  "workspaces": [
+    "packages/*/*"
+  ],
+  "devDependencies": {
+    "@types/react": "^18.2.37",
+    "@harmonix-hub/tsconfig": "^1.0.3",
+    "@babel/core": "^7.23.3",
+    "@changesets/cli": "^2.26.2",
+    "@harmonix-hub/eslint": "^1.0.1",
+    "@harmonix-hub/prettier": "^1.0.1",
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^18.0.0",
+    "eslint": "^8.52.0",
+    "husky": "^8.0.3",
+    "lerna": "^7.1.5",
+    "prettier": "^3.0.3",
+    "semantic-release": "^22.0.5",
+    "semantic-release-config-conventional": "^1.0.1",
+    "react": "^18.2.0"
+  }
 }

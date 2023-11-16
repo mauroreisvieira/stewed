@@ -1,3 +1,6 @@
+const { getPrettierConfig } = require("@harmonix-hub/prettier");
+
+ /** @type {import("prettier").Config} */
 module.exports = {
-  ...require('@harmonix-hub/prettier'),
+  ...getPrettierConfig(),
 };

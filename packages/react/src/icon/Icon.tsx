@@ -1,7 +1,7 @@
 // React
 import React, { forwardRef } from 'react';
 // Utilities
-import { classNames } from '@stewed/utils';
+import { classNames } from '@stewed/utilities';
 // SVG sources
 import { icons } from './assets';
 // Styles
@@ -43,9 +43,9 @@ export const Icon = forwardRef(
 
         return (
             <IconComponent
-                aria-label={iconName}
-                className={cssClasses}
-                {...computedProps}
+              aria-label={iconName}
+              className={cssClasses}
+              {...computedProps}
             />
         );
     }
