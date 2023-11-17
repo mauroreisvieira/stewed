@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { classNames } from '@stewed/utilities';
 
-import styles from './Base.module.scss';
+import styles from './scss/Base.module.scss';
 
 type TagType = React.HTMLAttributes<HTMLSpanElement> &
     React.AnchorHTMLAttributes<HTMLAnchorElement>;

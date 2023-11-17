@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { classNames } from '@stewed/utilities';
 import { useTabsContext } from './TabsContext';
-
+// Styles
 import styles from './Base.module.scss';
 
 export interface TabsItemProps

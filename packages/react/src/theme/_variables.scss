@@ -303,7 +303,7 @@ $timing-function: map.get($transition, timing-function);
 /// @param {string} [$scope=null] - Scope where the theme should be applied. Default is `null` which applies to `:root`.
 @mixin use-theme($scope: null) {
     @if ($scope) {
-        :global(#{$scope}) {
+        #{$scope} {
             @include define-theme;
         }
     } @else {

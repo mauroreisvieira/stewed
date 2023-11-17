@@ -1,0 +1,21 @@
+@use '@stewed/react/src/theme' as * with (
+    $config: (
+        extend: (
+            colors: (
+                new-color: (
+                    50: #f6f9fc,
+                ),
+            ),
+        ),
+    )
+);
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    background-color: #{get-color(new-color, 50)};
+}
+
+@include use-theme('.sb-show-main');

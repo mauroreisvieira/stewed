@@ -1,15 +1,15 @@
-import { Radio } from '../../../packages/react/src';
+import { Input } from './';
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 
 <Meta
-    title="Components/Radio"
+    title="Components/Input"
     argTypes={{ onChange: { action: 'change' } }}
-    component={Radio}
+    component={Input}
 />
 
-# Radio
+# Input
 
-Radio buttons allow the user to select one option from a set.
+Form field to enter and edit single-line text.
 
 ### Installation
 
@@ -20,12 +20,12 @@ npm install --save @stewed/react
 ### Import
 
 ```js
-import { Radio } from '@stewed/react';
+import { Input } from '@stewed/react';
 ```
 
 ## Examples
 
-export const Template = (args) => <Radio {...args} />;
+export const Template = (args) => <Input {...args} />;
 
 ### Base
 
@@ -33,8 +33,9 @@ export const Template = (args) => <Radio {...args} />;
     <Story
         name="Base"
         args={{
-            skin: 'primary',
-            size: 'md',
+            placeholder: 'Type your value...',
+            defaultValue: '',
+            skin: 'default',
             disabled: false,
         }}
     >
@@ -44,4 +45,4 @@ export const Template = (args) => <Radio {...args} />;
 
 ## Props
 
-<ArgsTable of={Radio} />
+<ArgsTable of={Input} />

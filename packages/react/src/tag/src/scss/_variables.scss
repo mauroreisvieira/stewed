@@ -1,6 +1,6 @@
 @use 'sass:map';
 @use 'sass:math';
-@use '../theme' as theme;
+@use '@stewed/react/src/theme' as theme;
 
 $tag-root: '.tag';
 

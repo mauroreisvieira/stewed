@@ -1,6 +1,10 @@
-import * as React from 'react';
+import React from 'react';
+//. Compound Component
+import { MenuGroup } from './MenuGroup';
+import { MenuItem } from './MenuItem';
+// Utilities
 import { classNames } from '@stewed/utilities';
-
+// Styles
 import styles from './Base.module.scss';
 
 export interface MenuProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -23,3 +27,8 @@ export const Menu = ({
         </div>
     );
 };
+
+
+// Compound component composition
+Menu.Item = MenuItem;
+Menu.Group = MenuGroup;

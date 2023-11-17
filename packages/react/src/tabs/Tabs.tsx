@@ -1,8 +1,13 @@
-import * as React from 'react';
-import { classNames } from '@stewed/utilities';
-
+import React from 'react';
+// Context
 import { TabsContext, TabsContextProps } from './TabsContext';
-
+//. Compound Component
+import { TabsItem } from './TabsItem';
+import { TabsList } from './TabsList';
+import { TabsPanel } from './TabsPanel';
+// Utilities
+import { classNames } from '@stewed/utilities';
+// Styles
 import styles from './Base.module.scss';
 
 export interface TabsProps extends React.HTMLAttributes<HTMLElement> {
@@ -27,7 +32,7 @@ export const Tabs = ({
     return (
         <div className={cssClasses.root} {...otherProps}>
             <TabsContext.Provider
-              value={{
+                value={{
                     value,
                     onValueChange,
                 }}
@@ -37,3 +42,8 @@ export const Tabs = ({
         </div>
     );
 };
+
+// Compound component composition
+Tabs.Item = TabsItem;
+Tabs.List = TabsList;
+Tabs.Panel = TabsPanel;

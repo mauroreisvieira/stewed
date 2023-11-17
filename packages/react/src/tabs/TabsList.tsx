@@ -1,13 +1,15 @@
 import * as React from 'react';
 import { classNames } from '@stewed/utilities';
-
+// Styles
 import styles from './Base.module.scss';
+
+export interface TabsListProps extends React.HTMLAttributes<HTMLElement> {}
 
 export const TabsList = ({
     className,
     children,
     ...otherProps
-}: React.HTMLAttributes<HTMLElement>): React.ReactElement => {
+}: TabsListProps): React.ReactElement => {
     const rootClassName = 'tabs__list';
     const cssClasses = {
         root: classNames(styles[rootClassName], className),
