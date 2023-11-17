@@ -11,19 +11,17 @@
     "lint:style": "lerna run lint:style --parallel",
     "format": "lerna run format",
     "clean": "lerna exec -- rm -rf node_modules && rm -rf node_modules",
-    "publish": "lerna publish from-package --yes"
+    "publish": "lerna publish from-package --yes",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "workspaces": [
     "packages/*"
   ],
-  "release": {
-    "branches": [
-      "main"
-    ]
-  },
   "devDependencies": {
     "@babel/core": "^7.23.3",
     "@babel/plugin-transform-runtime": "^7.23.3",
+    "@babel/preset-react": "^7.23.3",
     "@changesets/cli": "^2.26.2",
     "@commitlint/cli": "^17.6.6",
     "@commitlint/config-conventional": "^18.0.0",
@@ -31,15 +29,28 @@
     "@harmonix-hub/prettier": "^1.0.1",
     "@harmonix-hub/stylelint": "^1.0.0",
     "@harmonix-hub/tsconfig": "^1.0.3",
+    "@storybook/addon-essentials": "^7.5.3",
+    "@storybook/addon-interactions": "^7.5.3",
+    "@storybook/addon-links": "^7.5.3",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/addon-styling-webpack": "^0.0.5",
+    "@storybook/blocks": "^7.5.3",
+    "@storybook/react": "^7.5.3",
+    "@storybook/react-vite": "^7.5.3",
+    "@storybook/testing-library": "^0.2.2",
     "@types/react": "^18.2.37",
     "babel-preset-env": "^1.7.0",
     "eslint": "^8.52.0",
     "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-storybook": "^0.6.15",
     "husky": "^8.0.3",
     "lerna": "^7.1.5",
     "prettier": "^3.0.3",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "semantic-release": "^22.0.5",
     "semantic-release-config-conventional": "^1.0.1",
-    "storybook": "^7.5.3",
+    "storybook": "^7.5.3"
   }
 }
