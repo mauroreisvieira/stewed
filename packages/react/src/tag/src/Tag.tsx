@@ -1,15 +1,14 @@
-import * as React from 'react';
+import React from 'react';
+// Utilities
 import { classNames } from '@stewed/utilities';
-
-import styles from './scss/Base.module.scss';
+// Styles
+import styles from './scss/index.module.scss';
 
 type TagType = React.HTMLAttributes<HTMLSpanElement> &
     React.AnchorHTMLAttributes<HTMLAnchorElement>;
 export interface TagProps extends TagType {
     skin?: 'primary' | 'secondary' | 'info' | 'success' | 'warning' | 'danger';
     size?: 'sm' | 'md' | 'lg';
-    className?: string;
-    children: React.ReactNode;
 }
 
 export const Tag = ({

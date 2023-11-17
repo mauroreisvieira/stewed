@@ -1,7 +1,8 @@
-import * as React from 'react';
+import React from 'react';
+// Utilities
 import { classNames } from '@stewed/utilities';
 // Styles
-import styles from './Base.module.scss';
+import styles from './scss/index.module.scss';
 
 export interface TabsListProps extends React.HTMLAttributes<HTMLElement> {}
 

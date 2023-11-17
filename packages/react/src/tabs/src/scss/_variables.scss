@@ -1,6 +1,6 @@
 @use 'sass:math';
 @use 'sass:map';
-@use '../theme' as theme;
+@use '@stewed/react/src/theme' as theme;
 
 $tabs-root: '.tabs';
 

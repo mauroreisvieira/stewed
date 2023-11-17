@@ -1,8 +1,10 @@
-import * as React from 'react';
-import { classNames } from '@stewed/utilities';
+import React from 'react';
+// Context
 import { useTabsContext } from './TabsContext';
+// Utilities
+import { classNames } from '@stewed/utilities';
 // Styles
-import styles from './Base.module.scss';
+import styles from './scss/index.module.scss';
 
 export interface TabsItemProps
     extends React.ButtonHTMLAttributes<HTMLButtonElement> {

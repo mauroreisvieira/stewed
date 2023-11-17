@@ -8,7 +8,7 @@ import { TabsPanel } from './TabsPanel';
 // Utilities
 import { classNames } from '@stewed/utilities';
 // Styles
-import styles from './Base.module.scss';
+import styles from './scss/index.module.scss';
 
 export interface TabsProps extends React.HTMLAttributes<HTMLElement> {
     /** Sets value of tab item selected. */

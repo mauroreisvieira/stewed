@@ -1,6 +1,6 @@
 @use 'sass:map';
-@use '../theme' as theme;
-@use '../typography' as text;
+@use '@stewed/react/src/theme' as theme;
+@use '@stewed/react/src/typography' as text;
 @use './variables' as *;
 
 @include theme.scope($tabs-root) {

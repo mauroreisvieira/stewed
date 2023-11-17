@@ -1,6 +1,6 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 import { TiWarning } from 'react-icons/ti';
-import { Alert } from './';
+import { Alert } from '../';
 
 <Meta title="Components/Alert" component={Alert} />
 
@@ -48,7 +48,7 @@ export const Template = (args) => <Alert {...args} />;
         args={{
             skin: 'warning',
             title: 'Cannot connect to the database',
-            leftSlot: <TiWarning />,
+            leftSlot: <TiWarning size={24} />,
             children: 'We are unable to save any progress at this time.',
         }}
     >

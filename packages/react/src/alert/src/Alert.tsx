@@ -1,7 +1,8 @@
-import * as React from 'react';
+import React from 'react';
+// Utilities
 import { classNames } from '@stewed/utilities';
-
-import styles from './Base.module.scss';
+// Styles
+import styles from './scss/index.module.scss';
 
 export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
     /** Will render the bold text shown at the top of the alert. */
