@@ -5,7 +5,10 @@ const baseConfig = getEslintConfig();
 /** @type import("eslint").Linter.Config */
 module.exports = {
   ...baseConfig,
+
   parserOptions: {
     ...baseConfig.parserOptions,
   },
+
+  extends: ["plugin:storybook/recommended"]
 };

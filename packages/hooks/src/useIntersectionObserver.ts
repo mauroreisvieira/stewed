@@ -1,4 +1,4 @@
-import { RefObject, useState, useEffect } from 'react';
+import { RefObject, useState, useEffect, useCallback } from 'react';
 
 export const useIntersectionObserver = (
     elementRef: RefObject<Element>,
@@ -12,9 +12,9 @@ export const useIntersectionObserver = (
     const [observerEntry, setObserverEntry] = useState<IntersectionObserverEntry>();
     const frozen = observerEntry?.isIntersecting && freezeOnceVisible;
 
-    const updateEntry = ([entry]: IntersectionObserverEntry[]): void => {
+    const updateEntry = useCallback((): void => {
         setObserverEntry(observerEntry);
-    };
+    }, [observerEntry]);
 
     useEffect(() => {
         const node = elementRef?.current;
@@ -28,7 +28,7 @@ export const useIntersectionObserver = (
         observer.observe(node);
 
         return () => observer.disconnect();
-    }, [elementRef, threshold, root, rootMargin, frozen]);
+    }, [elementRef, frozen, root, rootMargin, threshold, updateEntry]);
 
     return observerEntry;
 }

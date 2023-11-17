@@ -22,7 +22,7 @@ export function useGlobalState<T>(config: ReturnType<typeof createState<T>>) {
         }
         config.state = next;
         config.listeners?.forEach((l) => l());
-    }, []);
+    }, [config]);
 
     const state = useSyncExternalStore(
         (listener) => {

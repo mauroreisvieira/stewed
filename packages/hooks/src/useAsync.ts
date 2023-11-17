@@ -30,4 +30,4 @@ export function useAsync<T>(asyncFunction: () => Promise<T>, immediate = true) {
     }, [execute, immediate]);
 
     return { execute, status, value, error };
-};
+}

@@ -12,7 +12,7 @@ export function useDebouncedValue<T>(
             return () => clearTimeout(timeout);
         }
         return void 0;
-    }, [debounceValue]);
+    }, [debounceValue, setValue, value]);
 
     useEffect(() => {
         setDebounceValue(value);
