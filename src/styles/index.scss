@@ -3,7 +3,7 @@
         extend: (
             colors: (
                 new-color: (
-                    50: #f6f9fc,
+                    50: #fefeff,
                 ),
             ),
         ),
@@ -14,8 +14,8 @@ html {
     -webkit-text-size-adjust: 100%;
 }
 
-body {
-    background-color: #{get-color(new-color, 50)};
-}
+// body {
+//     // background-color: #{get-color(new-color, 50)};
+// }
 
 @include use-theme('.sb-show-main');
