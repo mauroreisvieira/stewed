@@ -12,6 +12,6 @@
  *  type DataWithRequiredIdAndLabel = MandateProps<Data, 'id' | 'label'>;
  *  ```
  */
-export type Mandatory<T extends unknown, K extends keyof T> = Omit<T, K> & {
+export type Mandatory<T, K extends keyof T> = Omit<T, K> & {
     [MK in K]-?: NonNullable<T[MK]>;
 };

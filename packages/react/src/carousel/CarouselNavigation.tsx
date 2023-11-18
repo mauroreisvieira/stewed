@@ -1,6 +1,6 @@
 import React from 'react';
 // UI Components
-import { Button } from '../button';
+import { Button } from '@stewed/react/';
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 // Utilities
 import { classNames } from '@stewed/utilities';

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { classNames } from '@stewed/utilities';
 
 import styles from './Base.module.scss';
@@ -13,7 +13,7 @@ export interface InputProps
     rightSlot?: React.ReactNode;
 }
 
-export const Input = React.forwardRef(
+export const Input = forwardRef(
     (
         { skin, className, disabled, leftSlot, rightSlot, ...otherProps }: InputProps,
         ref: React.Ref<HTMLInputElement>

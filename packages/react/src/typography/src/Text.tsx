@@ -2,7 +2,7 @@ import React from 'react';
 // Utilities
 import { classNames } from '@stewed/utilities';
 // Types
-import { DistributiveOmit, fixedForwardRef } from '../../types/Polymorphic';
+import { type DistributiveOmit, fixedForwardRef } from '@stewed/react';
 // Styles
 import styles from './styles/index.module.scss';
 

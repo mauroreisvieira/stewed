@@ -1,9 +1,9 @@
 import React from 'react';
 // Utilities
 import { classNames } from '@stewed/utilities';
-import { type DistributiveOmit, fixedForwardRef } from '../types/Polymorphic';
+import { type DistributiveOmit, fixedForwardRef } from '@stewed/react';
 // Styles
-import styles from './Base.module.scss';
+import styles from './styles/index.module.scss';
 
 const defaultElement = 'button';
 
@@ -41,9 +41,11 @@ export interface ButtonProps<T>
  * <Button skin="secondary">Button</Button>
  * ```
  *
- * @param props - ButtonProps
  * @remarks This component is a polymorphic component can be rendered as a different element
  * and support all native props from the element passed on `as` prop.
+ *
+ * @param {ButtonProps} props - The props for the Button component.
+ * @returns {React.ReactElement} - The rendered Button component.
  */
 export const UnwrappedButton = <T extends React.ElementType>(
     {
