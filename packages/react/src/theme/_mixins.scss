@@ -1,58 +1,58 @@
 @use "./variables" as *;
 
 @mixin scope($name: null) {
-    #{$name} {
-        @content;
-    }
+  #{$name} {
+    @content;
+  }
 }
 
 @mixin reset {
-    all: unset;
+  all: unset;
 }
 
 @mixin disabled-styles {
-    &:disabled,
-    &--disabled {
-        pointer-events: none;
-        opacity: $disabled;
-    }
+  &:disabled,
+  &--disabled {
+    pointer-events: none;
+    opacity: $disabled;
+  }
 }
 
 // primary input mechanism is a mouse
 @mixin no-touch {
-    @media (pointer: fine) {
-        @content;
-    }
+  @media (pointer: fine) {
+    @content;
+  }
 }
 
 // primary input mechanism is a finger
 @mixin touch {
-    @media (pointer: coarse) {
-        @content;
-    }
+  @media (pointer: coarse) {
+    @content;
+  }
 }
 
 // styles for mouse
 @mixin hover {
-    @media (hover: hover) {
-        &:hover {
-            @content;
-        }
+  @media (hover: hover) {
+    &:hover {
+      @content;
     }
+  }
 }
 
 // apply styles on hover if device is non-touch
 // apply styles on active if device is touch
 @mixin on-hover {
-    @include no-touch {
-        @include hover {
-            @content;
-        }
+  @include no-touch {
+    @include hover {
+      @content;
     }
+  }
 
-    @include touch {
-        &:active {
-            @content;
-        }
+  @include touch {
+    &:active {
+      @content;
     }
+  }
 }

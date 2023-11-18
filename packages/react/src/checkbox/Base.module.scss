@@ -3,90 +3,86 @@
 @use "./variables" as *;
 
 @include theme.scope($checkbox-root) {
-    --checkbox-color: #{theme.get-color("secondary", "300")};
+  --checkbox-color: #{theme.get-color("secondary", "300")};
 
-    display: inline-block;
-    position: relative;
-    width: var(--checkbox-size);
-    height: var(--checkbox-size);
-    border-radius: $checkbox-border-radius;
+  display: inline-block;
+  position: relative;
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
+  border-radius: $checkbox-border-radius;
 
-    @include theme.focus-styles;
-    @include theme.disabled-styles;
+  @include theme.focus-styles;
+  @include theme.disabled-styles;
 
-    @include theme.hover {
-        #{$checkbox-root}__background {
-            --checkbox-color: #{theme.get-color("secondary", "400")};
-        }
+  @include theme.hover {
+    #{$checkbox-root}__background {
+      --checkbox-color: #{theme.get-color("secondary", "400")};
     }
+  }
 
-    &__control {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        overflow: hidden;
-        opacity: 0;
-        cursor: pointer;
+  &__control {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    opacity: 0;
+    cursor: pointer;
 
-        &:checked {
-            + .checkbox__background {
-                &::before {
-                    background-color: currentcolor;
-                }
-
-                [svg] {
-                    scale: 1;
-                }
-            }
-        }
-    }
-
-    &__background {
-        color: var(--checkbox-color);
-        display: flex;
-        position: relative;
-        width: 100%;
-        height: 100%;
-        align-items: center;
-        pointer-events: none;
-
-        [svg] {
-            @include theme.transition(scale);
-
-            width: var(--checkbox-size);
-            margin: auto;
-            fill: #fff;
-            scale: 0;
-            z-index: 1;
-        }
-
+    &:checked {
+      + .checkbox__background {
         &::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            border: 2px solid currentcolor;
-            border-radius: $checkbox-border-radius;
+          background-color: currentcolor;
         }
+
+        svg {
+          scale: 1;
+        }
+      }
+    }
+  }
+
+  &__background {
+    color: var(--checkbox-color);
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    pointer-events: none;
+
+    svg {
+      @include theme.transition(scale);
+
+      width: var(--checkbox-size);
+      margin: auto;
+      fill: #fff;
+      scale: 0;
+      z-index: 1;
     }
 
-    @each $key, $value in $checkbox-skins {
-        &--#{$key} {
-            #{$checkbox-root} {
-                &__control {
-                    &:checked {
-                        + .checkbox__background {
-                            --checkbox-color: #{theme.get-color($value, "500")};
-                        }
-                    }
-                }
-            }
-        }
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 2px solid currentcolor;
+      border-radius: $checkbox-border-radius;
     }
+  }
 
-    @each $key, $value in $checkbox-sizes {
-        &--#{$key} {
-            --checkbox-size: #{$value};
+  @each $key, $value in $checkbox-skins {
+    &--#{$key} {
+      #{$checkbox-root}__control:checked {
+        + .checkbox__background {
+          --checkbox-color: #{theme.get-color($value, "500")};
         }
+      }
     }
+  }
+
+  @each $key, $value in $checkbox-sizes {
+    &--#{$key} {
+      --checkbox-size: #{$value};
+    }
+  }
 }

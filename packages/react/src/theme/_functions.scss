@@ -1,6 +1,6 @@
 @use "sass:math";
 
 @function rem($size-in-pixel) {
-    $size: math.div($size-in-pixel, 16);
-    @return #{$size}rem;
+  $size: math.div($size-in-pixel, 16);
+  @return #{$size}rem;
 }

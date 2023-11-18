@@ -3,41 +3,41 @@
 @use "./variables" as *;
 
 @include theme.scope($alert-root) {
-    --alert-border-radius: #{$alert-border-radius};
+  --alert-border-radius: #{$alert-border-radius};
 
-    background-color: var(--alert-background);
+  background-color: var(--alert-background);
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  padding: $alert-inner-spacing-y $alert-inner-spacing-x;
+  border-radius: var(--alert-border-radius);
+  gap: $alert-slot-gap;
+
+  &__title {
+    font-weight: $alert-title-font-weight;
+  }
+
+  &__wrapper {
     display: flex;
-    flex-direction: row;
-    position: relative;
-    padding: $alert-inner-spacing-y $alert-inner-spacing-x;
-    border-radius: var(--alert-border-radius);
-    gap: $alert-slot-gap;
+    flex-direction: column;
+    gap: $alert-gap;
+    flex-grow: 1;
+  }
 
-    &__title {
-        font-weight: $alert-title-font-weight;
-    }
+  &__title,
+  &__left,
+  &__right {
+    color: var(--alert-title-color);
+  }
 
-    &__wrapper {
-        display: flex;
-        flex-direction: column;
-        gap: $alert-gap;
-        flex-grow: 1;
-    }
+  &__body {
+    font-size: $alert-body-font-size;
+  }
 
-    &__title,
-    &__left,
-    &__right {
-        color: var(--alert-title-color);
+  @each $key, $value in $alert-skins {
+    &--#{$key} {
+      --alert-background: #{theme.get-color($value, "100")};
+      --alert-title-color: #{theme.get-color($value, "900")};
     }
-
-    &__body {
-        font-size: $alert-body-font-size;
-    }
-
-    @each $key, $value in $alert-skins {
-        &--#{$key} {
-            --alert-background: #{theme.get-color($value, "100")};
-            --alert-title-color: #{theme.get-color($value, "900")};
-        }
-    }
+  }
 }

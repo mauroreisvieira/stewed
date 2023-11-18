@@ -3,91 +3,87 @@
 @use "./variables" as *;
 
 @include theme.scope($radio-root) {
-    --radio-color: #{theme.get-color("secondary", "300")};
+  --radio-color: #{theme.get-color("secondary", "300")};
 
-    display: inline-block;
-    position: relative;
-    width: var(--radio-size);
-    height: var(--radio-size);
-    border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  width: var(--radio-size);
+  height: var(--radio-size);
+  border-radius: 50%;
 
-    @include theme.focus-styles;
-    @include theme.disabled-styles;
+  @include theme.focus-styles;
+  @include theme.disabled-styles;
 
-    @include theme.hover {
-        #{$radio-root}__background {
-            --radio-color: #{theme.get-color("secondary", "400")};
-        }
+  @include theme.hover {
+    #{$radio-root}__background {
+      --radio-color: #{theme.get-color("secondary", "400")};
     }
+  }
 
-    &__control {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        overflow: hidden;
-        opacity: 0;
-        cursor: pointer;
+  &__control {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    opacity: 0;
+    cursor: pointer;
 
-        &:checked {
-            + .radio__background {
-                &::after {
-                    scale: 1;
-                }
-            }
-        }
-    }
-
-    &__background {
-        color: var(--radio-color);
-        display: flex;
-        position: relative;
-        width: 100%;
-        height: 100%;
-        align-items: center;
-        pointer-events: none;
-
-        &::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            border: 2px solid currentcolor;
-            border-radius: 50%;
-        }
-
+    &:checked {
+      + .radio__background {
         &::after {
-            content: "";
-            background-color: currentcolor;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: calc(var(--radio-size) / 2);
-            height: calc(var(--radio-size) / 2);
-            border-radius: 50%;
-            translate: -50% -50%;
-            scale: 0;
-
-            @include theme.transition(scale);
+          scale: 1;
         }
+      }
+    }
+  }
+
+  &__background {
+    color: var(--radio-color);
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    pointer-events: none;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 2px solid currentcolor;
+      border-radius: 50%;
     }
 
-    @each $key, $value in $radio-skins {
-        &--#{$key} {
-            #{$radio-root} {
-                &__control {
-                    &:checked {
-                        + .radio__background {
-                            --radio-color: #{theme.get-color($value, 500)};
-                        }
-                    }
-                }
-            }
-        }
-    }
+    &::after {
+      content: "";
+      background-color: currentcolor;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: calc(var(--radio-size) / 2);
+      height: calc(var(--radio-size) / 2);
+      border-radius: 50%;
+      translate: -50% -50%;
+      scale: 0;
 
-    @each $key, $value in $radio-sizes {
-        &--#{$key} {
-            --radio-size: #{$value};
-        }
+      @include theme.transition(scale);
     }
+  }
+
+  @each $key, $value in $radio-skins {
+    &--#{$key} {
+      #{$radio-root}__control:checked {
+        + .radio__background {
+          --radio-color: #{theme.get-color($value, "500")};
+        }
+      }
+    }
+  }
+
+  @each $key, $value in $radio-sizes {
+    &--#{$key} {
+      --radio-size: #{$value};
+    }
+  }
 }

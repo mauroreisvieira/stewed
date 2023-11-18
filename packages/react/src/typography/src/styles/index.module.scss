@@ -4,88 +4,88 @@
 @use "./mixins" as mix;
 
 @include theme.scope($typography-root) {
-    all: unset;
-    display: block;
+  all: unset;
+  display: block;
 
-    &[href] {
-        cursor: pointer;
+  &[href] {
+    cursor: pointer;
 
-        &:hover {
-            text-decoration: underline;
-        }
-
-        @include theme.focus-styles;
+    &:hover {
+      text-decoration: underline;
     }
 
-    @each $key, $value in $typography-styles {
-        &--#{$key} {
-            @include mix.typography($key);
-        }
-    }
+    @include theme.focus-styles;
+  }
 
-    &--normal {
-        font-style: normal;
+  @each $key, $value in $typography-styles {
+    &--#{$key} {
+      @include mix.typography($key);
     }
+  }
 
-    &--italic {
-        font-style: italic;
-    }
+  &--normal {
+    font-style: normal;
+  }
 
-    &--uppercase {
-        text-transform: uppercase;
-    }
+  &--italic {
+    font-style: italic;
+  }
 
-    &--lowercase {
-        text-transform: lowercase;
-    }
+  &--uppercase {
+    text-transform: uppercase;
+  }
 
-    &--capitalize {
-        text-transform: capitalize;
-    }
+  &--lowercase {
+    text-transform: lowercase;
+  }
 
-    &--line-through {
-        text-decoration: line-through;
-    }
+  &--capitalize {
+    text-transform: capitalize;
+  }
 
-    &--overline {
-        text-decoration: overline;
-    }
+  &--line-through {
+    text-decoration: line-through;
+  }
 
-    &--underline {
-        text-decoration: underline;
-    }
+  &--overline {
+    text-decoration: overline;
+  }
 
-    &--alignment-start {
-        text-align: start;
-    }
+  &--underline {
+    text-decoration: underline;
+  }
 
-    &--alignment-center {
-        text-align: center;
-    }
+  &--alignment-start {
+    text-align: start;
+  }
 
-    &--alignment-end {
-        text-align: end;
-    }
+  &--alignment-center {
+    text-align: center;
+  }
 
-    &--alignment-justify {
-        text-align: justify;
-    }
+  &--alignment-end {
+    text-align: end;
+  }
 
-    @each $key, $value in $typography-skins {
-        &--#{$key} {
-            --typography-color: #{$value};
-        }
-    }
+  &--alignment-justify {
+    text-align: justify;
+  }
 
-    @each $key, $value in $typography-sizes {
-        &--#{$key} {
-            --typography-font-size: #{$value};
-        }
+  @each $key, $value in $typography-skins {
+    &--#{$key} {
+      --typography-color: #{$value};
     }
+  }
 
-    @each $key, $value in $typography-weights {
-        &--#{$key} {
-            --typography-font-weight: #{$value};
-        }
+  @each $key, $value in $typography-sizes {
+    &--#{$key} {
+      --typography-font-size: #{$value};
     }
+  }
+
+  @each $key, $value in $typography-weights {
+    &--#{$key} {
+      --typography-font-weight: #{$value};
+    }
+  }
 }

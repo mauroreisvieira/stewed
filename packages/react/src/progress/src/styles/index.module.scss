@@ -3,51 +3,51 @@
 @use "./variables" as *;
 
 @include theme.scope($progress-root) {
-    --progress-radius: 0;
+  --progress-radius: 0;
 
-    display: flex;
-    flex-direction: column;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+
+  &__control {
+    appearance: none;
     width: 100%;
+    height: var(--progress-size);
+    border: 0;
 
-    &__control {
-        appearance: none;
-        width: 100%;
-        height: var(--progress-size);
-        border: 0;
-
-        &::-webkit-progress-bar {
-            background-color: $progress-background;
-            border-radius: var(--progress-radius);
-            box-shadow: none;
-        }
-
-        &::-moz-progress-bar {
-            background-color: $progress-background;
-            border-radius: var(--progress-radius);
-            box-shadow: none;
-        }
-
-        &::-webkit-progress-value {
-            background-color: var(--progress-background);
-            border-radius: var(--progress-radius);
-            box-shadow: none;
-        }
+    &::-webkit-progress-bar {
+      background-color: $progress-background;
+      border-radius: var(--progress-radius);
+      box-shadow: none;
     }
 
-    @each $key, $value in $progress-sizes {
-        &--#{$key} {
-            --progress-size: #{map.get($progress-sizes, $key)};
-        }
+    &::-moz-progress-bar {
+      background-color: $progress-background;
+      border-radius: var(--progress-radius);
+      box-shadow: none;
     }
 
-    @each $key, $value in $progress-skins {
-        &--#{$key} {
-            --progress-background: #{theme.get-color($value, "500")};
-        }
+    &::-webkit-progress-value {
+      background-color: var(--progress-background);
+      border-radius: var(--progress-radius);
+      box-shadow: none;
     }
+  }
 
-    &--rounded {
-        --progress-radius: #{$progress-border-radius};
+  @each $key, $value in $progress-sizes {
+    &--#{$key} {
+      --progress-size: #{map.get($progress-sizes, $key)};
     }
+  }
+
+  @each $key, $value in $progress-skins {
+    &--#{$key} {
+      --progress-background: #{theme.get-color($value, "500")};
+    }
+  }
+
+  &--rounded {
+    --progress-radius: #{$progress-border-radius};
+  }
 }

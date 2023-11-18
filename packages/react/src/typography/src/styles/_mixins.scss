@@ -3,23 +3,23 @@
 @use "./variables" as *;
 
 @mixin typography-base {
-    font-size: var(--typography-font-size);
-    font-weight: var(--typography-font-weight);
-    line-height: var(--typography-line-height);
-    color: var(--typography-color);
+  color: var(--typography-color);
+  font-size: var(--typography-font-size);
+  font-weight: var(--typography-font-weight);
+  line-height: var(--typography-line-height);
 }
 
 @mixin typography($key, $overrides: ()) {
-    @if not map.has-key($typography-styles, $key) {
-        @error "Invalid typography specified! #{$key} doesn't exist. Choose one of #{map.keys($typography-styles)}";
-    }
+  @if not map.has-key($typography-styles, $key) {
+    @error "Invalid typography specified! #{$key} doesn't exist. Choose one of #{map.keys($typography-styles)}";
+  }
 
-    $style-props: map.get($typography-styles, $key);
-    $merge-props: map.deep-merge($style-props, $overrides);
+  $style-props: map.get($typography-styles, $key);
+  $merge-props: map.deep-merge($style-props, $overrides);
 
-    @each $key, $value in $merge-props {
-        #{$key}: $value;
-    }
+  @each $key, $value in $merge-props {
+    #{$key}: $value;
+  }
 
-    @include typography-base;
+  @include typography-base;
 }

@@ -6,18 +6,18 @@ $input-root: ".input";
 // Appearance
 $input-border-radius: map.get(theme.$radius, "md");
 $input-skins-default: (
-    "border": theme.get-color("secondary", "300"),
-    "border-hover": theme.get-color("secondary", "400"),
+  "border": theme.get-color("secondary", "300"),
+  "border-hover": theme.get-color("secondary", "400"),
 );
 $input-skins: (
-    "success": (
-        "border": theme.get-color("green", "500"),
-        "border-hover": theme.get-color("green", "600"),
-    ),
-    "error": (
-        "border": theme.get-color("red", "500"),
-        "border-hover": theme.get-color("red", "600"),
-    ),
+  "success": (
+    "border": theme.get-color("green", "500"),
+    "border-hover": theme.get-color("green", "600"),
+  ),
+  "error": (
+    "border": theme.get-color("red", "500"),
+    "border-hover": theme.get-color("red", "600"),
+  ),
 );
 
 // Font
