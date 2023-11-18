@@ -1,7 +1,7 @@
-@use 'sass:map';
-@use '../theme' as theme;
+@use "sass:map";
+@use "@stewed/react/src/theme" as theme;
 
-$carousel-root: '.carousel';
+$carousel-root: ".carousel";
 
 /// space between slides when slides per view bigger that 2
 $carousel-gap: 8px;

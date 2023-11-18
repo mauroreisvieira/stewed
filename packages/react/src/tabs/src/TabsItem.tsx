@@ -4,7 +4,7 @@ import { useTabsContext } from './TabsContext';
 // Utilities
 import { classNames } from '@stewed/utilities';
 // Styles
-import styles from './scss/index.module.scss';
+import styles from './styles/index.module.scss';
 
 export interface TabsItemProps
     extends React.ButtonHTMLAttributes<HTMLButtonElement> {

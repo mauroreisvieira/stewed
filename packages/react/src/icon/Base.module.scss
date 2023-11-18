@@ -1,8 +1,0 @@
-@use 'sass:map';
-@use '../theme' as theme;
-@use '../typography' as text;
-@use './variables' as *;
-
-@include theme.scope($icon-root) {
-  color: red;
-}

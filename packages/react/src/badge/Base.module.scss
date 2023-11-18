@@ -1,12 +1,12 @@
-@use '../theme' as theme;
-@use '../typography' as text;
-@use './variables' as *;
+@use "@stewed/react/src/theme" as theme;
+@use "@stewed/react/src/typography/src/styles" as text;
+@use "./variables" as *;
 
 @include theme.scope($badge-root) {
     --badge-size: #{$badge-size};
 
-    position: relative;
     display: inline-flex;
+    position: relative;
 
     &__count {
         @include text.typography(
@@ -17,17 +17,17 @@
             )
         );
 
+        background-color: var(--badge-background);
+        display: inline-flex;
         position: absolute;
         top: 0;
         right: 0;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
         min-width: var(--badge-size);
         height: var(--badge-size);
-        transform: translate(50%, -50%);
+        align-items: center;
+        justify-content: center;
         border-radius: $badge-border-radius;
-        background-color: var(--badge-background);
+        transform: translate(50%, -50%);
         white-space: nowrap;
 
         &:empty {
@@ -39,7 +39,7 @@
 
     @each $key, $value in $badge-skins {
         &--#{$key} {
-            --badge-background: #{theme.get-color($value, 500)};
+            --badge-background: #{theme.get-color($value, "500")};
         }
     }
 

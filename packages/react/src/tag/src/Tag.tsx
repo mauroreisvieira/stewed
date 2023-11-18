@@ -2,7 +2,7 @@ import React from 'react';
 // Utilities
 import { classNames } from '@stewed/utilities';
 // Styles
-import styles from './scss/index.module.scss';
+import styles from './styles/index.module.scss';
 
 type TagType = React.HTMLAttributes<HTMLSpanElement> &
     React.AnchorHTMLAttributes<HTMLAnchorElement>;

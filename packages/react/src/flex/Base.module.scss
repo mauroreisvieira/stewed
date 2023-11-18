@@ -1,9 +1,10 @@
-@use 'sass:map';
-@use '../theme' as theme;
-@use './variables' as *;
+@use "sass:map";
+@use "@stewed/react/src/theme" as theme;
+@use "./variables" as *;
 
 @include theme.scope($flex-root) {
     --flex-display: flex;
+
     display: var(--flex-display);
 
     &--inline {
@@ -89,7 +90,7 @@
 
     // Flex Grow
     &--grow {
-        flex: 1 1 0%;
+        flex-grow: 1;
     }
 
     // Flex Wrap

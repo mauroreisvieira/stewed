@@ -1,0 +1,12 @@
+@use "sass:math";
+@use "sass:map";
+@use "@stewed/react/src/theme" as theme;
+
+$aspect-ratio-root: ".aspect-ratio";
+$aspect-ratio-sizes: (
+    "1-1": 1,
+    "2-3": 0.6666666666666666,
+    "3-2": 1.5,
+    "4-3": 1.333,
+    "16-9": 1.777,
+);

@@ -1,0 +1,21 @@
+@use "sass:math";
+@use "sass:map";
+@use "@stewed/react/src/theme" as theme;
+
+$progress-root: ".progress";
+$progress-background: theme.get-color("gray", "50");
+$progress-border-radius: map.get(theme.$radius, "xl");
+$progress-sizes: (
+    "xs": map.get(theme.$spacings, "xs"),
+    "sm": map.get(theme.$spacings, "sm"),
+    "md": map.get(theme.$spacings, "md"),
+    "lg": map.get(theme.$spacings, "lg"),
+);
+$progress-skins: (
+    "primary": "primary",
+    "secondary": "secondary",
+    "info": "blue",
+    "success": "green",
+    "warning": "yellow",
+    "danger": "red",
+);

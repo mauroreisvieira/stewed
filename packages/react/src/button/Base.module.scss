@@ -1,33 +1,33 @@
-@use 'sass:map';
-@use '../theme' as theme;
-@use '../typography' as text;
-@use './variables' as *;
+@use "sass:map";
+@use "@stewed/react/src/theme" as theme;
+@use "@stewed/react/src/typography/src/styles" as text;
+@use "./variables" as *;
 
 @include theme.scope($button-root) {
-    @include theme.reset();
+    @include theme.reset;
 
-    position: relative;
+    user-select: none;
+    background-color: theme.get-var(button-background);
+    color: theme.get-var(button-color);
     display: inline-flex;
+    position: relative;
+    box-sizing: border-box;
+    min-width: theme.get-var(button-size);
+    height: theme.get-var(button-size);
     align-items: center;
     justify-content: center;
-    gap: $button-gap;
-    height: theme.get-var(button-size);
-    min-width: theme.get-var(button-size);
     padding: 0 theme.get-var(button-spacing);
-    background-color: theme.get-var(button-background);
     border: 1px solid theme.get-var(button-border-color);
-    color: theme.get-var(button-color);
-    border-radius: map.get($button-border-radius, 'square');
-    user-select: none;
+    border-radius: map.get($button-border-radius, "square");
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    gap: $button-gap;
     touch-action: manipulation;
     white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    box-sizing: border-box;
-    cursor: pointer;
 
-    @include theme.focus-styles();
-    @include theme.disabled-styles();
+    @include theme.focus-styles;
+    @include theme.disabled-styles;
 
     @each $key, $value in $button-skins {
         &--#{$key} {
@@ -35,12 +35,13 @@
                 (
                     button-color: theme.get-color($value),
                     border-color: transparent,
-                    button-color-hover: theme.get-color($value, 600),
+                    button-color-hover: theme.get-color($value, "600"),
                     button-background: theme.get-color($value),
-                    button-background-hover: theme.get-color($value, 600),
-                    button-background-active: theme.get-color($value, 700),
-                    button-background-ghost-hover: theme.get-color($value, 50),
-                    button-background-ghost-active: theme.get-color($value, 100),
+                    button-background-hover: theme.get-color($value, "600"),
+                    button-background-active: theme.get-color($value, "700"),
+                    button-background-ghost-hover: theme.get-color($value, "50"),
+                    button-background-ghost-active:
+                        theme.get-color($value, "100"),
                 )
             );
         }
@@ -127,21 +128,21 @@
     }
 
     &--sm {
-        --button-size: #{map.get($button-sizes, 'sm')};
-        --button-spacing: #{map.get($button-spacings, 'sm')};
-        --button-font-size: #{map.get($button-font-sizes, 'xs')};
+        --button-size: #{map.get($button-sizes, "sm")};
+        --button-spacing: #{map.get($button-spacings, "sm")};
+        --button-font-size: #{map.get($button-font-sizes, "xs")};
     }
 
     &--md {
-        --button-size: #{map.get($button-sizes, 'md')};
-        --button-spacing: #{map.get($button-spacings, 'md')};
-        --button-font-size: #{map.get($button-font-sizes, 'sm')};
+        --button-size: #{map.get($button-sizes, "md")};
+        --button-spacing: #{map.get($button-spacings, "md")};
+        --button-font-size: #{map.get($button-font-sizes, "sm")};
     }
 
     &--lg {
-        --button-size: #{map.get($button-sizes, 'lg')};
-        --button-spacing: #{map.get($button-spacings, 'lg')};
-        --button-font-size: #{map.get($button-font-sizes, 'md')};
+        --button-size: #{map.get($button-sizes, "lg")};
+        --button-spacing: #{map.get($button-spacings, "lg")};
+        --button-font-size: #{map.get($button-font-sizes, "md")};
     }
 
     &--fullWidth {

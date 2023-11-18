@@ -1,2 +1,1 @@
-export { AspectRatio } from './AspectRatio';
-export type { AspectRatioProps } from './AspectRatio';
+export * from "./src/index";

@@ -1,5 +1,5 @@
 import React from 'react';
-//. Compound Component
+// Compound Component
 import { MenuGroup } from './MenuGroup';
 import { MenuItem } from './MenuItem';
 // Utilities

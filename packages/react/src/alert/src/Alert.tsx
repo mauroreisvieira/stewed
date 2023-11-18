@@ -2,7 +2,7 @@ import React from 'react';
 // Utilities
 import { classNames } from '@stewed/utilities';
 // Styles
-import styles from './scss/index.module.scss';
+import styles from './styles/index.module.scss';
 
 export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
     /** Will render the bold text shown at the top of the alert. */
@@ -28,9 +28,10 @@ export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
  * </Alert>
  * ```
  *
- * @param props - AlertProps
+ * @param {AlertProps} props - The props for the Alert component.
+ * @returns {React.ReactElement} - The rendered Alert component.
  */
-export const Alert = ({
+export function Alert({
     title,
     skin = 'info',
     className,
@@ -38,7 +39,7 @@ export const Alert = ({
     rightSlot,
     children,
     ...restProps
-}: AlertProps): React.ReactElement => {
+}: AlertProps): React.ReactElement {
     const rootClassName = 'alert';
 
     const cssClasses = {
@@ -64,4 +65,4 @@ export const Alert = ({
             {rightSlot && <div className={cssClasses.right}>{rightSlot}</div>}
         </div>
     );
-};
+}

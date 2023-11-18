@@ -1,0 +1,29 @@
+@use "sass:map";
+@use "@stewed/react/src/theme" as theme;
+
+$radio-root: ".radio";
+
+$radio-size: (
+    "sm": map.get(theme.$spacings, "xs") * 19,
+    "md": map.get(theme.$spacings, "xs") * 20,
+    "lg": map.get(theme.$spacings, "xs") * 21,
+);
+
+$radio-font-size: (
+    "sm": 16px,
+    "md": 20px,
+    "lg": 24px,
+);
+
+$radio-sizes: (
+    "sm": map.get(theme.$spacings, "xs") * 8,
+    "md": map.get(theme.$spacings, "xs") * 10,
+    "lg": map.get(theme.$spacings, "xs") * 12,
+);
+
+$radio-border-radius: map.get(theme.$radius, "sm");
+
+$radio-skins: (
+    "primary": primary,
+    "error": red,
+);
