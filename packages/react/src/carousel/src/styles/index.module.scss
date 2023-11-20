@@ -6,13 +6,13 @@
 @include theme.scope($carousel-root) {
   display: flex;
   flex-direction: column;
-  width: 100%;
   gap: 16px;
+  width: 100%;
 
   &__wrapper {
+    position: relative;
     display: flex;
     flex-direction: column;
-    position: relative;
     width: 100%;
   }
 
@@ -36,10 +36,10 @@
   }
 
   &__item {
-    backface-visibility: hidden;
-    width: calc(100% / #{theme.get-var("slides")});
-    flex-shrink: 0;
     flex-grow: 1;
+    flex-shrink: 0;
+    width: calc(100% / #{theme.get-var("slides")});
+    backface-visibility: hidden;
   }
 
   &__slide {
@@ -56,8 +56,8 @@
   &__next {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
     z-index: 9;
+    transform: translateY(-50%);
   }
 
   &__prev {
@@ -69,28 +69,28 @@
   }
 
   &__bottom {
-    display: flex;
     position: relative;
+    display: flex;
+    gap: $carousel-safe-margin;
+    justify-content: flex-end;
     width: 100%;
     min-height: $carousel-bottom-min-height;
-    justify-content: flex-end;
     margin-top: 2px;
-    gap: $carousel-safe-margin;
   }
 
   &__indicator {
     display: flex;
-    width: 100%;
+    gap: calc(#{$carousel-safe-margin} * 0.5);
     align-items: center;
     justify-content: center;
-    gap: calc(#{$carousel-safe-margin} * 0.5);
+    width: 100%;
   }
 
   &__dot {
-    background-color: theme.get-var("dash-background");
     width: theme.get-var("dash-width");
     width: 6px;
     height: 6px;
+    background-color: theme.get-var("dash-background");
     border-radius: $carousel-dash-radius;
 
     @include theme.define-var(

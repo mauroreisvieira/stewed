@@ -5,7 +5,7 @@ import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 // Utilities
 import { classNames } from '@stewed/utilities';
 // Style
-import styles from './Base.module.scss';
+import styles from './styles/index.module.scss';
 
 interface CarouselNavigationProps {
     type: 'next' | 'prev';

@@ -7,24 +7,24 @@
   --tabs-background: #{theme.get-color("secondary", "100")};
 
   &__list {
-    user-select: none;
-    background-color: var(--tabs-background);
     display: inline-flex;
+    gap: 6px;
     align-items: center;
     padding: 4px;
+    user-select: none;
+    background-color: var(--tabs-background);
     border-radius: map.get($tabs-border-radius, "square");
-    gap: 6px;
   }
 
   &__item {
     --tab-item-background: transparent;
 
     all: unset;
-    background-color: var(--tab-item-background);
     display: flex;
     padding: 8px 16px;
-    border-radius: map.get($tabs-border-radius, "inner");
     cursor: pointer;
+    background-color: var(--tab-item-background);
+    border-radius: map.get($tabs-border-radius, "inner");
 
     @include theme.focus-styles;
     @include theme.disabled-styles;
@@ -39,10 +39,10 @@
 
     &__left,
     &__right {
-      display: flex;
       position: relative;
-      align-items: center;
+      display: flex;
       flex-shrink: 0;
+      align-items: center;
     }
 
     &--selected {

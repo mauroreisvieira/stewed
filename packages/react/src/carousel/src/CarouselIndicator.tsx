@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 // Utilities
 import { classNames } from '@stewed/utilities';
 // Style
-import styles from './Base.module.scss';
+import styles from './styles/index.module.scss';
 
 interface CarouselIndicatorProps {
     slidesPerView: number;

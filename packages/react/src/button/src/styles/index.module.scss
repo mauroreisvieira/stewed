@@ -6,25 +6,25 @@
 @include theme.scope($button-root) {
   @include theme.reset;
 
-  user-select: none;
-  background-color: theme.get-var(button-background);
-  color: theme.get-var(button-color);
-  display: inline-flex;
   position: relative;
   box-sizing: border-box;
-  min-width: theme.get-var(button-size);
-  height: theme.get-var(button-size);
+  display: inline-flex;
+  gap: $button-gap;
   align-items: center;
   justify-content: center;
+  min-width: theme.get-var(button-size);
+  height: theme.get-var(button-size);
   padding: 0 theme.get-var(button-spacing);
+  overflow: hidden;
+  color: theme.get-var(button-color);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
+  background-color: theme.get-var(button-background);
   border: 1px solid theme.get-var(button-border-color);
   border-radius: map.get($button-border-radius, "square");
-  overflow: hidden;
-  text-overflow: ellipsis;
-  cursor: pointer;
-  gap: $button-gap;
-  touch-action: manipulation;
-  white-space: nowrap;
 
   @include theme.focus-styles;
   @include theme.disabled-styles;
@@ -111,13 +111,13 @@
 
   &__left,
   &__right {
-    font-size: inherit;
     display: flex;
+    font-size: inherit;
   }
 
   &--icon-only {
-    width: theme.get-var(button-size);
     gap: 0;
+    width: theme.get-var(button-size);
 
     #{$button-root} {
       &__text {

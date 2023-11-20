@@ -5,8 +5,8 @@
 @include theme.scope($badge-root) {
   --badge-size: #{$badge-size};
 
-  display: inline-flex;
   position: relative;
+  display: inline-flex;
 
   &__count {
     @include text.typography(
@@ -14,18 +14,18 @@
       $overrides: (--typography-color: $badge-color, --typography-font-size: $badge-font-size)
     );
 
-    background-color: var(--badge-background);
-    display: inline-flex;
     position: absolute;
     top: 0;
     right: 0;
-    min-width: var(--badge-size);
-    height: var(--badge-size);
+    display: inline-flex;
     align-items: center;
     justify-content: center;
+    min-width: var(--badge-size);
+    height: var(--badge-size);
+    white-space: nowrap;
+    background-color: var(--badge-background);
     border-radius: $badge-border-radius;
     transform: translate(50%, -50%);
-    white-space: nowrap;
 
     &:empty {
       --badge-size: #{$badge-dot-size};

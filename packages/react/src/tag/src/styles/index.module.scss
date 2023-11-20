@@ -3,21 +3,20 @@
 @use "./variables" as *;
 
 @include theme.scope($tag-root) {
-  background-color: var(--tag-background);
-  color: $tag-color;
-  font-size: var(--tag-font-size);
-  font-weight: $tag-title-font-weight;
-  display: inline-flex;
   position: relative;
-  max-width: fit-content;
-  height: var(--tag-size);
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  height: var(--tag-size);
   padding: 0 var(--tag-spacing);
-  border-radius: $tag-border-radius;
+  font-size: var(--tag-font-size);
+  font-weight: $tag-title-font-weight;
   line-height: 1;
-  white-space: nowrap;
+  color: $tag-color;
   text-decoration: none;
+  white-space: nowrap;
+  background-color: var(--tag-background);
+  border-radius: $tag-border-radius;
 
   &--sm {
     --tag-size: #{map.get($tag-sizes, "sm")};

@@ -3,10 +3,10 @@
 @use "./variables" as *;
 
 @mixin typography-base {
-  color: var(--typography-color);
   font-size: var(--typography-font-size);
   font-weight: var(--typography-font-weight);
   line-height: var(--typography-line-height);
+  color: var(--typography-color);
 }
 
 @mixin typography($key, $overrides: ()) {

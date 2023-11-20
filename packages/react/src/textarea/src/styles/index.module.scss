@@ -6,19 +6,19 @@
   --textarea-border: #{map.get($textarea-skins-default, "border")};
   --textarea-border-hover: #{map.get($textarea-skins-default, "border-hover")};
 
+  position: relative;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: $textarea-spacings;
   font-family: inherit;
   font-size: $textarea-font-size;
   font-weight: $textarea-font-weight;
-  display: inline-flex;
-  position: relative;
-  box-sizing: border-box;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  padding: $textarea-spacings;
+  touch-action: manipulation;
   border: 1px solid var(--textarea-border);
   border-radius: $textarea-border-radius;
-  touch-action: manipulation;
 
   &:hover {
     border-color: var(--textarea-border-hover);
