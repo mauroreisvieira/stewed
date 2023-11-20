@@ -4,9 +4,9 @@
 @use "./variables" as *;
 
 @include theme.scope($menu-root) {
+  position: relative;
   display: flex;
   flex-direction: column;
-  position: relative;
   width: 100%;
 
   &__item {
@@ -21,19 +21,19 @@
     --menu-item-background: transparent;
     --menu-item-color: inherit;
 
-    background-color: var(--menu-item-background);
-    display: flex;
     position: relative;
     box-sizing: border-box;
-    width: 100%;
+    display: flex;
+    gap: 8px;
     align-items: center;
     justify-content: flex-start;
-    border-radius: $menu-item-border-radius;
-    overflow: hidden;
-    cursor: pointer;
-    gap: 8px;
+    width: 100%;
     padding-block: $menu-item-inner-spacing-block;
     padding-inline: $menu-item-inner-spacing-inline;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: var(--menu-item-background);
+    border-radius: $menu-item-border-radius;
 
     &:not(:last-child) {
       margin-bottom: $menu-item-outer-spacing-bottom;
@@ -56,10 +56,10 @@
 
     &__left,
     &__right {
-      display: flex;
       position: relative;
-      align-items: center;
+      display: flex;
       flex-shrink: 0;
+      align-items: center;
     }
 
     @each $key, $value in $menu-item-skins {
@@ -88,8 +88,8 @@
     padding-block: 4px;
 
     &:not(:last-child) {
-      border-bottom: 1px solid #{theme.get-color("gray", "200")};
       margin-bottom: $menu-item-outer-spacing-bottom;
+      border-bottom: 1px solid #{theme.get-color("gray", "200")};
     }
 
     &__title {

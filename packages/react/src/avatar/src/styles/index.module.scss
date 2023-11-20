@@ -3,46 +3,60 @@
 @use "./variables" as *;
 
 @include theme.scope($avatar-root) {
-  @include theme.define-var(
-    (
-      avatar-border-radius: map.get($avatar-border-radius, "round"),
-    )
-  );
-
-  user-select: none;
-  background-color: var(--avatar-background);
-  color: #fff;
-  font-size: calc(var(--avatar-size) / 3);
-  font-weight: map.get(theme.$font-weight, medium);
   display: inline-flex;
-  width: var(--avatar-size);
-  height: var(--avatar-size);
   align-items: center;
   justify-content: center;
-  border-radius: var(--avatar-border-radius);
+  width: theme.get-var(avatar-size);
+  height: theme.get-var(avatar-size);
   overflow: hidden;
+  font-size: calc(theme.get-var(avatar-size) / 3);
+  font-weight: map.get(theme.$font-weight, medium);
+  color: #fff;
+  user-select: none;
+  background-color: theme.get-var(avatar-background);
+  border-radius: var(--avatar-border-radius);
 
-  @each $key, $value in $avatar-sizes {
-    &--#{$key} {
-      --avatar-size: #{map.get($avatar-sizes, $key)};
-    }
-  }
-
-  @each $key, $value in $avatar-skins {
-    &--#{$key} {
-      --avatar-background: #{theme.get-color($value)};
-    }
-  }
-
-  [src] {
+  &__img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: inherit;
   }
 
+  @each $key, $value in $avatar-sizes {
+    &--#{$key} {
+      @include theme.define-var(
+        (
+          avatar-size: map.get($avatar-sizes, $key),
+        )
+      );
+    }
+  }
+
+  @each $key, $value in $avatar-skins {
+    &--#{$key} {
+      @include theme.define-var(
+        (
+          avatar-background: theme.get-color($value),
+        )
+      );
+    }
+  }
+
+  &--circle {
+    @include theme.define-var(
+      (
+        avatar-border-radius: map.get($avatar-border-radius, "round"),
+      )
+    );
+  }
+
   &--square {
-    --avatar-border-radius: #{map.get($avatar-border-radius, "square")};
+    @include theme.define-var(
+      (
+        avatar-border-radius: map.get($avatar-border-radius, "square"),
+      )
+    );
   }
 }
 

@@ -9,6 +9,5 @@ module.exports = {
   parserOptions: {
     ...baseConfig.parserOptions,
   },
-
   extends: ["plugin:storybook/recommended", "plugin:storybook/recommended"]
 };

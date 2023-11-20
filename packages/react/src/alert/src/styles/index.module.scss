@@ -3,15 +3,19 @@
 @use "./variables" as *;
 
 @include theme.scope($alert-root) {
-  --alert-border-radius: #{$alert-border-radius};
+  @include theme.define-var(
+    (
+      alert-border-radius: $alert-border-radius,
+    )
+  );
 
-  background-color: var(--alert-background);
+  position: relative;
   display: flex;
   flex-direction: row;
-  position: relative;
-  padding: $alert-inner-spacing-y $alert-inner-spacing-x;
-  border-radius: var(--alert-border-radius);
   gap: $alert-slot-gap;
+  padding: $alert-inner-spacing-y $alert-inner-spacing-x;
+  background-color: var(--alert-background);
+  border-radius: var(--alert-border-radius);
 
   &__title {
     font-weight: $alert-title-font-weight;
@@ -20,8 +24,8 @@
   &__wrapper {
     display: flex;
     flex-direction: column;
-    gap: $alert-gap;
     flex-grow: 1;
+    gap: $alert-gap;
   }
 
   &__title,
@@ -36,8 +40,12 @@
 
   @each $key, $value in $alert-skins {
     &--#{$key} {
-      --alert-background: #{theme.get-color($value, "100")};
-      --alert-title-color: #{theme.get-color($value, "900")};
+      @include theme.define-var(
+        (
+          alert-background: theme.get-color($value, "100"),
+          alert-title-color: theme.get-color($value, "900"),
+        )
+      );
     }
   }
 }
