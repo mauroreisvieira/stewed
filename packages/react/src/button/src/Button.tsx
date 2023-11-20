@@ -1,13 +1,14 @@
 import React from "react";
 // Utilities
 import { classNames } from "@stewed/utilities";
-import { type DistributiveOmit, fixedForwardRef } from "@stewed/react";
+import { type DistributiveOmit, fixedForwardRef } from "../../types";
 // Styles
 import styles from "./styles/index.module.scss";
 
 const defaultElement = "button";
 
 export interface ButtonProps<T> extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  /** Specifies the type of element to use as the button. */
   as?: T;
   /** Change the visual style of the button. */
   skin?: "primary" | "secondary" | "danger";
@@ -46,52 +47,50 @@ export interface ButtonProps<T> extends React.ButtonHTMLAttributes<HTMLButtonEle
  * @param {ButtonProps} props - The props for the Button component.
  * @returns {React.ReactElement} - The rendered Button component.
  */
-export const Button = fixedForwardRef(
-  <T extends React.ElementType>(
-    {
-      skin = "primary",
-      appearance = "filled",
-      size = "md",
-      leftIcon,
-      rightIcon,
-      as,
-      fullWidth,
+export const Button = fixedForwardRef(function UnwrappedButton<T extends React.ElementType>(
+  {
+    skin = "primary",
+    appearance = "filled",
+    size = "md",
+    leftIcon,
+    rightIcon,
+    as,
+    fullWidth,
+    className,
+    iconOnly,
+    children,
+    disabled,
+    ...props
+  }: ButtonProps<T> &
+    DistributiveOmit<
+      React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
+      "as"
+    >,
+  ref: React.ForwardedRef<unknown>,
+): React.ReactElement {
+  const Comp = as || defaultElement;
+  const rootClassName = "button";
+  const cssClasses = {
+    root: classNames(
+      styles[rootClassName],
+      styles[`${rootClassName}--${skin}`],
+      styles[`${rootClassName}--${appearance}`],
+      styles[`${rootClassName}--${size}`],
+      iconOnly && styles[`${rootClassName}--icon-only`],
+      fullWidth && styles[`${rootClassName}--fullWidth`],
+      disabled && styles[`${rootClassName}--${disabled}`],
       className,
-      iconOnly,
-      children,
-      disabled,
-      ...restProps
-    }: ButtonProps<T> &
-      DistributiveOmit<
-        React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
-        "as"
-      >,
-    ref: React.ForwardedRef<unknown>,
-  ): React.ReactElement => {
-    const rootClassName = "button";
-    const Comp = as || defaultElement;
-    const cssClasses = {
-      root: classNames(
-        styles[rootClassName],
-        styles[`${rootClassName}--${skin}`],
-        styles[`${rootClassName}--${appearance}`],
-        styles[`${rootClassName}--${size}`],
-        iconOnly && styles[`${rootClassName}--icon-only`],
-        fullWidth && styles[`${rootClassName}--fullWidth`],
-        disabled && styles[`${rootClassName}--${disabled}`],
-        className,
-      ),
-      left: classNames(styles[`${rootClassName}__left`]),
-      text: classNames(styles[`${rootClassName}__text`]),
-      right: classNames(styles[`${rootClassName}__right`]),
-    };
+    ),
+    left: classNames(styles[`${rootClassName}__left`]),
+    text: classNames(styles[`${rootClassName}__text`]),
+    right: classNames(styles[`${rootClassName}__right`]),
+  };
 
-    return (
-      <Comp ref={ref} {...restProps} className={cssClasses.root}>
-        {leftIcon && <span className={cssClasses.left}>{leftIcon}</span>}
-        {children && <span className={cssClasses.text}>{children}</span>}
-        {rightIcon && <span className={cssClasses.right}>{rightIcon}</span>}
-      </Comp>
-    );
-  },
-);
+  return (
+    <Comp ref={ref} {...props} className={cssClasses.root}>
+      {leftIcon && <span className={cssClasses.left}>{leftIcon}</span>}
+      {children && <span className={cssClasses.text}>{children}</span>}
+      {rightIcon && <span className={cssClasses.right}>{rightIcon}</span>}
+    </Comp>
+  );
+});
