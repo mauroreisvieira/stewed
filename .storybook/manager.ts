@@ -5,7 +5,7 @@ const theme = create({
   base: "light",
   brandTitle: "Stewed",
   brandUrl: "/",
-  brandImage: "../assets/images/logo/stewed.svg",
+  brandImage: "/images/logo/stewed.svg",
   colorPrimary: "#6366f1",
   colorSecondary: "#64748b",
   textColor: "#1e293b",
