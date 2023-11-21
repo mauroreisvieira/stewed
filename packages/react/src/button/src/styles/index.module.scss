@@ -62,7 +62,11 @@
     }
 
     &:active {
-      --button-background: theme.get-var(button-background-active);
+      @include theme.define-var(
+        (
+          button-background: theme.get-var(button-background-active),
+        )
+      );
     }
   }
 
@@ -74,11 +78,19 @@
     );
 
     &:hover {
-      --button-background: theme.get-var(button-background-ghost-hover);
+      @include theme.define-var(
+        (
+          button-background: theme.get-var(button-background-ghost-hover),
+        )
+      );
     }
 
     &:active {
-      --button-background: theme.get-var(button-background-ghost-active);
+      @include theme.define-var(
+        (
+          button-background: theme.get-var(button-background-ghost-active),
+        )
+      );
     }
   }
 
@@ -91,11 +103,19 @@
     );
 
     &:hover {
-      --button-color: theme.get-var(button-color-hover);
+      @include theme.define-var(
+        (
+          button-color: theme.get-var(button-color-hover),
+        )
+      );
     }
 
     &:active {
-      --button-color: theme.get-var(button-color-active);
+      @include theme.define-var(
+        (
+          button-color: theme.get-var(button-color-active),
+        )
+      );
     }
   }
 
@@ -127,9 +147,13 @@
   }
 
   &--sm {
-    --button-size: #{map.get($button-sizes, "sm")};
-    --button-spacing: #{map.get($button-spacings, "sm")};
-    --button-font-size: #{map.get($button-font-sizes, "xs")};
+    @include theme.define-var(
+      (
+        button-size: map.get($button-sizes, "sm"),
+        button-spacing: map.get($button-spacings, "sm"),
+        button-font-size: map.get($button-font-sizes, "xs"),
+      )
+    );
   }
 
   &--md {

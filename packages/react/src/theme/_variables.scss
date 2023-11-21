@@ -254,7 +254,7 @@ $timing-function: map.get($transition, timing-function);
 /// @param {string} [$offset=1px] - Offset of the focus outline.
 /// @param {string} [$width=1px] - Width of the focus outline.
 @mixin focus-styles($color: #{get-color("primary")}, $offset: 1px, $width: 1px) {
-  &:focus-within {
+  &:focus-visible {
     outline: $color solid $width;
     outline-offset: $offset;
   }

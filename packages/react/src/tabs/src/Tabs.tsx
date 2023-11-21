@@ -1,46 +1,47 @@
-import React from 'react';
+import React from "react";
 // Context
-import { TabsContext, TabsContextProps } from './TabsContext';
+import { TabsContext, TabsContextProps } from "./TabsContext";
 //. Compound Component
-import { TabsItem } from './TabsItem';
-import { TabsList } from './TabsList';
-import { TabsPanel } from './TabsPanel';
+import { TabsItem } from "./TabsItem";
+import { TabsList } from "./TabsList";
+import { TabsPanel } from "./TabsPanel";
 // Utilities
-import { classNames } from '@stewed/utilities';
+import { classNames } from "@stewed/utilities";
 // Styles
-import styles from './styles/index.module.scss';
+import styles from "./styles/index.module.scss";
 
-export interface TabsProps extends React.HTMLAttributes<HTMLElement> {
-    /** Sets value of tab item selected. */
-    value: TabsContextProps['value'];
-    /** Callback fired when the value changes. */
-    onValueChange?: TabsContextProps['onValueChange'];
+export interface TabsProps {
+  /** Sets value of tab item selected. */
+  value: TabsContextProps["value"];
+  /** Callback fired when the value changes. */
+  onValueChange?: TabsContextProps["onValueChange"];
+  className?: string;
+  children: React.ReactNode;
 }
 
 export const Tabs = ({
-    value,
-    className,
-    onValueChange,
-    children,
-    ...otherProps
+  value,
+  className,
+  onValueChange,
+  children,
 }: TabsProps): React.ReactElement => {
-    const rootClassName = 'tabs';
-    const cssClasses = {
-        root: classNames(styles[rootClassName], className),
-    };
+  const rootClassName = "tabs";
+  const cssClasses = {
+    root: classNames(styles[rootClassName], className),
+  };
 
-    return (
-        <div className={cssClasses.root} {...otherProps}>
-            <TabsContext.Provider
-                value={{
-                    value,
-                    onValueChange,
-                }}
-            >
-                {children}
-            </TabsContext.Provider>
-        </div>
-    );
+  return (
+    <div className={cssClasses.root}>
+      <TabsContext.Provider
+        value={{
+          value,
+          onValueChange,
+        }}
+      >
+        {children}
+      </TabsContext.Provider>
+    </div>
+  );
 };
 
 // Compound component composition

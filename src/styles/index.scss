@@ -1,21 +1,19 @@
-@use '@stewed/react/src/theme' as * with (
-    $config: (
-        extend: (
-            colors: (
-                new-color: (
-                    50: #fefeff,
-                ),
-            ),
+@use "@stewed/react/src/theme" as * with (
+  $config: (
+    extend: (
+      colors: (
+        new-color: (
+          50: #fefeff,
         ),
-    )
+      ),
+    ),
+  )
 );
 
-html {
-    -webkit-text-size-adjust: 100%;
+/* stylelint-disable-next-line selector-max-type */
+body {
+  font-family: "DM Sans", sans-serif;
+  background-color: #{get-color(new-color, 50)};
 }
 
-// body {
-//     // background-color: #{get-color(new-color, 50)};
-// }
-
-@include use-theme('.sb-show-main');
+@include use-theme(".sb-show-main");

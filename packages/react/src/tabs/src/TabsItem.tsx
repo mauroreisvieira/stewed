@@ -43,9 +43,9 @@ export const TabsItem = ({
 
     const onHandleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         if (disabled) return;
-
+        console.log("Hey", value);
         if (onClick) onClick(event);
-        onValueChange?.(value);
+        onValueChange?.(receivedValue);
     };
 
     return (
