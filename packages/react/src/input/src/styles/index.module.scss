@@ -12,6 +12,7 @@
   );
 
   @include text.typography(base, $overrides: (--typography-font-size: $input-font-size));
+  @include theme.focus-styles($target: ":focus-within");
 
   position: relative;
   box-sizing: border-box;
@@ -23,8 +24,6 @@
   overflow: hidden;
   border: 1px solid var(--input-border);
   border-radius: $input-border-radius;
-
-  @include theme.focus-styles;
 
   &__input {
     all: unset;

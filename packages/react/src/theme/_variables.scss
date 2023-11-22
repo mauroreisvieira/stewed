@@ -250,11 +250,17 @@ $timing-function: map.get($transition, timing-function);
 }
 
 /// Defines focus styles on elements with specified color, outline offset, and width.
+/// @param {string} [$target=":focus-visible"] - Focus state target
 /// @param {string} [$color=get-color('primary')] - Color of the focus outline.
 /// @param {string} [$offset=1px] - Offset of the focus outline.
 /// @param {string} [$width=1px] - Width of the focus outline.
-@mixin focus-styles($color: #{get-color("primary")}, $offset: 1px, $width: 1px) {
-  &:focus-visible {
+@mixin focus-styles(
+  $target: ":focus-visible",
+  $color: #{get-color("primary")},
+  $offset: 1px,
+  $width: 1px
+) {
+  &#{$target} {
     outline: $color solid $width;
     outline-offset: $offset;
   }

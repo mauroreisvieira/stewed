@@ -1,6 +1,15 @@
 import React from "react";
 import { Flex, Input, Menu, Text as Text } from "../../../packages/react/index";
-import { FiSearch, FiPenTool, FiFile, FiFilePlus, FiMap, FiTrash, FiLock, FiMapPin } from "react-icons/fi";
+import {
+  FiSearch,
+  FiPenTool,
+  FiFile,
+  FiFilePlus,
+  FiMap,
+  FiTrash,
+  FiLock,
+  FiMapPin,
+} from "react-icons/fi";
 
 export function App(): React.ReactElement {
   return (
@@ -15,27 +24,25 @@ export function App(): React.ReactElement {
         }
       />
       <Menu>
-        <Menu.Item leftSlot={<FiPenTool />} selected>
-          <Text weight="medium">Daily notes</Text>
-        </Menu.Item>
-        <Menu.Item leftSlot={<FiFile />}>
-          <Text weight="medium">All notes</Text>
-        </Menu.Item>
-        <Menu.Item leftSlot={<FiFilePlus />}>
-          <Text weight="medium">Tasks</Text>
-        </Menu.Item>
-        <Menu.Item leftSlot={<FiMap />}>
-          <Text weight="medium">Map</Text>
-        </Menu.Item>
-        <Menu.Item leftSlot={<FiTrash />} rightSlot={<FiLock />} disabled>
-          <Text weight="medium">Trash</Text>
-        </Menu.Item>
-      </Menu>
-      <Flex direction="column" gap="lg">
-        <Text weight="medium" size="sm" skin="secondary">
-          Pinned messages
-        </Text>
-        <Menu>
+        <Menu.Group>
+          <Menu.Item leftSlot={<FiPenTool />} selected>
+            <Text weight="medium">Daily notes</Text>
+          </Menu.Item>
+          <Menu.Item leftSlot={<FiFile />}>
+            <Text weight="medium">All notes</Text>
+          </Menu.Item>
+          <Menu.Item leftSlot={<FiFilePlus />}>
+            <Text weight="medium">Tasks</Text>
+          </Menu.Item>
+          <Menu.Item leftSlot={<FiMap />}>
+            <Text weight="medium">Map</Text>
+          </Menu.Item>
+          <Menu.Item leftSlot={<FiTrash />} rightSlot={<FiLock />} disabled>
+            <Text weight="medium">Trash</Text>
+          </Menu.Item>
+        </Menu.Group>
+
+        <Menu.Group title="Pinned messages">
           <Menu.Item
             rightSlot={
               <svg
@@ -56,8 +63,8 @@ export function App(): React.ReactElement {
           <Menu.Item>Re-skin signs</Menu.Item>
           <Menu.Item>Reflect roadmap</Menu.Item>
           <Menu.Item>Top of mind</Menu.Item>
-        </Menu>
-      </Flex>
+        </Menu.Group>
+      </Menu>
     </Flex>
   );
 }

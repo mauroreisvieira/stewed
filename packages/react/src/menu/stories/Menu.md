@@ -1,5 +1,5 @@
-import { Menu } from './';
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Menu } from '../';
 
 <Meta
     title="Components/Menu"
