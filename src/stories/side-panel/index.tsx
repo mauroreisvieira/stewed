@@ -1,15 +1,6 @@
 import React from "react";
-import { Flex, Input, Menu, Text as Text } from "../../../packages/react/index";
-import {
-  FiSearch,
-  FiPenTool,
-  FiFile,
-  FiFilePlus,
-  FiMap,
-  FiTrash,
-  FiLock,
-  FiMapPin,
-} from "react-icons/fi";
+import { Flex, Input, ActionList, Text as Text } from "../../../packages/react/index";
+import { FiSearch, FiPenTool, FiFile, FiFilePlus, FiMap, FiTrash, FiLock } from "react-icons/fi";
 
 export function App(): React.ReactElement {
   return (
@@ -23,27 +14,27 @@ export function App(): React.ReactElement {
           </Text>
         }
       />
-      <Menu>
-        <Menu.Group>
-          <Menu.Item leftSlot={<FiPenTool />} selected>
+      <ActionList>
+        <ActionList.Group>
+          <ActionList.Item leftSlot={<FiPenTool />} selected>
             <Text weight="medium">Daily notes</Text>
-          </Menu.Item>
-          <Menu.Item leftSlot={<FiFile />}>
+          </ActionList.Item>
+          <ActionList.Item leftSlot={<FiFile />}>
             <Text weight="medium">All notes</Text>
-          </Menu.Item>
-          <Menu.Item leftSlot={<FiFilePlus />}>
+          </ActionList.Item>
+          <ActionList.Item leftSlot={<FiFilePlus />}>
             <Text weight="medium">Tasks</Text>
-          </Menu.Item>
-          <Menu.Item leftSlot={<FiMap />}>
+          </ActionList.Item>
+          <ActionList.Item leftSlot={<FiMap />}>
             <Text weight="medium">Map</Text>
-          </Menu.Item>
-          <Menu.Item leftSlot={<FiTrash />} rightSlot={<FiLock />} disabled>
+          </ActionList.Item>
+          <ActionList.Item leftSlot={<FiTrash />} rightSlot={<FiLock />} disabled>
             <Text weight="medium">Trash</Text>
-          </Menu.Item>
-        </Menu.Group>
+          </ActionList.Item>
+        </ActionList.Group>
 
-        <Menu.Group title="Pinned messages">
-          <Menu.Item
+        <ActionList.Group title="Pinned messages">
+          <ActionList.Item
             rightSlot={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -58,13 +49,13 @@ export function App(): React.ReactElement {
               </svg>
             }>
             Lee Evans new tour
-          </Menu.Item>
-          <Menu.Item>Individual errors coast</Menu.Item>
-          <Menu.Item>Re-skin signs</Menu.Item>
-          <Menu.Item>Reflect roadmap</Menu.Item>
-          <Menu.Item>Top of mind</Menu.Item>
-        </Menu.Group>
-      </Menu>
+          </ActionList.Item>
+          <ActionList.Item>Individual errors coast</ActionList.Item>
+          <ActionList.Item>Re-skin signs</ActionList.Item>
+          <ActionList.Item>Reflect roadmap</ActionList.Item>
+          <ActionList.Item>Top of mind</ActionList.Item>
+        </ActionList.Group>
+      </ActionList>
     </Flex>
   );
 }

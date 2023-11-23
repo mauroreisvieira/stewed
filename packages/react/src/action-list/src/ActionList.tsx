@@ -1,16 +1,18 @@
 import React from "react";
 // Compound Component
-import { MenuGroup } from "./MenuGroup";
-import { MenuItem } from "./MenuItem";
+import { ActionListGroup } from "./ActionListGroup";
+import { ActionListItem } from "./ActionListItem";
 // Utilities
 import { classNames } from "@stewed/utilities";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface MenuProps extends React.HTMLAttributes<HTMLDivElement> {}
-
-export function Menu({ className, children, ...otherProps }: MenuProps): React.ReactElement {
-  const rootClassName = "menu";
+export function ActionList({
+  className,
+  children,
+  ...otherProps
+}: React.HTMLAttributes<HTMLDivElement>): React.ReactElement {
+  const rootClassName = "action-list";
   const cssClasses = {
     root: classNames(styles[rootClassName], className),
   };
@@ -22,5 +24,5 @@ export function Menu({ className, children, ...otherProps }: MenuProps): React.R
 }
 
 // Compound component composition
-Menu.Item = MenuItem;
-Menu.Group = MenuGroup;
+ActionList.Item = ActionListItem;
+ActionList.Group = ActionListGroup;

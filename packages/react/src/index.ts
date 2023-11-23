@@ -1,3 +1,4 @@
+export * from "./action-list";
 export * from "./alert";
 export * from "./avatar";
 export * from "./aspect-ratio";
@@ -7,7 +8,6 @@ export * from "./carousel";
 export * from "./checkbox";
 export * from "./flex";
 export * from "./input";
-export * from "./menu";
 export * from "./progress";
 export * from "./radio";
 export * from "./tabs";

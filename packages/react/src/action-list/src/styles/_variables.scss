@@ -1,0 +1,23 @@
+@use "sass:map";
+@use "@stewed/react/src/theme" as theme;
+
+$action-list-root: ".action-list";
+$action-list-inner-spacing-block: map.get(theme.$spacings, "md");
+
+// action-list Item
+$action-list-item-inner-spacing-inline: map.get(theme.$spacings, "xl");
+$action-list-item-inner-spacing-block: map.get(theme.$spacings, "md");
+$action-list-item-outer-spacing-bottom: map.get(theme.$spacings, "xs");
+$action-list-item-border-radius: map.get(theme.$radius, "md");
+$action-list-item-color-hover: #{theme.get-color("gray", "900")};
+$action-list-item-background-hover: #{theme.get-color("gray", "50")};
+$action-list-item-background-active: #{theme.get-color("gray", "100")};
+$action-list-item-skins: (
+  "selected": "primary",
+  "danger": "red",
+);
+
+// action-list Section
+$action-list-section-title-color: #{theme.get-color("gray", "400")};
+$action-list-section-title-font-size: map.get(theme.$font-size, "xs");
+$action-list-section-title-font-weight: map.get(theme.$font-weight, "medium");

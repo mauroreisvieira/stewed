@@ -4,7 +4,7 @@ import { classNames } from "@stewed/utilities";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface MenuItemProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ActionListItemProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Change the visual style of the menu item. */
   skin?: "primary" | "danger";
   /** Slot to display before the item children. */
@@ -15,7 +15,7 @@ export interface MenuItemProps extends React.HTMLAttributes<HTMLDivElement> {
   disabled?: boolean;
 }
 
-export function MenuItem({
+export function ActionListItem({
   className,
   skin = "primary",
   selected,
@@ -23,8 +23,8 @@ export function MenuItem({
   leftSlot,
   rightSlot,
   children,
-}: MenuItemProps): React.ReactElement {
-  const rootClassName = "menu__item";
+}: ActionListItemProps): React.ReactElement {
+  const rootClassName = "action-list__item";
   const cssClasses = {
     root: classNames(
       styles[rootClassName],

@@ -4,12 +4,16 @@ import { classNames } from "@stewed/utilities";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface MenuGroupProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ActionListGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   title?: string;
 }
 
-export function MenuGroup({ className, title, children }: MenuGroupProps): React.ReactElement {
-  const rootClassName = "menu__group";
+export function ActionListGroup({
+  className,
+  title,
+  children,
+}: ActionListGroupProps): React.ReactElement {
+  const rootClassName = "action-list__group";
   const cssClasses = {
     root: classNames(styles[rootClassName], className),
     title: classNames(styles[`${rootClassName}__title`]),
