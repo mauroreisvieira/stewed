@@ -2,20 +2,25 @@
 @use "@stewed/react/src/theme" as theme;
 
 $alert-root: ".alert";
-$alert-color: #fff;
+
+/// Styles
 $alert-border-radius: map.get(theme.$radius, "md");
 $alert-title-font-weight: map.get(theme.$font-weight, "semibold");
 $alert-body-font-size: map.get(theme.$font-size, "sm");
+$alert-inner-spacing-x: map.get(theme.$spacings, "xl");
+$alert-inner-spacing-y: map.get(theme.$spacings, "xl");
+$alert-slot-gap: map.get(theme.$spacings, "lg");
+$alert-gap: map.get(theme.$spacings, "md");
+
+/// Skins
 $alert-skins: (
   "info": "blue",
   "success": "green",
   "warning": "yellow",
   "danger": "red",
 );
-$alert-inner-spacing-x: map.get(theme.$spacings, "xl");
-$alert-inner-spacing-y: map.get(theme.$spacings, "xl");
-$alert-slot-gap: map.get(theme.$spacings, "lg");
-$alert-gap: map.get(theme.$spacings, "md");
+
+/// Sizes
 $alert-sizes: (
   sm: map.get(theme.$spacings, "md") * 4,
   md: map.get(theme.$spacings, "md") * 5,

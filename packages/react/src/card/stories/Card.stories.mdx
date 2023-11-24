@@ -1,0 +1,40 @@
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { TiWarning } from "react-icons/ti";
+import { Card } from "../";
+
+<Meta title="Components/Card" component={Card} />
+
+# Card
+
+An Card displays a short and important message in a way that attracts the user attention.
+
+### Installation
+
+```bash
+npm install --save @stewed/react
+```
+
+### Import
+
+```js
+import { Card } from "@stewed/react";
+```
+
+## Examples
+
+### Base
+
+<Canvas>
+  <Card>
+    <Card.Body>
+      <p>
+        This action cannot be undone. This will permanently delete your account and remove your data
+        from our servers.
+      </p>
+    </Card.Body>
+  </Card>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Card} />

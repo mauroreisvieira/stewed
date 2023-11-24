@@ -94,7 +94,7 @@ export const Button = fixedForwardRef(function UnwrappedButton<T extends React.E
       styles[`${rootName}--${size}`],
       iconOnly && styles[`${rootName}--icon-only`],
       fullWidth && styles[`${rootName}--fullWidth`],
-      props.disabled && styles[`${rootName}--${props.disabled}`],
+      props.disabled && styles[`${rootName}--disabled`],
       className,
     ),
     left: classNames(styles[`${rootName}__left`]),

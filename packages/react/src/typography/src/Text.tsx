@@ -48,6 +48,8 @@ export interface TextProps<T> extends React.ComponentProps<typeof defaultElement
   skin?: "default" | "primary" | "secondary" | "danger";
   /** Adjust horizontal alignment of text. */
   alignment?: "start" | "center" | "end" | "justify";
+  /** Changes the white space of the text. */
+  whiteSpace?: "normal" | "nowrap";
 }
 
 /**
@@ -73,6 +75,7 @@ export const Text = fixedForwardRef(function UnwrappedText<T extends React.Eleme
     skin,
     variation,
     alignment,
+    whiteSpace,
     className,
     children,
     ...props
@@ -106,6 +109,7 @@ export const Text = fixedForwardRef(function UnwrappedText<T extends React.Eleme
       size && styles[`${rootName}--${size}`],
       weight && styles[`${rootName}--${weight}`],
       alignment && styles[`${rootName}--alignment-${alignment}`],
+      whiteSpace && styles[`${rootName}--whitespace-${whiteSpace}`],
       ...computedVariation.map((i) => styles[`${rootName}--${i}`]),
       className,
     ),

@@ -44,9 +44,9 @@ export function ListBoxItem({
   };
   return (
     <div className={cssClasses.root} role="menuitem" tabIndex={disabled ? -1 : 0}>
-      {leftSlot && <span className={cssClasses.left}>{leftSlot}</span>}
-      {children && <span className={cssClasses.text}>{children}</span>}
-      {rightSlot && <span className={cssClasses.right}>{rightSlot}</span>}
+      {leftSlot && <div className={cssClasses.left}>{leftSlot}</div>}
+      {children && <div className={cssClasses.text}>{children}</div>}
+      {rightSlot && <div className={cssClasses.right}>{rightSlot}</div>}
     </div>
   );
 }

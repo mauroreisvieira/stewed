@@ -26,28 +26,16 @@ npm install --save @stewed/react
 import { Tabs } from "@stewed/react";
 ```
 
-## Examples
+### Base
 
-export const Template = (args) => (
-  <Tabs {...args}>
+<Canvas>
+  <Tabs value="1">
     <Tabs.List>
       <Tabs.Item value="1">Item 1</Tabs.Item>
       <Tabs.Item value="2">Item 2</Tabs.Item>
       <Tabs.Item value="3">Item 3</Tabs.Item>
     </Tabs.List>
   </Tabs>
-);
-
-### Base
-
-<Canvas>
-  <Story
-    name="Base"
-    args={{
-      value: "1",
-    }}>
-    {Template.bind({})}
-  </Story>
 </Canvas>
 
 ## Props

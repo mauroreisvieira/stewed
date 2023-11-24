@@ -13,6 +13,7 @@
   display: flex;
   flex-direction: row;
   gap: $alert-slot-gap;
+  width: 100%;
   padding: $alert-inner-spacing-y $alert-inner-spacing-x;
   background-color: var(--alert-background);
   border-radius: var(--alert-border-radius);

@@ -1,0 +1,10 @@
+@use "sass:map";
+@use "@stewed/react/src/theme" as theme;
+
+$card-root: ".card";
+
+/// Styles
+$card-background: #fff;
+$card-border-radius: map.get(theme.$radius, "md");
+$card-inner-spacing-x: map.get(theme.$spacings, "xl");
+$card-inner-spacing-y: map.get(theme.$spacings, "xl");

@@ -3,6 +3,12 @@
 @use "./variables" as *;
 
 @include theme.scope($avatar-root) {
+  @include theme.define-var(
+    (
+      avatar-color: theme.get-var(text-color),
+    )
+  );
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -11,10 +17,10 @@
   overflow: hidden;
   font-size: calc(theme.get-var(avatar-size) / 3);
   font-weight: map.get(theme.$font-weight, medium);
-  color: #fff;
+  color: theme.get-var(avatar-color);
   user-select: none;
   background-color: theme.get-var(avatar-background);
-  border-radius: var(--avatar-border-radius);
+  border-radius: theme.get-var(avatar-border-radius);
 
   &__img {
     width: 100%;
@@ -63,8 +69,11 @@
 @include theme.scope($avatar-group-root) {
   display: flex;
 
-  > #{$avatar-root} + #{$avatar-root} {
-    margin-left: calc(var(--avatar-size) / -3);
-    box-shadow: 0 0 0 2px #fff;
+  > #{$avatar-root} {
+    box-shadow: 0 0 0 1px currentcolor;
+
+    + #{$avatar-root} {
+      margin-left: calc(theme.get-var(avatar-size) / -3);
+    }
   }
 }

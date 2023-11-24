@@ -1,0 +1,35 @@
+@use "sass:map";
+@use "@stewed/react/src/theme" as theme;
+@use "./variables" as *;
+
+@include theme.scope($card-root) {
+  @include theme.define-var(
+    (
+      card-border-radius: $card-border-radius,
+      card-background: $card-background,
+      card-border-color: theme.get-color("secondary", "200"),
+    )
+  );
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: theme.get-var(card-background);
+  border: 1px solid theme.get-var(card-border-color);
+  border-radius: theme.get-var(card-border-radius);
+
+  &__body {
+    padding: $card-inner-spacing-y $card-inner-spacing-x;
+  }
+
+  &--selected {
+    @include theme.define-var(
+      (
+        card-border-color: transparent,
+      )
+    );
+
+    box-shadow: 0 0 0 2px theme.get-color("primary", "500");
+  }
+}

@@ -292,6 +292,12 @@ $timing-function: map.get($transition, timing-function);
 
 /// Defines CSS variables for colors based on `$merged-colors` map.
 @mixin define-theme() {
+  @include define-var(
+    (
+      text-color: #fff,
+    )
+  );
+
   @each $name, $colors in $merged-colors {
     @each $tone, $value in $colors {
       @include define-var((#{$name}-#{$tone}: $value));
