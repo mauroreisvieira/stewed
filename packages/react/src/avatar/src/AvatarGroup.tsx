@@ -7,7 +7,7 @@ import styles from './styles/index.module.scss';
 export function AvatarGroup({
     className,
     children,
-    ...otherProps
+    ...props
 }: React.HTMLAttributes<HTMLDivElement>): React.ReactElement {
     const rootClassName = 'avatar-group';
     const cssClasses = {
@@ -15,7 +15,7 @@ export function AvatarGroup({
     };
 
     return (
-        <div className={cssClasses.root} {...otherProps}>
+        <div className={cssClasses.root} {...props}>
             {children}
         </div>
     );

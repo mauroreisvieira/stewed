@@ -7,7 +7,10 @@ import styles from './styles/index.module.scss';
 export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
     /** Will render the bold text shown at the top of the alert. */
     title?: string;
-    /** Change the visual style of the alert. */
+    /**
+     * Change the visual style of the alert.
+     * @default info
+     */
     skin?: 'info' | 'success' | 'warning' | 'danger';
     /** Slot to display before the alert content. */
     leftSlot?: React.ReactNode;
@@ -38,10 +41,9 @@ export function Alert({
     leftSlot,
     rightSlot,
     children,
-    ...restProps
+    ...props
 }: AlertProps): React.ReactElement {
     const rootClassName = 'alert';
-
     const cssClasses = {
         root: classNames(
             styles[rootClassName],
@@ -56,7 +58,7 @@ export function Alert({
     };
 
     return (
-        <div {...restProps} className={cssClasses.root} role="alert">
+        <div className={cssClasses.root} role="alert" {...props} >
             {leftSlot && <div className={cssClasses.left}>{leftSlot}</div>}
             <div className={cssClasses.wrapper}>
                 {title && <div className={cssClasses.title}>{title}</div>}

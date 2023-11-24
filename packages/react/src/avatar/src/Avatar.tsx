@@ -7,13 +7,29 @@ import { classNames } from "@stewed/utilities";
 import styles from "./styles/index.module.scss";
 
 export interface AvatarProps {
+  /**
+   * Defines the skin color of the avatar.
+   * @default "primary"
+   */
   skin?: "primary" | "secondary";
+  /**
+   * Specifies the size of the avatar.
+   * @default "md"
+   */
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
+  /**
+   * Determines the appearance shape of the avatar.
+   * @default "circle"
+   */
   appearance?: "circle" | "square";
+  /** The name associated with the avatar. */
   name?: string;
+  /** Additional CSS class to apply to the avatar. */
   className?: string;
+  /** The URL of the image to be displayed as the avatar. */
   src?: string;
 }
+
 
 export function Avatar({
   size = "md",

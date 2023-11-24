@@ -5,6 +5,10 @@ import { classNames } from "@stewed/utilities";
 import styles from "./styles/index.module.scss";
 
 export interface AspectRatioProps extends React.HTMLAttributes<HTMLDivElement> {
+  /**
+   * Specify the aspect ratio as a string in the format "width:height"
+   * @default 1:1
+  */
   ratio?: "1:1" | "2:3" | "3:2" | "4:3" | "16:9";
 }
 
@@ -25,7 +29,7 @@ export function AspectRatio({
   ratio = "1:1",
   className,
   children,
-  ...otherProps
+  ...props
 }: AspectRatioProps): React.ReactElement {
   const rootClassName = "aspect-ratio";
   const cssClasses = {
@@ -38,7 +42,7 @@ export function AspectRatio({
   };
 
   return (
-    <div className={cssClasses.root} {...otherProps}>
+    <div className={cssClasses.root} {...props}>
       {React.Children.map(children, (child) =>
         React.isValidElement(child)
           ? React.cloneElement(child as React.ReactElement, {
