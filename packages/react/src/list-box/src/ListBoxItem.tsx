@@ -4,27 +4,32 @@ import { classNames } from "@stewed/utilities";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface ActionListItemProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Change the visual style of the menu item. */
+export interface ListBoxItemProps extends React.HTMLAttributes<HTMLDivElement> {
+  /**
+   * Change the visual style of the menu item.
+   * @default "primary"
+   */
   skin?: "primary" | "danger";
   /** Slot to display before the item children. */
   leftSlot?: React.ReactNode;
   /** Slot to display after the item children. */
   rightSlot?: React.ReactNode;
+  /** Indicates whether the item is selected. */
   selected?: boolean;
+  /** Indicates whether the item is disabled. */
   disabled?: boolean;
 }
 
-export function ActionListItem({
-  className,
+export function ListBoxItem({
   skin = "primary",
-  selected,
-  disabled,
   leftSlot,
   rightSlot,
+  selected,
+  disabled,
+  className,
   children,
-}: ActionListItemProps): React.ReactElement {
-  const rootClassName = "action-list__item";
+}: ListBoxItemProps): React.ReactElement {
+  const rootClassName = "list-box__item";
   const cssClasses = {
     root: classNames(
       styles[rootClassName],

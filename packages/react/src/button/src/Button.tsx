@@ -11,7 +11,7 @@ const defaultElement = "button";
 export interface ButtonProps<T> extends React.ComponentProps<typeof defaultElement> {
   /**
    * Specifies the type of element to use as the button.
-   * @default "button"
+   * @default button
    */
   as?: T;
   /**
@@ -71,7 +71,6 @@ export const Button = fixedForwardRef(function UnwrappedButton<T extends React.E
     className,
     iconOnly,
     children,
-    disabled,
     ...props
   }: ButtonProps<T> &
     DistributiveOmit<
@@ -95,7 +94,7 @@ export const Button = fixedForwardRef(function UnwrappedButton<T extends React.E
       styles[`${rootName}--${size}`],
       iconOnly && styles[`${rootName}--icon-only`],
       fullWidth && styles[`${rootName}--fullWidth`],
-      disabled && styles[`${rootName}--${disabled}`],
+      props.disabled && styles[`${rootName}--${props.disabled}`],
       className,
     ),
     left: classNames(styles[`${rootName}__left`]),

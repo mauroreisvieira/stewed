@@ -4,18 +4,20 @@ import { classNames } from "@stewed/utilities";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface ActionListGroupProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ListBoxGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   title?: string;
+  border?: boolean;
 }
 
-export function ActionListGroup({
-  className,
+export function ListBoxGroup({
   title,
+  border = true,
+  className,
   children,
-}: ActionListGroupProps): React.ReactElement {
-  const rootClassName = "action-list__group";
+}: ListBoxGroupProps): React.ReactElement {
+  const rootClassName = "list-box__group";
   const cssClasses = {
-    root: classNames(styles[rootClassName], className),
+    root: classNames(styles[rootClassName], border && styles[`${rootClassName}--border`], className),
     title: classNames(styles[`${rootClassName}__title`]),
   };
 

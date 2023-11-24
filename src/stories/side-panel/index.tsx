@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex, Input, ActionList, Text as Text } from "../../../packages/react/index";
+import { Flex, Input, ListBox, Text as Text } from "../../../packages/react/index";
 import { FiSearch, FiPenTool, FiFile, FiFilePlus, FiMap, FiTrash, FiLock } from "react-icons/fi";
 
 export function App(): React.ReactElement {
@@ -14,27 +14,27 @@ export function App(): React.ReactElement {
           </Text>
         }
       />
-      <ActionList>
-        <ActionList.Group>
-          <ActionList.Item leftSlot={<FiPenTool />} selected>
+      <ListBox>
+        <ListBox.Group>
+          <ListBox.Item leftSlot={<FiPenTool />} selected>
             <Text weight="medium">Daily notes</Text>
-          </ActionList.Item>
-          <ActionList.Item leftSlot={<FiFile />}>
+          </ListBox.Item>
+          <ListBox.Item leftSlot={<FiFile />}>
             <Text weight="medium">All notes</Text>
-          </ActionList.Item>
-          <ActionList.Item leftSlot={<FiFilePlus />}>
+          </ListBox.Item>
+          <ListBox.Item leftSlot={<FiFilePlus />}>
             <Text weight="medium">Tasks</Text>
-          </ActionList.Item>
-          <ActionList.Item leftSlot={<FiMap />}>
+          </ListBox.Item>
+          <ListBox.Item leftSlot={<FiMap />}>
             <Text weight="medium">Map</Text>
-          </ActionList.Item>
-          <ActionList.Item leftSlot={<FiTrash />} rightSlot={<FiLock />} disabled>
+          </ListBox.Item>
+          <ListBox.Item leftSlot={<FiTrash />} rightSlot={<FiLock />} disabled>
             <Text weight="medium">Trash</Text>
-          </ActionList.Item>
-        </ActionList.Group>
+          </ListBox.Item>
+        </ListBox.Group>
 
-        <ActionList.Group title="Pinned messages">
-          <ActionList.Item
+        <ListBox.Group title="Pinned messages">
+          <ListBox.Item
             rightSlot={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -49,13 +49,13 @@ export function App(): React.ReactElement {
               </svg>
             }>
             Lee Evans new tour
-          </ActionList.Item>
-          <ActionList.Item>Individual errors coast</ActionList.Item>
-          <ActionList.Item>Re-skin signs</ActionList.Item>
-          <ActionList.Item>Reflect roadmap</ActionList.Item>
-          <ActionList.Item>Top of mind</ActionList.Item>
-        </ActionList.Group>
-      </ActionList>
+          </ListBox.Item>
+          <ListBox.Item>Individual errors coast</ListBox.Item>
+          <ListBox.Item>Re-skin signs</ListBox.Item>
+          <ListBox.Item>Reflect roadmap</ListBox.Item>
+          <ListBox.Item>Top of mind</ListBox.Item>
+        </ListBox.Group>
+      </ListBox>
     </Flex>
   );
 }

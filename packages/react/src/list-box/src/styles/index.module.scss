@@ -1,0 +1,116 @@
+@use "sass:map";
+@use "@stewed/react/src/theme" as theme;
+@use "@stewed/react/src/typography/src/styles" as text;
+@use "./variables" as *;
+
+@include theme.scope($list-box-root) {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &__item {
+    @include theme.define-var(
+      (
+        list-box-item-background: transparent,
+        list-box-item-color: inherit,
+      )
+    );
+
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding-block: $list-box-item-inner-spacing-block;
+    padding-inline: $list-box-item-inner-spacing-inline;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: theme.get-var(list-box-item-background);
+    border-radius: $list-box-item-border-radius;
+
+    &:not(:last-child) {
+      margin-bottom: $list-box-item-outer-spacing-bottom;
+    }
+
+    @include text.typography(
+      base,
+      $overrides: (
+        --typography-color: var(--list-box-item-color),
+        --typography-line-height: map.get(theme.$line-height, "sm")
+      )
+    );
+    @include theme.focus-styles;
+    @include theme.disabled-styles;
+
+    &:hover {
+      --list-box-item-background: #{$list-box-item-background-hover};
+    }
+
+    &:active {
+      --list-box-item-background: #{$list-box-item-background-active};
+    }
+
+    &__text {
+      flex-grow: 1;
+    }
+
+    &__left,
+    &__right {
+      position: relative;
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+    }
+
+    @each $key, $value in $list-box-item-skins {
+      &--#{$key} {
+        --list-box-item-background: transparent;
+        --list-box-item-color: #{theme.get-color($value, "600")};
+
+        &:hover {
+          --list-box-item-background: #{theme.get-color($value, "50")};
+        }
+
+        &:active {
+          --list-box-item-background: #{theme.get-color($value, "100")};
+        }
+
+        &#{$list-box-root}__item--selected {
+          --list-box-item-background: #{theme.get-color($value, "50")};
+        }
+      }
+    }
+
+    @include theme.disabled-styles;
+  }
+
+  &__group {
+    padding-block: 4px;
+
+    &--border:not(:last-child) {
+      border-bottom: 1px solid #{theme.get-color("gray", "200")};
+    }
+
+    &:not(:last-child) {
+      margin-bottom: $list-box-item-outer-spacing-bottom;
+    }
+
+    &__title {
+      padding-inline: $list-box-item-inner-spacing-inline;
+
+      @include text.typography(
+        base,
+        $overrides: (
+          --typography-color: $list-box-title-color,
+          --typography-font-size: $list-box-title-font-size,
+          --typography-font-weight: $list-box-title-font-weight
+        )
+      );
+
+      margin-bottom: 8px;
+    }
+  }
+}

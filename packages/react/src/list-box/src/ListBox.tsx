@@ -1,18 +1,18 @@
 import React from "react";
 // Compound Component
-import { ActionListGroup } from "./ActionListGroup";
-import { ActionListItem } from "./ActionListItem";
+import { ListBoxGroup } from "./ListBoxGroup";
+import { ListBoxItem } from "./ListBoxItem";
 // Utilities
 import { classNames } from "@stewed/utilities";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export function ActionList({
+export function ListBox({
   className,
   children,
   ...otherProps
 }: React.HTMLAttributes<HTMLDivElement>): React.ReactElement {
-  const rootClassName = "action-list";
+  const rootClassName = "list-box";
   const cssClasses = {
     root: classNames(styles[rootClassName], className),
   };
@@ -24,5 +24,5 @@ export function ActionList({
 }
 
 // Compound component composition
-ActionList.Item = ActionListItem;
-ActionList.Group = ActionListGroup;
+ListBox.Item = ListBoxItem;
+ListBox.Group = ListBoxGroup;
