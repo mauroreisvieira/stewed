@@ -9,6 +9,3 @@ $tabs-border-radius: (
   "square": map.get(theme.$radius, "md"),
   "inner": map.get(theme.$radius, "sm"),
 );
-
-// Tab Items
-$tab-item-root: ".tab__item";
