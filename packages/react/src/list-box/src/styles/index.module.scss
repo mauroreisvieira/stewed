@@ -90,11 +90,19 @@
         }
 
         &:active {
-          --list-box-item-background: #{theme.get-color($value, "100")};
+          @include theme.define-var(
+            (
+              background-color: theme.get-color($value, "100"),
+            )
+          );
         }
 
-        &#{$list-box-root}__item--selected {
-          --list-box-item-background: #{theme.get-color($value, "50")};
+        &.#{$list-box-root}__item--selected {
+          @include theme.define-var(
+            (
+              background-color: theme.get-color($value, "50"),
+            )
+          );
         }
       }
     }
