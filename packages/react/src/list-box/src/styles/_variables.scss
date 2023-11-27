@@ -1,7 +1,7 @@
 @use "sass:map";
 @use "@stewed/react/src/theme" as theme;
 
-$list-box-root: ".list-box";
+$list-box-root: "list-box";
 $list-box-inner-spacing-block: map.get(theme.$spacings, "md");
 
 // List Box Item
@@ -14,7 +14,7 @@ $list-box-item-background-hover: #{theme.get-color("gray", "50")};
 $list-box-item-background-active: #{theme.get-color("gray", "100")};
 $list-box-item-skins: (
   "selected": "primary",
-  "danger": "red",
+  "error": "red",
 );
 
 // List Box Section

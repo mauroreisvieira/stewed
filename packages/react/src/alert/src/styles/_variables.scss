@@ -1,8 +1,6 @@
 @use "sass:map";
 @use "@stewed/react/src/theme" as theme;
 
-$alert-root: ".alert";
-
 /// Styles
 $alert-border-radius: map.get(theme.$radius, "md");
 $alert-title-font-weight: map.get(theme.$font-weight, "semibold");
@@ -17,12 +15,5 @@ $alert-skins: (
   "info": "blue",
   "success": "green",
   "warning": "yellow",
-  "danger": "red",
-);
-
-/// Sizes
-$alert-sizes: (
-  sm: map.get(theme.$spacings, "md") * 4,
-  md: map.get(theme.$spacings, "md") * 5,
-  lg: map.get(theme.$spacings, "md") * 6,
+  "error": "red",
 );

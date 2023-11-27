@@ -5,7 +5,7 @@ import { classNames } from "@stewed/utilities";
 import styles from "./styles/index.module.scss";
 
 export interface BadgeProps {
-  skin?: "primary" | "secondary" | "info" | "success" | "warning" | "danger";
+  skin?: "primary" | "secondary" | "info" | "success" | "warning" | "error";
   count?: string;
   className?: string;
   children: React.ReactNode;

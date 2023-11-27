@@ -8,7 +8,11 @@
 
   @each $key, $value in $aspect-ratio-sizes {
     &--#{$key} {
-      --aspect-ratio-size: #{map.get($aspect-ratio-sizes, $key)};
+      @include theme.define-var(
+        (
+          size: map.get($aspect-ratio-sizes, $key),
+        )
+      );
     }
   }
 
@@ -16,7 +20,7 @@
     max-width: 100%;
     height: 100%;
     object-fit: cover;
-    aspect-ratio: var(--aspect-ratio-size);
+    aspect-ratio: theme.get-var(size);
     border-radius: inherit;
   }
 }

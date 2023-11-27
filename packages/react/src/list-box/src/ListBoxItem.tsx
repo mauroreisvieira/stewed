@@ -9,7 +9,7 @@ export interface ListBoxItemProps extends React.HTMLAttributes<HTMLDivElement> {
    * Change the visual style of the menu item.
    * @default "primary"
    */
-  skin?: "primary" | "danger";
+  skin?: "primary" | "error";
   /** Slot to display before the item children. */
   leftSlot?: React.ReactNode;
   /** Slot to display after the item children. */

@@ -1,7 +1,7 @@
 @use "sass:map";
 @use "@stewed/react/src/theme" as theme;
 
-$checkbox-root: ".checkbox";
+$checkbox-root: "checkbox";
 $checkbox-size: (
   "sm": map.get(theme.$spacings, "xs") * 19,
   "md": map.get(theme.$spacings, "xs") * 20,

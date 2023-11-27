@@ -12,8 +12,9 @@
   &__item {
     @include theme.define-var(
       (
-        list-box-item-background: transparent,
-        list-box-item-color: inherit,
+        background-color: transparent,
+        color: inherit,
+        border-radius: $list-box-item-border-radius,
       )
     );
 
@@ -28,8 +29,8 @@
     padding-inline: $list-box-item-inner-spacing-inline;
     overflow: hidden;
     cursor: pointer;
-    background-color: theme.get-var(list-box-item-background);
-    border-radius: $list-box-item-border-radius;
+    background-color: theme.get-var(background-color);
+    border-radius: theme.get-var(border-radius);
 
     &:not(:last-child) {
       margin-bottom: $list-box-item-outer-spacing-bottom;
@@ -37,20 +38,25 @@
 
     @include text.typography(
       base,
-      $overrides: (
-        --typography-color: var(--list-box-item-color),
-        --typography-line-height: map.get(theme.$line-height, "sm")
-      )
+      $overrides: (color: null, line-height: map.get(theme.$line-height, "sm"))
     );
     @include theme.focus-styles;
     @include theme.disabled-styles;
 
     &:hover {
-      --list-box-item-background: #{$list-box-item-background-hover};
+      @include theme.define-var(
+        (
+          background-color: $list-box-item-background-hover,
+        )
+      );
     }
 
     &:active {
-      --list-box-item-background: #{$list-box-item-background-active};
+      @include theme.define-var(
+        (
+          background-color: $list-box-item-background-active,
+        )
+      );
     }
 
     &__text {
@@ -68,11 +74,19 @@
 
     @each $key, $value in $list-box-item-skins {
       &--#{$key} {
-        --list-box-item-background: transparent;
-        --list-box-item-color: #{theme.get-color($value, "600")};
+        @include theme.define-var(
+          (
+            background-color: transparent,
+            color: theme.get-color($value, "600"),
+          )
+        );
 
         &:hover {
-          --list-box-item-background: #{theme.get-color($value, "50")};
+          @include theme.define-var(
+            (
+              background-color: theme.get-color($value, "50"),
+            )
+          );
         }
 
         &:active {
@@ -105,9 +119,9 @@
       @include text.typography(
         base,
         $overrides: (
-          --typography-color: $list-box-title-color,
-          --typography-font-size: $list-box-title-font-size,
-          --typography-font-weight: $list-box-title-font-weight
+          color: $list-box-title-color,
+          font-size: $list-box-title-font-size,
+          font-weight: $list-box-title-font-weight
         )
       );
 

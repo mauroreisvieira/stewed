@@ -1,11 +1,5 @@
 @use "./variables" as *;
 
-@mixin scope($name: null) {
-  #{$name} {
-    @content;
-  }
-}
-
 @mixin reset {
   all: unset;
 }

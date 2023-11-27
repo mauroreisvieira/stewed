@@ -5,22 +5,34 @@
 @include theme.scope($avatar-root) {
   @include theme.define-var(
     (
-      avatar-color: theme.get-var(text-color),
+      color: theme.get-theme-var(text-color),
     )
   );
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: theme.get-var(avatar-size);
-  height: theme.get-var(avatar-size);
+  width: theme.get-var(size);
+  height: theme.get-var(size);
   overflow: hidden;
-  font-size: calc(theme.get-var(avatar-size) / 3);
+  font-size: calc(theme.get-var(size) / 3);
   font-weight: map.get(theme.$font-weight, medium);
-  color: theme.get-var(avatar-color);
+  color: theme.get-var(color);
   user-select: none;
-  background-color: theme.get-var(avatar-background);
-  border-radius: theme.get-var(avatar-border-radius);
+  background-color: theme.get-var(background-color);
+  border-radius: theme.get-var(border-radius);
+
+  &-group {
+    display: flex;
+
+    > .#{$avatar-root} {
+      box-shadow: 0 0 0 1px currentcolor;
+
+      + .#{$avatar-root} {
+        margin-left: calc(theme.get-var(size) / -3);
+      }
+    }
+  }
 
   &__img {
     width: 100%;
@@ -33,7 +45,7 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          avatar-size: map.get($avatar-sizes, $key),
+          size: map.get($avatar-sizes, $key),
         )
       );
     }
@@ -43,7 +55,7 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          avatar-background: theme.get-color($value),
+          background-color: theme.get-color($value),
         )
       );
     }
@@ -52,7 +64,7 @@
   &--circle {
     @include theme.define-var(
       (
-        avatar-border-radius: map.get($avatar-border-radius, "round"),
+        border-radius: map.get($avatar-border-radius, "round"),
       )
     );
   }
@@ -60,20 +72,8 @@
   &--square {
     @include theme.define-var(
       (
-        avatar-border-radius: map.get($avatar-border-radius, "square"),
+        border-radius: map.get($avatar-border-radius, "square"),
       )
     );
-  }
-}
-
-@include theme.scope($avatar-group-root) {
-  display: flex;
-
-  > #{$avatar-root} {
-    box-shadow: 0 0 0 1px currentcolor;
-
-    + #{$avatar-root} {
-      margin-left: calc(theme.get-var(avatar-size) / -3);
-    }
   }
 }

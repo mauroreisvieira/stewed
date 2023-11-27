@@ -8,7 +8,7 @@ type TagType = React.HTMLAttributes<HTMLSpanElement> &
   React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
 export interface TagProps extends TagType {
-  skin?: "primary" | "secondary" | "info" | "success" | "warning" | "danger";
+  skin?: "primary" | "secondary" | "info" | "success" | "warning" | "error";
   size?: "sm" | "md" | "lg";
 }
 

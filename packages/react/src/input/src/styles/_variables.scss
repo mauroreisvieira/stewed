@@ -1,7 +1,7 @@
 @use "sass:map";
 @use "@stewed/react/src/theme" as theme;
 
-$input-root: ".input";
+$input-root: "input";
 
 // Appearance
 $input-border-radius: map.get(theme.$radius, "md");

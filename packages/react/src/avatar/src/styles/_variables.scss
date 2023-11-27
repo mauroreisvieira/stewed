@@ -2,11 +2,10 @@
 @use "sass:map";
 @use "@stewed/react/src/theme" as theme;
 
-// Avatar Group
-$avatar-group-root: ".avatar-group";
-
 // Avatar
-$avatar-root: ".avatar";
+$avatar-root: "avatar";
+
+/// Appearance
 $avatar-border-radius: (
   "square": map.get(theme.$radius, "md"),
   "round": 50%,

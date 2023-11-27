@@ -2,10 +2,10 @@
 @use "@stewed/react/src/theme" as theme;
 @use "./variables" as *;
 
-@include theme.scope($alert-root) {
+@include theme.scope("alert") {
   @include theme.define-var(
     (
-      alert-border-radius: $alert-border-radius,
+      border-radius: $alert-border-radius,
     )
   );
 
@@ -15,8 +15,8 @@
   gap: $alert-slot-gap;
   width: 100%;
   padding: $alert-inner-spacing-y $alert-inner-spacing-x;
-  background-color: var(--alert-background);
-  border-radius: var(--alert-border-radius);
+  background-color: theme.get-var(background-color);
+  border-radius: theme.get-var(border-radius);
 
   &__title {
     font-weight: $alert-title-font-weight;
@@ -32,7 +32,7 @@
   &__title,
   &__left,
   &__right {
-    color: var(--alert-title-color);
+    color: theme.get-var(color);
   }
 
   &__body {
@@ -43,8 +43,8 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          alert-background: theme.get-color($value, "100"),
-          alert-title-color: theme.get-color($value, "900"),
+          background-color: theme.get-color($value, "100"),
+          color: theme.get-color($value, "900"),
         )
       );
     }

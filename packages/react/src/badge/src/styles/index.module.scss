@@ -1,9 +1,16 @@
+@use "sass:map";
 @use "@stewed/react/src/theme" as theme;
 @use "@stewed/react/src/typography/src/styles" as text;
 @use "./variables" as *;
 
 @include theme.scope($badge-root) {
-  --badge-size: #{$badge-size};
+  @include theme.define-var(
+    (
+      size: 2ch,
+      border-radius: map.get(theme.$radius, "xl"),
+      padding-inline: 0,
+    )
+  );
 
   position: relative;
   display: inline-flex;
@@ -11,7 +18,7 @@
   &__count {
     @include text.typography(
       base,
-      $overrides: (--typography-color: $badge-color, --typography-font-size: $badge-font-size)
+      $overrides: (color: $badge-color, font-size: map.get(theme.$font-size, "xs"))
     );
 
     position: absolute;
@@ -20,15 +27,20 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: var(--badge-size);
-    height: var(--badge-size);
+    min-width: theme.get-var(size);
+    height: theme.get-var(size);
+    padding-inline: theme.get-var(padding-inline);
     white-space: nowrap;
-    background-color: var(--badge-background);
-    border-radius: $badge-border-radius;
+    background-color: theme.get-var(background-color);
+    border-radius: theme.get-var(border-radius);
     transform: translate(50%, -50%);
 
     &:empty {
-      --badge-size: #{$badge-dot-size};
+      @include theme.define-var(
+        (
+          size: map.get(theme.$spacings, "md"),
+        )
+      );
 
       padding: 0;
     }
@@ -36,13 +48,19 @@
 
   @each $key, $value in $badge-skins {
     &--#{$key} {
-      --badge-background: #{theme.get-color($value, "500")};
+      @include theme.define-var(
+        (
+          background-color: theme.get-color($value, "500"),
+        )
+      );
     }
   }
 
   &--padded {
-    #{$badge-root}__count {
-      padding-inline: $badge-inner-spacing-inline;
-    }
+    @include theme.define-var(
+      (
+        padding-inline: map.get(theme.$spacings, "sm"),
+      )
+    );
   }
 }

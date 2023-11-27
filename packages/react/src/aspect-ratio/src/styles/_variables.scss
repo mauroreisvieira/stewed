@@ -2,7 +2,7 @@
 @use "sass:map";
 @use "@stewed/react/src/theme" as theme;
 
-$aspect-ratio-root: ".aspect-ratio";
+$aspect-ratio-root: "aspect-ratio";
 $aspect-ratio-sizes: (
   "1-1": 1,
   "2-3": 0.6667,

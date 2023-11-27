@@ -2,7 +2,7 @@
 @use "sass:map";
 @use "@stewed/react/src/theme" as theme;
 
-$tabs-root: ".tabs";
+$tabs-root: "tabs";
 
 // Tabs
 $tabs-border-radius: (

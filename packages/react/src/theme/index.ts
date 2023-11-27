@@ -3,7 +3,7 @@ export type Skins =
     | 'secondary'
     | 'info'
     | 'success'
-    | 'danger'
+    | 'error'
     | 'warning';
 export type Spacings = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 export type Sizes = 'xs' | 'sm' | 'md' | 'lg';

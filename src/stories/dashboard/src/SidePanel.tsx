@@ -30,7 +30,7 @@ export function SidePanel(): React.ReactElement {
             All boards
           </ListBox.Item>
           <ListBox.Item leftSlot={<FiFilePlus />}>Tasks</ListBox.Item>
-          <ListBox.Item skin="danger" leftSlot={<FiTrash />}>
+          <ListBox.Item skin="error" leftSlot={<FiTrash />}>
             Trash
           </ListBox.Item>
         </ListBox.Group>

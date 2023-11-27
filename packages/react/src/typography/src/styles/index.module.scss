@@ -81,19 +81,31 @@
 
   @each $key, $value in $typography-skins {
     &--#{$key} {
-      --typography-color: #{$value};
+      @include theme.define-var(
+        (
+          color: $value,
+        )
+      );
     }
   }
 
   @each $key, $value in $typography-sizes {
     &--#{$key} {
-      --typography-font-size: #{$value};
+      @include theme.define-var(
+        (
+          font-size: $value,
+        )
+      );
     }
   }
 
   @each $key, $value in $typography-weights {
     &--#{$key} {
-      --typography-font-weight: #{$value};
+      @include theme.define-var(
+        (
+          font-weight: $value,
+        )
+      );
     }
   }
 }

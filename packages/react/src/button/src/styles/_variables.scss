@@ -1,17 +1,17 @@
 @use "sass:map";
 @use "@stewed/react/src/theme" as theme;
 
-$button-root: ".button";
+$button-root: "button";
 $button-color: #fff;
-$button-border-radius: (
-  "square": map.get(theme.$radius, "md"),
-);
+
+/// Skins
 $button-skins: (
   "primary": "primary",
   "secondary": "secondary",
-  "danger": "red",
+  "error": "red",
 );
-$button-gap: map.get(theme.$spacings, "md");
+
+/// Font Sizes
 $button-font-sizes: theme.$font-size;
 $button-sizes: (
   "sm": map.get(theme.$spacings, "md") * 4,

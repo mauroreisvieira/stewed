@@ -1,7 +1,7 @@
 @use "sass:map";
 @use "@stewed/react/src/theme" as theme;
 
-$card-root: ".card";
+$card-root: "card";
 
 /// Styles
 $card-background: #fff;
