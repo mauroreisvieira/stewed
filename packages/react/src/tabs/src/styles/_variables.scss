@@ -3,9 +3,3 @@
 @use "@stewed/react/src/theme" as theme;
 
 $tabs-root: "tabs";
-
-// Tabs
-$tabs-border-radius: (
-  "square": map.get(theme.$radius, "md"),
-  "inner": map.get(theme.$radius, "sm"),
-);

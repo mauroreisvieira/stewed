@@ -19,6 +19,6 @@ $tag-font-sizes: theme.$font-size;
 $tag-font-weight: map.get(theme.$font-weight, "normal");
 $tag-sizes: (
   sm: map.get(theme.$spacings, "sm") * 3,
-  md: map.get(theme.$spacings, "xs") * 10,
+  md: map.get(theme.$spacings, "xxs") * 10,
   lg: map.get(theme.$spacings, "sm") * 4,
 );

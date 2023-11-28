@@ -41,7 +41,7 @@ export interface TextProps<T> extends React.ComponentProps<typeof defaultElement
   /** Changes the size of the text, giving it more or less font size. */
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl" | "8xl";
   /** Changes the weight of the text, giving it more or less weight. */
-  weight?: "thin" | "light" | "normal" | "medium" | "semi-bold" | "bold";
+  weight?: "thin" | "light" | "normal" | "medium" | "semi-bold" | "bold" | "extra-bold";
   /** Changes the font styles and transforming text. */
   variation?: TextVariation | TextVariation[];
   /** Change the visual style of the text. */

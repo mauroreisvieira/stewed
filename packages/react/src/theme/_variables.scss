@@ -16,7 +16,8 @@ $default-config: (
     "opacities": (),
   ),
   "spacings": (
-    "xs": 2px,
+    "xxs": 2px,
+    "xs": 4px,
     "sm": 6px,
     "md": 8px,
     "lg": 12px,
@@ -144,8 +145,9 @@ $default-config: (
     "light": 300,
     "normal": 400,
     "medium": 500,
-    "semibold": 600,
+    "semi-bold": 600,
     "bold": 700,
+    "extra-bold": 800,
   ),
   "radius": (
     "sm": func.rem(2),
@@ -183,7 +185,7 @@ $font-size: map.get($all-config, font-size);
 /// Specifies line heights corresponding to different font sizes.
 $line-height: map.get($all-config, line-height);
 
-/// Defines font weights (thin, light, normal, medium, semibold, bold).
+/// Defines font weights (thin, light, normal, medium, semi-bold, bold extra-bold).
 $font-weight: map.get($all-config, font-weight);
 
 /// Defines spacing values for different sizes (xs, sm, md, lg, xl, 2xl).
@@ -300,20 +302,21 @@ $timing-function: map.get($transition, timing-function);
 /// Returns value of CSS variable. Accepts variable name, applies prefix if defined, and returns the variable value.
 /// @param {string} $name - Name of the CSS variable.
 /// @returns {string} - The value of the specified CSS variable.
-@function get-var($name) {
+@function get-var($name, $fallback: null) {
+  $var: null;
+
   @if $scope-naming {
-    @if $prefix {
-      @return var(--#{$prefix}-#{$scope-naming}-#{$name});
-    } @else {
-      @return var(--#{$scope-naming}-#{$name});
-    }
+    $var: if($prefix, --#{$prefix}-#{$scope-naming}-#{$name}, --#{$scope-naming}-#{$name});
   } @else {
-    @if $prefix {
-      @return var(--#{$prefix}-#{$name});
-    } @else {
-      @return var(--#{$name});
-    }
+    /* stylelint-disable-next-line custom-property-no-missing-var-function */
+    $var: if($prefix, --#{$prefix}-#{$name}, --#{$name});
   }
+
+  @if $fallback {
+    @return var($var, $fallback);
+  }
+
+  @return var($var);
 }
 
 @mixin define-theme-var($values) {

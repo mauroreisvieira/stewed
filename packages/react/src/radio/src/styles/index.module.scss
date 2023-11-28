@@ -3,7 +3,7 @@
 @use "./variables" as *;
 
 @include theme.scope($radio-root) {
-  --radio-color: #{theme.get-color("secondary", "300")};
+  --radio-color: #{theme.get-color("primary", "500")};
 
   position: relative;
   display: inline-block;
@@ -16,7 +16,7 @@
 
   @include theme.hover {
     #{$radio-root}__background {
-      --radio-color: #{theme.get-color("secondary", "400")};
+      --radio-color: #{theme.get-color("primary", "600")};
     }
   }
 

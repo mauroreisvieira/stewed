@@ -11,12 +11,28 @@ import styles from "./styles/index.module.scss";
 
 export interface TabsProps extends TabsProviderProps {
   className?: string;
+  /** Allow possibility to change alignment of tabs.  */
+  alignment?: "left" | "right" | "center";
+  /** The direction of the tab container. */
+  direction?: "row" | "column";
 }
 
-export function Tabs({ value, className, onValueChange, children }: TabsProps): React.ReactElement {
+export function Tabs({
+  value,
+  alignment = "left",
+  direction = "row",
+  className,
+  onValueChange,
+  children,
+}: TabsProps): React.ReactElement {
   const rootClassName = "tabs";
   const cssClasses = {
-    root: classNames(styles[rootClassName], className),
+    root: classNames(
+      styles[rootClassName],
+      styles[`${rootClassName}--${alignment}`],
+      styles[`${rootClassName}--${direction}`],
+      className,
+    ),
   };
 
   return (

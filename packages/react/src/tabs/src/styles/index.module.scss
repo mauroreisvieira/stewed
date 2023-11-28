@@ -4,49 +4,88 @@
 @use "./variables" as *;
 
 @include theme.scope($tabs-root) {
-  --tabs-background: #{theme.get-color("secondary", "100")};
+  display: flex;
+  width: 100%;
+
+  @include theme.define-var(
+    (
+      background-color: theme.get-color("secondary", "100"),
+      border-color: theme.get-color("secondary", "200"),
+      border-radius: map.get(theme.$radius, "md"),
+      flex-direction: row,
+      height: 40px,
+      width: auto,
+      item-background-color: transparent,
+      justify-content: center,
+    )
+  );
+
+  &--column {
+    @include theme.define-var(
+      (
+        flex-direction: column,
+        width: 100%,
+        justify-content: left,
+      )
+    );
+  }
+
+  &--left {
+    justify-content: left;
+  }
+
+  &--center {
+    justify-content: center;
+  }
+
+  &--right {
+    justify-content: right;
+  }
 
   &__list {
     display: inline-flex;
-    gap: 6px;
+    flex-direction: theme.get-var(flex-direction);
+    gap: map.get(theme.$spacings, "sm");
     align-items: center;
-    padding: 4px;
+    width: theme.get-var(width);
+    padding: map.get(theme.$spacings, "xxs");
     user-select: none;
-    background-color: var(--tabs-background);
-    border-radius: map.get($tabs-border-radius, "square");
+    background-color: theme.get-var(background-color);
+    border: 1px solid theme.get-var(border-color);
+    border-radius: theme.get-var(border-radius);
   }
 
   &__item {
-    --tab-item-background: transparent;
-
     all: unset;
+    box-sizing: border-box;
     display: flex;
-    padding: 8px 16px;
+    gap: 8px;
+    align-items: center;
+    justify-content: theme.get-var(justify-content);
+    width: theme.get-var(width);
+    height: theme.get-var(height);
+    padding: 10px 8px;
     cursor: pointer;
-    background-color: var(--tab-item-background);
-    border-radius: map.get($tabs-border-radius, "inner");
+    background-color: theme.get-var(item-background-color);
+    border-radius: calc(theme.get-var(border-radius) * 0.5);
 
     @include theme.focus-styles;
     @include theme.disabled-styles;
-
-    &__text {
-      flex-grow: 1;
-      @include text.typography(
-        base,
-        $overrides: (--typography-line-height: map.get(theme.$line-height, "sm"))
-      );
-    }
+    @include text.typography(base, $overrides: (line-height: 1em));
 
     &__left,
     &__right {
       position: relative;
       display: flex;
       flex-shrink: 0;
-      align-items: center;
     }
 
     &--selected {
-      --tab-item-background: #fff;
+      @include theme.define-var(
+        (
+          item-background-color: #fff,
+        )
+      );
     }
   }
 }

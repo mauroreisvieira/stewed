@@ -3,7 +3,7 @@
 
 /// Styles
 $alert-border-radius: map.get(theme.$radius, "md");
-$alert-title-font-weight: map.get(theme.$font-weight, "semibold");
+$alert-title-font-weight: map.get(theme.$font-weight, "semi-bold");
 $alert-body-font-size: map.get(theme.$font-size, "sm");
 $alert-inner-spacing-x: map.get(theme.$spacings, "xl");
 $alert-inner-spacing-y: map.get(theme.$spacings, "xl");

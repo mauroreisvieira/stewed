@@ -36,7 +36,6 @@ export function TabsItem({
       className,
     ),
     left: classNames(styles[`${rootClassName}__left`]),
-    text: classNames(styles[`${rootClassName}__text`]),
     right: classNames(styles[`${rootClassName}__right`]),
   };
 
@@ -58,7 +57,7 @@ export function TabsItem({
       {...props}
     >
       {leftSlot && <span className={cssClasses.left}>{leftSlot}</span>}
-      {children && <span className={cssClasses.text}>{children}</span>}
+      {children}
       {rightSlot && <span className={cssClasses.right}>{rightSlot}</span>}
     </button>
   );

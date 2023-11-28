@@ -5,66 +5,74 @@ import { Card, Button, Flex, Tabs, Text } from "../../../../packages/react/index
 export function Plans(): React.ReactElement {
   const [value, setValue] = useState("monthly");
 
+  const plans = [
+    {
+      title: "Freelancer",
+      description: "Perfect for getting your business off the ground!",
+      price: 12,
+    },
+    {
+      title: "Startup",
+      description: "Tailored for propelling your business to success!",
+      price: 24,
+    },
+    {
+      title: "Enterprise",
+      description: "Comprehensive features for starting and growing your business!",
+      price: 36,
+    },
+  ];
+
   return (
-    <Flex
-      direction="column"
-      style={{
-        borderRadius: 4,
-        padding: 24,
-        border: "1px solid #eee",
-      }}
-      gap="2xl">
-      <div>
-        <Text as="h4" alignment="center" size="sm" weight="bold" skin="primary">
-          Pricing Plans
-        </Text>
-        <Text alignment="center" size="4xl" weight="bold">
-          Pricing Plans for teams of all sizes
-        </Text>
-      </div>
-      <div>
-        <Text alignment="center" size="md">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit veniam repellendus doloremque enim
-          doloribus asperiores eaque illum quia sed cumque alias, ea expedita minima.
-        </Text>
-      </div>
-      <Flex
-        justify="center"
-        space={{
-          y: "2xl",
-        }}>
-        <Tabs value={value} onValueChange={setValue}>
-          <Tabs.List>
-            <Tabs.Item value="monthly">Monthly</Tabs.Item>
-            <Tabs.Item value="annually">Annually</Tabs.Item>
-          </Tabs.List>
-        </Tabs>
-      </Flex>
-      <Flex gap="2xl">
-        {Array.from({ length: 3 }).map((_, index) => (
-          <Card key={index} selected={index === 1}>
-            <Card.Body>
-              <Flex direction="column" gap="xl">
-                <Text as="h5">Hobby</Text>
-                <Text skin="secondary">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit excepturi, tempora.
-                </Text>
-                <Flex items="baseline" gap="sm">
-                  <Text size="4xl" weight="bold">
-                    15€
-                  </Text>
-                  <Text size="xs" weight="medium">
-                    /month
-                  </Text>
-                </Flex>
-                <Button appearance="outline" skin="secondary" fullWidth>
-                  Buy plan
-                </Button>
-              </Flex>
-            </Card.Body>
-          </Card>
-        ))}
-      </Flex>
-    </Flex>
+    <Card>
+      <Card.Body>
+        <Flex direction="column" gap="2xl">
+          <div>
+            <Text alignment="center" weight="medium" skin="primary">
+              Teams for all sizes
+            </Text>
+
+            <Text as="h2" alignment="center" weight="extra-bold">
+              Pricing Plans
+            </Text>
+          </div>
+
+          <Text alignment="center" size="xl">
+            Start building for free, then add a site plan to go live. <br />
+            Account plans unlock additional features.
+          </Text>
+
+          <Tabs alignment="center" value={value} onValueChange={setValue}>
+            <Tabs.List>
+              <Tabs.Item value="monthly">Monthly billing</Tabs.Item>
+              <Tabs.Item value="annually">Yearly billing</Tabs.Item>
+            </Tabs.List>
+          </Tabs>
+          <Flex gap="2xl">
+            {plans.map(({ title, description, price }, index) => (
+              <Card key={index} selected={index === 1}>
+                <Card.Body>
+                  <Flex direction="column" gap="2xl">
+                    <Text as="h5">{title}</Text>
+                    <Text skin="secondary">{description}</Text>
+                    <Flex items="baseline" gap="sm">
+                      <Text size="4xl" weight="bold">
+                        {value === "monthly" ? price : price * 12 * 0.5}€
+                      </Text>
+                      <Text size="xs" weight="medium">
+                        {value === "monthly" ? "/month" : "/year"}
+                      </Text>
+                    </Flex>
+                    <Button appearance="outline" skin="secondary" fullWidth>
+                      Subscribe
+                    </Button>
+                  </Flex>
+                </Card.Body>
+              </Card>
+            ))}
+          </Flex>
+        </Flex>
+      </Card.Body>
+    </Card>
   );
 }
