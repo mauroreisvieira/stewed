@@ -33,7 +33,7 @@
 
   // Space
   @each $key, $value in $box-gap {
-    &--space-x-#{$key}:not([hidden]) ~ :not([hidden]) {
+    &--space-x-#{$key} ~ :not([hidden]) {
       margin-left: #{$value};
     }
 

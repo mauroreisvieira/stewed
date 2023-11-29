@@ -100,6 +100,8 @@ export const Text = fixedForwardRef(function UnwrappedText<T extends React.Eleme
     (key) => SizeMap[key] === (as || defaultElement),
   );
 
+  console.log("computedSize", computedSize);
+
   // CSS classes based on component props and styles
   const cssClasses = {
     root: classNames(

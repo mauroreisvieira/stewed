@@ -6,13 +6,11 @@ $typography-styles: (
   "base": (
     "font-size": map.get(theme.$font-size, "sm"),
     "font-weight": map.get(theme.$font-weight, "normal"),
-    "line-height": calc(map.get(theme.$font-size, "sm") * 1.375),
     "color": theme.get-color("gray", "900"),
   ),
   "link": (
     "font-size": map.get(theme.$font-size, "sm"),
     "font-weight": map.get(theme.$font-weight, "normal"),
-    "line-height": calc(map.get(theme.$font-size, "sm") * 1.5),
     "color": theme.get-color("primary"),
   ),
   "display-1": (
