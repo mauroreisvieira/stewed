@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // UI Components
-import { Card, Button, Flex, Tabs, Text } from "../../../../packages/react/index";
+import { Card, Button, Box, Tabs, Text } from "../../../../packages/react/index";
 
 export function Plans(): React.ReactElement {
   const [value, setValue] = useState("monthly");
@@ -26,7 +26,7 @@ export function Plans(): React.ReactElement {
   return (
     <Card>
       <Card.Body>
-        <Flex direction="column" gap="2xl">
+        <Box direction="column" gap="2xl">
           <div>
             <Text alignment="center" weight="medium" skin="primary">
               Teams for all sizes
@@ -48,30 +48,30 @@ export function Plans(): React.ReactElement {
               <Tabs.Item value="annually">Yearly billing</Tabs.Item>
             </Tabs.List>
           </Tabs>
-          <Flex gap="2xl">
+          <Box gap="2xl">
             {plans.map(({ title, description, price }, index) => (
               <Card key={index} selected={index === 1}>
                 <Card.Body>
-                  <Flex direction="column" gap="2xl">
+                  <Box direction="column" gap="2xl">
                     <Text as="h5">{title}</Text>
                     <Text skin="secondary">{description}</Text>
-                    <Flex items="baseline" gap="sm">
+                    <Box items="baseline" gap="sm">
                       <Text size="4xl" weight="bold">
                         {value === "monthly" ? price : price * 12 * 0.5}€
                       </Text>
                       <Text size="xs" weight="medium">
                         {value === "monthly" ? "/month" : "/year"}
                       </Text>
-                    </Flex>
+                    </Box>
                     <Button appearance="outline" skin="secondary" fullWidth>
                       Subscribe
                     </Button>
-                  </Flex>
+                  </Box>
                 </Card.Body>
               </Card>
             ))}
-          </Flex>
-        </Flex>
+          </Box>
+        </Box>
       </Card.Body>
     </Card>
   );

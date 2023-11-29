@@ -1,5 +1,5 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { Badge } from '../';
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { Badge } from "../";
 
 <Meta title="Components/Badge" component={Badge} />
 
@@ -16,29 +16,32 @@ npm install --save @stewed/react
 ### Import
 
 ```js
-import { Badge } from '@stewed/react';
+import { Badge } from "@stewed/react";
 ```
 
 ## Examples
 
-export const Template = (args) => (
-    <Badge {...args}>
-        <div style={{ width: 50, height: 50, backgroundColor: '#ddd' }} />
-    </Badge>
-);
+export const Template = (args) => <Badge {...args} />;
 
 ### Base
 
 <Canvas>
-    <Story
-        name="Base"
-        args={{
-            skin: 'primary',
-            count: '99+',
-        }}
-    >
-        {Template.bind({})}
-    </Story>
+  <Story
+    name="Base"
+    args={{
+      skin: "primary",
+      value: "99+",
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Children
+
+<Canvas>
+  <Badge value="9">
+    <div style={{ width: 50, height: 50, backgroundColor: "#ddd" }} />
+  </Badge>
 </Canvas>
 
 ## Props

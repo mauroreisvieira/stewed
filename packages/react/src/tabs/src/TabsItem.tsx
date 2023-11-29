@@ -56,9 +56,9 @@ export function TabsItem({
       onClick={onHandleClick}
       {...props}
     >
-      {leftSlot && <span className={cssClasses.left}>{leftSlot}</span>}
+      {leftSlot && <div className={cssClasses.left}>{leftSlot}</div>}
       {children}
-      {rightSlot && <span className={cssClasses.right}>{rightSlot}</span>}
+      {rightSlot && <div className={cssClasses.right}>{rightSlot}</div>}
     </button>
   );
 }

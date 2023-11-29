@@ -9,19 +9,21 @@
       size: 2ch,
       border-radius: map.get(theme.$radius, "xl"),
       padding-inline: 0,
+      position: relative,
+      transform: none,
     )
   );
 
   position: relative;
   display: inline-flex;
 
-  &__count {
+  &__value {
     @include text.typography(
       base,
       $overrides: (color: $badge-color, font-size: map.get(theme.$font-size, "xs"))
     );
 
-    position: absolute;
+    position: theme.get-var(position);
     top: 0;
     right: 0;
     display: inline-flex;
@@ -33,7 +35,7 @@
     white-space: nowrap;
     background-color: theme.get-var(background-color);
     border-radius: theme.get-var(border-radius);
-    transform: translate(50%, -50%);
+    transform: theme.get-var(transform);
 
     &:empty {
       @include theme.define-var(
@@ -60,6 +62,15 @@
     @include theme.define-var(
       (
         padding-inline: map.get(theme.$spacings, "sm"),
+      )
+    );
+  }
+
+  &--floating {
+    @include theme.define-var(
+      (
+        position: absolute,
+        transform: translate(50%, -50%),
       )
     );
   }

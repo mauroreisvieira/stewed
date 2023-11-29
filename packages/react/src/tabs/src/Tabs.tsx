@@ -9,8 +9,7 @@ import { classNames } from "@stewed/utilities";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface TabsProps extends TabsProviderProps {
-  className?: string;
+export interface TabsProps extends React.HTMLAttributes<HTMLElement>, TabsProviderProps {
   /** Allow possibility to change alignment of tabs.  */
   alignment?: "left" | "right" | "center";
   /** The direction of the tab container. */
@@ -24,6 +23,7 @@ export function Tabs({
   className,
   onValueChange,
   children,
+  ...props
 }: TabsProps): React.ReactElement {
   const rootClassName = "tabs";
   const cssClasses = {
@@ -36,7 +36,7 @@ export function Tabs({
   };
 
   return (
-    <div className={cssClasses.root}>
+    <div className={cssClasses.root} {...props}>
       <TabsProvider value={value} onValueChange={onValueChange}>
         {children}
       </TabsProvider>

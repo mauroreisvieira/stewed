@@ -6,14 +6,14 @@ import styles from "./styles/index.module.scss";
 
 export interface BadgeProps {
   skin?: "primary" | "secondary" | "info" | "success" | "warning" | "error";
-  count?: string;
+  value?: string;
   className?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export function Badge({
   skin = "primary",
-  count,
+  value,
   className,
   children,
 }: BadgeProps): React.ReactElement {
@@ -23,15 +23,16 @@ export function Badge({
     root: classNames(
       styles[rootClassName],
       styles[`${rootClassName}--${skin}`],
-      count && count.length > 2 && styles[`${rootClassName}--padded`],
+      value && value.length > 2 && styles[`${rootClassName}--padded`],
+      !!children && styles[`${rootClassName}--floating`],
       className,
     ),
-    count: styles[`${rootClassName}__count`],
+    value: styles[`${rootClassName}__value`],
   };
   return (
     <div className={cssClasses.root}>
       {children}
-      <span className={cssClasses.count}>{count}</span>
+      <span className={cssClasses.value}>{value}</span>
     </div>
   );
 }

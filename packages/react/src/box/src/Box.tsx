@@ -9,46 +9,46 @@ const defaultElement = "div";
 
 type Sizes = "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
 
-export interface FlexProps<T> extends React.HTMLAttributes<HTMLDivElement> {
-  /** Specifies the type of element to use as flex. */
+export interface BoxProps<T> extends React.HTMLAttributes<HTMLDivElement> {
+  /** Specifies the type of element to use as box. */
   as?: T;
-  /** The direction of the flex container. */
+  /** The direction of the box container. */
   direction?: "row" | "column" | "row-reverse" | "column-reverse";
-  /** The gap between flex items. Can be a predefined size or a custom value. */
+  /** The gap between box items. Can be a predefined size or a custom value. */
   gap?: Sizes;
-  /** Aligns flex items along the main axis. */
+  /** Aligns box items along the main axis. */
   justify?: "start" | "end" | "center" | "between" | "around" | "evenly";
-  /** Aligns flex items along the cross axis. */
+  /** Aligns box items along the cross axis. */
   items?: "start" | "end" | "center" | "baseline" | "stretch";
-  /** Determines whether flex items should wrap to the next line if they exceed the container's width. */
+  /** Determines whether box items should wrap to the next line if they exceed the container's width. */
   wrap?: "wrap" | "wrap-reverse" | "nowrap";
-  /** Adds space between flex items on the horizontal and vertical axes. */
+  /** Adds space between box items on the horizontal and vertical axes. */
   space?: {
     x?: Sizes;
     y?: Sizes;
   };
-  /** Renders the flex container as an inline element. */
+  /** Renders the box container as an inline element. */
   inline?: boolean;
-  /** Allows the flex container to grow to fill available space. */
+  /** Allows the box container to grow to fill available space. */
   grow?: boolean;
 }
 
 /**
- * This component displays an flex component.
- * Component that implements the CSS flex box API.
+ * This component displays an box component.
+ * Component that implements the CSS box box API.
  *
  * @example
  * ```tsx
- * <Flex direction="column" gap="sm"></Flex>
+ * <Box direction="column" gap="sm"></Box>
  * ```
  *
  * @remarks This component is a polymorphic component can be rendered as a different element
  * and support all native props from the element passed on `as` prop.
  *
- * @param {FlexProps} props - The props for the Flex component.
- * @returns {React.ReactElement} - The rendered Flex component.
+ * @param {BoxProps} props - The props for the Box component.
+ * @returns {React.ReactElement} - The rendered Box component.
  */
-export const Flex = fixedForwardRef(function UnwrappedFlex<T extends React.ElementType>(
+export const Box = fixedForwardRef(function UnwrappedBox<T extends React.ElementType>(
   {
     as,
     direction = "row",
@@ -62,7 +62,7 @@ export const Flex = fixedForwardRef(function UnwrappedFlex<T extends React.Eleme
     className,
     children,
     ...props
-  }: FlexProps<T> &
+  }: BoxProps<T> &
     DistributiveOmit<
       React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
       "as"
@@ -70,7 +70,7 @@ export const Flex = fixedForwardRef(function UnwrappedFlex<T extends React.Eleme
   ref: React.ForwardedRef<unknown>,
 ): React.ReactElement {
   const Comp = as || defaultElement;
-  const rootClassName = "flex";
+  const rootClassName = "box";
   const cssClasses = {
     root: classNames(
       styles[rootClassName],

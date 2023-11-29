@@ -2,13 +2,13 @@
 @use "@stewed/react/src/theme" as theme;
 @use "./variables" as *;
 
-@include theme.scope($flex-root) {
-  --flex-display: flex;
+@include theme.scope($box-root) {
+  --box-display: flex;
 
-  display: var(--flex-display);
+  display: var(--box-display);
 
   &--inline {
-    --flex-display: inline-flex;
+    --box-display: inline-box;
   }
 
   // Direction
@@ -25,14 +25,14 @@
   }
 
   // Gap
-  @each $key, $value in $flex-gap {
+  @each $key, $value in $box-gap {
     &--gap-#{$key} {
       gap: #{$value};
     }
   }
 
   // Space
-  @each $key, $value in $flex-gap {
+  @each $key, $value in $box-gap {
     &--space-x-#{$key}:not([hidden]) ~ :not([hidden]) {
       margin-left: #{$value};
     }
@@ -44,11 +44,11 @@
 
   // Justify Content
   &--justify-start {
-    justify-content: flex-start;
+    justify-content: box-start;
   }
 
   &--justify-end {
-    justify-content: flex-end;
+    justify-content: box-end;
   }
 
   &--justify-center {
@@ -69,11 +69,11 @@
 
   // Align Items
   &--items-start {
-    align-items: flex-start;
+    align-items: box-start;
   }
 
   &--items-end {
-    align-items: flex-end;
+    align-items: box-end;
   }
 
   &--items-center {
@@ -88,13 +88,13 @@
     align-items: stretch;
   }
 
-  // Flex Grow
+  // box Grow
   &--grow {
     flex-basis: 0;
     flex-grow: 1;
   }
 
-  // Flex Wrap
+  // box Wrap
   &--wrap {
     flex-wrap: wrap;
   }

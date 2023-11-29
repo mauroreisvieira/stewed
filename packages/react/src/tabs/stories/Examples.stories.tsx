@@ -1,14 +1,13 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { Tabs } from "../";
-import { FiSearch } from "react-icons/fi";
+import { FiPackage, FiBell, FiCalendar } from "react-icons/fi";
 
 type Story = StoryObj<typeof Tabs>;
 
 const meta: Meta<typeof Tabs> = {
   title: "Components/Tabs",
   component: Tabs,
-  subcomponents: {},
 };
 
 export default meta;
@@ -21,14 +20,14 @@ export const Base: Story = {
     children: (
       <>
         <Tabs.List>
-          <Tabs.Item leftSlot={<FiSearch />} value="1">
-            Item
+          <Tabs.Item leftSlot={<FiPackage />} value="1">
+            Orders
           </Tabs.Item>
-          <Tabs.Item leftSlot={<FiSearch />} value="2">
-            Item Long
+          <Tabs.Item leftSlot={<FiBell />} value="2">
+            Notifications
           </Tabs.Item>
-          <Tabs.Item leftSlot={<FiSearch />} value="3">
-            Item Very Long
+          <Tabs.Item leftSlot={<FiCalendar />} value="3">
+            Calendar
           </Tabs.Item>
         </Tabs.List>
       </>

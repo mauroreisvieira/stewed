@@ -1,7 +1,7 @@
 import React from "react";
 // UI Components
 import { FiSearch, FiPlus } from "react-icons/fi";
-import { Avatar, Button, Card, Flex, Input, Text } from "../../../../packages/react/index";
+import { Avatar, Button, Card, Box, Input, Text } from "../../../../packages/react/index";
 
 const projects = [
   {
@@ -65,8 +65,8 @@ const projects = [
 
 export function Board(): React.ReactElement {
   return (
-    <Flex direction="column" grow>
-      <Flex
+    <Box direction="column" grow>
+      <Box
         items="center"
         space={{
           y: "xl",
@@ -77,19 +77,19 @@ export function Board(): React.ReactElement {
           All boards
         </Text>
         <Button leftIcon={<FiPlus />}>New Project</Button>
-      </Flex>
+      </Box>
       <div></div>
-      <Flex gap="lg">
+      <Box gap="lg">
         {projects.map(({ id, title, category, members }) => (
-          <Flex key={id} gap="md" grow>
+          <Box key={id} gap="md" grow>
             <Card>
               <Card.Body>
-                <Flex direction="column" gap="sm" space={{ y: "xl" }}>
+                <Box direction="column" gap="sm" space={{ y: "xl" }}>
                   <Text weight="bold" size="lg">
                     {title}
                   </Text>
                   <Text skin="secondary">{category}</Text>
-                </Flex>
+                </Box>
                 <Avatar.Group>
                   {members.map(({ id, name }) => (
                     <Avatar key={id} size="xs" name={name} skin="secondary" />
@@ -97,9 +97,9 @@ export function Board(): React.ReactElement {
                 </Avatar.Group>
               </Card.Body>
             </Card>
-          </Flex>
+          </Box>
         ))}
-      </Flex>
-    </Flex>
+      </Box>
+    </Box>
   );
 }
