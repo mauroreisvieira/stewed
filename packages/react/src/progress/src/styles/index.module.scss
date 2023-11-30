@@ -1,5 +1,5 @@
 @use "sass:map";
-@use "@stewed/react/src/theme" as theme;
+@use "@stewed/react/src/theme/src/styles" as theme;
 @use "./variables" as *;
 
 @include theme.scope($progress-root) {
