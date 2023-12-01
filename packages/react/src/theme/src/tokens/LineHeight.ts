@@ -1,11 +1,14 @@
 export const lineHeight = {
-  "sm": "20px",
-  "md": "20px",
-  "lg": "20px",
-  "xl": "20px",
-  "2xl": "20px",
-  "3xl": "20px",
-  "4xl": "20px",
+  "xs": "0.75rem",
+  "sm": "1rem",
+  "md": "1.25rem",
+  "lg": "1.5rem",
+  "xl": "1.75rem",
+  "2xl": "2rem",
+  "3xl": "2.5rem",
+  "4xl": "3rem",
+  "5xl": "3.5rem",
+  "6xl": "4rem",
 };
 
 export type LineHeight = typeof lineHeight;

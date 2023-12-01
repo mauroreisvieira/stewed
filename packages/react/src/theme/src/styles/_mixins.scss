@@ -1,9 +1,5 @@
 @use "./variables" as *;
 
-@mixin reset {
-  all: unset;
-}
-
 @mixin disabled-styles {
   &:disabled,
   &--disabled {
