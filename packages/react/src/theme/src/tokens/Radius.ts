@@ -1,4 +1,4 @@
-export const defaultRadius = {
+export const radius = {
   none: "0px",
   sm: "2px",
   md: "4px",
@@ -6,4 +6,4 @@ export const defaultRadius = {
   xl: "12px",
 };
 
-export type Radius = typeof defaultRadius;
+export type Radius = typeof radius;

@@ -53,6 +53,15 @@
     }
   }
 
+  // &--primary {
+  //   @include theme.define-var(
+  //     (
+  //       color: theme.get-theme-var("color-text-inverse"),
+  //       background: theme.get-theme-var("color-primary"),
+  //     )
+  //   );
+  // }
+
   &--filled {
     @include theme.define-var(
       (

@@ -1,4 +1,4 @@
-export const defaultFontWeight = {
+export const fontWeight = {
   "thin": "100",
   "light": "200",
   "normal": "300",
@@ -8,4 +8,4 @@ export const defaultFontWeight = {
   "extra-bold": "700",
 };
 
-export type FontWeight = typeof defaultFontWeight;
+export type FontWeight = typeof fontWeight;

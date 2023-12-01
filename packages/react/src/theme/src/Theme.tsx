@@ -2,82 +2,47 @@ import React, { useMemo } from "react";
 // Utilities
 import { classNames } from "@stewed/utilities";
 // Tokens
-import { type Tokens, defaultTokens } from "./tokens";
-
-// type Spacings = {
-//   "xxs": string;
-//   "xs": string;
-//   "sm": string;
-//   "md": string;
-//   "lg": string;
-//   "xl": string;
-//   "2xl": string;
-// };
-
-// type FontSizes = {
-//   "xxs": string;
-//   "xs": string;
-//   "sm": string;
-//   "md": string;
-//   "lg": string;
-//   "xl": string;
-//   "2xl": string;
-//   "3xl": string;
-//   "4xl": string;
-//   "5xl": string;
-//   "6xl": string;
-//   "7xl": string;
-//   "8xl": string;
-// };
-
-// type LineHeight = {
-//   "sm": string;
-//   "md": string;
-//   "lg": string;
-//   "xl": string;
-//   "2xl": string;
-//   "3xl": string;
-//   "4xl": string;
-// };
-
-// type FontWeight = {
-//   "thin": string;
-//   "light": string;
-//   "normal": string;
-//   "medium": string;
-//   "semi-bold": string;
-//   "bold": string;
-//   "extra-bold": string;
-// };
+import { type Tokens, tokens as defaultTokens } from "./tokens";
 
 export interface ThemeProps<T extends string> extends React.HTMLAttributes<HTMLDivElement> {
-  themes?: T[];
-  defaultTheme?: T;
-  tokens?: Record<T, Tokens>;
+  tokens?: Partial<Record<T, Tokens>>;
+  theme: T;
 }
 
 export function Theme<T extends string>({
   className,
   children,
+  theme,
+  tokens,
   ...props
 }: ThemeProps<T>): React.ReactElement {
   const cssClasses = {
     root: classNames(className),
   };
 
-  const cssTokens = useMemo<React.CSSProperties>(() => {
+  const mergedTokens = useMemo<Tokens>(() => {
+    return Object.keys(defaultTokens).reduce((acc, key) => {
+      acc[key as keyof Tokens] = {
+        ...(defaultTokens[key as keyof Tokens] || {}),
+        ...(tokens?.[theme]?.[key as keyof Tokens] || {}),
+      };
+      return acc;
+    }, {} as Tokens);
+  }, [theme, tokens]);
+
+  const cssProperties = useMemo(() => {
     return Object.fromEntries(
-      Object.entries(defaultTokens).flatMap(([context, data]) =>
+      Object.entries(mergedTokens).flatMap(([context, data]) =>
         Object.entries(data).map(([key, value]) => [
-          "--" + context.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase() + "-" + key,
+          `--${context}-${key}`.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase(),
           value,
         ]),
       ),
     );
-  }, []);
+  }, [mergedTokens]);
 
   return (
-    <div className={cssClasses.root} style={cssTokens} {...props}>
+    <div className={cssClasses.root} data-theme={theme} style={cssProperties} {...props}>
       {children}
     </div>
   );

@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 // UI Components
 import {
-  Card,
   Button,
   Box,
-  Tabs,
   Text,
   AspectRatio,
   Tag,
@@ -17,7 +15,15 @@ export function ProductDetail(): React.ReactElement {
   const [selectedSize, setSelectedSize] = useState("M");
 
   return (
-    <Theme>
+    <Theme
+      theme="light"
+      tokens={{
+        light: {
+          color: {
+            primary: "#6A9A23"
+          }
+        },
+      }}>
       <Box justify="between" gap="2xl">
         <Box>
           <AspectRatio ratio="2:3">
@@ -48,7 +54,7 @@ export function ProductDetail(): React.ReactElement {
               Seleccione o seu tamanho
             </Text>
             <Box gap="sm" space={{ y: "lg" }}>
-              {productsSizes.map((value, index) => (
+              {productsSizes.map((value) => (
                 <Button
                   key={value}
                   onClick={() => setSelectedSize(value)}
