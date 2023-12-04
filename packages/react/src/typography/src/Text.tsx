@@ -3,6 +3,7 @@ import React from "react";
 import { classNames } from "@stewed/utilities";
 // Types
 import { type DistributiveOmit, fixedForwardRef } from "../../types";
+import type { FontSize, FontWeight } from "../../tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
@@ -39,9 +40,9 @@ export interface TextProps<T> extends React.ComponentProps<typeof defaultElement
    */
   as?: T;
   /** Changes the size of the text, giving it more or less font size. */
-  size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl" | "8xl";
+  size?: FontSize;
   /** Changes the weight of the text, giving it more or less weight. */
-  weight?: "thin" | "light" | "normal" | "medium" | "semi-bold" | "bold" | "extra-bold";
+  weight?: FontWeight;
   /** Changes the font styles and transforming text. */
   variation?: TextVariation | TextVariation[];
   /** Change the visual style of the text. */

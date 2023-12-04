@@ -20,4 +20,3 @@ export const color = {
     // --primary-pressed: var(--primary-700);
     // --primary-strong: var(--primary-900);
 
-export type Color = typeof color;

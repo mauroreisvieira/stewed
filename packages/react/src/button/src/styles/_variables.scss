@@ -1,4 +1,3 @@
-@use "sass:map";
 @use "@stewed/react/src/theme/src/styles" as theme;
 
 $button-root: "button";
@@ -12,14 +11,14 @@ $button-skins: (
 );
 
 /// Font Sizes
-$button-font-sizes: theme.$font-size;
+$button-font-sizes: theme.get-font-size();
 $button-sizes: (
-  "sm": map.get(theme.$spacings, "md") * 4,
-  "md": map.get(theme.$spacings, "md") * 5,
-  "lg": map.get(theme.$spacings, "md") * 6,
+  "sm": theme.get-spacing("md") * 4,
+  "md": theme.get-spacing("md") * 5,
+  "lg": theme.get-spacing("md") * 6,
 );
 $button-spacings: (
-  "sm": map.get(theme.$spacings, "md"),
-  "md": map.get(theme.$spacings, "md") * 2,
-  "lg": map.get(theme.$spacings, "md") * 3,
+  "sm": theme.get-spacing("md"),
+  "md": theme.get-spacing("md") * 2,
+  "lg": theme.get-spacing("md") * 3,
 );

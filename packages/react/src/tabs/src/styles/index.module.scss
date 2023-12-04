@@ -1,4 +1,3 @@
-@use "sass:map";
 @use "@stewed/react/src/theme/src/styles" as theme;
 @use "@stewed/react/src/typography/src/styles" as text;
 @use "./variables" as *;
@@ -11,7 +10,7 @@
     (
       background-color: theme.get-color("secondary", "100"),
       border-color: theme.get-color("secondary", "200"),
-      border-radius: map.get(theme.$radius, "md"),
+      border-radius: theme.get-radius("md"),
       flex-direction: row,
       height: 40px,
       width: auto,
@@ -45,10 +44,10 @@
   &__list {
     display: inline-flex;
     flex-direction: theme.get-var(flex-direction);
-    gap: map.get(theme.$spacings, "sm");
+    gap: theme.get-spacing("sm");
     align-items: center;
     width: theme.get-var(width);
-    padding: map.get(theme.$spacings, "xxs");
+    padding: theme.get-spacing("xxs");
     user-select: none;
     background-color: theme.get-var(background-color);
     border: 1px solid theme.get-var(border-color);

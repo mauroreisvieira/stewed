@@ -1,32 +1,42 @@
-@use "sass:map";
 @use "@stewed/react/src/theme/src/styles" as theme;
+@use "@stewed/react/src/typography/src/styles" as text;
 @use "./variables" as *;
 
-@include theme.scope("alert") {
+@include theme.scope($alert-root) {
   @include theme.define-var(
     (
-      border-radius: $alert-border-radius,
+      border-radius: theme.get-radius("md"),
+      gap: theme.get-spacing("lg"),
+      padding: theme.get-spacing("xl"),
+      wrapper-gap: theme.get-spacing("sm"),
     )
   );
 
   position: relative;
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
-  gap: $alert-slot-gap;
+  gap: theme.get-var(gap);
   width: 100%;
-  padding: $alert-inner-spacing-y $alert-inner-spacing-x;
+  padding: theme.get-var(padding);
   background-color: theme.get-var(background-color);
   border-radius: theme.get-var(border-radius);
 
   &__title {
-    font-weight: $alert-title-font-weight;
+    @include text.typography(
+      "display-6",
+      $overrides: (
+        font-size: theme.get-font-size("md"),
+        font-weight: theme.get-font-weight("semi-bold")
+      )
+    );
   }
 
   &__wrapper {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    gap: $alert-gap;
+    gap: theme.get-var(wrapper-gap);
   }
 
   &__title,
@@ -36,7 +46,7 @@
   }
 
   &__body {
-    font-size: $alert-body-font-size;
+    @include text.typography("base", $overrides: (font-size: theme.get-font-size("sm")));
   }
 
   @each $key, $value in $alert-skins {

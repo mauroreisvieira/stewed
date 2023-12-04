@@ -1,4 +1,3 @@
-@use "sass:map";
 @use "@stewed/react/src/theme/src/styles" as theme;
 @use "@stewed/react/src/typography/src/styles" as text;
 @use "./variables" as *;
@@ -7,7 +6,7 @@
   @include theme.define-var(
     (
       size: 2ch,
-      border-radius: map.get(theme.$radius, "xl"),
+      border-radius: theme.get-radius("xl"),
       padding-inline: 0,
       position: relative,
       transform: none,
@@ -20,7 +19,7 @@
   &__value {
     @include text.typography(
       base,
-      $overrides: (color: $badge-color, font-size: map.get(theme.$font-size, "xs"))
+      $overrides: (color: $badge-color, font-size: theme.get-font-size("xs"))
     );
 
     position: theme.get-var(position);
@@ -40,7 +39,7 @@
     &:empty {
       @include theme.define-var(
         (
-          size: map.get(theme.$spacings, "md"),
+          size: theme.get-spacing("md"),
         )
       );
 
@@ -61,7 +60,7 @@
   &--padded {
     @include theme.define-var(
       (
-        padding-inline: map.get(theme.$spacings, "sm"),
+        padding-inline: theme.get-spacing("sm"),
       )
     );
   }

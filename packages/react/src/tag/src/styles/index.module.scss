@@ -20,19 +20,19 @@
 
   &--sm {
     --tag-size: #{map.get($tag-sizes, "sm")};
-    --tag-spacing: #{map.get(theme.$spacings, "md")};
+    --tag-spacing: #{theme.get-spacing("md")};
     --tag-font-size: #{map.get($tag-font-sizes, "xs")};
   }
 
   &--md {
     --tag-size: #{map.get($tag-sizes, "md")};
-    --tag-spacing: #{map.get(theme.$spacings, "md")};
+    --tag-spacing: #{theme.get-spacing("md")};
     --tag-font-size: #{map.get($tag-font-sizes, "sm")};
   }
 
   &--lg {
     --tag-size: #{map.get($tag-sizes, "lg")};
-    --tag-spacing: #{map.get(theme.$spacings, "md")};
+    --tag-spacing: #{theme.get-spacing("md")};
     --tag-font-size: #{map.get($tag-font-sizes, "md")};
   }
 

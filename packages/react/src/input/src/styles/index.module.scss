@@ -7,7 +7,7 @@
   @include theme.define-var(
     (
       border-color: map.get($input-skins-default, "border-color"),
-      border-radius: map.get(theme.$radius, "md"),
+      border-radius: theme.get-radius("md"),
       height: $input-height,
     )
   );

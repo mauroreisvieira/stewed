@@ -1,14 +1,13 @@
-@use "sass:map";
 @use "@stewed/react/src/theme/src/styles" as theme;
 
 $list-box-root: "list-box";
-$list-box-inner-spacing-block: map.get(theme.$spacings, "md");
+$list-box-inner-spacing-block: theme.get-spacing("md");
 
 // List Box Item
-$list-box-item-inner-spacing-inline: map.get(theme.$spacings, "xl");
-$list-box-item-inner-spacing-block: map.get(theme.$spacings, "md");
-$list-box-item-outer-spacing-bottom: map.get(theme.$spacings, "xxs");
-$list-box-item-border-radius: map.get(theme.$radius, "md");
+$list-box-item-inner-spacing-inline: theme.get-spacing("xl");
+$list-box-item-inner-spacing-block: theme.get-spacing("md");
+$list-box-item-outer-spacing-bottom: theme.get-spacing("xxs");
+$list-box-item-border-radius: theme.get-radius("md");
 $list-box-item-color-hover: #{theme.get-color("gray", "900")};
 $list-box-item-background-hover: #{theme.get-color("gray", "50")};
 $list-box-item-background-active: #{theme.get-color("gray", "100")};
@@ -19,5 +18,5 @@ $list-box-item-skins: (
 
 // List Box Section
 $list-box-title-color: #{theme.get-color("gray", "400")};
-$list-box-title-font-size: map.get(theme.$font-size, "xs");
-$list-box-title-font-weight: map.get(theme.$font-weight, "medium");
+$list-box-title-font-size: theme.get-font-size("xs");
+$list-box-title-font-weight: theme.get-font-weight("medium");

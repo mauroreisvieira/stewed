@@ -1,4 +1,3 @@
-@use "sass:map";
 @use "@stewed/react/src/theme/src/styles" as theme;
 @use "@stewed/react/src/typography/src/styles" as text;
 @use "./variables" as *;
@@ -38,7 +37,7 @@
 
     @include text.typography(
       base,
-      $overrides: (color: null, line-height: map.get(theme.$line-height, "sm"))
+      $overrides: (color: null, line-height: theme.get-line-height("sm"))
     );
     @include theme.focus-styles;
     @include theme.disabled-styles;

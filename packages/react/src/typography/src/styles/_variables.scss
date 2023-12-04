@@ -1,61 +1,68 @@
-@use "sass:map";
-@use "@stewed/react/src/theme/src/styles" as theme;
+@use "@stewed/react/src/theme/src/styles" as *;
 
 $typography-root: "typography";
+
+/// Styles
 $typography-styles: (
   "base": (
-    "font-size": map.get(theme.$font-size, "md"),
-    "font-weight": map.get(theme.$font-weight, "normal"),
-    "line-height": map.get(theme.$line-height, "lg"),
-    "color": theme.get-color("gray", "900"),
+    "font-size": get-font-size("md"),
+    "font-weight": get-font-weight("normal"),
+    "line-height": get-line-heigh("lg"),
+    "color": get-color("gray", "900"),
   ),
   "link": (
-    "font-size": map.get(theme.$font-size, "md"),
-    "font-weight": map.get(theme.$font-weight, "normal"),
-    "line-height": map.get(theme.$line-height, "lg"),
-    "color": theme.get-color("primary"),
+    "font-size": get-font-size("md"),
+    "font-weight": get-font-weight("normal"),
+    "line-height": get-line-heigh("lg"),
+    "color": get-color("primary"),
   ),
   "display-1": (
-    "font-size": map.get(theme.$font-size, "5xl"),
-    "font-weight": map.get(theme.$font-weight, "bold"),
-    "line-height": map.get(theme.$line-height, "6xl"),
-    "color": theme.get-color("gray", "900"),
+    "font-size": get-font-size("5xl"),
+    "font-weight": get-font-weight("bold"),
+    "line-height": get-line-heigh("6xl"),
+    "color": get-color("gray", "900"),
   ),
   "display-2": (
-    "font-size": map.get(theme.$font-size, "4xl"),
-    "font-weight": map.get(theme.$font-weight, "bold"),
-    "line-height": map.get(theme.$line-height, "5xl"),
-    "color": theme.get-color("gray", "900"),
+    "font-size": get-font-size("4xl"),
+    "font-weight": get-font-weight("bold"),
+    "line-height": get-line-heigh("5xl"),
+    "color": get-color("gray", "900"),
   ),
   "display-3": (
-    "font-size": map.get(theme.$font-size, "3xl"),
-    "font-weight": map.get(theme.$font-weight, "bold"),
-    "line-height": map.get(theme.$line-height, "4xl"),
-    "color": theme.get-color("gray", "900"),
+    "font-size": get-font-size("3xl"),
+    "font-weight": get-font-weight("bold"),
+    "line-height": get-line-heigh("4xl"),
+    "color": get-color("gray", "900"),
   ),
   "display-4": (
-    "font-size": map.get(theme.$font-size, "2xl"),
-    "font-weight": map.get(theme.$font-weight, "bold"),
-    "line-height": map.get(theme.$line-height, "3xl"),
-    "color": theme.get-color("gray", "900"),
+    "font-size": get-font-size("2xl"),
+    "font-weight": get-font-weight("bold"),
+    "line-height": get-line-heigh("3xl"),
+    "color": get-color("gray", "900"),
   ),
   "display-5": (
-    "font-size": map.get(theme.$font-size, "xl"),
-    "font-weight": map.get(theme.$font-weight, "bold"),
-    "line-height": map.get(theme.$line-height, "2xl"),
-    "color": theme.get-color("gray", "900"),
+    "font-size": get-font-size("xl"),
+    "font-weight": get-font-weight("bold"),
+    "line-height": get-line-heigh("2xl"),
+    "color": get-color("gray", "900"),
   ),
   "display-6": (
-    "font-size": map.get(theme.$font-size, "lg"),
-    "font-weight": map.get(theme.$font-weight, "bold"),
-    "line-height": map.get(theme.$line-height, "xl"),
-    "color": theme.get-color("gray", "900"),
+    "font-size": get-font-size("lg"),
+    "font-weight": get-font-weight("bold"),
+    "line-height": get-line-heigh("xl"),
+    "color": get-color("gray", "900"),
   ),
 );
-$typography-sizes: theme.$font-size;
-$typography-weights: theme.$font-weight;
+
+/// Sizes
+$typography-sizes: get-font-size();
+
+/// Weights
+$typography-weights: get-font-weight();
+
+/// Skins
 $typography-skins: (
-  "primary": theme.get-color("primary"),
-  "secondary": theme.get-color("secondary"),
-  "error": theme.get-color("red"),
+  "primary": get-color("primary"),
+  "secondary": get-color("secondary"),
+  "error": get-color("red"),
 );

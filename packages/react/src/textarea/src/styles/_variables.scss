@@ -1,10 +1,9 @@
-@use "sass:map";
 @use "@stewed/react/src/theme/src/styles" as theme;
 
 $textarea-root: "textarea";
 
 /// Appearance
-$textarea-border-radius: map.get(theme.$radius, "md");
+$textarea-border-radius: theme.get-radius("md");
 $textarea-skins-default: (
   "border": theme.get-color("secondary", "300"),
   "border-hover": theme.get-color("secondary", "400"),
@@ -21,9 +20,9 @@ $textarea-skins: (
 );
 
 // Font
-$textarea-font-weight: map.get(theme.$font-weight, "normal");
-$textarea-font-size: map.get(theme.$font-size, "md");
+$textarea-font-weight: theme.get-font-weight("normal");
+$textarea-font-size: theme.get-font-size("md");
 
 // Spacing's
-$textarea-sizes: map.get(theme.$spacings, "md") * 1;
-$textarea-spacings: map.get(theme.$spacings, "md") * 2;
+$textarea-sizes: theme.get-spacing("md") * 1;
+$textarea-spacings: theme.get-spacing("md") * 2;

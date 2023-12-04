@@ -10,5 +10,3 @@ export const lineHeight = {
   "5xl": "3.5rem",
   "6xl": "4rem",
 };
-
-export type LineHeight = typeof lineHeight;

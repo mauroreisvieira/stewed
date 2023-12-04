@@ -8,8 +8,8 @@
 
   @include theme.define-var(
     (
-      border-radius: map.get(theme.$radius, "md"),
-      gap: map.get(theme.$spacings, "md"),
+      border-radius: theme.get-radius("md"),
+      gap: theme.get-spacing("md"),
     )
   );
 

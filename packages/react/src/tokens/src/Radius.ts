@@ -6,5 +6,3 @@ export const radius = {
   "xl": "0.75rem",
   "full": "9999px",
 };
-
-export type Radius = typeof radius;

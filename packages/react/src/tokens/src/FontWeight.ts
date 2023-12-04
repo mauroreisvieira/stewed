@@ -8,5 +8,3 @@ export const fontWeight = {
   "extra-bold": "700",
   "black": "900",
 };
-
-export type FontWeight = typeof fontWeight;

@@ -1,6 +1,5 @@
-@use "sass:map";
 @use "@stewed/react/src/theme/src/styles" as theme;
 
 $box-root: "box";
-$box-gap: theme.$spacings;
-$box-space: theme.$spacings;
+$box-gap: theme.get-spacing();
+$box-space: theme.get-spacing();

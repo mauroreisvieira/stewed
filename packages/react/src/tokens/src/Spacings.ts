@@ -13,5 +13,3 @@ export const spacings = {
   "6xl": "3rem",
   "7xl": "3.5rem",
 };
-
-export type Spacings = typeof spacings;

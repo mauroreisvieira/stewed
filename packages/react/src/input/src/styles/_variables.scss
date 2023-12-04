@@ -1,10 +1,9 @@
-@use "sass:map";
 @use "@stewed/react/src/theme/src/styles" as theme;
 
 $input-root: "input";
 
 // Appearance
-$input-border-radius: map.get(theme.$radius, "md");
+$input-border-radius: theme.get-radius("md");
 $input-skins-default: (
   "border-color": theme.get-color("secondary", "300"),
   "border-color-hover": theme.get-color("secondary", "400"),
@@ -21,8 +20,8 @@ $input-skins: (
 );
 
 // Font
-$input-font-size: map.get(theme.$font-size, "sm");
+$input-font-size: theme.get-font-size("sm");
 
 // Spacing's
-$input-height: map.get(theme.$spacings, "md") * 5;
-$input-spacings: map.get(theme.$spacings, "md") * 2;
+$input-height: theme.get-spacing("md") * 5;
+$input-spacings: theme.get-spacing("md") * 2;

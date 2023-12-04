@@ -2,11 +2,11 @@ import React, { useMemo } from "react";
 // Utilities
 import { classNames } from "@stewed/utilities";
 // Tokens
-import { type Tokens, tokens as defaultTokens } from "./tokens";
+import { type Tokens, tokens as defaultTokens } from "../../tokens";
 
 export interface ThemeProps<T extends string> extends React.HTMLAttributes<HTMLDivElement> {
   tokens?: Partial<Record<T, Tokens>>;
-  theme: T;
+  theme?: T;
 }
 
 export function Theme<T extends string>({

@@ -13,5 +13,3 @@ export const fontSize = {
   "7xl": "4.5rem",
   "8xl": "6rem",
 };
-
-export type FontSize = typeof fontSize;

@@ -1,19 +1,8 @@
-@use "@stewed/react/src/theme/src/styles" as * with (
-  $config: (
-    extend: (
-      colors: (
-        new-color: (
-          50: #fefeff,
-        ),
-      ),
-    ),
-  )
-);
+@use "@stewed/react/src/theme/src/styles" as *;
 
 /* stylelint-disable-next-line selector-max-type */
 body {
   font-family: "DM Sans", sans-serif;
-  background-color: #{get-color(new-color, 50)};
 }
 
 @include use-theme(".sb-show-main");

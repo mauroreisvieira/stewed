@@ -16,7 +16,7 @@
   height: theme.get-var(size);
   overflow: hidden;
   font-size: calc(theme.get-var(size) / 3);
-  font-weight: map.get(theme.$font-weight, medium);
+  font-weight: theme.get-font-weight("medium");
   color: theme.get-var(color);
   user-select: none;
   background-color: theme.get-var(background-color);
