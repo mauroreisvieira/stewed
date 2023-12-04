@@ -65,7 +65,7 @@ export function ProductDetail(): React.ReactElement {
                 </Button>
               ))}
             </Box>
-            <Button fullWidth>Adicionar ao carrinho</Button>
+            <Button size="lg" fullWidth>Adicionar ao carrinho</Button>
           </Box>
           <Box gap="lg" direction="column">
             <Text size="sm" skin="secondary" whiteSpace="nowrap">

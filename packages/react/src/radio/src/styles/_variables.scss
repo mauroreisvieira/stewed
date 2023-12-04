@@ -7,9 +7,9 @@ $radio-font-size: (
   "lg": 24px,
 );
 $radio-sizes: (
-  "sm": theme.get-spacing("xxs") * 8,
-  "md": theme.get-spacing("xxs") * 10,
-  "lg": theme.get-spacing("xxs") * 12,
+  "sm": theme.get-spacing("xxs"),
+  "md": theme.get-spacing("xxs"),
+  "lg": theme.get-spacing("xxs"),
 );
 $radio-border-radius: theme.get-radius("sm");
 $radio-skins: (

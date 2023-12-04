@@ -6,9 +6,6 @@
   @include theme.define-var(
     (
       border-radius: theme.get-radius("md"),
-      gap: theme.get-spacing("lg"),
-      padding: theme.get-spacing("xl"),
-      wrapper-gap: theme.get-spacing("sm"),
     )
   );
 
@@ -16,9 +13,9 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
-  gap: theme.get-var(gap);
+  gap: theme.get-spacing("lg");
   width: 100%;
-  padding: theme.get-var(padding);
+  padding: theme.get-spacing("xl");
   background-color: theme.get-var(background-color);
   border-radius: theme.get-var(border-radius);
 
@@ -36,7 +33,7 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    gap: theme.get-var(wrapper-gap);
+    gap: theme.get-spacing("sm");
   }
 
   &__title,

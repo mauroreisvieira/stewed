@@ -1,24 +1,10 @@
 @use "@stewed/react/src/theme/src/styles" as theme;
 
 $button-root: "button";
-$button-color: #fff;
 
 /// Skins
 $button-skins: (
   "primary": "primary",
   "secondary": "secondary",
   "error": "red",
-);
-
-/// Font Sizes
-$button-font-sizes: theme.get-font-size();
-$button-sizes: (
-  "sm": theme.get-spacing("md") * 4,
-  "md": theme.get-spacing("md") * 5,
-  "lg": theme.get-spacing("md") * 6,
-);
-$button-spacings: (
-  "sm": theme.get-spacing("md"),
-  "md": theme.get-spacing("md") * 2,
-  "lg": theme.get-spacing("md") * 3,
 );

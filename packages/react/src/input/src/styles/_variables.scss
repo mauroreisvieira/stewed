@@ -23,5 +23,5 @@ $input-skins: (
 $input-font-size: theme.get-font-size("sm");
 
 // Spacing's
-$input-height: theme.get-spacing("md") * 5;
-$input-spacings: theme.get-spacing("md") * 2;
+$input-height: theme.get-spacing("md");
+$input-spacings: theme.get-spacing("md");

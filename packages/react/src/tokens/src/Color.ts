@@ -13,10 +13,13 @@ export const color = {
   primaryPressed: "#4338ca",
 };
 
-    // --primary-light-hover: var(--primary-50);
-    // --primary-light-pressed: var(--primary-100);
-    // --primary: var(--primary-500);
-    // --primary-hover: var(--primary-600);
-    // --primary-pressed: var(--primary-700);
-    // --primary-strong: var(--primary-900);
+    // --primary-light-hover: var(--primary-50); button ghost hover
+    // --primary-light-pressed: var(--primary-100); button ghost pressed - alert background
+    // --primary: var(--primary-500); button
+    // --primary-hover: var(--primary-600);button hover
+    // --primary-pressed: var(--primary-700); button pressed
+    // --primary-strong: var(--primary-900); alert title
 
+// primary: #5a58f2;
+// primary-faded: #f1f1fe;
+// primary-highlighted: #4d4af0;

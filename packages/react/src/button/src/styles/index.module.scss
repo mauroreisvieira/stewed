@@ -4,8 +4,6 @@
 @use "./variables" as *;
 
 @include theme.scope($button-root) {
-  all: reset;
-
   @include theme.define-var(
     (
       border-radius: theme.get-radius("md"),
@@ -13,6 +11,7 @@
     )
   );
 
+  all: reset;
   position: relative;
   box-sizing: border-box;
   display: inline-flex;
@@ -29,109 +28,94 @@
   touch-action: manipulation;
   cursor: pointer;
   user-select: none;
-  background-color: theme.get-var(background);
+  background-color: theme.get-var(background-color);
   border: 1px solid theme.get-var(border-color);
   border-radius: theme.get-var(border-radius);
 
   @include theme.focus-styles;
   @include theme.disabled-styles;
 
+  &[href] {
+    text-decoration: none;
+  }
+
   @each $key, $value in $button-skins {
     &--#{$key} {
-      @include theme.define-var(
-        (
-          color: theme.get-color($value),
-          border-color: transparent,
-          color-hover: theme.get-color($value, "600"),
-          background: theme.get-color($value),
-          background-hover: theme.get-color($value, "600"),
-          background-active: theme.get-color($value, "700"),
-          background-ghost-hover: theme.get-color($value, "50"),
-          background-ghost-active: theme.get-color($value, "100"),
-        )
-      );
-    }
-  }
+      &-filled {
+        @include theme.define-var(
+          (
+            background-color: theme.get-color($value),
+            color: #fff,
+          )
+        );
 
-  // &--primary {
-  //   @include theme.define-var(
-  //     (
-  //       color: theme.get-theme-var("color-text-inverse"),
-  //       background: theme.get-theme-var("color-primary"),
-  //     )
-  //   );
-  // }
+        &:hover {
+          @include theme.define-var(
+            (
+              background-color: theme.get-color($value, "600"),
+            )
+          );
+        }
 
-  &--filled {
-    @include theme.define-var(
-      (
-        color: #fff,
-      )
-    );
+        &:active {
+          @include theme.define-var(
+            (
+              background-color: theme.get-color($value, "700"),
+            )
+          );
+        }
+      }
 
-    &:hover {
-      @include theme.define-var(
-        (
-          background: theme.get-var(background-hover),
-        )
-      );
-    }
+      &-ghost {
+        @include theme.define-var(
+          (
+            color: theme.get-color($value),
+            background-color: transparent,
+          )
+        );
 
-    &:active {
-      @include theme.define-var(
-        (
-          background: theme.get-var(background-active),
-        )
-      );
-    }
-  }
+        &:hover {
+          @include theme.define-var(
+            (
+              background-color: theme.get-color($value, "50"),
+            )
+          );
+        }
 
-  &--ghost {
-    @include theme.define-var(
-      (
-        background: transparent,
-      )
-    );
+        &:active {
+          @include theme.define-var(
+            (
+              background-color: theme.get-color($value, "100"),
+            )
+          );
+        }
+      }
 
-    &:hover {
-      @include theme.define-var(
-        (
-          background: theme.get-var(background-ghost-hover),
-        )
-      );
-    }
+      &-outline {
+        @include theme.define-var(
+          (
+            background-color: transparent,
+            border-color: currentColor,
+            color: theme.get-color($value),
+          )
+        );
 
-    &:active {
-      @include theme.define-var(
-        (
-          background: theme.get-var(background-ghost-active),
-        )
-      );
-    }
-  }
+        &:hover {
+          @include theme.define-var(
+            (
+              color: theme.get-color($value, "600"),
+            )
+          );
+        }
 
-  &--outline {
-    @include theme.define-var(
-      (
-        background: transparent,
-        border-color: currentColor,
-      )
-    );
-
-    &:hover {
-      @include theme.define-var(
-        (
-          color: theme.get-var(color-hover),
-        )
-      );
-    }
-
-    &:active {
-      @include theme.define-var(
-        (
-          color: theme.get-var(color-active),
-        )
-      );
+        &:active {
+          @include theme.define-var(
+            (
+              color: theme.get-color($value, "700"),
+            )
+          );
+        }
+      }
     }
   }
 
@@ -159,9 +143,9 @@
   &--sm {
     @include theme.define-var(
       (
-        size: map.get($button-sizes, "sm"),
-        spacing: map.get($button-spacings, "sm"),
-        font-size: map.get($button-font-sizes, "xs"),
+        size: theme.get-spacing("4xl"),
+        spacing: theme.get-spacing("xl"),
+        font-size: theme.get-font-size("sm"),
       )
     );
   }
@@ -169,9 +153,9 @@
   &--md {
     @include theme.define-var(
       (
-        size: map.get($button-sizes, "md"),
-        spacing: map.get($button-spacings, "md"),
-        font-size: map.get($button-font-sizes, "sm"),
+        size: theme.get-spacing("5xl"),
+        spacing: theme.get-spacing("xl"),
+        font-size: theme.get-font-size("sm"),
       )
     );
   }
@@ -179,9 +163,9 @@
   &--lg {
     @include theme.define-var(
       (
-        size: map.get($button-sizes, "lg"),
-        spacing: map.get($button-spacings, "lg"),
-        font-size: map.get($button-font-sizes, "md"),
+        size: theme.get-font-size("5xl"),
+        spacing: theme.get-spacing("2xl"),
+        font-size: theme.get-font-size("md"),
       )
     );
   }

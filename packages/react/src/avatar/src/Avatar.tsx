@@ -16,7 +16,7 @@ export interface AvatarProps {
    * Specifies the size of the avatar.
    * @default "md"
    */
-  size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
   /**
    * Determines the appearance shape of the avatar.
    * @default "circle"
@@ -30,7 +30,18 @@ export interface AvatarProps {
   src?: string;
 }
 
-
+/**
+ * This component displays an avatar component.
+ * When the image source is unavailable or the source is unspecified, the avatar component will display a default image.
+ *
+ * @example
+ * ```tsx
+ * <Avatar appearance="square" name="Lourenço Vieira" size="3xl" skin="secondary" />
+ * ```
+ *
+ * @param {AvatarProps} props - The props for the Avatar component.
+ * @returns {React.ReactElement} - The rendered Avatar component.
+ */
 export function Avatar({
   size = "md",
   skin = "primary",

@@ -9,7 +9,7 @@ export const spacings = {
   "2xl": "1.25rem",
   "3xl": "1.5rem",
   "4xl": "2rem",
-  "5xl": "2.5rem",
-  "6xl": "3rem",
-  "7xl": "3.5rem",
+  "5xl": "2.25rem",
+  "6xl": "2.5rem",
+  "7xl": "3rem",
 };

@@ -16,7 +16,7 @@ $tag-skins: (
 $tag-font-sizes: theme.get-font-size();
 $tag-font-weight: theme.get-font-weight("normal");
 $tag-sizes: (
-  sm: theme.get-spacing("sm") * 3,
-  md: theme.get-spacing("xxs") * 10,
-  lg: theme.get-spacing("sm") * 4,
+  sm: theme.get-spacing("sm"),
+  md: theme.get-spacing("xxs"),
+  lg: theme.get-spacing("sm"),
 );

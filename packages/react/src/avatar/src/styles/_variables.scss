@@ -6,17 +6,23 @@ $avatar-root: "avatar";
 /// Appearance
 $avatar-border-radius: (
   "square": theme.get-radius("md"),
-  "round": 50%,
+  "round": theme.get-radius("full"),
 );
+
+/// Skins
 $avatar-skins: (
   "primary": primary,
   "secondary": secondary,
 );
+
+/// Sizes
 $avatar-sizes: (
-  xs: theme.get-spacing("md") * 3,
-  sm: theme.get-spacing("md") * 4,
-  md: theme.get-spacing("md") * 5,
-  lg: theme.get-spacing("md") * 6,
-  xl: theme.get-spacing("md") * 8,
-  2xl: theme.get-spacing("md") * 9,
+  xs: calc(theme.get-spacing("md") * 3),
+  sm: calc(theme.get-spacing("md") * 4),
+  md: calc(theme.get-spacing("md") * 5),
+  lg: calc(theme.get-spacing("md") * 6),
+  xl: calc(theme.get-spacing("md") * 8),
+  2xl: calc(theme.get-spacing("md") * 9),
+  3xl: calc(theme.get-spacing("md") * 10),
+  4xl: calc(theme.get-spacing("md") * 11),
 );

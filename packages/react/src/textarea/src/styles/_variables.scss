@@ -24,5 +24,5 @@ $textarea-font-weight: theme.get-font-weight("normal");
 $textarea-font-size: theme.get-font-size("md");
 
 // Spacing's
-$textarea-sizes: theme.get-spacing("md") * 1;
-$textarea-spacings: theme.get-spacing("md") * 2;
+$textarea-sizes: theme.get-spacing("md");
+$textarea-spacings: theme.get-spacing("md");

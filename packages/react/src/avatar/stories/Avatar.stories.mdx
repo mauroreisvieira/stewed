@@ -1,5 +1,5 @@
 import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
-import { Avatar } from "../";
+import { Avatar, Theme } from "../../";
 
 <Meta
   title="Components/Avatar"
@@ -9,7 +9,7 @@ import { Avatar } from "../";
 
 # Avatar
 
-Thumbnail of a user photo, organization, or a visual representation of other types of content.
+When the image source is unavailable or the source is unspecified, the avatar component will display a default image.
 
 ### Installation
 
@@ -25,7 +25,11 @@ import { Avatar } from "@stewed/react";
 
 ## Examples
 
-export const Template = (args) => <Avatar {...args} />;
+export const Template = (args) => (
+  <Theme>
+    <Avatar {...args} />
+  </Theme>
+);
 
 ### Base
 
@@ -72,11 +76,13 @@ export const Template = (args) => <Avatar {...args} />;
 ### Group
 
 <Canvas>
+  <Theme>
     <Avatar.Group>
-        <Avatar skin="primary" name='Mauro Vieira'/>
-        <Avatar skin="secondary" name='Bruna Santos'/>
-        <Avatar skin="primary" name='Lourenço Vieira'/>
+      <Avatar skin="primary" name="Mauro Vieira" />
+      <Avatar skin="secondary" name="Bruna Santos" />
+      <Avatar skin="primary" name="Lourenço Vieira" />
     </Avatar.Group>
+  </Theme>
 </Canvas>
 
 ## Props
