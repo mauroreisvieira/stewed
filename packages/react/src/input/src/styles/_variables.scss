@@ -3,7 +3,6 @@
 $input-root: "input";
 
 // Appearance
-$input-border-radius: theme.get-radius("md");
 $input-skins-default: (
   "border-color": theme.get-color("secondary", "300"),
   "border-color-hover": theme.get-color("secondary", "400"),
@@ -23,5 +22,5 @@ $input-skins: (
 $input-font-size: theme.get-font-size("sm");
 
 // Spacing's
-$input-height: theme.get-spacing("md");
+$input-height: theme.get-spacing("5xl");
 $input-spacings: theme.get-spacing("md");

@@ -9,7 +9,7 @@ import {
   FiLock,
   FiMapPin,
 } from "react-icons/fi";
-import { ListBox } from "../";
+import { Theme, ListBox } from "../../";
 
 <Meta title="Components/List Box" component={ListBox} />
 
@@ -32,30 +32,32 @@ import { ListBox } from "@stewed/react";
 ### Base
 
 <Canvas>
-  <ListBox>
-    <ListBox.Group>
-      <ListBox.Item leftSlot={<FiPenTool />} selected>
-        <span>Daily notes</span>
-      </ListBox.Item>
-      <ListBox.Item leftSlot={<FiFile />}>All notes</ListBox.Item>
-      <ListBox.Item leftSlot={<FiFilePlus />} disabled>
-        <span>Tasks</span>
-      </ListBox.Item>
-      <ListBox.Item leftSlot={<FiMap />}>
-        <span>Map</span>
-      </ListBox.Item>
-      <ListBox.Item skin="error" leftSlot={<FiTrash />} rightSlot={<FiLock />}>
-        <span>Trash</span>
-      </ListBox.Item>
-    </ListBox.Group>
-    <ListBox.Group title="Pinned messages">
-      <ListBox.Item rightSlot={<FiMapPin />}>Lee Evans new tour</ListBox.Item>
-      <ListBox.Item>Individual errors coast</ListBox.Item>
-      <ListBox.Item>Re-skin signs</ListBox.Item>
-      <ListBox.Item>Reflect roadmap</ListBox.Item>
-      <ListBox.Item>Top of mind</ListBox.Item>
-    </ListBox.Group>
-  </ListBox>
+  <Theme>
+    <ListBox>
+      <ListBox.Group>
+        <ListBox.Item leftSlot={<FiPenTool />} selected>
+          <span>Daily notes</span>
+        </ListBox.Item>
+        <ListBox.Item leftSlot={<FiFile />}>All notes</ListBox.Item>
+        <ListBox.Item leftSlot={<FiFilePlus />} disabled>
+          <span>Tasks</span>
+        </ListBox.Item>
+        <ListBox.Item leftSlot={<FiMap />}>
+          <span>Map</span>
+        </ListBox.Item>
+        <ListBox.Item skin="error" leftSlot={<FiTrash />} rightSlot={<FiLock />}>
+          <span>Trash</span>
+        </ListBox.Item>
+      </ListBox.Group>
+      <ListBox.Group title="Pinned messages">
+        <ListBox.Item rightSlot={<FiMapPin />}>Lee Evans new tour</ListBox.Item>
+        <ListBox.Item>Individual errors coast</ListBox.Item>
+        <ListBox.Item>Re-skin signs</ListBox.Item>
+        <ListBox.Item>Reflect roadmap</ListBox.Item>
+        <ListBox.Item>Top of mind</ListBox.Item>
+      </ListBox.Group>
+    </ListBox>
+  </Theme>
 </Canvas>
 
 <ArgsTable of={ListBox} />

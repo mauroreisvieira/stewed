@@ -123,14 +123,16 @@
     &__title {
       padding-inline: $list-box-item-inner-spacing-inline;
 
-      @include text.typography(
-        base,
-        $overrides: (
-          color: $list-box-title-color,
-          font-size: $list-box-title-font-size,
-          font-weight: $list-box-title-font-weight
-        )
-      );
+      @include text.typography("base", $overrides: (font-size: theme.get-font-size("sm")));
+
+      // @include text.typography(
+      //   base,
+      //   $overrides: (
+      //     color: $list-box-title-color,
+      //     font-size: $list-box-title-font-size,
+      //     font-weight: $list-box-title-font-weight
+      //   )
+      // );
 
       margin-bottom: 8px;
     }
