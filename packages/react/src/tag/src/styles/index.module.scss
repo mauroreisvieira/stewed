@@ -1,47 +1,77 @@
 @use "sass:map";
 @use "@stewed/react/src/theme/src/styles" as theme;
+@use "@stewed/react/src/typography/src/styles" as text;
 @use "./variables" as *;
 
 @include theme.scope($tag-root) {
+  @include theme.define-var(
+    (
+      border-radius: theme.get-radius("sm"),
+    )
+  );
+
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: var(--tag-size);
-  padding: 0 var(--tag-spacing);
-  font-size: var(--tag-font-size);
-  font-weight: $tag-title-font-weight;
+  height: theme.get-var(height);
+  padding-inline: theme.get-var(padding-inline);
   line-height: 1;
-  color: $tag-color;
   text-decoration: none;
   white-space: nowrap;
-  background-color: var(--tag-background);
-  border-radius: $tag-border-radius;
+  background-color: theme.get-var(background-color);
+  border-radius: theme.get-var(border-radius);
+
+  @include text.typography(
+    "base",
+    $overrides: (color: theme.get-var(color), font-size: theme.get-var(font-size))
+  );
 
   &--sm {
-    --tag-size: #{map.get($tag-sizes, "sm")};
-    --tag-spacing: #{theme.get-spacing("md")};
-    --tag-font-size: #{map.get($tag-font-sizes, "xs")};
+    @include theme.define-var(
+      (
+        height: theme.get-spacing("xl"),
+        padding-inline: theme.get-spacing("md"),
+        font-size: theme.get-font-size("xs"),
+      )
+    );
   }
 
   &--md {
-    --tag-size: #{map.get($tag-sizes, "md")};
-    --tag-spacing: #{theme.get-spacing("md")};
-    --tag-font-size: #{map.get($tag-font-sizes, "sm")};
+    @include theme.define-var(
+      (
+        height: theme.get-spacing("2xl"),
+        padding-inline: theme.get-spacing("lg"),
+        font-size: theme.get-font-size("sm"),
+      )
+    );
   }
 
   &--lg {
-    --tag-size: #{map.get($tag-sizes, "lg")};
-    --tag-spacing: #{theme.get-spacing("md")};
-    --tag-font-size: #{map.get($tag-font-sizes, "md")};
+    @include theme.define-var(
+      (
+        height: theme.get-spacing("2xl"),
+        padding-inline: theme.get-spacing("lg"),
+        font-size: theme.get-font-size("md"),
+      )
+    );
   }
 
   @each $key, $value in $tag-skins {
     &--#{$key} {
-      --tag-background: #{theme.get-color($value, "500")};
+      @include theme.define-var(
+        (
+          color: #fff,
+          background-color: theme.get-color($value, "500"),
+        )
+      );
 
       &[href]:hover {
-        --tag-background: #{theme.get-color($value, "600")};
+        @include theme.define-var(
+          (
+            background-color: theme.get-color($value, "600"),
+          )
+        );
       }
     }
   }

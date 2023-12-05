@@ -1,10 +1,8 @@
 @use "@stewed/react/src/theme/src/styles" as theme;
 
 $tag-root: "tag";
-$tag-color: #fff;
-$tag-border-radius: theme.get-radius("md");
-$tag-title-font-weight: theme.get-font-weight("normal");
-$tag-body-font-size: theme.get-font-size("xs");
+
+// Skins
 $tag-skins: (
   "primary": "primary",
   "secondary": "secondary",
@@ -12,11 +10,4 @@ $tag-skins: (
   "success": "green",
   "warning": "yellow",
   "error": "red",
-);
-$tag-font-sizes: theme.get-font-size();
-$tag-font-weight: theme.get-font-weight("normal");
-$tag-sizes: (
-  sm: theme.get-spacing("sm"),
-  md: theme.get-spacing("xxs"),
-  lg: theme.get-spacing("sm"),
 );
