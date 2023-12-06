@@ -1,17 +1,16 @@
-import React from 'react';
+import React from "react";
 // Utilities
-import { classNames } from '@stewed/utilities';
+import { classNames } from "@stewed/utilities";
 // Styles
-import styles from './styles/index.module.scss';
+import styles from "./styles/index.module.scss";
 
-export interface ProgressProps
-    extends React.ProgressHTMLAttributes<HTMLProgressElement> {
-    /** Change the visual style of the progress bar. */
-    skin?: 'primary' | 'secondary' | 'info' | 'success' | 'warning' | 'error';
-    /** Changes the size of the progress bar, giving it more or less padding. */
-    size?: 'xs' | 'sm' | 'md' | 'lg';
-    /** Allows the progress bar to have rounded corners. */
-    rounded?: boolean;
+export interface ProgressProps extends React.ProgressHTMLAttributes<HTMLProgressElement> {
+  /** Change the visual style of the progress bar. */
+  skin?: "primary" | "secondary" | "info" | "success" | "warning" | "error";
+  /** Changes the size of the progress bar, giving it more or less padding. */
+  size?: "xs" | "sm" | "md" | "lg" | "xl";
+  /** Allows the progress bar to have rounded corners. */
+  rounded?: boolean;
 }
 
 /**
@@ -27,28 +26,28 @@ export interface ProgressProps
  * @remarks This component props extended from React.ProgressHTMLAttributes<HTMLProgressElement>.
  */
 export const Progress = ({
-    skin = 'primary',
-    size = 'sm',
-    rounded = true,
-    value,
-    max = 100,
-    className,
-    ...otherProps
+  skin = "primary",
+  size = "sm",
+  rounded = true,
+  value,
+  max = 100,
+  className,
+  ...otherProps
 }: ProgressProps): React.ReactElement => {
-    const rootClassName = 'progress';
-    const cssClasses = {
-        root: classNames(
-            styles[rootClassName],
-            styles[`${rootClassName}--${skin}`],
-            styles[`${rootClassName}--${size}`],
-            rounded && styles[`${rootClassName}--rounded`],
-            className
-        ),
-        control: styles[`${rootClassName}__control`],
-    };
-    return (
-        <div className={cssClasses.root}>
-            <progress {...otherProps} value={value} max={max} className={cssClasses.control} />
-        </div>
-    );
+  const rootClassName = "progress";
+  const cssClasses = {
+    root: classNames(
+      styles[rootClassName],
+      styles[`${rootClassName}--${skin}`],
+      styles[`${rootClassName}--${size}`],
+      rounded && styles[`${rootClassName}--rounded`],
+      className,
+    ),
+    control: styles[`${rootClassName}__control`],
+  };
+  return (
+    <div className={cssClasses.root}>
+      <progress {...otherProps} value={value} max={max} className={cssClasses.control} />
+    </div>
+  );
 };

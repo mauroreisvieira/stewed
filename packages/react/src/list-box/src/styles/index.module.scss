@@ -13,7 +13,9 @@
       (
         background-color: transparent,
         color: inherit,
-        border-radius: $list-box-item-border-radius,
+        padding-block: theme.get-spacing("md"),
+        padding-inline: theme.get-spacing("lg"),
+        border-radius: theme.get-radius("md"),
       )
     );
 
@@ -24,8 +26,8 @@
     align-items: center;
     justify-content: flex-start;
     width: 100%;
-    padding-block: $list-box-item-inner-spacing-block;
-    padding-inline: $list-box-item-inner-spacing-inline;
+    padding-block: theme.get-var(padding-block);
+    padding-inline: theme.get-var(padding-inline);
     overflow: hidden;
     cursor: pointer;
     background-color: theme.get-var(background-color);
@@ -37,7 +39,11 @@
 
     @include text.typography(
       base,
-      $overrides: (color: null, line-height: theme.get-line-height("sm"))
+      $overrides: (
+        color: null,
+        font-size: theme.get-font-size("sm"),
+        line-height: theme.get-line-height("sm")
+      )
     );
     @include theme.focus-styles;
     @include theme.disabled-styles;
@@ -112,29 +118,32 @@
   &__group {
     padding-block: 4px;
 
-    &--border:not(:last-child) {
-      border-bottom: 1px solid #{theme.get-color("gray", "200")};
-    }
-
     &:not(:last-child) {
       margin-bottom: $list-box-item-outer-spacing-bottom;
     }
 
     &__title {
-      padding-inline: $list-box-item-inner-spacing-inline;
+      // padding-inline: $list-box-item-inner-spacing-inline;
 
-      @include text.typography("base", $overrides: (font-size: theme.get-font-size("sm")));
-
-      // @include text.typography(
-      //   base,
-      //   $overrides: (
-      //     color: $list-box-title-color,
-      //     font-size: $list-box-title-font-size,
-      //     font-weight: $list-box-title-font-weight
-      //   )
-      // );
+      @include text.typography(
+        base,
+        $overrides: (
+          color: theme.get-color("gray", "400"),
+          font-size: theme.get-font-size("xs"),
+          line-height: theme.get-line-height("sm")
+        )
+      );
 
       margin-bottom: 8px;
     }
+  }
+
+  &__divider {
+    width: 100%;
+    height: 1px;
+    margin: 0;
+    margin-bottom: theme.get-spacing("sm");
+    background-color: theme.get-color("gray", "200");
+    border: none;
   }
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import { Tabs } from "../";
+import { Theme, Tabs } from "../../";
 import { FiPackage, FiBell, FiCalendar } from "react-icons/fi";
 
 type Story = StoryObj<typeof Tabs>;
@@ -18,19 +18,21 @@ export const Base: Story = {
     alignment: "left",
     direction: "row",
     children: (
-      <>
-        <Tabs.List>
-          <Tabs.Item leftSlot={<FiPackage />} value="1">
-            Orders
-          </Tabs.Item>
-          <Tabs.Item leftSlot={<FiBell />} value="2">
-            Notifications
-          </Tabs.Item>
-          <Tabs.Item leftSlot={<FiCalendar />} value="3">
-            Calendar
-          </Tabs.Item>
-        </Tabs.List>
-      </>
+      <Theme>
+        <Tabs value="1">
+          <Tabs.List>
+            <Tabs.Item leftSlot={<FiPackage />} value="1">
+              Orders
+            </Tabs.Item>
+            <Tabs.Item leftSlot={<FiBell />} value="2">
+              Notifications
+            </Tabs.Item>
+            <Tabs.Item leftSlot={<FiCalendar />} value="3">
+              Calendar
+            </Tabs.Item>
+          </Tabs.List>
+        </Tabs>
+      </Theme>
     ),
   },
   argTypes: {

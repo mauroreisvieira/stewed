@@ -120,7 +120,10 @@
   }
 
   &__text {
-    @include text.typography(base, $overrides: (color: currentColor, font-size: null));
+    @include text.typography(
+      base,
+      $overrides: (color: currentColor, font-size: theme.get-font-size("sm"))
+    );
   }
 
   &__left,
@@ -153,7 +156,7 @@
   &--md {
     @include theme.define-var(
       (
-        size: theme.get-spacing("5xl"),
+        size: theme.get-spacing("6xl"),
         spacing: theme.get-spacing("xl"),
         font-size: theme.get-font-size("sm"),
       )

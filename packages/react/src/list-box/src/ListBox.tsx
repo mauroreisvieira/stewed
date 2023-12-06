@@ -2,6 +2,7 @@ import React from "react";
 // Compound Component
 import { ListBoxGroup } from "./ListBoxGroup";
 import { ListBoxItem } from "./ListBoxItem";
+import { ListBoxDivider } from "./ListBoxDivider";
 // Utilities
 import { classNames } from "@stewed/utilities";
 // Styles
@@ -26,3 +27,4 @@ export function ListBox({
 // Compound component composition
 ListBox.Item = ListBoxItem;
 ListBox.Group = ListBoxGroup;
+ListBox.Divider = ListBoxDivider;

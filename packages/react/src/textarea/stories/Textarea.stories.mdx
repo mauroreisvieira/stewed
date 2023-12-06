@@ -1,10 +1,10 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { Textarea } from '../';
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { Theme, Textarea } from "../../";
 
 <Meta
-    title="Components/Textarea"
-    argTypes={{ onChange: { action: 'change' } }}
-    component={Textarea}
+  title="Components/Textarea"
+  argTypes={{ onChange: { action: "change" } }}
+  component={Textarea}
 />
 
 # Textarea
@@ -20,26 +20,29 @@ npm install --save @stewed/react
 ### Import
 
 ```js
-import { Textarea } from '@stewed/react';
+import { Textarea } from "@stewed/react";
 ```
 
 ## Examples
 
-export const Template = (args) => <Textarea {...args} />;
+export const Template = (args) => (
+  <Theme>
+    <Textarea {...args} />
+  </Theme>
+);
 
 ### Base
 
 <Canvas>
-    <Story
-        name="Base"
-        args={{
-            placeholder: 'Type your value...',
-            skin: 'default',
-            disabled: false,
-        }}
-    >
-        {Template.bind({})}
-    </Story>
+  <Story
+    name="Base"
+    args={{
+      placeholder: "Type your value...",
+      skin: "default",
+      disabled: false,
+    }}>
+    {Template.bind({})}
+  </Story>
 </Canvas>
 
 ## Props

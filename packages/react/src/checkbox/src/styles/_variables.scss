@@ -7,9 +7,9 @@ $checkbox-font-size: (
   "lg": 24px,
 );
 $checkbox-sizes: (
-  "sm": theme.get-spacing("xxs"),
-  "md": theme.get-spacing("xxs"),
-  "lg": theme.get-spacing("xxs"),
+  "sm": theme.get-spacing("lg"),
+  "md": theme.get-spacing("xl"),
+  "lg": theme.get-spacing("2xl"),
 );
 $checkbox-border-radius: theme.get-radius("sm");
 $checkbox-skins: (

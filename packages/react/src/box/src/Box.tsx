@@ -2,12 +2,11 @@ import React from "react";
 // Utilities
 import { classNames } from "@stewed/utilities";
 import { type DistributiveOmit, fixedForwardRef } from "../../types";
+import type { Spacings } from "../../tokens";
 // Style
 import styles from "./styles/index.module.scss";
 
 const defaultElement = "div";
-
-type Sizes = "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
 
 export interface BoxProps<T> extends React.HTMLAttributes<HTMLDivElement> {
   /** Specifies the type of element to use as box. */
@@ -15,7 +14,7 @@ export interface BoxProps<T> extends React.HTMLAttributes<HTMLDivElement> {
   /** The direction of the box container. */
   direction?: "row" | "column" | "row-reverse" | "column-reverse";
   /** The gap between box items. Can be a predefined size or a custom value. */
-  gap?: Sizes;
+  gap?: Spacings;
   /** Aligns box items along the main axis. */
   justify?: "start" | "end" | "center" | "between" | "around" | "evenly";
   /** Aligns box items along the cross axis. */
@@ -24,8 +23,8 @@ export interface BoxProps<T> extends React.HTMLAttributes<HTMLDivElement> {
   wrap?: "wrap" | "wrap-reverse" | "nowrap";
   /** Adds space between box items on the horizontal and vertical axes. */
   space?: {
-    x?: Sizes;
-    y?: Sizes;
+    x?: Spacings;
+    y?: Spacings;
   };
   /** Renders the box container as an inline element. */
   inline?: boolean;

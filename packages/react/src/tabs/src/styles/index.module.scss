@@ -12,7 +12,7 @@
       border-color: theme.get-color("secondary", "200"),
       border-radius: theme.get-radius("md"),
       flex-direction: row,
-      height: 40px,
+      height: theme.get-spacing("5xl"),
       width: auto,
       item-background-color: transparent,
       justify-content: center,
@@ -51,7 +51,7 @@
     user-select: none;
     background-color: theme.get-var(background-color);
     border: 1px solid theme.get-var(border-color);
-    border-radius: theme.get-var(border-radius);
+    border-radius: calc(theme.get-var(border-radius) + theme.get-spacing("xxs"));
   }
 
   &__item {
@@ -66,11 +66,14 @@
     padding: 10px 8px;
     cursor: pointer;
     background-color: theme.get-var(item-background-color);
-    border-radius: calc(theme.get-var(border-radius) * 0.5);
+    border-radius: theme.get-var(border-radius);
 
     @include theme.focus-styles;
     @include theme.disabled-styles;
-    @include text.typography(base, $overrides: (line-height: 1em));
+    @include text.typography(
+      base,
+      $overrides: (color: currentColor, font-size: theme.get-font-size("sm"))
+    );
 
     &__left,
     &__right {

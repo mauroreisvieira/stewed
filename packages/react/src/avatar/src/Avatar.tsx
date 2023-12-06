@@ -16,7 +16,7 @@ export interface AvatarProps {
    * Specifies the size of the avatar.
    * @default "md"
    */
-  size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl";
   /**
    * Determines the appearance shape of the avatar.
    * @default "circle"

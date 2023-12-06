@@ -3,7 +3,11 @@
 @use "./variables" as *;
 
 @include theme.scope($progress-root) {
-  --progress-radius: 0;
+  @include theme.define-var(
+    (
+      radius: 0,
+    )
+  );
 
   position: relative;
   display: flex;
@@ -18,19 +22,19 @@
 
     &::-webkit-progress-bar {
       background-color: $progress-background;
-      border-radius: var(--progress-radius);
+      border-radius: theme.get-var(radius);
       box-shadow: none;
     }
 
     &::-moz-progress-bar {
       background-color: $progress-background;
-      border-radius: var(--progress-radius);
+      border-radius: theme.get-var(radius);
       box-shadow: none;
     }
 
     &::-webkit-progress-value {
       background-color: var(--progress-background);
-      border-radius: var(--progress-radius);
+      border-radius: theme.get-var(radius);
       box-shadow: none;
     }
   }

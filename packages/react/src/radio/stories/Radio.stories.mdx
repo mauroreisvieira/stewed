@@ -1,11 +1,7 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { Radio } from '../';
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { Theme, Radio } from "../../";
 
-<Meta
-    title="Components/Radio"
-    argTypes={{ onChange: { action: 'change' } }}
-    component={Radio}
-/>
+<Meta title="Components/Radio" argTypes={{ onChange: { action: "change" } }} component={Radio} />
 
 # Radio
 
@@ -20,26 +16,29 @@ npm install --save @stewed/react
 ### Import
 
 ```js
-import { Radio } from '@stewed/react';
+import { Radio } from "@stewed/react";
 ```
 
 ## Examples
 
-export const Template = (args) => <Radio {...args} />;
+export const Template = (args) => (
+  <Theme>
+    <Radio {...args} />
+  </Theme>
+);
 
 ### Base
 
 <Canvas>
-    <Story
-        name="Base"
-        args={{
-            skin: 'primary',
-            size: 'md',
-            disabled: false,
-        }}
-    >
-        {Template.bind({})}
-    </Story>
+  <Story
+    name="Base"
+    args={{
+      skin: "primary",
+      size: "md",
+      disabled: false,
+    }}>
+    {Template.bind({})}
+  </Story>
 </Canvas>
 
 ## Props

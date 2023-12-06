@@ -1,7 +1,7 @@
 import React from "react";
 // UI Components
-import { FiSearch, FiPlus } from "react-icons/fi";
-import { Avatar, Button, Card, Box, Input, Text } from "../../../../packages/react/index";
+import { FiPlus } from "react-icons/fi";
+import { Avatar, Button, Card, Box, Text } from "../../../../packages/react/index";
 
 const projects = [
   {

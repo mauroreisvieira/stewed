@@ -17,12 +17,13 @@ $avatar-skins: (
 
 /// Sizes
 $avatar-sizes: (
-  xs: calc(theme.get-spacing("md") * 3),
-  sm: calc(theme.get-spacing("md") * 4),
-  md: calc(theme.get-spacing("md") * 5),
-  lg: calc(theme.get-spacing("md") * 6),
-  xl: calc(theme.get-spacing("md") * 8),
-  2xl: calc(theme.get-spacing("md") * 9),
-  3xl: calc(theme.get-spacing("md") * 10),
-  4xl: calc(theme.get-spacing("md") * 11),
+  xs: calc(theme.get-spacing("sm") * 3),
+  sm: calc(theme.get-spacing("sm") * 4),
+  md: calc(theme.get-spacing("sm") * 5),
+  lg: calc(theme.get-spacing("sm") * 6),
+  xl: calc(theme.get-spacing("sm") * 8),
+  2xl: calc(theme.get-spacing("sm") * 9),
+  3xl: calc(theme.get-spacing("sm") * 10),
+  4xl: calc(theme.get-spacing("sm") * 11),
+  5xl: calc(theme.get-spacing("sm") * 12),
 );

@@ -6,7 +6,7 @@
   @include theme.define-var(
     (
       size: 2ch,
-      border-radius: theme.get-radius("xl"),
+      border-radius: theme.get-radius("md"),
       padding-inline: 0,
       position: relative,
       transform: none,

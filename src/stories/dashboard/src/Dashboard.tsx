@@ -5,7 +5,20 @@ import { Board } from "./Board";
 
 export function Dashboard(): React.ReactElement {
   return (
-    <Theme>
+    <Theme<"ebay" | "shopify">
+      theme="ebay"
+      tokens={{
+        ebay: {
+          radius: {
+            full: "10px",
+          },
+        },
+        shopify: {
+          radius: {
+            full: "10px",
+          },
+        },
+      }}>
       <Box gap="2xl">
         <SidePanel />
         <Board />
