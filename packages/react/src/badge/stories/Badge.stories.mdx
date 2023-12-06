@@ -21,7 +21,13 @@ import { Badge } from "@stewed/react";
 
 ## Examples
 
-export const Template = (args) => <Theme><Badge {...args} /></Theme>;
+export const Template = (args) => (
+  <Theme>
+    <Badge {...args}>
+      <div style={{ width: 50, height: 50, backgroundColor: "#ddd" }} />
+    </Badge>
+  </Theme>
+);
 
 ### Base
 
@@ -29,21 +35,12 @@ export const Template = (args) => <Theme><Badge {...args} /></Theme>;
   <Story
     name="Base"
     args={{
+      position: "top-left",
       skin: "primary",
-      value: "99+",
+      value: "9",
     }}>
     {Template.bind({})}
   </Story>
-</Canvas>
-
-### Children
-
-<Canvas>
-  <Theme>
-    <Badge skin="error">
-      <div style={{ width: 50, height: 50, backgroundColor: "#ddd" }} />
-    </Badge>
-  </Theme>
 </Canvas>
 
 ## Props

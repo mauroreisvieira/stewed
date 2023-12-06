@@ -4,11 +4,10 @@ import { classNames } from "@stewed/utilities";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface BadgeProps {
+export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
   skin?: "primary" | "secondary" | "info" | "success" | "warning" | "error";
   position?: "top-left" | "top-right" | "bottom-left" | "bottom-right";
   value?: string;
-  className?: string;
   children?: React.ReactNode;
 }
 
@@ -25,9 +24,8 @@ export function Badge({
     root: classNames(
       styles[rootClassName],
       styles[`${rootClassName}--${skin}`],
-      styles[`${rootClassName}--${position}`],
+      !!children && styles[`${rootClassName}--${position}`],
       value && value.length > 2 && styles[`${rootClassName}--padded`],
-      !!children && styles[`${rootClassName}--floating`],
       className,
     ),
     value: styles[`${rootClassName}__value`],

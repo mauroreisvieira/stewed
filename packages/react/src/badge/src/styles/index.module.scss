@@ -10,6 +10,7 @@
       padding-inline: 0,
       position: relative,
       transform: none,
+      inset: 0,
     )
   );
 
@@ -23,8 +24,7 @@
     );
 
     position: theme.get-var(position);
-    top: 0;
-    right: 0;
+    inset: theme.get-var(inset);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -65,11 +65,49 @@
     );
   }
 
-  &--floating {
+  &--top-left,
+  &--top-right,
+  &--bottom-left,
+  &--bottom-right {
     @include theme.define-var(
       (
         position: absolute,
+      )
+    );
+  }
+
+  &--top-left {
+    @include theme.define-var(
+      (
+        inset: 0 auto auto 0,
+        transform: translate(-50%, -50%),
+      )
+    );
+  }
+
+  &--top-right {
+    @include theme.define-var(
+      (
+        inset: 0 0 auto auto,
         transform: translate(50%, -50%),
+      )
+    );
+  }
+
+  &--bottom-left {
+    @include theme.define-var(
+      (
+        inset: auto auto 0 0,
+        transform: translate(-50%, 50%),
+      )
+    );
+  }
+
+  &--bottom-right {
+    @include theme.define-var(
+      (
+        inset: auto 0 0 auto,
+        transform: translate(50%, 50%),
       )
     );
   }
