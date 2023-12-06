@@ -6,6 +6,7 @@ import styles from "./styles/index.module.scss";
 
 export interface BadgeProps {
   skin?: "primary" | "secondary" | "info" | "success" | "warning" | "error";
+  position?: "top-left" | "top-right" | "bottom-left" | "bottom-right";
   value?: string;
   className?: string;
   children?: React.ReactNode;
@@ -13,6 +14,7 @@ export interface BadgeProps {
 
 export function Badge({
   skin = "primary",
+  position = "top-right",
   value,
   className,
   children,
@@ -23,6 +25,7 @@ export function Badge({
     root: classNames(
       styles[rootClassName],
       styles[`${rootClassName}--${skin}`],
+      styles[`${rootClassName}--${position}`],
       value && value.length > 2 && styles[`${rootClassName}--padded`],
       !!children && styles[`${rootClassName}--floating`],
       className,

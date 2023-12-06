@@ -48,6 +48,9 @@ export function ProductDetail(): React.ReactElement {
                 €120
               </Text>
             </Box>
+            <Text size="xs">
+            Taxas Incluídas. Envio calculado ao finalizar.
+            </Text>
           </Box>
           <Box direction="column" gap="md">
             <Text size="xs" variation={"uppercase"} weight="medium">
