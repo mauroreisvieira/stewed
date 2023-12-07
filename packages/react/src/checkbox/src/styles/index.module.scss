@@ -2,7 +2,7 @@
 @use "./variables" as *;
 
 @include theme.scope($checkbox-root) {
-  --checkbox-color: #{theme.get-color("secondary", "300")};
+  --checkbox-color: #{theme.get-color("primary", "500")};
 
   position: relative;
   display: inline-block;
@@ -15,7 +15,7 @@
 
   @include theme.hover {
     #{$checkbox-root}__background {
-      --checkbox-color: #{theme.get-color("secondary", "400")};
+      --checkbox-color: #{theme.get-color("primary", "600")};
     }
   }
 
@@ -31,7 +31,7 @@
     &:checked {
       + .checkbox__background {
         &::before {
-          background-color: currentcolor;
+          background-color: #fff;
         }
 
         #{$checkbox-root}__svg {

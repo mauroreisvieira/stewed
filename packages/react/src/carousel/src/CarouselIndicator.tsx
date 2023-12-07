@@ -17,7 +17,7 @@ export const CarouselIndicator = ({
 }: CarouselIndicatorProps): React.ReactElement => {
     const cssClasses = {
         root: classNames(styles['carousel__indicator']),
-        dot: classNames(styles['carousel_dot']),
+        dot: classNames(styles['carousel__dot']),
     };
 
     const numberOfSlides = useMemo(

@@ -18,10 +18,10 @@ $carousel-dash-width: 16px;
 $carousel-dash-radius: 8px;
 
 /// dash background color
-$carousel-dash-background: red;
+$carousel-dash-background: theme.get-color("secondary", "200");
 
 /// dash active background color
-$carousel-dash-background-active: blue;
+$carousel-dash-background-active: theme.get-color("primary");
 
 /// button small sizes
 $carousel-button-small: 16px;

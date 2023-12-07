@@ -16,10 +16,10 @@ import styles from "./styles/index.module.scss";
 export interface CarouselProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Enables infinite looping */
   loop?: boolean;
-  /** Will show/hide prev and next button */
-  showNavigation?: boolean;
   /** Will show/hide indicator */
   showIndicator?: boolean;
+  /** Will show/hide prev and next button */
+  showNavigation?: boolean;
   /** Number of slides to display */
   slidesPerView?: number;
   /** Callback when slides change */
@@ -64,8 +64,8 @@ export const Carousel = forwardRef(
   (
     {
       loop = false,
-      showNavigation = true,
       showIndicator = true,
+      showNavigation = true,
       slidesPerView = 1,
       className,
       children,
@@ -263,22 +263,28 @@ export const Carousel = forwardRef(
               {numberOfEmptySlots > 0 && renderEmptySlots}
               {slidesCount > slidesPerView && renderNextItems}
             </div>
+
             {showNavigation && (
               <>
-                <div className={cssClasses.prev}>
-                  {renderPrev?.({
-                    onClick: handlePrev,
-                    disabled: slidesCount <= slidesPerView || (!hasLooping && currentSlide === 0),
-                  })}
-                </div>
-                <div className={cssClasses.next}>
-                  {renderNext?.({
-                    onClick: handleNext,
-                    disabled:
-                      slidesCount <= slidesPerView ||
-                      (!hasLooping && currentSlide === numberOfIndicators - 1),
-                  })}
-                </div>
+                {renderPrev && (
+                  <div className={cssClasses.prev}>
+                    {renderPrev({
+                      onClick: handlePrev,
+                      disabled: slidesCount <= slidesPerView || (!hasLooping && currentSlide === 0),
+                    })}
+                  </div>
+                )}
+
+                {renderNext && (
+                  <div className={cssClasses.next}>
+                    {renderNext({
+                      onClick: handleNext,
+                      disabled:
+                        slidesCount <= slidesPerView ||
+                        (!hasLooping && currentSlide === numberOfIndicators - 1),
+                    })}
+                  </div>
+                )}
               </>
             )}
           </div>

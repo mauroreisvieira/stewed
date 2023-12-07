@@ -5,12 +5,11 @@ import {
   Carousel,
   Box,
   Text,
-  AspectRatio,
   Tag,
   Theme,
   Accordion,
 } from "../../../../packages/react/index";
-import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import { FiArrowLeft, FiArrowRight, FiPlus } from "react-icons/fi";
 
 const productsSizes = ["XS", "S", "M", "L", "XL", "XXL"];
 
@@ -30,6 +29,7 @@ export function ProductDetail(): React.ReactElement {
       <Box justify="between" gap="2xl">
         <Box>
           <Carousel
+            showIndicator={false}
             renderPrev={(props) => (
               <Button appearance="ghost" leftIcon={<FiArrowLeft size={24} />} iconOnly {...props}>
                 Prev
@@ -92,8 +92,8 @@ export function ProductDetail(): React.ReactElement {
             <Text size="sm" skin="secondary" whiteSpace="nowrap">
               Inclui uma etiqueta interativa na gola que concede acesso ao Club LEGACIES.
             </Text>
-            <Accordion>
-              <Accordion.Header>Entregas & Devoluções</Accordion.Header>
+            <Accordion open>
+              <Accordion.Header rightSlot={<FiPlus />}>Entregas & Devoluções</Accordion.Header>
               <Accordion.Body>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores non dolor, et
                 accusamus sapiente omnis saepe voluptatum, facere alias suscipit eum unde itaque
