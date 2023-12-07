@@ -8,6 +8,7 @@ import {
   AspectRatio,
   Tag,
   Theme,
+  Accordion,
 } from "../../../../packages/react/index";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
@@ -49,7 +50,7 @@ export function ProductDetail(): React.ReactElement {
               Nova coleção
             </Tag>
           </div>
-          <Box direction="column" gap="sm" space={{ y: "xl" }}>
+          <Box direction="column" gap="sm">
             <Text as="h2" weight="light" whiteSpace="nowrap">
               Benfica ÁGUIA Hoodie Preto
             </Text>
@@ -57,14 +58,14 @@ export function ProductDetail(): React.ReactElement {
               <Text size="3xl" weight="bold">
                 €89,95
               </Text>
-              <Text size="3xl" weight="medium" variation={["line-through"]} skin="secondary">
+              <Text size="3xl" weight="thin" variation={["line-through"]} skin="secondary">
                 €120
               </Text>
             </Box>
             <Text size="xs">Taxas Incluídas. Envio calculado ao finalizar.</Text>
           </Box>
           <Box direction="column" gap="md">
-            <Text size="xs" variation={"uppercase"} weight="medium">
+            <Text as="label" size="xs" variation={"uppercase"} weight="medium">
               Seleccione o seu tamanho
             </Text>
             <Box gap="sm" space={{ y: "lg" }}>
@@ -83,15 +84,22 @@ export function ProductDetail(): React.ReactElement {
               Adicionar ao carrinho
             </Button>
           </Box>
+          <Text size="md">
+            Esta coleção inspira-se na mítica águia, com uma nova abordagem poderosa que combina
+            tradição e celebra a individualidade do Benfica.
+          </Text>
           <Box gap="lg" direction="column">
             <Text size="sm" skin="secondary" whiteSpace="nowrap">
               Inclui uma etiqueta interativa na gola que concede acesso ao Club LEGACIES.
             </Text>
-
-            <Text size="md">
-              Esta coleção inspira-se na mítica águia, com uma nova abordagem poderosa que combina
-              tradição e celebra a individualidade do Benfica.
-            </Text>
+            <Accordion>
+              <Accordion.Header>Entregas & Devoluções</Accordion.Header>
+              <Accordion.Body>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores non dolor, et
+                accusamus sapiente omnis saepe voluptatum, facere alias suscipit eum unde itaque
+                veritatis voluptatem.
+              </Accordion.Body>
+            </Accordion>
           </Box>
         </Box>
       </Box>
