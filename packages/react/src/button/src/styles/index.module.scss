@@ -135,6 +135,7 @@
   &--icon-only {
     gap: 0;
     width: theme.get-var(size);
+    padding: 0;
 
     .#{$button-root} {
       &__text {

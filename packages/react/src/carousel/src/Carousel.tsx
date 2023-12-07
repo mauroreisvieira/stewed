@@ -8,7 +8,6 @@ import React, {
 } from "react";
 // Sub Components
 import { CarouselIndicator } from "./CarouselIndicator";
-import { CarouselNavigation } from "./CarouselNavigation";
 // Utilities
 import { classNames } from "@stewed/utilities";
 // Style
@@ -25,6 +24,16 @@ export interface CarouselProps extends React.HTMLAttributes<HTMLDivElement> {
   slidesPerView?: number;
   /** Callback when slides change */
   onSlideChange?: (slide: number) => void;
+  /**
+   * Function to render the previous button.
+   * @type {(props: { onClick: () => void; disabled: boolean }) => React.ReactNode}
+   */
+  renderPrev?: (props: { onClick: () => void; disabled: boolean }) => React.ReactNode;
+  /**
+   * Function to render the next button.
+   * @type {(props: { onClick: () => void; disabled: boolean }) => React.ReactNode}
+   */
+  renderNext?: (props: { onClick: () => void; disabled: boolean }) => React.ReactNode;
 }
 
 export interface CarouselRef {
@@ -51,8 +60,6 @@ export interface CarouselRef {
  * @param props - CarouselProps
  * @remarks This component supports all other HTMLAttributes props
  */
-// ... (import statements remain unchanged)
-
 export const Carousel = forwardRef(
   (
     {
@@ -63,6 +70,8 @@ export const Carousel = forwardRef(
       className,
       children,
       onSlideChange,
+      renderPrev,
+      renderNext,
     }: CarouselProps,
     ref: React.Ref<CarouselRef>,
   ): React.ReactElement => {
@@ -93,6 +102,8 @@ export const Carousel = forwardRef(
       item: classNames(styles["carousel__item"]),
       slide: classNames(styles["carousel__slide"]),
       bottom: classNames(styles["carousel__bottom"]),
+      prev: classNames(styles[`carousel__prev`]),
+      next: classNames(styles[`carousel__next`]),
     };
 
     const [isProcessing, setProcessing] = useState(false);
@@ -254,19 +265,20 @@ export const Carousel = forwardRef(
             </div>
             {showNavigation && (
               <>
-                <CarouselNavigation
-                  disabled={slidesCount <= slidesPerView || (!hasLooping && currentSlide === 0)}
-                  type="prev"
-                  onClick={handlePrev}
-                />
-                <CarouselNavigation
-                  disabled={
-                    slidesCount <= slidesPerView ||
-                    (!hasLooping && currentSlide === numberOfIndicators - 1)
-                  }
-                  type="next"
-                  onClick={handleNext}
-                />
+                <div className={cssClasses.prev}>
+                  {renderPrev?.({
+                    onClick: handlePrev,
+                    disabled: slidesCount <= slidesPerView || (!hasLooping && currentSlide === 0),
+                  })}
+                </div>
+                <div className={cssClasses.next}>
+                  {renderNext?.({
+                    onClick: handleNext,
+                    disabled:
+                      slidesCount <= slidesPerView ||
+                      (!hasLooping && currentSlide === numberOfIndicators - 1),
+                  })}
+                </div>
               </>
             )}
           </div>

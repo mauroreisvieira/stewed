@@ -2,12 +2,14 @@ import React, { useState } from "react";
 // UI Components
 import {
   Button,
+  Carousel,
   Box,
   Text,
   AspectRatio,
   Tag,
   Theme,
 } from "../../../../packages/react/index";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
 const productsSizes = ["XS", "S", "M", "L", "XL", "XXL"];
 
@@ -20,15 +22,26 @@ export function ProductDetail(): React.ReactElement {
       tokens={{
         light: {
           color: {
-            primary: "#6A9A23"
-          }
+            primary: "#6A9A23",
+          },
         },
       }}>
       <Box justify="between" gap="2xl">
         <Box>
-          <AspectRatio ratio="2:3">
+          <Carousel
+            renderPrev={(props) => (
+              <Button appearance="ghost" leftIcon={<FiArrowLeft size={24} />} iconOnly {...props}>
+                Prev
+              </Button>
+            )}
+            renderNext={(props) => (
+              <Button appearance="ghost" leftIcon={<FiArrowRight size={24} />} iconOnly {...props}>
+                Next
+              </Button>
+            )}>
             <img src="//legacies.com/cdn/shop/files/BenficaBlackHoodie-Compressed01.jpg?v=1700239125" />
-          </AspectRatio>
+            <img src="//legacies.com/cdn/shop/files/BenficaBlackHoodie-Compressed01.jpg?v=1700239125" />
+          </Carousel>
         </Box>
         <Box direction="column" gap="2xl">
           <div>
@@ -48,9 +61,7 @@ export function ProductDetail(): React.ReactElement {
                 €120
               </Text>
             </Box>
-            <Text size="xs">
-            Taxas Incluídas. Envio calculado ao finalizar.
-            </Text>
+            <Text size="xs">Taxas Incluídas. Envio calculado ao finalizar.</Text>
           </Box>
           <Box direction="column" gap="md">
             <Text size="xs" variation={"uppercase"} weight="medium">
@@ -68,7 +79,9 @@ export function ProductDetail(): React.ReactElement {
                 </Button>
               ))}
             </Box>
-            <Button size="lg" fullWidth>Adicionar ao carrinho</Button>
+            <Button size="lg" fullWidth>
+              Adicionar ao carrinho
+            </Button>
           </Box>
           <Box gap="lg" direction="column">
             <Text size="sm" skin="secondary" whiteSpace="nowrap">
