@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Theme, Card, Button, Box, Tabs, Text } from "../../../../packages/react/index";
 
 export function Plans(): React.ReactElement {
-  const [value, setValue] = useState("monthly");
+  const [value, setValue] = useState("annually");
 
   const plans = [
     {
@@ -18,7 +18,7 @@ export function Plans(): React.ReactElement {
     },
     {
       title: "Enterprise",
-      description: "Comprehensive features for starting and growing your business!",
+      description: "Comprehensive features for growing your business!",
       price: 36,
     },
   ];
@@ -49,12 +49,14 @@ export function Plans(): React.ReactElement {
                 <Tabs.Item value="annually">Yearly billing</Tabs.Item>
               </Tabs.List>
             </Tabs>
-            <Box gap="2xl">
+            <Box gap="2xl" items="stretch">
               {plans.map(({ title, description, price }, index) => (
                 <Card key={index} selected={index === 1}>
+                  <Card.Header>
+                    <Text as="h4">{title}</Text>
+                  </Card.Header>
                   <Card.Body>
                     <Box direction="column" gap="2xl">
-                      <Text as="h5">{title}</Text>
                       <Text skin="secondary">{description}</Text>
                       <Box items="baseline" gap="sm">
                         <Text size="4xl" weight="bold">
@@ -64,11 +66,13 @@ export function Plans(): React.ReactElement {
                           {value === "monthly" ? "/month" : "/year"}
                         </Text>
                       </Box>
-                      <Button appearance="outline" skin="secondary" fullWidth>
-                        Subscribe
-                      </Button>
                     </Box>
                   </Card.Body>
+                  <Card.Footer bordered>
+                    <Button fullWidth>
+                      Subscribe
+                    </Button>
+                  </Card.Footer>
                 </Card>
               ))}
             </Box>
