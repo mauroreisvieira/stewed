@@ -11,7 +11,7 @@
   }
 }
 
-/// Defines CSS variables for colors based on `$merged-colors` map.
+/// Defines CSS variables for colors based on `$colors` map.
 @mixin define-theme() {
   @include define-theme-var(
     (
@@ -19,14 +19,14 @@
     )
   );
 
-  @each $name, $colors in $merged-colors {
-    @each $tone, $value in $colors {
+  @each $name, $values in $colors {
+    @each $tone, $value in $values {
       @include define-theme-var((#{$name}-#{$tone}: $value));
     }
   }
 }
 
-/// Applies the defined theme by setting CSS variables based on the `$merged-colors` map.
+/// Applies the defined theme by setting CSS variables based on the `$colors` map.
 /// @param {string} [$scope=null] - Scope where the theme should be applied. Default is `null` which applies to `:root`.
 @mixin use-theme($scope: null) {
   @if $scope {

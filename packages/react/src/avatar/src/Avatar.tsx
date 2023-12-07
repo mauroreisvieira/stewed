@@ -43,7 +43,7 @@ export interface AvatarProps {
  * @returns {React.ReactElement} - The rendered Avatar component.
  */
 export function Avatar({
-  size = "md",
+  size = "sm",
   skin = "primary",
   appearance = "circle",
   className,

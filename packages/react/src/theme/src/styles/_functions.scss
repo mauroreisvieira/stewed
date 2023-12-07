@@ -27,11 +27,11 @@
 }
 
 @function get-color($color, $tone: "500") {
-  @if not map.has-key($merged-colors, $color) {
-    @error "Invalid color specified! #{$color} doesn't exist. Choose one of #{map.keys($merged-colors)}";
+  @if not map.has-key($colors, $color) {
+    @error "Invalid color specified! #{$color} doesn't exist. Choose one of #{map.keys($colors)}";
   }
 
-  $color-tone: map.get($merged-colors, $color);
+  $color-tone: map.get($colors, $color);
 
   @if not map.has-key($color-tone, $tone) {
     @error "Invalid tone specified! #{$tone} doesn't exist. Choose one of #{map.keys($color-key)}";
