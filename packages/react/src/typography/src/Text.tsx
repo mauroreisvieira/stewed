@@ -97,17 +97,15 @@ export const Text = fixedForwardRef(function UnwrappedText<T extends React.Eleme
   const computedVariation = Array.isArray(variation) ? variation : [variation];
 
   // Determine the size based on the provided 'as' prop or use the default element
-  const computedSize = (Object.keys(SizeMap) as Array<keyof typeof SizeMap>).find(
+  const computedSize = ((Object.keys(SizeMap) as Array<keyof typeof SizeMap>).find(
     (key) => SizeMap[key] === (as || defaultElement),
-  );
-
-  console.log("computedSize", computedSize);
+  ) ?? "base") as keyof typeof SizeMap;
 
   // CSS classes based on component props and styles
   const cssClasses = {
     root: classNames(
       styles[rootName],
-      computedSize && styles[`${rootName}--${computedSize}`],
+      styles[`${rootName}--${computedSize}`],
       skin && styles[`${rootName}--${skin}`],
       size && styles[`${rootName}--${size}`],
       weight && styles[`${rootName}--${weight}`],
