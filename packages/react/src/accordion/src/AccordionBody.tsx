@@ -7,7 +7,7 @@ import styles from "./styles/index.module.scss";
 export type AccordionBodyProps = React.HTMLAttributes<HTMLDivElement>;
 
 export function AccordionBody({ className, children, ...props }: AccordionBodyProps): React.ReactElement {
-  const rootClassName = "Accordion__body";
+  const rootClassName = "accordion__body";
   const cssClasses = {
     root: classNames(styles[rootClassName], className),
   };

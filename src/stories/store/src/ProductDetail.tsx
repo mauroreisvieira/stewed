@@ -41,7 +41,7 @@ export function ProductDetail(): React.ReactElement {
               </Button>
             )}>
             <img src="//legacies.com/cdn/shop/files/BenficaBlackHoodie-Compressed01.jpg?v=1700239125" />
-            <img src="//legacies.com/cdn/shop/files/BenficaBlackHoodie-Compressed01.jpg?v=1700239125" />
+            <img src="//legacies.com/cdn/shop/files/BenficaBlackHoodie-Compressed07.jpg?v=1701181151" />
           </Carousel>
         </Box>
         <Box direction="column" gap="2xl">
@@ -84,20 +84,27 @@ export function ProductDetail(): React.ReactElement {
               Adicionar ao carrinho
             </Button>
           </Box>
-          <Text size="md">
-            Esta coleção inspira-se na mítica águia, com uma nova abordagem poderosa que combina
-            tradição e celebra a individualidade do Benfica.
-          </Text>
           <Box gap="lg" direction="column">
             <Text size="sm" skin="secondary" whiteSpace="nowrap">
               Inclui uma etiqueta interativa na gola que concede acesso ao Club LEGACIES.
             </Text>
             <Accordion open>
-              <Accordion.Header rightSlot={<FiPlus />}>Entregas & Devoluções</Accordion.Header>
+              <Accordion.Header rightSlot={<FiPlus />}>Detalhes do Produto</Accordion.Header>
               <Accordion.Body>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores non dolor, et
-                accusamus sapiente omnis saepe voluptatum, facere alias suscipit eum unde itaque
-                veritatis voluptatem.
+                <Box direction="column" gap="lg">
+                  <Text>
+                    Esta coleção inspira-se na mítica águia, com uma nova abordagem poderosa que
+                    combina tradição e celebra a individualidade do Benfica.
+                  </Text>
+                  <ul>
+                    <li>Algodão LEGACIES de peso médio</li>
+                    <li>100% algodão</li>
+                    <li>500 gmq</li>
+                    <li>Corte unissexo</li>
+                    <li>Impressão DTG</li>
+                    <li>Fabricado em Portugal</li>
+                  </ul>
+                </Box>
               </Accordion.Body>
             </Accordion>
           </Box>
