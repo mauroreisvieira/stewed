@@ -8,14 +8,14 @@ export * from "./button";
 export * from "./card";
 export * from "./carousel";
 export * from "./checkbox";
-export * from "./input";
 export * from "./list-box";
 export * from "./progress";
 export * from "./radio";
 export * from "./tabs";
 export * from "./tag";
+export * from "./text-area";
+export * from "./text-field";
 export * from "./theme";
-export * from "./textarea";
 export * from "./theme";
 export * from "./typography";
 

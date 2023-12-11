@@ -4,7 +4,7 @@ import { classNames } from "@stewed/utilities";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface TextField extends React.InputHTMLAttributes<HTMLInputElement> {
   /** Change the visual style of the input. */
   skin?: "default" | "error" | "success";
   /** Slot to display before the input value. */
@@ -13,16 +13,16 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
   rightSlot?: React.ReactNode;
 }
 
-export const Input = forwardRef(
+export const TextField = forwardRef(
   (
-    { skin, className, disabled, leftSlot, rightSlot, ...otherProps }: InputProps,
+    { skin, className, disabled = true, leftSlot, rightSlot, ...otherProps }: TextField,
     ref: React.Ref<HTMLInputElement>,
   ): React.ReactElement => {
-    const rootClassName = "input";
+    const rootClassName = "text-field";
     const cssClasses = {
       root: classNames(
         styles[rootClassName],
-        disabled && `${styles[rootClassName]}--disabled`,
+        disabled && styles[`${rootClassName}--disabled`],
         skin !== "default" && styles[`${rootClassName}--${skin}`],
         className,
       ),

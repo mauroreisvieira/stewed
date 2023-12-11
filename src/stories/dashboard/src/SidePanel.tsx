@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar, Box, Input, ListBox, Text as Text } from "../../../../packages/react/index";
+import { Avatar, Box, TextField, ListBox, Text as Text } from "../../../../packages/react/index";
 import { FiFile, FiFilePlus, FiSearch, FiTrash, FiUsers } from "react-icons/fi";
 // Hooks
 import { useInput } from "../../../../packages/hooks/index";
@@ -14,7 +14,7 @@ export function SidePanel(): React.ReactElement {
           Stewed Board
         </Text>
       </Box>
-      <Input
+      <TextField
         {...searchInput}
         placeholder="Quick search"
         leftSlot={<FiSearch />}

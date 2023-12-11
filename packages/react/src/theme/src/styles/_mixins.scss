@@ -108,7 +108,6 @@
 }
 
 @mixin disabled-styles {
-  &:disabled,
   &--disabled {
     pointer-events: none;
     opacity: $disabled;

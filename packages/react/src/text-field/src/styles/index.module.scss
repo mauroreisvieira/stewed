@@ -13,9 +13,6 @@
     )
   );
 
-  @include text.typography(base, $overrides: (font-size: $input-font-size));
-  @include theme.focus-styles($target: ":focus-within");
-
   position: relative;
   box-sizing: border-box;
   display: inline-flex;
@@ -26,6 +23,10 @@
   overflow: hidden;
   border: 1px solid theme.get-var(border-color);
   border-radius: theme.get-var(border-radius);
+
+  @include text.typography(base, $overrides: (font-size: $input-font-size));
+  @include theme.focus-styles($target: ":focus-within");
+  @include theme.disabled-styles;
 
   &:hover {
     border-color: theme.get-var(border-color-hover);
@@ -39,8 +40,6 @@
     height: theme.get-var(height);
     padding-block: $input-spacings;
     touch-action: manipulation;
-
-    @include theme.disabled-styles;
   }
 
   @each $key, $value in $input-skins {

@@ -1,6 +1,6 @@
 @use "@stewed/react/src/theme/src/styles" as theme;
 
-$textarea-root: "textarea";
+$textarea-root: "text-area";
 
 /// Appearance
 $textarea-border-radius: theme.get-radius("md");

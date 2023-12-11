@@ -4,17 +4,17 @@ import { classNames } from '@stewed/utilities';
 // Styles
 import styles from './styles/index.module.scss';
 
-export interface TextareaProps
+export interface TextAreaProps
     extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
     skin?: 'default' | 'error' | 'success';
 }
 
-export const Textarea = React.forwardRef(
+export const TextArea = React.forwardRef(
     (
-        { skin, className, disabled, children, ...otherProps }: TextareaProps,
+        { skin, className, disabled, children, ...otherProps }: TextAreaProps,
         ref: React.Ref<HTMLTextAreaElement>
     ): React.ReactElement => {
-        const rootClassName = 'textarea';
+        const rootClassName = 'text-area';
         const cssClasses = {
             root: classNames(
                 styles[rootClassName],
@@ -37,4 +37,4 @@ export const Textarea = React.forwardRef(
     }
 );
 
-Textarea.displayName = 'Textarea';
+TextArea.displayName = 'TextArea';

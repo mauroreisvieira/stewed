@@ -1,6 +1,6 @@
 import React from "react";
 // UI Components
-import { Text, Box, Card, Theme, Input, Button } from "../../../../packages/react/index";
+import { Text, Box, Card, Theme, TextField, Button } from "../../../../packages/react/index";
 
 export function Login(): React.ReactElement {
   return (
@@ -15,7 +15,7 @@ export function Login(): React.ReactElement {
               <Text as="label" size="sm" htmlFor="email">
                 Email address
               </Text>
-              <Input id="email" type="email" />
+              <TextField id="email" type="email" />
             </Box>
             <Box direction="column" gap="sm">
               <Box justify="between">
@@ -26,7 +26,7 @@ export function Login(): React.ReactElement {
                   Forgot password?
                 </Text>
               </Box>
-              <Input id="password" type="password" />
+              <TextField id="password" type="password" />
             </Box>
             <Button>Sign in</Button>
             <Text alignment="center">
