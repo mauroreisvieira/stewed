@@ -17,15 +17,7 @@ export function ProductDetail(): React.ReactElement {
   const [selectedSize, setSelectedSize] = useState("M");
 
   return (
-    <Theme
-      theme="light"
-      tokens={{
-        light: {
-          color: {
-            primary: "#6A9A23",
-          },
-        },
-      }}>
+    <Theme>
       <Box justify="between" gap="2xl">
         <Box>
           <Carousel
@@ -58,7 +50,7 @@ export function ProductDetail(): React.ReactElement {
               <Text size="3xl" weight="bold">
                 €89,95
               </Text>
-              <Text size="3xl" weight="thin" variation={["line-through"]} skin="secondary">
+              <Text size="3xl" variation={["line-through"]} skin="secondary">
                 €120
               </Text>
             </Box>
@@ -88,24 +80,35 @@ export function ProductDetail(): React.ReactElement {
             <Text size="sm" skin="secondary" whiteSpace="nowrap">
               Inclui uma etiqueta interativa na gola que concede acesso ao Club LEGACIES.
             </Text>
-            <Accordion open>
-              <Accordion.Header rightSlot={<FiPlus />}>Detalhes do Produto</Accordion.Header>
-              <Accordion.Body>
-                <Box direction="column" gap="lg">
+            <Accordion>
+              <Accordion.Item open>
+                <Accordion.Header rightSlot={<FiPlus />}>Detalhes do Produto</Accordion.Header>
+                <Accordion.Body>
+                  <Box direction="column" gap="lg">
+                    <Text>
+                      Esta coleção inspira-se na mítica águia, com uma nova abordagem poderosa que
+                      combina tradição e celebra a individualidade do Benfica.
+                    </Text>
+                    <ul>
+                      <li>Algodão LEGACIES de peso médio</li>
+                      <li>100% algodão</li>
+                      <li>500 gmq</li>
+                      <li>Corte unissexo</li>
+                      <li>Impressão DTG</li>
+                      <li>Fabricado em Portugal</li>
+                    </ul>
+                  </Box>
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item>
+                <Accordion.Header rightSlot={<FiPlus />}>Tamanho e ajuste</Accordion.Header>
+                <Accordion.Body>
                   <Text>
-                    Esta coleção inspira-se na mítica águia, com uma nova abordagem poderosa que
-                    combina tradição e celebra a individualidade do Benfica.
+                    As nossas sweatshirts com capuz têm um tamanho grande. Se desejar um tamanho
+                    normal, diminua o tamanho do seu tamanho habitual.
                   </Text>
-                  <ul>
-                    <li>Algodão LEGACIES de peso médio</li>
-                    <li>100% algodão</li>
-                    <li>500 gmq</li>
-                    <li>Corte unissexo</li>
-                    <li>Impressão DTG</li>
-                    <li>Fabricado em Portugal</li>
-                  </ul>
-                </Box>
-              </Accordion.Body>
+                </Accordion.Body>
+              </Accordion.Item>
             </Accordion>
           </Box>
         </Box>

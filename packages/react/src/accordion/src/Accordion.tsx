@@ -1,5 +1,6 @@
 import React from "react";
 // Compound Component
+import { AccordionItem } from "./AccordionItem";
 import { AccordionHeader } from "./AccordionHeader";
 import { AccordionBody } from "./AccordionBody";
 // Utilities
@@ -11,7 +12,7 @@ export function Accordion({
   className,
   children,
   ...props
-}: React.DetailsHTMLAttributes<HTMLDetailsElement>): React.ReactElement {
+}: React.HTMLAttributes<HTMLDivElement>): React.ReactElement {
   const rootClassName = "accordion";
   const cssClasses = {
     root: classNames(
@@ -21,13 +22,14 @@ export function Accordion({
   };
 
   return (
-    <details className={cssClasses.root} {...props}>
+    <div className={cssClasses.root} {...props}>
       {children}
-    </details>
+    </div>
   );
 }
 
 // Compound component composition
+Accordion.Item = AccordionItem;
 Accordion.Header = AccordionHeader;
 Accordion.Body = AccordionBody;
 

@@ -3,6 +3,12 @@
 @use "./variables" as *;
 
 @include theme.scope($textarea-root) {
+  @include theme.define-var(
+    (
+      border-radius: theme.get-radius("sm"),
+    )
+  );
+
   --textarea-border: #{map.get($textarea-skins-default, "border")};
   --textarea-border-hover: #{map.get($textarea-skins-default, "border-hover")};
 
@@ -18,7 +24,7 @@
   font-weight: $textarea-font-weight;
   touch-action: manipulation;
   border: 1px solid var(--textarea-border);
-  border-radius: $textarea-border-radius;
+  border-radius: theme.get-var(border-radius);
 
   &:hover {
     border-color: var(--textarea-border-hover);

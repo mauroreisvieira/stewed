@@ -3,7 +3,6 @@
 $textarea-root: "text-area";
 
 /// Appearance
-$textarea-border-radius: theme.get-radius("md");
 $textarea-skins-default: (
   "border": theme.get-color("secondary", "300"),
   "border-hover": theme.get-color("secondary", "400"),

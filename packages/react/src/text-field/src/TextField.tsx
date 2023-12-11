@@ -15,7 +15,7 @@ export interface TextField extends React.InputHTMLAttributes<HTMLInputElement> {
 
 export const TextField = forwardRef(
   (
-    { skin, className, disabled = true, leftSlot, rightSlot, ...otherProps }: TextField,
+    { skin, className, disabled, leftSlot, rightSlot, ...otherProps }: TextField,
     ref: React.Ref<HTMLInputElement>,
   ): React.ReactElement => {
     const rootClassName = "text-field";

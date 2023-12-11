@@ -19,6 +19,7 @@ const SizeMap = {
   "display-5": "h5",
   "display-6": "h6",
   "link": "a",
+  "label": "label",
   "base": defaultElement,
 } as const;
 

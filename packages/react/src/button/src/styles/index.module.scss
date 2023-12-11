@@ -6,12 +6,11 @@
 @include theme.scope($button-root) {
   @include theme.define-var(
     (
-      border-radius: theme.get-radius("md"),
+      border-radius: theme.get-radius("full"),
       gap: theme.get-spacing("md"),
     )
   );
 
-  all: reset;
   position: relative;
   box-sizing: border-box;
   display: inline-flex;
@@ -45,6 +44,7 @@
         @include theme.define-var(
           (
             background-color: theme.get-color($value),
+            border-color: theme.get-color($value),
             color: #fff,
           )
         );
@@ -53,6 +53,7 @@
           @include theme.define-var(
             (
               background-color: theme.get-color($value, "600"),
+              border-color: theme.get-color($value, "600"),
             )
           );
         }
@@ -61,6 +62,7 @@
           @include theme.define-var(
             (
               background-color: theme.get-color($value, "700"),
+              border-color: theme.get-color($value, "700"),
             )
           );
         }
@@ -71,6 +73,7 @@
           (
             color: theme.get-color($value),
             background-color: transparent,
+            border-color: transparent,
           )
         );
 

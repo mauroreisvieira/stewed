@@ -17,10 +17,3 @@ $input-skins: (
     "border-color-hover": theme.get-color("red", "600"),
   ),
 );
-
-// Font
-$input-font-size: theme.get-font-size("sm");
-
-// Spacing's
-$input-height: theme.get-spacing("5xl");
-$input-spacings: theme.get-spacing("md");

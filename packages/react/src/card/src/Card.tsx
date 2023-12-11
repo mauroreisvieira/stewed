@@ -3,6 +3,7 @@ import React from "react";
 import { CardBody } from "./CardBody";
 import { CardHeader } from "./CardHeader";
 import { CardFooter } from "./CardFooter";
+import { CardMedia } from "./CardMedia";
 // Utilities
 import { classNames } from "@stewed/utilities";
 // Styles
@@ -47,5 +48,6 @@ export function Card({ selected, className, children, ...props }: CardProps): Re
 
 // Compound component composition
 Card.Body = CardBody;
+Card.Media = CardMedia;
 Card.Header = CardHeader;
 Card.Footer = CardFooter;

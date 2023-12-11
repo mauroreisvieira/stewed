@@ -16,6 +16,12 @@ $typography-styles: (
     "line-height": get-line-heigh("lg"),
     "color": get-color("primary"),
   ),
+  "label": (
+    "font-size": get-font-size("md"),
+    "font-weight": get-font-weight("medium"),
+    "line-height": get-line-heigh("lg"),
+    "color": get-color("gray", "900"),
+  ),
   "display-1": (
     "font-size": get-font-size("5xl"),
     "font-weight": get-font-weight("bold"),

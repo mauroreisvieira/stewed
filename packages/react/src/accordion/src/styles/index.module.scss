@@ -5,11 +5,18 @@
 
 @include theme.scope($accordion-root) {
   position: relative;
-  border-bottom: 1px solid theme.get-color("secondary", "200");
+
+  &__item {
+    border-bottom: 1px solid theme.get-color("secondary", "200");
+  }
+
+  &__header,
+  &__body {
+    padding-block: theme.get-spacing("lg");
+  }
 
   &__header {
     display: flex;
-    padding-block: theme.get-spacing("md");
     appearance: auto;
     cursor: pointer;
 
@@ -30,9 +37,5 @@
       flex-shrink: 0;
       align-items: center;
     }
-  }
-
-  &__body {
-    padding-block: theme.get-spacing("md");
   }
 }

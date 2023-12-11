@@ -4,12 +4,10 @@ import { classNames } from "@stewed/utilities";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export function AccordionBody({
-  className,
-  children,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>): React.ReactElement {
-  const rootClassName = "accordion__body";
+export type CardMediaProps = React.HTMLAttributes<HTMLDivElement>;
+
+export function CardMedia({ className, children, ...props }: CardMediaProps): React.ReactElement {
+  const rootClassName = "card__media";
   const cssClasses = {
     root: classNames(styles[rootClassName], className),
   };
