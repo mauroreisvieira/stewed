@@ -28,7 +28,7 @@ export function Plans(): React.ReactElement {
       <Card>
         <Card.Body>
           <Box direction="column" gap="2xl">
-            <div>
+            <Box direction="column">
               <Text alignment="center" weight="medium" skin="primary">
                 Teams for all sizes
               </Text>
@@ -36,7 +36,7 @@ export function Plans(): React.ReactElement {
               <Text as="h2" alignment="center" weight="extra-bold">
                 Pricing Plans
               </Text>
-            </div>
+            </Box>
 
             <Text alignment="center" size="xl">
               Start building for free, then add a site plan to go live. <br />

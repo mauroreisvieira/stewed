@@ -4,13 +4,14 @@
 
 @include theme.scope($typography-root) {
   all: unset;
-  display: block;
+  display: inline-block;
 
   &[href] {
     cursor: pointer;
 
     &:hover {
       text-decoration: underline;
+      text-underline-position: under;
     }
 
     @include theme.focus-styles;

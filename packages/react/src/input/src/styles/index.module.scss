@@ -7,6 +7,7 @@
   @include theme.define-var(
     (
       border-color: map.get($input-skins-default, "border-color"),
+      border-color-hover: map.get($input-skins-default, "border-color-hover"),
       border-radius: theme.get-radius("md"),
       height: $input-height,
     )
@@ -37,8 +38,6 @@
     width: 100%;
     height: theme.get-var(height);
     padding-block: $input-spacings;
-    padding-inline: 50%;
-    margin-inline: -50%;
     touch-action: manipulation;
 
     @include theme.disabled-styles;
@@ -48,8 +47,8 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          border-color: map.get($value, border-color),
-          border-color-hover: map.get($value, border-color-hover),
+          border-color: map.get($value, "border-color"),
+          border-color-hover: map.get($value, "border-color-hover"),
         )
       );
     }
