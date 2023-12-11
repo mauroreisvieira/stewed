@@ -76,7 +76,7 @@ export function Board(): React.ReactElement {
         <Text as="h4" weight="normal">
           All boards
         </Text>
-        <Button leftIcon={<FiPlus />}>New Project</Button>
+        <Button leftSlot={<FiPlus />}>New Project</Button>
       </Box>
       <div></div>
       <Box gap="lg">

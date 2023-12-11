@@ -4,6 +4,7 @@
 $config: (
   "prefix": null,
   "spacings": (
+    "none": var(--spacings-none),
     "xxs": var(--spacings-xxs),
     "xs": var(--spacings-xs),
     "sm": var(--spacings-sm),

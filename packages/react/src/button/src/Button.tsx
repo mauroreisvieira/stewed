@@ -30,9 +30,9 @@ export interface ButtonProps<T> extends React.ComponentProps<typeof defaultEleme
    */
   size?: "sm" | "md" | "lg";
   /** Slot for icon to display before the button text. */
-  leftIcon?: React.ReactNode;
+  leftSlot?: React.ReactNode;
   /** Slot for icon to display after the button text. */
-  rightIcon?: React.ReactNode;
+  rightSlot?: React.ReactNode;
   /** Allows the button to grow to the width of its container. */
   fullWidth?: boolean;
   /** Hide content and show only the icon. */
@@ -65,8 +65,8 @@ export const Button = fixedForwardRef(function UnwrappedButton<T extends React.E
     skin = "primary",
     appearance = "filled",
     size = "md",
-    leftIcon,
-    rightIcon,
+    leftSlot,
+    rightSlot,
     fullWidth,
     className,
     iconOnly,
@@ -103,9 +103,9 @@ export const Button = fixedForwardRef(function UnwrappedButton<T extends React.E
 
   return (
     <Comp ref={ref} className={cssClasses.root} {...props} >
-      {leftIcon && <span className={cssClasses.left}>{leftIcon}</span>}
+      {leftSlot && <span className={cssClasses.left}>{leftSlot}</span>}
       {children && <span className={cssClasses.text}>{children}</span>}
-      {rightIcon && <span className={cssClasses.right}>{rightIcon}</span>}
+      {rightSlot && <span className={cssClasses.right}>{rightSlot}</span>}
     </Comp>
   );
 });

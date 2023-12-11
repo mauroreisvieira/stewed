@@ -8,6 +8,7 @@ import {
   Tag,
   Theme,
   Accordion,
+  Toggle,
 } from "../../../../packages/react/index";
 import { FiArrowLeft, FiArrowRight, FiPlus } from "react-icons/fi";
 
@@ -23,12 +24,12 @@ export function ProductDetail(): React.ReactElement {
           <Carousel
             showIndicator={false}
             renderPrev={(props) => (
-              <Button appearance="ghost" leftIcon={<FiArrowLeft size={24} />} iconOnly {...props}>
+              <Button appearance="ghost" leftSlot={<FiArrowLeft size={24} />} iconOnly {...props}>
                 Prev
               </Button>
             )}
             renderNext={(props) => (
-              <Button appearance="ghost" leftIcon={<FiArrowRight size={24} />} iconOnly {...props}>
+              <Button appearance="ghost" leftSlot={<FiArrowRight size={24} />} iconOnly {...props}>
                 Next
               </Button>
             )}>
@@ -60,18 +61,17 @@ export function ProductDetail(): React.ReactElement {
             <Text as="label" size="xs" variation={"uppercase"} weight="medium">
               Seleccione o seu tamanho
             </Text>
-            <Box gap="sm" space={{ y: "lg" }}>
+            <Toggle.Group gap>
               {productsSizes.map((value) => (
-                <Button
+                <Toggle
                   key={value}
                   onClick={() => setSelectedSize(value)}
-                  appearance={value === selectedSize ? "filled" : "outline"}
-                  skin="secondary"
+                  selected={value === selectedSize}
                   fullWidth>
                   {value}
-                </Button>
+                </Toggle>
               ))}
-            </Box>
+            </Toggle.Group>
             <Button size="lg" fullWidth>
               Adicionar ao carrinho
             </Button>

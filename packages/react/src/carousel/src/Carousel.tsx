@@ -291,6 +291,7 @@ export const Carousel = forwardRef(
         </div>
         {showIndicator && (
           <CarouselIndicator
+            onClick={setCurrentIndex}
             currentSlide={currentSlide}
             slidesPerView={slidesPerView}
             slidesCount={slidesCount}

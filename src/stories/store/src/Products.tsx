@@ -10,6 +10,7 @@ import {
   Accordion,
   AspectRatio,
 } from "../../../../packages/react/index";
+import { FiShoppingCart } from "react-icons/fi";
 
 export function Products(): React.ReactElement {
   const products = [
@@ -52,7 +53,7 @@ export function Products(): React.ReactElement {
               </Box>
             </Card.Body>
             <Card.Footer>
-            <Button fullWidth>Add to Card</Button>
+            <Button leftSlot={<FiShoppingCart />} fullWidth>Add to Card</Button>
             </Card.Footer>
           </Card>
         ))}

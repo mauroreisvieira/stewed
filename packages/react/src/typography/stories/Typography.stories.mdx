@@ -27,55 +27,42 @@ export const Template = (args) => (
   </Theme>
 );
 
-### Base
-
-<Canvas>
-  <Story
-    name="Base"
-    args={{
-      as: "p",
-      size: "display-1",
-      skin: "primary",
-      children: "Aa",
-    }}>
-    {Template.bind({})}
-  </Story>
-</Canvas>
-
 ### Heading
 
 <Canvas>
-  <Story name="Heading">
-    <Theme>
-      <Text as="h1">Heading 1</Text>
-      <Text as="h2">Heading 2</Text>
-      <Text as="h3">Heading 3</Text>
-      <Text as="h4">Heading 4</Text>
-      <Text as="h5">Heading 5</Text>
-      <Text as="h6">Heading 6</Text>
-    </Theme>
+  <Story
+    name="Heading"
+    args={{
+      as: "h1",
+      children: "Heading 1",
+    }}>
+    {Template.bind({})}
   </Story>
 </Canvas>
 
 ### Paragraph
 
 <Canvas>
-  <Story name="Paragraph">
-    <Theme>
-      <Text>Lorem ipsum, dolor sit amet consectetur adipisicing elit</Text>
-    </Theme>
+  <Story
+    name="Paragraph"
+    args={{
+      children: "Lorem ipsum, dolor sit amet consectetur adipisicing elit",
+    }}>
+    {Template.bind({})}
   </Story>
 </Canvas>
 
 ### Anchor
 
 <Canvas>
-  <Story name="Anchor">
-    <Theme>
-      <Text as="a" href="/">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit
-      </Text>
-    </Theme>
+  <Story
+    name="Anchor"
+    args={{
+      as:"a",
+      href:"https://stewed.vercel.app/",
+      children: "Lorem ipsum, dolor sit amet consectetur adipisicing elit",
+    }}>
+    {Template.bind({})}
   </Story>
 </Canvas>
 

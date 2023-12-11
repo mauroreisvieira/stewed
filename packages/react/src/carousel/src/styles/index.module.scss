@@ -89,6 +89,7 @@
     width: theme.get-var("dash-width");
     width: 8px;
     height: 8px;
+    cursor: pointer;
     background-color: theme.get-var("dash-background");
     border-radius: $carousel-dash-radius;
 
