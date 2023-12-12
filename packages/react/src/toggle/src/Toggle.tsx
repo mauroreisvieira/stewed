@@ -11,11 +11,14 @@ export interface ToggleProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
    * Changes the size of the toggle, giving it more or less padding.
    * @default md
    */
-  size?: "md" | "lg";
-  /** Indicates whether the toggle is selected. */
+  size?: "sm" | "md" | "lg";
+  /**
+   * Indicates whether the toggle is selected.
+  * @default false
+   */
   selected?: boolean;
-  /** Allows the button to grow to the width of its container. */
-  fullWidth?: boolean;
+  /** Slot for icon to display before the toggle text. */
+  leftSlot?: React.ReactNode;
   /** The content to display inside the toggle. */
   children?: React.ReactNode;
 }
@@ -36,11 +39,11 @@ export interface ToggleProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
  */
 export function Toggle({
   size = "md",
-  fullWidth,
   className,
-  selected,
+  selected = false,
   disabled,
   children,
+  leftSlot,
   ...props
 }: ToggleProps): React.ReactElement {
   // Root class name for styling
@@ -51,16 +54,18 @@ export function Toggle({
     root: classNames(
       styles[rootName],
       styles[`${rootName}--${size}`],
-            fullWidth && styles[`${rootName}--fullWidth`],
       selected && styles[`${rootName}--selected`],
       disabled && styles[`${rootName}--disabled`],
       className,
     ),
+        left: classNames(styles[`${rootName}__left`]),
+    text: classNames(styles[`${rootName}__text`]),
   };
 
   return (
     <button disabled={disabled} className={cssClasses.root} {...props}>
-      {children}
+      {leftSlot && <span className={cssClasses.left}>{leftSlot}</span>}
+      {children && <span className={cssClasses.text}>{children}</span>}
     </button>
   );
 }

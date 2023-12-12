@@ -15,7 +15,8 @@
   align-items: center;
   justify-content: center;
   height: theme.get-var(height);
-  padding-inline: theme.get-spacing("md");
+  padding-block: theme.get-var(padding-block);
+  padding-inline: theme.get-var(padding-inline);
   line-height: 1;
   text-decoration: none;
   white-space: nowrap;
@@ -24,13 +25,14 @@
 
   @include text.typography(
     "base",
-    $overrides: (color: theme.get-var(color), font-size: theme.get-var(font-size))
+    $overrides: (color: theme.get-var(color), font-size: theme.get-var(font-size), line-height: 1)
   );
 
   &--sm {
     @include theme.define-var(
       (
-        height: theme.get-spacing("xl"),
+        padding-block: theme.get-spacing("xs"),
+        padding-inline: theme.get-spacing("sm"),
         font-size: theme.get-font-size("xs"),
       )
     );
@@ -39,7 +41,8 @@
   &--md {
     @include theme.define-var(
       (
-        height: theme.get-spacing("xl"),
+        padding-block: theme.get-spacing("xs"),
+        padding-inline: theme.get-spacing("sm"),
         font-size: theme.get-font-size("sm"),
       )
     );
@@ -48,8 +51,9 @@
   &--lg {
     @include theme.define-var(
       (
-        height: theme.get-spacing("2xl"),
-        font-size: theme.get-font-size("md"),
+        padding-block: theme.get-spacing("sm"),
+        padding-inline: theme.get-spacing("md"),
+        font-size: theme.get-font-size("sm"),
       )
     );
   }

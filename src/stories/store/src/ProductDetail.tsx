@@ -65,9 +65,9 @@ export function ProductDetail(): React.ReactElement {
               {productsSizes.map((value) => (
                 <Toggle
                   key={value}
+                  size="md"
                   onClick={() => setSelectedSize(value)}
-                  selected={value === selectedSize}
-                  fullWidth>
+                  selected={value === selectedSize}>
                   {value}
                 </Toggle>
               ))}

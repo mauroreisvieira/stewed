@@ -6,8 +6,10 @@
 @include theme.scope($button-root) {
   @include theme.define-var(
     (
-      border-radius: theme.get-radius("full"),
-      gap: theme.get-spacing("md"),
+      border-width: 1px,
+      border-color: transparent,
+      border-radius: theme.get-radius("sm"),
+      gap: theme.get-spacing("sm"),
     )
   );
 
@@ -17,9 +19,9 @@
   gap: theme.get-var(gap);
   align-items: center;
   justify-content: center;
-  min-width: theme.get-var(size);
-  height: theme.get-var(size);
-  padding: 0 theme.get-var(spacing);
+  min-height: calc(calc(theme.get-var(padding-block) * 2) + theme.get-var(text-line-height));
+  padding-block: calc(theme.get-var(padding-block) - theme.get-var(border-width));
+  padding-inline: calc(theme.get-var(padding-inline) - theme.get-var(border-width));
   overflow: hidden;
   color: theme.get-var(color);
   text-overflow: ellipsis;
@@ -28,7 +30,7 @@
   cursor: pointer;
   user-select: none;
   background-color: theme.get-var(background-color);
-  border: 1px solid theme.get-var(border-color);
+  border: theme.get-var(border-width) solid theme.get-var(border-color);
   border-radius: theme.get-var(border-radius);
 
   @include theme.focus-styles;
@@ -44,7 +46,6 @@
         @include theme.define-var(
           (
             background-color: theme.get-color($value),
-            border-color: theme.get-color($value),
             color: #fff,
           )
         );
@@ -53,7 +54,6 @@
           @include theme.define-var(
             (
               background-color: theme.get-color($value, "600"),
-              border-color: theme.get-color($value, "600"),
             )
           );
         }
@@ -62,7 +62,6 @@
           @include theme.define-var(
             (
               background-color: theme.get-color($value, "700"),
-              border-color: theme.get-color($value, "700"),
             )
           );
         }
@@ -73,7 +72,6 @@
           (
             color: theme.get-color($value),
             background-color: transparent,
-            border-color: transparent,
           )
         );
 
@@ -125,8 +123,17 @@
   &__text {
     @include text.typography(
       base,
-      $overrides: (color: currentColor, font-size: theme.get-font-size("sm"))
+      $overrides: (
+        color: currentColor,
+        font-size: theme.get-var(text-font-size),
+        line-height: theme.get-var(text-line-height)
+      )
     );
+  }
+
+  svg {
+    width: theme.get-var(text-line-height);
+    height: theme.get-var(text-line-height);
   }
 
   &__left,
@@ -137,12 +144,15 @@
 
   &--icon-only {
     gap: 0;
-    width: theme.get-var(size);
-    padding: 0;
+    width: calc(calc(theme.get-var(padding-block) * 2) + theme.get-var(text-line-height));
 
     .#{$button-root} {
       &__text {
-        font-size: 0;
+        @include theme.define-var(
+          (
+            text-font-size: 0,
+          )
+        );
       }
     }
   }
@@ -150,9 +160,10 @@
   &--sm {
     @include theme.define-var(
       (
-        size: theme.get-spacing("4xl"),
-        spacing: theme.get-spacing("xl"),
-        font-size: theme.get-font-size("sm"),
+        padding-block: theme.get-spacing("sm"),
+        padding-inline: theme.get-spacing("sm"),
+        text-line-height: theme.get-line-height("sm"),
+        text-font-size: theme.get-font-size("sm"),
       )
     );
   }
@@ -160,9 +171,10 @@
   &--md {
     @include theme.define-var(
       (
-        size: theme.get-spacing("6xl"),
-        spacing: theme.get-spacing("xl"),
-        font-size: theme.get-font-size("sm"),
+        padding-block: theme.get-spacing("md"),
+        padding-inline: theme.get-spacing("md"),
+        text-line-height: theme.get-line-height("sm"),
+        text-font-size: theme.get-font-size("sm"),
       )
     );
   }
@@ -170,9 +182,21 @@
   &--lg {
     @include theme.define-var(
       (
-        size: theme.get-font-size("5xl"),
-        spacing: theme.get-spacing("2xl"),
-        font-size: theme.get-font-size("md"),
+        padding-inline: theme.get-spacing("md"),
+        padding-block: theme.get-spacing("md"),
+        text-line-height: theme.get-line-height("md"),
+        text-font-size: theme.get-font-size("md"),
+      )
+    );
+  }
+
+  &--xl {
+    @include theme.define-var(
+      (
+        padding-inline: theme.get-spacing("lg"),
+        padding-block: theme.get-spacing("lg"),
+        text-line-height: theme.get-line-height("md"),
+        text-font-size: theme.get-font-size("md"),
       )
     );
   }

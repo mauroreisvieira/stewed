@@ -5,9 +5,7 @@ import {
   Button,
   Box,
   Text,
-  Tag,
   Theme,
-  Accordion,
   AspectRatio,
 } from "../../../../packages/react/index";
 import { FiShoppingCart } from "react-icons/fi";
@@ -40,9 +38,7 @@ export function Products(): React.ReactElement {
         {products.map(({ id, name, image, price }) => (
           <Card key={id}>
             <Card.Media>
-              <AspectRatio ratio="2:3">
                 <img src={image} />
-              </AspectRatio>
             </Card.Media>
             <Card.Body>
               <Box direction="column" gap="sm">

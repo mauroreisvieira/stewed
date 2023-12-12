@@ -10,11 +10,17 @@ import { classNames } from "@stewed/utilities";
 import styles from "./styles/index.module.scss";
 
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+  /**
+   * The padding size for the card.
+   * @default md
+   */
+  padding?: "none" | "sm" | "md" | "lg";
+  /** A boolean indicating whether the card is selected. */
   selected?: boolean;
 }
 
 /**
- * This component displays an Card component.
+ * This component displays an card component.
  * Cards component are used to communicate a state that affects a system, feature or page.
  *
  * @example
@@ -26,14 +32,23 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
  * </Card>
  * ```
  *
+ * @remarks This component props extended from React.HTMLAttributes<HTMLDivElement.
+ *
  * @param {CardProps} props - The props for the Card component.
  * @returns {React.ReactElement} - The rendered Card component.
  */
-export function Card({ selected, className, children, ...props }: CardProps): React.ReactElement {
+export function Card({
+  selected,
+  padding = "md",
+  className,
+  children,
+  ...props
+}: CardProps): React.ReactElement {
   const rootClassName = "card";
   const cssClasses = {
     root: classNames(
       styles[rootClassName],
+      padding && styles[`${rootClassName}--${padding}`],
       selected && styles[`${rootClassName}--selected`],
       className,
     ),

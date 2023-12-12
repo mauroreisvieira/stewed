@@ -6,8 +6,8 @@
 @include theme.scope($toggle-root) {
   @include theme.define-var(
     (
-      border-radius: theme.get-radius("sm"),
-      gap: theme.get-spacing("md"),
+      border-radius: theme.get-radius("full"),
+      gap: theme.get-spacing("sm"),
       background-color: transparent,
       border-color: currentColor,
       color: theme.get-color("primary"),
@@ -22,7 +22,8 @@
   justify-content: center;
   min-width: theme.get-var(size);
   height: theme.get-var(size);
-  padding: 0 theme.get-var(spacing);
+  padding-block: theme.get-var(padding-block);
+  padding-inline: theme.get-var(padding-inline);
   overflow: hidden;
   color: theme.get-var(color);
   text-overflow: ellipsis;
@@ -57,20 +58,21 @@
     );
   }
 
+  &__left {
+    display: flex;
+    font-size: inherit;
+  }
+
   &__text {
     @include text.typography(
       base,
-      $overrides: (color: currentColor, font-size: theme.get-font-size("sm"))
+      $overrides: (color: currentColor, font-size: theme.get-var(text-font-size), line-height: 1)
     );
   }
 
   &__group {
     display: flex;
     gap: theme.get-spacing("sm");
-  }
-
-  &--fullWidth {
-    width: 100%;
   }
 
   &--selected {
@@ -103,12 +105,22 @@
     }
   }
 
+  &--sm {
+    @include theme.define-var(
+      (
+        padding-inline: theme.get-spacing("md"),
+        padding-block: theme.get-spacing("sm"),
+        text-font-size: theme.get-font-size("xs"),
+      )
+    );
+  }
+
   &--md {
     @include theme.define-var(
       (
-        size: theme.get-spacing("6xl"),
-        spacing: theme.get-spacing("xl"),
-        font-size: theme.get-font-size("sm"),
+        padding-inline: theme.get-spacing("lg"),
+        padding-block: theme.get-spacing("md"),
+        text-font-size: theme.get-font-size("sm"),
       )
     );
   }
@@ -116,9 +128,9 @@
   &--lg {
     @include theme.define-var(
       (
-        size: theme.get-font-size("5xl"),
-        spacing: theme.get-spacing("2xl"),
-        font-size: theme.get-font-size("md"),
+        padding-inline: theme.get-spacing("xl"),
+        padding-block: theme.get-spacing("lg"),
+        text-font-size: theme.get-font-size("sm"),
       )
     );
   }

@@ -4,6 +4,7 @@
 @include theme.scope($card-root) {
   @include theme.define-var(
     (
+      padding: 0,
       border-radius: theme.get-radius("md"),
       background: $card-background,
       border-color: theme.get-color("secondary", "200"),
@@ -25,6 +26,13 @@
   &__media {
     border-top-left-radius: theme.get-var(border-radius);
     border-top-right-radius: theme.get-var(border-radius);
+
+    [src] {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      object-fit: cover;
+    }
   }
 
   &__header {
@@ -42,8 +50,31 @@
   &__header,
   &__body,
   &__footer {
-    padding-block: theme.get-spacing("xl");
-    padding-inline: theme.get-spacing("xl");
+    padding: theme.get-var(padding);
+  }
+
+  &--sm {
+    @include theme.define-var(
+      (
+        padding: theme.get-spacing("md"),
+      )
+    );
+  }
+
+  &--md {
+    @include theme.define-var(
+      (
+        padding: theme.get-spacing("xl"),
+      )
+    );
+  }
+
+  &--lg {
+    @include theme.define-var(
+      (
+        padding: theme.get-spacing("2xl"),
+      )
+    );
   }
 
   &--selected {

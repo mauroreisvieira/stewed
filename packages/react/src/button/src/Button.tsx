@@ -18,7 +18,7 @@ export interface ButtonProps<T> extends React.ComponentProps<typeof defaultEleme
    * Change the visual style of the button.
    * @default primary
    */
-  skin?: "primary" | "secondary" | "error";
+  skin?: "primary" | "secondary" | "danger";
   /**
    * Change the visual appearance of the button.
    * @default filled
@@ -28,7 +28,7 @@ export interface ButtonProps<T> extends React.ComponentProps<typeof defaultEleme
    * Changes the size of the button, giving it more or less padding.
    * @default md
    */
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "md" | "lg" | "xl";
   /** Slot for icon to display before the button text. */
   leftSlot?: React.ReactNode;
   /** Slot for icon to display after the button text. */

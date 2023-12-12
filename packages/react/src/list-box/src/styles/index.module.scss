@@ -123,8 +123,6 @@
     }
 
     &__title {
-      // padding-inline: $list-box-item-inner-spacing-inline;
-
       @include text.typography(
         base,
         $overrides: (

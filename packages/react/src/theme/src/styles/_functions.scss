@@ -71,7 +71,11 @@
   @return map.get($line-height, $value);
 }
 
-@function get-radius($value) {
+@function get-radius($value: null) {
+  @if not $value {
+    @return $radius;
+  }
+
   @if not map.has-key($radius, $value) {
     @error "Invalid radius specified! #{$value} doesn't exist. Choose one of #{map.keys($radius)}";
   }

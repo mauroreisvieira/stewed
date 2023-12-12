@@ -5,7 +5,7 @@ $avatar-root: "avatar";
 
 /// Appearance
 $avatar-border-radius: (
-  "square": theme.get-radius("md"),
+  "square": theme.get-radius("sm"),
   "round": theme.get-radius("full"),
 );
 
