@@ -7,11 +7,13 @@
   @include theme.define-var(
     (
       border-radius: theme.get-radius("sm"),
+      gap: theme.get-spacing("sm"),
     )
   );
 
   position: relative;
   display: inline-flex;
+  gap: theme.get-var(gap);
   align-items: center;
   justify-content: center;
   height: theme.get-var(height);
@@ -27,6 +29,12 @@
     "base",
     $overrides: (color: theme.get-var(color), font-size: theme.get-var(font-size), line-height: 1)
   );
+
+  &__left,
+  &__right {
+    display: flex;
+    font-size: inherit;
+  }
 
   &--sm {
     @include theme.define-var(

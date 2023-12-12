@@ -131,6 +131,7 @@
     );
   }
 
+  /* stylelint-disable-next-line selector-max-type */
   svg {
     width: theme.get-var(text-line-height);
     height: theme.get-var(text-line-height);
@@ -155,6 +156,17 @@
         );
       }
     }
+  }
+
+  &--xs {
+    @include theme.define-var(
+      (
+        padding-block: theme.get-spacing("xs"),
+        padding-inline: theme.get-spacing("xs"),
+        text-line-height: theme.get-line-height("xs"),
+        text-font-size: theme.get-font-size("xs"),
+      )
+    );
   }
 
   &--sm {

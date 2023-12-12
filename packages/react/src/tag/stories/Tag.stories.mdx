@@ -1,11 +1,12 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { Theme, Tag } from '../../';
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { Theme, Tag } from "../../";
+import { FiCheck } from "react-icons/fi";
 
 <Meta title="Components/Tag" component={Tag} />
 
 # Tag
 
-Tag components add contextual metadata to a design.
+Tag component are used to visually label UI objects for quick recognition and navigation.
 
 ### Installation
 
@@ -16,26 +17,43 @@ npm install --save @stewed/react
 ### Import
 
 ```js
-import { Tag } from '@stewed/react';
+import { Tag } from "@stewed/react";
 ```
 
 ## Examples
 
-export const Template = (args) => <Theme><Tag {...args} /></Theme>;
+export const Template = (args) => (
+  <Theme>
+    <Tag {...args} />
+  </Theme>
+);
 
 ### Base
 
 <Canvas>
-    <Story
-        name="Base"
-        args={{
-            skin: 'warning',
-            size: 'md',
-            children: 'Premium',
-        }}
-    >
-        {Template.bind({})}
-    </Story>
+  <Story
+    name="Base"
+    args={{
+      skin: "warning",
+      size: "md",
+      children: "Premium",
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Right Slot
+
+<Canvas>
+  <Story
+    name="Right Slot"
+    args={{
+      skin: "success",
+      rightSlot: <FiCheck />,
+      children: "Premium",
+    }}>
+    {Template.bind({})}
+  </Story>
 </Canvas>
 
 ## Props
