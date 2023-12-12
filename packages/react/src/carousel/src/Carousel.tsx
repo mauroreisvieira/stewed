@@ -239,7 +239,7 @@ export const Carousel = forwardRef(
     );
 
     const computedStyles = {
-      "--slides": slidesPerView,
+      "--carousel-slides": slidesPerView,
       "transform": `translateX(-${currentIndex * (100 / slidesPerView)}%)`,
       "transition": !transitionEnabled ? "none" : undefined,
     };
