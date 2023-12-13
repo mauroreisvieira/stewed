@@ -28,13 +28,10 @@ export function Login(): React.ReactElement {
               </Box>
               <TextField id="password" type="password" />
             </Box>
-            <Button>Sign in</Button>
-            <Text alignment="center">
-              Not a member?{" "}
-              <Text as="a" href="" weight="medium">
-                Start a 14 day free trial
-              </Text>
-            </Text>
+            <Box justify="end" gap="md">
+              <Button appearance="outline">Create an account</Button>
+              <Button>Sign in</Button>
+            </Box>
           </Box>
         </Card.Body>
       </Card>

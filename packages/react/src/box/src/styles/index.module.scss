@@ -43,11 +43,11 @@
 
   // Justify Content
   &--justify-start {
-    justify-content: box-start;
+    justify-content: start;
   }
 
   &--justify-end {
-    justify-content: box-end;
+    justify-content: end;
   }
 
   &--justify-center {
@@ -68,11 +68,11 @@
 
   // Align Items
   &--items-start {
-    align-items: box-start;
+    align-items: start;
   }
 
   &--items-end {
-    align-items: box-end;
+    align-items: end;
   }
 
   &--items-center {

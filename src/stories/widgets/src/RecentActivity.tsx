@@ -21,9 +21,9 @@ export function RecentActivity(): React.ReactElement {
         <Card.Body>
           <Box justify="between">
             <Box gap="md" items="center">
-              <Avatar size="md" name="Zahra Ambessa" />
+              <Avatar size="md" name="Lourenço Vieira" />
               <Box direction="column">
-                <Text weight="medium">Zahra Ambessa</Text>
+                <Text weight="medium">Lourenço Vieira</Text>
                 <Text size="sm" skin="secondary">
                   Purchased 15 office chairs and 2 drum sets
                 </Text>
@@ -36,9 +36,9 @@ export function RecentActivity(): React.ReactElement {
           <Divider space={{ y: "2xl" }} />
           <Box justify="between">
             <Box gap="md" items="center">
-              <Avatar size="md" name="Jasper Eriksson" />
+              <Avatar size="md" name="Henrique Vieira" />
               <Box direction="column">
-                <Text weight="medium">Jasper Eriksson</Text>
+                <Text weight="medium">Henrique Vieira</Text>
                 <Text size="sm" skin="secondary">
                   Updated client details for{" "}
                   <Text as="a" size="sm" href="">

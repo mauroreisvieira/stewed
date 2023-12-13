@@ -31,26 +31,26 @@ export function Team(): React.ReactElement {
         <Card.Body>
           <Box items="center" justify="between">
             <Box items="center" gap="md">
-              <Avatar name="Poppy Nicholls" />
+              <Avatar name="Bruna Santos" />
               <Text size="sm" as="a" href="">
-                Poppy Nicholls
+                Bruna Santos
               </Text>
             </Box>
             <Text size="xs" skin="secondary">
-              poppy.nicholls@example.com
+              bruna.santos@example.com
             </Text>
             <Button appearance="ghost" leftSlot={<FiSettings />} size="sm" iconOnly>Settings</Button>
           </Box>
           <Divider space={{ y: "xl" }} />
           <Box items="center" justify="between">
             <Box items="center" gap="md">
-              <Avatar name="Marisa Palermo" />
+              <Avatar name="Mauro Vieira" />
               <Text size="sm" as="a" href="">
-                Marisa Palermo
+                Mauro Vieira
               </Text>
             </Box>
             <Text size="xs" skin="secondary">
-              marisa.palermo@example.com
+              mauro.vieira@example.com
             </Text>
             <Button appearance="ghost" leftSlot={<FiSettings />} size="sm" iconOnly>Settings</Button>
           </Box>
