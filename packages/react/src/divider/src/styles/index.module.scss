@@ -1,0 +1,43 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+@use "@stewed/react/src/typography/src/styles" as text;
+@use "./variables" as *;
+
+@include theme.scope($divider-root) {
+  width: 100%;
+  height: 1px;
+  margin: 0;
+  margin-block: theme.get-var(margin-block);
+  margin-inline: theme.get-var(margin-inline);
+  background-color: theme.get-var(background-color);
+  border: none;
+
+  // Skin
+  @each $key, $value in $divider-skins {
+    &--#{$key} {
+      @include theme.define-var(
+        (
+          background-color: theme.get-color($value, "200"),
+        )
+      );
+    }
+  }
+
+  // Space
+  @each $key, $value in $divider-space {
+    &--space-x-#{$key} {
+      @include theme.define-var(
+        (
+          margin-inline: $value,
+        )
+      );
+    }
+
+    &--space-y-#{$key} {
+      @include theme.define-var(
+        (
+          margin-block: $value,
+        )
+      );
+    }
+  }
+}

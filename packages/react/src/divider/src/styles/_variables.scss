@@ -1,0 +1,13 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+
+$divider-root: "divider";
+
+/// Skins
+$divider-skins: (
+  "secondary": "secondary",
+  "primary": "primary",
+  "danger": "red",
+);
+
+/// Space
+$divider-space: theme.get-spacing();
