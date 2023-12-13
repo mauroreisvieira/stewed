@@ -15,7 +15,7 @@ export function Login(): React.ReactElement {
               <Text as="label" size="sm" htmlFor="email">
                 Email address
               </Text>
-              <TextField id="email" type="email" />
+              <TextField id="email" type="email" placeholder="Enter your email" />
             </Box>
             <Box direction="column" gap="sm">
               <Box justify="between">
@@ -26,7 +26,7 @@ export function Login(): React.ReactElement {
                   Forgot password?
                 </Text>
               </Box>
-              <TextField id="password" type="password" />
+              <TextField id="password" type="password" placeholder="Enter your password" />
             </Box>
             <Box justify="end" gap="md">
               <Button appearance="outline">Create an account</Button>

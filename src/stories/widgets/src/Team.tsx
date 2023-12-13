@@ -24,7 +24,7 @@ export function Team(): React.ReactElement {
             </Text>
           </Box>
           <Box items="baseline" gap="lg">
-            <TextField />
+            <TextField placeholder="Email address" />
             <Button>Invite</Button>
           </Box>
         </Card.Header>
