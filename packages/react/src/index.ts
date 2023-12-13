@@ -17,6 +17,7 @@ export * from "./tag";
 export * from "./text-area";
 export * from "./text-field";
 export * from "./theme";
+export * from "./switch";
 export * from "./theme";
 export * from "./toggle";
 export * from "./typography";

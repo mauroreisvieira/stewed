@@ -17,7 +17,7 @@ $typography-styles: (
     "color": get-color("primary"),
   ),
   "label": (
-    "font-size": get-font-size("md"),
+    "font-size": get-font-size("sm"),
     "font-weight": get-font-weight("medium"),
     "line-height": get-line-heigh("lg"),
     "color": get-color("gray", "900"),
