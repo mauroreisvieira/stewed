@@ -69,19 +69,19 @@ export const Box = fixedForwardRef(function UnwrappedBox<T extends React.Element
   ref: React.ForwardedRef<unknown>,
 ): React.ReactElement {
   const Comp = as || defaultElement;
-  const rootClassName = "box";
+  const rootName = "box";
   const cssClasses = {
     root: classNames(
-      styles[rootClassName],
-      styles[`${rootClassName}--${direction}`],
-      gap && styles[`${rootClassName}--gap-${gap}`],
-      justify && styles[`${rootClassName}--justify-${justify}`],
-      items && styles[`${rootClassName}--items-${items}`],
-      space?.x && styles[`${rootClassName}--space-x-${space.x}`],
-      space?.y && styles[`${rootClassName}--space-y-${space.y}`],
-      wrap && styles[`${rootClassName}--${wrap}`],
-      inline && styles[`${rootClassName}--inline`],
-      grow && styles[`${rootClassName}--grow`],
+      styles[rootName],
+      styles[`${rootName}--${direction}`],
+      gap && styles[`${rootName}--gap-${gap}`],
+      justify && styles[`${rootName}--justify-${justify}`],
+      items && styles[`${rootName}--items-${items}`],
+      space?.x && styles[`${rootName}--space-x-${space.x}`],
+      space?.y && styles[`${rootName}--space-y-${space.y}`],
+      wrap && styles[`${rootName}--${wrap}`],
+      inline && styles[`${rootName}--inline`],
+      grow && styles[`${rootName}--grow`],
       className,
     ),
   };
