@@ -10,14 +10,41 @@ import {
   Avatar,
   TextField,
 } from "../../../../packages/react/index";
-import { FiSettings } from "react-icons/fi";
+import { TbDotsVertical } from "react-icons/tb";
+
+const TEAM = [
+  {
+    name: "Mauro Vieira",
+    email: "mauro.vieira@example.com",
+  },
+  {
+    name: "Henrique Vieira",
+    email: "henrique.vieira@example.com",
+  },
+  {
+    name: "Lourenco Vieira",
+    email: "lourenco.vieira@example.com",
+  },
+  {
+    name: "Bruna Santos",
+    email: "bruna.santos@example.com",
+  },
+  {
+    name: "Daniel Reis Vieira",
+    email: "daniel.vieira@example.com",
+  },
+  {
+    name: "Dider Margarido",
+    email: "dider.margarido@example.com",
+  },
+];
 
 export function Team(): React.ReactElement {
   return (
     <Theme>
       <Card>
         <Card.Header>
-          <Box direction="column" space={{y: "lg"}}>
+          <Box direction="column" space={{ y: "lg" }}>
             <Text as="h5">Your team</Text>
             <Text size="sm" skin="secondary">
               Invite and manage your team members.
@@ -29,31 +56,32 @@ export function Team(): React.ReactElement {
           </Box>
         </Card.Header>
         <Card.Body>
-          <Box items="center" justify="between">
-            <Box items="center" gap="md">
-              <Avatar name="Bruna Santos" />
-              <Text size="sm" as="a" href="">
-                Bruna Santos
-              </Text>
-            </Box>
-            <Text size="xs" skin="secondary">
-              bruna.santos@example.com
-            </Text>
-            <Button appearance="ghost" leftSlot={<FiSettings />} size="sm" iconOnly>Settings</Button>
-          </Box>
-          <Divider space={{ y: "xl" }} />
-          <Box items="center" justify="between">
-            <Box items="center" gap="md">
-              <Avatar name="Mauro Vieira" />
-              <Text size="sm" as="a" href="">
-                Mauro Vieira
-              </Text>
-            </Box>
-            <Text size="xs" skin="secondary">
-              mauro.vieira@example.com
-            </Text>
-            <Button appearance="ghost" leftSlot={<FiSettings />} size="sm" iconOnly>Settings</Button>
-          </Box>
+          {TEAM.map(({ name, email }) => (
+            <>
+              <Box items="center" justify="between">
+                <Box items="center" gap="md">
+                  <Avatar name={name} />
+                  <Box direction="column">
+                    <Text size="sm" weight="medium">
+                      {name}
+                    </Text>
+                    <Text as="a" href="" size="xs" skin="secondary" alignment="end">
+                      {email}
+                    </Text>
+                  </Box>
+                </Box>
+                <Button
+                  skin="secondary"
+                  appearance="ghost"
+                  leftSlot={<TbDotsVertical />}
+                  size="sm"
+                  iconOnly>
+                  Settings
+                </Button>
+              </Box>
+              <Divider space={{ y: "xl" }} />
+            </>
+          ))}
         </Card.Body>
       </Card>
     </Theme>

@@ -33,8 +33,8 @@ export function ProductDetail(): React.ReactElement {
                 Next
               </Button>
             )}>
-            <img src="//legacies.com/cdn/shop/files/BenficaBlackHoodie-Compressed01.jpg?v=1700239125" />
-            <img src="//legacies.com/cdn/shop/files/BenficaBlackHoodie-Compressed07.jpg?v=1701181151" />
+            <img src="https://placehold.co/400x600" />
+            <img src="https://placehold.co/400x600" />
           </Carousel>
         </Box>
         <Box direction="column" gap="2xl">

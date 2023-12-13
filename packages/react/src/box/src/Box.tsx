@@ -34,7 +34,7 @@ export interface BoxProps<T> extends React.HTMLAttributes<HTMLDivElement> {
 
 /**
  * This component displays an box component.
- * Component that implements the CSS box box API.
+ * Component that implements the CSS flex box API.
  *
  * @example
  * ```tsx

@@ -1,7 +1,7 @@
 import React from "react";
 // UI Components
 import { Text, Box, Card, Theme, Divider, Button, Avatar } from "../../../../packages/react/index";
-import { FiBookmark } from "react-icons/fi";
+import { TbPin } from "react-icons/tb";
 
 export function RecentActivity(): React.ReactElement {
   return (
@@ -10,7 +10,7 @@ export function RecentActivity(): React.ReactElement {
         <Card.Header>
           <Box items="baseline" justify="between" gap="2xl">
             <Text as="h5">Recent activity</Text>
-            <Button size="sm" leftSlot={<FiBookmark />} appearance="ghost" iconOnly>
+            <Button size="sm" leftSlot={<TbPin />} appearance="ghost" iconOnly>
               Bookmark
             </Button>
           </Box>

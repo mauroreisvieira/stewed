@@ -1,13 +1,6 @@
 import React, { useState } from "react";
 // UI Components
-import {
-  Card,
-  Button,
-  Box,
-  Text,
-  Theme,
-  AspectRatio,
-} from "../../../../packages/react/index";
+import { Card, Button, Box, Text, Theme, AspectRatio } from "../../../../packages/react/index";
 import { FiShoppingCart } from "react-icons/fi";
 
 export function Products(): React.ReactElement {
@@ -15,20 +8,19 @@ export function Products(): React.ReactElement {
     {
       id: "1",
       name: "EAGLE Hood Black",
-      image: "//legacies.com/cdn/shop/files/BenficaBlackHoodie-Compressed01.jpg?v=1700239125",
+      image: "https://placehold.co/400x400",
       price: "€89,95",
     },
     {
       id: "2",
       name: "HERO Tee Black",
-      image:
-        "//legacies.com/cdn/shop/products/tee_ab1cdbf4-5698-490e-95d7-7b4c07cc8bbc-428133.jpg?v=1697063989",
+      image: "https://placehold.co/400x400",
       price: "€70,00",
     },
     {
       id: "3",
       name: "RENAISSANCE Hood Black",
-      image: "//legacies.com/cdn/shop/files/InterBlackHoodie.webp?v=1698755816",
+      image: "https://placehold.co/400x400",
       price: "€45,00",
     },
   ];
@@ -38,7 +30,7 @@ export function Products(): React.ReactElement {
         {products.map(({ id, name, image, price }) => (
           <Card key={id}>
             <Card.Media>
-                <img src={image} />
+              <img src={image} />
             </Card.Media>
             <Card.Body>
               <Box direction="column" gap="sm">
@@ -49,7 +41,9 @@ export function Products(): React.ReactElement {
               </Box>
             </Card.Body>
             <Card.Footer>
-            <Button leftSlot={<FiShoppingCart />} fullWidth>Add to Card</Button>
+              <Button leftSlot={<FiShoppingCart />} fullWidth>
+                Add to Card
+              </Button>
             </Card.Footer>
           </Card>
         ))}
