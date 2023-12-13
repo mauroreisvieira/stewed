@@ -1,0 +1,10 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+
+$switch-root: "switch";
+
+/// Skins
+$switch-skins: (
+  "secondary": "secondary",
+  "primary": "primary",
+  "danger": "red",
+);
