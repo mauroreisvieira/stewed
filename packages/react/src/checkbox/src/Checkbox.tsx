@@ -6,22 +6,22 @@ import styles from "./styles/index.module.scss";
 
 export interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> {
   /**
-   * Specifies the visual style of the radio.
+   * Specifies the visual style of the checkbox.
    * @default primary
    */
   skin?: "primary" | "error";
   /**
-   * Specifies the size of the radio.
+   * Specifies the size of the checkbox.
    * @default md
    */
   size?: "sm" | "md" | "lg";
   /**
-   * Applies an indeterminate state to the checkbox
+   * Sets the checkbox to an indeterminate state.
    * @default false
-   * @see {@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#attr-indeterminate}
+   * @see [MDN Documentation]{@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#attr-indeterminate}
    */
   indeterminate?: boolean;
-  /** Content to be rendered within the radio, usually used for labels. */
+  /** Content to be rendered within the checkbox, usually used for labels. */
   children?: React.ReactNode;
 }
 
