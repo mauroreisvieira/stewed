@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "@stewed/react/src/theme/src/styles" as theme;
 @use "@stewed/react/src/typography/src/styles" as text;
 @use "./variables" as *;
@@ -19,6 +20,10 @@
 
   @include theme.focus-styles($target: ":focus-within .#{$switch-root}__control");
   @include theme.disabled-styles;
+
+  &--reversed {
+    flex-direction: row-reverse;
+  }
 
   &__input {
     position: absolute;
@@ -54,8 +59,10 @@
       content: "";
       background-color: white;
       border-radius: theme.get-var(border-radius);
-      transition: transform 0.3s ease;
       transform: translate(1px, -50%);
+      transform-origin: 0 0;
+
+      @include theme.transition(transform);
     }
   }
 
@@ -64,31 +71,15 @@
   }
 
   // Sizes
-  &--sm {
-    @include theme.define-var(
-      (
-        width: 30px,
-        height: 18px,
-      )
-    );
-  }
-
-  &--md {
-    @include theme.define-var(
-      (
-        width: 34px,
-        height: 22px,
-      )
-    );
-  }
-
-  &--lg {
-    @include theme.define-var(
-      (
-        width: 40px,
-        height: 28px,
-      )
-    );
+  @each $key, $value in $switch-sizes {
+    &--#{$key} {
+      @include theme.define-var(
+        (
+          width: map.get($value, "width"),
+          height: map.get($value, "height"),
+        )
+      );
+    }
   }
 
   // Skins

@@ -15,6 +15,8 @@ export interface SwitchProps extends Omit<React.InputHTMLAttributes<HTMLInputEle
    * @default md
    */
   size?: "sm" | "md" | "lg";
+  /** Sets element's content before switch. */
+  reversed?: boolean;
   /** Content to be rendered within the switch, usually used for labels. */
   children?: React.ReactNode;
 }
@@ -34,7 +36,7 @@ export interface SwitchProps extends Omit<React.InputHTMLAttributes<HTMLInputEle
  */
 export const Switch = forwardRef(
   (
-    { skin = "primary", size = "md", className, disabled, children, ...props }: SwitchProps,
+    { skin = "primary", size = "md", className, reversed, disabled, children, ...props }: SwitchProps,
     ref: React.Ref<HTMLInputElement>,
   ): React.ReactElement => {
     const rootName = "switch";
@@ -42,6 +44,7 @@ export const Switch = forwardRef(
       root: classNames(
         styles[rootName],
         disabled && styles[`${rootName}--disabled`],
+        reversed && styles[`${rootName}--reversed`],
         styles[`${rootName}--${size}`],
         styles[`${rootName}--${skin}`],
         className,

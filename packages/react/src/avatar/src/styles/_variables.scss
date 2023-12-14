@@ -3,12 +3,6 @@
 // Avatar
 $avatar-root: "avatar";
 
-/// Appearance
-$avatar-border-radius: (
-  "square": theme.get-radius("sm"),
-  "round": theme.get-radius("full"),
-);
-
 /// Skins
 $avatar-skins: (
   "primary": primary,

@@ -8,3 +8,19 @@ $switch-skins: (
   "primary": "primary",
   "danger": "red",
 );
+
+/// Sizes
+$switch-sizes: (
+  "sm": (
+    "width": 30px,
+    "height": 18px,
+  ),
+  "md": (
+    "width": 34px,
+    "height": 22px,
+  ),
+  "lg": (
+    "width": 40px,
+    "height": 28px,
+  ),
+);

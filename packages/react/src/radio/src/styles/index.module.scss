@@ -74,30 +74,17 @@
   }
 
   // Sizes
-  &--sm {
-    @include theme.define-var(
-      (
-        size: 16px,
-      )
-    );
+  @each $key, $value in $radio-sizes {
+    &--#{$key} {
+      @include theme.define-var(
+        (
+          size: $value,
+        )
+      );
+    }
   }
 
-  &--md {
-    @include theme.define-var(
-      (
-        size: 20px,
-      )
-    );
-  }
-
-  &--lg {
-    @include theme.define-var(
-      (
-        size: 26px,
-      )
-    );
-  }
-
+  // Skins
   @each $key, $value in $radio-skins {
     &--#{$key} {
       .#{$radio-root}__input:checked + .radio__control {
