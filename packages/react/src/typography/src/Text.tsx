@@ -55,7 +55,6 @@ export interface TextProps<T> extends React.ComponentProps<typeof defaultElement
 }
 
 /**
- * This component displays an Text component.
  * Text is the used to render headings and paragraphs within an interface.
  *
  * @example
@@ -69,57 +68,59 @@ export interface TextProps<T> extends React.ComponentProps<typeof defaultElement
  * @param {TextProps} props - The props for the Text component.
  * @returns {React.ReactElement} - The rendered Text component.
  */
-export const Text = fixedForwardRef(function UnwrappedText<T extends React.ElementType>(
-  {
-    as,
-    size,
-    weight,
-    skin,
-    variation,
-    alignment,
-    whiteSpace,
-    className,
-    children,
-    ...props
-  }: TextProps<T> &
-    DistributiveOmit<
-      React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
-      "as"
-    >,
-  ref: React.ForwardedRef<unknown>,
-): React.ReactElement {
-  // Determine the component type based on 'as' prop or use the default element
-  const Comp = as || defaultElement;
-
-  // Root class name for styling
-  const rootName = "typography";
-
-  // Ensure variation is an array
-  const computedVariation = Array.isArray(variation) ? variation : [variation];
-
-  // Determine the size based on the provided 'as' prop or use the default element
-  const computedSize = ((Object.keys(SizeMap) as Array<keyof typeof SizeMap>).find(
-    (key) => SizeMap[key] === (as || defaultElement),
-  ) ?? "base") as keyof typeof SizeMap;
-
-  // CSS classes based on component props and styles
-  const cssClasses = {
-    root: classNames(
-      styles[rootName],
-      styles[`${rootName}--${computedSize}`],
-      skin && styles[`${rootName}--${skin}`],
-      size && styles[`${rootName}--${size}`],
-      weight && styles[`${rootName}--${weight}`],
-      alignment && styles[`${rootName}--alignment-${alignment}`],
-      whiteSpace && styles[`${rootName}--whitespace-${whiteSpace}`],
-      ...computedVariation.map((i) => styles[`${rootName}--${i}`]),
+export const Text = fixedForwardRef(
+  <T extends React.ElementType>(
+    {
+      as,
+      size,
+      weight,
+      skin,
+      variation,
+      alignment,
+      whiteSpace,
       className,
-    ),
-  };
+      children,
+      ...props
+    }: TextProps<T> &
+      DistributiveOmit<
+        React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
+        "as"
+      >,
+    ref: React.ForwardedRef<unknown>,
+  ): React.ReactElement => {
+    // Determine the component type based on 'as' prop or use the default element
+    const Comp = as || defaultElement;
 
-  return (
-    <Comp ref={ref} className={cssClasses.root} {...props}>
-      {children}
-    </Comp>
-  );
-});
+    // Root class name for styling
+    const rootName = "typography";
+
+    // Ensure variation is an array
+    const computedVariation = Array.isArray(variation) ? variation : [variation];
+
+    // Determine the size based on the provided 'as' prop or use the default element
+    const computedSize = ((Object.keys(SizeMap) as Array<keyof typeof SizeMap>).find(
+      (key) => SizeMap[key] === (as || defaultElement),
+    ) ?? "base") as keyof typeof SizeMap;
+
+    // CSS classes based on component props and styles
+    const cssClasses = {
+      root: classNames(
+        styles[rootName],
+        styles[`${rootName}--${computedSize}`],
+        skin && styles[`${rootName}--${skin}`],
+        size && styles[`${rootName}--${size}`],
+        weight && styles[`${rootName}--${weight}`],
+        alignment && styles[`${rootName}--alignment-${alignment}`],
+        whiteSpace && styles[`${rootName}--whitespace-${whiteSpace}`],
+        ...computedVariation.map((i) => styles[`${rootName}--${i}`]),
+        className,
+      ),
+    };
+
+    return (
+      <Comp ref={ref} className={cssClasses.root} {...props}>
+        {children}
+      </Comp>
+    );
+  },
+);

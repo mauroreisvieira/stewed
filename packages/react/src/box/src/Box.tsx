@@ -33,7 +33,6 @@ export interface BoxProps<T> extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * This component displays an box component.
  * Component that implements the CSS flex box API.
  *
  * @example
@@ -47,48 +46,50 @@ export interface BoxProps<T> extends React.HTMLAttributes<HTMLDivElement> {
  * @param {BoxProps} props - The props for the Box component.
  * @returns {React.ReactElement} - The rendered Box component.
  */
-export const Box = fixedForwardRef(function UnwrappedBox<T extends React.ElementType>(
-  {
-    as,
-    direction = "row",
-    gap,
-    justify,
-    items,
-    wrap,
-    space,
-    inline,
-    grow,
-    className,
-    children,
-    ...props
-  }: BoxProps<T> &
-    DistributiveOmit<
-      React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
-      "as"
-    >,
-  ref: React.ForwardedRef<unknown>,
-): React.ReactElement {
-  const Comp = as || defaultElement;
-  const rootName = "box";
-  const cssClasses = {
-    root: classNames(
-      styles[rootName],
-      styles[`${rootName}--${direction}`],
-      gap && styles[`${rootName}--gap-${gap}`],
-      justify && styles[`${rootName}--justify-${justify}`],
-      items && styles[`${rootName}--items-${items}`],
-      space?.x && styles[`${rootName}--space-x-${space.x}`],
-      space?.y && styles[`${rootName}--space-y-${space.y}`],
-      wrap && styles[`${rootName}--${wrap}`],
-      inline && styles[`${rootName}--inline`],
-      grow && styles[`${rootName}--grow`],
+export const Box = fixedForwardRef(
+  <T extends React.ElementType>(
+    {
+      as,
+      direction = "row",
+      gap,
+      justify,
+      items,
+      wrap,
+      space,
+      inline,
+      grow,
       className,
-    ),
-  };
+      children,
+      ...props
+    }: BoxProps<T> &
+      DistributiveOmit<
+        React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
+        "as"
+      >,
+    ref: React.ForwardedRef<unknown>,
+  ): React.ReactElement => {
+    const Comp = as || defaultElement;
+    const rootName = "box";
+    const cssClasses = {
+      root: classNames(
+        styles[rootName],
+        styles[`${rootName}--${direction}`],
+        gap && styles[`${rootName}--gap-${gap}`],
+        justify && styles[`${rootName}--justify-${justify}`],
+        items && styles[`${rootName}--items-${items}`],
+        space?.x && styles[`${rootName}--space-x-${space.x}`],
+        space?.y && styles[`${rootName}--space-y-${space.y}`],
+        wrap && styles[`${rootName}--${wrap}`],
+        inline && styles[`${rootName}--inline`],
+        grow && styles[`${rootName}--grow`],
+        className,
+      ),
+    };
 
-  return (
-    <Comp ref={ref} className={cssClasses.root} {...props}>
-      {children}
-    </Comp>
-  );
-});
+    return (
+      <Comp ref={ref} className={cssClasses.root} {...props}>
+        {children}
+      </Comp>
+    );
+  },
+);

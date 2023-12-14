@@ -101,7 +101,6 @@ export const Carousel = forwardRef(
       track: classNames(styles["carousel__track"]),
       item: classNames(styles["carousel__item"]),
       slide: classNames(styles["carousel__slide"]),
-      bottom: classNames(styles["carousel__bottom"]),
       prev: classNames(styles[`carousel__prev`]),
       next: classNames(styles[`carousel__next`]),
     };
