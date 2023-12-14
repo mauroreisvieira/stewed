@@ -1,17 +1,8 @@
 @use "@stewed/react/src/theme/src/styles" as theme;
 
 $radio-root: "radio";
-$radio-font-size: (
-  "sm": 16px,
-  "md": 20px,
-  "lg": 24px,
-);
-$radio-sizes: (
-  "sm": theme.get-spacing("lg"),
-  "md": theme.get-spacing("xl"),
-  "lg": theme.get-spacing("2xl"),
-);
-$radio-border-radius: theme.get-radius("sm");
+
+/// Skins
 $radio-skins: (
   "primary": "primary",
   "error": "red",

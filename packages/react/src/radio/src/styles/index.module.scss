@@ -1,88 +1,113 @@
 @use "@stewed/react/src/theme/src/styles" as theme;
+@use "@stewed/react/src/typography/src/styles" as text;
 @use "./variables" as *;
 
 @include theme.scope($radio-root) {
-  --radio-color: #{theme.get-color("primary", "500")};
+  display: inline-flex;
+  gap: theme.get-spacing("sm");
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 
-  position: relative;
-  display: inline-block;
-  width: var(--radio-size);
-  height: var(--radio-size);
-  border-radius: 50%;
+  @include theme.define-var(
+    (
+      background-color: theme.get-color("secondary", "50"),
+      border-color: theme.get-color("secondary", "200"),
+      border-radius: theme.get-radius("full"),
+    )
+  );
 
-  @include theme.focus-styles;
+  @include theme.focus-styles($target: ":focus-within .#{$radio-root}__control");
   @include theme.disabled-styles;
 
   @include theme.hover {
-    #{$radio-root}__background {
-      --radio-color: #{theme.get-color("primary", "600")};
+    @include theme.define-var(
+      (
+        background-color: theme.get-color("secondary", "100"),
+      )
+    );
+  }
+
+  &__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border: 0;
+    outline: none;
+    opacity: 0;
+
+    &:checked + .radio__control::after {
+      scale: 1;
     }
   }
 
   &__control {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    overflow: hidden;
-    cursor: pointer;
-    opacity: 0;
-
-    &:checked {
-      + .radio__background {
-        &::after {
-          scale: 1;
-        }
-      }
-    }
-  }
-
-  &__background {
     position: relative;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    color: var(--radio-color);
-    pointer-events: none;
-
-    &::before {
-      position: absolute;
-      inset: 0;
-      content: "";
-      border: 2px solid currentcolor;
-      border-radius: 50%;
-    }
+    box-sizing: border-box;
+    width: theme.get-var(size);
+    height: theme.get-var(size);
+    background-color: theme.get-var(background-color);
+    border: 1px solid theme.get-var(border-color);
+    border-radius: theme.get-var(border-radius);
 
     &::after {
       position: absolute;
       top: 50%;
       left: 50%;
-      width: calc(var(--radio-size) / 2);
-      height: calc(var(--radio-size) / 2);
+      width: calc(theme.get-var(size) / 2);
+      height: calc(theme.get-var(size) / 2);
       content: "";
-      background-color: currentcolor;
-      border-radius: 50%;
+      background-color: white;
+      border-radius: theme.get-var(border-radius);
+      transform: translate(-50%, -50%);
+      transform-origin: 0 0;
       scale: 0;
-      translate: -50% -50%;
 
       @include theme.transition(scale);
     }
   }
 
-  @each $key, $value in $radio-skins {
-    &--#{$key} {
-      #{$radio-root}__control:checked {
-        + .radio__background {
-          --radio-color: #{theme.get-color($value, "500")};
-        }
-      }
-    }
+  &__text {
+    @include text.typography(label);
   }
 
-  @each $key, $value in $radio-sizes {
+  // Sizes
+  &--sm {
+    @include theme.define-var(
+      (
+        size: 16px,
+      )
+    );
+  }
+
+  &--md {
+    @include theme.define-var(
+      (
+        size: 20px,
+      )
+    );
+  }
+
+  &--lg {
+    @include theme.define-var(
+      (
+        size: 26px,
+      )
+    );
+  }
+
+  @each $key, $value in $radio-skins {
     &--#{$key} {
-      --radio-size: #{$value};
+      .#{$radio-root}__input:checked + .radio__control {
+        @include theme.define-var(
+          (
+            background-color: theme.get-color($value),
+            border-color: theme.get-color($value),
+          )
+        );
+      }
     }
   }
 }
