@@ -57,7 +57,7 @@ export function Team(): React.ReactElement {
         </Card.Header>
         <Card.Body>
           {TEAM.map(({ name, email }) => (
-            <>
+            <React.Fragment key={email}>
               <Box items="center" justify="between">
                 <Box items="center" gap="md">
                   <Avatar name={name} />
@@ -80,7 +80,7 @@ export function Team(): React.ReactElement {
                 </Button>
               </Box>
               <Divider space={{ y: "xl" }} />
-            </>
+            </React.Fragment>
           ))}
         </Card.Body>
       </Card>
