@@ -15,7 +15,7 @@ export interface TextField extends React.InputHTMLAttributes<HTMLInputElement> {
 
 export const TextField = forwardRef(
   (
-    { skin, className, disabled, leftSlot, rightSlot, ...otherProps }: TextField,
+    { skin, className, disabled, leftSlot, rightSlot, ...props }: TextField,
     ref: React.Ref<HTMLInputElement>,
   ): React.ReactElement => {
     const rootClassName = "text-field";
@@ -34,7 +34,7 @@ export const TextField = forwardRef(
     return (
       <div className={cssClasses.root}>
         {leftSlot && <span className={cssClasses.left}>{leftSlot}</span>}
-        <input ref={ref} className={cssClasses.input} disabled={disabled} {...otherProps} />
+        <input ref={ref} className={cssClasses.input} disabled={disabled} {...props} />
         {rightSlot && <span className={cssClasses.right}>{rightSlot}</span>}
       </div>
     );

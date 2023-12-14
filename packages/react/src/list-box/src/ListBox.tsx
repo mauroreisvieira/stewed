@@ -10,14 +10,14 @@ import styles from "./styles/index.module.scss";
 export function ListBox({
   className,
   children,
-  ...otherProps
+  ...props
 }: React.HTMLAttributes<HTMLDivElement>): React.ReactElement {
   const rootClassName = "list-box";
   const cssClasses = {
     root: classNames(styles[rootClassName], className),
   };
   return (
-    <div className={cssClasses.root} role="menu" {...otherProps}>
+    <div className={cssClasses.root} role="menu" {...props}>
       {children}
     </div>
   );

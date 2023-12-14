@@ -11,7 +11,7 @@ export interface TextAreaProps
 
 export const TextArea = React.forwardRef(
     (
-        { skin, className, disabled, children, ...otherProps }: TextAreaProps,
+        { skin, className, disabled, children, ...props }: TextAreaProps,
         ref: React.Ref<HTMLTextAreaElement>
     ): React.ReactElement => {
         const rootClassName = 'text-area';
@@ -29,12 +29,10 @@ export const TextArea = React.forwardRef(
               ref={ref}
               className={cssClasses.root}
               disabled={disabled}
-              {...otherProps}
+              {...props}
             >
                 {children}
             </textarea>
         );
     }
 );
-
-TextArea.displayName = 'TextArea';

@@ -32,7 +32,7 @@ export const Progress = ({
   value,
   max = 100,
   className,
-  ...otherProps
+  ...props
 }: ProgressProps): React.ReactElement => {
   const rootClassName = "progress";
   const cssClasses = {
@@ -47,7 +47,7 @@ export const Progress = ({
   };
   return (
     <div className={cssClasses.root}>
-      <progress {...otherProps} value={value} max={max} className={cssClasses.control} />
+      <progress {...props} value={value} max={max} className={cssClasses.control} />
     </div>
   );
 };
