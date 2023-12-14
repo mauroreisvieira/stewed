@@ -19,7 +19,7 @@ export function RecentActivity(): React.ReactElement {
           </Text>
         </Card.Header>
         <Card.Body>
-          <Box justify="between">
+          <Box justify="between" gap="2xl" wrap="wrap">
             <Box gap="md" items="center">
               <Avatar size="md" name="Lourenço Vieira" />
               <Box direction="column">
@@ -34,7 +34,7 @@ export function RecentActivity(): React.ReactElement {
             </Text>
           </Box>
           <Divider space={{ y: "2xl" }} />
-          <Box justify="between">
+          <Box justify="between" gap="2xl" wrap="wrap">
             <Box gap="md" items="center">
               <Avatar size="md" name="Henrique Vieira" />
               <Box direction="column">

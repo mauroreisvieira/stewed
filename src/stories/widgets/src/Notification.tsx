@@ -25,7 +25,7 @@ export function Notification(): React.ReactElement {
           </Box>
         </Card.Header>
         <Card.Body>
-          <Box items="baseline" justify="between">
+          <Box items="baseline" justify="between" gap="md">
             <Box direction="column">
               <Text weight="semi-bold">Comments</Text>
               <Text size="xs" skin="secondary">

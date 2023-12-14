@@ -41,7 +41,7 @@ export interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputE
 export const Checkbox = forwardRef(
   (
     {
-      skin = "error",
+      skin = "primary",
       size = "md",
       className,
       disabled,

@@ -11,7 +11,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: theme.get-var(size);
+  min-width: theme.get-var(size);
   height: theme.get-var(size);
   overflow: hidden;
   font-size: calc(theme.get-var(size) / 3);

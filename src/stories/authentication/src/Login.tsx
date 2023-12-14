@@ -1,6 +1,14 @@
 import React from "react";
 // UI Components
-import { Text, Box, Card, Theme, TextField, Button } from "../../../../packages/react/index";
+import {
+  Text,
+  Box,
+  Card,
+  Theme,
+  TextField,
+  Button,
+  Checkbox,
+} from "../../../../packages/react/index";
 
 export function Login(): React.ReactElement {
   return (
@@ -28,9 +36,12 @@ export function Login(): React.ReactElement {
               </Box>
               <TextField id="password" type="password" placeholder="Enter your password" />
             </Box>
-            <Box justify="end" gap="md">
-              <Button appearance="outline">Create an account</Button>
-              <Button>Sign in</Button>
+            <Box justify="between" gap="md">
+              <Checkbox>Keep me logged in</Checkbox>
+              <Box justify="end" gap="md">
+                <Button appearance="outline">Create an account</Button>
+                <Button>Sign in</Button>
+              </Box>
             </Box>
           </Box>
         </Card.Body>
