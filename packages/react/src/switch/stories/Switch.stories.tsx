@@ -1,13 +1,13 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Theme, Checkbox } from "../../index";
+import { Theme, Switch } from "../../index";
 
-type Story = StoryObj<typeof Checkbox>;
+type Story = StoryObj<typeof Switch>;
 
-const meta: Meta<typeof Checkbox> = {
-  title: "Components/Checkbox",
-  component: Checkbox,
+const meta: Meta<typeof Switch> = {
+  title: "Components/Switch",
+  component: Switch,
   argTypes: {
     size: {
       control: "radio",
@@ -34,9 +34,9 @@ export const Controlled: Story = {
     onChange: { action: "change" },
   },
   args: {
+    reversed: false,
     checked: false,
     disabled: false,
-    indeterminate: false,
     size: "md",
     skin: "primary",
     children: "Label",
@@ -45,6 +45,7 @@ export const Controlled: Story = {
 
 export const Uncontrolled: Story = {
   args: {
+    reversed: false,
     disabled: false,
     size: "md",
     skin: "primary",

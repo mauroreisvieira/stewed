@@ -1,13 +1,13 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Theme, Checkbox } from "../../index";
+import { Theme, Radio } from "../../index";
 
-type Story = StoryObj<typeof Checkbox>;
+type Story = StoryObj<typeof Radio>;
 
-const meta: Meta<typeof Checkbox> = {
-  title: "Components/Checkbox",
-  component: Checkbox,
+const meta: Meta<typeof Radio> = {
+  title: "Components/Radio",
+  component: Radio,
   argTypes: {
     size: {
       control: "radio",
@@ -35,16 +35,6 @@ export const Controlled: Story = {
   },
   args: {
     checked: false,
-    disabled: false,
-    indeterminate: false,
-    size: "md",
-    skin: "primary",
-    children: "Label",
-  },
-};
-
-export const Uncontrolled: Story = {
-  args: {
     disabled: false,
     size: "md",
     skin: "primary",

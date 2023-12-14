@@ -36,7 +36,15 @@ export interface SwitchProps extends Omit<React.InputHTMLAttributes<HTMLInputEle
  */
 export const Switch = forwardRef(
   (
-    { skin = "primary", size = "md", className, reversed, disabled, children, ...props }: SwitchProps,
+    {
+      skin = "primary",
+      size = "md",
+      className,
+      reversed,
+      disabled,
+      children,
+      ...props
+    }: SwitchProps,
     ref: React.Ref<HTMLInputElement>,
   ): React.ReactElement => {
     const rootName = "switch";
