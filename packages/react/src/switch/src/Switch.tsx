@@ -20,7 +20,6 @@ export interface SwitchProps extends Omit<React.InputHTMLAttributes<HTMLInputEle
 }
 
 /**
- * This component displays an switch component.
  * Switch component communicate an action a user can take.
  *
  * @example
@@ -33,35 +32,37 @@ export interface SwitchProps extends Omit<React.InputHTMLAttributes<HTMLInputEle
  * @param {SwitchProps} props - The props for the Switch component.
  * @returns {React.ReactElement} - The rendered Switch component.
  */
-export const Switch = forwardRef(function UnwrappedSwitch(
-  { skin = "primary", size = "md", className, disabled, children, ...otherProps }: SwitchProps,
-  ref: React.Ref<HTMLInputElement>,
-): React.ReactElement {
-  const rootClassName = "switch";
-  const cssClasses = {
-    root: classNames(
-      styles[rootClassName],
-      disabled && styles[`${rootClassName}--disabled`],
-      styles[`${rootClassName}--${size}`],
-      styles[`${rootClassName}--${skin}`],
-      className,
-    ),
-    input: styles[`${rootClassName}__input`],
-    control: styles[`${rootClassName}__control`],
-    text: styles[`${rootClassName}__text`],
-  };
+export const Switch = forwardRef(
+  (
+    { skin = "primary", size = "md", className, disabled, children, ...props }: SwitchProps,
+    ref: React.Ref<HTMLInputElement>,
+  ): React.ReactElement => {
+    const rootName = "switch";
+    const cssClasses = {
+      root: classNames(
+        styles[rootName],
+        disabled && styles[`${rootName}--disabled`],
+        styles[`${rootName}--${size}`],
+        styles[`${rootName}--${skin}`],
+        className,
+      ),
+      input: styles[`${rootName}__input`],
+      control: styles[`${rootName}__control`],
+      text: styles[`${rootName}__text`],
+    };
 
-  return (
-    <label className={cssClasses.root}>
-      <input
-        ref={ref}
-        type="checkbox"
-        disabled={disabled}
-        className={cssClasses.input}
-        {...otherProps}
-      />
-      <span className={cssClasses.control} />
-      {children && <span className={cssClasses.text}>{children}</span>}
-    </label>
-  );
-});
+    return (
+      <label className={cssClasses.root}>
+        <input
+          ref={ref}
+          type="checkbox"
+          disabled={disabled}
+          className={cssClasses.input}
+          {...props}
+        />
+        <span className={cssClasses.control} />
+        {children && <span className={cssClasses.text}>{children}</span>}
+      </label>
+    );
+  },
+);

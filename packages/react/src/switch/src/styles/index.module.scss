@@ -9,9 +9,6 @@
   justify-content: center;
   cursor: pointer;
 
-  @include theme.focus-styles($target: ":focus-within .#{$switch-root}__control");
-  @include theme.disabled-styles;
-
   @include theme.define-var(
     (
       background-color: theme.get-color("secondary", "100"),
@@ -19,6 +16,9 @@
       border-radius: theme.get-radius("full"),
     )
   );
+
+  @include theme.focus-styles($target: ":focus-within .#{$switch-root}__control");
+  @include theme.disabled-styles;
 
   &__input {
     position: absolute;
