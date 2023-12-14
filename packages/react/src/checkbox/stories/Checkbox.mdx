@@ -1,0 +1,28 @@
+import { Canvas, Meta, ArgTypes } from "@storybook/blocks";
+import * as CheckboxStories from "./Checkbox.stories";
+
+# Checkbox
+
+Checkbox component allow the user to select multiple options from a set.
+
+### Installation
+
+```bash
+npm install --save @stewed/react
+```
+
+### Import
+
+```js
+import { Checkbox } from "@stewed/react";
+```
+
+<Meta of={CheckboxStories} />
+
+## Uncontrolled
+
+<Canvas of={CheckboxStories.Uncontrolled} />
+
+## Props
+
+<ArgTypes of={CheckboxStories} />
