@@ -18,17 +18,17 @@ export function Badge({
   className,
   children,
 }: BadgeProps): React.ReactElement {
-  const rootClassName = "badge";
+  const rootName = "badge";
 
   const cssClasses = {
     root: classNames(
-      styles[rootClassName],
-      styles[`${rootClassName}--${skin}`],
-      !!children && styles[`${rootClassName}--${position}`],
-      value && value.length > 2 && styles[`${rootClassName}--padded`],
+      styles[rootName],
+      styles[`${rootName}--${skin}`],
+      !!children && styles[`${rootName}--${position}`],
+      value && value.length > 2 && styles[`${rootName}--padded`],
       className,
     ),
-    value: styles[`${rootClassName}__value`],
+    value: styles[`${rootName}__value`],
   };
   return (
     <div className={cssClasses.root}>

@@ -13,10 +13,10 @@ export function Accordion({
   children,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>): React.ReactElement {
-  const rootClassName = "accordion";
+  const rootName = "accordion";
   const cssClasses = {
     root: classNames(
-      styles[rootClassName],
+      styles[rootName],
       className,
     ),
   };

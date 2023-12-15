@@ -18,17 +18,17 @@ export const TextField = forwardRef(
     { skin, className, disabled, leftSlot, rightSlot, ...props }: TextField,
     ref: React.Ref<HTMLInputElement>,
   ): React.ReactElement => {
-    const rootClassName = "text-field";
+    const rootName = "text-field";
     const cssClasses = {
       root: classNames(
-        styles[rootClassName],
-        disabled && styles[`${rootClassName}--disabled`],
-        skin !== "default" && styles[`${rootClassName}--${skin}`],
+        styles[rootName],
+        disabled && styles[`${rootName}--disabled`],
+        skin !== "default" && styles[`${rootName}--${skin}`],
         className,
       ),
-      input: classNames(styles[`${rootClassName}__input`]),
-      left: classNames(styles[`${rootClassName}__left`]),
-      right: classNames(styles[`${rootClassName}__right`]),
+      input: classNames(styles[`${rootName}__input`]),
+      left: classNames(styles[`${rootName}__left`]),
+      right: classNames(styles[`${rootName}__right`]),
     };
 
     return (

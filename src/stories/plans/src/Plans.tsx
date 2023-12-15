@@ -66,7 +66,7 @@ export function Plans(): React.ReactElement {
                   </Box>
                 </Box>
               </Card.Body>
-              <Card.Footer bordered>
+              <Card.Footer>
                 <Button fullWidth>Subscribe</Button>
               </Card.Footer>
             </Card>

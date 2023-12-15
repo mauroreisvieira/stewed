@@ -28,15 +28,15 @@ export function TabsItem({
   const { onValueChange, value: selectedValue } = useTabsContext();
 
   const isSelected = value === selectedValue;
-  const rootClassName = "tabs__item";
+  const rootName = "tabs__item";
   const cssClasses = {
     root: classNames(
-      styles[rootClassName],
-      isSelected && styles[`${rootClassName}--selected`],
+      styles[rootName],
+      isSelected && styles[`${rootName}--selected`],
       className,
     ),
-    left: classNames(styles[`${rootClassName}__left`]),
-    right: classNames(styles[`${rootClassName}__right`]),
+    left: classNames(styles[`${rootName}__left`]),
+    right: classNames(styles[`${rootName}__right`]),
   };
 
   const onHandleClick = (event: React.MouseEvent<HTMLButtonElement>) => {

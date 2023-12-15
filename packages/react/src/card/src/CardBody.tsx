@@ -4,12 +4,14 @@ import { classNames } from "@stewed/utilities";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export type CardBodyProps = React.HTMLAttributes<HTMLDivElement>;
-
-export function CardBody({ className, children, ...props }: CardBodyProps): React.ReactElement {
-  const rootClassName = "card__body";
+export function CardBody({
+  className,
+  children,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>): React.ReactElement {
+  const rootName = "card__body";
   const cssClasses = {
-    root: classNames(styles[rootClassName], className),
+    root: classNames(styles[rootName], className),
   };
 
   return (

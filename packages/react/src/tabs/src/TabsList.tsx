@@ -11,9 +11,9 @@ export function TabsList({
   children,
   ...props
 }: TabsListProps): React.ReactElement {
-  const rootClassName = "tabs__list";
+  const rootName = "tabs__list";
   const cssClasses = {
-    root: classNames(styles[rootClassName], className),
+    root: classNames(styles[rootName], className),
   };
 
   return (

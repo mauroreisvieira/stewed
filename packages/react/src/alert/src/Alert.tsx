@@ -43,18 +43,18 @@ export function Alert({
     children,
     ...props
 }: AlertProps): React.ReactElement {
-    const rootClassName = 'alert';
+    const rootName = 'alert';
     const cssClasses = {
         root: classNames(
-            styles[rootClassName],
-            styles[`${rootClassName}--${skin}`],
+            styles[rootName],
+            styles[`${rootName}--${skin}`],
             className
         ),
-        title: styles[`${rootClassName}__title`],
-        body: styles[`${rootClassName}__body`],
-        wrapper: styles[`${rootClassName}__wrapper`],
-        left: styles[`${rootClassName}__left`],
-        right: styles[`${rootClassName}right`],
+        title: styles[`${rootName}__title`],
+        body: styles[`${rootName}__body`],
+        wrapper: styles[`${rootName}__wrapper`],
+        left: styles[`${rootName}__left`],
+        right: styles[`${rootName}right`],
     };
 
     return (

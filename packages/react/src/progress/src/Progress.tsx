@@ -34,16 +34,16 @@ export const Progress = ({
   className,
   ...props
 }: ProgressProps): React.ReactElement => {
-  const rootClassName = "progress";
+  const rootName = "progress";
   const cssClasses = {
     root: classNames(
-      styles[rootClassName],
-      styles[`${rootClassName}--${skin}`],
-      styles[`${rootClassName}--${size}`],
-      rounded && styles[`${rootClassName}--rounded`],
+      styles[rootName],
+      styles[`${rootName}--${skin}`],
+      styles[`${rootName}--${size}`],
+      rounded && styles[`${rootName}--rounded`],
       className,
     ),
-    control: styles[`${rootClassName}__control`],
+    control: styles[`${rootName}__control`],
   };
   return (
     <div className={cssClasses.root}>

@@ -10,13 +10,12 @@ import {
   Avatar,
   Switch,
 } from "../../../../packages/react/index";
-import { FiSettings } from "react-icons/fi";
 
 export function Notification(): React.ReactElement {
   return (
     <Theme>
       <Card>
-        <Card.Header bordered>
+        <Card.Header>
           <Box direction="column" space={{ y: "lg" }}>
             <Text as="h5">Notification</Text>
             <Text size="sm" skin="secondary">

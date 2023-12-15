@@ -4,23 +4,14 @@ import { classNames } from "@stewed/utilities";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface CardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
-  bordered?: boolean;
-}
-
 export function CardHeader({
-  bordered,
   className,
   children,
   ...props
-}: CardHeaderProps): React.ReactElement {
-  const rootClassName = "card__header";
+}: React.HTMLAttributes<HTMLDivElement>): React.ReactElement {
+  const rootName = "card__header";
   const cssClasses = {
-    root: classNames(
-      styles[rootClassName],
-      bordered && styles[`${rootClassName}--bordered`],
-      className,
-    ),
+    root: classNames(styles[rootName], className),
   };
 
   return (

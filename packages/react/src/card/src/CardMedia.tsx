@@ -7,9 +7,9 @@ import styles from "./styles/index.module.scss";
 export type CardMediaProps = React.HTMLAttributes<HTMLDivElement>;
 
 export function CardMedia({ className, children, ...props }: CardMediaProps): React.ReactElement {
-  const rootClassName = "card__media";
+  const rootName = "card__media";
   const cssClasses = {
-    root: classNames(styles[rootClassName], className),
+    root: classNames(styles[rootName], className),
   };
 
   return (

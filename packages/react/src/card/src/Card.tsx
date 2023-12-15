@@ -32,7 +32,7 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
  * </Card>
  * ```
  *
- * @remarks This component props extended from React.HTMLAttributes<HTMLDivElement.
+ * @remarks This component props extended from React.HTMLAttributes<HTMLDivElement>.
  *
  * @param {CardProps} props - The props for the Card component.
  * @returns {React.ReactElement} - The rendered Card component.
@@ -44,12 +44,12 @@ export function Card({
   children,
   ...props
 }: CardProps): React.ReactElement {
-  const rootClassName = "card";
+  const rootName = "card";
   const cssClasses = {
     root: classNames(
-      styles[rootClassName],
-      padding && styles[`${rootClassName}--${padding}`],
-      selected && styles[`${rootClassName}--selected`],
+      styles[rootName],
+      padding && styles[`${rootName}--${padding}`],
+      selected && styles[`${rootName}--selected`],
       className,
     ),
   };

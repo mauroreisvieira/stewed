@@ -25,12 +25,12 @@ export function Tabs({
   children,
   ...props
 }: TabsProps): React.ReactElement {
-  const rootClassName = "tabs";
+  const rootName = "tabs";
   const cssClasses = {
     root: classNames(
-      styles[rootClassName],
-      styles[`${rootClassName}--${alignment}`],
-      styles[`${rootClassName}--${direction}`],
+      styles[rootName],
+      styles[`${rootName}--${alignment}`],
+      styles[`${rootName}--${direction}`],
       className,
     ),
   };

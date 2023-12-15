@@ -14,12 +14,12 @@ export const TextArea = React.forwardRef(
         { skin, className, disabled, children, ...props }: TextAreaProps,
         ref: React.Ref<HTMLTextAreaElement>
     ): React.ReactElement => {
-        const rootClassName = 'text-area';
+        const rootName = 'text-area';
         const cssClasses = {
             root: classNames(
-                styles[rootClassName],
-                disabled && `${styles[rootClassName]}--disabled`,
-                skin !== 'default' && styles[`${rootClassName}--${skin}`],
+                styles[rootName],
+                disabled && `${styles[rootName]}--disabled`,
+                skin !== 'default' && styles[`${rootName}--${skin}`],
                 className
             ),
         };

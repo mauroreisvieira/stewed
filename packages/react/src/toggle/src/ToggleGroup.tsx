@@ -14,10 +14,10 @@ export function ToggleGroup({
   className,
   children,
 }: ToggleGroupProps): React.ReactElement {
-  const rootClassName = "toggle__group";
+  const rootName = "toggle__group";
   const cssClasses = {
     root: classNames(
-      styles[rootClassName],
+      styles[rootName],
       className,
     ),
   };

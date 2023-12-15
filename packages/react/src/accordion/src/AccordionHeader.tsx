@@ -17,12 +17,12 @@ export function AccordionHeader({
   children,
   ...props
 }: AccordionHeaderProps): React.ReactElement {
-  const rootClassName = "accordion__header";
+  const rootName = "accordion__header";
   const cssClasses = {
-    root: classNames(styles[rootClassName], className),
-    left: classNames(styles[`${rootClassName}__left`]),
-    right: classNames(styles[`${rootClassName}__right`]),
-    text: classNames(styles[`${rootClassName}__text`]),
+    root: classNames(styles[rootName], className),
+    left: classNames(styles[`${rootName}__left`]),
+    right: classNames(styles[`${rootName}__right`]),
+    text: classNames(styles[`${rootName}__text`]),
   };
 
   return (

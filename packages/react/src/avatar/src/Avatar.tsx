@@ -50,16 +50,16 @@ export function Avatar({
   src,
   name,
 }: AvatarProps): React.ReactElement {
-  const rootClassName = "avatar";
+  const rootName = "avatar";
   const cssClasses = {
     root: classNames(
-      styles[rootClassName],
-      appearance && styles[`${rootClassName}--${appearance}`],
-      styles[`${rootClassName}--${size}`],
-      styles[`${rootClassName}--${skin}`],
+      styles[rootName],
+      appearance && styles[`${rootName}--${appearance}`],
+      styles[`${rootName}--${size}`],
+      styles[`${rootName}--${skin}`],
       className,
     ),
-    img: styles[`${rootClassName}__img`],
+    img: styles[`${rootName}__img`],
   };
 
   const initials = name?.match(/[A-Z]/g)?.join("").slice(0, 2).toUpperCase();

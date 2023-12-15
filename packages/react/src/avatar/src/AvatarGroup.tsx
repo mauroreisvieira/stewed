@@ -9,9 +9,9 @@ export function AvatarGroup({
     children,
     ...props
 }: React.HTMLAttributes<HTMLDivElement>): React.ReactElement {
-    const rootClassName = 'avatar-group';
+    const rootName = 'avatar-group';
     const cssClasses = {
-        root: classNames(styles[rootClassName], className),
+        root: classNames(styles[rootName], className),
     };
 
     return (

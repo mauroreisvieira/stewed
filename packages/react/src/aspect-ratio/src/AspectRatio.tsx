@@ -34,15 +34,15 @@ export function AspectRatio({
   children,
   ...props
 }: AspectRatioProps): React.ReactElement {
-  const rootClassName = "aspect-ratio";
+  const rootName = "aspect-ratio";
   const cssClasses = {
     root: classNames(
-      styles[rootClassName],
-      radius && styles[`${rootClassName}--${radius}`],
-      styles[`${rootClassName}--${ratio.replace(":", "-")}`],
+      styles[rootName],
+      radius && styles[`${rootName}--${radius}`],
+      styles[`${rootName}--${ratio.replace(":", "-")}`],
       className,
     ),
-    img: styles[`${rootClassName}__img`],
+    img: styles[`${rootName}__img`],
   };
 
   return (

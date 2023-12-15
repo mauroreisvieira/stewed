@@ -29,18 +29,18 @@ export function ListBoxItem({
   className,
   children,
 }: ListBoxItemProps): React.ReactElement {
-  const rootClassName = "list-box__item";
+  const rootName = "list-box__item";
   const cssClasses = {
     root: classNames(
-      styles[rootClassName],
-      skin !== "primary" && styles[`${rootClassName}--${skin}`],
-      selected && styles[`${rootClassName}--selected`],
-      disabled && styles[`${rootClassName}--disabled`],
+      styles[rootName],
+      skin !== "primary" && styles[`${rootName}--${skin}`],
+      selected && styles[`${rootName}--selected`],
+      disabled && styles[`${rootName}--disabled`],
       className,
     ),
-    left: classNames(styles[`${rootClassName}__left`]),
-    text: classNames(styles[`${rootClassName}__text`]),
-    right: classNames(styles[`${rootClassName}__right`]),
+    left: classNames(styles[`${rootName}__left`]),
+    text: classNames(styles[`${rootName}__text`]),
+    right: classNames(styles[`${rootName}__right`]),
   };
   return (
     <div className={cssClasses.root} role="menuitem" tabIndex={disabled ? -1 : 0}>

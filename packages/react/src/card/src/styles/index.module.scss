@@ -35,18 +35,6 @@
     }
   }
 
-  &__header {
-    &--bordered {
-      border-bottom: 1px solid theme.get-var(border-color);
-    }
-  }
-
-  &__footer {
-    &--bordered {
-      border-top: 1px solid theme.get-var(border-color);
-    }
-  }
-
   &__header,
   &__body,
   &__footer {

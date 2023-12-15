@@ -9,9 +9,9 @@ export function AccordionItem({
   children,
   ...props
 }: React.DetailsHTMLAttributes<HTMLDetailsElement>): React.ReactElement {
-  const rootClassName = "accordion__item";
+  const rootName = "accordion__item";
   const cssClasses = {
-    root: classNames(styles[rootClassName], className),
+    root: classNames(styles[rootName], className),
   };
 
   return (

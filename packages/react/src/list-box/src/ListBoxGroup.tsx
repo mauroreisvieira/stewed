@@ -13,10 +13,10 @@ export function ListBoxGroup({
   className,
   children,
 }: ListBoxGroupProps): React.ReactElement {
-  const rootClassName = "list-box__group";
+  const rootName = "list-box__group";
   const cssClasses = {
-    root: classNames(styles[rootClassName], className),
-    title: classNames(styles[`${rootClassName}__title`]),
+    root: classNames(styles[rootName], className),
+    title: classNames(styles[`${rootName}__title`]),
   };
 
   return (

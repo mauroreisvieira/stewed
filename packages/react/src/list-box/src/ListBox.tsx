@@ -12,9 +12,9 @@ export function ListBox({
   children,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>): React.ReactElement {
-  const rootClassName = "list-box";
+  const rootName = "list-box";
   const cssClasses = {
-    root: classNames(styles[rootClassName], className),
+    root: classNames(styles[rootName], className),
   };
   return (
     <div className={cssClasses.root} role="menu" {...props}>
