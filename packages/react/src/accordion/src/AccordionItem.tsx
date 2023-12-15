@@ -4,14 +4,19 @@ import { classNames } from "@stewed/utilities";
 // Styles
 import styles from "./styles/index.module.scss";
 
+interface AccordionItemProps extends React.DetailsHTMLAttributes<HTMLDetailsElement> {
+  /** The controlled open state of the dialog.  */
+  open?: boolean;
+}
+
 export function AccordionItem({
   className,
   children,
   ...props
-}: React.DetailsHTMLAttributes<HTMLDetailsElement>): React.ReactElement {
+}: AccordionItemProps): React.ReactElement {
   const rootName = "accordion__item";
   const cssClasses = {
-    root: classNames(styles[rootName], className),
+    root: classNames(styles[rootName], props.open && styles[`${rootName}--open`], className),
   };
 
   return (

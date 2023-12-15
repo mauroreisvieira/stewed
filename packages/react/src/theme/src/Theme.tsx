@@ -3,10 +3,10 @@ import React, { useMemo } from "react";
 import { classNames } from "@stewed/utilities";
 // Tokens
 import { type Tokens, tokens as defaultTokens } from "../../tokens";
+import { type ThemeProviderProps, ThemeProvider } from "./ThemeProvider";
 
-export interface ThemeProps<T extends string> extends React.HTMLAttributes<HTMLDivElement> {
-  tokens?: Partial<Record<T, Tokens>>;
-  theme?: T;
+export interface ThemeProps<T extends string> extends ThemeProviderProps<T> {
+  className?: string;
 }
 
 export function Theme<T extends string>({
@@ -14,7 +14,6 @@ export function Theme<T extends string>({
   children,
   theme,
   tokens,
-  ...props
 }: ThemeProps<T>): React.ReactElement {
   const cssClasses = {
     root: classNames(className),
@@ -42,8 +41,10 @@ export function Theme<T extends string>({
   }, [mergedTokens]);
 
   return (
-    <div className={cssClasses.root} data-theme={theme} style={cssProperties} {...props}>
-      {children}
-    </div>
+    <ThemeProvider theme={theme} tokens={tokens}>
+      <div className={cssClasses.root} style={cssProperties}>
+        {children}
+      </div>
+    </ThemeProvider>
   );
 }
