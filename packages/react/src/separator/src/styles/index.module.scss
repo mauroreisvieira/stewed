@@ -2,7 +2,7 @@
 @use "@stewed/react/src/typography/src/styles" as text;
 @use "./variables" as *;
 
-@include theme.scope($divider-root) {
+@include theme.scope($separator-root) {
   margin: 0;
   margin-block: theme.get-var(margin-block);
   margin-inline: theme.get-var(margin-inline);
@@ -20,7 +20,7 @@
   }
 
   // Skin
-  @each $key, $value in $divider-skins {
+  @each $key, $value in $separator-skins {
     &--#{$key} {
       @include theme.define-var(
         (
@@ -30,8 +30,8 @@
     }
   }
 
-  // Space
-  @each $key, $value in $divider-space {
+  // Spacing
+  @each $key, $value in $separator-spacing {
     &--space-x-#{$key} {
       @include theme.define-var(
         (

@@ -8,7 +8,7 @@ export * from "./button";
 export * from "./card";
 export * from "./carousel";
 export * from "./checkbox";
-export * from "./divider";
+export * from "./separator";
 export * from "./list-box";
 export * from "./progress";
 export * from "./radio";

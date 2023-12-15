@@ -1,6 +1,6 @@
 import React from "react";
 // UI Components
-import { Text, Box, Card, Theme, Divider, Button, Avatar } from "../../../../packages/react/index";
+import { Text, Box, Card, Theme, Separator, Button, Avatar } from "../../../../packages/react/index";
 import { TbPin } from "react-icons/tb";
 
 export function RecentActivity(): React.ReactElement {
@@ -33,7 +33,7 @@ export function RecentActivity(): React.ReactElement {
               June 21, 9:43 am
             </Text>
           </Box>
-          <Divider space={{ y: "2xl" }} />
+          <Separator space={{ y: "2xl" }} />
           <Box justify="between" gap="2xl" wrap="wrap">
             <Box gap="md" items="center">
               <Avatar size="md" name="Henrique Vieira" />

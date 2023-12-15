@@ -5,7 +5,7 @@ import {
   Box,
   Card,
   Theme,
-  Divider,
+  Separator,
   Button,
   Avatar,
   TextField,
@@ -79,7 +79,7 @@ export function Team(): React.ReactElement {
                   Settings
                 </Button>
               </Box>
-              <Divider space={{ y: "xl" }} />
+              <Separator space={{ y: "xl" }} />
             </React.Fragment>
           ))}
         </Card.Body>

@@ -5,7 +5,7 @@ import {
   Box,
   Card,
   Theme,
-  Divider,
+  Separator,
   Button,
   Avatar,
   Switch,
@@ -38,7 +38,7 @@ export function Notification(): React.ReactElement {
               <Switch size="sm">Slack</Switch>
             </Box>
           </Box>
-          <Divider space={{ y: "xl" }} />
+          <Separator space={{ y: "xl" }} />
           <Box items="start" justify="between">
             <Box direction="column">
               <Text weight="semi-bold">Favorites</Text>
@@ -52,7 +52,7 @@ export function Notification(): React.ReactElement {
               <Switch size="sm">Slack</Switch>
             </Box>
           </Box>
-          <Divider space={{ y: "xl" }} />
+          <Separator space={{ y: "xl" }} />
           <Box items="start" justify="between">
             <Box direction="column">
               <Text weight="semi-bold">New documents</Text>
