@@ -53,6 +53,8 @@
     background-color: theme.get-var(background-color);
     border: 1px solid theme.get-var(border-color);
     border-radius: theme.get-radius("sm");
+
+    @include theme.transition((background-color, border));
   }
 
   &__svg {

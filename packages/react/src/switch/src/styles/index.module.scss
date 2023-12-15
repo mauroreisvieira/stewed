@@ -49,6 +49,8 @@
     border: 1px solid theme.get-var(border-color);
     border-radius: theme.get-var(border-radius);
 
+    @include theme.transition((background-color, border));
+
     &::after {
       position: absolute;
       top: 50%;

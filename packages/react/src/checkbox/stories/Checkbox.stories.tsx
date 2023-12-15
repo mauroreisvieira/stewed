@@ -34,7 +34,7 @@ export const Controlled: Story = {
     onChange: { action: "change" },
   },
   args: {
-    checked: false,
+    checked: true,
     disabled: false,
     indeterminate: false,
     size: "md",

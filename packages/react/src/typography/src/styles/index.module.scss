@@ -3,10 +3,11 @@
 @use "./mixins" as mix;
 
 @include theme.scope($typography-root) {
-  all: unset;
-  display: inline-block;
+  padding: 0;
+  margin: 0;
 
   &[href] {
+    text-decoration: none;
     cursor: pointer;
 
     &:hover {
@@ -14,7 +15,9 @@
       text-underline-position: under;
     }
 
-    @include theme.focus-styles;
+    @include theme.focus-styles {
+      border-radius: theme.get-radius("md");
+    }
   }
 
   @each $key, $value in $typography-styles {

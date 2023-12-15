@@ -36,7 +36,7 @@ export function Login(): React.ReactElement {
               </Box>
               <TextField id="password" type="password" placeholder="Enter your password" />
             </Box>
-            <Box justify="between" gap="md">
+            <Box justify="between" gap="lg" wrap="wrap">
               <Checkbox>Keep me logged in</Checkbox>
               <Box justify="end" gap="md">
                 <Button appearance="outline">Create an account</Button>

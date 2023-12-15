@@ -34,9 +34,9 @@ export const Controlled: Story = {
     onChange: { action: "change" },
   },
   args: {
-    reversed: false,
-    checked: false,
+    checked: true,
     disabled: false,
+    reversed: false,
     size: "md",
     skin: "primary",
     children: "Label",
