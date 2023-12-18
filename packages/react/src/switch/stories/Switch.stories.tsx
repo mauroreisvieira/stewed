@@ -8,16 +8,6 @@ type Story = StoryObj<typeof Switch>;
 const meta: Meta<typeof Switch> = {
   title: "Components/Switch",
   component: Switch,
-  argTypes: {
-    size: {
-      control: "radio",
-      options: ["sm", "md", "lg"],
-    },
-    skin: {
-      control: "radio",
-      options: ["primary", "error"],
-    },
-  },
   decorators: [
     (Story) => (
       <Theme>

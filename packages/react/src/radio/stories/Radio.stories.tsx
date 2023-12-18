@@ -8,16 +8,6 @@ type Story = StoryObj<typeof Radio>;
 const meta: Meta<typeof Radio> = {
   title: "Components/Radio",
   component: Radio,
-  argTypes: {
-    size: {
-      control: "radio",
-      options: ["sm", "md", "lg"],
-    },
-    skin: {
-      control: "radio",
-      options: ["primary", "error"],
-    },
-  },
   decorators: [
     (Story) => (
       <Theme>

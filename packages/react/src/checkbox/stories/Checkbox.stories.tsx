@@ -8,16 +8,6 @@ type Story = StoryObj<typeof Checkbox>;
 const meta: Meta<typeof Checkbox> = {
   title: "Components/Checkbox",
   component: Checkbox,
-  argTypes: {
-    size: {
-      control: "radio",
-      options: ["sm", "md", "lg"],
-    },
-    skin: {
-      control: "radio",
-      options: ["primary", "error"],
-    },
-  },
   decorators: [
     (Story) => (
       <Theme>

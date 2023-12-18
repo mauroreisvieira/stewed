@@ -4,6 +4,8 @@ import { classNames } from "@stewed/utilities";
 // Styles
 import styles from "./styles/index.module.scss";
 
+type CheckboxSize = "sm" | "md" | "lg";
+
 export interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> {
   /**
    * Specifies the visual style of the checkbox.
@@ -14,7 +16,7 @@ export interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputE
    * Specifies the size of the checkbox.
    * @default md
    */
-  size?: "sm" | "md" | "lg";
+  size?: CheckboxSize;
   /**
    * Sets the checkbox to an indeterminate state.
    * @default false
@@ -24,7 +26,6 @@ export interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputE
   /** Content to be rendered within the checkbox, usually used for labels. */
   children?: React.ReactNode;
 }
-
 /**
  * Checkbox component allow the user to select multiple options from a set.
  *
