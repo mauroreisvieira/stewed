@@ -26,7 +26,10 @@ export function EditProfile(): React.ReactElement {
       <Card>
         <Card.Body>
           <Button onClick={() => setDialogOpen((prev) => !prev)}>Edit Profile</Button>
-          <Dialog open={dialogOpen} onClose={() => setDialogOpen(false)}>
+          <Dialog
+            open={dialogOpen}
+            onClickOutside={() => setDialogOpen(false)}
+            onClose={() => setDialogOpen(false)}>
             <Dialog.Header>
               <Text as="h4">Edit Profile</Text>
               <Text size="sm" skin="secondary">
@@ -52,7 +55,8 @@ export function EditProfile(): React.ReactElement {
             </Dialog.Body>
             <Separator />
             <Dialog.Footer>
-              <Box justify="end">
+              <Box justify="end" gap="md">
+                <Button appearance="outline">Cancel</Button>
                 <Button>Save Changes</Button>
               </Box>
             </Dialog.Footer>

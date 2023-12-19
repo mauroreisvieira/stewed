@@ -1,6 +1,6 @@
 import React from "react";
-// Context
-import { type TabsProviderProps, TabsProvider } from "./TabsContext";
+// Provider
+import { type TabsProviderProps, TabsProvider } from "./TabsProvider";
 //. Compound Component
 import { TabsItem } from "./TabsItem";
 import { TabsList } from "./TabsList";

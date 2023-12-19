@@ -1,6 +1,6 @@
 import React from "react";
 // Context
-import { useTabsContext } from "./TabsContext";
+import { useTabs } from "./TabsContext";
 // Utilities
 import { classNames } from "@stewed/utilities";
 // Styles
@@ -25,7 +25,7 @@ export function TabsItem({
   children,
   ...props
 }: TabsItemProps): React.ReactElement {
-  const { onValueChange, value: selectedValue } = useTabsContext();
+  const { onValueChange, value: selectedValue } = useTabs();
 
   const isSelected = value === selectedValue;
   const rootName = "tabs__item";
