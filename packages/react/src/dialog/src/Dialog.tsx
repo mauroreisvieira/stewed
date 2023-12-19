@@ -1,5 +1,7 @@
 import React, { useCallback, useRef } from "react";
 import { Scope } from "../..";
+// Provider
+import { type DialogProviderProps, DialogProvider } from "./DialogProvider";
 // Compound Component
 import { DialogBody } from "./DialogBody";
 import { DialogHeader } from "./DialogHeader";
@@ -9,17 +11,16 @@ import { classNames } from "@stewed/utilities";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface DialogProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface DialogProps extends React.HTMLAttributes<HTMLDivElement>, DialogProviderProps {
   /** The controlled open state of the dialog. */
   open?: boolean;
   /**
    * Changes the size of the dialog, will specify the width of the element.
    * @default "md"
    */
+  onEscape?: () => void;
+  onClickOutside?: () => void;
   size?: "sm" | "md" | "lg" | "xl";
-  onClose?: () => void;
-  /** Content to be rendered inside the dialog. */
-  children?: React.ReactNode;
 }
 
 /**
@@ -47,6 +48,8 @@ export function Dialog({
   className,
   children,
   onClose,
+  onEscape,
+  onClickOutside,
   onKeyDown,
   onMouseDown,
   ...props
@@ -66,14 +69,14 @@ export function Dialog({
 
   const onHandleKeydown = useCallback(
     (event: React.KeyboardEvent<HTMLDivElement>): void => {
+      if (onKeyDown) onKeyDown(event);
+
       if (event.key === "Escape") {
-        if (onClose) onClose();
+        if (onEscape) onEscape();
         event.stopPropagation();
       }
-
-      if (onKeyDown) onKeyDown(event);
     },
-    [onClose, onKeyDown],
+    [onEscape, onKeyDown],
   );
 
   const onHandleMouseDown = useCallback(
@@ -85,27 +88,29 @@ export function Dialog({
       const { target } = event;
 
       if (rootRef.current === target) {
-        if (onClose) onClose();
+        if (onClickOutside) onClickOutside();
       }
 
       event.stopPropagation();
     },
-    [onClose, onMouseDown],
+    [onClickOutside, onMouseDown],
   );
 
   return (
     <>
       {open && (
         <Scope>
-          <div
-            ref={rootRef}
-            className={cssClasses.root}
-            onMouseDown={onHandleMouseDown}
-            onKeyDown={onHandleKeydown}
-            {...props}
-          >
-            <div className={cssClasses.surface}>{children}</div>
-          </div>
+          <DialogProvider onClose={onClose}>
+            <div
+              ref={rootRef}
+              className={cssClasses.root}
+              onMouseDown={onHandleMouseDown}
+              onKeyDown={onHandleKeydown}
+              {...props}
+            >
+              <div className={cssClasses.surface}>{children}</div>
+            </div>
+          </DialogProvider>
         </Scope>
       )}
     </>
