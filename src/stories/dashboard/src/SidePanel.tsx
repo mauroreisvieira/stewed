@@ -1,6 +1,13 @@
 import React from "react";
-import { Avatar, Box, TextField, ListBox, Text as Text } from "../../../../packages/react/index";
-import { FiFile, FiFilePlus, FiSearch, FiTrash, FiUsers } from "react-icons/fi";
+import {
+  Avatar,
+  Box,
+  TextField,
+  ListBox,
+  Text as Text,
+  Separator,
+} from "../../../../packages/react/index";
+import { FiFile, FiFilePlus, FiSearch, FiTrash, FiUsers, FiActivity } from "react-icons/fi";
 // Hooks
 import { useInput } from "../../../../packages/hooks/index";
 
@@ -26,15 +33,16 @@ export function SidePanel(): React.ReactElement {
       />
       <ListBox>
         <ListBox.Group>
+          <ListBox.Item leftSlot={<FiActivity />}>Activity</ListBox.Item>
           <ListBox.Item leftSlot={<FiFile />} rightSlot={<FiUsers />} selected>
             All boards
           </ListBox.Item>
           <ListBox.Item leftSlot={<FiFilePlus />}>Tasks</ListBox.Item>
-          <ListBox.Item skin="error" leftSlot={<FiTrash />}>
+          <ListBox.Item skin="danger" leftSlot={<FiTrash />}>
             Trash
           </ListBox.Item>
         </ListBox.Group>
-
+        <Separator space={{ y: "sm" }} />
         <ListBox.Group>
           <ListBox.Item>Lee Evans new tour</ListBox.Item>
           <ListBox.Item>Individual errors coast</ListBox.Item>

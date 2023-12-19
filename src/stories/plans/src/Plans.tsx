@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // UI Components
-import { Theme, Card, Button, Box, Tabs, Text } from "../../../../packages/react/index";
+import { Theme, Card, Button, Box, Tabs, Text, Separator } from "../../../../packages/react/index";
 
 export function Plans(): React.ReactElement {
   const [value, setValue] = useState("annually");

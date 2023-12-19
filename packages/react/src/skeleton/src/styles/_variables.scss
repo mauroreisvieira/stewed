@@ -1,0 +1,18 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+
+$skeleton-root: "skeleton";
+
+/// Sizes
+$skeleton-sizes: (
+  "xs": 16px,
+  "sm": 24px,
+  "md": 38px,
+  "lg": 54px,
+  "xl": 68px,
+  "2xl": 80px,
+  "3xl": 92px,
+  "4xl": 100px,
+);
+
+/// Radius
+$skeleton-radius: theme.get-radius();

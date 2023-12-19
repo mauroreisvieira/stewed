@@ -13,6 +13,7 @@ export * from "./list-box";
 export * from "./progress";
 export * from "./radio";
 export * from "./separator";
+export * from "./skeleton";
 export * from "./switch";
 export * from "./tabs";
 export * from "./tag";
