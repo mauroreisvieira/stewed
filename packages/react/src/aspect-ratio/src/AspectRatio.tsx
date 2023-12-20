@@ -1,7 +1,6 @@
 import React from "react";
 // Utilities
 import { classNames } from "@stewed/utilities";
-import type { Radius } from "../../tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
@@ -11,7 +10,6 @@ export interface AspectRatioProps extends React.HTMLAttributes<HTMLDivElement> {
    * @default 1:1
   */
   ratio?: "1:1" | "2:3" | "3:2" | "4:3" | "16:9";
-  radius?: Radius;
 }
 
 /**
@@ -29,7 +27,6 @@ export interface AspectRatioProps extends React.HTMLAttributes<HTMLDivElement> {
  */
 export function AspectRatio({
   ratio = "1:1",
-  radius = "md",
   className,
   children,
   ...props
@@ -38,7 +35,6 @@ export function AspectRatio({
   const cssClasses = {
     root: classNames(
       styles[rootName],
-      radius && styles[`${rootName}--${radius}`],
       styles[`${rootName}--${ratio.replace(":", "-")}`],
       className,
     ),
@@ -47,13 +43,7 @@ export function AspectRatio({
 
   return (
     <div className={cssClasses.root} {...props}>
-      {React.Children.map(children, (child) =>
-        React.isValidElement(child)
-          ? React.cloneElement(child as React.ReactElement, {
-              className: classNames(cssClasses.img, child.props.className),
-            })
-          : child,
-      )}
+      {children}
     </div>
   );
 }

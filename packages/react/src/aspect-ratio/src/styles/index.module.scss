@@ -3,8 +3,6 @@
 
 @include theme.scope($aspect-ratio-root) {
   position: relative;
-  height: 100%;
-  border-radius: theme.get-var(border-radius);
 
   @each $key, $value in $aspect-ratio-sizes {
     &--#{$key} {
@@ -16,21 +14,7 @@
     }
   }
 
-  @each $key, $value in $aspect-ratio-radius {
-    &--#{$key} {
-      @include theme.define-var(
-        (
-          border-radius: $value,
-        )
-      );
-    }
-  }
-
-  &__img {
-    max-width: 100%;
-    height: 100%;
-    object-fit: cover;
+  &:not(:empty) > * {
     aspect-ratio: theme.get-var(aspect-ratio);
-    border-radius: inherit;
   }
 }
