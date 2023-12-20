@@ -13,10 +13,11 @@ export function MediaCard(): React.ReactElement {
             </AspectRatio>
             <Card.Body>
               <Box direction="column" gap="sm" space={{ y: "lg" }}>
-                <Skeleton size="sm" />
-                <Skeleton size="sm" />
+                <Skeleton radius="lg" size="sm" />
+                <Skeleton radius="lg" size="xs" />
+                <Skeleton radius="lg" size="xs" />
               </Box>
-              <Skeleton size="md" />
+              <Skeleton radius="sm" size="md" />
             </Card.Body>
           </Card>
         ))}
