@@ -40,6 +40,25 @@
   @return get-theme-var(#{$color}-#{$tone});
 }
 
+@function get-new-color($value: null, $level: "default") {
+  @if not $value {
+    @return $new-colors;
+  }
+
+  @if not map.has-key($new-colors, $value) {
+    @error "Invalid color specified! #{$value} doesn't exist. Choose one of #{map.keys($new-colors)}";
+  }
+
+  $levels: map.get($new-colors, $value);
+  @debug ($levels);
+
+  @if not map.has-key($levels, $level) {
+    @error "Invalid level specified! #{$level} doesn't exist. Choose one of #{map.keys($levels)}";
+  }
+
+  @return map.get($levels, $level);
+}
+
 @function get-font-size($value: null) {
   @if not $value {
     @return $font-size;

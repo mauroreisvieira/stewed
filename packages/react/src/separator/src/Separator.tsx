@@ -10,7 +10,7 @@ interface SeparatorProps extends React.HTMLAttributes<HTMLHRElement> {
    * Change the visual style of the separator.
    * @default primary
    */
-  skin?: "primary" | "secondary" | "danger";
+  skin?: "primary" | "neutral" | "danger";
   /** Adds space between separator on the horizontal and vertical axes. */
   space?: {
     x?: Spacings;
@@ -38,8 +38,8 @@ interface SeparatorProps extends React.HTMLAttributes<HTMLHRElement> {
  * @returns {React.ReactElement} - The rendered Separator component.
  */
 export function Separator({
-  skin = "secondary",
-  space,
+  skin = "neutral",
+  space = { x: "none", y: "sm" },
   orientation = "horizontal",
   className,
   ...props

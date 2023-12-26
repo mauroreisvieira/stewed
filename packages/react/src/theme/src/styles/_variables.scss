@@ -70,6 +70,23 @@ $config: (
     "2xl": var(--radius-2xl),
     "full": var(--radius-full),
   ),
+  "new-colors": (
+    "primary": (
+      "faded": var(--color-primary-faded),
+      "default": var(--color-primary),
+      "pressed": var(--color-primary-pressed),
+    ),
+    "neutral": (
+      "faded": var(--color-neutral-faded),
+      "default": var(--color-neutral),
+      "pressed": var(--color-neutral-pressed),
+    ),
+    "danger": (
+      "faded": var(--color-danger-faded),
+      "default": var(--color-danger),
+      "pressed": var(--color-danger-pressed),
+    ),
+  ),
   "colors": (
     "primary": (
       "50": #eef2ff,
@@ -192,6 +209,7 @@ $radius: map.get($config, radius);
 
 /// Defines color palettes for primary, secondary, gray, blue, green, red, yellow shades.
 $colors: map.get($config, colors);
+$new-colors: map.get($config, new-colors);
 
 /// Defines responsive breakpoints for screen sizes (sm, md, lg, xl).
 $screens: map.get($config, screens);

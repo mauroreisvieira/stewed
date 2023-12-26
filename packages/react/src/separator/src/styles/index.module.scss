@@ -20,11 +20,11 @@
   }
 
   // Skin
-  @each $key, $value in $separator-skins {
-    &--#{$key} {
+  @each $value in $separator-skins {
+    &--#{$value} {
       @include theme.define-var(
         (
-          background-color: theme.get-color($value, "200"),
+          background-color: theme.get-new-color($value, "faded"),
         )
       );
     }

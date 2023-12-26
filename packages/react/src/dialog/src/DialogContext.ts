@@ -5,6 +5,10 @@ const definitionError = (): null => {
 };
 
 export interface DialogContextProps {
+  /**
+   * Callback function invoked when the dialog should be closed.
+   * If defined, a close button will be displayed on the dialog header.
+   */
   onClose?: () => void;
 }
 

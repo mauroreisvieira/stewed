@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 // Utilities
 import { classNames } from "@stewed/utilities";
 // Styles

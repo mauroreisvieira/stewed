@@ -3,11 +3,7 @@
 $separator-root: "separator";
 
 /// Skins
-$separator-skins: (
-  "secondary": "secondary",
-  "primary": "primary",
-  "danger": "red",
-);
+$separator-skins: ("neutral", "primary", "danger");
 
 /// Space
 $separator-spacing: theme.get-spacing();
