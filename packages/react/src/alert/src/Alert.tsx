@@ -11,7 +11,7 @@ export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
      * Change the visual style of the alert.
      * @default info
      */
-    skin?: 'info' | 'success' | 'warning' | 'error';
+    skin?: 'info' | 'success' | 'warning' | 'critical';
     /** Slot to display before the alert content. */
     leftSlot?: React.ReactNode;
     /** Slot to display after the alert content. */

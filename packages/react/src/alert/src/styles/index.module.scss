@@ -23,6 +23,7 @@
     @include text.typography(
       "display-6",
       $overrides: (
+        color: inherit,
         font-size: theme.get-font-size("md"),
         font-weight: theme.get-font-weight("semi-bold")
       )
@@ -46,12 +47,12 @@
     @include text.typography("base", $overrides: (font-size: theme.get-font-size("sm")));
   }
 
-  @each $key, $value in $alert-skins {
-    &--#{$key} {
+  @each $value in $alert-skins {
+    &--#{$value} {
       @include theme.define-var(
         (
-          background-color: theme.get-color($value, "100"),
-          color: theme.get-color($value, "900"),
+          background-color: theme.get-new-color($value, "faded"),
+          color: theme.get-new-color($value, "pressed"),
         )
       );
     }

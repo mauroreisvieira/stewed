@@ -3,9 +3,4 @@
 $alert-root: "alert";
 
 /// Skins
-$alert-skins: (
-  "info": "blue",
-  "success": "green",
-  "warning": "yellow",
-  "error": "red",
-);
+$alert-skins: ("info", "success", "warning", "critical");

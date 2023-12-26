@@ -81,10 +81,25 @@ $config: (
       "default": var(--color-neutral),
       "pressed": var(--color-neutral-pressed),
     ),
-    "danger": (
-      "faded": var(--color-danger-faded),
-      "default": var(--color-danger),
-      "pressed": var(--color-danger-pressed),
+    "critical": (
+      "faded": var(--color-critical-faded),
+      "default": var(--color-critical),
+      "pressed": var(--color-critical-pressed),
+    ),
+    "success": (
+      "faded": var(--color-success-faded),
+      "default": var(--color-success),
+      "pressed": var(--color-success-pressed),
+    ),
+    "info": (
+      "faded": var(--color-info-faded),
+      "default": var(--color-info),
+      "pressed": var(--color-info-pressed),
+    ),
+    "warning": (
+      "faded": var(--color-warning-faded),
+      "default": var(--color-warning),
+      "pressed": var(--color-warning-pressed),
     ),
   ),
   "colors": (
