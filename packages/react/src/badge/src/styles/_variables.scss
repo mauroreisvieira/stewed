@@ -1,12 +1,6 @@
 @use "@stewed/react/src/theme/src/styles" as theme;
 
 $badge-root: "badge";
-$badge-color: #fff;
-$badge-skins: (
-  "primary": "primary",
-  "secondary": "secondary",
-  "info": "blue",
-  "success": "green",
-  "warning": "yellow",
-  "error": "red",
-);
+
+/// Skins
+$badge-skins: ("primary", "neutral", "info", "success", "warning", "critical");

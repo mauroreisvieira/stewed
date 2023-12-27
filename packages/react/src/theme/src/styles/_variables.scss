@@ -71,6 +71,10 @@ $config: (
     "full": var(--radius-full),
   ),
   "new-colors": (
+    "text": (
+      "default": var(--color-text),
+      "inverse": var(--color-text-inverse),
+    ),
     "primary": (
       "faded": var(--color-primary-faded),
       "default": var(--color-primary),

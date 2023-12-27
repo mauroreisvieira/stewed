@@ -20,7 +20,10 @@
   &__value {
     @include text.typography(
       base,
-      $overrides: (color: $badge-color, font-size: theme.get-font-size("xs"))
+      $overrides: (
+        color: theme.get-new-color("text", "inverse"),
+        font-size: theme.get-font-size("xs")
+      )
     );
 
     position: theme.get-var(position);
@@ -47,11 +50,11 @@
     }
   }
 
-  @each $key, $value in $badge-skins {
-    &--#{$key} {
+  @each $value in $badge-skins {
+    &--#{$value} {
       @include theme.define-var(
         (
-          background-color: theme.get-color($value, "500"),
+          background-color: theme.get-new-color($value),
         )
       );
     }
