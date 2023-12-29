@@ -5,7 +5,7 @@ $textarea-root: "text-area";
 /// Appearance
 $textarea-skins-default: (
   "border": theme.get-color("neutral", "border"),
-  "border-hover": theme.get-color("neutral"),
+  "border-hover": theme.get-color("neutral", "border-hover"),
 );
 
 /// Skins

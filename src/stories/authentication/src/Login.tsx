@@ -12,7 +12,17 @@ import {
 
 export function Login(): React.ReactElement {
   return (
-    <Theme>
+    <Theme
+      theme="dark"
+      tokens={{
+        dark: {
+          color: {
+            primary: "#444",
+            "primary-pressed": "#000",
+            "primary-faded": "#999",
+          },
+        },
+      }}>
       <Card>
         <Card.Header>
           <Text as="h2">Sign in to your account</Text>

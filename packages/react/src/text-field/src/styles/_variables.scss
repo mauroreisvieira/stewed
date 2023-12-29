@@ -4,16 +4,16 @@ $input-root: "text-field";
 
 // Appearance
 $input-skins-default: (
-  "border-color": theme.get-color("neutral", "border"),
-  "border-color-hover": theme.get-color("neutral"),
+  "border": theme.get-color("neutral", "border"),
+  "border-hover": theme.get-color("neutral", "border-hover"),
 );
 $input-skins: (
   "success": (
-    "border-color": theme.get-color("success"),
-    "border-color-hover": theme.get-color("success", "pressed"),
+    "border": theme.get-color("success"),
+    "border-hover": theme.get-color("success"),
   ),
   "critical": (
-    "border-color": theme.get-color("critical"),
-    "border-color-hover": theme.get-color("critical", "pressed"),
+    "border": theme.get-color("critical"),
+    "border-hover": theme.get-color("critical"),
   ),
 );

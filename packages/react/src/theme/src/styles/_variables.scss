@@ -86,6 +86,7 @@ $config: (
       "default": var(--color-neutral),
       "pressed": var(--color-neutral-pressed),
       "border": var(--color-neutral-border),
+      "border-hover": var(--color-neutral-border-hover),
     ),
     "info": (
       "faded": var(--color-info-faded),

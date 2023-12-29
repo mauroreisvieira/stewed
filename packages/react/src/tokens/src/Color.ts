@@ -9,8 +9,9 @@ export const color = {
   // neutral
   "neutral-faded": "#f8fafc",
   "neutral": "#64748b",
-  "neutral-pressed": "#b3bbce",
-  "neutral-border": "#e5e5e5",
+  "neutral-pressed": "#334155",
+  "neutral-border": "#e2e8f0",
+  "neutral-border-hover": "#cbd5e1",
   // critical
   "critical-faded": "#fef2f2",
   "critical": "#ef4444",
@@ -31,4 +32,22 @@ export const color = {
   "warning": "#eab308",
   "warning-pressed": "#854d0e",
   "warning-border": "#fef08a",
+};
+
+type Skin = "primary" | "neutral" | "critical" | "info" | "success" | "warning";
+
+type Colors = Record<
+  Skin,
+  Partial<{
+    faded: string;
+    default: string;
+    pressed: string;
+    border: string;
+  }>
+>;
+
+export const test: Colors = {
+  info: {
+    faded: "#ff",
+  },
 };
