@@ -1,50 +1,40 @@
-import React, { useMemo } from "react";
-// Utilities
-import { classNames } from "@stewed/utilities";
-// Tokens
-import { type Tokens, tokens as defaultTokens } from "../../tokens";
-import { type ThemeProviderProps, ThemeProvider } from "./ThemeProvider";
+import React, { useState } from "react";
+// UI Components
+import { Root, type RootProps } from "./Root";
+// Types
+import { type ThemeContextProps, ThemeContext } from "./ThemeContext";
 
-export interface ThemeProps<T extends string> extends ThemeProviderProps<T> {
-  className?: string;
-}
+export interface ThemeProps<T extends string> extends RootProps<T> {}
 
+/**
+ * Theme component for managing themes in the application.
+ *
+ * @param {ThemeProps<T>} props - Props for the Theme component.
+ * @returns {React.ReactElement} - React element representing the themed application.
+ */
 export function Theme<T extends string>({
-  className,
-  children,
-  theme,
-  tokens,
+  defaultTheme,
+  tokens: defaultTokens,
+  ...props
 }: ThemeProps<T>): React.ReactElement {
-  const cssClasses = {
-    root: classNames(className),
-  };
+  // State for managing tokens
+  const [tokens, setTokens] = useState<ThemeContextProps<T>["tokens"]>(defaultTokens);
 
-  const mergedTokens = useMemo<Tokens>(() => {
-    return Object.keys(defaultTokens).reduce((acc, key) => {
-      acc[key as keyof Tokens] = {
-        ...(defaultTokens[key as keyof Tokens] || {}),
-        ...(tokens?.[theme]?.[key as keyof Tokens] || {}),
-      };
-      return acc;
-    }, {} as Tokens);
-  }, [theme, tokens]);
-
-  const cssProperties = useMemo(() => {
-    return Object.fromEntries(
-      Object.entries(mergedTokens).flatMap(([context, data]) =>
-        Object.entries(data).map(([key, value]) => [
-          `--${context}-${key}`.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase(),
-          value,
-        ]),
-      ),
-    );
-  }, [mergedTokens]);
+  // State for managing the current theme
+  const [theme, setTheme] = useState<T | string | undefined>(defaultTheme);
 
   return (
-    <ThemeProvider theme={theme} tokens={tokens}>
-      <div className={cssClasses.root} style={cssProperties}>
-        {children}
-      </div>
-    </ThemeProvider>
+    <ThemeContext.Provider
+      value={{
+        defaultTheme,
+        theme,
+        tokens,
+        setTheme,
+        setTokens,
+      }}
+    >
+      {/* Root component to which the themed styles are applied */}
+      <Root {...props} />
+    </ThemeContext.Provider>
   );
 }

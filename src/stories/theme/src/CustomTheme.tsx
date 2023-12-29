@@ -1,18 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 // UI Components
 import {
   Text,
   Box,
   Card,
   Theme,
+  useTheme,
   TextField,
   Button,
   Checkbox,
+  Tabs,
 } from "../../../../packages/react/index";
 
-export function Login(): React.ReactElement {
+function Elements(): React.ReactElement {
+  const { theme, setTheme } = useTheme<"default" | "revolution">();
+
   return (
-    <Theme>
+    <Box direction="column" gap="2xl">
+      <Tabs
+        value={theme}
+        alignment="center"
+        onValueChange={(value) => {
+          setTheme(value as "default" | "revolution");
+        }}>
+        <Tabs.List>
+          <Tabs.Item value="default">Default</Tabs.Item>
+          <Tabs.Item value="revolution">Revolution</Tabs.Item>
+        </Tabs.List>
+      </Tabs>
       <Card>
         <Card.Header>
           <Text as="h2">Sign in to your account</Text>
@@ -46,6 +61,25 @@ export function Login(): React.ReactElement {
           </Box>
         </Card.Body>
       </Card>
+    </Box>
+  );
+}
+
+export function CustomTheme(): React.ReactElement {
+  return (
+    <Theme<"default" | "revolution">
+      defaultTheme="revolution"
+      tokens={{
+        default: {},
+        revolution: {
+          color: {
+            "primary": "#e91e63",
+            "primary-pressed": "#d81b60",
+            "primary-faded": "#f48fb1",
+          },
+        },
+      }}>
+      <Elements />
     </Theme>
   );
 }

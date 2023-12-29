@@ -6,7 +6,7 @@ const definitionError = (): null => {
 
 export interface TabsContextProps {
   /** Sets value of tab item selected. */
-  value: string;
+  value: unknown;
   /** Callback fired when the value changes. */
   onValueChange?: (value: string) => void;
 }
