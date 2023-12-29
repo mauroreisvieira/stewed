@@ -5,7 +5,7 @@
 @include theme.scope($badge-root) {
   @include theme.define-var(
     (
-      size: 2ch,
+      size: theme.get-spacing("lg"),
       border-radius: theme.get-radius("full"),
       padding-inline: 0,
       position: relative,
@@ -20,10 +20,7 @@
   &__value {
     @include text.typography(
       base,
-      $overrides: (
-        color: theme.get-new-color("text", "inverse"),
-        font-size: theme.get-font-size("xs")
-      )
+      $overrides: (color: theme.get-color("text", "inverse"), font-size: theme.get-font-size("xxs"))
     );
 
     position: theme.get-var(position);
@@ -42,11 +39,10 @@
     &:empty {
       @include theme.define-var(
         (
-          size: theme.get-spacing("md"),
+          size: theme.get-spacing("sm"),
+          padding-inline: 0,
         )
       );
-
-      padding: 0;
     }
   }
 
@@ -54,7 +50,7 @@
     &--#{$value} {
       @include theme.define-var(
         (
-          background-color: theme.get-new-color($value),
+          background-color: theme.get-color($value),
         )
       );
     }
@@ -63,7 +59,7 @@
   &--padded {
     @include theme.define-var(
       (
-        padding-inline: theme.get-spacing("sm"),
+        padding-inline: theme.get-spacing("xs"),
       )
     );
   }

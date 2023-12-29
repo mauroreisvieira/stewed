@@ -47,7 +47,7 @@ export interface TextProps<T> extends React.ComponentProps<typeof defaultElement
   /** Changes the font styles and transforming text. */
   variation?: TextVariation | TextVariation[];
   /** Change the visual style of the text. */
-  skin?: "default" | "primary" | "secondary" | "error";
+  skin?: "default" | "primary" | "neutral" | "critical";
   /** Adjust horizontal alignment of text. */
   alignment?: "start" | "center" | "end" | "justify";
   /** Changes the white space of the text. */

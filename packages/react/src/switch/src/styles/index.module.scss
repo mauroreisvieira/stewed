@@ -12,8 +12,8 @@
 
   @include theme.define-var(
     (
-      background-color: theme.get-color("secondary", "100"),
-      border-color: theme.get-color("secondary", "200"),
+      background-color: theme.get-color("neutral"),
+      border-color: theme.get-color("neutral"),
       border-radius: theme.get-radius("full"),
     )
   );

@@ -70,7 +70,7 @@ $config: (
     "2xl": var(--radius-2xl),
     "full": var(--radius-full),
   ),
-  "new-colors": (
+  "colors": (
     "text": (
       "default": var(--color-text),
       "inverse": var(--color-text-inverse),
@@ -79,117 +79,37 @@ $config: (
       "faded": var(--color-primary-faded),
       "default": var(--color-primary),
       "pressed": var(--color-primary-pressed),
+      "border": var(--color-primary-border),
     ),
     "neutral": (
       "faded": var(--color-neutral-faded),
       "default": var(--color-neutral),
       "pressed": var(--color-neutral-pressed),
-    ),
-    "critical": (
-      "faded": var(--color-critical-faded),
-      "default": var(--color-critical),
-      "pressed": var(--color-critical-pressed),
-    ),
-    "success": (
-      "faded": var(--color-success-faded),
-      "default": var(--color-success),
-      "pressed": var(--color-success-pressed),
+      "border": var(--color-neutral-border),
     ),
     "info": (
       "faded": var(--color-info-faded),
       "default": var(--color-info),
       "pressed": var(--color-info-pressed),
+      "border": var(--color-info-border),
+    ),
+    "success": (
+      "faded": var(--color-success-faded),
+      "default": var(--color-success),
+      "pressed": var(--color-success-pressed),
+      "border": var(--color-success-border),
     ),
     "warning": (
       "faded": var(--color-warning-faded),
       "default": var(--color-warning),
       "pressed": var(--color-warning-pressed),
+      "border": var(--color-warning-border),
     ),
-  ),
-  "colors": (
-    "primary": (
-      "50": #eef2ff,
-      "100": #e0e7ff,
-      "200": #c7d2fe,
-      "300": #a5b4fc,
-      "400": #818cf8,
-      "500": #6366f1,
-      "600": #4f46e5,
-      "700": #4338ca,
-      "800": #3730a3,
-      "900": #312e81,
-    ),
-    "secondary": (
-      "50": #f8fafc,
-      "100": #f1f5f9,
-      "200": #e2e8f0,
-      "300": #cbd5e1,
-      "400": #94a3b8,
-      "500": #64748b,
-      "600": #475569,
-      "700": #334155,
-      "800": #1e293b,
-      "900": #0f172a,
-    ),
-    "gray": (
-      "50": #fafafa,
-      "100": #f5f5f5,
-      "200": #e5e5e5,
-      "300": #d4d4d4,
-      "400": #a3a3a3,
-      "500": #737373,
-      "600": #525252,
-      "700": #404040,
-      "800": #262626,
-      "900": #171717,
-    ),
-    "blue": (
-      "50": #eff6ff,
-      "100": #dbeafe,
-      "200": #bfdbfe,
-      "300": #93c5fd,
-      "400": #60a5fa,
-      "500": #3b82f6,
-      "600": #2563eb,
-      "700": #1d4ed8,
-      "800": #1e40af,
-      "900": #1e3a8a,
-    ),
-    "green": (
-      "50": #f0fdf4,
-      "100": #dcfce7,
-      "200": #bbf7d0,
-      "300": #86efac,
-      "400": #4ade80,
-      "500": #22c55e,
-      "600": #16a34a,
-      "700": #15803d,
-      "800": #166534,
-      "900": #14532d,
-    ),
-    "red": (
-      "50": #fef2f2,
-      "100": #fee2e2,
-      "200": #fecaca,
-      "300": #fca5a5,
-      "400": #f87171,
-      "500": #ef4444,
-      "600": #dc2626,
-      "700": #b91c1c,
-      "800": #991b1b,
-      "900": #7f1d1d,
-    ),
-    "yellow": (
-      "50": #fefce8,
-      "100": #fef9c3,
-      "200": #fef08a,
-      "300": #fde047,
-      "400": #facc15,
-      "500": #eab308,
-      "600": #ca8a04,
-      "700": #a16207,
-      "800": #854d0e,
-      "900": #713f12,
+    "critical": (
+      "faded": var(--color-critical-faded),
+      "default": var(--color-critical),
+      "pressed": var(--color-critical-pressed),
+      "border": var(--color-critical-border),
     ),
   ),
   "disabled": 0.5,
@@ -226,9 +146,8 @@ $spacings: map.get($config, spacings);
 /// Specifies border radius values for elements (sm, md, lg, xl, none, rounded).
 $radius: map.get($config, radius);
 
-/// Defines color palettes for primary, secondary, gray, blue, green, red, yellow shades.
+/// Defines color palettes for primary, neutral, critical, success, info and warning
 $colors: map.get($config, colors);
-$new-colors: map.get($config, new-colors);
 
 /// Defines responsive breakpoints for screen sizes (sm, md, lg, xl).
 $screens: map.get($config, screens);

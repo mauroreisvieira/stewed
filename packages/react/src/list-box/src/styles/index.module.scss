@@ -82,14 +82,14 @@
         @include theme.define-var(
           (
             background-color: transparent,
-            color: theme.get-color($value, "600"),
+            color: theme.get-color($value, "pressed"),
           )
         );
 
         &:hover {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "50"),
+              background-color: theme.get-color($value, "faded"),
             )
           );
         }
@@ -97,7 +97,7 @@
         &:active {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "100"),
+              background-color: theme.get-color($value, "faded"),
             )
           );
         }
@@ -105,7 +105,7 @@
         &.#{$list-box-root}__item--selected {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "50"),
+              background-color: theme.get-color($value, "faded"),
             )
           );
         }
@@ -126,7 +126,7 @@
       @include text.typography(
         base,
         $overrides: (
-          color: theme.get-color("gray", "400"),
+          color: theme.get-color("neutral"),
           font-size: theme.get-font-size("xs"),
           line-height: theme.get-line-height("sm")
         )
@@ -141,7 +141,7 @@
     height: 1px;
     margin: 0;
     margin-bottom: theme.get-spacing("sm");
-    background-color: theme.get-color("gray", "200");
+    background-color: theme.get-color("neutral", "faded");
     border: none;
   }
 }

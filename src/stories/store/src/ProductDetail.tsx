@@ -51,7 +51,7 @@ export function ProductDetail(): React.ReactElement {
               <Text size="3xl" weight="bold">
                 €89,95
               </Text>
-              <Text size="3xl" variation={["line-through"]} skin="secondary">
+              <Text size="3xl" variation={["line-through"]} skin="neutral">
                 €120
               </Text>
             </Box>
@@ -77,7 +77,7 @@ export function ProductDetail(): React.ReactElement {
             </Button>
           </Box>
           <Box gap="lg" direction="column">
-            <Text size="sm" skin="secondary" whiteSpace="nowrap">
+            <Text size="sm" skin="neutral" whiteSpace="nowrap">
               Inclui uma etiqueta interativa na gola que concede acesso ao Club LEGACIES.
             </Text>
             <Accordion>

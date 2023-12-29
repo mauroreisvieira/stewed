@@ -13,7 +13,7 @@
     }
   }
 
-  background-color: theme.get-color("secondary", "100");
+  background-color: theme.get-color("neutral", "faded");
   border-radius: theme.get-var("rounded");
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 

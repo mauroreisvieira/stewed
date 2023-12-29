@@ -52,7 +52,7 @@
         &:hover {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "600"),
+              background-color: theme.get-color($value, "pressed"),
             )
           );
         }
@@ -60,7 +60,7 @@
         &:active {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "700"),
+              background-color: theme.get-color($value),
             )
           );
         }
@@ -77,7 +77,7 @@
         &:hover {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "50"),
+              background-color: theme.get-color($value, "faded"),
             )
           );
         }
@@ -85,7 +85,7 @@
         &:active {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "100"),
+              background-color: theme.get-color($value, "faded"),
             )
           );
         }
@@ -103,7 +103,7 @@
         &:hover {
           @include theme.define-var(
             (
-              color: theme.get-color($value, "600"),
+              color: theme.get-color($value, "pressed"),
             )
           );
         }
@@ -111,7 +111,7 @@
         &:active {
           @include theme.define-var(
             (
-              color: theme.get-color($value, "700"),
+              color: theme.get-color($value),
             )
           );
         }

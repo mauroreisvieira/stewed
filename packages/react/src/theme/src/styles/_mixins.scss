@@ -2,45 +2,6 @@
 @use "./variables" as *;
 @use "./functions" as func;
 
-@mixin define-theme-var($values) {
-  @each $name, $value in $values {
-    @if $prefix {
-      --#{$prefix}-#{$name}: #{$value};
-    } @else {
-      --#{$name}: #{$value};
-    }
-  }
-}
-
-/// Defines CSS variables for colors based on `$colors` map.
-@mixin define-theme() {
-  @include define-theme-var(
-    (
-      text-color: #fff,
-    )
-  );
-
-  @each $name, $values in $colors {
-    @each $tone, $value in $values {
-      @include define-theme-var((#{$name}-#{$tone}: $value));
-    }
-  }
-}
-
-/// Applies the defined theme by setting CSS variables based on the `$colors` map.
-/// @param {string} [$scope=null] - Scope where the theme should be applied. Default is `null` which applies to `:root`.
-@mixin use-theme($scope: null) {
-  @if $scope {
-    #{$scope} {
-      @include define-theme;
-    }
-  } @else {
-    :root {
-      @include define-theme;
-    }
-  }
-}
-
 /// Defines focus styles on elements with specified color, outline offset, and width.
 /// @param {string} [$target=":focus-visible"] - Focus state target
 /// @param {string} [$color=get-color('primary')] - Color of the focus outline.
@@ -48,7 +9,7 @@
 /// @param {string} [$width=1px] - Width of the focus outline.
 @mixin focus-styles(
   $target: ":focus-visible",
-  $color: #{func.get-color("primary", "500")},
+  $color: #{func.get-color("primary")},
   $offset: 1px,
   $width: 1px
 ) {

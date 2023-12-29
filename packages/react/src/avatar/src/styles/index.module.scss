@@ -1,25 +1,26 @@
 @use "@stewed/react/src/theme/src/styles" as theme;
+@use "@stewed/react/src/typography/src/styles" as text;
 @use "./variables" as *;
 
 @include theme.scope($avatar-root) {
-  @include theme.define-var(
-    (
-      color: theme.get-theme-var(text-color),
-    )
-  );
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-width: theme.get-var(size);
   height: theme.get-var(size);
   overflow: hidden;
-  font-size: calc(theme.get-var(size) / 3);
-  font-weight: theme.get-font-weight("medium");
-  color: theme.get-var(color);
   user-select: none;
   background-color: theme.get-var(background-color);
   border-radius: theme.get-var(border-radius);
+
+  @include text.typography(
+    base,
+    $overrides: (
+      color: theme.get-color("text", "inverse"),
+      font-weight: theme.get-font-weight("medium"),
+      font-size: calc(theme.get-var(size) / 3)
+    )
+  );
 
   &-group {
     display: flex;
@@ -50,8 +51,8 @@
     }
   }
 
-  @each $key, $value in $avatar-skins {
-    &--#{$key} {
+  @each $value in $avatar-skins {
+    &--#{$value} {
       @include theme.define-var(
         (
           background-color: theme.get-color($value),

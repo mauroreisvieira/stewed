@@ -18,7 +18,7 @@ export function Notification(): React.ReactElement {
         <Card.Header>
           <Box direction="column" space={{ y: "lg" }}>
             <Text as="h5">Notification</Text>
-            <Text size="sm" skin="secondary">
+            <Text size="sm" skin="neutral">
               Manage your notification settings.
             </Text>
           </Box>
@@ -27,7 +27,7 @@ export function Notification(): React.ReactElement {
           <Box items="baseline" justify="between" gap="md">
             <Box direction="column">
               <Text weight="semi-bold">Comments</Text>
-              <Text size="xs" skin="secondary">
+              <Text size="xs" skin="neutral">
                 Receive notifications when someone comments on your documents or mentions you.
               </Text>
             </Box>
@@ -41,7 +41,7 @@ export function Notification(): React.ReactElement {
           <Box items="start" justify="between">
             <Box direction="column">
               <Text weight="semi-bold">Favorites</Text>
-              <Text size="xs" skin="secondary">
+              <Text size="xs" skin="neutral">
                 Receive notifications when there is activity related to your favorite items.
               </Text>
             </Box>
@@ -55,7 +55,7 @@ export function Notification(): React.ReactElement {
           <Box items="start" justify="between">
             <Box direction="column">
               <Text weight="semi-bold">New documents</Text>
-              <Text size="xs" skin="secondary">
+              <Text size="xs" skin="neutral">
                 Receive notifications whenever people on your team create new documents.
               </Text>
             </Box>

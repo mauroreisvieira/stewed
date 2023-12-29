@@ -11,7 +11,7 @@ export interface AvatarProps {
    * Defines the skin color of the avatar.
    * @default "primary"
    */
-  skin?: "primary" | "secondary";
+  skin?: "primary" | "neutral" | "critical";
   /**
    * Specifies the size of the avatar.
    * @default "md"
@@ -36,7 +36,7 @@ export interface AvatarProps {
  *
  * @example
  * ```tsx
- * <Avatar appearance="square" name="Lourenço Vieira" size="3xl" skin="secondary" />
+ * <Avatar appearance="square" name="Lourenço Vieira" size="3xl" skin="neutral" />
  * ```
  *
  * @param {AvatarProps} props - The props for the Avatar component.

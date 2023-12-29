@@ -47,7 +47,7 @@
 
   @each $key, $value in $progress-skins {
     &--#{$key} {
-      --progress-background: #{theme.get-color($value, "500")};
+      --progress-background: #{theme.get-color($value)};
     }
   }
 

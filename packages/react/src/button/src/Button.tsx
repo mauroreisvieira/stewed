@@ -18,7 +18,7 @@ export interface ButtonProps<T> extends React.ComponentProps<typeof defaultEleme
    * Change the visual style of the button.
    * @default primary
    */
-  skin?: "primary" | "secondary" | "danger";
+  skin?: "primary" | "neutral" | "critical";
   /**
    * Change the visual appearance of the button.
    * @default filled
@@ -50,7 +50,7 @@ export interface ButtonProps<T> extends React.ComponentProps<typeof defaultEleme
  *
  * @example
  * ```tsx
- * <Button skin="secondary">Button</Button>
+ * <Button skin="neutral">Button</Button>
  * ```
  *
  * @remarks This component is a polymorphic component can be rendered as a different element

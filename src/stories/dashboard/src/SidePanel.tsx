@@ -26,7 +26,7 @@ export function SidePanel(): React.ReactElement {
         placeholder="Quick search"
         leftSlot={<FiSearch />}
         rightSlot={
-          <Text skin="secondary" size="xs">
+          <Text skin="neutral" size="xs">
             ⌘K
           </Text>
         }
@@ -38,7 +38,7 @@ export function SidePanel(): React.ReactElement {
             All boards
           </ListBox.Item>
           <ListBox.Item leftSlot={<FiFilePlus />}>Tasks</ListBox.Item>
-          <ListBox.Item skin="danger" leftSlot={<FiTrash />}>
+          <ListBox.Item skin="critical" leftSlot={<FiTrash />}>
             Trash
           </ListBox.Item>
         </ListBox.Group>

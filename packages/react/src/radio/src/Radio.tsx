@@ -9,7 +9,7 @@ export interface RadioProps extends React.InputHTMLAttributes<HTMLInputElement> 
    * Specifies the visual style of the radio.
    * @default primary
    */
-  skin?: "primary" | "error";
+  skin?: "primary" | "critical";
   /**
    * Specifies the size of the radio.
    * @default md
@@ -24,7 +24,7 @@ export interface RadioProps extends React.InputHTMLAttributes<HTMLInputElement> 
  *
  * @example
  * ```tsx
- * <Radio skin="secondary">Label</Radio>
+ * <Radio skin="neutral">Label</Radio>
  * ```
  *
  * @remarks This component props extended from React.InputHTMLAttributes<HTMLInputElement>.
@@ -34,7 +34,7 @@ export interface RadioProps extends React.InputHTMLAttributes<HTMLInputElement> 
  */
 export const Radio = forwardRef(
   (
-    { skin = "error", size = "md", className, disabled, children, ...props }: RadioProps,
+    { skin = "critical", size = "md", className, disabled, children, ...props }: RadioProps,
     ref: React.Ref<HTMLInputElement>,
   ): React.ReactElement => {
     const rootName = "radio";

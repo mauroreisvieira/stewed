@@ -70,14 +70,14 @@
       @include theme.define-var(
         (
           color: #fff,
-          background-color: theme.get-color($value, "500"),
+          background-color: theme.get-color($value),
         )
       );
 
       &[href]:hover {
         @include theme.define-var(
           (
-            background-color: theme.get-color($value, "600"),
+            background-color: theme.get-color($value, "pressed"),
           )
         );
       }

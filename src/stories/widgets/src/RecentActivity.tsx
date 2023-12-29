@@ -14,7 +14,7 @@ export function RecentActivity(): React.ReactElement {
               Bookmark
             </Button>
           </Box>
-          <Text size="sm" skin="secondary">
+          <Text size="sm" skin="neutral">
             Review what has happened over the past days.
           </Text>
         </Card.Header>
@@ -24,12 +24,12 @@ export function RecentActivity(): React.ReactElement {
               <Avatar size="md" name="Lourenço Vieira" />
               <Box direction="column">
                 <Text weight="medium">Lourenço Vieira</Text>
-                <Text size="sm" skin="secondary">
+                <Text size="sm" skin="neutral">
                   Purchased 15 office chairs and 2 drum sets
                 </Text>
               </Box>
             </Box>
-            <Text size="xs" skin="secondary">
+            <Text size="xs" skin="neutral">
               June 21, 9:43 am
             </Text>
           </Box>
@@ -39,7 +39,7 @@ export function RecentActivity(): React.ReactElement {
               <Avatar size="md" name="Henrique Vieira" />
               <Box direction="column">
                 <Text weight="medium">Henrique Vieira</Text>
-                <Text size="sm" skin="secondary">
+                <Text size="sm" skin="neutral">
                   Updated client details for{" "}
                   <Text as="a" size="sm" href="">
                     Acme Co.
@@ -47,7 +47,7 @@ export function RecentActivity(): React.ReactElement {
                 </Text>
               </Box>
             </Box>
-            <Text size="xs" skin="secondary">
+            <Text size="xs" skin="neutral">
               June 20, 3:30 pm
             </Text>
           </Box>

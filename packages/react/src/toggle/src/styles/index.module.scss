@@ -45,7 +45,7 @@
   &:hover {
     @include theme.define-var(
       (
-        color: theme.get-color("primary", "600"),
+        color: theme.get-color("primary"),
       )
     );
   }
@@ -53,7 +53,7 @@
   &:active {
     @include theme.define-var(
       (
-        color: theme.get-color("primary", "700"),
+        color: theme.get-color("primary", "pressed"),
       )
     );
   }
@@ -87,8 +87,8 @@
     &:hover {
       @include theme.define-var(
         (
-          background-color: theme.get-color("primary", "600"),
-          border-color: theme.get-color("primary", "600"),
+          background-color: theme.get-color("primary"),
+          border-color: theme.get-color("primary"),
           color: #fff,
         )
       );
@@ -97,8 +97,8 @@
     &:active {
       @include theme.define-var(
         (
-          background-color: theme.get-color("primary", "700"),
-          border-color: theme.get-color("primary", "700"),
+          background-color: theme.get-color("primary", "pressed"),
+          border-color: theme.get-color("primary", "pressed"),
           color: #fff,
         )
       );

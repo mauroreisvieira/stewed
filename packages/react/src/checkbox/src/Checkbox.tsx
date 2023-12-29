@@ -11,7 +11,7 @@ export interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputE
    * Specifies the visual style of the checkbox.
    * @default primary
    */
-  skin?: "primary" | "error";
+  skin?: "primary" | "critical";
   /**
    * Specifies the size of the checkbox.
    * @default md
@@ -31,7 +31,7 @@ export interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputE
  *
  * @example
  * ```tsx
- * <Checkbox skin="secondary">Label</Checkbox>
+ * <Checkbox skin="neutral">Label</Checkbox>
  * ```
  *
  * @remarks This component props extended from React.InputHTMLAttributes<HTMLInputElement>.

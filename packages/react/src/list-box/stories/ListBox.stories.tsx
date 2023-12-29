@@ -41,7 +41,7 @@ export const Default: Story = {
           <ListBox.Item leftSlot={<FiMap />}>
             <span>Map</span>
           </ListBox.Item>
-          <ListBox.Item skin="danger" leftSlot={<FiTrash />} rightSlot={<FiLock />}>
+          <ListBox.Item skin="critical" leftSlot={<FiTrash />} rightSlot={<FiLock />}>
             <span>Trash</span>
           </ListBox.Item>
         </ListBox.Group>

@@ -9,7 +9,7 @@ export interface SwitchProps extends React.InputHTMLAttributes<HTMLInputElement>
    * Specifies the visual style of the switch.
    * @default primary
    */
-  skin?: "primary" | "error";
+  skin?: "primary" | "critical";
   /**
    * Specifies the size of the switch.
    * @default md
@@ -26,7 +26,7 @@ export interface SwitchProps extends React.InputHTMLAttributes<HTMLInputElement>
  *
  * @example
  * ```tsx
- * <Switch skin="secondary">Label</Switch>
+ * <Switch skin="neutral">Label</Switch>
  * ```
  *
  * @remarks This component props extended from React.InputHTMLAttributes<HTMLInputElement>.

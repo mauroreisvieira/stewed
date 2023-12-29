@@ -32,7 +32,7 @@ export function EditProfile(): React.ReactElement {
             onClose={() => setDialogOpen(false)}>
             <Dialog.Header>
               <Text as="h4">Edit Profile</Text>
-              <Text size="sm" skin="secondary">
+              <Text size="sm" skin="neutral">
                 Update your personal infomation and save it
               </Text>
             </Dialog.Header>

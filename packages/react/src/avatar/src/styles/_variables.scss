@@ -4,10 +4,7 @@
 $avatar-root: "avatar";
 
 /// Skins
-$avatar-skins: (
-  "primary": primary,
-  "secondary": secondary,
-);
+$avatar-skins: ("primary", "neutral", "critical");
 
 /// Sizes
 $avatar-sizes: (

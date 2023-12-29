@@ -24,7 +24,7 @@
     &--#{$value} {
       @include theme.define-var(
         (
-          background-color: theme.get-new-color($value, "faded"),
+          background-color: theme.get-color($value, "border"),
         )
       );
     }

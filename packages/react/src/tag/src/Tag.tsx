@@ -18,7 +18,7 @@ export interface TagProps<T> extends React.ComponentProps<typeof defaultElement>
    * Change the visual style of the tag.
    * @default primary
    */
-  skin?: "primary" | "secondary" | "info" | "success" | "warning" | "error";
+  skin?: "primary" | "neutral" | "info" | "success" | "warning" | "critical";
   /**
    * Change the visual appearance of the tag.
    * @default filled
@@ -42,7 +42,7 @@ export interface TagProps<T> extends React.ComponentProps<typeof defaultElement>
  *
  * @example
  * ```tsx
- * <Tag skin="secondary">Tag</Tag>
+ * <Tag skin="neutral">Tag</Tag>
  * ```
  *
  * @remarks This component is a polymorphic component can be rendered as a different element

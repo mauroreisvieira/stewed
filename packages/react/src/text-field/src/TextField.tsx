@@ -6,7 +6,7 @@ import styles from "./styles/index.module.scss";
 
 export interface TextField extends React.InputHTMLAttributes<HTMLInputElement> {
   /** Change the visual style of the input. */
-  skin?: "default" | "error" | "success";
+  skin?: "default" | "critical" | "success";
   /** Slot to display before the input value. */
   leftSlot?: React.ReactNode;
   /** Slot to display after the input value. */

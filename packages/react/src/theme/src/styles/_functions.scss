@@ -26,31 +26,16 @@
   @return var($var);
 }
 
-@function get-color($color, $tone: "500") {
-  @if not map.has-key($colors, $color) {
-    @error "Invalid color specified! #{$color} doesn't exist. Choose one of #{map.keys($colors)}";
-  }
-
-  $color-tone: map.get($colors, $color);
-
-  @if not map.has-key($color-tone, $tone) {
-    @error "Invalid tone specified! #{$tone} doesn't exist. Choose one of #{map.keys($color-key)}";
-  }
-
-  @return get-theme-var(#{$color}-#{$tone});
-}
-
-@function get-new-color($value: null, $level: "default") {
+@function get-color($value: null, $level: "default") {
   @if not $value {
-    @return $new-colors;
+    @return $colors;
   }
 
-  @if not map.has-key($new-colors, $value) {
-    @error "Invalid color specified! #{$value} doesn't exist. Choose one of #{map.keys($new-colors)}";
+  @if not map.has-key($colors, $value) {
+    @error "Invalid color specified! #{$value} doesn't exist. Choose one of #{map.keys($colors)}";
   }
 
-  $levels: map.get($new-colors, $value);
-  @debug ($levels);
+  $levels: map.get($colors, $value);
 
   @if not map.has-key($levels, $level) {
     @error "Invalid level specified! #{$level} doesn't exist. Choose one of #{map.keys($levels)}";

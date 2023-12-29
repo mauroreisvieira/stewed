@@ -46,7 +46,7 @@ export function Team(): React.ReactElement {
         <Card.Header>
           <Box direction="column" space={{ y: "lg" }}>
             <Text as="h5">Your team</Text>
-            <Text size="sm" skin="secondary">
+            <Text size="sm" skin="neutral">
               Invite and manage your team members.
             </Text>
           </Box>
@@ -65,13 +65,13 @@ export function Team(): React.ReactElement {
                     <Text size="sm" weight="medium">
                       {name}
                     </Text>
-                    <Text as="a" href="" size="xs" skin="secondary" alignment="end">
+                    <Text as="a" href="" size="xs" skin="neutral" alignment="end">
                       {email}
                     </Text>
                   </Box>
                 </Box>
                 <Button
-                  skin="secondary"
+                  skin="neutral"
                   appearance="ghost"
                   leftSlot={<TbDotsVertical />}
                   size="sm"

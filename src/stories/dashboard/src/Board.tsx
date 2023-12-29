@@ -88,11 +88,11 @@ export function Board(): React.ReactElement {
                   <Text weight="bold" size="lg">
                     {title}
                   </Text>
-                  <Text skin="secondary">{category}</Text>
+                  <Text skin="neutral">{category}</Text>
                 </Box>
                 <Avatar.Group>
                   {members.map(({ id, name }) => (
-                    <Avatar key={id} size="xs" name={name} skin="secondary" />
+                    <Avatar key={id} size="xs" name={name} skin="neutral" />
                   ))}
                 </Avatar.Group>
               </Card.Body>

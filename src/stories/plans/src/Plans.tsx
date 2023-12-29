@@ -55,7 +55,7 @@ export function Plans(): React.ReactElement {
               </Card.Header>
               <Card.Body>
                 <Box direction="column" gap="2xl">
-                  <Text skin="secondary">{description}</Text>
+                  <Text skin="neutral">{description}</Text>
                   <Box items="baseline" gap="sm">
                     <Text size="4xl" weight="bold">
                       {value === "monthly" ? price : price * 12 * 0.5}€

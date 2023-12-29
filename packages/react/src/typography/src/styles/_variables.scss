@@ -7,7 +7,7 @@ $typography-styles: (
   "base": (
     "font-size": get-font-size("md"),
     "font-weight": get-font-weight("normal"),
-    "color": get-color("gray", "900"),
+    "color": get-color("text"),
   ),
   "link": (
     "font-size": get-font-size("md"),
@@ -17,43 +17,43 @@ $typography-styles: (
   "label": (
     "font-size": get-font-size("sm"),
     "font-weight": get-font-weight("medium"),
-    "color": get-color("gray", "900"),
+    "color": get-color("text"),
   ),
   "display-1": (
     "font-size": get-font-size("5xl"),
     "font-weight": get-font-weight("bold"),
     "line-height": get-line-height("5xl"),
-    "color": get-color("gray", "900"),
+    "color": get-color("text"),
   ),
   "display-2": (
     "font-size": get-font-size("4xl"),
     "font-weight": get-font-weight("bold"),
     "line-height": get-line-height("4xl"),
-    "color": get-color("gray", "900"),
+    "color": get-color("text"),
   ),
   "display-3": (
     "font-size": get-font-size("3xl"),
     "font-weight": get-font-weight("bold"),
     "line-height": get-line-height("3xl"),
-    "color": get-color("gray", "900"),
+    "color": get-color("text"),
   ),
   "display-4": (
     "font-size": get-font-size("2xl"),
     "font-weight": get-font-weight("bold"),
     "line-height": get-line-height("2xl"),
-    "color": get-color("gray", "900"),
+    "color": get-color("text"),
   ),
   "display-5": (
     "font-size": get-font-size("xl"),
     "font-weight": get-font-weight("bold"),
     "line-height": get-line-height("xl"),
-    "color": get-color("gray", "900"),
+    "color": get-color("text"),
   ),
   "display-6": (
     "font-size": get-font-size("lg"),
     "font-weight": get-font-weight("bold"),
     "line-height": get-line-height("lg"),
-    "color": get-color("gray", "900"),
+    "color": get-color("text"),
   ),
 );
 
@@ -66,6 +66,6 @@ $typography-weights: get-font-weight();
 /// Skins
 $typography-skins: (
   "primary": get-color("primary"),
-  "secondary": get-color("secondary"),
-  "error": get-color("red"),
+  "neutral": get-color("neutral"),
+  "critical": get-color("critical"),
 );
