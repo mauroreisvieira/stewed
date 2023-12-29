@@ -23,7 +23,7 @@ export interface ThemeContextProps<T extends string> {
   setTokens: React.Dispatch<React.SetStateAction<Partial<Record<T, Tokens>> | undefined>>;
 }
 
-export function createThemeContext<T extends string>() {
+function createThemeContext<T extends string>() {
   return createContext<ThemeContextProps<T>>({
     tokens: undefined,
     defaultTheme: undefined,
@@ -34,7 +34,7 @@ export function createThemeContext<T extends string>() {
 }
 
 // Default context values to managing themes.
-export const ThemeContext = createThemeContext();
+export const ThemeContext = createThemeContext<string>();
 
 /**
  * Hook to conveniently use the theme context.
@@ -42,5 +42,5 @@ export const ThemeContext = createThemeContext();
  * @returns Theme context values.
  */
 export function useTheme<T extends string>() {
-  return useContext<ThemeContextProps<T extends string>>(ThemeContext);
+  return useContext(ThemeContext as React.Context<ThemeContextProps<T>>);
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 // UI Components
 import {
   Text,
@@ -68,7 +68,7 @@ function Elements(): React.ReactElement {
 export function CustomTheme(): React.ReactElement {
   return (
     <Theme<"default" | "revolution">
-      defaultTheme="revolution"
+      defaultTheme="default"
       tokens={{
         default: {},
         revolution: {
