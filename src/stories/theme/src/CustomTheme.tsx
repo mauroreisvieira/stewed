@@ -78,12 +78,15 @@ export function CustomTheme(): React.ReactElement {
             "primary-faded": "#f48fb1",
           },
           components: {
-            card: {
-              radius: "xl",
+            "card": {
+              radius: "2xl",
             },
-            button: {
-              radius: "full"
-            }
+            "button": {
+              radius: "full",
+            },
+            "text-field": {
+              radius: "lg",
+            },
           },
         },
       }}>
