@@ -3,12 +3,6 @@
 @use "./variables" as *;
 
 @include theme.scope($alert-root) {
-  @include theme.define-var(
-    (
-      border-radius: theme.get-radius("md"),
-    )
-  );
-
   position: relative;
   box-sizing: border-box;
   display: flex;
@@ -17,7 +11,7 @@
   width: 100%;
   padding: theme.get-spacing("xl");
   background-color: theme.get-var(background-color);
-  border-radius: theme.get-var(border-radius);
+  border-radius: theme.get-var(radius);
 
   &__title {
     @include text.typography(

@@ -72,7 +72,7 @@
   &--square {
     @include theme.define-var(
       (
-        border-radius: theme.get-radius("sm"),
+        border-radius: theme.get-var(radius),
       )
     );
   }

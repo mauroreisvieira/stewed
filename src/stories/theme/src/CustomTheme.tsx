@@ -77,6 +77,14 @@ export function CustomTheme(): React.ReactElement {
             "primary-pressed": "#d81b60",
             "primary-faded": "#f48fb1",
           },
+          components: {
+            card: {
+              radius: "xl",
+            },
+            button: {
+              radius: "full"
+            }
+          },
         },
       }}>
       <Elements />

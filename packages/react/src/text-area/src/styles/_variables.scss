@@ -2,21 +2,19 @@
 
 $textarea-root: "text-area";
 
-/// Appearance
+// Appearance
 $textarea-skins-default: (
   "border": theme.get-color("neutral", "border"),
   "border-hover": theme.get-color("neutral", "border-hover"),
 );
-
-/// Skins
 $textarea-skins: (
   "success": (
     "border": theme.get-color("success"),
-    "border-hover": theme.get-color("success", "pressed"),
+    "border-hover": theme.get-color("success"),
   ),
   "critical": (
     "border": theme.get-color("critical"),
-    "border-hover": theme.get-color("critical", "pressed"),
+    "border-hover": theme.get-color("critical"),
   ),
 );
 

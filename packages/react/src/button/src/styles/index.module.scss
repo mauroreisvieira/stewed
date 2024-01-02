@@ -7,7 +7,6 @@
     (
       border-width: 1px,
       border-color: transparent,
-      border-radius: theme.get-radius("sm"),
       gap: theme.get-spacing("sm"),
     )
   );
@@ -30,7 +29,7 @@
   user-select: none;
   background-color: theme.get-var(background-color);
   border: theme.get-var(border-width) solid theme.get-var(border-color);
-  border-radius: theme.get-var(border-radius);
+  border-radius: theme.get-var(radius);
 
   @include theme.focus-styles;
   @include theme.disabled-styles;

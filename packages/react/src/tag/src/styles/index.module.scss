@@ -5,7 +5,6 @@
 @include theme.scope($tag-root) {
   @include theme.define-var(
     (
-      border-radius: theme.get-radius("sm"),
       gap: theme.get-spacing("sm"),
     )
   );
@@ -22,7 +21,7 @@
   text-decoration: none;
   white-space: nowrap;
   background-color: theme.get-var(background-color);
-  border-radius: theme.get-var(border-radius);
+  border-radius: theme.get-var(radius);
 
   @include text.typography(
     "base",

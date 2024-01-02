@@ -29,6 +29,7 @@ export interface RootProps<T extends string>
 export function Root<T extends string>({
   className,
   children,
+  customize,
   ...props
 }: RootProps<T>): React.ReactElement {
   // CSS classes for styling
@@ -39,28 +40,55 @@ export function Root<T extends string>({
   // Theme and tokens from the context
   const { theme, tokens } = useTheme();
 
-  // Merged tokens based on the current theme
-  const mergedTokens = useMemo<Tokens>(() => {
-    return Object.keys(defaultTokens).reduce((acc, key) => {
-      acc[key as keyof Tokens] = {
-        ...(defaultTokens[key as keyof Tokens] || {}),
-        ...((theme && tokens?.[theme]?.[key as keyof Tokens]) || {}),
-      };
+  const outputObject = useMemo(() => {
+    const mergedTokens: Tokens = Object.keys(defaultTokens).reduce(
+      (acc, key) => {
+        acc[key] = {
+          ...defaultTokens[key],
+          ...(tokens?.[theme]?.[key] || {}),
+        };
+        return acc;
+      },
+      { components: {} },
+    );
+
+    if (tokens?.[theme]?.components) {
+      mergedTokens.components = Object.keys(defaultTokens.components).reduce((acc, component) => {
+        acc[component] = {
+          ...defaultTokens.components[component],
+          ...(tokens?.[theme]?.components[component] || {}),
+        };
+        return acc;
+      }, {});
+    }
+
+    return Object.keys(mergedTokens).reduce((acc, key) => {
+      if (key === "components") {
+        Object.keys(mergedTokens.components).forEach((component) => {
+          const componentObj = mergedTokens.components[component];
+          acc[component] = {
+            ...componentObj,
+            radius: mergedTokens.radius[componentObj.radius] || componentObj.radius,
+          };
+        });
+      } else {
+        acc[key] = mergedTokens[key];
+      }
       return acc;
-    }, {} as Tokens);
-  }, [theme, tokens]);
+    }, {});
+  }, [defaultTokens, tokens, theme]);
 
   // Convert merged tokens to CSS custom properties
   const cssProperties = useMemo(() => {
     return Object.fromEntries(
-      Object.entries(mergedTokens).flatMap(([context, data]) =>
+      Object.entries(outputObject).flatMap(([context, data]) =>
         Object.entries(data).map(([key, value]) => [
           `--${context}-${key}`.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase(),
           value,
         ]),
       ),
     );
-  }, [mergedTokens]);
+  }, [outputObject]);
 
   return (
     <div {...props} className={cssClasses.root} style={cssProperties}>

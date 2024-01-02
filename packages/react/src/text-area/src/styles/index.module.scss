@@ -5,12 +5,10 @@
 @include theme.scope($textarea-root) {
   @include theme.define-var(
     (
-      border-radius: theme.get-radius("sm"),
+      border-color: map.get($textarea-skins-default, "border"),
+      border-color-hover: map.get($textarea-skins-default, "border-hover"),
     )
   );
-
-  --textarea-border: #{map.get($textarea-skins-default, "border")};
-  --textarea-border-hover: #{map.get($textarea-skins-default, "border-hover")};
 
   position: relative;
   box-sizing: border-box;
@@ -23,11 +21,11 @@
   font-size: $textarea-font-size;
   font-weight: $textarea-font-weight;
   touch-action: manipulation;
-  border: 1px solid var(--textarea-border);
-  border-radius: theme.get-var(border-radius);
+  border: 1px solid theme.get-var(border-color);
+  border-radius: theme.get-var(radius);
 
   &:hover {
-    border-color: var(--textarea-border-hover);
+    border-color: theme.get-var(border-color-hover);
   }
 
   @include theme.focus-styles;
@@ -35,8 +33,12 @@
 
   @each $key, $value in $textarea-skins {
     &--#{$key} {
-      --textarea-border: #{map.get($value, "border")};
-      --textarea-border-hover: #{map.get($value, "border-hover")};
+      @include theme.define-var(
+        (
+          border-color: map.get($value, "border"),
+          border-color-hover: map.get($value, "border-hover"),
+        )
+      );
     }
   }
 }

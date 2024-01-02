@@ -6,7 +6,6 @@
   @include theme.define-var(
     (
       size: theme.get-spacing("lg"),
-      border-radius: theme.get-radius("full"),
       padding-inline: 0,
       position: relative,
       transform: none,
@@ -33,7 +32,7 @@
     padding-inline: theme.get-var(padding-inline);
     white-space: nowrap;
     background-color: theme.get-var(background-color);
-    border-radius: theme.get-var(border-radius);
+    border-radius: theme.get-var(radius);
     transform: theme.get-var(transform);
 
     &:empty {

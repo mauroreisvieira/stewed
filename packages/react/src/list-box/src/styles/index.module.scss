@@ -15,7 +15,6 @@
         color: inherit,
         padding-block: theme.get-spacing("sm"),
         padding-inline: theme.get-spacing("md"),
-        border-radius: theme.get-radius("sm"),
       )
     );
 
@@ -31,7 +30,7 @@
     overflow: hidden;
     cursor: pointer;
     background-color: theme.get-var(background-color);
-    border-radius: theme.get-var(border-radius);
+    border-radius: theme.get-var(radius);
 
     &:not(:last-child) {
       margin-bottom: $list-box-item-outer-spacing-bottom;

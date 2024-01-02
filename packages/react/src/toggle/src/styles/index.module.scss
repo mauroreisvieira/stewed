@@ -6,7 +6,6 @@
 @include theme.scope($toggle-root) {
   @include theme.define-var(
     (
-      border-radius: theme.get-radius("full"),
       gap: theme.get-spacing("sm"),
       background-color: transparent,
       border-color: currentColor,
@@ -33,7 +32,7 @@
   user-select: none;
   background-color: theme.get-var(background-color);
   border: 1px solid theme.get-var(border-color);
-  border-radius: theme.get-var(border-radius);
+  border-radius: theme.get-var(radius);
 
   @include theme.focus-styles {
     position: relative;

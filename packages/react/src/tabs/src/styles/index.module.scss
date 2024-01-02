@@ -10,7 +10,6 @@
     (
       background-color: theme.get-color("neutral", "faded"),
       border-color: theme.get-color("neutral", "faded"),
-      border-radius: theme.get-radius("md"),
       flex-direction: row,
       height: theme.get-spacing("5xl"),
       width: auto,
@@ -51,7 +50,7 @@
     user-select: none;
     background-color: theme.get-var(background-color);
     border: 1px solid theme.get-var(border-color);
-    border-radius: calc(theme.get-var(border-radius) + theme.get-spacing("xxs"));
+    border-radius: calc(theme.get-var(radius) + theme.get-spacing("xxs"));
   }
 
   &__item {
@@ -66,7 +65,7 @@
     padding: 10px 8px;
     cursor: pointer;
     background-color: theme.get-var(item-background-color);
-    border-radius: theme.get-var(border-radius);
+    border-radius: theme.get-var(radius);
 
     @include theme.focus-styles;
     @include theme.disabled-styles;

@@ -5,7 +5,6 @@
   @include theme.define-var(
     (
       opacity: 0,
-      border-radius: theme.get-radius("md"),
       background: $dialog-background,
       border-color: theme.get-color("neutral", "faded"),
     )
@@ -29,7 +28,7 @@
     margin: auto;
     background-color: theme.get-var(background);
     border: 1px solid theme.get-var(border-color);
-    border-radius: theme.get-var(border-radius);
+    border-radius: theme.get-var(radius);
   }
 
   &__header {
