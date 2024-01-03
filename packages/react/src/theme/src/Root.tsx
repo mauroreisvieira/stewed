@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 // Tokens
 import { type Tokens, tokens as defaultTokens } from "../../tokens";
 // Hooks
@@ -91,12 +91,18 @@ export function Root<T extends string>({
 
   const aux = theme || "default";
 
-  const $style = document.createElement("style");
+  useEffect(() => {
+    const $style = document.createElement("style");
     $style.setAttribute("data-theme", aux);
-  $style.innerHTML = `[data-theme="${aux}"] { \n${Object.entries(cssProperties)
-    .map(([property, value]) => `${property}: ${value};`)
-    .join("\n")}\n}`;
-  document.head.appendChild($style);
+    $style.innerHTML = `[data-theme="${aux}"] { \n${Object.entries(cssProperties)
+      .map(([property, value]) => `${property}: ${value};`)
+      .join("\n")}\n}`;
+    document.head.appendChild($style);
+
+    return () => {
+      $style.remove();
+    }
+  }, [cssProperties]);
 
   return (
     <>
