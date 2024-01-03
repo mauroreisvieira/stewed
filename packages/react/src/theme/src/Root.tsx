@@ -89,18 +89,18 @@ export function Root<T extends string>({
     );
   }, [outputObject]);
 
+  const aux = theme || "default";
+
   const $style = document.createElement("style");
-  if (theme) {
-    $style.setAttribute("data-theme", theme);
-  }
-  $style.innerHTML = `[data-theme="${theme}"] { \n${Object.entries(cssProperties)
+    $style.setAttribute("data-theme", aux);
+  $style.innerHTML = `[data-theme="${aux}"] { \n${Object.entries(cssProperties)
     .map(([property, value]) => `${property}: ${value};`)
     .join("\n")}\n}`;
   document.head.appendChild($style);
 
   return (
     <>
-      <div data-theme={theme} {...props} className={cssClasses.root}>
+      <div data-theme={aux} {...props} className={cssClasses.root}>
         {children}
       </div>
     </>
