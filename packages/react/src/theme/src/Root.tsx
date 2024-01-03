@@ -93,7 +93,7 @@ export function Root<T extends string>({
   if (theme) {
     $style.setAttribute("data-theme", theme);
   }
-  $style.innerHTML = `html[data-theme="${theme}"] { \n${Object.entries(cssProperties)
+  $style.innerHTML = `[data-theme="${theme}"] { \n${Object.entries(cssProperties)
     .map(([property, value]) => `${property}: ${value};`)
     .join("\n")}\n}`;
   document.head.appendChild($style);
