@@ -1,0 +1,40 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+@use "@stewed/react/src/typography/src/styles" as text;
+@use "./variables" as *;
+
+@include theme.scope($accordion-root) {
+  position: relative;
+
+  &__item {
+    border-bottom: 1px solid theme.get-color("neutral", "faded");
+  }
+
+  &__header,
+  &__body {
+    padding-block: theme.get-spacing("lg");
+  }
+
+  &__header {
+    display: flex;
+    appearance: auto;
+    cursor: pointer;
+
+    @include text.typography(
+      "display-6",
+      $overrides: (font-weight: theme.get-font-weight("medium"))
+    );
+
+    &__text {
+      flex-grow: 1;
+      white-space: nowrap;
+    }
+
+    &__left,
+    &__right {
+      position: relative;
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+    }
+  }
+}

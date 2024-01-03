@@ -1,0 +1,62 @@
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { FiStar } from "react-icons/fi";
+import { Theme, Toggle } from "../../";
+
+<Meta title="Components/Toggle" component={Toggle} />
+
+# Toggle
+
+TODO
+
+### Installation
+
+```bash
+npm install --save @stewed/react
+```
+
+### Import
+
+```js
+import { Toggle } from "@stewed/react";
+```
+
+## Examples
+
+export const Template = (args) => (
+  <Theme>
+    <Toggle {...args} />
+  </Theme>
+);
+
+### Base
+
+<Canvas>
+  <Story
+    name="Base"
+    args={{
+      size: "md",
+      selected: false,
+      disabled: false,
+      children: "Toggle",
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+
+### Left Slot
+
+<Canvas>
+  <Story
+    name="Left Slot"
+    args={{
+      leftSlot: <FiStar size={18} />,
+      children: "Toggle",
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Toggle} />

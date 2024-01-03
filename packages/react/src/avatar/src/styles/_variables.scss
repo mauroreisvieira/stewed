@@ -1,25 +1,20 @@
-@use "sass:math";
-@use "sass:map";
-@use "@stewed/react/src/theme" as theme;
-
-// Avatar Group
-$avatar-group-root: ".avatar-group";
+@use "@stewed/react/src/theme/src/styles" as theme;
 
 // Avatar
-$avatar-root: ".avatar";
-$avatar-border-radius: (
-  "square": map.get(theme.$radius, "md"),
-  "round": 50%,
-);
-$avatar-skins: (
-  "primary": primary,
-  "secondary": secondary,
-);
+$avatar-root: "avatar";
+
+/// Skins
+$avatar-skins: ("primary", "neutral", "critical");
+
+/// Sizes
 $avatar-sizes: (
-  xs: map.get(theme.$spacings, "md") * 3,
-  sm: map.get(theme.$spacings, "md") * 4,
-  md: map.get(theme.$spacings, "md") * 5,
-  lg: map.get(theme.$spacings, "md") * 6,
-  xl: map.get(theme.$spacings, "md") * 8,
-  2xl: map.get(theme.$spacings, "md") * 9,
+  "xs": calc(theme.get-spacing("sm") * 3),
+  "sm": calc(theme.get-spacing("sm") * 4),
+  "md": calc(theme.get-spacing("sm") * 5),
+  "lg": calc(theme.get-spacing("sm") * 6),
+  "xl": calc(theme.get-spacing("sm") * 8),
+  "2xl": calc(theme.get-spacing("sm") * 9),
+  "3xl": calc(theme.get-spacing("sm") * 10),
+  "4xl": calc(theme.get-spacing("sm") * 11),
+  "5xl": calc(theme.get-spacing("sm") * 12),
 );

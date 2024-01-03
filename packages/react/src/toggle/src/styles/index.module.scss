@@ -1,0 +1,136 @@
+@use "sass:map";
+@use "@stewed/react/src/theme/src/styles" as theme;
+@use "@stewed/react/src/typography/src/styles" as text;
+@use "./variables" as *;
+
+@include theme.scope($toggle-root) {
+  @include theme.define-var(
+    (
+      gap: theme.get-spacing("sm"),
+      background-color: transparent,
+      border-color: currentColor,
+      color: theme.get-color("primary"),
+    )
+  );
+
+  position: relative;
+  box-sizing: border-box;
+  display: inline-flex;
+  gap: theme.get-var(gap);
+  align-items: center;
+  justify-content: center;
+  min-width: theme.get-var(size);
+  height: theme.get-var(size);
+  padding-block: theme.get-var(padding-block);
+  padding-inline: theme.get-var(padding-inline);
+  overflow: hidden;
+  color: theme.get-var(color);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
+  background-color: theme.get-var(background-color);
+  border: 1px solid theme.get-var(border-color);
+  border-radius: theme.get-var(radius);
+
+  @include theme.focus-styles {
+    position: relative;
+    z-index: 1;
+  }
+
+  @include theme.disabled-styles;
+
+  &:hover {
+    @include theme.define-var(
+      (
+        color: theme.get-color("primary"),
+      )
+    );
+  }
+
+  &:active {
+    @include theme.define-var(
+      (
+        color: theme.get-color("primary", "pressed"),
+      )
+    );
+  }
+
+  &__left {
+    display: flex;
+    font-size: inherit;
+  }
+
+  &__text {
+    @include text.typography(
+      base,
+      $overrides: (color: currentColor, font-size: theme.get-var(text-font-size), line-height: 1)
+    );
+  }
+
+  &__group {
+    display: flex;
+    gap: theme.get-spacing("sm");
+  }
+
+  &--selected {
+    @include theme.define-var(
+      (
+        background-color: theme.get-color("primary"),
+        border-color: theme.get-color("primary"),
+        color: #fff,
+      )
+    );
+
+    &:hover {
+      @include theme.define-var(
+        (
+          background-color: theme.get-color("primary"),
+          border-color: theme.get-color("primary"),
+          color: #fff,
+        )
+      );
+    }
+
+    &:active {
+      @include theme.define-var(
+        (
+          background-color: theme.get-color("primary", "pressed"),
+          border-color: theme.get-color("primary", "pressed"),
+          color: #fff,
+        )
+      );
+    }
+  }
+
+  &--sm {
+    @include theme.define-var(
+      (
+        padding-inline: theme.get-spacing("md"),
+        padding-block: theme.get-spacing("sm"),
+        text-font-size: theme.get-font-size("xs"),
+      )
+    );
+  }
+
+  &--md {
+    @include theme.define-var(
+      (
+        padding-inline: theme.get-spacing("lg"),
+        padding-block: theme.get-spacing("md"),
+        text-font-size: theme.get-font-size("sm"),
+      )
+    );
+  }
+
+  &--lg {
+    @include theme.define-var(
+      (
+        padding-inline: theme.get-spacing("xl"),
+        padding-block: theme.get-spacing("lg"),
+        text-font-size: theme.get-font-size("sm"),
+      )
+    );
+  }
+}

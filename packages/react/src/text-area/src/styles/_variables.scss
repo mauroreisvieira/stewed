@@ -1,0 +1,27 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+
+$textarea-root: "text-area";
+
+// Appearance
+$textarea-skins-default: (
+  "border": theme.get-color("neutral", "border"),
+  "border-hover": theme.get-color("neutral", "border-hover"),
+);
+$textarea-skins: (
+  "success": (
+    "border": theme.get-color("success"),
+    "border-hover": theme.get-color("success"),
+  ),
+  "critical": (
+    "border": theme.get-color("critical"),
+    "border-hover": theme.get-color("critical"),
+  ),
+);
+
+// Font
+$textarea-font-weight: theme.get-font-weight("normal");
+$textarea-font-size: theme.get-font-size("md");
+
+// Spacing's
+$textarea-sizes: theme.get-spacing("md");
+$textarea-spacings: theme.get-spacing("md");

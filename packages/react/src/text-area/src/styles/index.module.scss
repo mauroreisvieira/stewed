@@ -1,0 +1,44 @@
+@use "sass:map";
+@use "@stewed/react/src/theme/src/styles" as theme;
+@use "./variables" as *;
+
+@include theme.scope($textarea-root) {
+  @include theme.define-var(
+    (
+      border-color: map.get($textarea-skins-default, "border"),
+      border-color-hover: map.get($textarea-skins-default, "border-hover"),
+    )
+  );
+
+  position: relative;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: $textarea-spacings;
+  font-family: inherit;
+  font-size: $textarea-font-size;
+  font-weight: $textarea-font-weight;
+  touch-action: manipulation;
+  border: 1px solid theme.get-var(border-color);
+  border-radius: theme.get-var(radius);
+
+  &:hover {
+    border-color: theme.get-var(border-color-hover);
+  }
+
+  @include theme.focus-styles;
+  @include theme.disabled-styles;
+
+  @each $key, $value in $textarea-skins {
+    &--#{$key} {
+      @include theme.define-var(
+        (
+          border-color: map.get($value, "border"),
+          border-color-hover: map.get($value, "border-hover"),
+        )
+      );
+    }
+  }
+}

@@ -1,0 +1,32 @@
+import { Canvas, Meta, ArgTypes } from "@storybook/blocks";
+import * as SwitchStories from "./Switch.stories";
+
+# Switch
+
+Switch component is used to communicate an action a user can take.
+
+### Installation
+
+```bash
+npm install --save @stewed/react
+```
+
+### Import
+
+```js
+import { Switch } from "@stewed/react";
+```
+
+<Meta of={SwitchStories} />
+
+## Controlled
+
+<Canvas of={SwitchStories.Controlled} />
+
+## Uncontrolled
+
+<Canvas of={SwitchStories.Uncontrolled} />
+
+## Props
+
+<ArgTypes of={SwitchStories} />

@@ -1,0 +1,46 @@
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { Theme, Skeleton } from "../../";
+
+<Meta title="Components/Skeleton" component={Skeleton} />
+
+# Skeleton
+
+Skeleton is a animated placeholder, should be used to render content placeholders before the real data is available.
+
+### Installation
+
+```bash
+npm install --save @stewed/react
+```
+
+### Import
+
+```js
+import { Skeleton } from "@stewed/react";
+```
+
+## Examples
+
+export const Template = (args) => (
+  <Theme>
+    <Skeleton {...args} />
+  </Theme>
+);
+
+### Base
+
+<Canvas>
+  <Story
+    name="Base"
+    args={{
+      shape: "line",
+      size: "lg",
+      radius: "md",
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Skeleton} />

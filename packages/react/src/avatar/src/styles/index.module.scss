@@ -1,20 +1,38 @@
-@use "sass:map";
-@use "@stewed/react/src/theme" as theme;
+@use "@stewed/react/src/theme/src/styles" as theme;
+@use "@stewed/react/src/typography/src/styles" as text;
 @use "./variables" as *;
 
 @include theme.scope($avatar-root) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: theme.get-var(avatar-size);
-  height: theme.get-var(avatar-size);
+  min-width: theme.get-var(size);
+  height: theme.get-var(size);
   overflow: hidden;
-  font-size: calc(theme.get-var(avatar-size) / 3);
-  font-weight: map.get(theme.$font-weight, medium);
-  color: #fff;
   user-select: none;
-  background-color: theme.get-var(avatar-background);
-  border-radius: var(--avatar-border-radius);
+  background-color: theme.get-var(background-color);
+  border-radius: theme.get-var(border-radius);
+
+  @include text.typography(
+    base,
+    $overrides: (
+      color: theme.get-color("text", "inverse"),
+      font-weight: theme.get-font-weight("medium"),
+      font-size: calc(theme.get-var(size) / 3)
+    )
+  );
+
+  &-group {
+    display: flex;
+
+    > .#{$avatar-root} {
+      box-shadow: 0 0 0 1px currentcolor;
+
+      + .#{$avatar-root} {
+        margin-left: calc(theme.get-var(size) / -3);
+      }
+    }
+  }
 
   &__img {
     width: 100%;
@@ -27,17 +45,17 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          avatar-size: map.get($avatar-sizes, $key),
+          size: $value,
         )
       );
     }
   }
 
-  @each $key, $value in $avatar-skins {
-    &--#{$key} {
+  @each $value in $avatar-skins {
+    &--#{$value} {
       @include theme.define-var(
         (
-          avatar-background: theme.get-color($value),
+          background-color: theme.get-color($value),
         )
       );
     }
@@ -46,7 +64,7 @@
   &--circle {
     @include theme.define-var(
       (
-        avatar-border-radius: map.get($avatar-border-radius, "round"),
+        border-radius: theme.get-radius("full"),
       )
     );
   }
@@ -54,17 +72,8 @@
   &--square {
     @include theme.define-var(
       (
-        avatar-border-radius: map.get($avatar-border-radius, "square"),
+        border-radius: theme.get-var(radius),
       )
     );
-  }
-}
-
-@include theme.scope($avatar-group-root) {
-  display: flex;
-
-  > #{$avatar-root} + #{$avatar-root} {
-    margin-left: calc(var(--avatar-size) / -3);
-    box-shadow: 0 0 0 2px #fff;
   }
 }

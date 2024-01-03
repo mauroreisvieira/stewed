@@ -1,0 +1,55 @@
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { TiWarning } from "react-icons/ti";
+import { Theme, Box } from "../../";
+
+<Meta title="Components/Box" component={Box} />
+
+# Box
+
+Box component implements the CSS flex box API.
+
+### Installation
+
+```bash
+npm install --save @stewed/react
+```
+
+### Import
+
+```js
+import { Box } from "@stewed/react";
+```
+
+## Examples
+
+export const Template = (args) => (
+  <Theme>
+    <Box {...args} />
+  </Theme>
+);
+
+### Base
+
+<Canvas>
+  <Story
+    name="Base"
+    args={{
+      gap: "sm",
+      justify: "center",
+      items: "center",
+      direction: "column",
+      children: (
+        <>
+          <div style={{ border: "1px solid #000", padding: 24 }}>Column 1</div>
+          <div style={{ border: "1px solid #000", padding: 24 }}>Column 2</div>
+          <div style={{ border: "1px solid #000", padding: 24 }}>Column 3</div>
+        </>
+      ),
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Box} />

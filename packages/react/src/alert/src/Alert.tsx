@@ -7,8 +7,11 @@ import styles from './styles/index.module.scss';
 export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
     /** Will render the bold text shown at the top of the alert. */
     title?: string;
-    /** Change the visual style of the alert. */
-    skin?: 'info' | 'success' | 'warning' | 'danger';
+    /**
+     * Change the visual style of the alert.
+     * @default info
+     */
+    skin?: 'info' | 'success' | 'warning' | 'critical';
     /** Slot to display before the alert content. */
     leftSlot?: React.ReactNode;
     /** Slot to display after the alert content. */
@@ -38,25 +41,24 @@ export function Alert({
     leftSlot,
     rightSlot,
     children,
-    ...restProps
+    ...props
 }: AlertProps): React.ReactElement {
-    const rootClassName = 'alert';
-
+    const rootName = 'alert';
     const cssClasses = {
         root: classNames(
-            styles[rootClassName],
-            styles[`${rootClassName}--${skin}`],
+            styles[rootName],
+            styles[`${rootName}--${skin}`],
             className
         ),
-        title: styles[`${rootClassName}__title`],
-        body: styles[`${rootClassName}__body`],
-        wrapper: styles[`${rootClassName}__wrapper`],
-        left: styles[`${rootClassName}__left`],
-        right: styles[`${rootClassName}right`],
+        title: styles[`${rootName}__title`],
+        body: styles[`${rootName}__body`],
+        wrapper: styles[`${rootName}__wrapper`],
+        left: styles[`${rootName}__left`],
+        right: styles[`${rootName}right`],
     };
 
     return (
-        <div {...restProps} className={cssClasses.root} role="alert">
+        <div className={cssClasses.root} role="alert" {...props} >
             {leftSlot && <div className={cssClasses.left}>{leftSlot}</div>}
             <div className={cssClasses.wrapper}>
                 {title && <div className={cssClasses.title}>{title}</div>}

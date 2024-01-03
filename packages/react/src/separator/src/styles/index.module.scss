@@ -1,0 +1,51 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+@use "@stewed/react/src/typography/src/styles" as text;
+@use "./variables" as *;
+
+@include theme.scope($separator-root) {
+  margin: 0;
+  margin-block: theme.get-var(margin-block);
+  margin-inline: theme.get-var(margin-inline);
+  background-color: theme.get-var(background-color);
+  border: none;
+
+  &--horizontal {
+    width: 100%;
+    height: 1px;
+  }
+
+  &--vertical {
+    width: 1px;
+    height: 100%;
+  }
+
+  // Skin
+  @each $value in $separator-skins {
+    &--#{$value} {
+      @include theme.define-var(
+        (
+          background-color: theme.get-color($value, "border"),
+        )
+      );
+    }
+  }
+
+  // Spacing
+  @each $key, $value in $separator-spacing {
+    &--space-x-#{$key} {
+      @include theme.define-var(
+        (
+          margin-inline: $value,
+        )
+      );
+    }
+
+    &--space-y-#{$key} {
+      @include theme.define-var(
+        (
+          margin-block: $value,
+        )
+      );
+    }
+  }
+}

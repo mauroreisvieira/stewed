@@ -1,0 +1,9 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+
+$separator-root: "separator";
+
+/// Skins
+$separator-skins: ("neutral", "primary", "critical");
+
+/// Space
+$separator-spacing: theme.get-spacing();

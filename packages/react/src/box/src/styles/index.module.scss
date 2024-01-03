@@ -1,0 +1,108 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+@use "./variables" as *;
+
+@include theme.scope($box-root) {
+  --box-display: flex;
+
+  display: var(--box-display);
+
+  &--inline {
+    --box-display: inline-box;
+  }
+
+  // Direction
+  &--row-reverse {
+    flex-direction: row-reverse;
+  }
+
+  &--column {
+    flex-direction: column;
+  }
+
+  &--column-reverse {
+    flex-direction: column-reverse;
+  }
+
+  // Gap
+  @each $key, $value in $box-gap {
+    &--gap-#{$key} {
+      gap: #{$value};
+    }
+  }
+
+  // Space
+  @each $key, $value in $box-gap {
+    &--space-x-#{$key} ~ :not([hidden]) {
+      margin-left: #{$value};
+    }
+
+    &--space-y-#{$key}:not([hidden]) ~ :not([hidden]) {
+      margin-top: #{$value};
+    }
+  }
+
+  // Justify Content
+  &--justify-start {
+    justify-content: start;
+  }
+
+  &--justify-end {
+    justify-content: end;
+  }
+
+  &--justify-center {
+    justify-content: center;
+  }
+
+  &--justify-between {
+    justify-content: space-between;
+  }
+
+  &--justify-around {
+    justify-content: space-around;
+  }
+
+  &--justify-evenly {
+    justify-content: space-evenly;
+  }
+
+  // Align Items
+  &--items-start {
+    align-items: start;
+  }
+
+  &--items-end {
+    align-items: end;
+  }
+
+  &--items-center {
+    align-items: center;
+  }
+
+  &--items-baseline {
+    align-items: baseline;
+  }
+
+  &--items-stretch {
+    align-items: stretch;
+  }
+
+  // box Grow
+  &--grow {
+    flex-basis: 0;
+    flex-grow: 1;
+  }
+
+  // box Wrap
+  &--wrap {
+    flex-wrap: wrap;
+  }
+
+  &--wrap-reverse {
+    flex-wrap: wrap-reverse;
+  }
+
+  &--nowrap {
+    flex-wrap: nowrap;
+  }
+}

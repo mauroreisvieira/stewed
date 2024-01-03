@@ -1,48 +1,112 @@
-@use "@stewed/react/src/theme" as theme;
+@use "@stewed/react/src/theme/src/styles" as theme;
 @use "@stewed/react/src/typography/src/styles" as text;
 @use "./variables" as *;
 
 @include theme.scope($badge-root) {
-  --badge-size: #{$badge-size};
+  @include theme.define-var(
+    (
+      size: theme.get-spacing("lg"),
+      padding-inline: 0,
+      position: relative,
+      transform: none,
+      inset: 0,
+    )
+  );
 
   position: relative;
   display: inline-flex;
 
-  &__count {
+  &__value {
     @include text.typography(
       base,
-      $overrides: (--typography-color: $badge-color, --typography-font-size: $badge-font-size)
+      $overrides: (color: theme.get-color("text", "inverse"), font-size: theme.get-font-size("xxs"))
     );
 
-    position: absolute;
-    top: 0;
-    right: 0;
+    position: theme.get-var(position);
+    inset: theme.get-var(inset);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: var(--badge-size);
-    height: var(--badge-size);
+    min-width: theme.get-var(size);
+    height: theme.get-var(size);
+    padding-inline: theme.get-var(padding-inline);
     white-space: nowrap;
-    background-color: var(--badge-background);
-    border-radius: $badge-border-radius;
-    transform: translate(50%, -50%);
+    background-color: theme.get-var(background-color);
+    border-radius: theme.get-var(radius);
+    transform: theme.get-var(transform);
 
     &:empty {
-      --badge-size: #{$badge-dot-size};
-
-      padding: 0;
+      @include theme.define-var(
+        (
+          size: theme.get-spacing("sm"),
+          padding-inline: 0,
+        )
+      );
     }
   }
 
-  @each $key, $value in $badge-skins {
-    &--#{$key} {
-      --badge-background: #{theme.get-color($value, "500")};
+  @each $value in $badge-skins {
+    &--#{$value} {
+      @include theme.define-var(
+        (
+          background-color: theme.get-color($value),
+        )
+      );
     }
   }
 
   &--padded {
-    #{$badge-root}__count {
-      padding-inline: $badge-inner-spacing-inline;
-    }
+    @include theme.define-var(
+      (
+        padding-inline: theme.get-spacing("xs"),
+      )
+    );
+  }
+
+  &--top-left,
+  &--top-right,
+  &--bottom-left,
+  &--bottom-right {
+    @include theme.define-var(
+      (
+        position: absolute,
+      )
+    );
+  }
+
+  &--top-left {
+    @include theme.define-var(
+      (
+        inset: 0 auto auto 0,
+        transform: translate(-50%, -50%),
+      )
+    );
+  }
+
+  &--top-right {
+    @include theme.define-var(
+      (
+        inset: 0 0 auto auto,
+        transform: translate(50%, -50%),
+      )
+    );
+  }
+
+  &--bottom-left {
+    @include theme.define-var(
+      (
+        inset: auto auto 0 0,
+        transform: translate(-50%, 50%),
+      )
+    );
+  }
+
+  &--bottom-right {
+    @include theme.define-var(
+      (
+        inset: auto 0 0 auto,
+        transform: translate(50%, 50%),
+      )
+    );
   }
 }

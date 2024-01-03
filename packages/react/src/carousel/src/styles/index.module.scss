@@ -1,5 +1,4 @@
-@use "sass:map";
-@use "@stewed/react/src/theme" as theme;
+@use "@stewed/react/src/theme/src/styles" as theme;
 @use "@stewed/react/src/typography/src/styles" as text;
 @use "./variables" as *;
 
@@ -88,8 +87,9 @@
 
   &__dot {
     width: theme.get-var("dash-width");
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
+    cursor: pointer;
     background-color: theme.get-var("dash-background");
     border-radius: $carousel-dash-radius;
 

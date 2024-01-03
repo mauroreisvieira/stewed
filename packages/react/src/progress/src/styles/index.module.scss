@@ -1,9 +1,13 @@
 @use "sass:map";
-@use "@stewed/react/src/theme" as theme;
+@use "@stewed/react/src/theme/src/styles" as theme;
 @use "./variables" as *;
 
 @include theme.scope($progress-root) {
-  --progress-radius: 0;
+  @include theme.define-var(
+    (
+      radius: 0,
+    )
+  );
 
   position: relative;
   display: flex;
@@ -18,19 +22,19 @@
 
     &::-webkit-progress-bar {
       background-color: $progress-background;
-      border-radius: var(--progress-radius);
+      border-radius: theme.get-var(radius);
       box-shadow: none;
     }
 
     &::-moz-progress-bar {
       background-color: $progress-background;
-      border-radius: var(--progress-radius);
+      border-radius: theme.get-var(radius);
       box-shadow: none;
     }
 
     &::-webkit-progress-value {
       background-color: var(--progress-background);
-      border-radius: var(--progress-radius);
+      border-radius: theme.get-var(radius);
       box-shadow: none;
     }
   }
@@ -43,7 +47,7 @@
 
   @each $key, $value in $progress-skins {
     &--#{$key} {
-      --progress-background: #{theme.get-color($value, "500")};
+      --progress-background: #{theme.get-color($value)};
     }
   }
 

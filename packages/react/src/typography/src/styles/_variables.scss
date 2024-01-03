@@ -1,61 +1,71 @@
-@use "sass:map";
-@use "@stewed/react/src/theme" as theme;
+@use "@stewed/react/src/theme/src/styles" as *;
 
-$typography-root: ".typography";
+$typography-root: "typography";
+
+/// Styles
 $typography-styles: (
   "base": (
-    "--typography-font-size": map.get(theme.$font-size, "sm"),
-    "--typography-font-weight": map.get(theme.$font-weight, "normal"),
-    "--typography-line-height": calc(var(--typography-font-size) * 1.375),
-    "--typography-color": theme.get-color("gray", "900"),
+    "font-size": get-font-size("md"),
+    "font-weight": get-font-weight("normal"),
+    "color": get-color("text"),
   ),
   "link": (
-    "--typography-font-size": map.get(theme.$font-size, "sm"),
-    "--typography-font-weight": map.get(theme.$font-weight, "normal"),
-    "--typography-line-height": calc(var(--typography-font-size) * 1.5),
-    "--typography-color": theme.get-color("primary"),
+    "font-size": get-font-size("md"),
+    "font-weight": get-font-weight("normal"),
+    "color": get-color("primary"),
+  ),
+  "label": (
+    "font-size": get-font-size("sm"),
+    "font-weight": get-font-weight("medium"),
+    "color": get-color("text"),
   ),
   "display-1": (
-    "--typography-font-size": map.get(theme.$font-size, "5xl"),
-    "--typography-font-weight": map.get(theme.$font-weight, "bold"),
-    "--typography-line-height": map.get(theme.$line-height, "4xl"),
-    "--typography-color": theme.get-color("gray", "900"),
+    "font-size": get-font-size("5xl"),
+    "font-weight": get-font-weight("bold"),
+    "line-height": get-line-height("5xl"),
+    "color": get-color("text"),
   ),
   "display-2": (
-    "--typography-font-size": map.get(theme.$font-size, "4xl"),
-    "--typography-font-weight": map.get(theme.$font-weight, "bold"),
-    "--typography-line-height": map.get(theme.$line-height, "3xl"),
-    "--typography-color": theme.get-color("gray", "900"),
+    "font-size": get-font-size("4xl"),
+    "font-weight": get-font-weight("bold"),
+    "line-height": get-line-height("4xl"),
+    "color": get-color("text"),
   ),
   "display-3": (
-    "--typography-font-size": map.get(theme.$font-size, "3xl"),
-    "--typography-font-weight": map.get(theme.$font-weight, "bold"),
-    "--typography-line-height": map.get(theme.$line-height, "2xl"),
-    "--typography-color": theme.get-color("gray", "900"),
+    "font-size": get-font-size("3xl"),
+    "font-weight": get-font-weight("bold"),
+    "line-height": get-line-height("3xl"),
+    "color": get-color("text"),
   ),
   "display-4": (
-    "--typography-font-size": map.get(theme.$font-size, "2xl"),
-    "--typography-font-weight": map.get(theme.$font-weight, "bold"),
-    "--typography-line-height": map.get(theme.$line-height, "xl"),
-    "--typography-color": theme.get-color("gray", "900"),
+    "font-size": get-font-size("2xl"),
+    "font-weight": get-font-weight("bold"),
+    "line-height": get-line-height("2xl"),
+    "color": get-color("text"),
   ),
   "display-5": (
-    "--typography-font-size": map.get(theme.$font-size, "xl"),
-    "--typography-font-weight": map.get(theme.$font-weight, "bold"),
-    "--typography-line-height": map.get(theme.$line-height, "lg"),
-    "--typography-color": theme.get-color("gray", "900"),
+    "font-size": get-font-size("xl"),
+    "font-weight": get-font-weight("bold"),
+    "line-height": get-line-height("xl"),
+    "color": get-color("text"),
   ),
   "display-6": (
-    "--typography-font-size": map.get(theme.$font-size, "lg"),
-    "--typography-font-weight": map.get(theme.$font-weight, "bold"),
-    "--typography-line-height": map.get(theme.$line-height, "md"),
-    "--typography-color": theme.get-color("gray", "900"),
+    "font-size": get-font-size("lg"),
+    "font-weight": get-font-weight("bold"),
+    "line-height": get-line-height("lg"),
+    "color": get-color("text"),
   ),
 );
-$typography-sizes: theme.$font-size;
-$typography-weights: theme.$font-weight;
+
+/// Sizes
+$typography-sizes: get-font-size();
+
+/// Weights
+$typography-weights: get-font-weight();
+
+/// Skins
 $typography-skins: (
-  "primary": theme.get-color("primary"),
-  "secondary": theme.get-color("secondary"),
-  "danger": theme.get-color("red"),
+  "primary": get-color("primary"),
+  "neutral": get-color("neutral"),
+  "critical": get-color("critical"),
 );

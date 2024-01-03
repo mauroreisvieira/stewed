@@ -1,22 +1,20 @@
-@use "sass:map";
-@use "@stewed/react/src/theme" as theme;
+@use "@stewed/react/src/theme/src/styles" as theme;
 @use "./variables" as *;
 
 @include theme.scope($aspect-ratio-root) {
   position: relative;
-  overflow: hidden;
 
   @each $key, $value in $aspect-ratio-sizes {
     &--#{$key} {
-      --aspect-ratio-size: #{map.get($aspect-ratio-sizes, $key)};
+      @include theme.define-var(
+        (
+          aspect-ratio: $value,
+        )
+      );
     }
   }
 
-  &__img {
-    max-width: 100%;
-    height: 100%;
-    object-fit: cover;
-    aspect-ratio: var(--aspect-ratio-size);
-    border-radius: inherit;
+  &:not(:empty) > * {
+    aspect-ratio: theme.get-var(aspect-ratio);
   }
 }

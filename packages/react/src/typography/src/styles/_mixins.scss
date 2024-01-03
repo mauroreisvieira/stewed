@@ -1,12 +1,12 @@
 @use "sass:map";
-@use "@stewed/react/src/theme" as theme;
+@use "@stewed/react/src/theme/src/styles" as theme;
 @use "./variables" as *;
 
 @mixin typography-base {
-  font-size: var(--typography-font-size);
-  font-weight: var(--typography-font-weight);
-  line-height: var(--typography-line-height);
-  color: var(--typography-color);
+  font-size: theme.get-var(font-size);
+  font-weight: theme.get-var(font-weight);
+  line-height: theme.get-var(line-height, calc(theme.get-var(font-size) * 1.5));
+  color: theme.get-var(color);
 }
 
 @mixin typography($key, $overrides: ()) {
@@ -18,7 +18,13 @@
   $merge-props: map.deep-merge($style-props, $overrides);
 
   @each $key, $value in $merge-props {
-    #{$key}: $value;
+    @if $value {
+      @include theme.define-var(
+        (
+          $key: $value,
+        )
+      );
+    }
   }
 
   @include typography-base;

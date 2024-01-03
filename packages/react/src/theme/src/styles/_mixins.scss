@@ -1,0 +1,116 @@
+@use "sass:map";
+@use "./variables" as *;
+@use "./functions" as func;
+
+/// Defines focus styles on elements with specified color, outline offset, and width.
+/// @param {string} [$target=":focus-visible"] - Focus state target
+/// @param {string} [$color=get-color('primary')] - Color of the focus outline.
+/// @param {string} [$offset=1px] - Offset of the focus outline.
+/// @param {string} [$width=1px] - Width of the focus outline.
+@mixin focus-styles(
+  $target: ":focus-visible",
+  $color: #{func.get-color("primary")},
+  $offset: 1px,
+  $width: 1px
+) {
+  &#{$target} {
+    outline: $color solid $width;
+    outline-offset: $offset;
+    @content;
+  }
+}
+
+@mixin scope($name: null) {
+  $scope-naming: $name !global; // declare as global variable
+  $root: ".#{$name}";
+
+  .#{$name} {
+    @content;
+  }
+}
+
+/// Defines CSS variables with provided name and value.
+/// @param {string} $name - Name of the CSS variable.
+/// @param {string} $value - Value to be assigned to the CSS variable.
+@mixin define-var($values) {
+  @each $name, $value in $values {
+    $var-name: null;
+
+    @if $scope-naming {
+      $var-name: "--#{$scope-naming}-#{$name}";
+    } @else {
+      $var-name: "--#{$name}";
+    }
+
+    @if $prefix {
+      $var-name: "--#{$prefix}-#{$var-name}";
+    }
+
+    #{$var-name}: #{$value};
+  }
+}
+
+/// Defines CSS transitions with given property, duration, timing function, and optional delay.
+/// @param {string|list} $property - The CSS property or a list of properties to be transitioned.
+/// @param {string} [$duration=quickly] - Duration of the transition.
+/// @param {string} [$timing-function=accelerate] - Timing function of the transition.
+/// @param {string} [$delay=null] - Delay before the transition starts.
+@mixin transition(
+  $property,
+  $duration: map.get($duration, quickly),
+  $timing-function: map.get($timing-function, accelerate),
+  $delay: null
+) {
+  @if type-of($property) == list {
+    transition: $duration $timing-function $delay;
+    transition-property: $property;
+  } @else {
+    transition: $property $duration $timing-function $delay;
+  }
+}
+
+@mixin disabled-styles {
+  &--disabled {
+    pointer-events: none;
+    opacity: $disabled;
+  }
+}
+
+// primary input mechanism is a mouse
+@mixin no-touch {
+  @media (pointer: fine) {
+    @content;
+  }
+}
+
+// primary input mechanism is a finger
+@mixin touch {
+  @media (pointer: coarse) {
+    @content;
+  }
+}
+
+// styles for mouse
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+// apply styles on hover if device is non-touch
+// apply styles on active if device is touch
+@mixin on-hover {
+  @include no-touch {
+    @include hover {
+      @content;
+    }
+  }
+
+  @include touch {
+    &:active {
+      @content;
+    }
+  }
+}

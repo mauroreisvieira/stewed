@@ -1,0 +1,19 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+
+$input-root: "text-field";
+
+// Appearance
+$input-skins-default: (
+  "border": theme.get-color("neutral", "border"),
+  "border-hover": theme.get-color("neutral", "border-hover"),
+);
+$input-skins: (
+  "success": (
+    "border": theme.get-color("success"),
+    "border-hover": theme.get-color("success"),
+  ),
+  "critical": (
+    "border": theme.get-color("critical"),
+    "border-hover": theme.get-color("critical"),
+  ),
+);

@@ -1,7 +1,6 @@
-@use "sass:map";
-@use "@stewed/react/src/theme" as theme;
+@use "@stewed/react/src/theme/src/styles" as theme;
 
-$carousel-root: ".carousel";
+$carousel-root: "carousel";
 
 /// space between slides when slides per view bigger that 2
 $carousel-gap: 8px;
@@ -19,10 +18,10 @@ $carousel-dash-width: 16px;
 $carousel-dash-radius: 8px;
 
 /// dash background color
-$carousel-dash-background: red;
+$carousel-dash-background: theme.get-color("neutral", "faded");
 
 /// dash active background color
-$carousel-dash-background-active: blue;
+$carousel-dash-background-active: theme.get-color("primary");
 
 /// button small sizes
 $carousel-button-small: 16px;

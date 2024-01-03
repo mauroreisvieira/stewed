@@ -1,0 +1,43 @@
+import React from "react";
+import type { Meta, StoryObj } from "@storybook/react";
+
+import { Theme, Card} from "../../index";
+
+type Story = StoryObj<typeof Card>;
+
+const meta: Meta<typeof Card> = {
+  title: "Components/Card",
+  component: Card,
+  decorators: [
+    (Story) => (
+      <Theme>
+        <Story />
+      </Theme>
+    ),
+  ],
+};
+
+export default meta;
+
+export const Default: Story = {
+  argTypes: {
+    children: {
+      control: false,
+    },
+  },
+  args: {
+    padding: "md",
+    selected: false,
+    children: (
+      <>
+        <Card.Header>Card Header</Card.Header>
+        <Card.Body>
+          Pellentesque elementum diam sapien, nec ultrices risus convallis eget. Nam pharetra dolor
+          at dictum tempor. Quisque ut est a ligula hendrerit sodales. Curabitur ornare a nulla in
+          laoreet. Maecenas semper mi egestas, dignissim nisi et, elementum neque.
+        </Card.Body>
+        <Card.Footer>Card Footer</Card.Footer>
+      </>
+    ),
+  },
+};

@@ -1,20 +1,23 @@
-@use "sass:map";
-@use "@stewed/react/src/theme" as theme;
+@use "@stewed/react/src/theme/src/styles" as theme;
 @use "./variables" as *;
 @use "./mixins" as mix;
 
 @include theme.scope($typography-root) {
-  all: unset;
-  display: block;
+  padding: 0;
+  margin: 0;
 
   &[href] {
+    text-decoration: none;
     cursor: pointer;
 
     &:hover {
       text-decoration: underline;
+      text-underline-position: under;
     }
 
-    @include theme.focus-styles;
+    @include theme.focus-styles {
+      border-radius: theme.get-radius("md");
+    }
   }
 
   @each $key, $value in $typography-styles {
@@ -71,21 +74,41 @@
     text-align: justify;
   }
 
+  &--whitespace-nowrap {
+    white-space: nowrap;
+  }
+
+  &--whitespace-normal {
+    white-space: normal;
+  }
+
   @each $key, $value in $typography-skins {
     &--#{$key} {
-      --typography-color: #{$value};
+      @include theme.define-var(
+        (
+          color: $value,
+        )
+      );
     }
   }
 
   @each $key, $value in $typography-sizes {
     &--#{$key} {
-      --typography-font-size: #{$value};
+      @include theme.define-var(
+        (
+          font-size: $value,
+        )
+      );
     }
   }
 
   @each $key, $value in $typography-weights {
     &--#{$key} {
-      --typography-font-weight: #{$value};
+      @include theme.define-var(
+        (
+          font-weight: $value,
+        )
+      );
     }
   }
 }

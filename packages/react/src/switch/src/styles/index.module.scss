@@ -1,0 +1,99 @@
+@use "sass:map";
+@use "@stewed/react/src/theme/src/styles" as theme;
+@use "@stewed/react/src/typography/src/styles" as text;
+@use "./variables" as *;
+
+@include theme.scope($switch-root) {
+  display: inline-flex;
+  gap: theme.get-spacing("sm");
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  @include theme.define-var(
+    (
+      background-color: theme.get-color("neutral"),
+      border-color: theme.get-color("neutral"),
+    )
+  );
+
+  @include theme.focus-styles($target: ":focus-within .#{$switch-root}__control");
+  @include theme.disabled-styles;
+
+  &--reversed {
+    flex-direction: row-reverse;
+  }
+
+  &__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border: 0;
+    outline: none;
+    opacity: 0;
+
+    &:checked + .switch__control::after {
+      transform: translate(calc(theme.get-var(width) - calc(100% + 3px)), -50%);
+    }
+  }
+
+  &__control {
+    position: relative;
+    box-sizing: border-box;
+    width: theme.get-var(width);
+    height: theme.get-var(height);
+    background-color: theme.get-var(background-color);
+    border: 1px solid theme.get-var(border-color);
+    border-radius: theme.get-var(radius);
+
+    @include theme.transition((background-color, border));
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: calc(theme.get-var(height) - 4px);
+      height: calc(theme.get-var(height) - 4px);
+      margin: 0;
+      content: "";
+      background-color: white;
+      border-radius: theme.get-var(radius);
+      transform: translate(1px, -50%);
+      transform-origin: 0 0;
+
+      @include theme.transition(transform);
+    }
+  }
+
+  &__text {
+    @include text.typography(label);
+  }
+
+  // Sizes
+  @each $key, $value in $switch-sizes {
+    &--#{$key} {
+      @include theme.define-var(
+        (
+          width: map.get($value, "width"),
+          height: map.get($value, "height"),
+        )
+      );
+    }
+  }
+
+  // Skins
+  @each $key, $value in $switch-skins {
+    &--#{$key} {
+      .#{$switch-root}__input:checked + .switch__control {
+        @include theme.define-var(
+          (
+            background-color: theme.get-color($value),
+            border-color: theme.get-color($value),
+          )
+        );
+      }
+    }
+  }
+}

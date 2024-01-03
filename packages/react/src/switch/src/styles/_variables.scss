@@ -1,0 +1,26 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+
+$switch-root: "switch";
+
+/// Skins
+$switch-skins: (
+  "neutral": "neutral",
+  "primary": "primary",
+  "critical": "critical",
+);
+
+/// Sizes
+$switch-sizes: (
+  "sm": (
+    "width": 28px,
+    "height": 16px,
+  ),
+  "md": (
+    "width": 32px,
+    "height": 20px,
+  ),
+  "lg": (
+    "width": 36px,
+    "height": 24px,
+  ),
+);

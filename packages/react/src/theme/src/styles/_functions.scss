@@ -1,0 +1,99 @@
+@use "sass:map";
+@use "./variables" as *;
+
+@function get-theme-var($name) {
+  @if $prefix {
+    @return var(--#{$prefix}-#{$name});
+  }
+
+  @return var(--#{$name});
+}
+
+@function get-var($name, $fallback: null) {
+  $var: null;
+
+  @if $scope-naming {
+    $var: if($prefix, --#{$prefix}-#{$scope-naming}-#{$name}, --#{$scope-naming}-#{$name});
+  } @else {
+    /* stylelint-disable-next-line custom-property-no-missing-var-function */
+    $var: if($prefix, --#{$prefix}-#{$name}, --#{$name});
+  }
+
+  @if $fallback {
+    @return var($var, $fallback);
+  }
+
+  @return var($var);
+}
+
+@function get-color($value: null, $level: "default") {
+  @if not $value {
+    @return $colors;
+  }
+
+  @if not map.has-key($colors, $value) {
+    @error "Invalid color specified! #{$value} doesn't exist. Choose one of #{map.keys($colors)}";
+  }
+
+  $levels: map.get($colors, $value);
+
+  @if not map.has-key($levels, $level) {
+    @error "Invalid level specified! #{$level} doesn't exist. Choose one of #{map.keys($levels)}";
+  }
+
+  @return map.get($levels, $level);
+}
+
+@function get-font-size($value: null) {
+  @if not $value {
+    @return $font-size;
+  }
+
+  @if not map.has-key($font-size, $value) {
+    @error "Invalid font size specified! #{$value} doesn't exist. Choose one of #{map.keys($font-size)}";
+  }
+
+  @return map.get($font-size, $value);
+}
+
+@function get-font-weight($value: null) {
+  @if not $value {
+    @return $font-weight;
+  }
+  @if not map.has-key($font-weight, $value) {
+    @error "Invalid font weight specified! #{$value} doesn't exist. Choose one of #{map.keys($font-weight)}";
+  }
+
+  @return map.get($font-weight, $value);
+}
+
+@function get-line-height($value) {
+  @if not map.has-key($line-height, $value) {
+    @error "Invalid line height specified! #{$value} doesn't exist. Choose one of #{map.keys($line-height)}";
+  }
+
+  @return map.get($line-height, $value);
+}
+
+@function get-radius($value: null) {
+  @if not $value {
+    @return $radius;
+  }
+
+  @if not map.has-key($radius, $value) {
+    @error "Invalid radius specified! #{$value} doesn't exist. Choose one of #{map.keys($radius)}";
+  }
+
+  @return map.get($radius, $value);
+}
+
+@function get-spacing($value: null) {
+  @if not $value {
+    @return $spacings;
+  }
+  @if not map.has-key($spacings, $value) {
+    @error "Invalid spacing's specified! #{$value} doesn't exist. Choose one of #{map.keys($spacings)}";
+  }
+
+  @return map.get($spacings, $value);
+}

@@ -1,0 +1,65 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+@use "./variables" as *;
+
+@include theme.scope($skeleton-root) {
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  background-color: theme.get-color("neutral", "faded");
+  border-radius: theme.get-var("rounded");
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  &--line,
+  &--rectangle {
+    width: 100%;
+  }
+
+  &--line,
+  &--circle {
+    height: theme.get-var("size");
+  }
+
+  &--rectangle {
+    height: 100%;
+    aspect-ratio: theme.get-var("size-ratio");
+  }
+
+  &--circle {
+    width: theme.get-var("size");
+
+    @include theme.define-var(
+      (
+        rounded: theme.get-radius("full"),
+      )
+    );
+  }
+
+  @each $size-name, $size-value in $skeleton-sizes {
+    &--#{$size-name} {
+      @include theme.define-var(
+        (
+          size: $size-value,
+        )
+      );
+    }
+  }
+
+  // Rounded
+  @each $size-name, $size-value in $skeleton-radius {
+    &--radius-#{$size-name} {
+      @include theme.define-var(
+        (
+          rounded: $size-value,
+        )
+      );
+    }
+  }
+}

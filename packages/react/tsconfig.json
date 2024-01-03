@@ -4,6 +4,6 @@
     "outDir": "./dist",
     "moduleResolution": "node"
   },
-  "include": ["./*.d.ts", "./src/**/*", "./src/index.ts*"],
+  "include": ["./*.d.ts", "./src/index.ts*"],
   "exclude": ["node_modules", "dist"]
 }

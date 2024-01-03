@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="assets/images/logo/stewed.jpg" alt="Stewed React Kit" width="200" />
+    <img src="public/images/logo/stewed.jpg" alt="Stewed React Kit" width="200" />
 </p>
 
 # Welcome to the Stewed React Kit
