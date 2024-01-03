@@ -29,7 +29,6 @@ export interface RootProps<T extends string>
 export function Root<T extends string>({
   className,
   children,
-  customize,
   ...props
 }: RootProps<T>): React.ReactElement {
   // CSS classes for styling
@@ -90,9 +89,20 @@ export function Root<T extends string>({
     );
   }, [outputObject]);
 
+  const $style = document.createElement("style");
+  if (theme) {
+    $style.setAttribute("data-theme", theme);
+  }
+  $style.innerHTML = `html[data-theme="${theme}"] { \n${Object.entries(cssProperties)
+    .map(([property, value]) => `${property}: ${value};`)
+    .join("\n")}\n}`;
+  document.head.appendChild($style);
+
   return (
-    <div {...props} className={cssClasses.root} style={cssProperties}>
-      {children}
-    </div>
+    <>
+      <div data-theme={theme} {...props} className={cssClasses.root}>
+        {children}
+      </div>
+    </>
   );
 }
