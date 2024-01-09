@@ -44,6 +44,18 @@
   @return map.get($levels, $level);
 }
 
+@function get-font-family($value: null) {
+  @if not $value {
+    @return $font-family;
+  }
+
+  @if not map.has-key($font-family, $value) {
+    @error "Invalid font family specified! #{$value} doesn't exist. Choose one of #{map.keys($font-family)}";
+  }
+
+  @return map.get($font-family, $value);
+}
+
 @function get-font-size($value: null) {
   @if not $value {
     @return $font-size;

@@ -3,7 +3,7 @@ import React from "react";
 import { classNames } from "@stewed/utilities";
 // Types
 import { type DistributiveOmit, fixedForwardRef } from "../../types";
-import type { FontSize, FontWeight } from "../../tokens";
+import type { FontSize, FontWeight, FontFamily } from "../../tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
@@ -42,6 +42,8 @@ export interface TextProps<T> extends React.ComponentProps<typeof defaultElement
   as?: T;
   /** Changes the size of the text, giving it more or less font size. */
   size?: FontSize;
+  /** Changes the family of the text, giving it more or less font size. */
+  family?: FontFamily;
   /** Changes the weight of the text, giving it more or less weight. */
   weight?: FontWeight;
   /** Changes the font styles and transforming text. */
@@ -73,6 +75,7 @@ export const Text = fixedForwardRef(
     {
       as,
       size,
+      family,
       weight,
       skin,
       variation,
@@ -109,6 +112,7 @@ export const Text = fixedForwardRef(
         styles[`${rootName}--${computedSize}`],
         skin && styles[`${rootName}--${skin}`],
         size && styles[`${rootName}--${size}`],
+        family && styles[`${rootName}--${family}`],
         weight && styles[`${rootName}--${weight}`],
         alignment && styles[`${rootName}--alignment-${alignment}`],
         whiteSpace && styles[`${rootName}--whitespace-${whiteSpace}`],

@@ -70,8 +70,15 @@ export function CustomTheme(): React.ReactElement {
     <Theme<"default" | "revolution">
       defaultTheme="default"
       tokens={{
-        default: {},
+        default: {
+          fontFamily: {
+            base: "'Roboto Serif', serif",
+          },
+        },
         revolution: {
+          fontFamily: {
+            base: "'DM Sans', sans-serif",
+          },
           color: {
             "primary": "#e91e63",
             "primary-pressed": "#d81b60",

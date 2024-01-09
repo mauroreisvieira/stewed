@@ -102,6 +102,16 @@
     }
   }
 
+  @each $key, $value in $typography-family {
+    &--#{$key} {
+      @include theme.define-var(
+        (
+          font-family: $value,
+        )
+      );
+    }
+  }
+
   @each $key, $value in $typography-weights {
     &--#{$key} {
       @include theme.define-var(

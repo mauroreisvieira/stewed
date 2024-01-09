@@ -3,6 +3,7 @@
 @use "./variables" as *;
 
 @mixin typography-base {
+  font-family: theme.get-var(font-family);
   font-size: theme.get-var(font-size);
   font-weight: theme.get-var(font-weight);
   line-height: theme.get-var(line-height, calc(theme.get-var(font-size) * 1.5));
