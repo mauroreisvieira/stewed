@@ -5,8 +5,11 @@ import { classNames } from "@stewed/utilities";
 import styles from "./styles/index.module.scss";
 
 export interface TextField extends React.InputHTMLAttributes<HTMLInputElement> {
-  /** Change the visual style of the input. */
-  skin?: "default" | "critical" | "success";
+  /**
+   * Change the visual style of the button.
+   * @default default
+   */
+  skin?: "default" | "error" | "critical";
   /** Slot to display before the input value. */
   leftSlot?: React.ReactNode;
   /** Slot to display after the input value. */
@@ -15,7 +18,7 @@ export interface TextField extends React.InputHTMLAttributes<HTMLInputElement> {
 
 export const TextField = forwardRef(
   (
-    { skin, className, disabled, leftSlot, rightSlot, ...props }: TextField,
+    { skin = "default", className, disabled, leftSlot, rightSlot, ...props }: TextField,
     ref: React.Ref<HTMLInputElement>,
   ): React.ReactElement => {
     const rootName = "text-field";

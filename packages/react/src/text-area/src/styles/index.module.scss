@@ -1,5 +1,6 @@
 @use "sass:map";
 @use "@stewed/react/src/theme/src/styles" as theme;
+@use "@stewed/react/src/typography/src/styles" as text;
 @use "./variables" as *;
 
 @include theme.scope($textarea-root) {
@@ -17,19 +18,17 @@
   justify-content: center;
   width: 100%;
   padding: $textarea-spacings;
-  font-family: inherit;
-  font-size: $textarea-font-size;
-  font-weight: $textarea-font-weight;
   touch-action: manipulation;
   border: 1px solid theme.get-var(border-color);
   border-radius: theme.get-var(radius);
 
+  @include text.typography(base, $overrides: (font-size: theme.get-font-size("md")));
+  @include theme.focus-styles;
+  @include theme.disabled-styles;
+
   &:hover {
     border-color: theme.get-var(border-color-hover);
   }
-
-  @include theme.focus-styles;
-  @include theme.disabled-styles;
 
   @each $key, $value in $textarea-skins {
     &--#{$key} {

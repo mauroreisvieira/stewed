@@ -6,7 +6,7 @@ import styles from "./styles/index.module.scss";
 
 export interface ProgressProps extends React.ProgressHTMLAttributes<HTMLProgressElement> {
   /** Change the visual style of the progress bar. */
-  skin?: "primary" | "neutral" | "success";
+  skin?: "primary" | "neutral" | "success" | "critical";
   /** Changes the size of the progress bar, giving it more or less padding. */
   size?: "xs" | "sm" | "md" | "lg" | "xl";
   /** Allows the progress bar to have rounded corners. */
@@ -35,6 +35,7 @@ export const Progress = ({
   ...props
 }: ProgressProps): React.ReactElement => {
   const rootName = "progress";
+
   const cssClasses = {
     root: classNames(
       styles[rootName],
