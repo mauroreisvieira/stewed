@@ -3,11 +3,4 @@
 $tag-root: "tag";
 
 // Skins
-$tag-skins: (
-  "primary": "primary",
-  "neutral": "neutral",
-  "info": "info",
-  "success": "success",
-  "warning": "warning",
-  "critical": "critical",
-);
+$tag-skins: ("primary", "neutral", "info", "success", "warning", "critical");
