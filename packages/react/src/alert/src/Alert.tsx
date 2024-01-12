@@ -2,7 +2,7 @@ import React from 'react';
 // Utilities
 import { classNames } from '@stewed/utilities';
 // Tokens
-import { components } from '@stewed/tokens';
+import { components } from '../../../../tokens/src/index';
 // Styles
 import styles from './styles/index.module.scss';
 

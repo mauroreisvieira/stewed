@@ -3,7 +3,7 @@ import React from "react";
 import { classNames } from "@stewed/utilities";
 // Types
 import { type DistributiveOmit, fixedForwardRef } from "../../types";
-import type { FontSize, FontWeight, FontFamily } from "@stewed/tokens";
+import type { FontSize, FontWeight, FontFamily } from "../../../../tokens/src/index/src/index";
 // Styles
 import styles from "./styles/index.module.scss";
 

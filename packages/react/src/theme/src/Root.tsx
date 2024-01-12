@@ -1,10 +1,12 @@
 import React, { useEffect, useMemo } from "react";
 // Tokens
-import { type Tokens, tokens as defaultTokens, Components } from "@stewed/tokens";
+import { type Tokens, tokens as defaultTokens, Components } from "../../../../tokens/src/index";
 // Hooks
 import { type ThemeContextProps, useTheme } from "./ThemeContext";
 // Utilities
 import { classNames } from "@stewed/utilities";
+
+type ComponentsKeys = keyof Components;
 
 type ThemeContextOmittedProps<T extends string> = Omit<
   ThemeContextProps<T>,
@@ -54,42 +56,47 @@ export function Root<T extends string>({
       }, {});
     };
 
-    const mergeComponentTokens = (
-      defaultComponents: Components,
-      themeComponents: Components | undefined,
-    ): Components => {
-      return objectKeys(defaultComponents).reduce((acc, component) => {
-        acc[component] = {
-          ...defaultComponents[component] as Record<keyof Components, Components[keyof Components]>,
-          ...(themeComponents?.[component] || {}),
-        };
-        return acc;
-      }, {});
-    };
-
     const mergedTokens: Tokens = mergeTokens(defaultTokens, tokens?.[currentTheme]);
 
     if (tokens?.[currentTheme]?.components) {
-      mergedTokens.components = mergeComponentTokens(
-        defaultTokens.components || {},
-        tokens[currentTheme]?.components,
+      mergedTokens.components = objectKeys(defaultTokens.components || {}).reduce(
+        (acc: Components, component) => {
+          acc[component] = {
+            ...((defaultTokens.components || {})[component] as Record<
+              keyof Components,
+              Components[keyof Components]
+            >),
+            ...(tokens[currentTheme]?.components?.[component] || {}),
+          };
+          return acc;
+        },
+        {},
       );
     }
 
-    return Object.keys(mergedTokens).reduce((acc, key) => {
+    console.log("mergedTokens", mergedTokens);
+    return objectKeys(mergedTokens).reduce((acc, key) => {
       if (key === "components") {
-        objectKeys(mergedTokens.components).forEach((component) => {
+        const componentKeys = objectKeys(mergedTokens.components) as ComponentsKeys[];
+
+        console.log("componentKeys", componentKeys);
+
+        componentKeys?.forEach((component: ComponentsKeys) => {
+          if (!component) return;
+
           const componentObj = mergedTokens?.components?.[component] || {};
+          console.log("componentObj", componentObj);
+          if (!(component in acc) || !componentObj.radius || !mergedTokens.radius) return;
           acc[component] = {
             ...componentObj,
-            radius: mergedTokens.radius?.[componentObj?.radius] || componentObj?.radius,
+            radius: mergedTokens.radius[componentObj.radius] || componentObj?.radius,
           };
         });
       } else {
         acc[key] = mergedTokens[key];
       }
       return acc;
-    }, {}) as Tokens;
+    }, {} as Tokens);
   }, [currentTheme, objectKeys, tokens]);
 
   // Convert merged tokens to CSS custom properties

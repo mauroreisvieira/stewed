@@ -1,5 +1,5 @@
 import React, { useContext, createContext } from "react";
-import type { Tokens } from "@stewed/tokens";
+import type { Tokens } from "../../../../tokens/src/index";
 
 /**
  * Dummy function to throw an error when theme is not provided by a ThemeProvider.

@@ -9,8 +9,8 @@ import React, {
 // Utilities
 import { classNames } from "@stewed/utilities";
 // Tokens
-import type { Spacings } from "@stewed/tokens";
-import { components } from "@stewed/tokens";
+import type { Spacings } from "../../../../tokens/src/index";
+import { components } from "../../../../tokens/src/index";
 // Style
 import styles from "./styles/index.module.scss";
 

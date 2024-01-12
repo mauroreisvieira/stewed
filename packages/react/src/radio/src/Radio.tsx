@@ -4,7 +4,7 @@ import { classNames } from "@stewed/utilities";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface RadioProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface RadioProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> {
   /**
    * Specifies the visual style of the radio.
    * @default primary
