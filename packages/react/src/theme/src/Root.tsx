@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo } from "react";
 // Tokens
-import { type Tokens, tokens as defaultTokens, Components } from "../../tokens";
+import { type Tokens, tokens as defaultTokens, Components } from "@stewed/tokens";
 // Hooks
 import { type ThemeContextProps, useTheme } from "./ThemeContext";
 // Utilities
@@ -90,7 +90,7 @@ export function Root<T extends string>({
       }
       return acc;
     }, {}) as Tokens;
-  }, [defaultTokens, tokens, theme]);
+  }, [currentTheme, objectKeys, tokens]);
 
   // Convert merged tokens to CSS custom properties
   const cssProperties = useMemo(() => {
@@ -115,7 +115,7 @@ export function Root<T extends string>({
     return () => {
       $style.remove();
     };
-  }, [cssProperties]);
+  }, [cssProperties, currentTheme]);
 
   return (
     <>

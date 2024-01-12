@@ -1,7 +1,8 @@
 import React from "react";
+// Tokens
+import type { Spacings } from "@stewed/tokens";
 // Utilities
 import { classNames } from "@stewed/utilities";
-import type { Spacings } from "../../tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 

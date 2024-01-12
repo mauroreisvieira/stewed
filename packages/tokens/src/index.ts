@@ -1,4 +1,5 @@
 import { color } from "./Color";
+import { components } from "./Components";
 import { fontFamily } from "./FontFamily";
 import { fontSize } from "./FontSize";
 import { fontWeight } from "./FontWeight";
@@ -17,20 +18,20 @@ export type Spacings = keyof typeof spacings;
 export type Screens = keyof typeof spacings;
 
 export type Components = {
-  "alert"?: { radius?: Radius };
-  "avatar"?: { radius?: Radius };
-  "badge"?: { radius?: Radius };
-  "button"?: { radius?: Radius };
-  "card"?: { radius?: Radius };
-  "checkbox"?: { radius?: Radius };
-  "dialog"?: { radius?: Radius };
-  "list-box"?: { radius?: Radius };
-  "switch"?: { radius?: Radius };
-  "tabs"?: { radius?: Radius };
-  "tag"?: { radius?: Radius };
-  "text-area"?: { radius?: Radius };
-  "text-field"?: { radius?: Radius };
-  "toggle"?: { radius?: Radius };
+  [components.Alert]?: { radius?: Radius };
+  [components.Avatar]?: { radius?: Radius };
+  [components.Badge]?: { radius?: Radius };
+  [components.Button]?: { radius?: Radius };
+  [components.Card]?: { radius?: Radius };
+  [components.Checkbox]?: { radius?: Radius };
+  [components.Dialog]?: { radius?: Radius };
+  [components.ListBox]?: { radius?: Radius };
+  [components.Switch]?: { radius?: Radius };
+  [components.Tabs]?: { radius?: Radius };
+  [components.Tag]?: { radius?: Radius };
+  [components.TextArea]?: { radius?: Radius };
+  [components.TextField]?: { radius?: Radius };
+  [components.Toggle]?: { radius?: Radius };
 };
 
 export type Tokens = {
@@ -55,44 +56,49 @@ export const tokens: Tokens = {
   spacings,
   screens,
   components: {
-    "alert": {
+    [components.Alert]: {
       radius: "md",
     },
-    "avatar": {
+    [components.Avatar]: {
       radius: "sm",
     },
-    "badge": {
+    [components.Badge]: {
       radius: "full",
     },
-    "button": {
+    [components.Button]: {
       radius: "sm",
     },
-    "card": {
+    [components.Card]: {
       radius: "md",
     },
-    "dialog": {
-      radius: "md",
-    },
-    "list-box": {
+    [components.Checkbox]: {
       radius: "sm",
     },
-    "switch": {
+    [components.Dialog]: {
+      radius: "md",
+    },
+    [components.ListBox]: {
+      radius: "sm",
+    },
+    [components.Switch]: {
       radius: "full",
     },
-    "tabs": {
+    [components.Tabs]: {
       radius: "md",
     },
-    "tag": {
+    [components.Tag]: {
       radius: "sm",
     },
-    "text-area": {
+    [components.TextArea]: {
       radius: "sm",
     },
-    "text-field": {
+    [components.TextField]: {
       radius: "sm",
     },
-    "toggle": {
+    [components.Toggle]: {
       radius: "full",
     },
   },
 };
+
+export { components };

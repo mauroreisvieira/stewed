@@ -6,18 +6,19 @@ import React, {
   useImperativeHandle,
   useCallback,
 } from "react";
-// Sub Components
-import { CarouselIndicator } from "./CarouselIndicator";
 // Utilities
 import { classNames } from "@stewed/utilities";
+// Tokens
+import type { Spacings } from "@stewed/tokens";
+import { components } from "@stewed/tokens";
 // Style
 import styles from "./styles/index.module.scss";
 
 export interface CarouselProps extends React.HTMLAttributes<HTMLDivElement> {
+  /** The gap between box items. Can be a predefined size or a custom value. */
+  gap?: Spacings;
   /** Enables infinite looping */
   loop?: boolean;
-  /** Will show/hide indicator */
-  showIndicator?: boolean;
   /** Will show/hide prev and next button */
   showNavigation?: boolean;
   /** Number of slides to display */
@@ -63,8 +64,8 @@ export interface CarouselRef {
 export const Carousel = forwardRef(
   (
     {
+      gap = "md",
       loop = false,
-      showIndicator = true,
       showNavigation = true,
       slidesPerView = 1,
       className,
@@ -78,6 +79,8 @@ export const Carousel = forwardRef(
     if (slidesPerView < 1) {
       throw new Error("Number of `slidesPerView` should be greater than 0");
     }
+
+    const rootName = components.Carousel;
 
     const hasLooping = useMemo(
       () => loop && React.Children.count(children) > slidesPerView,
@@ -95,14 +98,18 @@ export const Carousel = forwardRef(
     const numberOfIndicators = Math.ceil(slidesCount / slidesPerView);
 
     const cssClasses = {
-      root: classNames(styles["carousel"], isBatch && styles["carousel--batch"], className),
-      wrapper: classNames(styles["carousel__wrapper"]),
-      content: classNames(styles["carousel__content"]),
-      track: classNames(styles["carousel__track"]),
-      item: classNames(styles["carousel__item"]),
-      slide: classNames(styles["carousel__slide"]),
-      prev: classNames(styles[`carousel__prev`]),
-      next: classNames(styles[`carousel__next`]),
+      root: classNames(
+        styles[`${rootName}`],
+        gap && isBatch && styles[`carousel--gap-${gap}`],
+        className,
+      ),
+      wrapper: classNames(styles[`${rootName}__wrapper`]),
+      content: classNames(styles[`${rootName}__content`]),
+      track: classNames(styles[`${rootName}__track`]),
+      item: classNames(styles[`${rootName}__item`]),
+      slide: classNames(styles[`${rootName}__slide`]),
+      prev: classNames(styles[`${rootName}__prev`]),
+      next: classNames(styles[`${rootName}__next`]),
     };
 
     const [isProcessing, setProcessing] = useState(false);
@@ -288,14 +295,6 @@ export const Carousel = forwardRef(
             )}
           </div>
         </div>
-        {showIndicator && (
-          <CarouselIndicator
-            onClick={setCurrentIndex}
-            currentSlide={currentSlide}
-            slidesPerView={slidesPerView}
-            slidesCount={slidesCount}
-          />
-        )}
       </div>
     );
   },

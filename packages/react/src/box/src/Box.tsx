@@ -1,8 +1,9 @@
 import React from "react";
+// Tokens
+import { type Spacings, components } from "@stewed/tokens";
 // Utilities
 import { classNames } from "@stewed/utilities";
 import { type DistributiveOmit, fixedForwardRef } from "../../types";
-import type { Spacings } from "../../tokens";
 // Style
 import styles from "./styles/index.module.scss";
 
@@ -69,7 +70,7 @@ export const Box = fixedForwardRef(
     ref: React.ForwardedRef<unknown>,
   ): React.ReactElement => {
     const Comp = as || defaultElement;
-    const rootName = "box";
+    const rootName = components.Box;
     const cssClasses = {
       root: classNames(
         styles[rootName],

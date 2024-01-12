@@ -1,7 +1,8 @@
 import React from "react";
+// Tokens
+import  { type Radius, components } from "@stewed/tokens";
 // Utilities
 import { classNames } from "@stewed/utilities";
-import type { Radius } from "../../tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
@@ -33,7 +34,7 @@ export function Skeleton({
   className,
   ...nativeProps
 }: SkeletonProps): React.ReactElement {
-  const rootName = "skeleton";
+  const rootName = components.Skeleton;
 
   const cssClasses = {
     root: classNames(

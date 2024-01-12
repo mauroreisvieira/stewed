@@ -1,6 +1,8 @@
 import React from 'react';
 // Utilities
 import { classNames } from '@stewed/utilities';
+// Tokens
+import { components } from '@stewed/tokens';
 // Styles
 import styles from './styles/index.module.scss';
 
@@ -43,7 +45,7 @@ export function Alert({
     children,
     ...props
 }: AlertProps): React.ReactElement {
-    const rootName = 'alert';
+    const rootName = components.Alert;
     const cssClasses = {
         root: classNames(
             styles[rootName],
