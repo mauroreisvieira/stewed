@@ -9,7 +9,7 @@ export interface TextField extends React.InputHTMLAttributes<HTMLInputElement> {
    * Change the visual style of the button.
    * @default default
    */
-  skin?: "default" | "error" | "critical";
+  skin?: "default" | "success" | "critical";
   /** Slot to display before the input value. */
   leftSlot?: React.ReactNode;
   /** Slot to display after the input value. */

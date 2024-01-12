@@ -9,6 +9,7 @@ export * from "./card";
 export * from "./carousel";
 export * from "./checkbox";
 export * from "./dialog";
+export * from "./form-field";
 export * from "./list-box";
 export * from "./progress";
 export * from "./radio";

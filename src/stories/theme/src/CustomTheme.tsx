@@ -10,6 +10,9 @@ import {
   Button,
   Checkbox,
   Tabs,
+  Switch,
+  Separator,
+  FormField,
 } from "../../../../packages/react/index";
 
 function Elements(): React.ReactElement {
@@ -30,36 +33,81 @@ function Elements(): React.ReactElement {
       </Tabs>
       <Card>
         <Card.Header>
-          <Text as="h2">Sign in to your account</Text>
+          <Text as="h2">Create your account</Text>
         </Card.Header>
+
         <Card.Body>
           <Box direction="column" gap="2xl">
-            <Box direction="column" gap="sm">
-              <Text as="label" size="sm" htmlFor="email">
-                Email address
+            <Box direction="column" gap="md">
+              <FormField>
+                <FormField.Label htmlFor="username">Username</FormField.Label>
+                <FormField.Control>
+                  <TextField id="username" type="text" placeholder="Enter your username" />
+                </FormField.Control>
+                <FormField.Description>
+                  You can use letters, numbers, and periods.
+                </FormField.Description>
+              </FormField>
+
+              <FormField>
+                <FormField.Label htmlFor="email">Email</FormField.Label>
+                <FormField.Control>
+                  <TextField id="email" type="email" placeholder="Enter your email" />
+                </FormField.Control>
+              </FormField>
+
+              <FormField>
+                <FormField.Label htmlFor="password">Password</FormField.Label>
+                <FormField.Control>
+                  <TextField
+                    skin="critical"
+                    id="password"
+                    type="password"
+                    placeholder="Enter your password"
+                  />
+                </FormField.Control>
+                <FormField.Description>
+                  Use 8 or more characters with a mix of letters, numbers, and symbols.
+                </FormField.Description>
+                <FormField.Error>Password needs to be more than 8 characters.</FormField.Error>
+              </FormField>
+            </Box>
+          </Box>
+          <Separator space={{ y: "xl" }} />
+          <Box items="start" justify="between">
+            <Box direction="column">
+              <Text weight="semi-bold">Favorites</Text>
+              <Text size="xs" skin="neutral">
+                Receive notifications when there is activity related to your favorite items.
               </Text>
-              <TextField id="email" type="email" placeholder="Enter your email" />
             </Box>
-            <Box direction="column" gap="sm">
-              <Box justify="between">
-                <Text as="label" size="sm" htmlFor="password">
-                  Password
-                </Text>
-                <Text as="a" href="" size="xs">
-                  Forgot password?
-                </Text>
-              </Box>
-              <TextField id="password" type="password" placeholder="Enter your password" />
+            <Box gap="md" direction="column" items="baseline">
+              <Switch size="sm">Push</Switch>
+              <Switch size="sm">Email</Switch>
+              <Switch size="sm">Slack</Switch>
             </Box>
-            <Box justify="between" gap="lg" wrap="wrap">
-              <Checkbox>Keep me logged in</Checkbox>
-              <Box justify="end" gap="md">
-                <Button appearance="outline">Create an account</Button>
-                <Button>Sign in</Button>
-              </Box>
+          </Box>
+          <Separator space={{ y: "xl" }} />
+          <Box items="start" justify="between">
+            <Box direction="column">
+              <Text weight="semi-bold">New documents</Text>
+              <Text size="xs" skin="neutral">
+                Receive notifications whenever people on your team create new documents.
+              </Text>
+            </Box>
+            <Box gap="md" direction="column" items="baseline">
+              <Switch size="sm">Push</Switch>
+              <Switch size="sm">Email</Switch>
+              <Switch size="sm">Slack</Switch>
             </Box>
           </Box>
         </Card.Body>
+        <Separator />
+        <Card.Footer>
+          <Box justify="end">
+            <Button appearance="outline">Create an account</Button>
+          </Box>
+        </Card.Footer>
       </Card>
     </Box>
   );
@@ -71,8 +119,19 @@ export function CustomTheme(): React.ReactElement {
       defaultTheme="default"
       tokens={{
         default: {
+          color: {
+            text: "#444",
+          },
           fontFamily: {
             base: "'Roboto Serif', serif",
+          },
+          components: {
+            card: {
+              radius: "none",
+            },
+            switch: {
+              radius: "none",
+            },
           },
         },
         revolution: {
@@ -85,14 +144,8 @@ export function CustomTheme(): React.ReactElement {
             "primary-faded": "#f48fb1",
           },
           components: {
-            "card": {
-              radius: "2xl",
-            },
-            "button": {
+            button: {
               radius: "full",
-            },
-            "text-field": {
-              radius: "lg",
             },
           },
         },
