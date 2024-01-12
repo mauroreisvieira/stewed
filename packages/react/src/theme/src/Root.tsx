@@ -74,29 +74,21 @@ export function Root<T extends string>({
       );
     }
 
-    console.log("mergedTokens", mergedTokens);
-    return objectKeys(mergedTokens).reduce((acc, key) => {
+    return objectKeys(mergedTokens).reduce((acc: Partial<Tokens>, key) => {
       if (key === "components") {
-        const componentKeys = objectKeys(mergedTokens.components) as ComponentsKeys[];
-
-        console.log("componentKeys", componentKeys);
-
-        componentKeys?.forEach((component: ComponentsKeys) => {
-          if (!component) return;
-
+        objectKeys(mergedTokens.components).forEach((component) => {
           const componentObj = mergedTokens?.components?.[component] || {};
-          console.log("componentObj", componentObj);
-          if (!(component in acc) || !componentObj.radius || !mergedTokens.radius) return;
           acc[component] = {
             ...componentObj,
-            radius: mergedTokens.radius[componentObj.radius] || componentObj?.radius,
+            radius: mergedTokens.radius?.[componentObj?.radius] || componentObj?.radius,
           };
         });
       } else {
         acc[key] = mergedTokens[key];
       }
+
       return acc;
-    }, {} as Tokens);
+    }, {}) as Tokens;
   }, [currentTheme, objectKeys, tokens]);
 
   // Convert merged tokens to CSS custom properties
