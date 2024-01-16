@@ -3,8 +3,4 @@
 $button-root: "button";
 
 /// Skins
-$button-skins: (
-  "primary": "primary",
-  "neutral": "neutral",
-  "critical": "critical",
-);
+$button-skins: ("primary", "neutral", "critical", "success");

@@ -18,7 +18,7 @@ export interface ButtonProps<T> extends React.ComponentProps<typeof defaultEleme
    * Change the visual style of the button.
    * @default primary
    */
-  skin?: "primary" | "neutral" | "critical";
+  skin?: "primary" | "neutral" | "critical" | "success";
   /**
    * Change the visual appearance of the button.
    * @default filled
