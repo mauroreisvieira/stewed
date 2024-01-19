@@ -1,12 +1,10 @@
 import React, { useEffect, useMemo } from "react";
 // Tokens
-import { type Tokens, tokens as defaultTokens, Components } from "../../../../tokens/src/index";
+import { tokens as defaultTokens, type Tokens, type Components } from "@stewed/tokens";
 // Hooks
 import { type ThemeContextProps, useTheme } from "./ThemeContext";
 // Utilities
 import { classNames } from "@stewed/utilities";
-
-type ComponentsKeys = keyof Components;
 
 type ThemeContextOmittedProps<T extends string> = Omit<
   ThemeContextProps<T>,
@@ -76,7 +74,7 @@ export function Root<T extends string>({
 
     return objectKeys(mergedTokens).reduce((acc: Partial<Tokens>, key) => {
       if (key === "components") {
-        objectKeys(mergedTokens.components).forEach((component) => {
+        objectKeys(mergedTokens.components).forEach((component: Components) => {
           const componentObj = mergedTokens?.components?.[component] || {};
           acc[component] = {
             ...componentObj,
@@ -91,6 +89,8 @@ export function Root<T extends string>({
     }, {}) as Tokens;
   }, [currentTheme, objectKeys, tokens]);
 
+
+console.log("outputObject >", outputObject);
   // Convert merged tokens to CSS custom properties
   const cssProperties = useMemo(() => {
     return Object.fromEntries(
@@ -104,15 +104,17 @@ export function Root<T extends string>({
   }, [outputObject]);
 
   useEffect(() => {
-    const $style = document.createElement("style");
-    $style.setAttribute("data-theme", currentTheme);
-    $style.innerHTML = `[data-theme="${currentTheme}"] { \n${Object.entries(cssProperties)
+    const styleTag = document.createElement("style");
+    styleTag.setAttribute("data-theme", currentTheme);
+
+    styleTag.innerHTML = `[data-theme="${currentTheme}"] { \n${Object.entries(cssProperties)
       .map(([property, value]) => `${property}: ${value};`)
       .join("\n")}\n}`;
-    document.head.appendChild($style);
+
+    document.head.appendChild(styleTag);
 
     return () => {
-      $style.remove();
+      styleTag.remove();
     };
   }, [cssProperties, currentTheme]);
 

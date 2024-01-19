@@ -1,9 +1,9 @@
 {
-  "extends": "@harmonix-hub/tsconfig/react.json",
+  "extends": "@harmonix-hub/tsconfig/library.json",
   "compilerOptions": {
     "outDir": "./dist",
-    "moduleResolution": "node"
+    "module": "ES2020",
   },
-  "include": ["./*.d.ts", "./src/index.ts*"],
+  "include": ["./*.d.ts", "./src/**/*", "./src/index.ts*"],
   "exclude": ["node_modules", "dist"]
 }

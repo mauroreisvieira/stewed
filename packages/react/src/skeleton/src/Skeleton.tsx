@@ -1,6 +1,6 @@
 import React from "react";
 // Tokens
-import  { type Radius, components } from "../../../../tokens/src/index";
+import  { type Radius, components } from "@stewed/tokens";
 // Utilities
 import { classNames } from "@stewed/utilities";
 // Styles
