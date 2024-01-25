@@ -3,8 +3,10 @@ import React from "react";
 import { AccordionItem } from "./AccordionItem";
 import { AccordionHeader } from "./AccordionHeader";
 import { AccordionBody } from "./AccordionBody";
-// Utilities
-import { classNames } from "@stewed/utilities";
+// Hooks
+import { useBem } from "../../../../hooks/index";
+// Tokens
+import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
@@ -13,12 +15,12 @@ export function Accordion({
   children,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>): React.ReactElement {
-  const rootName = "accordion";
+  // Importing useBem to handle BEM class names
+  const { getBlock } = useBem({ block: components.Accordion, styles });
+
+  // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: classNames(
-      styles[rootName],
-      className,
-    ),
+    root: getBlock({ extraClasses: className }),
   };
 
   return (
@@ -32,4 +34,3 @@ export function Accordion({
 Accordion.Item = AccordionItem;
 Accordion.Header = AccordionHeader;
 Accordion.Body = AccordionBody;
-

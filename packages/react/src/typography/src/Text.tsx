@@ -1,9 +1,9 @@
 import React from "react";
-// Utilities
-import { classNames } from "@stewed/utilities";
+// Hooks
+import { useBem } from "../../../../hooks/index";
 // Types
 import { type DistributiveOmit, fixedForwardRef } from "../../types";
-import type { FontSize, FontWeight, FontFamily } from "@stewed/tokens";
+import { type FontSize, type FontWeight, type FontFamily, components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
@@ -94,9 +94,6 @@ export const Text = fixedForwardRef(
     // Determine the component type based on 'as' prop or use the default element
     const Comp = as || defaultElement;
 
-    // Root class name for styling
-    const rootName = "typography";
-
     // Ensure variation is an array
     const computedVariation = Array.isArray(variation) ? variation : [variation];
 
@@ -105,20 +102,24 @@ export const Text = fixedForwardRef(
       (key) => SizeMap[key] === (as || defaultElement),
     ) ?? "base") as keyof typeof SizeMap;
 
-    // CSS classes based on component props and styles
+    // Importing useBem to handle BEM class names
+    const { getBlock } = useBem({ block: components.Typography, styles });
+
+    // Generating CSS classes based on component props and styles
     const cssClasses = {
-      root: classNames(
-        styles[rootName],
-        styles[`${rootName}--${computedSize}`],
-        skin && styles[`${rootName}--${skin}`],
-        size && styles[`${rootName}--${size}`],
-        family && styles[`${rootName}--${family}`],
-        weight && styles[`${rootName}--${weight}`],
-        alignment && styles[`${rootName}--alignment-${alignment}`],
-        whiteSpace && styles[`${rootName}--whitespace-${whiteSpace}`],
-        ...computedVariation.map((i) => styles[`${rootName}--${i}`]),
-        className,
-      ),
+      root: getBlock({
+        modifiers: [
+          computedSize,
+          skin,
+          size,
+          family,
+          weight,
+          alignment && `alignment-${alignment}`,
+          whiteSpace && `white-space-${whiteSpace}`,
+          ...computedVariation.map((i) => i),
+        ],
+        extraClasses: className,
+      }),
     };
 
     return (
