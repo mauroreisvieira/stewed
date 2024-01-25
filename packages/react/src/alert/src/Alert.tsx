@@ -46,7 +46,7 @@ export function Alert({
   ...props
 }: AlertProps): React.ReactElement {
   // Importing useBem to handle BEM class names
-  const { getBlock, getElement } = useBem({ block: components.Typography, styles });
+  const { getBlock, getElement } = useBem({ block: components.Alert, styles });
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
