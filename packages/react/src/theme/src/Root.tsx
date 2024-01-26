@@ -9,6 +9,10 @@ type ThemeContextOmittedProps<T extends string> = Omit<
   "setTheme" | "setTokens" | "theme"
 >;
 
+type OutputTokens = Exclude<Tokens, "components"> & {
+ [K in keyof Components]?: { radius?: string };
+};
+
 export interface RootProps<T extends string>
   extends React.HTMLAttributes<HTMLDivElement>,
     ThemeContextOmittedProps<T> {
@@ -33,17 +37,13 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
   const objectKeys: <Obj>(o: Obj) => (keyof Obj)[] = Object.keys;
 
   const outputObject = useMemo(() => {
-    const mergeTokens = (defaultTokens: Tokens, themeTokens: Tokens | undefined): Tokens => {
-      return objectKeys(defaultTokens).reduce((acc: Tokens, key) => {
-        acc[key] = {
-          ...defaultTokens[key],
-          ...(themeTokens?.[key] || {}),
-        };
-        return acc;
-      }, {});
-    };
-
-    const mergedTokens: Tokens = mergeTokens(defaultTokens, tokens?.[currentTheme]);
+    const mergedTokens = objectKeys(defaultTokens).reduce((acc: OutputTokens, key) => {
+      acc[key] = {
+        ...defaultTokens[key],
+        ...(tokens?.[currentTheme]?.[key] || {}),
+      };
+      return acc;
+    }, {});
 
     if (tokens?.[currentTheme]?.components) {
       mergedTokens.components = objectKeys(defaultTokens.components || {}).reduce(
@@ -61,13 +61,13 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
       );
     }
 
-    return objectKeys(mergedTokens).reduce((acc: Partial<Tokens>, key) => {
-      if (key === "components") {
-        objectKeys(mergedTokens.components).forEach((component: Components) => {
-          const componentObj = mergedTokens?.components?.[component] || {};
+    return objectKeys(mergedTokens).reduce((acc: OutputTokens, key) => {
+      if (mergedTokens.components && key === "components") {
+        objectKeys(mergedTokens.components).forEach((component) => {
+          const componentObj = mergedTokens?.components?.[component];
           acc[component] = {
             ...componentObj,
-            radius: mergedTokens.radius?.[componentObj?.radius] || componentObj?.radius,
+            radius: componentObj?.radius ? mergedTokens.radius?.[componentObj?.radius] || componentObj?.radius : undefined,
           };
         });
       } else {
@@ -75,7 +75,7 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
       }
 
       return acc;
-    }, {}) as Tokens;
+    }, {}) as OutputTokens;
   }, [currentTheme, objectKeys, tokens]);
 
   console.log("outputObject >", outputObject);
