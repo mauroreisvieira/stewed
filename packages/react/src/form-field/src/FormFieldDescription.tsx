@@ -1,8 +1,10 @@
 import React from "react";
 // UI Components
 import { Text } from "../../typography";
-// Utilities
-import { classNames } from "@stewed/utilities";
+// Hooks
+import { useBem } from "../../../../hooks/index";
+// Tokens
+import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
@@ -15,10 +17,12 @@ export function FormFieldDescription({
   className,
   ...props
 }: FormFieldDescriptionProps): React.ReactElement {
-  const rootName = "form-field__description";
+  // Importing useBem to handle BEM class names
+  const { getBlock } = useBem({ block: `${components.FormField}__description`, styles });
+
+  // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: classNames(styles[rootName]),
-    className,
+    root: getBlock({ extraClasses: className }),
   };
 
   return (

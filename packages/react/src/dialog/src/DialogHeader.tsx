@@ -1,20 +1,26 @@
 import React from "react";
+// UI Components
+import { Button } from "../../button";
 // Context
 import { useDialog } from "./DialogContext";
-// Utilities
-import { classNames } from "@stewed/utilities";
+// Tokens
+import { components } from "@stewed/tokens";
+// Hooks
+import { useBem } from "../../../../hooks/index";
 // Styles
 import styles from "./styles/index.module.scss";
-import { Button } from "../../button";
 
 export function DialogHeader({
   className,
   children,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>): React.ReactElement {
-  const rootName = "dialog__header";
+  // Importing useBem to handle BEM class names
+  const { getBlock } = useBem({ block: `${components.Dialog}__header`, styles });
+
+  // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: classNames(styles[rootName], className),
+    root: getBlock({ extraClasses: className }),
   };
 
   const { onClose } = useDialog();

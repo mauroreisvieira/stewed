@@ -10,6 +10,7 @@ export const components = {
   Carousel: "carousel",
   Checkbox: "checkbox",
   Dialog: "dialog",
+  FormField: "form-field",
   ListBox: "list-box",
   Progress: "progress",
   Radio: "radio",

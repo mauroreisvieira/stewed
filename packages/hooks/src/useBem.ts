@@ -3,15 +3,22 @@ import { classNames } from "@stewed/utilities";
 // Define type for classNames parameters
 type ClassNamesParams = Parameters<typeof classNames>;
 
+interface UseBemProps {
+  block: string;
+  styles: { [key: string]: string };
+}
+
 /**
  * Custom hook for managing BEM (Block Element Modifier) class names.
+ *
  * @param block - The base block name for BEM classes.
  * @param styles - Object containing class name mappings.
  * @returns An object containing functions to generate BEM class names.
  */
-export function useBem({ block, styles }: { block: string; styles: { [key: string]: string } }) {
+export function useBem({ block, styles }: UseBemProps) {
   /**
    * Generate class names for elements based on BEM conventions.
+   *
    * @param elements - Array of element names.
    * @param extraClasses - Additional classes to include.
    * @returns Concatenated class names for elements.
@@ -26,6 +33,7 @@ export function useBem({ block, styles }: { block: string; styles: { [key: strin
 
   /**
    * Generate class names for modifiers based on BEM conventions.
+   *
    * @param modifiers - Array of modifier names.
    * @param extraClasses - Additional classes to include.
    * @returns Concatenated class names for modifiers.
@@ -40,6 +48,7 @@ export function useBem({ block, styles }: { block: string; styles: { [key: strin
 
   /**
    * Generate class names for the block based on BEM conventions.
+   *
    * @param elements - Array of element names.
    * @param modifiers - Array of modifier names.
    * @param extraClasses - Additional classes to include.

@@ -4,8 +4,10 @@ import { CardBody } from "./CardBody";
 import { CardHeader } from "./CardHeader";
 import { CardFooter } from "./CardFooter";
 import { CardMedia } from "./CardMedia";
-// Utilities
-import { classNames } from "@stewed/utilities";
+// Tokens
+import { components } from "@stewed/tokens";
+// Hooks
+import { useBem } from "../../../../hooks/index";
 // Styles
 import styles from "./styles/index.module.scss";
 
@@ -44,14 +46,12 @@ export function Card({
   children,
   ...props
 }: CardProps): React.ReactElement {
-  const rootName = "card";
+  // Importing useBem to handle BEM class names
+  const { getBlock } = useBem({ block: components.Card, styles });
+
+  // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: classNames(
-      styles[rootName],
-      padding && styles[`${rootName}--${padding}`],
-      selected && styles[`${rootName}--selected`],
-      className,
-    ),
+    root: getBlock({ modifiers: [padding, selected && "selected"], extraClasses: className }),
   };
 
   return (

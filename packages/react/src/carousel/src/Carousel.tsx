@@ -6,8 +6,8 @@ import React, {
   useImperativeHandle,
   useCallback,
 } from "react";
-// Utilities
-import { classNames } from "@stewed/utilities";
+// Hooks
+import { useBem } from "../../../../hooks/index";
 // Tokens
 import { components, type Spacings } from "@stewed/tokens";
 // Style
@@ -79,7 +79,22 @@ export const Carousel = forwardRef(
       throw new Error("Number of `slidesPerView` should be greater than 0");
     }
 
-    const rootName = components.Carousel;
+    const isBatch = slidesPerView > 1;
+
+    // Importing useBem to handle BEM class names
+    const { getBlock, getElement } = useBem({ block: components.Carousel, styles });
+
+    // Generating CSS classes based on component props and styles
+    const cssClasses = {
+      root: getBlock({ modifiers: [gap && isBatch && `gap-${gap}`], extraClasses: className }),
+      wrapper: getElement(["wrapper"]),
+      content: getElement(["content"]),
+      track: getElement(["track"]),
+      item: getElement(["item"]),
+      slide: getElement(["slide"]),
+      prev: getElement(["prev"]),
+      next: getElement(["next"]),
+    };
 
     const hasLooping = useMemo(
       () => loop && React.Children.count(children) > slidesPerView,
@@ -91,25 +106,8 @@ export const Carousel = forwardRef(
       return (slidesPerView - (slidesCount % slidesPerView)) % slidesPerView;
     }, [slidesPerView, slidesCount]);
 
-    const isBatch = slidesPerView > 1;
-
     // number of slides will be render on indicators
     const numberOfIndicators = Math.ceil(slidesCount / slidesPerView);
-
-    const cssClasses = {
-      root: classNames(
-        styles[`${rootName}`],
-        gap && isBatch && styles[`carousel--gap-${gap}`],
-        className,
-      ),
-      wrapper: classNames(styles[`${rootName}__wrapper`]),
-      content: classNames(styles[`${rootName}__content`]),
-      track: classNames(styles[`${rootName}__track`]),
-      item: classNames(styles[`${rootName}__item`]),
-      slide: classNames(styles[`${rootName}__slide`]),
-      prev: classNames(styles[`${rootName}__prev`]),
-      next: classNames(styles[`${rootName}__next`]),
-    };
 
     const [isProcessing, setProcessing] = useState(false);
 
