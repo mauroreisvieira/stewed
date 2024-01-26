@@ -78,7 +78,6 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
     }, {}) as OutputTokens;
   }, [currentTheme, objectKeys, tokens]);
 
-  console.log("outputObject >", outputObject);
   // Convert merged tokens to CSS custom properties
   const cssProperties = useMemo(() => {
     return Object.fromEntries(

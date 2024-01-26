@@ -1,5 +1,7 @@
 import { classNames } from "@stewed/utilities";
 
+// TODO: Add validation to check if class exists in stylesheet.
+
 // Define type for classNames parameters
 type ClassNamesParams = Parameters<typeof classNames>;
 
