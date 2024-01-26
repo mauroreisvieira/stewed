@@ -2,7 +2,7 @@ import React from "react";
 // UI Components
 import { Text } from "../../typography";
 // Hooks
-import { useBem } from "../../../../hooks/index";
+import { useBem } from "@stewed/hooks";
 // Tokens
 import { components } from "@stewed/tokens";
 // Styles

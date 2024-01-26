@@ -1,6 +1,6 @@
-import React, { useCallback, useMemo } from "react";
+import React from "react";
 // Hooks
-import { useBem } from "../../../../hooks/index";
+import { useBem } from "@stewed/hooks";
 // Tokens
 import { components } from "@stewed/tokens";
 // Styles

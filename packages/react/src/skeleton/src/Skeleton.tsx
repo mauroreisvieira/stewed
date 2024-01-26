@@ -1,6 +1,6 @@
 import React from "react";
 // Hooks
-import { useBem } from "../../../../hooks/index";
+import { useBem } from "@stewed/hooks";
 // Tokens
 import { type Radius, components } from "@stewed/tokens";
 // Styles

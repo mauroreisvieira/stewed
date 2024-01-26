@@ -5,7 +5,7 @@ import { TabsProvider, type TabsProviderProps } from "./TabsProvider";
 import { TabsItem } from "./TabsItem";
 import { TabsList } from "./TabsList";
 // Hooks
-import { useBem } from "../../../../hooks/index";
+import { useBem } from "@stewed/hooks";
 // Tokens
 import { components } from "@stewed/tokens";
 // Styles

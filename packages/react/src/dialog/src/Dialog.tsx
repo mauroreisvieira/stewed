@@ -7,7 +7,7 @@ import { DialogBody } from "./DialogBody";
 import { DialogHeader } from "./DialogHeader";
 import { DialogFooter } from "./DialogFooter";
 // Hooks
-import { useBem } from "../../../../hooks/index";
+import { useBem } from "@stewed/hooks";
 // Tokens
 import { components } from "@stewed/tokens";
 // Styles

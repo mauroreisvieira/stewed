@@ -7,7 +7,7 @@ import React, {
   useCallback,
 } from "react";
 // Hooks
-import { useBem } from "../../../../hooks/index";
+import { useBem } from "@stewed/hooks";
 // Tokens
 import { components, type Spacings } from "@stewed/tokens";
 // Style

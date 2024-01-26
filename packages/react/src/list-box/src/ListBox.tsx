@@ -3,7 +3,7 @@ import React from "react";
 import { ListBoxGroup } from "./ListBoxGroup";
 import { ListBoxItem } from "./ListBoxItem";
 // Hooks
-import { useBem } from "../../../../hooks/index";
+import { useBem } from "@stewed/hooks";
 // Tokens
 import { components } from "@stewed/tokens";
 // Styles

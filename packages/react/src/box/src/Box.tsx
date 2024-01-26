@@ -2,7 +2,7 @@ import React from "react";
 // Tokens
 import { type Spacings, components } from "@stewed/tokens";
 // Hooks
-import { useBem } from "../../../../hooks/index";
+import { useBem } from "@stewed/hooks";
 // Types
 import { type DistributiveOmit, fixedForwardRef } from "../../types";
 // Style

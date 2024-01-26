@@ -1,6 +1,6 @@
 import React from "react";
 // Hooks
-import { useBem } from "../../../../hooks/index";
+import { useBem } from "@stewed/hooks";
 // Types
 import { type DistributiveOmit, fixedForwardRef } from "../../types";
 import { type FontSize, type FontWeight, type FontFamily, components } from "@stewed/tokens";

@@ -6,7 +6,7 @@ import { useDialog } from "./DialogContext";
 // Tokens
 import { components } from "@stewed/tokens";
 // Hooks
-import { useBem } from "../../../../hooks/index";
+import { useBem } from "@stewed/hooks";
 // Styles
 import styles from "./styles/index.module.scss";
 

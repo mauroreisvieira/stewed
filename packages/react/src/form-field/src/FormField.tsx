@@ -5,7 +5,7 @@ import { FormFieldControl } from "./FormFieldControl";
 import { FormFieldDescription } from "./FormFieldDescription";
 import { FormFieldError } from "./FormFieldError";
 // Hooks
-import { useBem } from "../../../../hooks/index";
+import { useBem } from "@stewed/hooks";
 // Tokens
 import { components } from "@stewed/tokens";
 // Styles

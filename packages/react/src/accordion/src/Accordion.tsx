@@ -4,7 +4,7 @@ import { AccordionItem } from "./AccordionItem";
 import { AccordionHeader } from "./AccordionHeader";
 import { AccordionBody } from "./AccordionBody";
 // Hooks
-import { useBem } from "../../../../hooks/index";
+import { useBem } from "@stewed/hooks";
 // Tokens
 import { components } from "@stewed/tokens";
 // Styles
