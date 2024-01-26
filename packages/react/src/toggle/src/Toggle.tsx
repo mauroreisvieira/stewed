@@ -1,8 +1,10 @@
 import React from "react";
 // Compound Component
 import { ToggleGroup } from "./ToggleGroup";
-// Utilities
-import { classNames } from "@stewed/utilities";
+// Hooks
+import { useBem } from "../../../../hooks/index";
+// Tokens
+import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
@@ -14,7 +16,7 @@ export interface ToggleProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   size?: "sm" | "md" | "lg";
   /**
    * Indicates whether the toggle is selected.
-  * @default false
+   * @default false
    */
   selected?: boolean;
   /** Slot for icon to display before the toggle text. */
@@ -46,20 +48,19 @@ export function Toggle({
   leftSlot,
   ...props
 }: ToggleProps): React.ReactElement {
-  // Root class name for styling
-  const rootName = "toggle";
+  // Importing useBem to handle BEM class names
+  const { getBlock, getElement } = useBem({ block: components.Toggle, styles });
+
+  // Generating CSS classes based on component props and styles
 
   // CSS classes based on component props and styles
   const cssClasses = {
-    root: classNames(
-      styles[rootName],
-      styles[`${rootName}--${size}`],
-      selected && styles[`${rootName}--selected`],
-      disabled && styles[`${rootName}--disabled`],
-      className,
-    ),
-        left: classNames(styles[`${rootName}__left`]),
-    text: classNames(styles[`${rootName}__text`]),
+    root: getBlock({
+      modifiers: [size, selected && "selected", disabled && "disabled"],
+      extraClasses: className,
+    }),
+    left: getElement(["left"]),
+    text: getElement(["text"]),
   };
 
   return (

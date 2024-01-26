@@ -3,8 +3,6 @@ import React, { useEffect, useMemo } from "react";
 import { tokens as defaultTokens, type Tokens, type Components } from "@stewed/tokens";
 // Hooks
 import { type ThemeContextProps, useTheme } from "./ThemeContext";
-// Utilities
-import { classNames } from "@stewed/utilities";
 
 type ThemeContextOmittedProps<T extends string> = Omit<
   ThemeContextProps<T>,
@@ -26,16 +24,7 @@ export interface RootProps<T extends string>
  * @param {RootProps} props - Props for the Root component.
  * @returns {React.ReactElement} - React element representing the root component with themed styles applied.
  */
-export function Root<T extends string>({
-  className,
-  children,
-  ...props
-}: RootProps<T>): React.ReactElement {
-  // CSS classes for styling
-  const cssClasses = {
-    root: classNames(className),
-  };
-
+export function Root<T extends string>({ children, ...props }: RootProps<T>): React.ReactElement {
   // Theme and tokens from the context
   const { theme, tokens } = useTheme();
 
@@ -89,8 +78,7 @@ export function Root<T extends string>({
     }, {}) as Tokens;
   }, [currentTheme, objectKeys, tokens]);
 
-
-console.log("outputObject >", outputObject);
+  console.log("outputObject >", outputObject);
   // Convert merged tokens to CSS custom properties
   const cssProperties = useMemo(() => {
     return Object.fromEntries(
@@ -120,7 +108,7 @@ console.log("outputObject >", outputObject);
 
   return (
     <>
-      <div data-theme={currentTheme} {...props} className={cssClasses.root}>
+      <div data-theme={currentTheme} {...props}>
         {children}
       </div>
     </>

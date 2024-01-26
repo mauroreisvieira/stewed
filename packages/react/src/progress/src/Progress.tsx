@@ -1,6 +1,8 @@
 import React from "react";
-// Utilities
-import { classNames } from "@stewed/utilities";
+// Hooks
+import { useBem } from "../../../../hooks/index";
+// Tokens
+import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
@@ -34,18 +36,15 @@ export const Progress = ({
   className,
   ...props
 }: ProgressProps): React.ReactElement => {
-  const rootName = "progress";
+  // Importing useBem to handle BEM class names
+  const { getBlock, getElement } = useBem({ block: components.Progress, styles });
 
+  // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: classNames(
-      styles[rootName],
-      styles[`${rootName}--${skin}`],
-      styles[`${rootName}--${size}`],
-      rounded && styles[`${rootName}--rounded`],
-      className,
-    ),
-    control: styles[`${rootName}__control`],
+    root: getBlock({ modifiers: [skin, size, rounded && "rounded"], extraClasses: className }),
+    control: getElement(["control"]),
   };
+
   return (
     <div className={cssClasses.root}>
       <progress {...props} value={value} max={max} className={cssClasses.control} />

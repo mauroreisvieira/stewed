@@ -1,6 +1,8 @@
 import React, { forwardRef } from "react";
-// Utilities
-import { classNames } from "@stewed/utilities";
+// Hooks
+import { useBem } from "../../../../hooks/index";
+// Tokens
+import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
@@ -39,27 +41,26 @@ export const Switch = forwardRef(
     {
       skin = "primary",
       size = "md",
-      className,
       reversed,
       disabled,
       children,
+      className,
       ...props
     }: SwitchProps,
     ref: React.Ref<HTMLInputElement>,
   ): React.ReactElement => {
-    const rootName = "switch";
+    // Importing useBem to handle BEM class names
+    const { getBlock, getElement } = useBem({ block: components.Switch, styles });
+
+    // Generating CSS classes based on component props and styles
     const cssClasses = {
-      root: classNames(
-        styles[rootName],
-        disabled && styles[`${rootName}--disabled`],
-        reversed && styles[`${rootName}--reversed`],
-        styles[`${rootName}--${size}`],
-        styles[`${rootName}--${skin}`],
-        className,
-      ),
-      input: styles[`${rootName}__input`],
-      control: styles[`${rootName}__control`],
-      text: styles[`${rootName}__text`],
+      root: getBlock({
+        modifiers: [skin, size, disabled && "disabled", reversed && "reversed"],
+        extraClasses: className,
+      }),
+      input: getElement(["input"]),
+      control: getElement(["control"]),
+      text: getElement(["text"]),
     };
 
     return (

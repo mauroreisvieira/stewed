@@ -8,7 +8,6 @@ import {
   useTheme,
   TextField,
   Button,
-  Checkbox,
   Tabs,
   Switch,
   Separator,
@@ -33,6 +32,7 @@ function Elements(): React.ReactElement {
           }}>
           <Tabs.List>
             <Tabs.Item value="metro">Metro</Tabs.Item>
+            <Tabs.Item value="disabled">Disabled</Tabs.Item>
             <Tabs.Item value="elegant">Elegant</Tabs.Item>
           </Tabs.List>
         </Tabs>
