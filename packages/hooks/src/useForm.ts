@@ -1,6 +1,6 @@
 import { useMemo, useReducer, SyntheticEvent } from "react";
 // Utilities
-import { objectKeys } from "../../utilities/index";
+import { objectKeys } from "@stewed/utilities";
 
 type NativeChangeEvents = React.ChangeEvent<HTMLInputElement & HTMLTextAreaElement>;
 

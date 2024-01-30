@@ -15,7 +15,7 @@ import {
   Dialog,
 } from "../../../../packages/react/index";
 // Hooks
-import { useForm } from "../../../../packages/hooks/index";
+import { useForm } from "@stewed/hooks";
 
 type ThemeOptions = "metro" | "elegant";
 
