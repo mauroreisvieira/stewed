@@ -13,6 +13,7 @@ export * from "./form-field";
 export * from "./list-box";
 export * from "./progress";
 export * from "./radio";
+export * from "./select";
 export * from "./separator";
 export * from "./skeleton";
 export * from "./switch";

@@ -29,7 +29,7 @@ export const Default: Story = {
   },
   args: {
     children: (
-      <ListBox>
+      <>
         <ListBox.Group>
           <ListBox.Item leftSlot={<FiPenTool />} selected>
             <span>Daily notes</span>
@@ -52,7 +52,7 @@ export const Default: Story = {
           <ListBox.Item>Reflect roadmap</ListBox.Item>
           <ListBox.Item>Top of mind</ListBox.Item>
         </ListBox.Group>
-      </ListBox>
+      </>
     ),
   },
 };

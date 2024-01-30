@@ -30,6 +30,7 @@ export function ListBoxItem({
   disabled,
   className,
   children,
+  ...props
 }: ListBoxItemProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock, getElement } = useBem({ block: `${components.ListBox}__item`, styles });
@@ -46,7 +47,7 @@ export function ListBoxItem({
   };
 
   return (
-    <div className={cssClasses.root} role="menuitem" tabIndex={disabled ? -1 : 0}>
+    <div className={cssClasses.root} role="menuitem" tabIndex={disabled ? -1 : 0} {...props}>
       {leftSlot && <div className={cssClasses.left}>{leftSlot}</div>}
       {children && <div className={cssClasses.text}>{children}</div>}
       {rightSlot && <div className={cssClasses.right}>{rightSlot}</div>}

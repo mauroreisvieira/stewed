@@ -8,7 +8,7 @@ import styles from "./styles/index.module.scss";
 
 export interface TextField extends React.InputHTMLAttributes<HTMLInputElement> {
   /**
-   * Change the visual style of the button.
+   * Change the visual style of the input.
    * @default default
    */
   skin?: "default" | "success" | "critical";

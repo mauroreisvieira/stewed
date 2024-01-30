@@ -26,6 +26,7 @@ export type Components = {
   [components.Checkbox]?: { radius?: Radius };
   [components.Dialog]?: { radius?: Radius };
   [components.ListBox]?: { radius?: Radius };
+  [components.Select]?: { radius?: Radius };
   [components.Switch]?: { radius?: Radius };
   [components.Tabs]?: { radius?: Radius };
   [components.Tag]?: { radius?: Radius };
@@ -78,6 +79,9 @@ export const tokens: Tokens = {
       radius: "md",
     },
     [components.ListBox]: {
+      radius: "sm",
+    },
+    [components.Select]: {
       radius: "sm",
     },
     [components.Switch]: {

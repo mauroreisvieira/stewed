@@ -25,7 +25,8 @@ function Elements(): React.ReactElement {
 
   const {
     data: { username, email, password },
-    onFormChange: handleChange,
+    onFormChange,
+    onFormReset,
   } = useForm({
     initialValues: {
       username: "",
@@ -34,12 +35,12 @@ function Elements(): React.ReactElement {
     },
     validators: {
       username: {
-        exp: /[\d%+._a-z-]+@[\d.a-z-]+.[a-z]{2,}$/,
-        description: "Insert a valid username",
+        exp: /^[a-zA-Z0-9]+$/,
+        description: "Username can only contain letters or digits.",
       },
       email: {
         exp: /[\d%+._a-z-]+@[\d.a-z-]+.[a-z]{2,}$/,
-        description: "Insert a valid email",
+        description: "Email is not valid.",
       },
       password: {
         exp: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
@@ -79,7 +80,7 @@ function Elements(): React.ReactElement {
                       type="text"
                       name="username"
                       value={username.value}
-                      onChange={handleChange}
+                      onChange={onFormChange}
                       skin={username.valid ? "default" : "critical"}
                       placeholder="Enter your username"
                     />
@@ -98,7 +99,7 @@ function Elements(): React.ReactElement {
                       type="email"
                       name="email"
                       value={email.value}
-                      onChange={handleChange}
+                      onChange={onFormChange}
                       skin={email.valid ? "default" : "critical"}
                       placeholder="Enter your email"
                     />
@@ -114,7 +115,7 @@ function Elements(): React.ReactElement {
                       type="password"
                       name="password"
                       value={password.value}
-                      onChange={handleChange}
+                      onChange={onFormChange}
                       skin={password.valid ? "default" : "critical"}
                       placeholder="Enter your password"
                     />
@@ -157,8 +158,15 @@ function Elements(): React.ReactElement {
           </Card.Body>
           <Separator />
           <Card.Footer>
-            <Box justify="end">
-              <Button onClick={(): void => setOpen(true)}>Create an account</Button>
+            <Box justify="end" gap="md">
+              <Button skin="neutral" appearance="outline" onClick={(): void => onFormReset()}>
+                Clean
+              </Button>
+              <Button
+                onClick={(): void => setOpen(true)}
+                disabled={!username.value || !email.value || !password.value}>
+                Create an account
+              </Button>
             </Box>
           </Card.Footer>
         </Card>
@@ -224,6 +232,11 @@ export function CustomTheme(): React.ReactElement {
             "primary": "#e91e63",
             "primary-pressed": "#d81b60",
             "primary-faded": "#f48fb1",
+            // Critical
+            "critical": "#ef4444",
+            "critical-pressed": "#dc2626",
+            "critical-faded": "#fecaca",
+            "critical-border": "#f87171",
             // Success
             "success": "#14784a",
             "success-pressed": "#178351",

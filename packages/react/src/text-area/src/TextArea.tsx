@@ -8,10 +8,10 @@ import styles from "./styles/index.module.scss";
 
 export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   /**
-   * Change the visual style of the button.
+   * Change the visual style of the text area.
    * @default default
    */
-  skin?: "default" | "error" | "critical";
+  skin?: "default" | "critical";
 }
 
 export const TextArea = React.forwardRef(
