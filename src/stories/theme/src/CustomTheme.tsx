@@ -14,12 +14,40 @@ import {
   FormField,
   Dialog,
 } from "../../../../packages/react/index";
+// Hooks
+import { useForm } from "../../../../packages/hooks/index";
 
 type ThemeOptions = "metro" | "elegant";
 
 function Elements(): React.ReactElement {
   const { theme, setTheme } = useTheme<ThemeOptions>();
   const [isOpen, setOpen] = useState(false);
+
+  const {
+    data: { username, email, password },
+    onFormChange: handleChange,
+  } = useForm({
+    initialValues: {
+      username: "",
+      email: "",
+      password: "",
+    },
+    validators: {
+      username: {
+        exp: /[\d%+._a-z-]+@[\d.a-z-]+.[a-z]{2,}$/,
+        description: "Insert a valid username",
+      },
+      email: {
+        exp: /[\d%+._a-z-]+@[\d.a-z-]+.[a-z]{2,}$/,
+        description: "Insert a valid email",
+      },
+      password: {
+        exp: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
+        description:
+          "Require 1 number, 1 uppercase and lowercase letter, with a minimum of 8 characters.",
+      },
+    },
+  });
 
   return (
     <>
@@ -46,34 +74,55 @@ function Elements(): React.ReactElement {
                 <FormField>
                   <FormField.Label htmlFor="username">Username</FormField.Label>
                   <FormField.Control>
-                    <TextField id="username" type="text" placeholder="Enter your username" />
+                    <TextField
+                      id="username"
+                      type="text"
+                      name="username"
+                      value={username.value}
+                      onChange={handleChange}
+                      skin={username.valid ? "default" : "critical"}
+                      placeholder="Enter your username"
+                    />
                   </FormField.Control>
                   <FormField.Description>
                     You can use letters, numbers, and periods.
                   </FormField.Description>
+                  <FormField.Error hidden={username.valid}>{username.error}</FormField.Error>
                 </FormField>
 
                 <FormField>
                   <FormField.Label htmlFor="email">Email</FormField.Label>
                   <FormField.Control>
-                    <TextField id="email" type="email" placeholder="Enter your email" />
+                    <TextField
+                      id="email"
+                      type="email"
+                      name="email"
+                      value={email.value}
+                      onChange={handleChange}
+                      skin={email.valid ? "default" : "critical"}
+                      placeholder="Enter your email"
+                    />
                   </FormField.Control>
+                  <FormField.Error hidden={email.valid}>{email.error}</FormField.Error>
                 </FormField>
 
                 <FormField>
                   <FormField.Label htmlFor="password">Password</FormField.Label>
                   <FormField.Control>
                     <TextField
-                      skin="critical"
                       id="password"
                       type="password"
+                      name="password"
+                      value={password.value}
+                      onChange={handleChange}
+                      skin={password.valid ? "default" : "critical"}
                       placeholder="Enter your password"
                     />
                   </FormField.Control>
                   <FormField.Description>
                     Use 8 or more characters with a mix of letters, numbers, and symbols.
                   </FormField.Description>
-                  <FormField.Error>Password needs to be more than 8 characters.</FormField.Error>
+                  <FormField.Error hidden={password.valid}>{password.error}</FormField.Error>
                 </FormField>
               </Box>
             </Box>

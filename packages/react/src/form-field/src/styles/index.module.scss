@@ -11,4 +11,10 @@
     display: inline-block;
     cursor: pointer;
   }
+
+  &__error {
+    &--hidden {
+      display: none;
+    }
+  }
 }

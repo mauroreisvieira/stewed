@@ -9,17 +9,18 @@ import { components } from "@stewed/tokens";
 import styles from "./styles/index.module.scss";
 
 interface FormFieldErrorProps {
+  hidden?: boolean;
   className?: string;
   children: React.ReactNode;
 }
 
-export function FormFieldError({ className, children }: FormFieldErrorProps): React.ReactElement {
+export function FormFieldError({ hidden, className, children }: FormFieldErrorProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: `${components.FormField}__error`, styles });
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ extraClasses: className }),
+    root: getBlock({ extraClasses: className, modifiers: [hidden && "hidden"] }),
   };
 
   return (
