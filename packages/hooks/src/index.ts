@@ -1,4 +1,5 @@
 export { useAsync } from './useAsync';
+export { useBem } from './useBem';
 export { useDebouncedValue } from './useDebouncedValue';
 export { useForm } from './useForm';
 export { useInput } from './useInput';

@@ -1,6 +1,9 @@
 import React from "react";
-// Utilities
-import { classNames } from "@stewed/utilities";
+// Hooks
+import { useBem } from "@stewed/hooks";
+// Tokens
+import { components } from "@stewed/tokens";
+// Types
 import { type DistributiveOmit, fixedForwardRef } from "../../types";
 // Styles
 import styles from "./styles/index.module.scss";
@@ -18,7 +21,7 @@ export interface ButtonProps<T> extends React.ComponentProps<typeof defaultEleme
    * Change the visual style of the button.
    * @default primary
    */
-  skin?: "primary" | "neutral" | "critical";
+  skin?: "primary" | "neutral" | "critical" | "success";
   /**
    * Change the visual appearance of the button.
    * @default filled
@@ -83,23 +86,24 @@ export const Button = fixedForwardRef(
     // Determine the component type based on 'as' prop or use the default element
     const Comp = as || defaultElement;
 
-    // Root class name for styling
-    const rootName = "button";
+    // Importing useBem to handle BEM class names
+    const { getBlock, getElement } = useBem({ block: components.Button, styles });
 
-    // CSS classes based on component props and styles
+    // Generating CSS classes based on component props and styles
     const cssClasses = {
-      root: classNames(
-        styles[rootName],
-        styles[`${rootName}--${skin}-${appearance}`],
-        styles[`${rootName}--${size}`],
-        iconOnly && styles[`${rootName}--icon-only`],
-        fullWidth && styles[`${rootName}--fullWidth`],
-        props.disabled && styles[`${rootName}--disabled`],
-        className,
-      ),
-      left: classNames(styles[`${rootName}__left`]),
-      text: classNames(styles[`${rootName}__text`]),
-      right: classNames(styles[`${rootName}__right`]),
+      root: getBlock({
+        modifiers: [
+          `${skin}-${appearance}`,
+          size,
+          iconOnly && "icon-only",
+          fullWidth && "full-width",
+          props.disabled && "disabled",
+        ],
+        extraClasses: className,
+      }),
+      left: getElement(["left"]),
+      text: getElement(["text"]),
+      right: getElement(["right"]),
     };
 
     return (

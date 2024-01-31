@@ -1,0 +1,20 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+@use "@stewed/react/src/typography/src/styles" as text;
+@use "./variables" as *;
+
+@include theme.scope($form-field-root) {
+  display: flex;
+  flex-direction: column;
+  gap: theme.get-spacing("xs");
+
+  &__label {
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  &__error {
+    &--hidden {
+      display: none;
+    }
+  }
+}

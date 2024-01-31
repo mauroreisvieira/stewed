@@ -33,21 +33,3 @@ export const color = {
   "warning-pressed": "#854d0e",
   "warning-border": "#fef08a",
 };
-
-type Skin = "primary" | "neutral" | "critical" | "info" | "success" | "warning";
-
-type Colors = Record<
-  Skin,
-  Partial<{
-    faded: string;
-    default: string;
-    pressed: string;
-    border: string;
-  }>
->;
-
-export const test: Colors = {
-  info: {
-    faded: "#ff",
-  },
-};

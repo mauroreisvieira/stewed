@@ -1,10 +1,12 @@
 import React, { forwardRef } from "react";
-// Utilities
-import { classNames } from "@stewed/utilities";
+// Hooks
+import { useBem } from "@stewed/hooks";
+// Tokens
+import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface RadioProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface RadioProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> {
   /**
    * Specifies the visual style of the radio.
    * @default primary
@@ -37,18 +39,18 @@ export const Radio = forwardRef(
     { skin = "critical", size = "md", className, disabled, children, ...props }: RadioProps,
     ref: React.Ref<HTMLInputElement>,
   ): React.ReactElement => {
-    const rootName = "radio";
+    // Importing useBem to handle BEM class names
+    const { getBlock, getElement } = useBem({ block: components.Radio, styles });
+
+    // Generating CSS classes based on component props and styles
     const cssClasses = {
-      root: classNames(
-        styles[rootName],
-        disabled && styles[`${rootName}--disabled`],
-        styles[`${rootName}--${size}`],
-        styles[`${rootName}--${skin}`],
-        className,
-      ),
-      input: styles[`${rootName}__input`],
-      control: styles[`${rootName}__control`],
-      text: styles[`${rootName}__text`],
+      root: getBlock({
+        modifiers: [skin, size, disabled && "disabled"],
+        extraClasses: className,
+      }),
+      input: getElement(["input"]),
+      control: getElement(["control"]),
+      text: getElement(["text"]),
     };
 
     return (
@@ -60,4 +62,3 @@ export const Radio = forwardRef(
     );
   },
 );
-

@@ -1,8 +1,10 @@
 import React from "react";
 // Context
 import { useTabs } from "./TabsContext";
-// Utilities
-import { classNames } from "@stewed/utilities";
+// Hooks
+import { useBem } from "@stewed/hooks";
+// Tokens
+import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
@@ -21,6 +23,7 @@ export function TabsItem({
   leftSlot,
   rightSlot,
   className,
+  tabIndex,
   onClick,
   children,
   ...props
@@ -28,21 +31,24 @@ export function TabsItem({
   const { onValueChange, value: selectedValue } = useTabs();
 
   const isSelected = value === selectedValue;
-  const rootName = "tabs__item";
+
+  // Importing useBem to handle BEM class names
+  const { getBlock, getElement } = useBem({ block: `${components.Tabs}__item`, styles });
+
+  // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: classNames(
-      styles[rootName],
-      isSelected && styles[`${rootName}--selected`],
-      className,
-    ),
-    left: classNames(styles[`${rootName}__left`]),
-    right: classNames(styles[`${rootName}__right`]),
+    root: getBlock({
+      modifiers: [isSelected && "selected", disabled && "disabled"],
+      extraClasses: className,
+    }),
+    left: getElement(["left"]),
+    right: getElement(["right"]),
   };
 
   const onHandleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     if (disabled) return;
-    if (onClick) onClick(event);
-    if (onValueChange) onValueChange(value);
+    onValueChange?.(value);
+    onClick?.(event);
   };
 
   return (
@@ -53,6 +59,7 @@ export function TabsItem({
       aria-disabled={disabled}
       aria-selected={isSelected}
       className={cssClasses.root}
+      tabIndex={!isSelected || disabled ? -1 : tabIndex}
       onClick={onHandleClick}
       {...props}
     >

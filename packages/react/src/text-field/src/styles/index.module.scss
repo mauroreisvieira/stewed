@@ -23,7 +23,7 @@
   border: 1px solid theme.get-var(border-color);
   border-radius: theme.get-var(radius);
 
-  @include text.typography(base, $overrides: (font-size: theme.get-font-size("sm")));
+  @include text.typography(base, $overrides: (font-size: theme.get-font-size("md")));
   @include theme.focus-styles($target: ":focus-within");
   @include theme.disabled-styles;
 
@@ -39,6 +39,13 @@
     height: theme.get-var(height);
     padding-block: theme.get-spacing("md");
     touch-action: manipulation;
+
+    &:-internal-autofill-selected,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      background-clip: text;
+    }
   }
 
   @each $key, $value in $input-skins {

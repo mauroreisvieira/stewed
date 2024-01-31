@@ -16,42 +16,54 @@
 
   &__control {
     width: 100%;
-    height: var(--progress-size);
+    height: theme.get-var(height);
     appearance: none;
     border: 0;
 
     &::-webkit-progress-bar {
-      background-color: $progress-background;
+      background-color: theme.get-color("neutral", "faded");
       border-radius: theme.get-var(radius);
       box-shadow: none;
     }
 
     &::-moz-progress-bar {
-      background-color: $progress-background;
+      background-color: theme.get-color("neutral", "faded");
       border-radius: theme.get-var(radius);
       box-shadow: none;
     }
 
     &::-webkit-progress-value {
-      background-color: var(--progress-background);
+      background-color: theme.get-var(background-color);
       border-radius: theme.get-var(radius);
       box-shadow: none;
     }
   }
 
-  @each $key, $value in $progress-sizes {
+  @each $key, $value in $progress-heights {
     &--#{$key} {
-      --progress-size: #{map.get($progress-sizes, $key)};
+      @include theme.define-var(
+        (
+          height: #{$value},
+        )
+      );
     }
   }
 
-  @each $key, $value in $progress-skins {
-    &--#{$key} {
-      --progress-background: #{theme.get-color($value)};
+  @each $value in $progress-skins {
+    &--#{$value} {
+      @include theme.define-var(
+        (
+          background-color: #{theme.get-color($value)},
+        )
+      );
     }
   }
 
   &--rounded {
-    --progress-radius: #{$progress-border-radius};
+    @include theme.define-var(
+      (
+        radius: theme.get-radius("xl"),
+      )
+    );
   }
 }

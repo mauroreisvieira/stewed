@@ -1,6 +1,8 @@
 import React from "react";
-// Utilities
-import { classNames } from "@stewed/utilities";
+// Tokens
+import { components } from "@stewed/tokens";
+// Hooks
+import { useBem } from "@stewed/hooks";
 // Styles
 import styles from "./styles/index.module.scss";
 
@@ -9,9 +11,12 @@ export function CardFooter({
   children,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>): React.ReactElement {
-  const rootName = "card__footer";
+  // Importing useBem to handle BEM class names
+  const { getBlock } = useBem({ block: `${components.Card}__footer`, styles });
+
+  // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: classNames(styles[rootName], className),
+    root: getBlock({ extraClasses: className }),
   };
 
   return (

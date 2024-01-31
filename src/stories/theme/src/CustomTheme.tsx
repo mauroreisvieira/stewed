@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // UI Components
 import {
   Text,
@@ -8,84 +8,244 @@ import {
   useTheme,
   TextField,
   Button,
-  Checkbox,
   Tabs,
+  Switch,
+  Separator,
+  FormField,
+  Dialog,
 } from "../../../../packages/react/index";
+// Hooks
+import { useForm } from "@stewed/hooks";
+
+type ThemeOptions = "metro" | "elegant";
 
 function Elements(): React.ReactElement {
-  const { theme, setTheme } = useTheme<"default" | "revolution">();
+  const { theme, setTheme } = useTheme<ThemeOptions>();
+  const [isOpen, setOpen] = useState(false);
+
+  const {
+    data: { username, email, password },
+    onFormChange,
+    onFormReset,
+  } = useForm({
+    initialValues: {
+      username: "",
+      email: "",
+      password: "",
+    },
+    validators: {
+      username: {
+        exp: /^[a-zA-Z0-9]+$/,
+        description: "Username can only contain letters or digits.",
+      },
+      email: {
+        exp: /[\d%+._a-z-]+@[\d.a-z-]+.[a-z]{2,}$/,
+        description: "Email is not valid.",
+      },
+      password: {
+        exp: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
+        description:
+          "Require 1 number, 1 uppercase and lowercase letter, with a minimum of 8 characters.",
+      },
+    },
+  });
 
   return (
-    <Box direction="column" gap="2xl">
-      <Tabs
-        value={theme}
-        alignment="center"
-        onValueChange={(value) => {
-          setTheme(value as "default" | "revolution");
-        }}>
-        <Tabs.List>
-          <Tabs.Item value="default">Default</Tabs.Item>
-          <Tabs.Item value="revolution">Revolution</Tabs.Item>
-        </Tabs.List>
-      </Tabs>
-      <Card>
-        <Card.Header>
-          <Text as="h2">Sign in to your account</Text>
-        </Card.Header>
-        <Card.Body>
-          <Box direction="column" gap="2xl">
-            <Box direction="column" gap="sm">
-              <Text as="label" size="sm" htmlFor="email">
-                Email address
-              </Text>
-              <TextField id="email" type="email" placeholder="Enter your email" />
+    <>
+      <Box direction="column" gap="2xl">
+        <Tabs
+          value={theme}
+          alignment="center"
+          onValueChange={(value) => {
+            setTheme(value as ThemeOptions);
+          }}>
+          <Tabs.List>
+            <Tabs.Item value="metro">Metro</Tabs.Item>
+            <Tabs.Item value="elegant">Elegant</Tabs.Item>
+          </Tabs.List>
+        </Tabs>
+        <Card>
+          <Card.Header>
+            <Text as="h2">Create your account</Text>
+          </Card.Header>
+
+          <Card.Body>
+            <Box direction="column" gap="2xl">
+              <Box direction="column" gap="md">
+                <FormField>
+                  <FormField.Label htmlFor="username">Username</FormField.Label>
+                  <FormField.Control>
+                    <TextField
+                      id="username"
+                      type="text"
+                      name="username"
+                      value={username.value}
+                      onChange={onFormChange}
+                      skin={username.valid ? "default" : "critical"}
+                      placeholder="Enter your username"
+                    />
+                  </FormField.Control>
+                  <FormField.Description>
+                    You can use letters, numbers, and periods.
+                  </FormField.Description>
+                  <FormField.Error hidden={username.valid}>{username.error}</FormField.Error>
+                </FormField>
+
+                <FormField>
+                  <FormField.Label htmlFor="email">Email</FormField.Label>
+                  <FormField.Control>
+                    <TextField
+                      id="email"
+                      type="email"
+                      name="email"
+                      value={email.value}
+                      onChange={onFormChange}
+                      skin={email.valid ? "default" : "critical"}
+                      placeholder="Enter your email"
+                    />
+                  </FormField.Control>
+                  <FormField.Error hidden={email.valid}>{email.error}</FormField.Error>
+                </FormField>
+
+                <FormField>
+                  <FormField.Label htmlFor="password">Password</FormField.Label>
+                  <FormField.Control>
+                    <TextField
+                      id="password"
+                      type="password"
+                      name="password"
+                      value={password.value}
+                      onChange={onFormChange}
+                      skin={password.valid ? "default" : "critical"}
+                      placeholder="Enter your password"
+                    />
+                  </FormField.Control>
+                  <FormField.Description>
+                    Use 8 or more characters with a mix of letters, numbers, and symbols.
+                  </FormField.Description>
+                  <FormField.Error hidden={password.valid}>{password.error}</FormField.Error>
+                </FormField>
+              </Box>
             </Box>
-            <Box direction="column" gap="sm">
-              <Box justify="between">
-                <Text as="label" size="sm" htmlFor="password">
-                  Password
-                </Text>
-                <Text as="a" href="" size="xs">
-                  Forgot password?
+            <Separator space={{ y: "xl" }} />
+            <Box items="start" justify="between">
+              <Box direction="column">
+                <Text weight="semi-bold">Favorites</Text>
+                <Text size="xs" skin="neutral">
+                  Receive notifications when there is activity related to your favorite items.
                 </Text>
               </Box>
-              <TextField id="password" type="password" placeholder="Enter your password" />
-            </Box>
-            <Box justify="between" gap="lg" wrap="wrap">
-              <Checkbox>Keep me logged in</Checkbox>
-              <Box justify="end" gap="md">
-                <Button appearance="outline">Create an account</Button>
-                <Button>Sign in</Button>
+              <Box gap="md" direction="column" items="baseline">
+                <Switch size="sm">Push</Switch>
+                <Switch size="sm">Email</Switch>
+                <Switch size="sm">Slack</Switch>
               </Box>
             </Box>
+            <Separator space={{ y: "xl" }} />
+            <Box items="start" justify="between">
+              <Box direction="column">
+                <Text weight="semi-bold">New documents</Text>
+                <Text size="xs" skin="neutral">
+                  Receive notifications whenever people on your team create new documents.
+                </Text>
+              </Box>
+              <Box gap="md" direction="column" items="baseline">
+                <Switch size="sm">Push</Switch>
+                <Switch size="sm">Email</Switch>
+                <Switch size="sm">Slack</Switch>
+              </Box>
+            </Box>
+          </Card.Body>
+          <Separator />
+          <Card.Footer>
+            <Box justify="end" gap="md">
+              <Button skin="neutral" appearance="outline" onClick={(): void => onFormReset()}>
+                Clean
+              </Button>
+              <Button
+                onClick={(): void => setOpen(true)}
+                disabled={!username.value || !email.value || !password.value}>
+                Create an account
+              </Button>
+            </Box>
+          </Card.Footer>
+        </Card>
+      </Box>
+      <Dialog open={isOpen} size="sm">
+        <Dialog.Header>
+          <Text as="h4">Create Account</Text>
+        </Dialog.Header>
+        <Dialog.Body>
+          <Text size="sm" skin="neutral">
+            Are you ready to create your account?
+          </Text>
+          <Text size="sm" skin="neutral">
+            By proceeding, you'll be establishing a new account with us. Your information will be
+            securely stored on our servers for your future access.
+          </Text>
+        </Dialog.Body>
+        <Dialog.Footer>
+          <Box gap="md" justify="end">
+            <Button
+              skin="neutral"
+              appearance="outline"
+              type="button"
+              onClick={(): void => setOpen(false)}>
+              Cancel
+            </Button>
+            <Button type="button" skin="success" onClick={(): void => setOpen(false)}>
+              Activate account
+            </Button>
           </Box>
-        </Card.Body>
-      </Card>
-    </Box>
+        </Dialog.Footer>
+      </Dialog>
+    </>
   );
 }
 
 export function CustomTheme(): React.ReactElement {
   return (
-    <Theme<"default" | "revolution">
-      defaultTheme="default"
+    <Theme<ThemeOptions>
+      defaultTheme="metro"
       tokens={{
-        default: {},
-        revolution: {
+        metro: {
+          color: {
+            text: "#444",
+          },
+          fontFamily: {
+            base: "'Roboto Serif', serif",
+          },
+          components: {
+            card: {
+              radius: "none",
+            },
+            switch: {
+              radius: "none",
+            },
+          },
+        },
+        elegant: {
+          fontFamily: {
+            base: "'DM Sans', sans-serif",
+          },
           color: {
             "primary": "#e91e63",
             "primary-pressed": "#d81b60",
             "primary-faded": "#f48fb1",
+            // Critical
+            "critical": "#ef4444",
+            "critical-pressed": "#dc2626",
+            "critical-faded": "#fecaca",
+            "critical-border": "#f87171",
+            // Success
+            "success": "#14784a",
+            "success-pressed": "#178351",
+            "success-faded": "#1f2a23",
+            "success-border": "#21ab6b",
           },
           components: {
-            "card": {
-              radius: "2xl",
-            },
-            "button": {
+            button: {
               radius: "full",
-            },
-            "text-field": {
-              radius: "lg",
             },
           },
         },

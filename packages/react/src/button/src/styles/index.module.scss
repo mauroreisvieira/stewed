@@ -38,8 +38,8 @@
     text-decoration: none;
   }
 
-  @each $key, $value in $button-skins {
-    &--#{$key} {
+  @each $value in $button-skins {
+    &--#{$value} {
       &-filled {
         @include theme.define-var(
           (
@@ -211,7 +211,7 @@
     );
   }
 
-  &--fullWidth {
+  &--full-width {
     width: 100%;
   }
 }

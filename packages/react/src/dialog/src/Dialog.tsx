@@ -6,8 +6,10 @@ import { type DialogProviderProps, DialogProvider } from "./DialogProvider";
 import { DialogBody } from "./DialogBody";
 import { DialogHeader } from "./DialogHeader";
 import { DialogFooter } from "./DialogFooter";
-// Utilities
-import { classNames } from "@stewed/utilities";
+// Hooks
+import { useBem } from "@stewed/hooks";
+// Tokens
+import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
@@ -58,15 +60,13 @@ export function Dialog({
 }: DialogProps): React.ReactElement {
   const rootRef = useRef<HTMLDivElement>(null);
 
-  const rootName = "dialog";
+  // Importing useBem to handle BEM class names
+  const { getBlock, getElement } = useBem({ block: components.Dialog, styles });
+
+  // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: classNames(
-      styles[rootName],
-      size && styles[`${rootName}--${size}`],
-      open && styles[`${rootName}--open`],
-      className,
-    ),
-    surface: classNames(styles[`${rootName}__surface`]),
+    root: getBlock({ modifiers: [size, open && "open"], extraClasses: className }),
+    surface: getElement([`surface`]),
   };
 
   const onHandleKeydown = useCallback(

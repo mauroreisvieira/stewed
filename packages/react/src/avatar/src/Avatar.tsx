@@ -1,8 +1,10 @@
 import React from "react";
 // Compound Component
 import { AvatarGroup } from "./AvatarGroup";
-// Utilities
-import { classNames } from "@stewed/utilities";
+// Hooks
+import { useBem } from "@stewed/hooks";
+// Tokens
+import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
@@ -50,16 +52,13 @@ export function Avatar({
   src,
   name,
 }: AvatarProps): React.ReactElement {
-  const rootName = "avatar";
+  // Importing useBem to handle BEM class names
+  const { getBlock, getElement } = useBem({ block: components.Avatar, styles });
+
+  // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: classNames(
-      styles[rootName],
-      appearance && styles[`${rootName}--${appearance}`],
-      styles[`${rootName}--${size}`],
-      styles[`${rootName}--${skin}`],
-      className,
-    ),
-    img: styles[`${rootName}__img`],
+    root: getBlock({ modifiers: [appearance, size, skin], extraClasses: className }),
+    img: getElement(["img"]),
   };
 
   const initials = name?.match(/[A-Z]/g)?.join("").slice(0, 2).toUpperCase();

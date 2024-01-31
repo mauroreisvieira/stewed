@@ -1,0 +1,67 @@
+@use "sass:map";
+@use "@stewed/react/src/theme/src/styles" as theme;
+@use "@stewed/react/src/typography/src/styles" as text;
+@use "./variables" as *;
+
+@include theme.scope($select-root) {
+  @include theme.define-var(
+    (
+      border-color: map.get($select-skins-default, "border"),
+      border-color-hover: map.get($select-skins-default, "border-hover"),
+      height: theme.get-spacing("6xl"),
+    )
+  );
+
+  position: relative;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid theme.get-var(border-color);
+  border-radius: theme.get-var(radius);
+
+  @include text.typography(base, $overrides: (font-size: theme.get-font-size("md")));
+  @include theme.focus-styles($target: ":focus-within");
+  @include theme.disabled-styles;
+
+  &:hover {
+    border-color: theme.get-var(border-color-hover);
+  }
+
+  &__input {
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: theme.get-var(height);
+    padding-inline: theme.get-spacing("md");
+    touch-action: manipulation;
+
+    &:-internal-autofill-selected,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      background-clip: text;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    right: theme.get-spacing("md");
+    width: theme.get-font-size("md");
+  }
+
+  @each $key, $value in $select-skins {
+    &--#{$key} {
+      @include theme.define-var(
+        (
+          border-color: map.get($value, "border"),
+          border-color-hover: map.get($value, "border-hover"),
+        )
+      );
+    }
+  }
+}

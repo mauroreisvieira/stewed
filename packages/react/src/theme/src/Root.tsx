@@ -1,15 +1,17 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 // Tokens
-import { type Tokens, tokens as defaultTokens } from "../../tokens";
+import { tokens as defaultTokens, type Tokens, type Components } from "@stewed/tokens";
 // Hooks
 import { type ThemeContextProps, useTheme } from "./ThemeContext";
-// Utilities
-import { classNames } from "@stewed/utilities";
 
 type ThemeContextOmittedProps<T extends string> = Omit<
   ThemeContextProps<T>,
   "setTheme" | "setTokens" | "theme"
 >;
+
+type OutputTokens = Exclude<Tokens, "components"> & {
+ [K in keyof Components]?: { radius?: string };
+};
 
 export interface RootProps<T extends string>
   extends React.HTMLAttributes<HTMLDivElement>,
@@ -26,56 +28,55 @@ export interface RootProps<T extends string>
  * @param {RootProps} props - Props for the Root component.
  * @returns {React.ReactElement} - React element representing the root component with themed styles applied.
  */
-export function Root<T extends string>({
-  className,
-  children,
-  ...props
-}: RootProps<T>): React.ReactElement {
-  // CSS classes for styling
-  const cssClasses = {
-    root: classNames(className),
-  };
-
+export function Root<T extends string>({ children, ...props }: RootProps<T>): React.ReactElement {
   // Theme and tokens from the context
   const { theme, tokens } = useTheme();
 
-  const outputObject = useMemo(() => {
-    const mergedTokens: Tokens = Object.keys(defaultTokens).reduce(
-      (acc, key) => {
-        acc[key] = {
-          ...defaultTokens[key],
-          ...(tokens?.[theme]?.[key] || {}),
-        };
-        return acc;
-      },
-      { components: {} },
-    );
+  const currentTheme = theme || "default";
 
-    if (tokens?.[theme]?.components) {
-      mergedTokens.components = Object.keys(defaultTokens.components).reduce((acc, component) => {
-        acc[component] = {
-          ...defaultTokens.components[component],
-          ...(tokens?.[theme]?.components[component] || {}),
-        };
-        return acc;
-      }, {});
+  const objectKeys: <Obj>(o: Obj) => (keyof Obj)[] = Object.keys;
+
+  const outputObject = useMemo(() => {
+    const mergedTokens = objectKeys(defaultTokens).reduce((acc: OutputTokens, key) => {
+      acc[key] = {
+        ...defaultTokens[key],
+        ...(tokens?.[currentTheme]?.[key] || {}),
+      };
+      return acc;
+    }, {});
+
+    if (tokens?.[currentTheme]?.components) {
+      mergedTokens.components = objectKeys(defaultTokens.components || {}).reduce(
+        (acc: Components, component) => {
+          acc[component] = {
+            ...((defaultTokens.components || {})[component] as Record<
+              keyof Components,
+              Components[keyof Components]
+            >),
+            ...(tokens[currentTheme]?.components?.[component] || {}),
+          };
+          return acc;
+        },
+        {},
+      );
     }
 
-    return Object.keys(mergedTokens).reduce((acc, key) => {
-      if (key === "components") {
-        Object.keys(mergedTokens.components).forEach((component) => {
-          const componentObj = mergedTokens.components[component];
+    return objectKeys(mergedTokens).reduce((acc: OutputTokens, key) => {
+      if (mergedTokens.components && key === "components") {
+        objectKeys(mergedTokens.components).forEach((component) => {
+          const componentObj = mergedTokens?.components?.[component];
           acc[component] = {
             ...componentObj,
-            radius: mergedTokens.radius[componentObj.radius] || componentObj.radius,
+            radius: componentObj?.radius ? mergedTokens.radius?.[componentObj?.radius] || componentObj?.radius : undefined,
           };
         });
       } else {
         acc[key] = mergedTokens[key];
       }
+
       return acc;
-    }, {});
-  }, [defaultTokens, tokens, theme]);
+    }, {}) as OutputTokens;
+  }, [currentTheme, objectKeys, tokens]);
 
   // Convert merged tokens to CSS custom properties
   const cssProperties = useMemo(() => {
@@ -89,18 +90,24 @@ export function Root<T extends string>({
     );
   }, [outputObject]);
 
-  const $style = document.createElement("style");
-  if (theme) {
-    $style.setAttribute("data-theme", theme);
-  }
-  $style.innerHTML = `html[data-theme="${theme}"] { \n${Object.entries(cssProperties)
-    .map(([property, value]) => `${property}: ${value};`)
-    .join("\n")}\n}`;
-  document.head.appendChild($style);
+  useEffect(() => {
+    const styleTag = document.createElement("style");
+    styleTag.setAttribute("data-theme", currentTheme);
+
+    styleTag.innerHTML = `[data-theme="${currentTheme}"] { \n${Object.entries(cssProperties)
+      .map(([property, value]) => `${property}: ${value};`)
+      .join("\n")}\n}`;
+
+    document.head.appendChild(styleTag);
+
+    return () => {
+      styleTag.remove();
+    };
+  }, [cssProperties, currentTheme]);
 
   return (
     <>
-      <div data-theme={theme} {...props} className={cssClasses.root}>
+      <div data-theme={currentTheme} {...props}>
         {children}
       </div>
     </>

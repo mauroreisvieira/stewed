@@ -1,7 +1,8 @@
 import React from "react";
-// Utilities
-import { classNames } from "@stewed/utilities";
-import type { Spacings } from "../../tokens";
+// Hooks
+import { useBem } from "@stewed/hooks";
+// Tokens
+import { components, type Spacings } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
@@ -44,16 +45,20 @@ export function Separator({
   className,
   ...props
 }: SeparatorProps): React.ReactElement {
-  const rootName = "separator";
+  // Importing useBem to handle BEM class names
+  const { getBlock } = useBem({ block: components.Separator, styles });
+
+  // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: classNames(
-      styles[rootName],
-      styles[`${rootName}--${skin}`],
-      styles[`${rootName}--${orientation}`],
-      space?.x && styles[`${rootName}--space-x-${space.x}`],
-      space?.y && styles[`${rootName}--space-y-${space.y}`],
-      className,
-    ),
+    root: getBlock({
+      modifiers: [
+        skin,
+        orientation,
+        space?.x && `space-x-${space.x}`,
+        space?.y && `space-y-${space.y}`,
+      ],
+      extraClasses: className,
+    }),
   };
 
   return <hr className={cssClasses.root} {...props} />;

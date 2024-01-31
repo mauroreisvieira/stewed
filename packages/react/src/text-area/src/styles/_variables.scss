@@ -18,10 +18,5 @@ $textarea-skins: (
   ),
 );
 
-// Font
-$textarea-font-weight: theme.get-font-weight("normal");
-$textarea-font-size: theme.get-font-size("md");
-
 // Spacing's
-$textarea-sizes: theme.get-spacing("md");
 $textarea-spacings: theme.get-spacing("md");

@@ -1,0 +1,22 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+
+$select-root: "select";
+
+// Appearance
+$select-skins-default: (
+  "border": theme.get-color("neutral", "border"),
+  "border-hover": theme.get-color("neutral", "border-hover"),
+);
+$select-skins: (
+  "success": (
+    "border": theme.get-color("success"),
+    "border-hover": theme.get-color("success"),
+  ),
+  "critical": (
+    "border": theme.get-color("critical"),
+    "border-hover": theme.get-color("critical"),
+  ),
+);
+
+// Spacing's
+$select-spacings: theme.get-spacing("md");

@@ -16,7 +16,6 @@
   width: 100%;
   overflow: hidden;
   background-color: theme.get-var(background);
-  border: 1px solid theme.get-var(border-color);
   border-radius: theme.get-var(radius);
 
   &__body {
@@ -73,5 +72,9 @@
     );
 
     box-shadow: 0 0 0 2px theme.get-color("primary");
+  }
+
+  &--border {
+    border: 1px solid theme.get-var(border-color);
   }
 }

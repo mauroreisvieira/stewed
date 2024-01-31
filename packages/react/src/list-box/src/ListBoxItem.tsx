@@ -1,6 +1,8 @@
 import React from "react";
-// Utilities
-import { classNames } from "@stewed/utilities";
+// Hooks
+import { useBem } from "@stewed/hooks";
+// Tokens
+import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
@@ -28,22 +30,24 @@ export function ListBoxItem({
   disabled,
   className,
   children,
+  ...props
 }: ListBoxItemProps): React.ReactElement {
-  const rootName = "list-box__item";
+  // Importing useBem to handle BEM class names
+  const { getBlock, getElement } = useBem({ block: `${components.ListBox}__item`, styles });
+
+  // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: classNames(
-      styles[rootName],
-      skin !== "primary" && styles[`${rootName}--${skin}`],
-      selected && styles[`${rootName}--selected`],
-      disabled && styles[`${rootName}--disabled`],
-      className,
-    ),
-    left: classNames(styles[`${rootName}__left`]),
-    text: classNames(styles[`${rootName}__text`]),
-    right: classNames(styles[`${rootName}__right`]),
+    root: getBlock({
+      modifiers: [skin !== "primary" && skin, selected && "selected", disabled && "disabled"],
+      extraClasses: className,
+    }),
+    left: getElement(["left"]),
+    text: getElement(["text"]),
+    right: getElement(["right"]),
   };
+
   return (
-    <div className={cssClasses.root} role="menuitem" tabIndex={disabled ? -1 : 0}>
+    <div className={cssClasses.root} role="menuitem" tabIndex={disabled ? -1 : 0} {...props}>
       {leftSlot && <div className={cssClasses.left}>{leftSlot}</div>}
       {children && <div className={cssClasses.text}>{children}</div>}
       {rightSlot && <div className={cssClasses.right}>{rightSlot}</div>}

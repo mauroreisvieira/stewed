@@ -58,14 +58,14 @@
     @include theme.define-var(
       (
         padding-block: theme.get-spacing("sm"),
-        padding-inline: theme.get-spacing("md"),
+        padding-inline: theme.get-spacing("sm"),
         font-size: theme.get-font-size("sm"),
       )
     );
   }
 
-  @each $key, $value in $tag-skins {
-    &--#{$key} {
+  @each $value in $tag-skins {
+    &--#{$value} {
       @include theme.define-var(
         (
           color: #fff,

@@ -1,6 +1,6 @@
 import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
 import { TiWarning } from "react-icons/ti";
-import { Theme, Box } from "../../";
+import { Theme, Box, Text } from "../../";
 
 <Meta title="Components/Box" component={Box} />
 
@@ -40,9 +40,9 @@ export const Template = (args) => (
       direction: "column",
       children: (
         <>
-          <div style={{ border: "1px solid #000", padding: 24 }}>Column 1</div>
-          <div style={{ border: "1px solid #000", padding: 24 }}>Column 2</div>
-          <div style={{ border: "1px solid #000", padding: 24 }}>Column 3</div>
+          <div style={{ border: "1px solid #000", padding: 24 }}><Text>Column 1</Text></div>
+          <div style={{ border: "1px solid #000", padding: 24 }}><Text>Column 2</Text></div>
+          <div style={{ border: "1px solid #000", padding: 24 }}><Text>Column 3</Text></div>
         </>
       ),
     }}>

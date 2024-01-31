@@ -1,8 +1,10 @@
 import React from "react";
-// Utilities
-import { classNames } from "@stewed/utilities";
+// Tokens
+import { type Spacings, components } from "@stewed/tokens";
+// Hooks
+import { useBem } from "@stewed/hooks";
+// Types
 import { type DistributiveOmit, fixedForwardRef } from "../../types";
-import type { Spacings } from "../../tokens";
 // Style
 import styles from "./styles/index.module.scss";
 
@@ -69,21 +71,26 @@ export const Box = fixedForwardRef(
     ref: React.ForwardedRef<unknown>,
   ): React.ReactElement => {
     const Comp = as || defaultElement;
-    const rootName = "box";
+
+    // Importing useBem to handle BEM class names
+    const { getBlock } = useBem({ block: components.Box, styles });
+
+    // Generating CSS classes based on component props and styles
     const cssClasses = {
-      root: classNames(
-        styles[rootName],
-        styles[`${rootName}--${direction}`],
-        gap && styles[`${rootName}--gap-${gap}`],
-        justify && styles[`${rootName}--justify-${justify}`],
-        items && styles[`${rootName}--items-${items}`],
-        space?.x && styles[`${rootName}--space-x-${space.x}`],
-        space?.y && styles[`${rootName}--space-y-${space.y}`],
-        wrap && styles[`${rootName}--${wrap}`],
-        inline && styles[`${rootName}--inline`],
-        grow && styles[`${rootName}--grow`],
-        className,
-      ),
+      root: getBlock({
+        modifiers: [
+          direction,
+          gap && `gap-${gap}`,
+          justify && `justify-${justify}`,
+          items && `items-${items}`,
+          space?.x && `space-x-${space.x}`,
+          space?.y && `space-y-${space.y}`,
+          wrap,
+          inline && "inline",
+          grow && "grow",
+        ],
+        extraClasses: className,
+      }),
     };
 
     return (

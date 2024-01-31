@@ -6,13 +6,13 @@ const definitionError = (): null => {
 
 export interface TabsContextProps {
   /** Sets value of tab item selected. */
-  value: unknown;
+  value: string | undefined;
   /** Callback fired when the value changes. */
   onValueChange?: (value: string) => void;
 }
 
 export const TabsContext = createContext<TabsContextProps>({
-  value: "",
+  value: undefined,
   onValueChange: definitionError,
 });
 

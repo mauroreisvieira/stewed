@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Theme, Card} from "../../index";
+import { Theme, Card, Text } from "../../index";
 
 type Story = StoryObj<typeof Card>;
 
@@ -30,13 +30,19 @@ export const Default: Story = {
     selected: false,
     children: (
       <>
-        <Card.Header>Card Header</Card.Header>
+        <Card.Header>
+          <Text>Card Header</Text>
+        </Card.Header>
         <Card.Body>
-          Pellentesque elementum diam sapien, nec ultrices risus convallis eget. Nam pharetra dolor
-          at dictum tempor. Quisque ut est a ligula hendrerit sodales. Curabitur ornare a nulla in
-          laoreet. Maecenas semper mi egestas, dignissim nisi et, elementum neque.
+          <Text>
+            Pellentesque elementum diam sapien, nec ultrices risus convallis eget. Nam pharetra
+            dolor at dictum tempor. Quisque ut est a ligula hendrerit sodales. Curabitur ornare a
+            nulla in laoreet. Maecenas semper mi egestas, dignissim nisi et, elementum neque.
+          </Text>
         </Card.Body>
-        <Card.Footer>Card Footer</Card.Footer>
+        <Card.Footer>
+          <Text>Card Footer</Text>
+        </Card.Footer>
       </>
     ),
   },

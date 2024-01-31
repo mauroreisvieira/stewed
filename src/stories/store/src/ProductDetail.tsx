@@ -22,7 +22,6 @@ export function ProductDetail(): React.ReactElement {
       <Box justify="between" gap="2xl">
         <Box>
           <Carousel
-            showIndicator={false}
             renderPrev={(props) => (
               <Button appearance="ghost" leftSlot={<FiArrowLeft size={24} />} iconOnly {...props}>
                 Prev

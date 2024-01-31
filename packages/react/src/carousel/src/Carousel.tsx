@@ -6,18 +6,18 @@ import React, {
   useImperativeHandle,
   useCallback,
 } from "react";
-// Sub Components
-import { CarouselIndicator } from "./CarouselIndicator";
-// Utilities
-import { classNames } from "@stewed/utilities";
+// Hooks
+import { useBem } from "@stewed/hooks";
+// Tokens
+import { components, type Spacings } from "@stewed/tokens";
 // Style
 import styles from "./styles/index.module.scss";
 
 export interface CarouselProps extends React.HTMLAttributes<HTMLDivElement> {
+  /** The gap between box items. Can be a predefined size or a custom value. */
+  gap?: Spacings;
   /** Enables infinite looping */
   loop?: boolean;
-  /** Will show/hide indicator */
-  showIndicator?: boolean;
   /** Will show/hide prev and next button */
   showNavigation?: boolean;
   /** Number of slides to display */
@@ -63,8 +63,8 @@ export interface CarouselRef {
 export const Carousel = forwardRef(
   (
     {
+      gap = "md",
       loop = false,
-      showIndicator = true,
       showNavigation = true,
       slidesPerView = 1,
       className,
@@ -79,6 +79,23 @@ export const Carousel = forwardRef(
       throw new Error("Number of `slidesPerView` should be greater than 0");
     }
 
+    const isBatch = slidesPerView > 1;
+
+    // Importing useBem to handle BEM class names
+    const { getBlock, getElement } = useBem({ block: components.Carousel, styles });
+
+    // Generating CSS classes based on component props and styles
+    const cssClasses = {
+      root: getBlock({ modifiers: [gap && isBatch && `gap-${gap}`], extraClasses: className }),
+      wrapper: getElement(["wrapper"]),
+      content: getElement(["content"]),
+      track: getElement(["track"]),
+      item: getElement(["item"]),
+      slide: getElement(["slide"]),
+      prev: getElement(["prev"]),
+      next: getElement(["next"]),
+    };
+
     const hasLooping = useMemo(
       () => loop && React.Children.count(children) > slidesPerView,
       [children, loop, slidesPerView],
@@ -89,21 +106,8 @@ export const Carousel = forwardRef(
       return (slidesPerView - (slidesCount % slidesPerView)) % slidesPerView;
     }, [slidesPerView, slidesCount]);
 
-    const isBatch = slidesPerView > 1;
-
     // number of slides will be render on indicators
     const numberOfIndicators = Math.ceil(slidesCount / slidesPerView);
-
-    const cssClasses = {
-      root: classNames(styles["carousel"], isBatch && styles["carousel--batch"], className),
-      wrapper: classNames(styles["carousel__wrapper"]),
-      content: classNames(styles["carousel__content"]),
-      track: classNames(styles["carousel__track"]),
-      item: classNames(styles["carousel__item"]),
-      slide: classNames(styles["carousel__slide"]),
-      prev: classNames(styles[`carousel__prev`]),
-      next: classNames(styles[`carousel__next`]),
-    };
 
     const [isProcessing, setProcessing] = useState(false);
 
@@ -288,14 +292,6 @@ export const Carousel = forwardRef(
             )}
           </div>
         </div>
-        {showIndicator && (
-          <CarouselIndicator
-            onClick={setCurrentIndex}
-            currentSlide={currentSlide}
-            slidesPerView={slidesPerView}
-            slidesCount={slidesCount}
-          />
-        )}
       </div>
     );
   },

@@ -15,7 +15,7 @@ export function Scope({ children }: ScopeProps): React.ReactElement {
   const { theme, tokens } = useTheme();
 
   const content = (
-    <Theme theme={theme} tokens={tokens}>
+    <Theme defaultTheme={theme} tokens={tokens}>
       {children}
     </Theme>
   );

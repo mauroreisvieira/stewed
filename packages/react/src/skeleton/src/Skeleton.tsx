@@ -1,7 +1,8 @@
 import React from "react";
-// Utilities
-import { classNames } from "@stewed/utilities";
-import type { Radius } from "../../tokens";
+// Hooks
+import { useBem } from "@stewed/hooks";
+// Tokens
+import { type Radius, components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
@@ -33,18 +34,16 @@ export function Skeleton({
   className,
   ...nativeProps
 }: SkeletonProps): React.ReactElement {
-  const rootName = "skeleton";
+  // Importing useBem to handle BEM class names
+  const { getBlock } = useBem({ block: components.Skeleton, styles });
 
+  // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: classNames(
-      styles[rootName],
-      styles[`${rootName}--${shape}`],
-      styles[`${rootName}--${size}`],
-      shape !== "circle" && styles[`${rootName}--radius-${radius}`],
-      className,
-    ),
+    root: getBlock({
+      modifiers: [shape, size, shape !== "circle" && `radius-${radius}`],
+      extraClasses: className,
+    }),
   };
-
 
   return <div {...nativeProps} className={cssClasses.root} />;
 }
