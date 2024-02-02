@@ -200,17 +200,6 @@
     );
   }
 
-  &--xl {
-    @include theme.define-var(
-      (
-        padding-inline: theme.get-spacing("lg"),
-        padding-block: theme.get-spacing("lg"),
-        text-line-height: theme.get-line-height("md"),
-        text-font-size: theme.get-font-size("md"),
-      )
-    );
-  }
-
   &--full-width {
     width: 100%;
   }
