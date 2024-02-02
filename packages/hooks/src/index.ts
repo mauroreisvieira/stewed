@@ -1,7 +1,7 @@
 export { useAsync } from './useAsync';
 export { useBem } from './useBem';
 export { useDebouncedValue } from './useDebouncedValue';
-export { useForm } from './useForm';
+export { useStateForm } from './useStateForm';
 export { useInput } from './useInput';
 export { useIntersectionObserver } from './useIntersectionObserver';
 export { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';

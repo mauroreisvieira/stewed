@@ -1,4 +1,4 @@
-import { useMemo, useReducer, SyntheticEvent } from "react";
+import React, { useMemo, useReducer, SyntheticEvent } from "react";
 // Utilities
 import { objectKeys } from "@stewed/utilities";
 
@@ -13,7 +13,7 @@ type FormValidators<T> = {
   };
 };
 
-interface UseFormProps<T> {
+interface UseStateFormProps<T> {
   /** Initial values for the form fields. */
   initialValues: T;
   /**
@@ -30,9 +30,11 @@ interface UseFormProps<T> {
   validators?: FormValidators<T>;
 }
 
-interface UseForm<T> {
+interface UseStateForm<T> {
   /** Represents the current state of the form. */
-  data: { [key in keyof T]: { value: T[keyof T]; valid: boolean; error?: string } };
+  formData: { [key in keyof T]: { value: T[keyof T]; valid: boolean; error?: string } };
+  /** Function to update the form data state */
+  setFormData: React.Dispatch<Partial<T>>;
   /** Event handler for form field changes. */
   onFormChange: (event: NativeChangeEvents) => void;
   /** Event handler for form submission. */
@@ -44,21 +46,21 @@ interface UseForm<T> {
 /**
  * Hook for managing forms with ease, it takes one object as optional argument.
  *
- * @param {UseFormProps<T>} options - Options object containing form initial values, validators, submit and reset callbacks.
- * @returns {UseForm<T>} - Returns an object containing form state and handlers.
+ * @param {UseStateFormProps<T>} options - Options object containing form initial values, validators, submit and reset callbacks.
+ * @returns {UseStateForm<T>} - Returns an object containing form state and handlers.
  *
  * @example
- * const [data: { firstName, lastName }, onFormChange] = useForm({ initialValues: { firstName: "", lastName: ""}});
+ * const { data: { firstName, lastName }, onFormChange } = useStateForm({ initialValues: { firstName: "", lastName: ""}});
  *
  * <input name="firstName" value={firstName} onChange={onFormChange} />
  * <input name="lastName" value={lastName} onChange={onFormChange} />
  */
-export function useForm<T>({
+export function useStateForm<T>({
   initialValues,
   validators,
   onSubmit,
   onReset,
-}: UseFormProps<T>): UseForm<T> {
+}: UseStateFormProps<T>): UseStateForm<T> {
   const [formData, setFormData] = useReducer((prev: T, next: Partial<T>) => {
     return { ...prev, ...next };
   }, initialValues);
@@ -99,13 +101,14 @@ export function useForm<T>({
           };
           return acc;
         },
-        {} as UseForm<T>["data"],
+        {} as UseStateForm<T>["formData"],
       ),
     [formData, validators],
   );
 
   return {
-    data,
+    formData: data,
+    setFormData,
     onFormChange: onHandleChange,
     onFormSubmit: onHandleSubmit,
     onFormReset: onHandleReset,
