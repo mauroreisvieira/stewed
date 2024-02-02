@@ -15,19 +15,19 @@ import {
   Dialog,
 } from "../../../../packages/react/index";
 // Hooks
-import { useForm } from "@stewed/hooks";
+import { useStateForm } from "@stewed/hooks";
 
-type ThemeOptions = "metro" | "elegant";
+type ThemeOptions = "default" | "metro" | "elegant";
 
 function Elements(): React.ReactElement {
   const { theme, setTheme } = useTheme<ThemeOptions>();
   const [isOpen, setOpen] = useState(false);
 
   const {
-    data: { username, email, password },
+    formData: { username, email, password },
     onFormChange,
     onFormReset,
-  } = useForm({
+  } = useStateForm({
     initialValues: {
       username: "",
       email: "",
@@ -60,6 +60,7 @@ function Elements(): React.ReactElement {
             setTheme(value as ThemeOptions);
           }}>
           <Tabs.List>
+            <Tabs.Item value="default">Default</Tabs.Item>
             <Tabs.Item value="metro">Metro</Tabs.Item>
             <Tabs.Item value="elegant">Elegant</Tabs.Item>
           </Tabs.List>
@@ -206,7 +207,7 @@ function Elements(): React.ReactElement {
 export function CustomTheme(): React.ReactElement {
   return (
     <Theme<ThemeOptions>
-      defaultTheme="metro"
+      defaultTheme="default"
       tokens={{
         metro: {
           color: {

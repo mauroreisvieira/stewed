@@ -82,7 +82,7 @@ export const Box = fixedForwardRef(
     const cssClasses = {
       root: getBlock({
         modifiers: [
-          direction,
+          direction !== "row" && direction,
           gap && `gap-${gap}`,
           justify && `justify-${justify}`,
           items && `items-${items}`,

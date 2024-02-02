@@ -34,7 +34,10 @@ export function Tabs({
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ modifiers: [alignment, direction], extraClasses: className }),
+    root: getBlock({
+      modifiers: [alignment, direction !== "row" && direction],
+      extraClasses: className,
+    }),
   };
 
   return (
