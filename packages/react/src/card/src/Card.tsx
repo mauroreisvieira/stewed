@@ -12,7 +12,6 @@ import { useBem } from "@stewed/hooks";
 import styles from "./styles/index.module.scss";
 
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  border?: boolean;
   /**
    * The padding size for the card.
    * @default md
@@ -41,7 +40,6 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
  * @returns {React.ReactElement} - The rendered Card component.
  */
 export function Card({
-  border = true,
   selected,
   padding = "md",
   className,
@@ -53,7 +51,7 @@ export function Card({
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ modifiers: [padding, selected && "selected",border && "border"], extraClasses: className }),
+    root: getBlock({ modifiers: [padding, selected && "selected"], extraClasses: className }),
   };
 
   return (

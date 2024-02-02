@@ -21,16 +21,16 @@ export function SplashScreen(): React.ReactElement {
                 <AspectRatio ratio="1:1">
                   <img src="https://placehold.co/400x600" />
                 </AspectRatio>
-                <Card border={false}>
-                  <Card.Body>
-                    <Box direction="column" gap="xl" items="center">
-                      <Text as="h1">Purches Quickly</Text>
-                      <Text size="xl" skin="neutral">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus, asperiores?
-                      </Text>
-                    </Box>
-                  </Card.Body>
-                </Card>
+                <Box
+                  direction="column"
+                  gap="xl"
+                  items="center"
+                  padding={{ block: "2xl", inline: "2xl" }}>
+                  <Text as="h1">Purchase Quickly</Text>
+                  <Text size="xl" skin="neutral">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus, asperiores?
+                  </Text>
+                </Box>
               </Box>
             ))}
           </Carousel>
