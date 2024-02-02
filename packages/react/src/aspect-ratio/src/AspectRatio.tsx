@@ -34,12 +34,11 @@ export function AspectRatio({
   ...props
 }: AspectRatioProps): React.ReactElement {
   // Importing useBem to handle BEM class names
-  const { getBlock, getElement } = useBem({ block: components.AspectRatio, styles });
+  const { getBlock } = useBem({ block: components.AspectRatio, styles });
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({ modifiers: [ratio.replace(":", "-")], extraClasses: className }),
-    img: getElement(["img"]),
   };
 
   return (

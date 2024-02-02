@@ -52,7 +52,6 @@ export function Badge({
       extraClasses: className,
     }),
     value: getElement(["value"]),
-    text: getElement(["text"]),
   };
 
   return (
