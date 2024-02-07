@@ -5,6 +5,8 @@
 @include theme.scope($tag-root) {
   @include theme.define-var(
     (
+      border-width: 1px,
+      border-color: transparent,
       gap: theme.get-spacing("sm"),
     )
   );
@@ -21,6 +23,7 @@
   text-decoration: none;
   white-space: nowrap;
   background-color: theme.get-var(background-color);
+  border: theme.get-var(border-width) solid theme.get-var(border-color);
   border-radius: theme.get-var(radius);
 
   @include text.typography(
@@ -66,19 +69,80 @@
 
   @each $value in $tag-skins {
     &--#{$value} {
-      @include theme.define-var(
-        (
-          color: #fff,
-          background-color: theme.get-color($value),
-        )
-      );
-
-      &[href]:hover {
+      &-filled {
         @include theme.define-var(
           (
-            background-color: theme.get-color($value, "pressed"),
+            background-color: theme.get-color($value),
+            color: #fff,
           )
         );
+
+        &[href]:hover {
+          @include theme.define-var(
+            (
+              background-color: theme.get-color($value, "pressed"),
+            )
+          );
+        }
+
+        &[href]:active {
+          @include theme.define-var(
+            (
+              background-color: theme.get-color($value),
+            )
+          );
+        }
+      }
+
+      &-ghost {
+        @include theme.define-var(
+          (
+            color: theme.get-color($value),
+            background-color: transparent,
+          )
+        );
+
+        &[href]:hover {
+          @include theme.define-var(
+            (
+              background-color: theme.get-color($value, "faded"),
+            )
+          );
+        }
+
+        &[href]:active {
+          @include theme.define-var(
+            (
+              background-color: theme.get-color($value, "faded"),
+            )
+          );
+        }
+      }
+
+      &-outline {
+        @include theme.define-var(
+          (
+            background-color: transparent,
+            border-color: currentColor,
+            color: theme.get-color($value),
+          )
+        );
+
+        &[href]:hover {
+          @include theme.define-var(
+            (
+              color: theme.get-color($value, "pressed"),
+            )
+          );
+        }
+
+        &[href]:active {
+          @include theme.define-var(
+            (
+              color: theme.get-color($value),
+            )
+          );
+        }
       }
     }
   }

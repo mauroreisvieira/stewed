@@ -60,6 +60,7 @@ export const Tag = fixedForwardRef(
     {
       as,
       skin = "primary",
+      appearance = "filled",
       size = "md",
       className,
       leftSlot,
@@ -81,7 +82,7 @@ export const Tag = fixedForwardRef(
 
     // Generating CSS classes based on component props and styles
     const cssClasses = {
-      root: getBlock({ modifiers: [skin, size], extraClasses: className }),
+      root: getBlock({ modifiers: [`${skin}-${appearance}`, size], extraClasses: className }),
       left: getElement(["left"]),
       right: getElement(["right"]),
     };
