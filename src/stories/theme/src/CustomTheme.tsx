@@ -24,7 +24,7 @@ function Elements(): React.ReactElement {
   const [isOpen, setOpen] = useState(false);
 
   const {
-    formData: { username, email, password },
+    formData: { username, email, password, confirmPassword },
     onFormChange,
     onFormReset,
   } = useStateForm({
@@ -32,22 +32,39 @@ function Elements(): React.ReactElement {
       username: "",
       email: "",
       password: "",
+      confirmPassword: "",
     },
-    validators: {
+    validators: ({ username, email, password, confirmPassword }) => ({
       username: {
-        exp: /^[a-zA-Z0-9]+$/,
+        condition: () => {
+          return username ? /^[a-zA-Z0-9]+$/.exec(username) !== null : true;
+        },
         description: "Username can only contain letters or digits.",
       },
       email: {
-        exp: /[\d%+._a-z-]+@[\d.a-z-]+.[a-z]{2,}$/,
-        description: "Email is not valid.",
+        condition: () => {
+          return email
+            ? /[\d%+._a-z-]+@[\d.a-z-]+.[a-z]{2,}$/.exec(email) !== null
+            : true;
+        },
+        description: "The email address is not valid, make sure it follows the standard format.",
       },
       password: {
-        exp: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
+        condition: () => {
+          return password
+            ? /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/.exec(password) !== null
+            : true;
+        },
         description:
-          "Require 1 number, 1 uppercase and lowercase letter, with a minimum of 8 characters.",
+          "Password must contain at least one number, one uppercase letter, one lowercase letter, and be at least 8 characters.",
       },
-    },
+      confirmPassword: {
+        condition: () => {
+          return confirmPassword ? password === confirmPassword : true;
+        },
+        description: "The passwords provided do not match, ensure that both passwords are identical.",
+      },
+    }),
   });
 
   return (
@@ -125,6 +142,23 @@ function Elements(): React.ReactElement {
                     Use 8 or more characters with a mix of letters, numbers, and symbols.
                   </FormField.Description>
                   <FormField.Error hidden={password.valid}>{password.error}</FormField.Error>
+                </FormField>
+                <FormField>
+                  <FormField.Label htmlFor="confirmPassword">Confirm Password</FormField.Label>
+                  <FormField.Control>
+                    <TextField
+                      id="confirmPassword"
+                      type="password"
+                      name="confirmPassword"
+                      value={confirmPassword.value}
+                      onChange={onFormChange}
+                      skin={confirmPassword.valid ? "default" : "critical"}
+                      placeholder="Enter your password"
+                    />
+                  </FormField.Control>
+                  <FormField.Error hidden={confirmPassword.valid}>
+                    {confirmPassword.error}
+                  </FormField.Error>
                 </FormField>
               </Box>
             </Box>

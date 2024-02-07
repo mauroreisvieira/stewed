@@ -1,6 +1,7 @@
 import React from "react";
+// Storybook
 import type { Meta, StoryObj } from "@storybook/react";
-
+// Packages
 import { Theme, Card, Text } from "../../index";
 
 type Story = StoryObj<typeof Card>;
