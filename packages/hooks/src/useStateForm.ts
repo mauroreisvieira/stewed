@@ -5,11 +5,15 @@ import { objectKeys } from "@stewed/utilities";
 type NativeChangeEvents = React.ChangeEvent<HTMLInputElement & HTMLTextAreaElement>;
 
 type FormValidators<T> = {
+  /**
+   * Defines a validator for a specific form field.
+   * @template T[key] - The type of the form field.
+   */
   [key in keyof T]?: {
-    /** Regular expression used for validation. */
-    exp: RegExp;
-    /** Description of the validation criteria. */
+    /** Description of the condition criteria. */
     description: string;
+    /** A function defining the condition for the validator. */
+    condition?: () => boolean;
   };
 };
 
@@ -27,12 +31,12 @@ interface UseStateFormProps<T> {
    */
   onReset?: (data: T) => void;
   /** Validators for the form fields. */
-  validators?: FormValidators<T>;
+  validators?: (data: Partial<T>) => FormValidators<T>;
 }
 
 interface UseStateForm<T> {
   /** Represents the current state of the form. */
-  formData: { [key in keyof T]: { value: T[keyof T]; valid: boolean; error?: string } };
+  formData: { [key in keyof T]: { value: T[keyof T]; valid: boolean | undefined; error?: string } };
   /** Function to update the form data state */
   setFormData: React.Dispatch<Partial<T>>;
   /** Event handler for form field changes. */
@@ -94,10 +98,10 @@ export function useStateForm<T>({
         (acc, key) => {
           acc[key] = {
             value: formData[key],
-            valid: formData[key]
-              ? validators?.[key]?.exp.exec(formData[key] as string) !== null
+            valid: validators?.(formData)[key]?.condition
+              ? validators?.(formData)[key]?.condition?.()
               : true,
-            error: validators?.[key]?.description,
+            error: validators?.(formData)[key]?.description,
           };
           return acc;
         },
