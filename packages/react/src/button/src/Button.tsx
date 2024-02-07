@@ -36,6 +36,7 @@ export interface ButtonProps<T> extends React.ComponentProps<typeof defaultEleme
   leftSlot?: React.ReactNode;
   /** Slot for icon to display after the button text. */
   rightSlot?: React.ReactNode;
+  pressed?: boolean;
   /** Allows the button to grow to the width of its container. */
   fullWidth?: boolean;
   /** Hide content and show only the icon. */
@@ -71,9 +72,10 @@ export const Button = fixedForwardRef(
       size = "md",
       leftSlot,
       rightSlot,
+      pressed,
       fullWidth,
-      className,
       iconOnly,
+      className,
       children,
       ...props
     }: ButtonProps<T> &
@@ -95,6 +97,7 @@ export const Button = fixedForwardRef(
         modifiers: [
           `${skin}-${appearance}`,
           size,
+          pressed && "pressed",
           iconOnly && "icon-only",
           fullWidth && "full-width",
           props.disabled && "disabled",
@@ -107,7 +110,13 @@ export const Button = fixedForwardRef(
     };
 
     return (
-      <Comp ref={ref} className={cssClasses.root} {...props}>
+      <Comp
+        ref={ref}
+        className={cssClasses.root}
+        aria-pressed={pressed}
+        aria-disabled={props.disabled}
+        {...props}
+      >
         {leftSlot && <span className={cssClasses.left}>{leftSlot}</span>}
         {children && <span className={cssClasses.text}>{children}</span>}
         {rightSlot && <span className={cssClasses.right}>{rightSlot}</span>}

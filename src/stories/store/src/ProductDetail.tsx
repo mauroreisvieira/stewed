@@ -60,7 +60,7 @@ export function ProductDetail(): React.ReactElement {
             <Text as="label" size="xs" variation={"uppercase"} weight="medium">
               Seleccione o seu tamanho
             </Text>
-            <Toggle.Group gap>
+            <Toggle.Group>
               {productsSizes.map((value) => (
                 <Toggle
                   key={value}

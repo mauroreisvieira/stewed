@@ -6,7 +6,6 @@
 @include theme.scope($toggle-root) {
   @include theme.define-var(
     (
-      gap: theme.get-spacing("sm"),
       background-color: transparent,
       border-color: currentColor,
       color: theme.get-color("primary"),
@@ -16,7 +15,7 @@
   position: relative;
   box-sizing: border-box;
   display: inline-flex;
-  gap: theme.get-var(gap);
+  gap: theme.get-spacing("sm");
   align-items: center;
   justify-content: center;
   min-width: theme.get-var(size);
@@ -71,7 +70,7 @@
 
   &__group {
     display: flex;
-    gap: theme.get-spacing("sm");
+    gap: theme.get-var(gap);
   }
 
   &--selected {
