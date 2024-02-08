@@ -101,9 +101,8 @@ export function Dialog({
 
   useFocusTrap({
     root: rootRef,
-    enabled: !!open,
+    enabled: !!open && !!rootRef,
   });
-
 
   return (
     <>
