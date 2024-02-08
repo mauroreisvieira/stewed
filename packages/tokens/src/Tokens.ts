@@ -64,7 +64,6 @@ export const tokens: Tokens = {
     },
     [components.Toggle]: {
       radius: "sm",
-      gap: "none",
     },
   },
 };

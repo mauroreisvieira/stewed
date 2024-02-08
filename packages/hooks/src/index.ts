@@ -1,11 +1,16 @@
 export { useAsync } from './useAsync';
 export { useBem } from './useBem';
 export { useDebouncedValue } from './useDebouncedValue';
-export { useStateForm } from './useStateForm';
+export { useFetch } from './useFetch';
+export { useFocusTrap } from './useFocusTrap';
+export { useGlobalState } from './useGlobalState';
 export { useInput } from './useInput';
 export { useIntersectionObserver } from './useIntersectionObserver';
 export { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
 export { usePortal } from './usePortal';
+export { usePrevious } from './usePrevious';
 export { useResizeObserver } from './useResizeObserver';
+export { useSelect } from './useSelect';
+export { useStateForm } from './useStateForm';
 export { useToggle } from './useToggle';
 export { useVisualViewport } from './useVisualViewport';

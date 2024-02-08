@@ -32,7 +32,7 @@ export type Components = {
   [components.Tag]?: { radius?: Radius };
   [components.TextArea]?: { radius?: Radius };
   [components.TextField]?: { radius?: Radius };
-  [components.Toggle]?: { radius?: Radius; gap?: Spacings };
+  [components.Toggle]?: { radius?: Radius };
 };
 
 export type Tokens = {

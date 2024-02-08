@@ -18,7 +18,16 @@ export function ProductDetail(): React.ReactElement {
   const [selectedSize, setSelectedSize] = useState("M");
 
   return (
-    <Theme>
+    <Theme<"default"> defaultTheme="default" tokens={{
+    default: {
+      components: {
+        toggle: {
+          radius: "sm",
+          gap: "none",
+        }
+      }
+    }
+    }}>
       <Box justify="between" gap="2xl">
         <Box>
           <Carousel

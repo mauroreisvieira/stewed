@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from "react";
+import React, { useState, useCallback } from "react";
 import { Scope } from "../..";
 // Provider
 import { type DialogProviderProps, DialogProvider } from "./DialogProvider";
@@ -8,6 +8,7 @@ import { DialogHeader } from "./DialogHeader";
 import { DialogFooter } from "./DialogFooter";
 // Hooks
 import { useBem } from "@stewed/hooks";
+import { useFocusTrap } from "@stewed/hooks";
 // Tokens
 import { components } from "@stewed/tokens";
 // Styles
@@ -58,7 +59,7 @@ export function Dialog({
   onMouseDown,
   ...props
 }: DialogProps): React.ReactElement {
-  const rootRef = useRef<HTMLDivElement>(null);
+  const [rootRef, setRootRef] = useState<HTMLDivElement | null>(null);
 
   // Importing useBem to handle BEM class names
   const { getBlock, getElement } = useBem({ block: components.Dialog, styles });
@@ -85,18 +86,24 @@ export function Dialog({
     (event: React.MouseEvent<HTMLDivElement>): void => {
       if (onMouseDown) onMouseDown(event);
 
-      if (!rootRef.current) return;
+      if (!rootRef) return;
 
       const { target } = event;
 
-      if (rootRef.current === target) {
+      if (rootRef === target) {
         if (onClickOutside) onClickOutside();
       }
 
       event.stopPropagation();
     },
-    [onClickOutside, onMouseDown],
+    [onClickOutside, onMouseDown, rootRef],
   );
+
+  useFocusTrap({
+    root: rootRef,
+    enabled: !!open,
+  });
+
 
   return (
     <>
@@ -104,7 +111,7 @@ export function Dialog({
         <Scope>
           <DialogProvider onClose={onClose}>
             <div
-              ref={rootRef}
+              ref={setRootRef}
               className={cssClasses.root}
               onMouseDown={onHandleMouseDown}
               onKeyDown={onHandleKeydown}

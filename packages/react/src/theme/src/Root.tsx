@@ -1,6 +1,8 @@
 import React, { useEffect, useMemo } from "react";
 // Tokens
-import { tokens as defaultTokens, type Tokens, type Components } from "../../../../tokens/index";
+import { tokens as defaultTokens, type Tokens, type Components } from "@stewed/tokens";
+// Utilities
+import { objectKeys } from "@stewed/utilities";
 // Hooks
 import { type ThemeContextProps, useTheme } from "./ThemeContext";
 
@@ -10,7 +12,7 @@ type ThemeContextOmittedProps<T extends string> = Omit<
 >;
 
 type OutputTokens = Exclude<Tokens, "components"> & {
-  [K in keyof Components]?: { radius?: string; gap?: string };
+  [K in keyof Components]?: { radius?: string };
 };
 
 export interface RootProps<T extends string>
@@ -33,8 +35,6 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
   const { theme, tokens } = useTheme();
 
   const currentTheme = theme || "default";
-
-  const objectKeys: <Obj>(o: Obj) => (keyof Obj)[] = Object.keys;
 
   const outputObject = useMemo(() => {
     const mergedTokens = objectKeys(defaultTokens).reduce((acc: OutputTokens, key) => {
@@ -68,10 +68,7 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
           acc[component] = {
             ...componentObj,
             ...(componentObj?.radius && {
-              radius: mergedTokens.radius?.[componentObj?.radius] || componentObj?.radius
-            }),
-            ...(componentObj?.gap && {
-              gap: mergedTokens.gap?.[componentObj?.gap] || componentObj?.gap
+              radius: mergedTokens.radius?.[componentObj?.radius] || componentObj?.radius,
             }),
           };
         });
