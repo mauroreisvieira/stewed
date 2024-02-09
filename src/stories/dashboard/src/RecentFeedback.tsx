@@ -69,14 +69,15 @@ export function RecentFeedback(): React.ReactElement {
 
   return (
     <Theme>
-      <Box direction="column" gap="5xl">
-        <Box direction="column" gap="sm">
-          <Text as="h5">Recent feedback</Text>
-          <Text size="sm" skin="neutral">
-            Find all of your customer feedback in one place.
-          </Text>
-        </Box>
-        <Table>
+      <Box direction="column">
+        <Text as="h5" space={{ y: "xs" }}>
+          Recent feedback
+        </Text>
+        <Text size="sm" skin="neutral" space={{ y: "3xl" }}>
+          Find all of your customer feedback in one place.
+        </Text>
+
+        <Table hoverable>
           <Table.Head>
             <Table.Row>
               <Table.Cell as="th">
@@ -101,17 +102,23 @@ export function RecentFeedback(): React.ReactElement {
           </Table.Head>
           <Table.Body>
             {team.map(({ id, name, email, content, sentiment, selected }) => (
-              <Table.Row key={id} selected={selected}>
+              <Table.Row
+                key={id}
+                selected={selected}
+                onClick={(event) => {
+                  setTeam((prev) =>
+                    prev.map((value) => ({
+                      ...value,
+                      selected: value.id === id ? !value.selected : value.selected,
+                    })),
+                  );
+                    event.stopPropagation();
+                }}>
                 <Table.Cell>
                   <Checkbox
                     checked={selected}
-                    onChange={() => {
-                      setTeam((prev) =>
-                        prev.map((value) => ({
-                          ...value,
-                          selected: value.id === id ? !value.selected : value.selected,
-                        })),
-                      );
+                    onChange={(event) => {
+                      event.preventDefault();
                     }}
                   />
                 </Table.Cell>

@@ -121,4 +121,15 @@
       );
     }
   }
+
+  // Space
+  @each $key, $value in $typography-space {
+    &--space-x-#{$key} ~ :not([hidden]) {
+      margin-left: #{$value};
+    }
+
+    &--space-y-#{$key}:not([hidden]) ~ :not([hidden]) {
+      margin-top: #{$value};
+    }
+  }
 }

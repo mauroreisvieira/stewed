@@ -3,7 +3,13 @@ import React from "react";
 import { useBem } from "@stewed/hooks";
 // Types
 import { type DistributiveOmit, fixedForwardRef } from "../../types";
-import { type FontSize, type FontWeight, type FontFamily, components } from "@stewed/tokens";
+import {
+  type Spacings,
+  type FontSize,
+  type FontWeight,
+  type FontFamily,
+  components,
+} from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
@@ -54,6 +60,11 @@ export interface TextProps<T> extends React.ComponentProps<typeof defaultElement
   alignment?: "start" | "center" | "end" | "justify";
   /** Changes the white space of the text. */
   whiteSpace?: "normal" | "nowrap";
+  /** Adds space between text on the horizontal and vertical axes. */
+  space?: {
+    x?: Spacings;
+    y?: Spacings;
+  };
 }
 
 /**
@@ -81,6 +92,7 @@ export const Text = fixedForwardRef(
       variation,
       alignment,
       whiteSpace,
+      space,
       className,
       children,
       ...props
@@ -116,6 +128,8 @@ export const Text = fixedForwardRef(
           weight,
           alignment && `alignment-${alignment}`,
           whiteSpace && `white-space-${whiteSpace}`,
+          space?.x && `space-x-${space.x}`,
+          space?.y && `space-y-${space.y}`,
           ...computedVariation.map((i) => i),
         ],
         extraClasses: className,

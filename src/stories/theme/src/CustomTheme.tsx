@@ -43,17 +43,13 @@ function Elements(): React.ReactElement {
       },
       email: {
         condition: () => {
-          return email
-            ? /[\d%+._a-z-]+@[\d.a-z-]+.[a-z]{2,}$/.exec(email) !== null
-            : true;
+          return email ? /[\d%+._a-z-]+@[\d.a-z-]+.[a-z]{2,}$/.exec(email) !== null : true;
         },
         description: "The email address is not valid, make sure it follows the standard format.",
       },
       password: {
         condition: () => {
-          return password
-            ? /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/.exec(password) !== null
-            : true;
+          return password ? /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/.exec(password) !== null : true;
         },
         description:
           "Password must contain at least one number, one uppercase letter, one lowercase letter, and be at least 8 characters.",
@@ -62,7 +58,8 @@ function Elements(): React.ReactElement {
         condition: () => {
           return confirmPassword ? password === confirmPassword : true;
         },
-        description: "The passwords provided do not match, ensure that both passwords are identical.",
+        description:
+          "The passwords provided do not match, ensure that both passwords are identical.",
       },
     }),
   });
@@ -197,11 +194,7 @@ function Elements(): React.ReactElement {
               <Button skin="neutral" appearance="outline" onClick={(): void => onFormReset()}>
                 Clean
               </Button>
-              <Button
-                onClick={(): void => setOpen(true)}
-                disabled={!username.value || !email.value || !password.value}>
-                Create an account
-              </Button>
+              <Button onClick={(): void => setOpen(true)}>Create an account</Button>
             </Box>
           </Card.Footer>
         </Card>
@@ -245,16 +238,32 @@ export function CustomTheme(): React.ReactElement {
       tokens={{
         metro: {
           color: {
-            text: "#444",
+            "text": "#444",
+            "primary": "#607D8B",
+            "primary-faded": "#78909c",
+            "primary-border": "#b0bec5",
+            "primary-pressed": "#546e7a",
           },
           fontFamily: {
             base: "'Roboto Serif', serif",
           },
           components: {
-            card: {
+            "text-field": {
               radius: "none",
             },
-            switch: {
+            "card": {
+              radius: "none",
+            },
+            "switch": {
+              radius: "none",
+            },
+            "dialog": {
+              radius: "none",
+            },
+            "tabs": {
+              radius: "none",
+            },
+            "button": {
               radius: "none",
             },
           },
@@ -279,8 +288,14 @@ export function CustomTheme(): React.ReactElement {
             "success-border": "#21ab6b",
           },
           components: {
-            button: {
+            "button": {
               radius: "full",
+            },
+            "tabs": {
+              radius: "xl",
+            },
+            "text-field": {
+              radius: "2xl",
             },
           },
         },

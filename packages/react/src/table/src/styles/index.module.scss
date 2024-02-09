@@ -163,4 +163,16 @@
       }
     }
   }
+
+  &--hoverable {
+    .#{$table-root}__body {
+      .#{$table-root}__row:hover {
+        position: relative;
+        .#{$table-root}__cell {
+          cursor: pointer;
+          background-color: theme.get-color("neutral", "faded");
+        }
+      }
+    }
+  }
 }

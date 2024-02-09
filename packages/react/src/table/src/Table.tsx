@@ -19,10 +19,13 @@ export interface TableProps extends React.TableHTMLAttributes<HTMLTableElement> 
    * @default border
    */
   appearance?: "default" | TableAppearance | TableAppearance[];
+  /** Enable a hover state on table rows within */
+  hoverable?: boolean;
 }
 
 export function Table({
   appearance = "default",
+  hoverable,
   className,
   children,
   ...props
@@ -36,7 +39,7 @@ export function Table({
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({
-      modifiers: [...computedVariation.map((i) => i)],
+      modifiers: [...computedVariation.map((i) => i), hoverable && "hoverable"],
       extraClasses: className,
     }),
   };

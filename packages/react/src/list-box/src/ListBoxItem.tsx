@@ -47,7 +47,14 @@ export function ListBoxItem({
   };
 
   return (
-    <div className={cssClasses.root} role="menuitem" tabIndex={disabled ? -1 : 0} {...props}>
+    <div
+      className={cssClasses.root}
+      role="menuitem"
+      tabIndex={disabled ? -1 : 0}
+      aria-selected={selected}
+      aria-disabled={disabled}
+      {...props}
+    >
       {leftSlot && <div className={cssClasses.left}>{leftSlot}</div>}
       {children && <div className={cssClasses.text}>{children}</div>}
       {rightSlot && <div className={cssClasses.right}>{rightSlot}</div>}

@@ -17,6 +17,8 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
    * @default md
    */
   padding?: "none" | "sm" | "md" | "lg";
+  /** Enable a hover state on table rows within */
+  hoverable?: boolean;
   /** A boolean indicating whether the card is selected. */
   selected?: boolean;
 }
@@ -40,6 +42,7 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
  * @returns {React.ReactElement} - The rendered Card component.
  */
 export function Card({
+  hoverable,
   selected,
   padding = "md",
   className,
@@ -51,11 +54,14 @@ export function Card({
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ modifiers: [padding, selected && "selected"], extraClasses: className }),
+    root: getBlock({
+      modifiers: [padding, hoverable && "hoverable", selected && "selected"],
+      extraClasses: className,
+    }),
   };
 
   return (
-    <div className={cssClasses.root} {...props}>
+    <div className={cssClasses.root} aria-selected={selected} {...props}>
       {children}
     </div>
   );
