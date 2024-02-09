@@ -3,6 +3,7 @@
 @use "./variables" as *;
 
 @include theme.scope($radio-root) {
+  position: relative;
   display: inline-flex;
   gap: theme.get-spacing("sm");
   align-items: center;
