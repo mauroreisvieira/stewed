@@ -2,7 +2,7 @@ import React, { useMemo, useReducer, SyntheticEvent } from "react";
 // Utilities
 import { objectKeys } from "@stewed/utilities";
 
-type NativeChangeEvents = React.ChangeEvent<HTMLInputElement & HTMLTextAreaElement>;
+type NativeChangeEvents = React.ChangeEvent<HTMLInputElement & HTMLTextAreaElement & HTMLSelectElement>;
 
 type FormValidators<T> = {
   /**

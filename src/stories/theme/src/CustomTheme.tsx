@@ -13,6 +13,7 @@ import {
   Separator,
   FormField,
   Dialog,
+  Select,
 } from "../../../../packages/react/index";
 // Hooks
 import { useStateForm } from "@stewed/hooks";
@@ -24,17 +25,17 @@ function Elements(): React.ReactElement {
   const [isOpen, setOpen] = useState(false);
 
   const {
-    formData: { username, email, password, confirmPassword },
+    formData: { username, gender, email, password },
     onFormChange,
     onFormReset,
   } = useStateForm({
     initialValues: {
       username: "",
       email: "",
+      gender: "Prefer not to respond",
       password: "",
-      confirmPassword: "",
     },
-    validators: ({ username, email, password, confirmPassword }) => ({
+    validators: ({ username, email, password }) => ({
       username: {
         condition: () => {
           return username ? /^[a-zA-Z0-9]+$/.exec(username) !== null : true;
@@ -53,13 +54,6 @@ function Elements(): React.ReactElement {
         },
         description:
           "Password must contain at least one number, one uppercase letter, one lowercase letter, and be at least 8 characters.",
-      },
-      confirmPassword: {
-        condition: () => {
-          return confirmPassword ? password === confirmPassword : true;
-        },
-        description:
-          "The passwords provided do not match, ensure that both passwords are identical.",
       },
     }),
   });
@@ -107,6 +101,22 @@ function Elements(): React.ReactElement {
                 </FormField>
 
                 <FormField>
+                  <FormField.Label htmlFor="gender">Gender</FormField.Label>
+                  <FormField.Control>
+                    <Select id="gender" value={gender.value} name="gender" onChange={onFormChange}>
+                      <Select.Option value="Woman">Woman</Select.Option>
+                      <Select.Option value="Man">Man</Select.Option>
+                      <Select.Option value="Non-binary/non-conforming">
+                        Non-binary/non-conforming
+                      </Select.Option>
+                      <Select.Option value="Prefer not to respond">
+                        Prefer not to respond
+                      </Select.Option>
+                    </Select>
+                  </FormField.Control>
+                </FormField>
+
+                <FormField>
                   <FormField.Label htmlFor="email">Email</FormField.Label>
                   <FormField.Control>
                     <TextField
@@ -139,23 +149,6 @@ function Elements(): React.ReactElement {
                     Use 8 or more characters with a mix of letters, numbers, and symbols.
                   </FormField.Description>
                   <FormField.Error hidden={password.valid}>{password.error}</FormField.Error>
-                </FormField>
-                <FormField>
-                  <FormField.Label htmlFor="confirmPassword">Confirm Password</FormField.Label>
-                  <FormField.Control>
-                    <TextField
-                      id="confirmPassword"
-                      type="password"
-                      name="confirmPassword"
-                      value={confirmPassword.value}
-                      onChange={onFormChange}
-                      skin={confirmPassword.valid ? "default" : "critical"}
-                      placeholder="Enter your password"
-                    />
-                  </FormField.Control>
-                  <FormField.Error hidden={confirmPassword.valid}>
-                    {confirmPassword.error}
-                  </FormField.Error>
                 </FormField>
               </Box>
             </Box>
@@ -201,12 +194,9 @@ function Elements(): React.ReactElement {
       </Box>
       <Dialog open={isOpen} size="sm">
         <Dialog.Header>
-          <Text as="h4">Create Account</Text>
+          <Text as="h4">Are you ready to create your account?</Text>
         </Dialog.Header>
         <Dialog.Body>
-          <Text size="sm" skin="neutral">
-            Are you ready to create your account?
-          </Text>
           <Text size="sm" skin="neutral">
             By proceeding, you'll be establishing a new account with us. Your information will be
             securely stored on our servers for your future access.
@@ -222,7 +212,7 @@ function Elements(): React.ReactElement {
               Cancel
             </Button>
             <Button type="button" skin="success" onClick={(): void => setOpen(false)}>
-              Activate account
+              Create Account
             </Button>
           </Box>
         </Dialog.Footer>
@@ -249,6 +239,9 @@ export function CustomTheme(): React.ReactElement {
           },
           components: {
             "text-field": {
+              radius: "none",
+            },
+            "select": {
               radius: "none",
             },
             "card": {
@@ -295,6 +288,9 @@ export function CustomTheme(): React.ReactElement {
               radius: "xl",
             },
             "text-field": {
+              radius: "2xl",
+            },
+            "select": {
               radius: "2xl",
             },
           },

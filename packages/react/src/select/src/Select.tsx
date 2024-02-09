@@ -17,7 +17,7 @@ export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElemen
 }
 
 export function Select({
-  skin = "critical",
+  skin = "default",
   disabled,
   className,
   children,
