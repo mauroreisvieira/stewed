@@ -30,7 +30,7 @@
         $overrides: (
           color: theme.get-color("neutral"),
           font-size: theme.get-font-size("sm"),
-          line-height: 0
+          line-height: 1
         )
       );
     }
