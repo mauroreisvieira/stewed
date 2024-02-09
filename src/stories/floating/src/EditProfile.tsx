@@ -28,6 +28,7 @@ export function EditProfile(): React.ReactElement {
           <Button onClick={() => setDialogOpen((prev) => !prev)}>Edit Profile</Button>
           <Dialog
             open={dialogOpen}
+            onEscape={() => setDialogOpen(false)}
             onClickOutside={() => setDialogOpen(false)}
             onClose={() => setDialogOpen(false)}>
             <Dialog.Header>
