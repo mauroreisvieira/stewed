@@ -1,0 +1,37 @@
+import { Canvas, Meta, ArgTypes } from "@storybook/blocks";
+import * as TableStories from "./Table.stories";
+
+# Table
+
+Container for organizing and displaying data in a tabular format.
+
+### Installation
+
+```bash
+npm install --save @stewed/react
+```
+
+### Import
+
+```js
+import { Table } from "@stewed/react";
+```
+
+<Meta of={TableStories} />
+
+## Default
+
+<Canvas of={TableStories.Default} />
+
+
+## Border
+
+<Canvas of={TableStories.Border} />
+
+## Striped
+
+<Canvas of={TableStories.Striped} />
+
+## Props
+
+<ArgTypes of={TableStories} />
