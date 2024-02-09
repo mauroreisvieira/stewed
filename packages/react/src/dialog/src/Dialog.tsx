@@ -64,6 +64,11 @@ export function Dialog({
   // Importing useBem to handle BEM class names
   const { getBlock, getElement } = useBem({ block: components.Dialog, styles });
 
+  useFocusTrap({
+    root: rootRef,
+    enabled: !!open && !!rootRef,
+  });
+
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({ modifiers: [size, open && "open"], extraClasses: className }),
@@ -98,11 +103,6 @@ export function Dialog({
     },
     [onClickOutside, onMouseDown, rootRef],
   );
-
-  useFocusTrap({
-    root: rootRef,
-    enabled: !!open && !!rootRef,
-  });
 
   return (
     <>
