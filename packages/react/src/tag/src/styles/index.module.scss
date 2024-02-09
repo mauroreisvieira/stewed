@@ -144,6 +144,31 @@
           );
         }
       }
+
+      &-faded {
+        @include theme.define-var(
+          (
+            color: theme.get-color($value, "pressed"),
+            background-color: theme.get-color($value, "faded"),
+          )
+        );
+
+        &[href]:hover {
+          @include theme.define-var(
+            (
+              color: theme.get-color($value),
+            )
+          );
+        }
+
+        &[href]:active {
+          @include theme.define-var(
+            (
+              color: theme.get-color($value),
+            )
+          );
+        }
+      }
     }
   }
 }
