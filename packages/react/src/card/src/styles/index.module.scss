@@ -5,8 +5,7 @@
   @include theme.define-var(
     (
       padding: 0,
-      background: $card-background,
-      border-color: theme.get-color("neutral", "border"),
+      background-color: #fff,
     )
   );
 
@@ -15,9 +14,9 @@
   flex-direction: column;
   width: 100%;
   overflow: hidden;
-  background-color: theme.get-var(background);
-  border: 1px solid theme.get-var(border-color);
+  background-color: theme.get-var(background-color);
   border-radius: theme.get-var(radius);
+  box-shadow: theme.get-var(box-shadow);
 
   &__body {
     flex: 1;
@@ -66,16 +65,21 @@
   }
 
   &--selected {
-    @include theme.define-var(
-      (
-        card-border-color: transparent,
-      )
-    );
-
-    box-shadow: 0 0 0 2px theme.get-color("primary");
+    outline: 2px solid theme.get-color("primary");
   }
 
   &--hoverable {
     cursor: pointer;
+  }
+
+  // Space
+  @each $key, $value in $card-elevation {
+    &--elevation-#{$key} {
+      @include theme.define-var(
+        (
+          box-shadow: $value,
+        )
+      );
+    }
   }
 }

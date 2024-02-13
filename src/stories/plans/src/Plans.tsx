@@ -49,7 +49,7 @@ export function Plans(): React.ReactElement {
         </Tabs>
         <Box gap="2xl" items="stretch">
           {plans.map(({ title, description, price }, index) => (
-            <Card key={index} selected={index === 1}>
+            <Card key={index} selected={index === 1} elevation={index === 1 ? "xl" : undefined}>
               <Card.Header>
                 <Text as="h4">{title}</Text>
               </Card.Header>

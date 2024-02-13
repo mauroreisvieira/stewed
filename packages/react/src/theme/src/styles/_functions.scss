@@ -109,3 +109,14 @@
 
   @return map.get($spacings, $value);
 }
+
+@function get-elevation($value: null) {
+  @if not $value {
+    @return $elevation;
+  }
+  @if not map.has-key($elevation, $value) {
+    @error "Invalid elevation's specified! #{$value} doesn't exist. Choose one of #{map.keys($elevation)}";
+  }
+
+  @return map.get($elevation, $value);
+}

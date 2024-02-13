@@ -1,3 +1,5 @@
+import { Elevation, type Radius } from "./tokens/index";
+
 export const components = {
   Accordion: "accordion",
   Alert: "alert",
@@ -31,3 +33,21 @@ export const components = {
   Tooltip: "tooltip",
   Typography: "typography",
 } as const;
+
+export type Components = {
+  [components.Alert]?: { radius?: Radius, elevation?: Elevation };
+  [components.Avatar]?: { radius?: Radius };
+  [components.Badge]?: { radius?: Radius };
+  [components.Button]?: { radius?: Radius };
+  [components.Card]?: { radius?: Radius };
+  [components.Checkbox]?: { radius?: Radius };
+  [components.Dialog]?: { radius?: Radius; elevation?: Elevation };
+  [components.ListBox]?: { radius?: Radius };
+  [components.Select]?: { radius?: Radius };
+  [components.Switch]?: { radius?: Radius };
+  [components.Tabs]?: { radius?: Radius };
+  [components.Tag]?: { radius?: Radius };
+  [components.TextArea]?: { radius?: Radius };
+  [components.TextField]?: { radius?: Radius };
+  [components.Toggle]?: { radius?: Radius };
+};

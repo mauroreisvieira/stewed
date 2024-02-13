@@ -76,6 +76,15 @@ $config: (
     "2xl": var(--radius-2xl),
     "full": var(--radius-full),
   ),
+  "elevation": (
+    "none": var(--elevation-none),
+    "sm": var(--elevation-sm),
+    "md": var(--elevation-md),
+    "lg": var(--elevation-lg),
+    "xl": var(--elevation-xl),
+    "2xl": var(--elevation-2xl),
+    "3xl": var(--elevation-3xl),
+  ),
   "colors": (
     "text": (
       "default": var(--color-text),
@@ -161,6 +170,9 @@ $colors: map.get($config, colors);
 
 /// Defines responsive breakpoints for screen sizes (sm, md, lg, xl).
 $screens: map.get($config, screens);
+
+/// Defines elevation.
+$elevation: map.get($config, elevation);
 
 /// Opacity value for disabled elements.
 $disabled: map.get($config, disabled);

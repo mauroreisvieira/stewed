@@ -8,6 +8,9 @@ import { CardMedia } from "./CardMedia";
 import { components } from "@stewed/tokens";
 // Hooks
 import { useBem } from "@stewed/hooks";
+import {
+  type Elevation
+} from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
@@ -19,6 +22,11 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   padding?: "none" | "sm" | "md" | "lg";
   /** Enable a hover state on table rows within */
   hoverable?: boolean;
+  /**
+   * The elevation shadow of the card.
+   * @default sm
+   */
+  elevation?: Elevation;
   /** A boolean indicating whether the card is selected. */
   selected?: boolean;
 }
@@ -43,6 +51,7 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
  */
 export function Card({
   hoverable,
+  elevation = "sm",
   selected,
   padding = "md",
   className,
@@ -55,7 +64,7 @@ export function Card({
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({
-      modifiers: [padding, hoverable && "hoverable", selected && "selected"],
+      modifiers: [padding, elevation && `elevation-${elevation}`, hoverable && "hoverable", selected && "selected"],
       extraClasses: className,
     }),
   };

@@ -51,4 +51,8 @@
       );
     }
   }
+
+  &--floating {
+    box-shadow: theme.get-var(elevation);
+  }
 }

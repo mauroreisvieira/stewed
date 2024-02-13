@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo } from "react";
 // Tokens
-import { tokens as defaultTokens, type Tokens, type Components } from "@stewed/tokens";
+import { defaultTokens, type Tokens, type Components, Radius, Elevation } from "@stewed/tokens";
 // Utilities
 import { objectKeys } from "@stewed/utilities";
 // Hooks
@@ -12,8 +12,16 @@ type ThemeContextOmittedProps<T extends string> = Omit<
 >;
 
 type OutputTokens = Exclude<Tokens, "components"> & {
-  [K in keyof Components]?: { radius?: string };
+  [K in keyof Components]?: {
+    radius?: string;
+    elevation?: string;
+  };
 };
+
+type ComponentObject = {
+  radius?: Radius;
+  elevation?: Elevation;
+}
 
 export interface RootProps<T extends string>
   extends React.HTMLAttributes<HTMLDivElement>,
@@ -64,13 +72,19 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
     return objectKeys(mergedTokens).reduce((acc: OutputTokens, key) => {
       if (mergedTokens.components && key === "components") {
         objectKeys(mergedTokens.components).forEach((component) => {
-          const componentObj = mergedTokens?.components?.[component];
-          acc[component] = {
-            ...componentObj,
-            ...(componentObj?.radius && {
-              radius: mergedTokens.radius?.[componentObj?.radius] || componentObj?.radius,
-            }),
-          };
+          const componentObj: ComponentObject | undefined = mergedTokens?.components?.[component];
+          if (componentObj) {
+            acc[component] = {
+              ...componentObj,
+              ...(componentObj.radius && {
+                radius: mergedTokens.radius?.[componentObj.radius] || componentObj.radius,
+              }),
+              ...(componentObj.elevation && {
+                elevation:
+                  mergedTokens.elevation?.[componentObj.elevation] || componentObj.elevation,
+              }),
+            };
+          }
         });
       } else {
         acc[key] = mergedTokens[key];
@@ -78,7 +92,7 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
 
       return acc;
     }, {}) as OutputTokens;
-  }, [currentTheme, objectKeys, tokens]);
+  }, [currentTheme, tokens]);
 
   // Convert merged tokens to CSS custom properties
   const cssProperties = useMemo(() => {
