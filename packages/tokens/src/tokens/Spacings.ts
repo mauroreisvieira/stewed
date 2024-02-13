@@ -13,3 +13,5 @@ export const spacings = {
   "6xl": "2.5rem",
   "7xl": "3rem",
 };
+
+export type Spacings = keyof typeof spacings;

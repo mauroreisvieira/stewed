@@ -4,3 +4,5 @@ export const fontFamily = {
   serif: "Georgia Cambria, Times New Roman, Times, serif",
   mono: "Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace",
 };
+
+export type FontFamily = keyof typeof fontFamily;

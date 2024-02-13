@@ -4,3 +4,5 @@ export const screens = {
   "lg": "1280px",
   "xl": "1440px",
 };
+
+export type Screens = keyof typeof screens;

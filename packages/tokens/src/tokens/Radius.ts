@@ -7,3 +7,5 @@ export const radius = {
   "2xl": "1.25rem",
   "full": "9999px",
 };
+
+export type Radius = keyof typeof radius;
