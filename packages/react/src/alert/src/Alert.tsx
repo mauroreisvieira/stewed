@@ -14,6 +14,8 @@ export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
    * @default info
    */
   skin?: "info" | "success" | "warning" | "critical";
+  /** Determine whether the alert should be rendered as floating, allowing elevation effects. */
+  floating?: boolean;
   /** Slot to display before the alert content. */
   leftSlot?: React.ReactNode;
   /** Slot to display after the alert content. */
@@ -39,6 +41,7 @@ export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
 export function Alert({
   title,
   skin = "info",
+  floating,
   className,
   leftSlot,
   rightSlot,
@@ -50,7 +53,7 @@ export function Alert({
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ modifiers: [skin], extraClasses: className }),
+    root: getBlock({ modifiers: [skin, floating && "floating"], extraClasses: className }),
     title: getElement(["title"]),
     body: getElement(["body"]),
     wrapper: getElement(["wrapper"]),
