@@ -5,22 +5,22 @@ import { CardHeader } from "./CardHeader";
 import { CardFooter } from "./CardFooter";
 import { CardMedia } from "./CardMedia";
 // Tokens
-import { components } from "@stewed/tokens";
+import { Spacings, components } from "@stewed/tokens";
 // Hooks
 import { useBem } from "@stewed/hooks";
-import {
-  type Elevation
-} from "@stewed/tokens";
+import { type Elevation } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
-   * The padding size for the card.
-   * @default md
+   * Change the visual style of the card.
+   * @default default
    */
-  padding?: "none" | "sm" | "md" | "lg";
-  /** Enable a hover state on table rows within */
+  skin?: "default" | "neutral";
+  /** Padding options for horizontal and vertical orientation. */
+  padding?: { block: Spacings; inline: Spacings };
+  /** Enable a hover state on table rows within. */
   hoverable?: boolean;
   /**
    * The elevation shadow of the card.
@@ -50,10 +50,14 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
  * @returns {React.ReactElement} - The rendered Card component.
  */
 export function Card({
-  hoverable,
+  skin = "default",
   elevation = "sm",
+  padding = {
+    block: "xl",
+    inline: "xl",
+  },
   selected,
-  padding = "md",
+  hoverable,
   className,
   children,
   ...props
@@ -64,7 +68,14 @@ export function Card({
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({
-      modifiers: [padding, elevation && `elevation-${elevation}`, hoverable && "hoverable", selected && "selected"],
+      modifiers: [
+        skin,
+        padding?.block && `padding-block-${padding.block}`,
+        padding?.inline && `padding-inline-${padding.inline}`,
+        elevation && `elevation-${elevation}`,
+        hoverable && "hoverable",
+        selected && "selected",
+      ],
       extraClasses: className,
     }),
   };

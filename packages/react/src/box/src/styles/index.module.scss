@@ -53,11 +53,11 @@
 
   // Space
   @each $key, $value in $box-gap {
-    &--space-x-#{$key} ~ :not([hidden]) {
+    &--space-inline-#{$key} ~ :not([hidden]) {
       margin-left: #{$value};
     }
 
-    &--space-y-#{$key}:not([hidden]) ~ :not([hidden]) {
+    &--space-block-#{$key}:not([hidden]) ~ :not([hidden]) {
       margin-top: #{$value};
     }
   }

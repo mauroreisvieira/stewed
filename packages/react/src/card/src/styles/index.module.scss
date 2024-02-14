@@ -37,7 +37,8 @@
   &__header,
   &__body,
   &__footer {
-    padding: theme.get-var(padding);
+    padding-block: theme.get-var(padding-block);
+    padding-inline: theme.get-var(padding-inline);
   }
 
   &--sm {
@@ -72,7 +73,45 @@
     cursor: pointer;
   }
 
-  // Space
+  // Skin
+  &--default {
+    @include theme.define-var(
+      (
+        background-color: #fff,
+      )
+    );
+  }
+
+  &--neutral {
+    @include theme.define-var(
+      (
+        background-color: theme.get-color("neutral", "faded"),
+      )
+    );
+  }
+
+  // Padding
+  @each $key, $value in $card-padding {
+    &--padding-block-#{$key} {
+      @include theme.define-var(
+        (
+          padding-block: #{$value},
+        )
+      );
+    }
+  }
+
+  @each $key, $value in $card-padding {
+    &--padding-inline-#{$key} {
+      @include theme.define-var(
+        (
+          padding-inline: #{$value},
+        )
+      );
+    }
+  }
+
+  // Elevation
   @each $key, $value in $card-elevation {
     &--elevation-#{$key} {
       @include theme.define-var(

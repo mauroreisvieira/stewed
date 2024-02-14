@@ -25,53 +25,62 @@ export function Plans(): React.ReactElement {
 
   return (
     <Theme>
-      <Box direction="column" gap="2xl">
-        <Box direction="column">
-          <Text alignment="center" weight="medium" skin="primary">
-            Teams for all sizes
-          </Text>
+      <Text
+        size="xs"
+        variation="uppercase"
+        alignment="center"
+        weight="bold"
+        skin="primary"
+        space={{ block: "xs" }}>
+        Teams for all sizes
+      </Text>
 
-          <Text as="h2" alignment="center" weight="extra-bold">
-            Pricing Plans
-          </Text>
-        </Box>
+      <Text as="h2" alignment="center" weight="extra-bold" space={{ block: "3xl" }}>
+        Pricing Plans
+      </Text>
 
-        <Text alignment="center" size="xl">
-          Start building for free, then add a site plan to go live. <br />
-          Account plans unlock additional features.
-        </Text>
+      <Text alignment="center" size="xl" space={{ block: "3xl" }}>
+        Start building for free, then add a site plan to go live. <br />
+        Account plans unlock additional features.
+      </Text>
 
-        <Tabs alignment="center" value={value} onValueChange={setValue}>
-          <Tabs.List>
-            <Tabs.Item value="monthly">Monthly billing</Tabs.Item>
-            <Tabs.Item value="annually">Yearly billing</Tabs.Item>
-          </Tabs.List>
-        </Tabs>
-        <Box gap="2xl" items="stretch">
-          {plans.map(({ title, description, price }, index) => (
-            <Card key={index} selected={index === 1} elevation={index === 1 ? "xl" : undefined}>
-              <Card.Header>
-                <Text as="h4">{title}</Text>
-              </Card.Header>
-              <Card.Body>
-                <Box direction="column" gap="2xl">
-                  <Text skin="neutral">{description}</Text>
-                  <Box items="baseline" gap="sm">
-                    <Text size="4xl" weight="bold">
-                      {value === "monthly" ? price : price * 12 * 0.5}€
-                    </Text>
-                    <Text size="xs" weight="medium">
-                      {value === "monthly" ? "/month" : "/year"}
-                    </Text>
-                  </Box>
+      <Tabs alignment="center" value={value} onValueChange={setValue}>
+        <Tabs.List>
+          <Tabs.Item value="monthly">Monthly billing</Tabs.Item>
+          <Tabs.Item value="annually">Yearly billing</Tabs.Item>
+        </Tabs.List>
+      </Tabs>
+      <Box gap="2xl" items="center">
+        {plans.map(({ title, description, price }, index) => (
+          <Card
+            key={index}
+            selected={index === 1}
+            padding={{
+              block: index === 1 ? "2xl" : "xl",
+              inline: "xl",
+            }}
+            elevation={index === 1 ? "2xl" : undefined}>
+            <Card.Header>
+              <Text as="h4">{title}</Text>
+            </Card.Header>
+            <Card.Body>
+              <Box direction="column" gap="2xl">
+                <Text skin="neutral">{description}</Text>
+                <Box items="baseline" gap="sm">
+                  <Text size="4xl" weight="bold">
+                    {value === "monthly" ? price : price * 12 * 0.5}€
+                  </Text>
+                  <Text size="xs" weight="medium">
+                    {value === "monthly" ? "/month" : "/year"}
+                  </Text>
                 </Box>
-              </Card.Body>
-              <Card.Footer>
-                <Button fullWidth>Subscribe</Button>
-              </Card.Footer>
-            </Card>
-          ))}
-        </Box>
+              </Box>
+            </Card.Body>
+            <Card.Footer>
+              <Button fullWidth>Subscribe</Button>
+            </Card.Footer>
+          </Card>
+        ))}
       </Box>
     </Theme>
   );

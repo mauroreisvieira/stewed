@@ -27,8 +27,8 @@ export const Default: Story = {
     },
   },
   args: {
-    padding: "md",
     selected: false,
+    skin: "default",
     children: (
       <>
         <Card.Header>

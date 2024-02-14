@@ -17,7 +17,7 @@ export interface BoxProps<T> extends React.HTMLAttributes<HTMLDivElement> {
   direction?: "row" | "column" | "row-reverse" | "column-reverse";
   /** The gap between box items. Can be a predefined size or a custom value. */
   gap?: Spacings;
-  /** Padding options for the box container. */
+  /** Padding options for horizontal and vertical orientation. */
   padding?: { block: Spacings; inline: Spacings };
   /** Aligns box items along the main axis. */
   justify?: "start" | "end" | "center" | "between" | "around" | "evenly";
@@ -27,8 +27,8 @@ export interface BoxProps<T> extends React.HTMLAttributes<HTMLDivElement> {
   wrap?: "wrap" | "wrap-reverse" | "nowrap";
   /** Adds space between box items on the horizontal and vertical axes. */
   space?: {
-    x?: Spacings;
-    y?: Spacings;
+    block?: Spacings;
+    inline?: Spacings;
   };
   /** Renders the box container as an inline element. */
   inline?: boolean;
@@ -88,8 +88,8 @@ export const Box = fixedForwardRef(
           items && `items-${items}`,
           padding?.block && `padding-block-${padding.block}`,
           padding?.inline && `padding-inline-${padding.inline}`,
-          space?.x && `space-x-${space.x}`,
-          space?.y && `space-y-${space.y}`,
+          space?.block && `space-block-${space.block}`,
+          space?.inline && `space-inline-${space.inline}`,
           wrap,
           inline && "inline",
           grow && "grow",

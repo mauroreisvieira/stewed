@@ -1,6 +1,9 @@
-@use "@stewed/react/src/theme/src/styles" as *;
+@use "@stewed/react/src/theme/src/styles" as theme;
 
 $card-root: "card";
 
-// Space
-$card-elevation: get-elevation();
+/// Space
+$card-padding: theme.get-spacing();
+
+/// Elevation
+$card-elevation: theme.get-elevation();

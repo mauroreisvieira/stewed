@@ -32,7 +32,7 @@
 
   // Spacing
   @each $key, $value in $separator-spacing {
-    &--space-x-#{$key} {
+    &--space-inline-#{$key} {
       @include theme.define-var(
         (
           margin-inline: $value,
@@ -40,7 +40,7 @@
       );
     }
 
-    &--space-y-#{$key} {
+    &--space-block-#{$key} {
       @include theme.define-var(
         (
           margin-block: $value,

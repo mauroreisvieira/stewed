@@ -62,8 +62,8 @@ export interface TextProps<T> extends React.ComponentProps<typeof defaultElement
   whiteSpace?: "normal" | "nowrap";
   /** Adds space between text on the horizontal and vertical axes. */
   space?: {
-    x?: Spacings;
-    y?: Spacings;
+    block?: Spacings;
+    inline?: Spacings;
   };
 }
 
@@ -128,8 +128,8 @@ export const Text = fixedForwardRef(
           weight,
           alignment && `alignment-${alignment}`,
           whiteSpace && `white-space-${whiteSpace}`,
-          space?.x && `space-x-${space.x}`,
-          space?.y && `space-y-${space.y}`,
+          space?.block && `space-block-${space.block}`,
+          space?.inline && `space-inline-${space.inline}`,
           ...computedVariation.map((i) => i),
         ],
         extraClasses: className,

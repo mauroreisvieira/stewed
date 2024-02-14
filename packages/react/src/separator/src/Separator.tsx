@@ -14,8 +14,8 @@ interface SeparatorProps extends React.HTMLAttributes<HTMLHRElement> {
   skin?: "primary" | "neutral" | "critical";
   /** Adds space between separator on the horizontal and vertical axes. */
   space?: {
-    x?: Spacings;
-    y?: Spacings;
+    block?: Spacings;
+    inline?: Spacings;
   };
   /**
    * Specifies the orientation of the separator.
@@ -30,7 +30,7 @@ interface SeparatorProps extends React.HTMLAttributes<HTMLHRElement> {
  *
  * @example
  * ```tsx
- * <Separator skin="primary" space={{ x: 'sm', y: 'md' }} orientation="horizontal" />
+ * <Separator skin="primary" space={{ block: 'sm', inline: 'md' }} orientation="horizontal" />
  * ```
  *
  * @remarks This component props extended from React.HTMLAttributes<HTMLHRElement>.
@@ -40,7 +40,7 @@ interface SeparatorProps extends React.HTMLAttributes<HTMLHRElement> {
  */
 export function Separator({
   skin = "neutral",
-  space = { x: "none", y: "sm" },
+  space = { block: "none", inline: "sm" },
   orientation = "horizontal",
   className,
   ...props
@@ -54,8 +54,8 @@ export function Separator({
       modifiers: [
         skin,
         orientation,
-        space?.x && `space-x-${space.x}`,
-        space?.y && `space-y-${space.y}`,
+        space?.block && `space-block-${space.block}`,
+        space?.inline && `space-inline-${space.inline}`,
       ],
       extraClasses: className,
     }),

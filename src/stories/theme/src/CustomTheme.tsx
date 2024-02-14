@@ -152,7 +152,7 @@ function Elements(): React.ReactElement {
                 </FormField>
               </Box>
             </Box>
-            <Separator space={{ y: "xl" }} />
+            <Separator space={{ block: "xl" }} />
             <Box items="start" justify="between">
               <Box direction="column">
                 <Text weight="semi-bold">Favorites</Text>
@@ -166,7 +166,7 @@ function Elements(): React.ReactElement {
                 <Switch size="sm">Slack</Switch>
               </Box>
             </Box>
-            <Separator space={{ y: "xl" }} />
+            <Separator space={{ block: "xl" }} />
             <Box items="start" justify="between">
               <Box direction="column">
                 <Text weight="semi-bold">New documents</Text>
