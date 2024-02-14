@@ -2,13 +2,12 @@ import React, { useMemo, useReducer, SyntheticEvent } from "react";
 // Utilities
 import { objectKeys } from "@stewed/utilities";
 
-type NativeChangeEvents = React.ChangeEvent<HTMLInputElement & HTMLTextAreaElement & HTMLSelectElement>;
+type NativeChangeEvents = React.ChangeEvent<
+  HTMLInputElement & HTMLTextAreaElement & HTMLSelectElement
+>;
 
 type FormValidators<T> = {
-  /**
-   * Defines a validator for a specific form field.
-   * @template T[key] - The type of the form field.
-   */
+  /** Defines a validator for a specific form field. */
   [key in keyof T]?: {
     /** Description of the condition criteria. */
     description: string;
@@ -22,15 +21,29 @@ interface UseStateFormProps<T> {
   initialValues: T;
   /**
    * Callback function triggered when the form is submitted.
-   * @param data - The current form data.
+   *
+   * @param {T} data - The current form data.
    */
   onSubmit?: (data: T) => void;
   /**
-   * Callback function triggered when the form is reset.
-   * @param data - The initial form data.
+   * Callback function triggered when a form change event occurs.
+   *
+   * @param {NativeChangeEvents} event - The change event object.
    */
-  onReset?: (data: T) => void;
-  /** Validators for the form fields. */
+  onChange?: (event: NativeChangeEvents) => void;
+  /**
+   * Callback function triggered when the form is reset.
+   *
+   * @param {T} prev - The previous form values.
+   * @param {T} current - The current form values.
+   */
+  onReset?: (prev: T, current: T) => void;
+  /**
+   * Validators for the form fields.
+   *
+   * @param {Partial<T>} data - The data of type T for which validators are applied.
+   * @returns {FormValidators<T>} The form validator object that will be defined for each element defined by `T`.
+   */
   validators?: (data: Partial<T>) => FormValidators<T>;
 }
 
@@ -64,6 +77,7 @@ export function useStateForm<T>({
   validators,
   onSubmit,
   onReset,
+  onChange,
 }: UseStateFormProps<T>): UseStateForm<T> {
   const [formData, setFormData] = useReducer((prev: T, next: Partial<T>) => {
     return { ...prev, ...next };
@@ -72,11 +86,12 @@ export function useStateForm<T>({
   // Handle form input change
   const onHandleChange = (event: NativeChangeEvents) => {
     const { name, value, checked } = event.target;
-    if (["checkbox"].includes(event.target.type)) {
+    if (["checkbox", "radio"].includes(event.target.type)) {
       setFormData({ ...formData, [name]: checked });
       return;
     }
     setFormData({ ...formData, [name]: value });
+    onChange?.(event);
   };
 
   // Handle form submission
@@ -88,7 +103,7 @@ export function useStateForm<T>({
   // Handle form reset
   const onHandleReset = () => {
     setFormData(initialValues);
-    if (onReset) onReset(initialValues);
+    onReset?.(formData, initialValues);
   };
 
   // Memoize form data to optimize performance
