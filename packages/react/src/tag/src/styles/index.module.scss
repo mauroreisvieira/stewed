@@ -145,7 +145,7 @@
         }
       }
 
-      &-faded {
+      &-muted {
         @include theme.define-var(
           (
             color: theme.get-color($value, "pressed"),

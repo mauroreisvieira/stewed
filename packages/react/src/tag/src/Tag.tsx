@@ -27,7 +27,7 @@ export interface TagProps<T> extends React.ComponentProps<typeof defaultElement>
    * Change the visual appearance of the tag.
    * @default filled
    */
-  appearance?: "filled" | "ghost" | "outline" | "faded";
+  appearance?: "filled" | "ghost" | "outline" | "muted";
   /**
    * Changes the size of the tag, giving it more or less padding.
    * @default md
@@ -46,7 +46,7 @@ export interface TagProps<T> extends React.ComponentProps<typeof defaultElement>
  *
  * @example
  * ```tsx
- * <Tag skin="neutral">Tag</Tag>
+ * <Tag skin="neutral" size="sm">Example</Tag>
  * ```
  *
  * @remarks This component is a polymorphic component can be rendered as a different element
