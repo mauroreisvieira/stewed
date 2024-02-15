@@ -8,8 +8,8 @@
       background-color: theme.get-color("neutral", "faded"),
       border-color: theme.get-color("neutral", "border"),
       flex-direction: row,
-      height: theme.get-spacing("6xl"),
       width: auto,
+      height: theme.get-spacing("6xl"),
       justify-content: center,
       item-background-color: transparent,
     )
@@ -17,7 +17,6 @@
 
   display: flex;
   width: 100%;
-  height: theme.get-var(height);
 
   &--column {
     @include theme.define-var(
@@ -63,7 +62,7 @@
     align-items: center;
     justify-content: theme.get-var(justify-content);
     width: theme.get-var(width);
-    height: 100%;
+    height: calc(theme.get-var(height) - 6px);
     padding-inline: theme.get-spacing("md");
     cursor: pointer;
     background-color: theme.get-var(item-background-color);

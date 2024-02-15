@@ -24,7 +24,7 @@ export function TabsList({
 
   // Define a reference to a list element
   const { ref, onNavigate } = useKeyboardNavigation<HTMLDivElement>({
-    target: '[role="tab"]:not([disabled])',
+    target: '[role="tab"]:not([aria-disabled])',
   });
 
   const onHandleKeyDown = useCallback(
