@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // Context
 import { useTabs } from "./TabsContext";
 // Hooks
@@ -24,8 +24,8 @@ export function TabsItem({
   rightSlot,
   className,
   tabIndex,
-  onClick,
   children,
+  onClick,
   ...props
 }: TabsItemProps): React.ReactElement {
   const { onValueChange, value: selectedValue } = useTabs();

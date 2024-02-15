@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useCallback, useRef } from "react";
 // Hooks
-import { useBem } from "@stewed/hooks";
+import { useBem, useKeyboardNavigation } from "@stewed/hooks";
 // Tokens
 import { components } from "@stewed/tokens";
 // Styles
@@ -11,6 +11,7 @@ export type TabsListProps = React.HTMLAttributes<HTMLElement>;
 export function TabsList({
   className,
   children,
+  onKeyDown,
   ...props
 }: TabsListProps): React.ReactElement {
   // Importing useBem to handle BEM class names
@@ -21,8 +22,27 @@ export function TabsList({
     root: getBlock({ extraClasses: className }),
   };
 
+  // Define a reference to a list element
+  const { ref, onNavigate } = useKeyboardNavigation<HTMLDivElement>({
+    target: '[role="tab"]:not([disabled])',
+  });
+
+  const onHandleKeyDown = useCallback(
+    (event: React.KeyboardEvent<HTMLDivElement>) => {
+      onNavigate?.(event);
+      onKeyDown?.(event);
+    },
+    [onKeyDown, onNavigate],
+  );
+
   return (
-    <div className={cssClasses.root} role="tablist" {...props}>
+    <div
+      ref={ref}
+      className={cssClasses.root}
+      role="tablist"
+      onKeyDown={onHandleKeyDown}
+      {...props}
+    >
       {children}
     </div>
   );

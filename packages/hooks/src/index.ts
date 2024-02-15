@@ -7,6 +7,7 @@ export { useGlobalState } from './useGlobalState';
 export { useInput } from './useInput';
 export { useIntersectionObserver } from './useIntersectionObserver';
 export { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
+export { useKeyboardNavigation } from './useKeyboardNavigation';
 export { usePortal } from './usePortal';
 export { usePrevious } from './usePrevious';
 export { useResizeObserver } from './useResizeObserver';
