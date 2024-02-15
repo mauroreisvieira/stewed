@@ -31,15 +31,15 @@ export function Plans(): React.ReactElement {
         alignment="center"
         weight="bold"
         skin="primary"
-        space={{ block: "xs" }}>
+        space={{ y: "xs" }}>
         Teams for all sizes
       </Text>
 
-      <Text as="h2" alignment="center" weight="extra-bold" space={{ block: "3xl" }}>
+      <Text as="h2" alignment="center" weight="extra-bold" space={{ y: "3xl" }}>
         Pricing Plans
       </Text>
 
-      <Text alignment="center" size="xl" space={{ block: "3xl" }}>
+      <Text alignment="center" size="xl" space={{ y: "3xl" }}>
         Start building for free, then add a site plan to go live. <br />
         Account plans unlock additional features.
       </Text>

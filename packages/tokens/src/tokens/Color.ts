@@ -1,6 +1,6 @@
 export const color = {
   "text": "#000",
-  "text-inverse": "#fff",
+  "white": "#fff",
   // primary
   "primary-faded": "#eef2ff",
   "primary": "#6366f1",

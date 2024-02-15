@@ -7,3 +7,8 @@ $card-padding: theme.get-spacing();
 
 /// Elevation
 $card-elevation: theme.get-elevation();
+
+/// Skins
+$card-skins: (
+  "neutral-faded": theme.get-color("neutral", "faded"),
+);

@@ -69,7 +69,7 @@ export function Board(): React.ReactElement {
       <Box
         items="center"
         space={{
-          block: "xl",
+          y: "xl",
         }}
         justify="between"
         gap="lg">
@@ -84,7 +84,7 @@ export function Board(): React.ReactElement {
           <Box key={id} gap="md" grow>
             <Card>
               <Card.Body>
-                <Box direction="column" gap="sm" space={{ block: "xl" }}>
+                <Box direction="column" gap="sm" space={{ y: "xl" }}>
                   <Text weight="bold" size="lg">
                     {title}
                   </Text>

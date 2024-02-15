@@ -86,9 +86,11 @@ $config: (
     "3xl": var(--elevation-3xl),
   ),
   "colors": (
+    "white": (
+      "default": var(--color-white),
+    ),
     "text": (
       "default": var(--color-text),
-      "inverse": var(--color-text-inverse),
     ),
     "primary": (
       "faded": var(--color-primary-faded),

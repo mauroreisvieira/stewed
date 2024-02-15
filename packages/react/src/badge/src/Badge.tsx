@@ -2,19 +2,19 @@ import React from "react";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
-import { components } from "@stewed/tokens";
+import { type Color, components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Skin color of the badge.
-   * @default "primary"
+   * @default primary
    */
-  skin?: "primary" | "neutral" | "info" | "success" | "warning" | "critical";
+  skin?: Extract<Color, "primary" | "neutral" | "critical" | "success" | "info" | "warning">;
   /**
    * Position of the badge.
-   * @default "top-right"
+   * @default top-right
    */
   position?: "top-left" | "top-right" | "bottom-left" | "bottom-right";
   /** Value displayed on the badge. */

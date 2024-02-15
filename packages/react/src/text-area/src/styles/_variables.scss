@@ -2,12 +2,12 @@
 
 $textarea-root: "text-area";
 
-// Appearance
-$textarea-skins-default: (
-  "border": theme.get-color("neutral", "border"),
-  "border-hover": theme.get-color("neutral", "border-hover"),
-);
+/// Skins
 $textarea-skins: (
+  "default": (
+    "border": theme.get-color("neutral", "border"),
+    "border-hover": theme.get-color("neutral", "border-hover"),
+  ),
   "success": (
     "border": theme.get-color("success"),
     "border-hover": theme.get-color("success"),

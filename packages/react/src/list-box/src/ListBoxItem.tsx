@@ -9,7 +9,7 @@ import styles from "./styles/index.module.scss";
 export interface ListBoxItemProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Change the visual style of the menu item.
-   * @default "primary"
+   * @default primary
    */
   skin?: "primary" | "critical";
   /** Slot to display before the item children. */

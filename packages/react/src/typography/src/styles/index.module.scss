@@ -86,9 +86,18 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          color: $value,
+          color: theme.get-color($key),
         )
       );
+    }
+  }
+
+  @each $value in (1, 2, 3, 4, 5, 6, 7) {
+    &--line-clamp-#{$value} {
+      display: -webkit-box;
+      -webkit-line-clamp: $value;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
   }
 
@@ -124,11 +133,11 @@
 
   // Space
   @each $key, $value in $typography-space {
-    &--space-inline-#{$key} ~ :not([hidden]) {
+    &--space-x-#{$key} ~ :not([hidden]) {
       margin-left: #{$value};
     }
 
-    &--space-block-#{$key}:not([hidden]) ~ :not([hidden]) {
+    &--space-y-#{$key}:not([hidden]) ~ :not([hidden]) {
       margin-top: #{$value};
     }
   }

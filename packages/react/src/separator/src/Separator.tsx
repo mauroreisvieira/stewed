@@ -2,19 +2,30 @@ import React from "react";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
-import { components, type Spacings } from "@stewed/tokens";
+import { type Color, components, type Spacings } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
 interface SeparatorProps extends React.HTMLAttributes<HTMLHRElement> {
   /**
-   * Change the visual style of the separator.
-   * @default primary
+   * Change the visual color of the separator.
+   * @default neutral-border
    */
-  skin?: "primary" | "neutral" | "critical";
-  /** Adds space between separator on the horizontal and vertical axes. */
+  skin?: Extract<
+    Color,
+    "neutral" | "neutral-border" | "primary" | "primary-border" | "critical" | "critical-border"
+  >;
+  /** Adds space between separators on the horizontal and vertical axes. */
   space?: {
+    /**
+     * Adds space between separators on the block axis (e.g., top and bottom margins).
+     * @default none
+     */
     block?: Spacings;
+    /**
+     * Adds space between separators on the inline axis (e.g., left and right margins).
+     * @default none
+     */
     inline?: Spacings;
   };
   /**
@@ -30,7 +41,7 @@ interface SeparatorProps extends React.HTMLAttributes<HTMLHRElement> {
  *
  * @example
  * ```tsx
- * <Separator skin="primary" space={{ block: 'sm', inline: 'md' }} orientation="horizontal" />
+ * <Separator skin="primary-border" space={{ block: 'sm', inline: 'md' }} orientation="horizontal" />
  * ```
  *
  * @remarks This component props extended from React.HTMLAttributes<HTMLHRElement>.
@@ -39,8 +50,8 @@ interface SeparatorProps extends React.HTMLAttributes<HTMLHRElement> {
  * @returns {React.ReactElement} - The rendered Separator component.
  */
 export function Separator({
-  skin = "neutral",
-  space = { block: "none", inline: "sm" },
+  skin = "neutral-border",
+  space = { block: "none", inline: "none" },
   orientation = "horizontal",
   className,
   ...props

@@ -11,7 +11,10 @@ import styles from "./styles/index.module.scss";
 const defaultElement = "div";
 
 export interface BoxProps<T> extends React.HTMLAttributes<HTMLDivElement> {
-  /** Specifies the type of element to use as box. */
+  /**
+   * Specifies the type of element to use as the box.
+   * @default div
+   */
   as?: T;
   /** The direction of the box container. */
   direction?: "row" | "column" | "row-reverse" | "column-reverse";
@@ -25,10 +28,12 @@ export interface BoxProps<T> extends React.HTMLAttributes<HTMLDivElement> {
   items?: "start" | "end" | "center" | "baseline" | "stretch";
   /** Determines whether box items should wrap to the next line if they exceed the container's width. */
   wrap?: "wrap" | "wrap-reverse" | "nowrap";
-  /** Adds space between box items on the horizontal and vertical axes. */
+  /** Adds space between box or elements, affecting adjacent elements. */
   space?: {
-    block?: Spacings;
-    inline?: Spacings;
+    /** Adds space on the horizontal axis (e.g., margin-right) affecting adjacent elements. */
+    x?: Spacings;
+    /** Adds space on the vertical axis (e.g., margin-top) affecting adjacent elements. */
+    y?: Spacings;
   };
   /** Renders the box container as an inline element. */
   inline?: boolean;
@@ -88,8 +93,8 @@ export const Box = fixedForwardRef(
           items && `items-${items}`,
           padding?.block && `padding-block-${padding.block}`,
           padding?.inline && `padding-inline-${padding.inline}`,
-          space?.block && `space-block-${space.block}`,
-          space?.inline && `space-inline-${space.inline}`,
+          space?.x && `space-x-${space.x}`,
+          space?.y && `space-y-${space.y}`,
           wrap,
           inline && "inline",
           grow && "grow",

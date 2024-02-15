@@ -5,7 +5,7 @@ import { CardHeader } from "./CardHeader";
 import { CardFooter } from "./CardFooter";
 import { CardMedia } from "./CardMedia";
 // Tokens
-import { Spacings, components } from "@stewed/tokens";
+import { Spacings, Color, components } from "@stewed/tokens";
 // Hooks
 import { useBem } from "@stewed/hooks";
 import { type Elevation } from "@stewed/tokens";
@@ -17,7 +17,7 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
    * Change the visual style of the card.
    * @default default
    */
-  skin?: "default" | "neutral";
+  skin?: "default" | Extract<Color, "neutral-faded">;
   /** Padding options for horizontal and vertical orientation. */
   padding?: { block: Spacings; inline: Spacings };
   /** Enable a hover state on table rows within. */

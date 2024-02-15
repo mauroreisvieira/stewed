@@ -70,10 +70,10 @@ export function RecentFeedback(): React.ReactElement {
   return (
     <Theme>
       <Box direction="column">
-        <Text as="h5" space={{ block: "xs" }}>
+        <Text as="h5" space={{ y: "xs" }}>
           Recent feedback
         </Text>
-        <Text size="sm" skin="neutral" space={{ block: "3xl" }}>
+        <Text size="sm" skin="neutral" space={{ y: "3xl" }}>
           Find all of your customer feedback in one place.
         </Text>
 
@@ -112,13 +112,17 @@ export function RecentFeedback(): React.ReactElement {
                       selected: value.id === id ? !value.selected : value.selected,
                     })),
                   );
-                    event.stopPropagation();
                 }}>
                 <Table.Cell>
                   <Checkbox
                     checked={selected}
-                    onChange={(event) => {
-                      event.preventDefault();
+                    onChange={() => {
+                      setTeam((prev) =>
+                        prev.map((value) => ({
+                          ...value,
+                          selected: value.id === id ? !value.selected : value.selected,
+                        })),
+                      );
                     }}
                   />
                 </Table.Cell>
@@ -136,7 +140,7 @@ export function RecentFeedback(): React.ReactElement {
                   </Box>
                 </Table.Cell>
                 <Table.Cell>
-                  <Text size="sm" weight="light">
+                  <Text size="sm" weight="light" lineClamp={2}>
                     {content}
                   </Text>
                 </Table.Cell>

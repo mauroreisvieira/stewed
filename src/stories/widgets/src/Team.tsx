@@ -45,7 +45,7 @@ export function Team(): React.ReactElement {
       <Card>
         <Card.Header>
           <Text as="h5">Your team</Text>
-          <Text size="sm" skin="neutral" space={{ block: "lg" }}>
+          <Text size="sm" skin="neutral" space={{ y: "lg" }}>
             Invite and manage your team members.
           </Text>
 

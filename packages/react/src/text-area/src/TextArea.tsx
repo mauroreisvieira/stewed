@@ -2,7 +2,7 @@ import React from "react";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
-import { components } from "@stewed/tokens";
+import { type Color, components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
@@ -11,9 +11,22 @@ export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextArea
    * Change the visual style of the text area.
    * @default default
    */
-  skin?: "default" | "critical";
+  skin?:
+    | "default"
+    | Extract<Color, "critical" | "success">;
 }
 
+/**
+ * A component that renders a text area for entering and editing multi-line text.
+ *
+ * @example
+ * ```tsx
+ * <TextArea>Type something...</TextArea>
+ * ```
+ *
+ * @param {TextAreaProps} props - The props for the TextArea component.
+ * @returns {React.ReactElement} - The rendered TextArea component.
+ */
 export const TextArea = React.forwardRef(
   (
     { skin = "default", className, disabled, children, ...props }: TextAreaProps,
@@ -25,7 +38,7 @@ export const TextArea = React.forwardRef(
     // Generating CSS classes based on component props and styles
     const cssClasses = {
       root: getBlock({
-        modifiers: [disabled && "disabled", skin !== "default" && skin],
+        modifiers: [disabled && "disabled", skin],
         extraClasses: className,
       }),
     };

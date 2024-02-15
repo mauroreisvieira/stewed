@@ -12,7 +12,7 @@ export function MediaCard(): React.ReactElement {
               <Skeleton radius="none" size="auto" />
             </AspectRatio>
             <Card.Body>
-              <Box direction="column" gap="sm" space={{ block: "lg" }}>
+              <Box direction="column" gap="sm" space={{ x: "lg" }}>
                 <Skeleton radius="lg" size="sm" />
                 <Skeleton radius="lg" size="xs" />
                 <Skeleton radius="lg" size="xs" />

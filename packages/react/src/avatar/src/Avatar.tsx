@@ -4,24 +4,24 @@ import { AvatarGroup } from "./AvatarGroup";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
-import { components } from "@stewed/tokens";
+import { type Color, components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
 export interface AvatarProps {
   /**
    * Defines the skin color of the avatar.
-   * @default "primary"
+   * @default primary
    */
-  skin?: "primary" | "neutral" | "critical";
+  skin?: Extract<Color, "primary" | "neutral" | "critical" | "success" | "info" | "warning">;
   /**
    * Specifies the size of the avatar.
-   * @default "md"
+   * @default md
    */
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl";
   /**
    * Determines the appearance shape of the avatar.
-   * @default "circle"
+   * @default circle
    */
   appearance?: "circle" | "square";
   /** The name associated with the avatar. */

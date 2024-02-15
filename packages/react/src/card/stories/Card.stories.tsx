@@ -34,7 +34,7 @@ export const Default: Story = {
         <Card.Header>
           <Text>Card Header</Text>
         </Card.Header>
-        <Card.Body>
+        <Card.Body skin="primary">
           <Text>
             Pellentesque elementum diam sapien, nec ultrices risus convallis eget. Nam pharetra
             dolor at dictum tempor. Quisque ut est a ligula hendrerit sodales. Curabitur ornare a

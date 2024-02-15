@@ -82,12 +82,15 @@
     );
   }
 
-  &--neutral {
-    @include theme.define-var(
-      (
-        background-color: theme.get-color("neutral", "faded"),
-      )
-    );
+  // Skins
+  @each $key, $value in $card-skins {
+    &--#{$key} {
+      @include theme.define-var(
+        (
+          background-color: $value,
+        )
+      );
+    }
   }
 
   // Padding

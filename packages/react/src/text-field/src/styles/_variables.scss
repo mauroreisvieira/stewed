@@ -2,12 +2,12 @@
 
 $input-root: "text-field";
 
-// Appearance
-$input-skins-default: (
-  "border": theme.get-color("neutral", "border"),
-  "border-hover": theme.get-color("neutral", "border-hover"),
-);
+/// Skins
 $input-skins: (
+  "default": (
+    "border": theme.get-color("neutral", "border"),
+    "border-hover": theme.get-color("neutral", "border-hover"),
+  ),
   "success": (
     "border": theme.get-color("success"),
     "border-hover": theme.get-color("success"),

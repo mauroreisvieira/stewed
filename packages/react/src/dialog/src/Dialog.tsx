@@ -19,7 +19,7 @@ export interface DialogProps extends React.HTMLAttributes<HTMLDivElement>, Dialo
   open?: boolean;
   /**
    * Changes the size of the dialog, will specify the width of the element.
-   * @default "md"
+   * @default md
    */
   size?: "sm" | "md" | "lg" | "xl";
   /** Callback function invoked when the escape key is pressed. */

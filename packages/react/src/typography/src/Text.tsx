@@ -8,6 +8,7 @@ import {
   type FontSize,
   type FontWeight,
   type FontFamily,
+  type Color,
   components,
 } from "@stewed/tokens";
 // Styles
@@ -43,10 +44,13 @@ type TextVariation =
 export interface TextProps<T> extends React.ComponentProps<typeof defaultElement> {
   /**
    * Specifies the type of element to be used.
-   * @default "p"
+   * @default p
    */
   as?: T;
-  /** Changes the size of the text, giving it more or less font size. */
+  /**
+   * Changes the size of the text, giving it more or less font size.
+   * @default text
+   */
   size?: FontSize;
   /** Changes the family of the text, giving it more or less font size. */
   family?: FontFamily;
@@ -54,16 +58,26 @@ export interface TextProps<T> extends React.ComponentProps<typeof defaultElement
   weight?: FontWeight;
   /** Changes the font styles and transforming text. */
   variation?: TextVariation | TextVariation[];
-  /** Change the visual style of the text. */
-  skin?: "default" | "primary" | "neutral" | "critical";
+  /** Clamping text to a specific number of lines */
+  lineClamp?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
+  /**
+   * Change the visual style of the text.
+   * @default text
+   */
+  skin?: Extract<
+    Color,
+    "text" | "white" | "primary" | "neutral" | "critical" | "success" | "info" | "warning"
+  >;
   /** Adjust horizontal alignment of text. */
   alignment?: "start" | "center" | "end" | "justify";
   /** Changes the white space of the text. */
   whiteSpace?: "normal" | "nowrap";
-  /** Adds space between text on the horizontal and vertical axes. */
+  /** Adds space between text or elements, affecting adjacent elements. */
   space?: {
-    block?: Spacings;
-    inline?: Spacings;
+    /** Adds space on the horizontal axis (e.g., margin-right) affecting adjacent elements. */
+    x?: Spacings;
+    /** Adds space on the vertical axis (e.g., margin-top) affecting adjacent elements. */
+    y?: Spacings;
   };
 }
 
@@ -88,8 +102,9 @@ export const Text = fixedForwardRef(
       size,
       family,
       weight,
-      skin,
+      skin = "text",
       variation,
+      lineClamp,
       alignment,
       whiteSpace,
       space,
@@ -126,10 +141,11 @@ export const Text = fixedForwardRef(
           size,
           family,
           weight,
+          lineClamp && `line-clamp-${lineClamp}`,
           alignment && `alignment-${alignment}`,
           whiteSpace && `white-space-${whiteSpace}`,
-          space?.block && `space-block-${space.block}`,
-          space?.inline && `space-inline-${space.inline}`,
+          space?.x && `space-x-${space.x}`,
+          space?.y && `space-y-${space.y}`,
           ...computedVariation.map((i) => i),
         ],
         extraClasses: className,
