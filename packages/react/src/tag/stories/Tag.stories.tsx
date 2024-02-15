@@ -22,7 +22,7 @@ const meta: Meta<typeof Tag> = {
 
 export default meta;
 
-export const Default: Story = {
+export const Base: Story = {
   args: {
     skin: "primary",
     size: "md",

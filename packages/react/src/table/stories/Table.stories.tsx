@@ -37,7 +37,7 @@ const data = [
   },
 ];
 
-export const Default: Story = {
+export const Base: Story = {
   argTypes: {
     children: {
       control: false,

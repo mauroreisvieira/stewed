@@ -1,22 +1,13 @@
 import React from "react";
 // UI Components
-import {
-  Text,
-  Box,
-  Card,
-  Theme,
-  Separator,
-  Button,
-  Avatar,
-  Switch,
-} from "../../../../packages/react/index";
+import { Text, Box, Card, Theme, Separator, Switch } from "../../../../packages/react/index";
 
 export function Notification(): React.ReactElement {
   return (
     <Theme>
       <Card>
         <Card.Header>
-          <Box direction="column" space={{ block: "lg" }}>
+          <Box direction="column" space={{ y: "lg" }}>
             <Text as="h5">Notification</Text>
             <Text size="sm" skin="neutral">
               Manage your notification settings.

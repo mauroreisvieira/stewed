@@ -19,7 +19,7 @@ const meta: Meta<typeof Carousel> = {
 
 export default meta;
 
-export const Default: Story = {
+export const Base: Story = {
   argTypes: {
     children: {
       control: false,

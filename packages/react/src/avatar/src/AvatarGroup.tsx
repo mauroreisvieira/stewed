@@ -6,11 +6,13 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+export type AvatarGroupProps = React.HTMLAttributes<HTMLDivElement>;
+
 export function AvatarGroup({
   className,
   children,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>): React.ReactElement {
+}: AvatarGroupProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: `${components.Avatar}-group`, styles });
 

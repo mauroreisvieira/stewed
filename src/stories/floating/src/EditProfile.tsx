@@ -13,16 +13,9 @@ import {
 
 export function EditProfile(): React.ReactElement {
   const [dialogOpen, setDialogOpen] = useState(false);
+
   return (
-    <Theme<"light" | "dark">
-      theme="light"
-      tokens={{
-        light: {
-          color: {
-            error: "#f00",
-          },
-        },
-      }}>
+    <Theme>
       <Card>
         <Card.Body>
           <Button onClick={() => setDialogOpen((prev) => !prev)}>Edit Profile</Button>

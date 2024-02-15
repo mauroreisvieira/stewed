@@ -20,7 +20,7 @@ const meta: Meta<typeof Separator> = {
 
 export default meta;
 
-export const Default: Story = {
+export const Base: Story = {
   args: {
     skin: "neutral-border",
   },

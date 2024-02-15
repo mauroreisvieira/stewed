@@ -24,6 +24,8 @@ export interface AspectRatioProps extends React.HTMLAttributes<HTMLDivElement> {
  * </AspectRatio>
  * ```
  *
+ * @remarks This component props extended from React.HTMLAttributes<HTMLDivElement>.
+ *
  * @param {AspectRatioProps} props - The props for the AspectRatio component.
  * @returns {React.ReactElement} - The rendered AspectRatio component.
  */

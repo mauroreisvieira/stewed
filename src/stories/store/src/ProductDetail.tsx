@@ -23,7 +23,6 @@ export function ProductDetail(): React.ReactElement {
       components: {
         toggle: {
           radius: "sm",
-          gap: "none",
         }
       }
     }

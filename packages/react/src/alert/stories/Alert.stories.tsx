@@ -1,10 +1,9 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // Components
-import { Theme, Alert, Button } from "../../index";
+import { Theme, Alert } from "../../index";
 // Icons
 import { TiWarning } from "react-icons/ti";
-import { MdClose } from "react-icons/md";
 
 type Story = StoryObj<typeof Alert>;
 
@@ -32,6 +31,11 @@ export const Base: Story = {
 };
 
 export const LeftSlot: Story = {
+  argTypes: {
+    leftSlot: {
+      control: false,
+    },
+  },
   args: {
     skin: "warning",
     title: "Cannot connect to the database",

@@ -105,7 +105,7 @@ export function RecentFeedback(): React.ReactElement {
               <Table.Row
                 key={id}
                 selected={selected}
-                onClick={(event) => {
+                onClick={() => {
                   setTeam((prev) =>
                     prev.map((value) => ({
                       ...value,

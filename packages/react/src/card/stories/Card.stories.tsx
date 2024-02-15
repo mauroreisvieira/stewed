@@ -20,7 +20,7 @@ const meta: Meta<typeof Card> = {
 
 export default meta;
 
-export const Default: Story = {
+export const Base: Story = {
   argTypes: {
     children: {
       control: false,

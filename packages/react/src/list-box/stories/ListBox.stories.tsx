@@ -21,7 +21,7 @@ const meta: Meta<typeof ListBox> = {
 
 export default meta;
 
-export const Default: Story = {
+export const Base: Story = {
   argTypes: {
     children: {
       control: false,

@@ -35,6 +35,8 @@ export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
  * </Alert>
  * ```
  *
+ * @remarks This component props extended from React.HTMLAttributes<HTMLDivElement>.
+ *
  * @param {AlertProps} props - The props for the Alert component.
  * @returns {React.ReactElement} - The rendered Alert component.
  */

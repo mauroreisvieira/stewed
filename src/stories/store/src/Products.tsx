@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 // UI Components
-import { Card, Button, Box, Text, Theme, AspectRatio } from "../../../../packages/react/index";
+import { Card, Button, Box, Text, Theme } from "../../../../packages/react/index";
 import { FiShoppingCart } from "react-icons/fi";
 
 export function Products(): React.ReactElement {

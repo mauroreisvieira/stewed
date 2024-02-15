@@ -13,7 +13,7 @@ import {
 export function SplashScreen(): React.ReactElement {
   return (
     <Theme>
-      <Card padding="lg">
+      <Card padding={{ inline: "md", block: "lg" }}>
         <Card.Media>
           <Carousel loop={false}>
             {Array.from({ length: 2 }).map((_, key) => (
