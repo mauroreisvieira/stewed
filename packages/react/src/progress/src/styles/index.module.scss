@@ -21,13 +21,13 @@
     border: 0;
 
     &::-webkit-progress-bar {
-      background-color: theme.get-color("neutral", "faded");
+      background-color: color-mix(in srgb, theme.get-var(background-color) 20%, transparent);
       border-radius: theme.get-var(radius);
       box-shadow: none;
     }
 
     &::-moz-progress-bar {
-      background-color: theme.get-color("neutral", "faded");
+      background-color: color-mix(in srgb, theme.get-var(background-color) 20%, transparent);
       border-radius: theme.get-var(radius);
       box-shadow: none;
     }
@@ -39,6 +39,7 @@
     }
   }
 
+  // Height
   @each $key, $value in $progress-heights {
     &--#{$key} {
       @include theme.define-var(
@@ -49,11 +50,12 @@
     }
   }
 
-  @each $value in $progress-skins {
-    &--#{$value} {
+  // Skins
+  @each $key, $value in $progress-skins {
+    &--#{$key} {
       @include theme.define-var(
         (
-          background-color: #{theme.get-color($value)},
+          background-color: #{theme.get-color($key)},
         )
       );
     }

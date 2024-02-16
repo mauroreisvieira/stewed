@@ -34,7 +34,7 @@ export const Base: Story = {
         <Card.Header>
           <Text>Card Header</Text>
         </Card.Header>
-        <Card.Body skin="primary">
+        <Card.Body>
           <Text>
             Pellentesque elementum diam sapien, nec ultrices risus convallis eget. Nam pharetra
             dolor at dictum tempor. Quisque ut est a ligula hendrerit sodales. Curabitur ornare a
@@ -44,6 +44,30 @@ export const Base: Story = {
         <Card.Footer>
           <Text>Card Footer</Text>
         </Card.Footer>
+      </>
+    ),
+  },
+};
+
+export const Skin: Story = {
+  argTypes: {
+    children: {
+      control: false,
+    },
+  },
+  args: {
+    selected: false,
+    skin: "primary",
+    elevation: "none",
+    children: (
+      <>
+        <Card.Body>
+          <Text skin="white">
+            Pellentesque elementum diam sapien, nec ultrices risus convallis eget. Nam pharetra
+            dolor at dictum tempor. Quisque ut est a ligula hendrerit sodales. Curabitur ornare a
+            nulla in laoreet. Maecenas semper mi egestas, dignissim nisi et, elementum neque.
+          </Text>
+        </Card.Body>
       </>
     ),
   },

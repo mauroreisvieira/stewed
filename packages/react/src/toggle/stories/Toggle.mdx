@@ -1,0 +1,37 @@
+import { Canvas, Meta, ArgTypes } from "@storybook/blocks";
+import * as ToggleStories from "./Toggle.stories";
+import * as ToggleGroup from "./ToggleGroup.stories";
+
+# Toggle
+
+Use to give merchants control over a feature or option that can be turned on or off.
+
+### Installation
+
+```bash
+npm install --save @stewed/react
+```
+
+### Import
+
+```js
+import { Toggle } from "@stewed/react";
+```
+
+<Meta of={ToggleStories} />
+
+## Base
+
+<Canvas of={ToggleStories.Base} />
+
+## Left SLot
+
+<Canvas of={ToggleStories.LeftSLot} />
+
+## Group
+
+<Canvas of={ToggleGroup.Group} />
+
+## Props
+
+<ArgTypes of={ToggleStories} />

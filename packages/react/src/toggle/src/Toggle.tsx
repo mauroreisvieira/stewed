@@ -4,11 +4,16 @@ import { ToggleGroup } from "./ToggleGroup";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
-import { components } from "@stewed/tokens";
+import { type Color, components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface ToggleProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ToggleProps extends React.ComponentPropsWithRef<"button"> {
+  /**
+   * Change the visual style of the button.
+   * @default neutral
+   */
+  skin?: Extract<Color, "primary" | "neutral">;
   /**
    * Changes the size of the toggle, giving it more or less padding.
    * @default md
@@ -40,6 +45,7 @@ export interface ToggleProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
  * @returns {React.ReactElement} - The rendered Toggle component.
  */
 export function Toggle({
+  skin = "neutral",
   size = "md",
   className,
   selected = false,
@@ -52,11 +58,9 @@ export function Toggle({
   const { getBlock, getElement } = useBem({ block: components.Toggle, styles });
 
   // Generating CSS classes based on component props and styles
-
-  // CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({
-      modifiers: [size, selected && "selected", disabled && "disabled"],
+      modifiers: [skin, size, selected && `${skin}-selected`, disabled && "disabled"],
       extraClasses: className,
     }),
     left: getElement(["left"]),
@@ -64,7 +68,14 @@ export function Toggle({
   };
 
   return (
-    <button disabled={disabled} className={cssClasses.root} {...props}>
+    <button
+      className={cssClasses.root}
+      disabled={disabled}
+      tabIndex={disabled ? -1 : 0}
+      aria-selected={selected}
+      aria-disabled={disabled}
+      {...props}
+    >
       {leftSlot && <span className={cssClasses.left}>{leftSlot}</span>}
       {children && <span className={cssClasses.text}>{children}</span>}
     </button>

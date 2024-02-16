@@ -46,7 +46,7 @@ export function ProductDetail(): React.ReactElement {
         </Box>
         <Box direction="column" gap="2xl">
           <div>
-            <Tag skin="primary" size="sm">
+            <Tag skin="primary" appearance="muted" size="sm">
               Nova coleção
             </Tag>
           </div>
@@ -79,7 +79,7 @@ export function ProductDetail(): React.ReactElement {
                 </Toggle>
               ))}
             </Toggle.Group>
-            <Button size="lg" fullWidth>
+            <Button skin="neutral" fullWidth>
               Adicionar ao carrinho
             </Button>
           </Box>
@@ -88,7 +88,7 @@ export function ProductDetail(): React.ReactElement {
               Inclui uma etiqueta interativa na gola que concede acesso ao Club LEGACIES.
             </Text>
             <Accordion>
-              <Accordion.Item open>
+              <Accordion.Item>
                 <Accordion.Header rightSlot={<FiPlus />}>Detalhes do Produto</Accordion.Header>
                 <Accordion.Body>
                   <Box direction="column" gap="lg">
@@ -97,12 +97,12 @@ export function ProductDetail(): React.ReactElement {
                       combina tradição e celebra a individualidade do Benfica.
                     </Text>
                     <ul>
-                      <li>Algodão LEGACIES de peso médio</li>
-                      <li>100% algodão</li>
-                      <li>500 gmq</li>
-                      <li>Corte unissexo</li>
-                      <li>Impressão DTG</li>
-                      <li>Fabricado em Portugal</li>
+                      <Text as="li">Algodão LEGACIES de peso médio</Text>
+                      <Text as="li">100% algodão</Text>
+                      <Text as="li">500 gmq</Text>
+                      <Text as="li">Corte unissexo</Text>
+                      <Text as="li">Impressão DTG</Text>
+                      <Text as="li">Fabricado em Portugal</Text>
                     </ul>
                   </Box>
                 </Accordion.Body>

@@ -8,7 +8,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface TabsItemProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface TabsItemProps extends React.ComponentPropsWithRef<"button"> {
   /** Sets or retrieves the value of a tab list. */
   value: string;
   /** Slot to display before the item children. */

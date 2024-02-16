@@ -13,7 +13,7 @@ interface SeparatorProps extends React.ComponentPropsWithRef<"hr"> {
    */
   skin?: Extract<
     Color,
-    "neutral" | "neutral-border" | "primary" | "primary-border" | "critical" | "critical-border"
+    "white" | "neutral" | "neutral-border" | "primary" | "primary-border" | "critical" | "critical-border"
   >;
   /** Adds space between separators on the horizontal and vertical axes. */
   space?: {

@@ -97,6 +97,7 @@ $config: (
       "default": var(--color-primary),
       "pressed": var(--color-primary-pressed),
       "border": var(--color-primary-border),
+      "border-hover": var(--color-primary-border-hover),
     ),
     "neutral": (
       "faded": var(--color-neutral-faded),

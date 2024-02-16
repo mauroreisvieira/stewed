@@ -82,6 +82,7 @@
     white-space: normal;
   }
 
+  // Skins
   @each $key, $value in $typography-skins {
     &--#{$key} {
       @include theme.define-var(
@@ -101,6 +102,7 @@
     }
   }
 
+  // Sizes
   @each $key, $value in $typography-sizes {
     &--#{$key} {
       @include theme.define-var(
@@ -111,6 +113,7 @@
     }
   }
 
+  // Font Family
   @each $key, $value in $typography-family {
     &--#{$key} {
       @include theme.define-var(
@@ -121,6 +124,7 @@
     }
   }
 
+  // Weights
   @each $key, $value in $typography-weights {
     &--#{$key} {
       @include theme.define-var(
@@ -133,12 +137,12 @@
 
   // Space
   @each $key, $value in $typography-space {
-    &--space-x-#{$key} ~ :not([hidden]) {
-      margin-left: #{$value};
+    &--space-x-#{$key} {
+      margin-inline-end: #{$value};
     }
 
-    &--space-y-#{$key}:not([hidden]) ~ :not([hidden]) {
-      margin-top: #{$value};
+    &--space-y-#{$key} {
+      margin-block-end: #{$value};
     }
   }
 }

@@ -44,43 +44,46 @@ export function Plans(): React.ReactElement {
         Account plans unlock additional features.
       </Text>
 
-      <Tabs alignment="center" value={value} onValueChange={setValue}>
-        <Tabs.List>
-          <Tabs.Item value="monthly">Monthly billing</Tabs.Item>
-          <Tabs.Item value="annually">Yearly billing</Tabs.Item>
-        </Tabs.List>
-      </Tabs>
-      <Box gap="2xl" items="center">
-        {plans.map(({ title, description, price }, index) => (
-          <Card
-            key={index}
-            selected={index === 1}
-            padding={{
-              block: index === 1 ? "2xl" : "xl",
-              inline: "xl",
-            }}
-            elevation={index === 1 ? "2xl" : undefined}>
-            <Card.Header>
-              <Text as="h4">{title}</Text>
-            </Card.Header>
-            <Card.Body>
-              <Box direction="column" gap="2xl">
-                <Text skin="neutral">{description}</Text>
-                <Box items="baseline" gap="sm">
-                  <Text size="4xl" weight="bold">
-                    {value === "monthly" ? price : price * 12 * 0.5}€
-                  </Text>
-                  <Text size="xs" weight="medium">
-                    {value === "monthly" ? "/month" : "/year"}
-                  </Text>
+      <Box direction="column" gap="3xl">
+        <Tabs alignment="center" value={value} onValueChange={setValue}>
+          <Tabs.List>
+            <Tabs.Item value="monthly">Monthly billing</Tabs.Item>
+            <Tabs.Item value="annually">Yearly billing</Tabs.Item>
+          </Tabs.List>
+        </Tabs>
+
+        <Box gap="2xl" items="center">
+          {plans.map(({ title, description, price }, index) => (
+            <Card
+              key={index}
+              selected={index === 1}
+              padding={{
+                block: index === 1 ? "2xl" : "xl",
+                inline: "xl",
+              }}
+              elevation={index === 1 ? "2xl" : undefined}>
+              <Card.Header>
+                <Text as="h4">{title}</Text>
+              </Card.Header>
+              <Card.Body>
+                <Box direction="column" gap="2xl">
+                  <Text skin="neutral">{description}</Text>
+                  <Box items="baseline" gap="sm">
+                    <Text size="4xl" weight="bold">
+                      {value === "monthly" ? price : price * 12 * 0.5}€
+                    </Text>
+                    <Text size="xs" weight="medium">
+                      {value === "monthly" ? "/month" : "/year"}
+                    </Text>
+                  </Box>
                 </Box>
-              </Box>
-            </Card.Body>
-            <Card.Footer>
-              <Button fullWidth>Subscribe</Button>
-            </Card.Footer>
-          </Card>
-        ))}
+              </Card.Body>
+              <Card.Footer>
+                <Button fullWidth>Subscribe</Button>
+              </Card.Footer>
+            </Card>
+          ))}
+        </Box>
       </Box>
     </Theme>
   );

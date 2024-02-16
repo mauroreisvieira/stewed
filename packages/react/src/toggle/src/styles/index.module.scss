@@ -8,7 +8,8 @@
     (
       background-color: transparent,
       border-color: currentColor,
-      color: theme.get-color("primary"),
+      border-width: 1px,
+      border-radius: theme.get-var(radius),
     )
   );
 
@@ -30,12 +31,12 @@
   cursor: pointer;
   user-select: none;
   background-color: theme.get-var(background-color);
-  border: 1px solid theme.get-var(border-color);
-  border-radius: theme.get-var(radius);
+  border: theme.get-var(border-width) solid theme.get-var(border-color);
+  border-radius: theme.get-var(border-radius);
 
   @include theme.focus-styles {
     position: relative;
-    z-index: 1;
+    z-index: 0;
   }
 
   @include theme.disabled-styles;
@@ -43,7 +44,7 @@
   &:hover {
     @include theme.define-var(
       (
-        color: theme.get-color("primary"),
+        color: theme.get-color("neutral"),
       )
     );
   }
@@ -51,7 +52,7 @@
   &:active {
     @include theme.define-var(
       (
-        color: theme.get-color("primary", "pressed"),
+        color: theme.get-color("neutral", "pressed"),
       )
     );
   }
@@ -70,36 +71,52 @@
 
   &__group {
     display: flex;
-    gap: theme.get-var(gap);
+
+    .#{$toggle-root} {
+      border-radius: 0;
+
+      &:not(:first-child) {
+        margin-left: -1px;
+      }
+
+      &:first-child {
+        border-top-left-radius: theme.get-var(border-radius);
+        border-bottom-left-radius: theme.get-var(border-radius);
+      }
+
+      &:last-child {
+        border-top-right-radius: theme.get-var(border-radius);
+        border-bottom-right-radius: theme.get-var(border-radius);
+      }
+    }
   }
 
-  &--selected {
-    @include theme.define-var(
-      (
-        background-color: theme.get-color("primary"),
-        border-color: theme.get-color("primary"),
-        color: #fff,
-      )
-    );
-
-    &:hover {
+  @each $value in $toggle-skins {
+    &--#{$value} {
       @include theme.define-var(
         (
-          background-color: theme.get-color("primary"),
-          border-color: theme.get-color("primary"),
-          color: #fff,
+          color: theme.get-color($value),
         )
       );
-    }
 
-    &:active {
-      @include theme.define-var(
-        (
-          background-color: theme.get-color("primary", "pressed"),
-          border-color: theme.get-color("primary", "pressed"),
-          color: #fff,
-        )
-      );
+      &:hover:not([aria-selected="true"]) {
+        @include theme.define-var(
+          (
+            background-color: theme.get-color($value, "faded"),
+            color: theme.get-color($value),
+          )
+        );
+      }
+
+      &-selected {
+        @include theme.define-var(
+          (
+            background-color: theme.get-color($value),
+            border-color: theme.get-color($value),
+            color: #fff,
+          )
+        );
+      }
     }
   }
 

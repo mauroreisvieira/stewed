@@ -10,5 +10,7 @@ $card-elevation: theme.get-elevation();
 
 /// Skins
 $card-skins: (
+  "neutral": theme.get-color("neutral"),
   "neutral-faded": theme.get-color("neutral", "faded"),
+  "primary": theme.get-color("primary"),
 );

@@ -6,6 +6,7 @@ export const color = {
   "primary": "#6366f1",
   "primary-pressed": "#4338ca",
   "primary-border": "#c7d2fe",
+  "primary-border-hover": "#c7d2fe",
   // neutral
   "neutral-faded": "#f8fafc",
   "neutral": "#64748b",

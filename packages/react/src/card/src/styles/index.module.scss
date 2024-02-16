@@ -26,11 +26,20 @@
     border-top-left-radius: theme.get-var(radius);
     border-top-right-radius: theme.get-var(radius);
 
-    [src] {
+    &__img {
       width: 100%;
       height: 100%;
       border-radius: inherit;
       object-fit: cover;
+    }
+
+    &__slot {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      padding-block: theme.get-var(padding-block);
+      padding-inline: theme.get-var(padding-inline);
     }
   }
 
