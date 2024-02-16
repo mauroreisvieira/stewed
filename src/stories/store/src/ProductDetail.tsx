@@ -18,29 +18,20 @@ export function ProductDetail(): React.ReactElement {
   const [selectedSize, setSelectedSize] = useState("M");
 
   return (
-    <Theme<"default"> defaultTheme="default" tokens={{
-    default: {
-      components: {
-        toggle: {
-          radius: "sm",
-        }
-      }
-    }
-    }}>
+    <Theme<"default">
+      defaultTheme="default"
+      tokens={{
+        default: {
+          components: {
+            toggle: {
+              radius: "sm",
+            },
+          },
+        },
+      }}>
       <Box justify="between" gap="2xl">
         <Box>
-          <Carousel
-          loop={true}
-            renderPrev={(props) => (
-              <Button appearance="ghost" leftSlot={<FiArrowLeft size={24} />} iconOnly {...props}>
-                Prev
-              </Button>
-            )}
-            renderNext={(props) => (
-              <Button appearance="ghost" leftSlot={<FiArrowRight size={24} />} iconOnly {...props}>
-                Next
-              </Button>
-            )}>
+          <Carousel>
             <img src="https://placehold.co/400x600" />
             <img src="https://placehold.co/400x600" />
           </Carousel>

@@ -26,9 +26,9 @@ export const Base: Story = {
     },
   },
   args: {
-    slidesPerView: 3,
+    slidesPerView: 1,
     loop: true,
-    children: Array.from({ length: 6 }).map((_, index) => (
+    children: Array.from({ length: 3 }).map((_, index) => (
       <div key={index}>
         <img src="https://placehold.co/1200x400" />
       </div>
