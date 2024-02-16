@@ -75,8 +75,8 @@ export function Dialog({
     surface: getElement([`surface`]),
   };
 
-  const onHandleKeydown = useCallback(
-    (event: React.KeyboardEvent<HTMLDivElement>): void => {
+  const onHandleKeydown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
+    (event): void => {
       if (onKeyDown) onKeyDown(event);
 
       if (event.key === "Escape") {
@@ -87,8 +87,8 @@ export function Dialog({
     [onEscape, onKeyDown],
   );
 
-  const onHandleMouseDown = useCallback(
-    (event: React.MouseEvent<HTMLDivElement>): void => {
+  const onHandleMouseDown: React.MouseEventHandler<HTMLDivElement> = useCallback(
+    (event): void => {
       if (onMouseDown) onMouseDown(event);
 
       if (!rootRef) return;

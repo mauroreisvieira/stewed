@@ -22,7 +22,7 @@ export function TabsList({
     root: getBlock({ extraClasses: className }),
   };
 
-  // Define a reference to a list element
+  // Define a reference to a tab list element
   const { ref, onNavigate } = useKeyboardNavigation<HTMLDivElement>({
     target: '[role="tab"]:not([aria-disabled])',
   });

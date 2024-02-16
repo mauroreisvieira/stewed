@@ -8,7 +8,10 @@ interface UseKeyboardNavigationProps {
 interface UseKeyboardNavigation<T> {
   /** Reference to the DOM element to be used for navigation. */
   ref?: React.RefObject<T>;
-  /** Event handler function to navigate through keyboard interactions. */
+  /**
+   * Event handler function to navigate through keyboard interactions.
+   * @param {React.KeyboardEvent<T>} event - The keyboard event.
+   */
   onNavigate?: (event: React.KeyboardEvent<T>) => void;
 }
 
@@ -23,12 +26,8 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
 }: UseKeyboardNavigationProps): UseKeyboardNavigation<T> {
   const listRef = useRef<T>(null);
 
-  /**
-   * Handles keyboard events for navigation.
-   * @param {React.KeyboardEvent<T>} event - The keyboard event.
-   */
-  const onHandleKeyDown = useCallback(
-    (event: React.KeyboardEvent<T>) => {
+  const onHandleKeyDown: React.KeyboardEventHandler<T> = useCallback(
+    (event) => {
       const list = listRef.current;
       if (!list) return;
 

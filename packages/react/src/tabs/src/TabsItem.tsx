@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback } from "react";
 // Context
 import { useTabs } from "./TabsContext";
 // Hooks
@@ -45,11 +45,11 @@ export function TabsItem({
     right: getElement(["right"]),
   };
 
-  const onHandleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const onHandleClick:React.MouseEventHandler<HTMLButtonElement> = useCallback((event) => {
     if (disabled) return;
     onValueChange?.(value);
     onClick?.(event);
-  };
+  }, [disabled, onClick, onValueChange, value]);
 
   return (
     <button
