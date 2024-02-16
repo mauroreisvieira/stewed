@@ -6,7 +6,7 @@ import { type Color, components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface TextFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface TextFieldProps extends Omit<React.ComponentPropsWithRef<"input">, "size"> {
   /**
    * Change the visual style of the input.
    * @default default

@@ -6,7 +6,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface ListBoxItemProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ListBoxItemProps extends React.ComponentPropsWithRef<"div"> {
   /**
    * Change the visual style of the menu item.
    * @default primary

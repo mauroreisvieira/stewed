@@ -6,7 +6,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface SwitchProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> {
+export interface SwitchProps extends Omit<React.ComponentPropsWithRef<"input">, "size"> {
   /**
    * Specifies the visual style of the switch.
    * @default primary

@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from "react";
+import React, { useCallback } from "react";
 // Hooks
 import { useBem, useKeyboardNavigation } from "@stewed/hooks";
 // Tokens
@@ -6,7 +6,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export type TabsListProps = React.HTMLAttributes<HTMLElement>;
+export type TabsListProps = React.ComponentPropsWithRef<"div">;
 
 export function TabsList({
   className,
@@ -27,8 +27,8 @@ export function TabsList({
     target: '[role="tab"]:not([aria-disabled])',
   });
 
-  const onHandleKeyDown = useCallback(
-    (event: React.KeyboardEvent<HTMLDivElement>) => {
+  const onHandleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
+    (event) => {
       onNavigate?.(event);
       onKeyDown?.(event);
     },

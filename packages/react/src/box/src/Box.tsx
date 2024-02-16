@@ -10,7 +10,7 @@ import styles from "./styles/index.module.scss";
 
 const defaultElement = "div";
 
-export interface BoxProps<T> extends React.HTMLAttributes<HTMLDivElement> {
+export interface BoxProps<T> extends React.ComponentPropsWithRef<"div"> {
   /**
    * Specifies the type of element to use as the box.
    * @default div

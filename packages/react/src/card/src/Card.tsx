@@ -12,7 +12,7 @@ import { type Elevation } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface CardProps extends React.ComponentPropsWithRef<"div"> {
   /**
    * Change the visual style of the card.
    * @default default
@@ -44,7 +44,7 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
  * </Card>
  * ```
  *
- * @remarks This component props extended from React.HTMLAttributes<HTMLDivElement>.
+ * @remarks This component props extended from React.ComponentPropsWithRef<"div">.
  *
  * @param {CardProps} props - The props for the Card component.
  * @returns {React.ReactElement} - The rendered Card component.

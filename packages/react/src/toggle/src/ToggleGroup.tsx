@@ -6,7 +6,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface ToggleGroupProps extends React.HTMLAttributes<HTMLDivElement> {}
+export interface ToggleGroupProps extends React.ComponentPropsWithRef<"div"> {}
 
 export function ToggleGroup({
   className,

@@ -8,7 +8,7 @@ import styles from "./styles/index.module.scss";
 
 type CheckboxSize = "sm" | "md" | "lg";
 
-export interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> {
+export interface CheckboxProps extends Omit<React.ComponentPropsWithRef<"input">, "size"> {
   /**
    * Specifies the visual style of the checkbox.
    * @default primary

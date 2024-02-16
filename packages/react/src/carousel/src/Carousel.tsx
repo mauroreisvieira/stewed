@@ -13,7 +13,7 @@ import { components, type Spacings } from "@stewed/tokens";
 // Style
 import styles from "./styles/index.module.scss";
 
-export interface CarouselProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface CarouselProps extends React.ComponentPropsWithRef<"div"> {
   /** The gap between box items. Can be a predefined size or a custom value. */
   gap?: Spacings;
   /** Enables infinite looping */

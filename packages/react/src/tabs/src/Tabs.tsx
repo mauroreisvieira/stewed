@@ -11,7 +11,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface TabsProps extends React.HTMLAttributes<HTMLElement>, TabsProviderProps {
+export interface TabsProps extends React.ComponentPropsWithRef<"div">, TabsProviderProps {
   /**
    * Allow possibility to change alignment of tabs.
    * @default left

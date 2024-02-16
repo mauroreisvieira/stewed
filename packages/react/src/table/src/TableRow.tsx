@@ -6,7 +6,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface TableRowProps extends React.HTMLAttributes<HTMLTableRowElement> {
+export interface TableRowProps extends React.ComponentPropsWithRef<"tr"> {
   /** Indicates whether the item is selected. */
   selected?: boolean;
 }

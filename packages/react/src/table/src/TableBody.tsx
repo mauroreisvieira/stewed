@@ -6,7 +6,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export type TableBodyProps = React.HTMLAttributes<HTMLTableSectionElement>;
+export type TableBodyProps = React.ComponentPropsWithRef<"tbody">;
 
 export function TableBody({
   className,

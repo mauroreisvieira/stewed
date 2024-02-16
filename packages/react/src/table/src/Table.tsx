@@ -13,7 +13,7 @@ import styles from "./styles/index.module.scss";
 
 type TableAppearance = "border" | "border-rows" | "border-columns" | "striped";
 
-export interface TableProps extends React.TableHTMLAttributes<HTMLTableElement> {
+export interface TableProps extends React.ComponentPropsWithRef<"table"> {
   /**
    * Change the visual appearance of the table.
    * @default border

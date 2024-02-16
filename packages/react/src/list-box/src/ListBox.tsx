@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from "react";
+import React, { useCallback } from "react";
 // Compound Component
 import { ListBoxGroup } from "./ListBoxGroup";
 import { ListBoxItem } from "./ListBoxItem";
@@ -14,7 +14,7 @@ export function ListBox({
   children,
   onKeyDown,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>): React.ReactElement {
+}: React.ComponentPropsWithRef<"div">): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: components.ListBox, styles });
 
@@ -28,7 +28,7 @@ export function ListBox({
     target: '[role="menuitem"]:not([aria-disabled])',
   });
 
-  const onHandleKeyDown = useCallback(
+  const onHandleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
     (event: React.KeyboardEvent<HTMLDivElement>) => {
       onNavigate?.(event);
       onKeyDown?.(event);

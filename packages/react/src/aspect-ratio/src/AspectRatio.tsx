@@ -6,7 +6,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface AspectRatioProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface AspectRatioProps extends React.ComponentPropsWithRef<"div"> {
   /**
    * Specify the aspect ratio as a string in the format "width:height"
    * @default 1:1
@@ -24,7 +24,7 @@ export interface AspectRatioProps extends React.HTMLAttributes<HTMLDivElement> {
  * </AspectRatio>
  * ```
  *
- * @remarks This component props extended from React.HTMLAttributes<HTMLDivElement>.
+ * @remarks This component props extended from React.ComponentPropsWithRef<"div">.
  *
  * @param {AspectRatioProps} props - The props for the AspectRatio component.
  * @returns {React.ReactElement} - The rendered AspectRatio component.

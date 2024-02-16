@@ -6,8 +6,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface AccordionHeaderProps
-  extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
+export interface AccordionHeaderProps extends React.ComponentPropsWithRef<"div"> {
   leftSlot?: React.ReactNode;
   rightSlot?: React.ReactNode;
 }

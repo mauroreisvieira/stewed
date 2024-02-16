@@ -21,10 +21,10 @@ type OutputTokens = Exclude<Tokens, "components"> & {
 type ComponentObject = {
   radius?: Radius;
   elevation?: Elevation;
-}
+};
 
 export interface RootProps<T extends string>
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends React.ComponentPropsWithRef<"div">,
     ThemeContextOmittedProps<T> {
   /** Additional class name for styling. */
   className?: string;

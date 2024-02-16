@@ -2,7 +2,7 @@ import React from "react";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
-import { components } from "@stewed/tokens";
+import { type Color, components } from "@stewed/tokens";
 // Types
 import { type DistributiveOmit, fixedForwardRef } from "../../types";
 // Styles
@@ -21,7 +21,7 @@ export interface ButtonProps<T> extends React.ComponentProps<typeof defaultEleme
    * Change the visual style of the button.
    * @default primary
    */
-  skin?: "primary" | "neutral" | "critical" | "success";
+  skin?: Extract<Color, "primary" | "neutral" | "critical" | "success">;
   /**
    * Change the visual appearance of the button.
    * @default filled

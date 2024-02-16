@@ -6,7 +6,7 @@ import { useBem } from "@stewed/hooks";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export type CardMediaProps = React.HTMLAttributes<HTMLDivElement>;
+export type CardMediaProps = React.ComponentPropsWithRef<"div">;
 
 export function CardMedia({ className, children, ...props }: CardMediaProps): React.ReactElement {
   // Importing useBem to handle BEM class names

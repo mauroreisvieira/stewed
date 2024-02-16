@@ -8,7 +8,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
+export interface SelectProps extends React.ComponentPropsWithRef<"select"> {
   /**
    * Change the visual style of the select.
    * @default default

@@ -6,14 +6,12 @@ import { type Color, components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+export interface TextAreaProps extends React.ComponentPropsWithRef<"textarea"> {
   /**
    * Change the visual style of the text area.
    * @default default
    */
-  skin?:
-    | "default"
-    | Extract<Color, "critical" | "success">;
+  skin?: "default" | Extract<Color, "critical" | "success">;
 }
 
 /**

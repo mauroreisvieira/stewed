@@ -6,7 +6,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface ListBoxGroupProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ListBoxGroupProps extends React.ComponentPropsWithRef<"div"> {
   title?: string;
 }
 

@@ -14,7 +14,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface DialogProps extends React.HTMLAttributes<HTMLDivElement>, DialogProviderProps {
+export interface DialogProps extends React.ComponentProps<"div">, DialogProviderProps {
   /** The controlled open state of the dialog. */
   open?: boolean;
   /**

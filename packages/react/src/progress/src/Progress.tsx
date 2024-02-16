@@ -6,7 +6,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface ProgressProps extends React.ProgressHTMLAttributes<HTMLProgressElement> {
+export interface ProgressProps extends React.ComponentPropsWithRef<"progress"> {
   /** Change the visual style of the progress bar. */
   skin?: "primary" | "neutral" | "success" | "critical";
   /** Changes the size of the progress bar, giving it more or less padding. */

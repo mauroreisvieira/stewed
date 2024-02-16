@@ -6,7 +6,7 @@ import { type Color, components, type Spacings } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-interface SeparatorProps extends React.HTMLAttributes<HTMLHRElement> {
+interface SeparatorProps extends React.ComponentPropsWithRef<"hr"> {
   /**
    * Change the visual color of the separator.
    * @default neutral-border
@@ -44,7 +44,7 @@ interface SeparatorProps extends React.HTMLAttributes<HTMLHRElement> {
  * <Separator skin="primary-border" space={{ block: 'sm', inline: 'md' }} orientation="horizontal" />
  * ```
  *
- * @remarks This component props extended from React.HTMLAttributes<HTMLHRElement>.
+ * @remarks This component props extended from React.ComponentPropsWithRef<"hr">.
  *
  * @param {SeparatorProps} props - The props for the Separator component.
  * @returns {React.ReactElement} - The rendered Separator component.
