@@ -1,8 +1,8 @@
 import React from "react";
 // Tokens
 import { type Spacings, components } from "@stewed/tokens";
-// Hooks
-import { useBem } from "@stewed/hooks";
+import { useBem, useResponsive, type UseResponsiveProps } from "@stewed/hooks";
+import { useTheme } from "../../theme";
 // Types
 import { type DistributiveOmit, fixedForwardRef } from "../../types";
 // Style
@@ -10,35 +10,38 @@ import styles from "./styles/index.module.scss";
 
 const defaultElement = "div";
 
-export interface BoxProps<T> extends React.ComponentPropsWithRef<"div"> {
+export interface BoxProps<T>
+  extends React.ComponentPropsWithRef<"div">,
+    UseResponsiveProps<{
+      /** The direction of the box container. */
+      direction?: "row" | "column" | "row-reverse" | "column-reverse";
+      /** The gap between box items. Can be a predefined size or a custom value. */
+      gap?: Spacings;
+      /** Padding options for horizontal and vertical orientation. */
+      padding?: { block: Spacings; inline: Spacings };
+      /** Aligns box items along the main axis. */
+      justify?: "start" | "end" | "center" | "between" | "around" | "evenly";
+      /** Aligns box items along the cross axis. */
+      items?: "start" | "end" | "center" | "baseline" | "stretch";
+      /** Determines whether box items should wrap to the next line if they exceed the container's width. */
+      wrap?: "wrap" | "wrap-reverse" | "nowrap";
+      /** Adds space between box or elements, affecting adjacent elements. */
+      space?: {
+        /** Adds space on the horizontal axis (e.g., margin-right) affecting adjacent elements. */
+        x?: Spacings;
+        /** Adds space on the vertical axis (e.g., margin-top) affecting adjacent elements. */
+        y?: Spacings;
+      };
+      /** Renders the box container as an inline element. */
+      inline?: boolean;
+      /** Allows the box container to grow to fill available space. */
+      grow?: boolean;
+    }> {
   /**
    * Specifies the type of element to use as the box.
    * @default div
    */
   as?: T;
-  /** The direction of the box container. */
-  direction?: "row" | "column" | "row-reverse" | "column-reverse";
-  /** The gap between box items. Can be a predefined size or a custom value. */
-  gap?: Spacings;
-  /** Padding options for horizontal and vertical orientation. */
-  padding?: { block: Spacings; inline: Spacings };
-  /** Aligns box items along the main axis. */
-  justify?: "start" | "end" | "center" | "between" | "around" | "evenly";
-  /** Aligns box items along the cross axis. */
-  items?: "start" | "end" | "center" | "baseline" | "stretch";
-  /** Determines whether box items should wrap to the next line if they exceed the container's width. */
-  wrap?: "wrap" | "wrap-reverse" | "nowrap";
-  /** Adds space between box or elements, affecting adjacent elements. */
-  space?: {
-    /** Adds space on the horizontal axis (e.g., margin-right) affecting adjacent elements. */
-    x?: Spacings;
-    /** Adds space on the vertical axis (e.g., margin-top) affecting adjacent elements. */
-    y?: Spacings;
-  };
-  /** Renders the box container as an inline element. */
-  inline?: boolean;
-  /** Allows the box container to grow to fill available space. */
-  grow?: boolean;
 }
 
 /**
@@ -68,6 +71,7 @@ export const Box = fixedForwardRef(
       space,
       inline,
       grow,
+      responsive,
       className,
       children,
       ...props
@@ -78,7 +82,28 @@ export const Box = fixedForwardRef(
       >,
     ref: React.ForwardedRef<unknown>,
   ): React.ReactElement => {
+    // Component to render based on the 'as' prop
     const Comp = as || defaultElement;
+
+    // Retrieve the 'tokens' and 'theme' from the current theme context
+    const { tokens, theme } = useTheme();
+
+    // Compute responsive props based on current theme and screen sizes
+    const computedProps = useResponsive(
+      {
+        direction,
+        gap,
+        padding,
+        justify,
+        items,
+        wrap,
+        space,
+        inline,
+        grow,
+        responsive,
+      },
+      tokens?.[theme]?.screens,
+    );
 
     // Importing useBem to handle BEM class names
     const { getBlock } = useBem({ block: components.Box, styles });
@@ -87,17 +112,17 @@ export const Box = fixedForwardRef(
     const cssClasses = {
       root: getBlock({
         modifiers: [
-          direction !== "row" && direction,
-          gap && `gap-${gap}`,
-          justify && `justify-${justify}`,
-          items && `items-${items}`,
-          padding?.block && `padding-block-${padding.block}`,
-          padding?.inline && `padding-inline-${padding.inline}`,
-          space?.x && `space-x-${space.x}`,
-          space?.y && `space-y-${space.y}`,
-          wrap,
-          inline && "inline",
-          grow && "grow",
+          computedProps.direction !== "row" && computedProps.direction,
+          computedProps.gap && `gap-${computedProps.gap}`,
+          computedProps.justify && `justify-${computedProps.justify}`,
+          computedProps.items && `items-${computedProps.items}`,
+          computedProps.padding?.block && `padding-block-${computedProps.padding.block}`,
+          computedProps.padding?.inline && `padding-inline-${computedProps.padding.inline}`,
+          computedProps.space?.x && `space-x-${computedProps.space.x}`,
+          computedProps.space?.y && `space-y-${computedProps.space.y}`,
+          computedProps.wrap,
+          computedProps.inline && "inline",
+          computedProps.grow && "grow",
         ],
         extraClasses: className,
       }),

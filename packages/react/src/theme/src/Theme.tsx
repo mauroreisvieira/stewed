@@ -21,7 +21,7 @@ export function Theme<T extends string>({
   const [tokens, setTokens] = useState<ThemeContextProps<T>["tokens"]>(defaultTokens);
 
   // State for managing the current theme
-  const [theme, setTheme] = useState<T | string | undefined>(defaultTheme);
+  const [theme, setTheme] = useState<T | string>(defaultTheme || "default");
 
   return (
     <ThemeContext.Provider

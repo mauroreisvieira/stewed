@@ -16,9 +16,9 @@ export interface ThemeContextProps<T extends string> {
   /** Default theme to be used when no theme is set. */
   defaultTheme?: T;
   /** Current active theme. */
-  theme?: T;
+  theme: T | "default";
   /** Setter function for updating the current active theme. */
-  setTheme: React.Dispatch<React.SetStateAction<T | undefined>>;
+  setTheme: React.Dispatch<React.SetStateAction<ThemeContextProps<T>["theme"]>>;
   /** Setter function for updating the theme tokens. */
   setTokens: React.Dispatch<React.SetStateAction<Partial<Record<T, Tokens>> | undefined>>;
 }
@@ -27,7 +27,7 @@ function createThemeContext<T extends string>() {
   return createContext<ThemeContextProps<T>>({
     tokens: undefined,
     defaultTheme: undefined,
-    theme: undefined,
+    theme: "default",
     setTheme: definitionError,
     setTokens: definitionError,
   });

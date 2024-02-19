@@ -1,30 +1,19 @@
 // Tokens
 import * as tokens from "./tokens/index";
-import type {
-  Color,
-  Elevation,
-  FontFamily,
-  FontSize,
-  FontWeight,
-  LineHeight,
-  Radius,
-  Screens,
-  Spacings,
-} from "./tokens/index";
 // Components
 import { type Components, components } from "./Components";
 
 // Define Tokens type that represents design tokens
 export type Tokens = {
-  color?: Partial<{ [K in Color]: string }>;
-  elevation?: Partial<{ [K in Elevation]: string }>;
-  fontFamily?: Partial<{ [K in FontFamily]: string }>;
-  fontSize?: Partial<{ [K in FontSize]?: string }>;
-  fontWeight?: Partial<{ [K in FontWeight]: string }>;
-  lineHeight?: Partial<{ [K in LineHeight]: string }>;
-  radius?: Partial<{ [K in Radius]: string }>;
-  screens?: Partial<{ [K in Screens]: string }>;
-  spacings?: Partial<{ [K in Spacings]: string }>;
+  color?: Partial<typeof tokens.color>;
+  elevation?: Partial<typeof tokens.elevation>;
+  fontFamily?: Partial<typeof tokens.fontFamily>;
+  fontSize?: Partial<typeof tokens.fontSize>;
+  fontWeight?: Partial<typeof tokens.fontWeight>;
+  lineHeight?: Partial<typeof tokens.lineHeight>;
+  radius?: Partial<typeof tokens.radius>;
+  screens?: Partial<typeof tokens.screens>;
+  spacings?: Partial<typeof tokens.spacings>;
   components?: Components;
 };
 
@@ -94,14 +83,4 @@ export const defaultTokens: Tokens = {
 // Export components and Components type
 export { components, type Components };
 // Export tokens
-export type {
-  Color,
-  Elevation,
-  FontFamily,
-  FontSize,
-  FontWeight,
-  LineHeight,
-  Radius,
-  Screens,
-  Spacings,
-};
+export * from "./tokens/index";

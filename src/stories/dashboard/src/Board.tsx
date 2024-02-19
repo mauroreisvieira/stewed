@@ -79,7 +79,14 @@ export function Board(): React.ReactElement {
         <Button leftSlot={<FiPlus />}>New Project</Button>
       </Box>
       <div></div>
-      <Box gap="lg">
+      <Box
+        wrap="wrap"
+        gap="2xl"
+        responsive={{
+          md: {
+            wrap: "nowrap",
+          },
+        }}>
         {projects.map(({ id, title, category, members }) => (
           <Box key={id} gap="md" grow>
             <Card>

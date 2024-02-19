@@ -224,7 +224,6 @@ function Elements(): React.ReactElement {
 export function CustomTheme(): React.ReactElement {
   return (
     <Theme<ThemeOptions>
-      defaultTheme="default"
       tokens={{
         metro: {
           color: {

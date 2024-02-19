@@ -19,7 +19,6 @@ export function ProductDetail(): React.ReactElement {
 
   return (
     <Theme<"default">
-      defaultTheme="default"
       tokens={{
         default: {
           components: {

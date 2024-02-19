@@ -8,12 +8,6 @@
   gap: 16px;
   width: 100%;
 
-  @include theme.define-var(
-    (
-      gap: 0,
-    )
-  );
-
   &__wrapper {
     position: relative;
     display: flex;
@@ -30,7 +24,6 @@
 
   &__track {
     display: flex;
-    margin-inline: calc(theme.get-var("gap") * -1);
     transition: transform 0.25s ease-in;
     transform-style: preserve-3d;
 
@@ -50,7 +43,6 @@
 
   &__slide {
     height: 100%;
-    padding-inline: theme.get-var("gap");
 
     [src] {
       width: 100%;
@@ -113,17 +105,6 @@
         (
           dash-background: #{$carousel-dash-background-active},
           dash-width: #{$carousel-dash-width},
-        )
-      );
-    }
-  }
-
-  // Gap
-  @each $key, $value in $carousel-gap {
-    &--gap-#{$key} {
-      @include theme.define-var(
-        (
-          gap: #{$value},
         )
       );
     }
