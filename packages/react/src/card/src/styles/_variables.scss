@@ -13,4 +13,5 @@ $card-skins: (
   "neutral": theme.get-color("neutral"),
   "neutral-faded": theme.get-color("neutral", "faded"),
   "primary": theme.get-color("primary"),
+  "primary-faded": theme.get-color("primary", "faded"),
 );

@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Theme, Carousel } from "../../index";
+import { Theme, Carousel, Card, Text, Box } from "../../index";
 
 type Story = StoryObj<typeof Carousel>;
 
@@ -26,21 +26,48 @@ export const Base: Story = {
     },
   },
   args: {
-    slidesPerView: 1,
-    loop: false,
-    responsive: {
-      md: {
-        loop: true,
-      },
-      xl: {
-        loop: true,
-        slidesPerView: 2,
-      },
+    children: Array.from({ length: 4 }).map((_, index) => (
+      <Card
+        elevation="none"
+        key={index}
+        padding={{ block: "7xl", inline: "7xl" }}
+        skin="neutral-faded"
+      >
+        <Card.Body>
+          <Text alignment="center" size="8xl">
+            {index + 1}
+          </Text>
+        </Card.Body>
+      </Card>
+    )),
+  },
+};
+
+export const PerView: Story = {
+  argTypes: {
+    children: {
+      control: false,
     },
-    children: Array.from({ length: 3 }).map((_, index) => (
-      <div key={index}>
-        <img src="https://placehold.co/1200x400" />
-      </div>
+  },
+  args: {
+    loop: false,
+    children: Array.from({ length: 4 }).map((_, index) => (
+      <Box gap="xl">
+        {Array.from({ length: 3 }).map((_, subIndex) => (
+          <Card
+            elevation="none"
+            key={index + subIndex + 1}
+            padding={{ block: "7xl", inline: "7xl" }}
+            skin="neutral-faded"
+          >
+            <Card.Body>
+              <Text alignment="center" size="8xl">
+                {index + subIndex + 1}
+              </Text>
+            </Card.Body>
+          </Card>
+        ))}
+      </Box>
     )),
   },
 };

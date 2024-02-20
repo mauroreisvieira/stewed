@@ -1,6 +1,7 @@
 import React from "react";
 // Tokens
 import { type Spacings, components } from "@stewed/tokens";
+// Hooks
 import { useBem, useResponsive, type UseResponsiveProps } from "@stewed/hooks";
 import { useTheme } from "../../theme";
 // Types
@@ -85,7 +86,7 @@ export const Box = fixedForwardRef(
     // Component to render based on the 'as' prop
     const Comp = as || defaultElement;
 
-    // Retrieve the 'tokens' and 'theme' from the current theme context
+    // Retrieve values from the current theme context
     const { tokens, theme } = useTheme();
 
     // Compute responsive props based on current theme and screen sizes

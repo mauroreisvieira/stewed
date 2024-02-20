@@ -25,7 +25,7 @@ export function ListBox({
 
   // Define a reference to a list element
   const { ref, onNavigate } = useKeyboardNavigation<HTMLDivElement>({
-    target: '[role="menuitem"]:not([aria-disabled])',
+    target: '[role="option"]:not([aria-disabled])',
   });
 
   const onHandleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
@@ -37,7 +37,13 @@ export function ListBox({
   );
 
   return (
-    <div ref={ref} className={cssClasses.root} role="menu" onKeyDown={onHandleKeyDown} {...props}>
+    <div
+      ref={ref}
+      className={cssClasses.root}
+      role="listbox"
+      onKeyDown={onHandleKeyDown}
+      {...props}
+    >
       {children}
     </div>
   );

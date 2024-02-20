@@ -17,7 +17,7 @@ export interface CardProps extends React.ComponentPropsWithRef<"div"> {
    * Change the visual style of the card.
    * @default default
    */
-  skin?: "default" | Extract<Color, "neutral" | "neutral-faded" | "primary">;
+  skin?: "default" | Extract<Color, "neutral" | "neutral-faded" | "primary" | "primary-faded">;
   /** Padding options for horizontal and vertical orientation. */
   padding?: { block: Spacings; inline: Spacings };
   /** Enable a hover state on table rows within. */

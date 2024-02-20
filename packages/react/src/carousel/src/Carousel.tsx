@@ -1,29 +1,40 @@
 import React, {
+  forwardRef,
   useState,
   useEffect,
   useMemo,
-  forwardRef,
   useImperativeHandle,
   useCallback,
 } from "react";
 // Sub Components
 import { CarouselNavigation } from "./CarouselNavigation";
+import { CarouselSlide } from "./CarouselSlide";
+// Tokens
+import { components } from "@stewed/tokens";
 // Hooks
 import { useBem, useResponsive, type UseResponsiveProps } from "@stewed/hooks";
-// Tokens
-import { components, defaultTokens } from "@stewed/tokens";
+import { useTheme } from "../../theme";
 // Style
 import styles from "./styles/index.module.scss";
 
 export interface CarouselProps
   extends React.ComponentPropsWithRef<"div">,
     UseResponsiveProps<{
-      /** Enables infinite looping */
+      /**
+       * Touch drag enabled.
+       * @default true
+       */
+      touched: boolean;
+      /**
+       * Enables infinite looping
+       * @default true
+       */
       loop?: boolean;
-      /** Will show/hide prev and next button */
+      /**
+       * Will show/hide prev and next button
+       * @default true
+       */
       showNavigation?: boolean;
-      /** Number of slides to display */
-      slidesPerView?: number;
     }> {
   /** Callback when slides change */
   onSlideChange?: (slide: number) => void;
@@ -43,22 +54,24 @@ export interface CarouselRef {
  *
  * @example
  * ```tsx
- * <Carousel loop={true}>
+ * <Carousel touched={false} loop={false}>
  *   <div />
  *   <div />
  *   <div />
  * </Carousel>
  * ```
  *
- * @param props - CarouselProps
- * @remarks This component supports all other HTMLAttributes props
+ * @remarks This component props extended from React.ComponentPropsWithRef<"div">.
+ *
+ * @param {CarouselProps} props - The props for the Carousel component.
+ * @returns {React.ReactElement} - The rendered Carousel component.
  */
 export const Carousel = forwardRef(
   (
     {
-      loop = false,
+      touched = true,
+      loop = true,
       showNavigation = true,
-      slidesPerView = 1,
       className,
       children,
       onSlideChange,
@@ -67,28 +80,10 @@ export const Carousel = forwardRef(
     }: CarouselProps,
     ref: React.Ref<CarouselRef>,
   ): React.ReactElement => {
-    const computedProps = useResponsive(
-      {
-        loop,
-        showNavigation,
-        slidesPerView,
-        responsive,
-      },
-      defaultTokens.screens,
-    );
-
-    const perView = computedProps.slidesPerView || 1;
-
-    if (perView < 1) {
-      throw new Error("Number of `slidesPerView` should be greater than 0");
-    }
-
-    // will render multiple slides at once
-    const isBatch = perView > 1;
-
     // Importing useBem to handle BEM class names
     const { getBlock, getElement } = useBem({ block: components.Carousel, styles });
 
+    // Generating CSS classes based on component props and styles
     const cssClasses = {
       root: getBlock({
         extraClasses: className,
@@ -101,135 +96,167 @@ export const Carousel = forwardRef(
       bottom: getElement(["bottom"]),
     };
 
-    // number of slides
-    const slidesCount = useMemo(() => React.Children.count(children), [children]);
+    // Retrieve values from the current theme context
+    const { tokens, theme } = useTheme();
 
-    const loopingEffect = useMemo(
-      () => computedProps.loop && slidesCount > perView,
-      [slidesCount, computedProps.loop, perView],
+    // Compute responsive props based on current theme and screen sizes
+    const computedProps = useResponsive(
+      {
+        touched,
+        loop,
+        showNavigation,
+        responsive,
+      },
+      tokens?.[theme]?.screens,
     );
 
-    // slides should occupy the number of slots left
-    const numberOfEmptySlots = useMemo(() => {
-      if (slidesCount % perView === 0) return 0;
-      return (perView - (slidesCount % perView)) % perView;
-    }, [perView, slidesCount]);
+    // Total Slides
+    const slidesCount = useMemo(() => React.Children.count(children), [children]);
 
-    // number of slides will be render on indicators
-    const numberOfIndicators = Math.ceil(slidesCount / perView);
+    // The carousel repeating it's item
+    const loopingEffect = useMemo(
+      () => computedProps.loop && slidesCount > 1,
+      [computedProps.loop, slidesCount],
+    );
+
+    // Current Index Item of the Carousel
+    const [currentIndex, setCurrentIndex] = useState<number>(loopingEffect ? 1 : 0);
 
     // block user click until finish animation
     const [isProcessing, setProcessing] = useState(false);
 
-    // set current index of slide
-    const [currentIndex, setCurrentIndex] = useState<number>(
-      isBatch && slidesCount > perView
-        ? perView + numberOfEmptySlots
-        : perView >= slidesCount
-          ? perView - slidesCount
-          : 1,
-    );
-
-    // set transition enabled for slide change, expect when re-position slide on first or last index
+    // Is the carousel's transition enabled
     const [transitionEnabled, setTransitionEnabled] = useState<boolean>(true);
 
-    // first touch position to be used in calculation for the swipe speed
+    // First touch position to be used in calculation for the swipe speed
     const [touchPosition, setTouchPosition] = useState<null | number>(null);
 
-    // check current slide index based on number of slides per view and total of slides
-    const currentSlide = useMemo(
-      () => Math.max(0, Math.floor((currentIndex - perView) / perView)),
-      [currentIndex, perView],
-    );
+    /**
+     * Handle if the carousel is repeating
+     * and the currentIndex have been set to the last or first item
+     */
+    useEffect(() => {
+      if (!loopingEffect) return;
 
+      if (currentIndex === 1 || currentIndex === slidesCount) {
+        requestAnimationFrame(() => {
+          setTransitionEnabled(true);
+        });
+      }
+    }, [currentIndex, loopingEffect, slidesCount]);
+
+    /**
+     * Move backward to the previous item
+     */
     const onHandlePrev = useCallback(() => {
-      if (isProcessing) return;
+      if (loopingEffect || currentIndex > 0) {
+        setCurrentIndex((prevState) => prevState - 1);
+      }
       setProcessing(true);
-      setCurrentIndex(isBatch ? currentIndex - perView : currentIndex - 1);
-    }, [isProcessing, isBatch, currentIndex, perView]);
+    }, [currentIndex, loopingEffect]);
 
+    /**
+     * Move forward to the next item
+     */
     const onHandleNext = useCallback(() => {
       if (isProcessing) return;
+      if (loopingEffect || currentIndex < slidesCount - 1) {
+        setCurrentIndex((prevState) => prevState + 1);
+      }
       setProcessing(true);
-      setCurrentIndex(isBatch ? currentIndex + perView : currentIndex + 1);
-    }, [isProcessing, isBatch, currentIndex, perView]);
+    }, [currentIndex, isProcessing, loopingEffect, slidesCount]);
 
-    const onHandleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
-      if (!event.touches[0]) return;
-      setTouchPosition(event.touches[0].clientX);
+    /**
+     * Handle when the user start the swipe gesture
+     * @param event - TouchEvent
+     */
+    const onHandleTouchStart: React.TouchEventHandler<HTMLDivElement> = (event) => {
+      if (!event.touches[0] || !computedProps.touched) return;
+
+      // Save the first position of the touch
+      const touchDown = event.touches[0].clientX;
+      setTouchPosition(touchDown);
     };
 
-    const onHandleTouchMove = (event: React.TouchEvent<HTMLDivElement>) => {
+    /**
+     * Handles touch move events for swipe gestures.
+     * @param event - TouchEvent
+     */
+    const onHandleTouchMove = (event: React.TouchEvent<HTMLDivElement>): void => {
+      // Proceed only if the initial position is not null and there is a touch event
       if (!touchPosition || !event.touches[0]) return;
-      const currentTouch = event.touches[0].clientX;
-      const diff = touchPosition - currentTouch;
-      if (diff > 5) onHandleNext();
-      if (diff < -5) onHandlePrev();
+
+      // Get the current touch position
+      const currentTouch: number = event.touches[0].clientX;
+
+      // Calculate the difference between the previous and current touch positions
+      const diff: number = touchPosition - currentTouch;
+
+      // If the difference is positive and greater than 5 pixels, navigate to the next item
+      if (diff > 5) {
+        onHandleNext();
+      }
+
+      // If the difference is negative and greater than 5 pixels, navigate to the previous item
+      if (diff < -5) {
+        onHandlePrev();
+      }
+
+      // Reset the initial touch position after handling the swipe
       setTouchPosition(null);
     };
 
+    /**
+     * Handles the end of carousel transitions
+     */
     const onHandleTransitionEnd = () => {
-      setProcessing(false);
-      if (onSlideChange) onSlideChange(currentSlide);
-      if (!loopingEffect) return;
+      requestAnimationFrame(() => {
+        // Set processing to false after the transition
+        setProcessing(false);
+      });
 
-      if (currentIndex === numberOfEmptySlots) {
+      // Handle transition to the last slide if looping effect is enabled and the current index is 0
+      if (loopingEffect && currentIndex === 0) {
+        setCurrentIndex(slidesCount);
         setTransitionEnabled(false);
-        setCurrentIndex(isBatch ? slidesCount + numberOfEmptySlots * 2 : slidesCount);
+        if (onSlideChange) onSlideChange(slidesCount);
         return;
       }
 
-      if (currentIndex - numberOfEmptySlots === slidesCount + numberOfEmptySlots + perView) {
+      // Handle transition to the first slide if looping effect is enabled and the current index is slidesCount + 1
+      if (loopingEffect && currentIndex === slidesCount + 1) {
+        setCurrentIndex(1);
         setTransitionEnabled(false);
-        setCurrentIndex(perView + numberOfEmptySlots);
+        if (onSlideChange) onSlideChange(1);
         return;
       }
+
+      // Invoke slide change callback with the current index
+      if (onSlideChange) onSlideChange(currentIndex);
     };
 
-    const renderSlide = useCallback(
-      (child: React.ReactNode, key: number) => (
-        <div key={key} className={cssClasses.item}>
-          <div className={cssClasses.slide}>{child}</div>
-        </div>
-      ),
-      [cssClasses.item, cssClasses.slide],
-    );
+    // Render additional slides preceding the first item
+    const renderExtraPreviousSlides = useMemo(() => {
+      return React.Children.toArray(children)
+        .slice(-1) // Get the last item
+        .map((child, index) => <CarouselSlide key={index}>{child}</CarouselSlide>);
+    }, [children]);
 
-    const renderPrevItems = useMemo(
-      () =>
-        React.Children.toArray(children)
-          .slice(-perView)
-          .map((child, index) => renderSlide(child, index)),
-      [children, perView, renderSlide],
-    );
+    // Render additional slides following the last item
+    const renderExtraNextSlides = useMemo(() => {
+      return React.Children.toArray(children)
+        .slice(0, 1) // Get the first item
+        .map((child, index) => <CarouselSlide key={index}>{child}</CarouselSlide>);
+    }, [children]);
 
-    const renderNextItems = useMemo(
-      () =>
-        React.Children.toArray(children)
-          .slice(0, perView)
-          .map((child, index) => renderSlide(child, index)),
-      [children, perView, renderSlide],
-    );
-
-    const renderEmptySlots = useMemo(
-      () => Array.from({ length: numberOfEmptySlots }, (_, i) => renderSlide(null, i)),
-      [numberOfEmptySlots, renderSlide],
-    );
-
+    // Render slides
     const renderSlides = useMemo(
-      () => React.Children.map(children, (child, index) => renderSlide(child, index)),
-      [children, renderSlide],
+      () =>
+        React.Children.map(children, (child, index) => (
+          <CarouselSlide key={index}>{child}</CarouselSlide>
+        )),
+      [children],
     );
-
-    useEffect(() => {
-      if (!loopingEffect) return;
-      if (
-        currentIndex === perView + numberOfEmptySlots ||
-        currentIndex - numberOfEmptySlots === slidesCount + numberOfEmptySlots
-      ) {
-        setTransitionEnabled(true);
-      }
-    }, [currentIndex, loopingEffect, perView, slidesCount, numberOfEmptySlots]);
 
     useImperativeHandle(
       ref,
@@ -239,12 +266,6 @@ export const Carousel = forwardRef(
       }),
       [onHandlePrev, onHandleNext],
     );
-
-    const computedStyles = {
-      "--slides": perView,
-      "transform": `translateX(-${currentIndex * (100 / perView)}%)`,
-      "transition": !transitionEnabled ? "none" : undefined,
-    };
 
     return (
       <div className={cssClasses.root} {...props}>
@@ -256,29 +277,27 @@ export const Carousel = forwardRef(
           >
             <div
               className={cssClasses.track}
-              style={computedStyles}
+              style={{
+                transform: `translateX(-${currentIndex * 100}%)`,
+                transition: !transitionEnabled ? "none" : undefined,
+              }}
               onTransitionEnd={onHandleTransitionEnd}
             >
-              {slidesCount > perView && renderPrevItems}
-              {numberOfEmptySlots > 0 && renderEmptySlots}
+              {loopingEffect && renderExtraPreviousSlides}
               {renderSlides}
-              {numberOfEmptySlots > 0 && renderEmptySlots}
-              {slidesCount > perView && renderNextItems}
+              {loopingEffect && renderExtraNextSlides}
             </div>
             {computedProps.showNavigation && (
               <>
                 <CarouselNavigation
-                  disabled={slidesCount <= perView || (!loopingEffect && currentSlide === 0)}
                   direction="prev"
                   onClick={onHandlePrev}
+                  disabled={!loopingEffect && currentIndex === 0}
                 />
                 <CarouselNavigation
-                  disabled={
-                    slidesCount <= perView ||
-                    (!loopingEffect && currentSlide === numberOfIndicators - 1)
-                  }
                   direction="next"
                   onClick={onHandleNext}
+                  disabled={!loopingEffect && currentIndex === slidesCount - 1}
                 />
               </>
             )}

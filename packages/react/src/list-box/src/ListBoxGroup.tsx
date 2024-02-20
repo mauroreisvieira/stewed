@@ -25,7 +25,7 @@ export function ListBoxGroup({
   };
 
   return (
-    <div className={cssClasses.root}>
+    <div className={cssClasses.root} role="group">
       {title && <div className={cssClasses.title}>{title}</div>}
       {children}
     </div>

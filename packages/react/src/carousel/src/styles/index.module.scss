@@ -24,8 +24,9 @@
 
   &__track {
     display: flex;
-    transition: transform 0.25s ease-in;
-    transform-style: preserve-3d;
+    transition: all 250ms linear;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 
     @include theme.define-var(
       (
