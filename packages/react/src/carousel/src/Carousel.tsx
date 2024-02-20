@@ -35,6 +35,11 @@ export interface CarouselProps
        * @default true
        */
       showNavigation?: boolean;
+      /**
+       * Number of slides to display
+       * @default 1
+       */
+      perView?: number;
     }> {
   /** Callback when slides change */
   onSlideChange?: (slide: number) => void;
@@ -48,8 +53,6 @@ export interface CarouselRef {
 }
 
 /**
- * This component displays an Carousel component.
- *
  * Carousel displays its children as carousel items which can be scrolled.
  *
  * @example
@@ -72,6 +75,7 @@ export const Carousel = forwardRef(
       touched = true,
       loop = true,
       showNavigation = true,
+      perView,
       className,
       children,
       onSlideChange,
@@ -102,6 +106,7 @@ export const Carousel = forwardRef(
     // Compute responsive props based on current theme and screen sizes
     const computedProps = useResponsive(
       {
+        perView,
         touched,
         loop,
         showNavigation,
@@ -113,14 +118,16 @@ export const Carousel = forwardRef(
     // Total Slides
     const slidesCount = useMemo(() => React.Children.count(children), [children]);
 
+    const show = computedProps.perView || 1;
+
     // The carousel repeating it's item
     const loopingEffect = useMemo(
-      () => computedProps.loop && slidesCount > 1,
-      [computedProps.loop, slidesCount],
+      () => computedProps.loop && slidesCount > show,
+      [computedProps.loop, show, slidesCount],
     );
 
     // Current Index Item of the Carousel
-    const [currentIndex, setCurrentIndex] = useState<number>(loopingEffect ? 1 : 0);
+    const [currentIndex, setCurrentIndex] = useState<number>(loopingEffect ? show : 0);
 
     // block user click until finish animation
     const [isProcessing, setProcessing] = useState(false);
@@ -138,33 +145,33 @@ export const Carousel = forwardRef(
     useEffect(() => {
       if (!loopingEffect) return;
 
-      if (currentIndex === 1 || currentIndex === slidesCount) {
+      if (currentIndex === show || currentIndex === slidesCount) {
         requestAnimationFrame(() => {
           setTransitionEnabled(true);
         });
       }
-    }, [currentIndex, loopingEffect, slidesCount]);
+    }, [currentIndex, loopingEffect, show, slidesCount]);
 
     /**
      * Move backward to the previous item
      */
     const onHandlePrev = useCallback(() => {
       if (loopingEffect || currentIndex > 0) {
-        setCurrentIndex((prevState) => prevState - 1);
+        setCurrentIndex((prevState) => prevState - show);
       }
       setProcessing(true);
-    }, [currentIndex, loopingEffect]);
+    }, [currentIndex, loopingEffect, show]);
 
     /**
      * Move forward to the next item
      */
     const onHandleNext = useCallback(() => {
       if (isProcessing) return;
-      if (loopingEffect || currentIndex < slidesCount - 1) {
-        setCurrentIndex((prevState) => prevState + 1);
+      if (loopingEffect || currentIndex < slidesCount - show) {
+        setCurrentIndex((prevState) => prevState + show);
       }
       setProcessing(true);
-    }, [currentIndex, isProcessing, loopingEffect, slidesCount]);
+    }, [currentIndex, isProcessing, loopingEffect, show, slidesCount]);
 
     /**
      * Handle when the user start the swipe gesture
@@ -224,7 +231,7 @@ export const Carousel = forwardRef(
       }
 
       // Handle transition to the first slide if looping effect is enabled and the current index is slidesCount + 1
-      if (loopingEffect && currentIndex === slidesCount + 1) {
+      if (loopingEffect && currentIndex === slidesCount + show) {
         setCurrentIndex(1);
         setTransitionEnabled(false);
         if (onSlideChange) onSlideChange(1);
@@ -267,6 +274,12 @@ export const Carousel = forwardRef(
       [onHandlePrev, onHandleNext],
     );
 
+    const computedStyles = {
+      "--carousel-slides": show,
+      "transform": `translateX(-${currentIndex * (100 / show)}%)`,
+      "transition": !transitionEnabled ? "none" : undefined,
+    };
+
     return (
       <div className={cssClasses.root} {...props}>
         <div className={cssClasses.wrapper}>
@@ -277,15 +290,12 @@ export const Carousel = forwardRef(
           >
             <div
               className={cssClasses.track}
-              style={{
-                transform: `translateX(-${currentIndex * 100}%)`,
-                transition: !transitionEnabled ? "none" : undefined,
-              }}
+              style={computedStyles}
               onTransitionEnd={onHandleTransitionEnd}
             >
-              {loopingEffect && renderExtraPreviousSlides}
+              {slidesCount > show && loopingEffect && renderExtraPreviousSlides}
               {renderSlides}
-              {loopingEffect && renderExtraNextSlides}
+              {slidesCount > show && loopingEffect && renderExtraNextSlides}
             </div>
             {computedProps.showNavigation && (
               <>
@@ -297,7 +307,7 @@ export const Carousel = forwardRef(
                 <CarouselNavigation
                   direction="next"
                   onClick={onHandleNext}
-                  disabled={!loopingEffect && currentIndex === slidesCount - 1}
+                  disabled={!loopingEffect && currentIndex === slidesCount - show}
                 />
               </>
             )}

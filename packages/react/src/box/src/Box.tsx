@@ -19,7 +19,12 @@ export interface BoxProps<T>
       /** The gap between box items. Can be a predefined size or a custom value. */
       gap?: Spacings;
       /** Padding options for horizontal and vertical orientation. */
-      padding?: { block: Spacings; inline: Spacings };
+      padding?: {
+        /** Adds padding in the block direction (e.g., top and bottom for vertical orientation). */
+        block?: Spacings;
+        /** Adds padding in the inline direction (e.g., left and right for vertical orientation). */
+        inline?: Spacings;
+      };
       /** Aligns box items along the main axis. */
       justify?: "start" | "end" | "center" | "between" | "around" | "evenly";
       /** Aligns box items along the cross axis. */

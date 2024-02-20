@@ -19,7 +19,12 @@ export interface CardProps extends React.ComponentPropsWithRef<"div"> {
    */
   skin?: "default" | Extract<Color, "neutral" | "neutral-faded" | "primary" | "primary-faded">;
   /** Padding options for horizontal and vertical orientation. */
-  padding?: { block: Spacings; inline: Spacings };
+  padding?: {
+    /** Adds padding in the block direction (e.g., top and bottom for vertical orientation). */
+    block?: Spacings;
+    /** Adds padding in the inline direction (e.g., left and right for vertical orientation). */
+    inline?: Spacings;
+  };
   /** Enable a hover state on table rows within. */
   hoverable?: boolean;
   /**

@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Theme, Carousel, Card, Text, Box } from "../../index";
+import { Theme, Carousel, Card, Text } from "../../index";
 
 type Story = StoryObj<typeof Carousel>;
 
@@ -51,23 +51,25 @@ export const PerView: Story = {
   },
   args: {
     loop: false,
-    children: Array.from({ length: 4 }).map((_, index) => (
-      <Box gap="xl">
-        {Array.from({ length: 3 }).map((_, subIndex) => (
-          <Card
-            elevation="none"
-            key={index + subIndex + 1}
-            padding={{ block: "7xl", inline: "7xl" }}
-            skin="neutral-faded"
-          >
-            <Card.Body>
-              <Text alignment="center" size="8xl">
-                {index + subIndex + 1}
-              </Text>
-            </Card.Body>
-          </Card>
-        ))}
-      </Box>
+    responsive: {
+      sm: {
+        perView: 1,
+      },
+      md: {
+        perView: 2,
+      },
+      lg: {
+        perView: 3,
+      },
+    },
+    children: Array.from({ length: 12 }).map((_, index) => (
+      <Card elevation="none" padding={{ block: "7xl", inline: "7xl" }} skin="neutral-faded">
+        <Card.Body>
+          <Text alignment="center" size="8xl">
+            {index + 1}
+          </Text>
+        </Card.Body>
+      </Card>
     )),
   },
 };

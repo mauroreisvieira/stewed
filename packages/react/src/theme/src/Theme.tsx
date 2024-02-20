@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 // UI Components
 import { Root, type RootProps } from "./Root";
+// Tokens
+import { defaultTokens } from "@stewed/tokens";
 // Types
 import { type ThemeContextProps, ThemeContext } from "./ThemeContext";
 
@@ -14,23 +16,29 @@ export interface ThemeProps<T extends string> extends RootProps<T> {}
  */
 export function Theme<T extends string>({
   defaultTheme,
-  tokens: defaultTokens,
+  tokens,
   ...props
 }: ThemeProps<T>): React.ReactElement {
   // State for managing tokens
-  const [tokens, setTokens] = useState<ThemeContextProps<T>["tokens"]>(defaultTokens);
+  const [currentTokens, setCurrentTokens] = useState<ThemeContextProps<T>["tokens"]>(
+    tokens
+      ? tokens
+      : {
+          default: defaultTokens,
+        },
+  );
 
   // State for managing the current theme
-  const [theme, setTheme] = useState<T | string>(defaultTheme || "default");
+  const [theme, setTheme] = useState<T | "default">(defaultTheme || "default");
 
   return (
     <ThemeContext.Provider
       value={{
         defaultTheme,
         theme,
-        tokens,
         setTheme,
-        setTokens,
+        tokens: currentTokens,
+        setTokens: setCurrentTokens,
       }}
     >
       {/* Root component to which the themed styles are applied */}

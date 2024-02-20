@@ -12,7 +12,7 @@ const definitionError = (): null => {
 // Define the properties expected in the context for client groups
 export interface ThemeContextProps<T extends string> {
   /** Partial map of theme names to Tokens. */
-  tokens?: Partial<Record<T, Tokens>>;
+  tokens?: Partial<Record<T, Tokens>> | { default: Tokens };
   /** Default theme to be used when no theme is set. */
   defaultTheme?: T;
   /** Current active theme. */
@@ -20,7 +20,9 @@ export interface ThemeContextProps<T extends string> {
   /** Setter function for updating the current active theme. */
   setTheme: React.Dispatch<React.SetStateAction<ThemeContextProps<T>["theme"]>>;
   /** Setter function for updating the theme tokens. */
-  setTokens: React.Dispatch<React.SetStateAction<Partial<Record<T, Tokens>> | undefined>>;
+  setTokens: React.Dispatch<
+    React.SetStateAction<{ default: Tokens } | Partial<Record<string, Tokens>> | undefined>
+  >;
 }
 
 function createThemeContext<T extends string>() {
