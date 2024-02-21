@@ -295,7 +295,8 @@ export function CustomTheme(): React.ReactElement {
             },
           },
         },
-      }}>
+      }}
+      defaultTheme="metro">
       <Elements />
     </Theme>
   );

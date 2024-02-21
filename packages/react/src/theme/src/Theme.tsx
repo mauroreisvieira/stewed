@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 // UI Components
 import { Root, type RootProps } from "./Root";
 // Tokens
-import { defaultTokens } from "@stewed/tokens";
-// Types
-import { type ThemeContextProps, ThemeContext } from "./ThemeContext";
+import { type Tokens, defaultTokens } from "@stewed/tokens";
+// Context
+import { ThemeContext, type ThemeContextProps } from "./ThemeContext";
+// Utilities
+import { objectKeys } from "@stewed/utilities";
 
-export interface ThemeProps<T extends string> extends RootProps<T> {}
+export interface ThemeProps<T extends string = "default"> extends RootProps<T> {}
 
 /**
  * Theme component for managing themes in the application.
@@ -14,27 +16,35 @@ export interface ThemeProps<T extends string> extends RootProps<T> {}
  * @param {ThemeProps<T>} props - Props for the Theme component.
  * @returns {React.ReactElement} - React element representing the themed application.
  */
-export function Theme<T extends string>({
+export function Theme<T extends string = "default">({
   defaultTheme,
   tokens,
   ...props
 }: ThemeProps<T>): React.ReactElement {
-  // State for managing tokens
-  const [currentTokens, setCurrentTokens] = useState<ThemeContextProps<T>["tokens"]>(
-    tokens
-      ? tokens
-      : {
-          default: defaultTokens,
-        },
-  );
-
   // State for managing the current theme
-  const [theme, setTheme] = useState<T | "default">(defaultTheme || "default");
+  const [theme, setTheme] = useState<T | string>(defaultTheme || "default");
+
+  // State for managing tokens
+  const [currentTokens, setCurrentTokens] = useState<ThemeContextProps<T>["tokens"]>(tokens);
+
+  // Merge default tokens with theme-specific tokens
+  const activeToken = useMemo(
+    () =>
+      objectKeys(defaultTokens).reduce((acc, key) => {
+        acc[key] = {
+          ...defaultTokens[key],
+          ...(tokens?.[theme as T]?.[key] ?? {}),
+        };
+        return acc;
+      }, {} as Tokens),
+    [theme, tokens],
+  );
 
   return (
     <ThemeContext.Provider
       value={{
         defaultTheme,
+        activeToken,
         theme,
         setTheme,
         tokens: currentTokens,
