@@ -92,7 +92,7 @@ export const Box = fixedForwardRef(
     const Comp = as || defaultElement;
 
     // Retrieve values from the current theme context
-    const { tokens, theme } = useTheme();
+    const { activeToken } = useTheme();
 
     // Compute responsive props based on current theme and screen sizes
     const computedProps = useResponsive(
@@ -108,7 +108,7 @@ export const Box = fixedForwardRef(
         grow,
         responsive,
       },
-      tokens?.[theme]?.screens,
+      activeToken.screens,
     );
 
     // Importing useBem to handle BEM class names

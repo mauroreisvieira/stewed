@@ -101,7 +101,7 @@ export const Carousel = forwardRef(
     };
 
     // Retrieve values from the current theme context
-    const { tokens, theme } = useTheme();
+    const { activeToken } = useTheme();
 
     // Compute responsive props based on current theme and screen sizes
     const computedProps = useResponsive(
@@ -112,12 +112,13 @@ export const Carousel = forwardRef(
         showNavigation,
         responsive,
       },
-      tokens?.[theme]?.screens,
+      activeToken.screens
     );
 
     // Total Slides
     const slidesCount = useMemo(() => React.Children.count(children), [children]);
 
+    // Number of slider per view
     const show = computedProps.perView || 1;
 
     // The carousel repeating it's item

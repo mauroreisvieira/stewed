@@ -8,7 +8,7 @@ import { type ThemeContextProps, useTheme } from "./ThemeContext";
 
 type ThemeContextOmittedProps<T extends string> = Omit<
   ThemeContextProps<T>,
-  "setTheme" | "setTokens" | "theme"
+  "setTheme" | "setTokens" | "theme" | "activeToken"
 >;
 
 type OutputTokens = Exclude<Tokens, "components"> & {
