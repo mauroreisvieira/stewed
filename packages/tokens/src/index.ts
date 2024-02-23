@@ -14,6 +14,8 @@ export type Tokens = {
   radius?: Partial<typeof tokens.radius>;
   screens?: Partial<typeof tokens.screens>;
   spacings?: Partial<typeof tokens.spacings>;
+  duration?: Partial<typeof tokens.duration>;
+  timing?: Partial<typeof tokens.timing>;
   components?: Components;
 };
 
@@ -28,6 +30,8 @@ export const defaultTokens: Tokens = {
   radius: tokens.radius,
   screens: tokens.screens,
   spacings: tokens.spacings,
+  duration: tokens.duration,
+  timing: tokens.timing,
   // Define specific tokens for different components
   components: {
     [components.Alert]: {

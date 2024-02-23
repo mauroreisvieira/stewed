@@ -7,3 +7,4 @@ export * from "./LineHeight";
 export * from "./Radius";
 export * from "./Screens";
 export * from "./Spacings";
+export * from "./Transition";
