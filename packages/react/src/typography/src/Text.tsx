@@ -1,6 +1,7 @@
 import React from "react";
 // Hooks
-import { useBem } from "@stewed/hooks";
+import { useBem, useResponsive, type UseResponsiveProps } from "@stewed/hooks";
+import { useTheme } from "../../theme";
 // Types
 import { type DistributiveOmit, fixedForwardRef } from "../../types";
 import {
@@ -41,44 +42,55 @@ type TextVariation =
   | "overline"
   | "underline";
 
-export interface TextProps<T> extends React.ComponentProps<typeof defaultElement> {
+export interface TextProps<T>
+  extends React.ComponentProps<typeof defaultElement>,
+    UseResponsiveProps<{
+      /**
+       * Changes the size of the text, giving it more or less font size.
+       * @default text
+       */
+      size?: FontSize;
+      /** Changes the weight of the text, giving it more or less weight. */
+      weight?: FontWeight;
+      /** Changes the font styles and transforming text. */
+      variation?: TextVariation | TextVariation[];
+      /** Clamping text to a specific number of lines */
+      lineClamp?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
+      /** Adjust horizontal alignment of text. */
+      alignment?: "start" | "center" | "end" | "justify";
+      /** Changes the white space of the text. */
+      whiteSpace?: "normal" | "nowrap";
+      /** Adds space between text or elements, affecting adjacent elements. */
+      space?: {
+        /** Adds space on the horizontal axis (e.g., margin-right) affecting adjacent elements. */
+        x?: Spacings;
+        /** Adds space on the vertical axis (e.g., margin-top) affecting adjacent elements. */
+        y?: Spacings;
+      };
+    }> {
   /**
    * Specifies the type of element to be used.
    * @default p
    */
   as?: T;
-  /**
-   * Changes the size of the text, giving it more or less font size.
-   * @default text
-   */
-  size?: FontSize;
   /** Changes the family of the text, giving it more or less font size. */
   family?: FontFamily;
-  /** Changes the weight of the text, giving it more or less weight. */
-  weight?: FontWeight;
-  /** Changes the font styles and transforming text. */
-  variation?: TextVariation | TextVariation[];
-  /** Clamping text to a specific number of lines */
-  lineClamp?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
   /**
    * Change the visual style of the text.
    * @default text
    */
   skin?: Extract<
     Color,
-    "text" | "white" | "primary" | "secondary" | "neutral" | "critical" | "success" | "info" | "warning"
+    | "text"
+    | "white"
+    | "primary"
+    | "secondary"
+    | "neutral"
+    | "critical"
+    | "success"
+    | "info"
+    | "warning"
   >;
-  /** Adjust horizontal alignment of text. */
-  alignment?: "start" | "center" | "end" | "justify";
-  /** Changes the white space of the text. */
-  whiteSpace?: "normal" | "nowrap";
-  /** Adds space between text or elements, affecting adjacent elements. */
-  space?: {
-    /** Adds space on the horizontal axis (e.g., margin-right) affecting adjacent elements. */
-    x?: Spacings;
-    /** Adds space on the vertical axis (e.g., margin-top) affecting adjacent elements. */
-    y?: Spacings;
-  };
 }
 
 /**
@@ -108,6 +120,7 @@ export const Text = fixedForwardRef(
       alignment,
       whiteSpace,
       space,
+      responsive,
       className,
       children,
       ...props
@@ -121,8 +134,28 @@ export const Text = fixedForwardRef(
     // Determine the component type based on 'as' prop or use the default element
     const Comp = as || defaultElement;
 
+    // Retrieve values from the current theme context
+    const { activeToken } = useTheme();
+
+    // Compute responsive props based on current theme and screen sizes
+    const computedProps = useResponsive(
+      {
+        size,
+        weight,
+        alignment,
+        lineClamp,
+        space,
+        variation,
+        whiteSpace,
+        responsive,
+      },
+      activeToken.screens,
+    );
+
     // Ensure variation is an array
-    const computedVariation = Array.isArray(variation) ? variation : [variation];
+    const computedVariation = Array.isArray(computedProps.variation)
+      ? computedProps.variation
+      : [computedProps.variation];
 
     // Determine the size based on the provided 'as' prop or use the default element
     const computedSize = ((Object.keys(SizeMap) as Array<keyof typeof SizeMap>).find(
@@ -137,15 +170,15 @@ export const Text = fixedForwardRef(
       root: getBlock({
         modifiers: [
           computedSize,
-          skin,
-          size,
           family,
-          weight,
-          lineClamp && `line-clamp-${lineClamp}`,
-          alignment && `alignment-${alignment}`,
-          whiteSpace && `white-space-${whiteSpace}`,
-          space?.x && `space-x-${space.x}`,
-          space?.y && `space-y-${space.y}`,
+          skin,
+          computedProps.size,
+          computedProps.weight,
+          computedProps.lineClamp && `line-clamp-${computedProps.lineClamp}`,
+          computedProps.alignment && `alignment-${computedProps.alignment}`,
+          computedProps.whiteSpace && `white-space-${computedProps.whiteSpace}`,
+          computedProps.space?.x && `space-x-${computedProps.space.x}`,
+          computedProps.space?.y && `space-y-${computedProps.space.y}`,
           ...computedVariation.map((i) => i),
         ],
         extraClasses: className,
