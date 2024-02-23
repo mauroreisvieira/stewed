@@ -9,6 +9,7 @@ import { components } from "@stewed/tokens";
 import styles from "./styles/index.module.scss";
 
 interface CarouselNavigationProps extends React.ComponentProps<"button"> {
+  /** The direction of navigation, either 'next' or 'prev'. */
   direction: "next" | "prev";
 }
 

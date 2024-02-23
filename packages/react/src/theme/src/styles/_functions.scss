@@ -120,3 +120,25 @@
 
   @return map.get($elevation, $value);
 }
+
+@function get-transition-duration($value: null) {
+  @if not $value {
+    @return $transition-duration;
+  }
+  @if not map.has-key($transition-duration, $value) {
+    @error "Invalid transition-duration's specified! #{$value} doesn't exist. Choose one of #{map.keys($transition-duration)}";
+  }
+
+  @return map.get($transition-duration, $value);
+}
+
+@function get-transition-timing-function($value: null) {
+  @if not $value {
+    @return $transition-timing-function;
+  }
+  @if not map.has-key($transition-timing-function, $value) {
+    @error "Invalid$transition-timing-function's specified! #{$value} doesn't exist. Choose one of #{map.keys($transition-timing-function)}";
+  }
+
+  @return map.get($transition-timing-function, $value);
+}

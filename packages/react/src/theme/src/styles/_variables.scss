@@ -134,15 +134,14 @@ $config: (
   "disabled": 0.5,
   "transition": (
     "duration": (
-      "quickly": 100ms,
-      "normal": 222ms,
-      "slowly": 333ms,
+      "quickly": var(--duration-quickly),
+      "normal": var(--duration-normal),
+      "slowly": var(--duration-slowly),
     ),
     "timing-function": (
-      "decelerate": cubic-bezier(0, 0, 0.2, 1),
-      "accelerate": cubic-bezier(0.4, 0, 1, 1),
-      "quickly-accelerate-slowly-decelerate": cubic-bezier(0.4, 0, 0.2, 1),
-      "quickly-accelerate-decelerate": cubic-bezier(0.4, 0, 0.6, 1),
+      "ease-in": var(--timing-ease-in),
+      "ease-out": var(--timing-ease-out),
+      "ease-in-out": var(--timing-ease-in-out),
     ),
   ),
 );
@@ -184,10 +183,10 @@ $disabled: map.get($config, disabled);
 $transition: map.get($config, transition);
 
 /// Duration values for CSS transitions (quickly, normal, slowly).
-$duration: map.get($transition, duration);
+$transition-duration: map.get($transition, duration);
 
 /// Timing function values for CSS transitions.
-$timing-function: map.get($transition, timing-function);
+$transition-timing-function: map.get($transition, timing-function);
 
 /// Scope naming used inner components styles to prefix CSS vars.
 $scope-naming: null;

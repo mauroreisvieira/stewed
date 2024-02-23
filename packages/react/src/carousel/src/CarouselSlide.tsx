@@ -6,7 +6,8 @@ import { useBem } from "@stewed/hooks";
 // Style
 import styles from "./styles/index.module.scss";
 
-export interface CarouselSlideProps {
+interface CarouselSlideProps {
+  /** The content to be rendered within the slide. */
   children: React.ReactNode;
 }
 

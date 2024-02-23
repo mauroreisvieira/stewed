@@ -24,8 +24,9 @@
 
   &__track {
     display: flex;
-    transition: transform 0.25s ease-in;
     transform-style: preserve-3d;
+
+    @include theme.transition(transform, "slowly", "ease-in-out");
 
     @include theme.define-var(
       (

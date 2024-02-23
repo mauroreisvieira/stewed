@@ -52,20 +52,20 @@
 
 /// Defines CSS transitions with given property, duration, timing function, and optional delay.
 /// @param {string|list} $property - The CSS property or a list of properties to be transitioned.
-/// @param {string} [$duration=quickly] - Duration of the transition.
-/// @param {string} [$timing-function=accelerate] - Timing function of the transition.
+/// @param {string} [$duration=normal] - Duration of the transition.
+/// @param {string} [$timing-function=ease-in-out] - Timing function of the transition.
 /// @param {string} [$delay=null] - Delay before the transition starts.
-@mixin transition(
-  $property,
-  $duration: map.get($duration, quickly),
-  $timing-function: map.get($timing-function, accelerate),
-  $delay: null
-) {
+@mixin transition($property, $duration: "quickly", $timing-function: "ease-in", $delay: null) {
   @if type-of($property) == list {
-    transition: $duration $timing-function $delay;
+    transition: func.get-transition-duration($duration)
+      func.get-transition-timing-function($timing-function)
+      $delay;
     transition-property: $property;
   } @else {
-    transition: $property $duration $timing-function $delay;
+    transition: $property
+      func.get-transition-duration($duration)
+      func.get-transition-timing-function($timing-function)
+      $delay;
   }
 }
 

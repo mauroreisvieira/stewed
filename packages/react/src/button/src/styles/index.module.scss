@@ -77,7 +77,7 @@
         &:hover {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "faded"),
+              background-color: color-mix(in srgb, theme.get-color($value), transparent 95%),
             )
           );
         }
@@ -86,7 +86,7 @@
         &:active {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "faded"),
+              background-color: color-mix(in srgb, theme.get-color($value), transparent 90%),
             )
           );
         }
