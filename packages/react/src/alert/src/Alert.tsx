@@ -13,7 +13,10 @@ export interface AlertProps extends React.ComponentPropsWithRef<"div"> {
    * Change the visual style of the alert.
    * @default info
    */
-  skin?: Extract<Color, "info" | "primary" | "neutral" | "critical" | "success" | "warning">;
+  skin?: Extract<
+    Color,
+    "info" | "primary" | "secondary" | "neutral" | "critical" | "success" | "warning"
+  >;
   /** Determine whether the alert should be rendered as floating, allowing elevation effects. */
   floating?: boolean;
   /** Slot to display before the alert content. */

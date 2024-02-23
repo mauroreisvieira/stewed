@@ -4,7 +4,7 @@
 $avatar-root: "avatar";
 
 /// Skins
-$avatar-skins: theme.get-color();
+$avatar-skins: ("primary", "secondary", "neutral", "critical", "success", "info", "warning");
 
 /// Sizes
 $avatar-sizes: (

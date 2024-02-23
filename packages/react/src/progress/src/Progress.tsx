@@ -10,7 +10,7 @@ export interface ProgressProps extends React.ComponentPropsWithRef<"progress"> {
   /** Change the visual style of the progress bar. */
   skin?: Extract<
     Color,
-    "white" | "primary" | "neutral" | "critical" | "success" | "info" | "warning"
+    "white" | "primary" | "secondary" | "neutral" | "critical" | "success" | "info" | "warning"
   >;
   /** Changes the size of the progress bar, giving it more or less padding. */
   size?: "xs" | "sm" | "md" | "lg" | "xl";

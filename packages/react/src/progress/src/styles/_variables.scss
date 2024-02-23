@@ -12,4 +12,13 @@ $progress-heights: (
 );
 
 /// Skins
-$progress-skins: theme.get-color();
+$progress-skins: (
+  "white",
+  "primary",
+  "secondary",
+  "neutral",
+  "critical",
+  "success",
+  "info",
+  "warning"
+);

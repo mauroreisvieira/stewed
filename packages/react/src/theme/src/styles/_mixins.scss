@@ -9,7 +9,7 @@
 /// @param {string} [$width=1px] - Width of the focus outline.
 @mixin focus-styles(
   $target: ":focus-visible",
-  $color: #{func.get-color("primary", "border")},
+  $color: #{func.get-color("focus", "default")},
   $offset: 2px,
   $width: 2px
 ) {

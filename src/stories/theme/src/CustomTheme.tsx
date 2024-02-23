@@ -228,10 +228,10 @@ export function CustomTheme(): React.ReactElement {
         metro: {
           color: {
             "text": "#444",
-            "primary": "#607D8B",
-            "primary-faded": "#78909c",
-            "primary-border": "#b0bec5",
-            "primary-pressed": "#546e7a",
+            "primary": "#3f51b5",
+            "primary-faded": "#e8eaf6",
+            "primary-border": "#9fa8da",
+            "primary-pressed": "#3949ab",
           },
           fontFamily: {
             base: "'Roboto Serif', serif",
@@ -267,8 +267,9 @@ export function CustomTheme(): React.ReactElement {
           },
           color: {
             "primary": "#e91e63",
-            "primary-pressed": "#d81b60",
             "primary-faded": "#f48fb1",
+            "primary-border": "#f0c6d3",
+            "primary-pressed": "#d81b60",
             // Critical
             "critical": "#ef4444",
             "critical-pressed": "#dc2626",

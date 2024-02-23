@@ -22,7 +22,10 @@ export interface TagProps<T> extends React.ComponentProps<typeof defaultElement>
    * Change the visual style of the tag.
    * @default primary
    */
-  skin?: Extract<Color, "primary" | "neutral" | "critical" | "success" | "info" | "warning">;
+  skin?: Extract<
+    Color,
+    "primary" | "secondary" | "neutral" | "critical" | "success" | "info" | "warning"
+  >;
   /**
    * Change the visual appearance of the tag.
    * @default filled

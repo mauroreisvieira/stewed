@@ -66,7 +66,7 @@ export interface TextProps<T> extends React.ComponentProps<typeof defaultElement
    */
   skin?: Extract<
     Color,
-    "text" | "white" | "primary" | "neutral" | "critical" | "success" | "info" | "warning"
+    "text" | "white" | "primary" | "secondary" | "neutral" | "critical" | "success" | "info" | "warning"
   >;
   /** Adjust horizontal alignment of text. */
   alignment?: "start" | "center" | "end" | "justify";

@@ -13,7 +13,7 @@ export interface ToggleProps extends React.ComponentPropsWithRef<"button"> {
    * Change the visual style of the button.
    * @default neutral
    */
-  skin?: Extract<Color, "primary" | "neutral">;
+  skin?: Extract<Color, "neutral" | "primary" | "secondary">;
   /**
    * Changes the size of the toggle, giving it more or less padding.
    * @default md

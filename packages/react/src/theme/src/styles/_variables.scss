@@ -89,15 +89,11 @@ $config: (
     "white": (
       "default": var(--color-white),
     ),
+    "focus": (
+      "default": var(--color-focus),
+    ),
     "text": (
       "default": var(--color-text),
-    ),
-    "primary": (
-      "faded": var(--color-primary-faded),
-      "default": var(--color-primary),
-      "pressed": var(--color-primary-pressed),
-      "border": var(--color-primary-border),
-      "border-hover": var(--color-primary-border-hover),
     ),
     "neutral": (
       "faded": var(--color-neutral-faded),
@@ -105,6 +101,18 @@ $config: (
       "pressed": var(--color-neutral-pressed),
       "border": var(--color-neutral-border),
       "border-hover": var(--color-neutral-border-hover),
+    ),
+    "primary": (
+      "faded": var(--color-primary-faded),
+      "default": var(--color-primary),
+      "pressed": var(--color-primary-pressed),
+      "border": var(--color-primary-border),
+    ),
+    "secondary": (
+      "faded": var(--color-secondary-faded),
+      "default": var(--color-secondary),
+      "pressed": var(--color-secondary-pressed),
+      "border": var(--color-secondary-border),
     ),
     "info": (
       "faded": var(--color-info-faded),

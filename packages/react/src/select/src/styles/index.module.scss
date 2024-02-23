@@ -6,8 +6,6 @@
 @include theme.scope($select-root) {
   @include theme.define-var(
     (
-      border-color: map.get($select-skins-default, "border"),
-      border-color-hover: map.get($select-skins-default, "border-hover"),
       height: theme.get-spacing("6xl"),
     )
   );

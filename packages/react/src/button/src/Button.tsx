@@ -21,7 +21,7 @@ export interface ButtonProps<T> extends React.ComponentProps<typeof defaultEleme
    * Change the visual style of the button.
    * @default primary
    */
-  skin?: Extract<Color, "primary" | "neutral" | "critical" | "success">;
+  skin?: Extract<Color, "primary" | "secondary" | "neutral" | "critical" | "success">;
   /**
    * Change the visual appearance of the button.
    * @default filled
@@ -36,6 +36,7 @@ export interface ButtonProps<T> extends React.ComponentProps<typeof defaultEleme
   leftSlot?: React.ReactNode;
   /** Slot for icon to display after the button text. */
   rightSlot?: React.ReactNode;
+  /** Indicates whether the button is in a pressed state. */
   pressed?: boolean;
   /** Allows the button to grow to the width of its container. */
   fullWidth?: boolean;
@@ -48,7 +49,6 @@ export interface ButtonProps<T> extends React.ComponentProps<typeof defaultEleme
 }
 
 /**
- * This component displays an button component.
  * Button component is used to trigger an action or event, such as submitting a form, opening a Dialog, canceling an action,
  * or performing a delete operation.
  *

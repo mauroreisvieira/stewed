@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React from "react";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
@@ -6,7 +6,7 @@ import { type Color, components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface TextFieldProps extends Omit<React.ComponentPropsWithRef<"input">, "size"> {
+export interface TextFieldProps extends React.ComponentPropsWithRef<"input"> {
   /**
    * Change the visual style of the input.
    * @default default
@@ -29,31 +29,33 @@ export interface TextFieldProps extends Omit<React.ComponentPropsWithRef<"input"
  * @param {TextFieldProps} props - The props for the TextField component.
  * @returns {React.ReactElement} - The rendered TextField component.
  */
-export const TextField = forwardRef(
-  (
-    { skin = "default", className, disabled, leftSlot, rightSlot, ...props }: TextFieldProps,
-    ref: React.Ref<HTMLInputElement>,
-  ): React.ReactElement => {
-    // Importing useBem to handle BEM class names
-    const { getBlock, getElement } = useBem({ block: components.TextField, styles });
+export function TextField({
+  skin = "default",
+  className,
+  disabled,
+  leftSlot,
+  rightSlot,
+  ...props
+}: TextFieldProps): React.ReactElement {
+  // Importing useBem to handle BEM class names
+  const { getBlock, getElement } = useBem({ block: components.TextField, styles });
 
-    // Generating CSS classes based on component props and styles
-    const cssClasses = {
-      root: getBlock({
-        modifiers: [disabled && "disabled", skin],
-        extraClasses: className,
-      }),
-      input: getElement(["input"]),
-      left: getElement(["left"]),
-      right: getElement(["right"]),
-    };
+  // Generating CSS classes based on component props and styles
+  const cssClasses = {
+    root: getBlock({
+      modifiers: [disabled && "disabled", skin],
+      extraClasses: className,
+    }),
+    input: getElement(["input"]),
+    left: getElement(["left"]),
+    right: getElement(["right"]),
+  };
 
-    return (
-      <div className={cssClasses.root}>
-        {leftSlot && <span className={cssClasses.left}>{leftSlot}</span>}
-        <input ref={ref} className={cssClasses.input} disabled={disabled} {...props} />
-        {rightSlot && <span className={cssClasses.right}>{rightSlot}</span>}
-      </div>
-    );
-  },
-);
+  return (
+    <div className={cssClasses.root}>
+      {leftSlot && <span className={cssClasses.left}>{leftSlot}</span>}
+      <input className={cssClasses.input} disabled={disabled} {...props} />
+      {rightSlot && <span className={cssClasses.right}>{rightSlot}</span>}
+    </div>
+  );
+}

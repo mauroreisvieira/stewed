@@ -10,11 +10,11 @@ $textarea-skins: (
   ),
   "success": (
     "border": theme.get-color("success"),
-    "border-hover": theme.get-color("success"),
+    "border-hover": theme.get-color("success", "pressed"),
   ),
   "critical": (
     "border": theme.get-color("critical"),
-    "border-hover": theme.get-color("critical"),
+    "border-hover": theme.get-color("critical", "pressed"),
   ),
 );
 

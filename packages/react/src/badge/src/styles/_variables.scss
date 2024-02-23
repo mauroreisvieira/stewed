@@ -3,4 +3,4 @@
 $badge-root: "badge";
 
 /// Skins
-$badge-skins: theme.get-color();
+$badge-skins: ("primary", "secondary", "neutral", "critical", "success", "info", "warning");

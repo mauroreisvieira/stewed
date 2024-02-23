@@ -13,7 +13,10 @@ export interface AvatarProps {
    * Defines the skin color of the avatar.
    * @default primary
    */
-  skin?: Extract<Color, "primary" | "neutral" | "critical" | "success" | "info" | "warning">;
+  skin?: Extract<
+    Color,
+    "primary" | "secondary" | "neutral" | "critical" | "success" | "info" | "warning"
+  >;
   /**
    * Specifies the size of the avatar.
    * @default md

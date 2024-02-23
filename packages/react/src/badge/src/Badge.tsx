@@ -11,7 +11,10 @@ export interface BadgeProps extends React.ComponentPropsWithRef<"div"> {
    * Skin color of the badge.
    * @default primary
    */
-  skin?: Extract<Color, "primary" | "neutral" | "critical" | "success" | "info" | "warning">;
+  skin?: Extract<
+    Color,
+    "primary" | "secondary" | "neutral" | "critical" | "success" | "info" | "warning"
+  >;
   /**
    * Position of the badge.
    * @default top-right

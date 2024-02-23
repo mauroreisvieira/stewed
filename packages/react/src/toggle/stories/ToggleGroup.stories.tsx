@@ -43,7 +43,6 @@ export const Group: Story = {
         <Toggle size="lg" value="XL">
           XL
         </Toggle>
-
       </>
     ),
   },

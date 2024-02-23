@@ -30,7 +30,7 @@ export const Base: Story = {
   },
 };
 
-export const LeftSLot: Story = {
+export const LeftSlot: Story = {
   args: {
       leftSlot: <FiStar size={18} />,
       children: "Toggle",
