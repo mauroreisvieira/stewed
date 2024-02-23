@@ -24,7 +24,7 @@ export interface CarouselProps
        * Touch drag enabled.
        * @default true
        */
-      touched: boolean;
+      touched?: boolean;
       /**
        * Enables infinite looping
        * @default true
@@ -112,7 +112,7 @@ export const Carousel = forwardRef(
         showNavigation,
         responsive,
       },
-      activeToken.screens
+      activeToken.screens,
     );
 
     // Total Slides
@@ -156,31 +156,48 @@ export const Carousel = forwardRef(
     /**
      * Move backward to the previous item
      */
-    const onHandlePrev = useCallback(() => {
+    const moveBackward = useCallback(() => {
       if (loopingEffect || currentIndex > 0) {
         setCurrentIndex((prevState) => prevState - show);
       }
-      setProcessing(true);
     }, [currentIndex, loopingEffect, show]);
 
     /**
      * Move forward to the next item
      */
-    const onHandleNext = useCallback(() => {
-      if (isProcessing) return;
+    const moveForward = useCallback(() => {
       if (loopingEffect || currentIndex < slidesCount - show) {
         setCurrentIndex((prevState) => prevState + show);
       }
-      setProcessing(true);
-    }, [currentIndex, isProcessing, loopingEffect, show, slidesCount]);
+    }, [currentIndex, loopingEffect, show, slidesCount]);
 
     /**
-     * Handle when the user start the swipe gesture
-     * @param event - TouchEvent
+     * Handles the click event for moving backward.
+     * If the process is ongoing, it returns early, otherwise move backward and sets the processing state.
+     */
+    const onHandleClickPrev: () => void = useCallback(() => {
+      if (isProcessing) return;
+      moveBackward();
+      setProcessing(true);
+    }, [isProcessing, moveBackward]);
+
+    /**
+     * Handles the click event for moving forward.
+     * If the process is ongoing, it returns early, otherwise move forward and sets the processing state.
+     */
+    const onHandleClickNext: () => void = useCallback(() => {
+      if (isProcessing) return;
+      moveForward();
+      setProcessing(true);
+    }, [isProcessing, moveForward]);
+
+    /**
+     * Handles the start of a swipe gesture by the user.
+     *
+     * @param {React.TouchEvent<HTMLDivElement>} event - The touch event object.
      */
     const onHandleTouchStart: React.TouchEventHandler<HTMLDivElement> = (event) => {
       if (!event.touches[0] || !computedProps.touched) return;
-
       // Save the first position of the touch
       const touchDown = event.touches[0].clientX;
       setTouchPosition(touchDown);
@@ -188,7 +205,8 @@ export const Carousel = forwardRef(
 
     /**
      * Handles touch move events for swipe gestures.
-     * @param event - TouchEvent
+     *
+     * @param {React.TouchEvent<HTMLDivElement>} event - The touch event object.
      */
     const onHandleTouchMove = (event: React.TouchEvent<HTMLDivElement>): void => {
       // Proceed only if the initial position is not null and there is a touch event
@@ -202,12 +220,12 @@ export const Carousel = forwardRef(
 
       // If the difference is positive and greater than 5 pixels, navigate to the next item
       if (diff > 5) {
-        onHandleNext();
+        moveForward();
       }
 
       // If the difference is negative and greater than 5 pixels, navigate to the previous item
       if (diff < -5) {
-        onHandlePrev();
+        moveBackward();
       }
 
       // Reset the initial touch position after handling the swipe
@@ -269,10 +287,10 @@ export const Carousel = forwardRef(
     useImperativeHandle(
       ref,
       () => ({
-        prev: onHandlePrev,
-        next: onHandleNext,
+        prev: onHandleClickPrev,
+        next: onHandleClickNext,
       }),
-      [onHandlePrev, onHandleNext],
+      [onHandleClickPrev, onHandleClickNext],
     );
 
     const computedStyles = {
@@ -302,12 +320,12 @@ export const Carousel = forwardRef(
               <>
                 <CarouselNavigation
                   direction="prev"
-                  onClick={onHandlePrev}
+                  onClick={onHandleClickPrev}
                   disabled={!loopingEffect && currentIndex === 0}
                 />
                 <CarouselNavigation
                   direction="next"
-                  onClick={onHandleNext}
+                  onClick={onHandleClickNext}
                   disabled={!loopingEffect && currentIndex === slidesCount - show}
                 />
               </>
