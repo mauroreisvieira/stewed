@@ -41,14 +41,6 @@
 
   @include theme.disabled-styles;
 
-  &:hover {
-    @include theme.define-var(
-      (
-        color: theme.get-color("neutral"),
-      )
-    );
-  }
-
   &:active {
     @include theme.define-var(
       (
@@ -71,6 +63,13 @@
 
   &__group {
     display: flex;
+
+    &--full-width {
+      width: 100%;
+      .#{$toggle-root} {
+        flex: 1;
+      }
+    }
 
     .#{$toggle-root} {
       border-radius: 0;

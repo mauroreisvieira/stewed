@@ -1,6 +1,7 @@
 import React from "react";
 // UI Components
 import { Card, Button, Box, Text, Theme, Tag } from "../../../../packages/react/index";
+// Icons
 import { FiShoppingCart } from "react-icons/fi";
 
 export function Products(): React.ReactElement {
@@ -31,7 +32,7 @@ export function Products(): React.ReactElement {
           <Card key={id} padding={{ inline: "md", block: "md" }}>
             <Card.Media src={image} alt={name}>
               <Box justify="end">
-                <Tag skin="critical" size="sm">
+                <Tag skin="warning" size="sm">
                   Promotion
                 </Tag>
               </Box>
@@ -47,7 +48,7 @@ export function Products(): React.ReactElement {
               </Box>
             </Card.Body>
             <Card.Footer>
-              <Button leftSlot={<FiShoppingCart />} size="lg" fullWidth>
+              <Button leftSlot={<FiShoppingCart />} fullWidth>
                 Add to Card
               </Button>
             </Card.Footer>

@@ -10,9 +10,10 @@ import {
   Accordion,
   Toggle,
 } from "../../../../packages/react/index";
-import { FiArrowLeft, FiArrowRight, FiPlus } from "react-icons/fi";
+// Icons
+import { FiPlus } from "react-icons/fi";
 
-const productsSizes = ["XS", "S", "M", "L", "XL", "XXL"];
+const productsSizes = ["XXS", "XS", "S", "M", "L", "XL", "XXL", "XXXL"];
 
 export function ProductDetail(): React.ReactElement {
   const [selectedSize, setSelectedSize] = useState("M");
@@ -21,6 +22,10 @@ export function ProductDetail(): React.ReactElement {
     <Theme<"default">
       tokens={{
         default: {
+          color: {
+            "secondary": "#333",
+            "secondary-faded": "#f3f3f3",
+          },
           components: {
             toggle: {
               radius: "sm",
@@ -49,7 +54,7 @@ export function ProductDetail(): React.ReactElement {
               <Text size="3xl" weight="bold">
                 €89,95
               </Text>
-              <Text size="3xl" variation={["line-through"]} skin="neutral">
+              <Text size="3xl" variation={["line-through"]} skin="critical">
                 €120
               </Text>
             </Box>
@@ -59,23 +64,24 @@ export function ProductDetail(): React.ReactElement {
             <Text as="label" size="xs" variation={"uppercase"} weight="medium">
               Seleccione o seu tamanho
             </Text>
-            <Toggle.Group>
+            <Toggle.Group fullWidth>
               {productsSizes.map((value) => (
                 <Toggle
                   key={value}
                   size="md"
+                  skin="secondary"
                   onClick={() => setSelectedSize(value)}
                   selected={value === selectedSize}>
                   {value}
                 </Toggle>
               ))}
             </Toggle.Group>
-            <Button skin="neutral" fullWidth>
+            <Button skin="primary" size="lg" fullWidth>
               Adicionar ao carrinho
             </Button>
           </Box>
           <Box gap="lg" direction="column">
-            <Text size="sm" skin="neutral" whiteSpace="nowrap">
+            <Text size="sm" whiteSpace="nowrap">
               Inclui uma etiqueta interativa na gola que concede acesso ao Club LEGACIES.
             </Text>
             <Accordion>
