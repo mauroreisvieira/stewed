@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useCallback } from "react";
 // Compound Component
 import { ListBoxGroup } from "./ListBoxGroup";
 import { ListBoxItem } from "./ListBoxItem";
 // Hooks
-import { useBem } from "@stewed/hooks";
+import { useBem, useKeyboardNavigation } from "@stewed/hooks";
 // Tokens
 import { components } from "@stewed/tokens";
 // Styles
@@ -12,8 +12,9 @@ import styles from "./styles/index.module.scss";
 export function ListBox({
   className,
   children,
+  onKeyDown,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>): React.ReactElement {
+}: React.ComponentPropsWithRef<"div">): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: components.ListBox, styles });
 
@@ -22,8 +23,27 @@ export function ListBox({
     root: getBlock({ extraClasses: className }),
   };
 
+  // Define a reference to a list element
+  const { ref, onNavigate } = useKeyboardNavigation<HTMLDivElement>({
+    target: '[role="option"]:not([aria-disabled])',
+  });
+
+  const onHandleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
+    (event) => {
+      onNavigate?.(event);
+      onKeyDown?.(event);
+    },
+    [onKeyDown, onNavigate],
+  );
+
   return (
-    <div className={cssClasses.root} role="menu" {...props}>
+    <div
+      ref={ref}
+      className={cssClasses.root}
+      role="listbox"
+      onKeyDown={onHandleKeyDown}
+      {...props}
+    >
       {children}
     </div>
   );

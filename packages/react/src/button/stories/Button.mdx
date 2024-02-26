@@ -1,0 +1,36 @@
+import { Canvas, Meta, ArgTypes } from "@storybook/blocks";
+import * as ButtonStories from "./Button.stories";
+
+# Button
+
+Button component is used to trigger an action or event, such as submitting a form, canceling an action, or performing a delete operation.
+
+### Installation
+
+```bash
+npm install --save @stewed/react
+```
+
+### Import
+
+```js
+import { Button } from "@stewed/react";
+```
+
+<Meta of={ButtonStories} />
+
+## Base
+
+<Canvas of={ButtonStories.Base} />
+
+### Left Slot
+
+<Canvas of={ButtonStories.LeftSlot} />
+
+### Polymorphic
+
+<Canvas of={ButtonStories.Polymorphic} />
+
+## Props
+
+<ArgTypes of={ButtonStories} />

@@ -19,7 +19,7 @@ const meta: Meta<typeof Dialog> = {
 
 export default meta;
 
-export const Default: Story = {
+export const Base: Story = {
   argTypes: {
     children: {
       control: false,
@@ -35,9 +35,11 @@ export const Default: Story = {
         </Dialog.Header>
         <Separator />
         <Dialog.Body>
-          Pellentesque elementum diam sapien, nec ultrices risus convallis eget. Nam pharetra dolor
-          at dictum tempor. Quisque ut est a ligula hendrerit sodales. Curabitur ornare a nulla in
-          laoreet. Maecenas semper mi egestas, dignissim nisi et, elementum neque.
+          <Text>
+            Pellentesque elementum diam sapien, nec ultrices risus convallis eget. Nam pharetra
+            dolor at dictum tempor. Quisque ut est a ligula hendrerit sodales. Curabitur ornare a
+            nulla in laoreet. Maecenas semper mi egestas, dignissim nisi et, elementum neque.
+          </Text>
         </Dialog.Body>
       </>
     ),

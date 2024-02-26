@@ -3,7 +3,7 @@ import React from "react";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
-import { components } from "@stewed/tokens";
+import { Color, components } from "@stewed/tokens";
 // Types
 import { type DistributiveOmit, fixedForwardRef } from "../../types";
 // Styles
@@ -22,12 +22,15 @@ export interface TagProps<T> extends React.ComponentProps<typeof defaultElement>
    * Change the visual style of the tag.
    * @default primary
    */
-  skin?: "primary" | "neutral" | "info" | "success" | "warning" | "critical";
+  skin?: Extract<
+    Color,
+    "primary" | "secondary" | "neutral" | "critical" | "success" | "info" | "warning"
+  >;
   /**
    * Change the visual appearance of the tag.
    * @default filled
    */
-  appearance?: "filled" | "ghost" | "outline";
+  appearance?: "filled" | "ghost" | "outline" | "soft";
   /**
    * Changes the size of the tag, giving it more or less padding.
    * @default md
@@ -46,7 +49,7 @@ export interface TagProps<T> extends React.ComponentProps<typeof defaultElement>
  *
  * @example
  * ```tsx
- * <Tag skin="neutral">Tag</Tag>
+ * <Tag skin="neutral" size="sm">Example</Tag>
  * ```
  *
  * @remarks This component is a polymorphic component can be rendered as a different element
@@ -82,16 +85,15 @@ export const Tag = fixedForwardRef(
 
     // Generating CSS classes based on component props and styles
     const cssClasses = {
-      root: getBlock({ modifiers: [appearance, skin, size], extraClasses: className }),
+      root: getBlock({ modifiers: [`${skin}-${appearance}`, size], extraClasses: className }),
       left: getElement(["left"]),
-      text: getElement(["text"]),
       right: getElement(["right"]),
     };
 
     return (
       <Comp ref={ref} className={cssClasses.root} {...props}>
         {leftSlot && <span className={cssClasses.left}>{leftSlot}</span>}
-        {children && <span className={cssClasses.text}>{children}</span>}
+        {children}
         {rightSlot && <span className={cssClasses.right}>{rightSlot}</span>}
       </Comp>
     );

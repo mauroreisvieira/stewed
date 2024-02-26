@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Theme, Carousel } from "../../index";
+import { Theme, Carousel, Card, Text } from "../../index";
 
 type Story = StoryObj<typeof Carousel>;
 
@@ -19,19 +19,57 @@ const meta: Meta<typeof Carousel> = {
 
 export default meta;
 
-export const Default: Story = {
+export const Base: Story = {
   argTypes: {
     children: {
       control: false,
     },
   },
   args: {
-    slidesPerView: 3,
-    loop: true,
-    children: Array.from({ length: 6 }).map((_, index) => (
-      <div key={index}>
-        <img src="https://placehold.co/1200x400" />
-      </div>
+    children: Array.from({ length: 4 }).map((_, index) => (
+      <Card
+        elevation="none"
+        key={index}
+        padding={{ block: "7xl", inline: "7xl" }}
+        skin="primary-faded"
+      >
+        <Card.Body>
+          <Text alignment="center" size="8xl">
+            {index + 1}
+          </Text>
+        </Card.Body>
+      </Card>
+    )),
+  },
+};
+
+export const PerView: Story = {
+  argTypes: {
+    children: {
+      control: false,
+    },
+  },
+  args: {
+    loop: false,
+    responsive: {
+      sm: {
+        perView: 1,
+      },
+      md: {
+        perView: 2,
+      },
+      lg: {
+        perView: 3,
+      },
+    },
+    children: Array.from({ length: 12 }).map((_, index) => (
+      <Card elevation="none" padding={{ block: "7xl", inline: "7xl" }} skin="neutral-faded">
+        <Card.Body>
+          <Text alignment="center" size="8xl">
+            {index + 1}
+          </Text>
+        </Card.Body>
+      </Card>
     )),
   },
 };

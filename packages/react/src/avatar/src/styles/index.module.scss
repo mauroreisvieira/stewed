@@ -16,7 +16,7 @@
   @include text.typography(
     base,
     $overrides: (
-      color: theme.get-color("text", "inverse"),
+      color: theme.get-color("white"),
       font-weight: theme.get-font-weight("medium"),
       font-size: calc(theme.get-var(size) / 3)
     )
@@ -51,11 +51,11 @@
     }
   }
 
-  @each $value in $avatar-skins {
-    &--#{$value} {
+  @each $key, $value in $avatar-skins {
+    &--#{$key} {
       @include theme.define-var(
         (
-          background-color: theme.get-color($value),
+          background-color: theme.get-color($key),
         )
       );
     }

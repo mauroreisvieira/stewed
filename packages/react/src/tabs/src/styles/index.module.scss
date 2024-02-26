@@ -3,20 +3,20 @@
 @use "./variables" as *;
 
 @include theme.scope($tabs-root) {
-  display: flex;
-  width: 100%;
-
   @include theme.define-var(
     (
       background-color: theme.get-color("neutral", "faded"),
-      border-color: theme.get-color("neutral", "faded"),
+      border-color: theme.get-color("neutral", "border"),
       flex-direction: row,
-      height: theme.get-spacing("5xl"),
       width: auto,
-      item-background-color: transparent,
+      height: theme.get-spacing("6xl"),
       justify-content: center,
+      item-background-color: transparent,
     )
   );
+
+  display: flex;
+  width: 100%;
 
   &--column {
     @include theme.define-var(
@@ -41,6 +41,7 @@
   }
 
   &__list {
+    box-sizing: border-box;
     display: inline-flex;
     flex-direction: theme.get-var(flex-direction);
     gap: theme.get-spacing("sm");
@@ -57,12 +58,12 @@
     all: unset;
     box-sizing: border-box;
     display: flex;
-    gap: 8px;
+    gap: theme.get-spacing("sm");
     align-items: center;
     justify-content: theme.get-var(justify-content);
     width: theme.get-var(width);
-    height: theme.get-var(height);
-    padding: 10px 8px;
+    height: calc(theme.get-var(height) - 6px);
+    padding-inline: theme.get-spacing("md");
     cursor: pointer;
     background-color: theme.get-var(item-background-color);
     border-radius: theme.get-var(radius);

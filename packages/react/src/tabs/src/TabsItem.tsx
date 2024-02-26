@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 // Context
 import { useTabs } from "./TabsContext";
 // Hooks
@@ -8,7 +8,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface TabsItemProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface TabsItemProps extends React.ComponentPropsWithRef<"button"> {
   /** Sets or retrieves the value of a tab list. */
   value: string;
   /** Slot to display before the item children. */
@@ -24,8 +24,8 @@ export function TabsItem({
   rightSlot,
   className,
   tabIndex,
-  onClick,
   children,
+  onClick,
   ...props
 }: TabsItemProps): React.ReactElement {
   const { onValueChange, value: selectedValue } = useTabs();
@@ -45,11 +45,11 @@ export function TabsItem({
     right: getElement(["right"]),
   };
 
-  const onHandleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const onHandleClick:React.MouseEventHandler<HTMLButtonElement> = useCallback((event) => {
     if (disabled) return;
     onValueChange?.(value);
     onClick?.(event);
-  };
+  }, [disabled, onClick, onValueChange, value]);
 
   return (
     <button
@@ -58,8 +58,8 @@ export function TabsItem({
       disabled={disabled}
       aria-disabled={disabled}
       aria-selected={isSelected}
-      className={cssClasses.root}
       tabIndex={!isSelected || disabled ? -1 : tabIndex}
+      className={cssClasses.root}
       onClick={onHandleClick}
       {...props}
     >

@@ -44,12 +44,11 @@ export function Team(): React.ReactElement {
     <Theme>
       <Card>
         <Card.Header>
-          <Box direction="column" space={{ y: "lg" }}>
-            <Text as="h5">Your team</Text>
-            <Text size="sm" skin="neutral">
-              Invite and manage your team members.
-            </Text>
-          </Box>
+          <Text as="h5">Your team</Text>
+          <Text size="sm" skin="neutral" space={{ y: "lg" }}>
+            Invite and manage your team members.
+          </Text>
+
           <Box items="baseline" gap="lg">
             <TextField placeholder="Email address" />
             <Button>Invite</Button>
@@ -79,7 +78,7 @@ export function Team(): React.ReactElement {
                   Settings
                 </Button>
               </Box>
-              <Separator space={{ y: "xl" }} />
+              <Separator space={{ block: "xl" }} />
             </React.Fragment>
           ))}
         </Card.Body>

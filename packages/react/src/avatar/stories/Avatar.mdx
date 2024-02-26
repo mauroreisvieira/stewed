@@ -1,0 +1,41 @@
+import { Canvas, Meta, ArgTypes } from "@storybook/blocks";
+import * as AvatarStories from "./Avatar.stories";
+import * as AvatarGroup from "./AvatarGroup.stories";
+
+# Avatar
+
+When the image source is unavailable or the source is unspecified, the avatar component will display a default image.
+
+### Installation
+
+```bash
+npm install --save @stewed/react
+```
+
+### Import
+
+```js
+import { Avatar } from "@stewed/react";
+```
+
+<Meta of={AvatarStories} />
+
+## Base
+
+<Canvas of={AvatarStories.Base} />
+
+## Picture
+
+<Canvas of={AvatarStories.Picture} />
+
+## Square
+
+<Canvas of={AvatarStories.Square} />
+
+## Group
+
+<Canvas of={AvatarGroup.Group} />
+
+## Props
+
+<ArgTypes of={AvatarStories} />

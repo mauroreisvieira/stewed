@@ -76,16 +76,24 @@ $config: (
     "2xl": var(--radius-2xl),
     "full": var(--radius-full),
   ),
+  "elevation": (
+    "none": var(--elevation-none),
+    "sm": var(--elevation-sm),
+    "md": var(--elevation-md),
+    "lg": var(--elevation-lg),
+    "xl": var(--elevation-xl),
+    "2xl": var(--elevation-2xl),
+    "3xl": var(--elevation-3xl),
+  ),
   "colors": (
+    "white": (
+      "default": var(--color-white),
+    ),
+    "focus": (
+      "default": var(--color-focus),
+    ),
     "text": (
       "default": var(--color-text),
-      "inverse": var(--color-text-inverse),
-    ),
-    "primary": (
-      "faded": var(--color-primary-faded),
-      "default": var(--color-primary),
-      "pressed": var(--color-primary-pressed),
-      "border": var(--color-primary-border),
     ),
     "neutral": (
       "faded": var(--color-neutral-faded),
@@ -93,6 +101,18 @@ $config: (
       "pressed": var(--color-neutral-pressed),
       "border": var(--color-neutral-border),
       "border-hover": var(--color-neutral-border-hover),
+    ),
+    "primary": (
+      "faded": var(--color-primary-faded),
+      "default": var(--color-primary),
+      "pressed": var(--color-primary-pressed),
+      "border": var(--color-primary-border),
+    ),
+    "secondary": (
+      "faded": var(--color-secondary-faded),
+      "default": var(--color-secondary),
+      "pressed": var(--color-secondary-pressed),
+      "border": var(--color-secondary-border),
     ),
     "info": (
       "faded": var(--color-info-faded),
@@ -122,15 +142,14 @@ $config: (
   "disabled": 0.5,
   "transition": (
     "duration": (
-      "quickly": 100ms,
-      "normal": 222ms,
-      "slowly": 333ms,
+      "quickly": var(--duration-quickly),
+      "normal": var(--duration-normal),
+      "slowly": var(--duration-slowly),
     ),
     "timing-function": (
-      "decelerate": cubic-bezier(0, 0, 0.2, 1),
-      "accelerate": cubic-bezier(0.4, 0, 1, 1),
-      "quickly-accelerate-slowly-decelerate": cubic-bezier(0.4, 0, 0.2, 1),
-      "quickly-accelerate-decelerate": cubic-bezier(0.4, 0, 0.6, 1),
+      "ease-in": var(--timing-ease-in),
+      "ease-out": var(--timing-ease-out),
+      "ease-in-out": var(--timing-ease-in-out),
     ),
   ),
 );
@@ -162,6 +181,9 @@ $colors: map.get($config, colors);
 /// Defines responsive breakpoints for screen sizes (sm, md, lg, xl).
 $screens: map.get($config, screens);
 
+/// Defines elevation.
+$elevation: map.get($config, elevation);
+
 /// Opacity value for disabled elements.
 $disabled: map.get($config, disabled);
 
@@ -169,10 +191,10 @@ $disabled: map.get($config, disabled);
 $transition: map.get($config, transition);
 
 /// Duration values for CSS transitions (quickly, normal, slowly).
-$duration: map.get($transition, duration);
+$transition-duration: map.get($transition, duration);
 
 /// Timing function values for CSS transitions.
-$timing-function: map.get($transition, timing-function);
+$transition-timing-function: map.get($transition, timing-function);
 
 /// Scope naming used inner components styles to prefix CSS vars.
 $scope-naming: null;

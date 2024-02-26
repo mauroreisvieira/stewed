@@ -2,18 +2,23 @@ import React from "react";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
-import { components } from "@stewed/tokens";
+import { type Color, components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface AlertProps extends React.ComponentPropsWithRef<"div"> {
   /** Will render the bold text shown at the top of the alert. */
   title?: string;
   /**
    * Change the visual style of the alert.
    * @default info
    */
-  skin?: "info" | "success" | "warning" | "critical";
+  skin?: Extract<
+    Color,
+    "info" | "primary" | "secondary" | "neutral" | "critical" | "success" | "warning"
+  >;
+  /** Determine whether the alert should be rendered as floating, allowing elevation effects. */
+  floating?: boolean;
   /** Slot to display before the alert content. */
   leftSlot?: React.ReactNode;
   /** Slot to display after the alert content. */
@@ -33,12 +38,15 @@ export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
  * </Alert>
  * ```
  *
+ * @remarks This component props extended from React.ComponentPropsWithRef<"div">.
+ *
  * @param {AlertProps} props - The props for the Alert component.
  * @returns {React.ReactElement} - The rendered Alert component.
  */
 export function Alert({
   title,
   skin = "info",
+  floating,
   className,
   leftSlot,
   rightSlot,
@@ -50,7 +58,7 @@ export function Alert({
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ modifiers: [skin], extraClasses: className }),
+    root: getBlock({ modifiers: [skin, floating && "floating"], extraClasses: className }),
     title: getElement(["title"]),
     body: getElement(["body"]),
     wrapper: getElement(["wrapper"]),

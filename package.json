@@ -10,7 +10,7 @@
     "lint": "lerna run lint --parallel",
     "lint:style": "lerna run lint:style --parallel",
     "format": "lerna run format",
-    "clean": "lerna exec -- rm -rf node_modules && rm -rf node_modules",
+    "clean": "lerna exec -- rm -rf node_modules && lerna exec -- rm -rf dist",
     "publish": "lerna publish from-package --yes",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"

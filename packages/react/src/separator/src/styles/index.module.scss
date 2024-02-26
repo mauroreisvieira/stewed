@@ -1,3 +1,5 @@
+@use "sass:list";
+@use "sass:string";
 @use "@stewed/react/src/theme/src/styles" as theme;
 @use "@stewed/react/src/typography/src/styles" as text;
 @use "./variables" as *;
@@ -16,23 +18,32 @@
 
   &--vertical {
     width: 1px;
-    height: 100%;
   }
 
   // Skin
-  @each $value in $separator-skins {
-    &--#{$value} {
-      @include theme.define-var(
-        (
-          background-color: theme.get-color($value, "border"),
-        )
-      );
+  @each $key in $separator-skins {
+    &--#{$key} {
+      $value: string.split($key, "-");
+
+      @if length($value) > 1 {
+        @include theme.define-var(
+          (
+            background-color: theme.get-color(list.nth($value, 1), list.nth($value, 2)),
+          )
+        );
+      } @else {
+        @include theme.define-var(
+          (
+            background-color: theme.get-color($key),
+          )
+        );
+      }
     }
   }
 
   // Spacing
   @each $key, $value in $separator-spacing {
-    &--space-x-#{$key} {
+    &--space-inline-#{$key} {
       @include theme.define-var(
         (
           margin-inline: $value,
@@ -40,7 +51,7 @@
       );
     }
 
-    &--space-y-#{$key} {
+    &--space-block-#{$key} {
       @include theme.define-var(
         (
           margin-block: $value,

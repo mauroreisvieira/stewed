@@ -10,35 +10,39 @@ import {
   Accordion,
   Toggle,
 } from "../../../../packages/react/index";
-import { FiArrowLeft, FiArrowRight, FiPlus } from "react-icons/fi";
+// Icons
+import { FiPlus } from "react-icons/fi";
 
-const productsSizes = ["XS", "S", "M", "L", "XL", "XXL"];
+const productsSizes = ["XXS", "XS", "S", "M", "L", "XL", "XXL", "XXXL"];
 
 export function ProductDetail(): React.ReactElement {
   const [selectedSize, setSelectedSize] = useState("M");
 
   return (
-    <Theme>
+    <Theme<"default">
+      tokens={{
+        default: {
+          color: {
+            "secondary": "#333",
+            "secondary-faded": "#f3f3f3",
+          },
+          components: {
+            toggle: {
+              radius: "sm",
+            },
+          },
+        },
+      }}>
       <Box justify="between" gap="2xl">
         <Box>
-          <Carousel
-            renderPrev={(props) => (
-              <Button appearance="ghost" leftSlot={<FiArrowLeft size={24} />} iconOnly {...props}>
-                Prev
-              </Button>
-            )}
-            renderNext={(props) => (
-              <Button appearance="ghost" leftSlot={<FiArrowRight size={24} />} iconOnly {...props}>
-                Next
-              </Button>
-            )}>
+          <Carousel>
             <img src="https://placehold.co/400x600" />
             <img src="https://placehold.co/400x600" />
           </Carousel>
         </Box>
         <Box direction="column" gap="2xl">
           <div>
-            <Tag skin="primary" size="sm">
+            <Tag skin="primary" appearance="soft" size="sm">
               Nova coleção
             </Tag>
           </div>
@@ -50,7 +54,7 @@ export function ProductDetail(): React.ReactElement {
               <Text size="3xl" weight="bold">
                 €89,95
               </Text>
-              <Text size="3xl" variation={["line-through"]} skin="neutral">
+              <Text size="3xl" variation={["line-through"]} skin="critical">
                 €120
               </Text>
             </Box>
@@ -60,27 +64,28 @@ export function ProductDetail(): React.ReactElement {
             <Text as="label" size="xs" variation={"uppercase"} weight="medium">
               Seleccione o seu tamanho
             </Text>
-            <Toggle.Group gap>
+            <Toggle.Group fullWidth>
               {productsSizes.map((value) => (
                 <Toggle
                   key={value}
                   size="md"
+                  skin="secondary"
                   onClick={() => setSelectedSize(value)}
                   selected={value === selectedSize}>
                   {value}
                 </Toggle>
               ))}
             </Toggle.Group>
-            <Button size="lg" fullWidth>
+            <Button skin="primary" size="lg" fullWidth>
               Adicionar ao carrinho
             </Button>
           </Box>
           <Box gap="lg" direction="column">
-            <Text size="sm" skin="neutral" whiteSpace="nowrap">
+            <Text size="sm" whiteSpace="nowrap">
               Inclui uma etiqueta interativa na gola que concede acesso ao Club LEGACIES.
             </Text>
             <Accordion>
-              <Accordion.Item open>
+              <Accordion.Item>
                 <Accordion.Header rightSlot={<FiPlus />}>Detalhes do Produto</Accordion.Header>
                 <Accordion.Body>
                   <Box direction="column" gap="lg">
@@ -89,12 +94,12 @@ export function ProductDetail(): React.ReactElement {
                       combina tradição e celebra a individualidade do Benfica.
                     </Text>
                     <ul>
-                      <li>Algodão LEGACIES de peso médio</li>
-                      <li>100% algodão</li>
-                      <li>500 gmq</li>
-                      <li>Corte unissexo</li>
-                      <li>Impressão DTG</li>
-                      <li>Fabricado em Portugal</li>
+                      <Text as="li">Algodão LEGACIES de peso médio</Text>
+                      <Text as="li">100% algodão</Text>
+                      <Text as="li">500 gmq</Text>
+                      <Text as="li">Corte unissexo</Text>
+                      <Text as="li">Impressão DTG</Text>
+                      <Text as="li">Fabricado em Portugal</Text>
                     </ul>
                   </Box>
                 </Accordion.Body>

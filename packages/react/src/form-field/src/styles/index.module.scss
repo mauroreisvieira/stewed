@@ -7,12 +7,19 @@
   flex-direction: column;
   gap: theme.get-spacing("xs");
 
+  &__control,
+  &__description {
+    display: flex;
+  }
+
   &__label {
     display: inline-block;
     cursor: pointer;
   }
 
   &__error {
+    display: flex;
+
     &--hidden {
       display: none;
     }

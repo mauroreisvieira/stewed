@@ -12,4 +12,13 @@ $progress-heights: (
 );
 
 /// Skins
-$progress-skins: ("primary", "neutral", "success", "critical");
+$progress-skins: (
+  "white",
+  "primary",
+  "secondary",
+  "neutral",
+  "critical",
+  "success",
+  "info",
+  "warning"
+);

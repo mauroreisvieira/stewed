@@ -1,0 +1,178 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+@use "@stewed/react/src/typography/src/styles" as text;
+@use "./variables" as *;
+
+@include theme.scope($table-root) {
+  @include theme.define-var(
+    (
+      border-radius: theme.get-radius(md),
+      background-color: theme.get-color("neutral", "faded"),
+      border-color: theme.get-color("neutral", "border"),
+    )
+  );
+
+  position: relative;
+  display: table;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  border-radius: theme.get-var(border-radius);
+
+  &__head {
+    display: table-row-group;
+
+    .#{$table-root}__cell {
+      padding-block: theme.get-spacing("md");
+      padding-inline: theme.get-spacing("xl");
+
+      @include text.typography(
+        base,
+        $overrides: (
+          color: theme.get-color("neutral"),
+          font-size: theme.get-font-size("sm"),
+          line-height: 1
+        )
+      );
+    }
+  }
+
+  &__body {
+    position: relative;
+    display: table-row-group;
+    width: auto;
+    overflow-x: hidden;
+    white-space: normal;
+
+    .#{$table-root}__row--selected {
+      .#{$table-root}__cell {
+        background-color: theme.get-color("primary", "faded");
+      }
+    }
+
+    .#{$table-root}__cell {
+      padding-block: theme.get-spacing("md");
+      padding-inline: theme.get-spacing("xl");
+
+      @include text.typography(
+        base,
+        $overrides: (color: currentColor, font-size: theme.get-font-size("sm"))
+      );
+    }
+  }
+
+  &__row {
+    display: table-row;
+    vertical-align: middle;
+  }
+
+  &__cell {
+    display: table-cell;
+
+    &--start {
+      text-align: start;
+    }
+
+    &--center {
+      text-align: center;
+    }
+
+    &--end {
+      text-align: end;
+    }
+  }
+
+  &--striped {
+    .#{$table-root}__body .#{$table-root}__row {
+      &:nth-child(even) {
+        background-color: theme.get-var(background-color);
+      }
+    }
+  }
+
+  &--default,
+  &--striped {
+    border-spacing: 0 theme.get-spacing("xxs");
+
+    &:not([class*="border"]) {
+      .#{$table-root}__head .#{$table-root}__cell {
+        background-color: theme.get-var(background-color);
+        border-top: 1px solid theme.get-var(border-color);
+        border-bottom: 1px solid theme.get-var(border-color);
+
+        &:first-child {
+          border-left: 1px solid theme.get-var(border-color);
+          border-top-left-radius: theme.get-var(border-radius);
+          border-bottom-left-radius: theme.get-var(border-radius);
+        }
+
+        &:last-child {
+          border-right: 1px solid theme.get-var(border-color);
+          border-top-right-radius: theme.get-var(border-radius);
+          border-bottom-right-radius: theme.get-var(border-radius);
+        }
+      }
+
+      .#{$table-root}__body .#{$table-root}__row .#{$table-root}__cell {
+        &:first-child {
+          border-top-left-radius: theme.get-var(border-radius);
+          border-bottom-left-radius: theme.get-var(border-radius);
+        }
+
+        &:last-child {
+          border-top-right-radius: theme.get-var(border-radius);
+          border-bottom-right-radius: theme.get-var(border-radius);
+        }
+      }
+    }
+  }
+
+  &--border {
+    border: 1px solid theme.get-var(border-color);
+  }
+
+  &--border-rows {
+    .#{$table-root}__body {
+      .#{$table-root}__cell {
+        border-block-start: 1px solid theme.get-var(border-color);
+      }
+    }
+  }
+
+  &--border-columns {
+    .#{$table-root} {
+      &__cell:not(:first-child) {
+        border-inline-start: 1px solid theme.get-var(border-color);
+      }
+    }
+  }
+
+  &--border,
+  &--border-rows,
+  &--border-columns {
+    border-spacing: 0;
+
+    .#{$table-root}__body .#{$table-root}__row {
+      &:last-child > .#{$table-root}__cell {
+        &:first-child {
+          border-bottom-left-radius: theme.get-var(border-radius);
+        }
+
+        &:last-child {
+          border-bottom-right-radius: theme.get-var(border-radius);
+        }
+      }
+    }
+  }
+
+  &--hoverable {
+    .#{$table-root}__body {
+      .#{$table-root}__row:hover {
+        position: relative;
+        .#{$table-root}__cell {
+          cursor: pointer;
+          background-color: theme.get-color("neutral", "faded");
+        }
+      }
+    }
+  }
+}

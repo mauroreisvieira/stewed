@@ -2,20 +2,39 @@ import React from "react";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
-import { components, type Spacings } from "@stewed/tokens";
+import { type Color, components, type Spacings } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-interface SeparatorProps extends React.HTMLAttributes<HTMLHRElement> {
+interface SeparatorProps extends React.ComponentPropsWithRef<"hr"> {
   /**
-   * Change the visual style of the separator.
-   * @default primary
+   * Change the visual color of the separator.
+   * @default neutral-border
    */
-  skin?: "primary" | "neutral" | "critical";
-  /** Adds space between separator on the horizontal and vertical axes. */
+  skin?: Extract<
+    Color,
+    | "white"
+    | "neutral"
+    | "neutral-border"
+    | "primary"
+    | "primary-border"
+    | "secondary"
+    | "secondary-border"
+    | "critical"
+    | "critical-border"
+  >;
+  /** Adds space between separators on the horizontal and vertical axes. */
   space?: {
-    x?: Spacings;
-    y?: Spacings;
+    /**
+     * Adds space between separators on the block axis (e.g., top and bottom margins).
+     * @default none
+     */
+    block?: Spacings;
+    /**
+     * Adds space between separators on the inline axis (e.g., left and right margins).
+     * @default none
+     */
+    inline?: Spacings;
   };
   /**
    * Specifies the orientation of the separator.
@@ -30,17 +49,17 @@ interface SeparatorProps extends React.HTMLAttributes<HTMLHRElement> {
  *
  * @example
  * ```tsx
- * <Separator skin="primary" space={{ x: 'sm', y: 'md' }} orientation="horizontal" />
+ * <Separator skin="primary-border" space={{ block: 'sm', inline: 'md' }} orientation="horizontal" />
  * ```
  *
- * @remarks This component props extended from React.HTMLAttributes<HTMLHRElement>.
+ * @remarks This component props extended from React.ComponentPropsWithRef<"hr">.
  *
  * @param {SeparatorProps} props - The props for the Separator component.
  * @returns {React.ReactElement} - The rendered Separator component.
  */
 export function Separator({
-  skin = "neutral",
-  space = { x: "none", y: "sm" },
+  skin = "neutral-border",
+  space = { block: "none", inline: "none" },
   orientation = "horizontal",
   className,
   ...props
@@ -54,8 +73,8 @@ export function Separator({
       modifiers: [
         skin,
         orientation,
-        space?.x && `space-x-${space.x}`,
-        space?.y && `space-y-${space.y}`,
+        space?.block && `space-block-${space.block}`,
+        space?.inline && `space-inline-${space.inline}`,
       ],
       extraClasses: className,
     }),

@@ -8,7 +8,7 @@ import styles from "./styles/index.module.scss";
 
 type Size = "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "auto";
 
-interface SkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
+interface SkeletonProps extends React.ComponentPropsWithRef<"div"> {
   /** Skeleton shape. */
   shape?: "line" | "circle";
   /** Skeleton size for `line` & `circle` shape. */

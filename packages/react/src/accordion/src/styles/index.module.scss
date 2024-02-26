@@ -6,7 +6,7 @@
   position: relative;
 
   &__item {
-    border-bottom: 1px solid theme.get-color("neutral", "faded");
+    border-bottom: 1px solid theme.get-color("neutral", "border");
   }
 
   &__header,

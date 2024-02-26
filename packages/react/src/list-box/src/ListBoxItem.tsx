@@ -6,10 +6,10 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface ListBoxItemProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ListBoxItemProps extends React.ComponentPropsWithRef<"div"> {
   /**
    * Change the visual style of the menu item.
-   * @default "primary"
+   * @default primary
    */
   skin?: "primary" | "critical";
   /** Slot to display before the item children. */
@@ -47,7 +47,14 @@ export function ListBoxItem({
   };
 
   return (
-    <div className={cssClasses.root} role="menuitem" tabIndex={disabled ? -1 : 0} {...props}>
+    <div
+      className={cssClasses.root}
+      role="option"
+      tabIndex={disabled ? -1 : 0}
+      aria-selected={selected}
+      aria-disabled={disabled}
+      {...props}
+    >
       {leftSlot && <div className={cssClasses.left}>{leftSlot}</div>}
       {children && <div className={cssClasses.text}>{children}</div>}
       {rightSlot && <div className={cssClasses.right}>{rightSlot}</div>}

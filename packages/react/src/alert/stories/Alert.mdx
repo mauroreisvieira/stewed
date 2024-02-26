@@ -1,0 +1,36 @@
+import { Canvas, Meta, ArgTypes } from "@storybook/blocks";
+import * as AlertStories from "./Alert.stories";
+
+# Alert
+
+An alert displays a short and important message in a way that attracts the user attention.
+
+### Installation
+
+```bash
+npm install --save @stewed/react
+```
+
+### Import
+
+```js
+import { Alert } from "@stewed/react";
+```
+
+<Meta of={AlertStories} />
+
+## Base
+
+<Canvas of={AlertStories.Base} />
+
+### Left Slot
+
+<Canvas of={AlertStories.LeftSlot} />
+
+### Elevation
+
+<Canvas of={AlertStories.Elevation} />
+
+## Props
+
+<ArgTypes of={AlertStories} />

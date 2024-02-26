@@ -42,7 +42,7 @@ export function SidePanel(): React.ReactElement {
             Trash
           </ListBox.Item>
         </ListBox.Group>
-        <Separator space={{ y: "sm" }} />
+        <Separator space={{ block: "sm" }} />
         <ListBox.Group>
           <ListBox.Item>Lee Evans new tour</ListBox.Item>
           <ListBox.Item>Individual errors coast</ListBox.Item>

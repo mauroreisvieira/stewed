@@ -1,64 +1,42 @@
-import { color } from "./Color";
-import { components } from "./Components";
-import { fontFamily } from "./FontFamily";
-import { fontSize } from "./FontSize";
-import { fontWeight } from "./FontWeight";
-import { lineHeight } from "./LineHeight";
-import { radius } from "./Radius";
-import { spacings } from "./Spacings";
-import { screens } from "./Screens";
+// Tokens
+import * as tokens from "./tokens/index";
+// Components
+import { type Components, components } from "./Components";
 
-export type Color = keyof typeof color;
-export type FontFamily = keyof typeof fontFamily;
-export type FontSize = keyof typeof fontSize;
-export type FontWeight = keyof typeof fontWeight;
-export type LineHeight = keyof typeof lineHeight;
-export type Radius = keyof typeof radius;
-export type Spacings = keyof typeof spacings;
-export type Screens = keyof typeof spacings;
-
-export type Components = {
-  [components.Alert]?: { radius?: Radius };
-  [components.Avatar]?: { radius?: Radius };
-  [components.Badge]?: { radius?: Radius };
-  [components.Button]?: { radius?: Radius };
-  [components.Card]?: { radius?: Radius };
-  [components.Checkbox]?: { radius?: Radius };
-  [components.Dialog]?: { radius?: Radius };
-  [components.ListBox]?: { radius?: Radius };
-  [components.Select]?: { radius?: Radius };
-  [components.Switch]?: { radius?: Radius };
-  [components.Tabs]?: { radius?: Radius };
-  [components.Tag]?: { radius?: Radius };
-  [components.TextArea]?: { radius?: Radius };
-  [components.TextField]?: { radius?: Radius };
-  [components.Toggle]?: { radius?: Radius };
-};
-
+// Define Tokens type that represents design tokens
 export type Tokens = {
-  color?: Partial<typeof color>;
-  fontFamily?: Partial<typeof fontFamily>;
-  fontSize?: Partial<typeof fontSize>;
-  fontWeight?: Partial<typeof fontWeight>;
-  lineHeight?: Partial<typeof lineHeight>;
-  radius?: Partial<typeof radius>;
-  spacings?: Partial<typeof spacings>;
-  screens?: Partial<typeof screens>;
+  color?: Partial<typeof tokens.color>;
+  elevation?: Partial<typeof tokens.elevation>;
+  fontFamily?: Partial<typeof tokens.fontFamily>;
+  fontSize?: Partial<typeof tokens.fontSize>;
+  fontWeight?: Partial<typeof tokens.fontWeight>;
+  lineHeight?: Partial<typeof tokens.lineHeight>;
+  radius?: Partial<typeof tokens.radius>;
+  screens?: Partial<typeof tokens.screens>;
+  spacings?: Partial<typeof tokens.spacings>;
+  duration?: Partial<typeof tokens.duration>;
+  timing?: Partial<typeof tokens.timing>;
   components?: Components;
 };
 
-export const tokens: Tokens = {
-  color,
-  fontFamily,
-  fontSize,
-  fontWeight,
-  lineHeight,
-  radius,
-  spacings,
-  screens,
+// Define the tokens object containing design tokens
+export const defaultTokens: Tokens = {
+  color: tokens.color,
+  elevation: tokens.elevation,
+  fontFamily: tokens.fontFamily,
+  fontSize: tokens.fontSize,
+  fontWeight: tokens.fontWeight,
+  lineHeight: tokens.lineHeight,
+  radius: tokens.radius,
+  screens: tokens.screens,
+  spacings: tokens.spacings,
+  duration: tokens.duration,
+  timing: tokens.timing,
+  // Define specific tokens for different components
   components: {
     [components.Alert]: {
       radius: "md",
+      elevation: "xl",
     },
     [components.Avatar]: {
       radius: "sm",
@@ -77,6 +55,7 @@ export const tokens: Tokens = {
     },
     [components.Dialog]: {
       radius: "md",
+      elevation: "3xl",
     },
     [components.ListBox]: {
       radius: "sm",
@@ -100,9 +79,12 @@ export const tokens: Tokens = {
       radius: "sm",
     },
     [components.Toggle]: {
-      radius: "full",
+      radius: "sm",
     },
   },
 };
 
-export { components };
+// Export components and Components type
+export { components, type Components };
+// Export tokens
+export * from "./tokens/index";

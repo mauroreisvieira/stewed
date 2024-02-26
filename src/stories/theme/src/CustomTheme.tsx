@@ -13,41 +13,49 @@ import {
   Separator,
   FormField,
   Dialog,
+  Select,
 } from "../../../../packages/react/index";
 // Hooks
-import { useForm } from "@stewed/hooks";
+import { useStateForm } from "@stewed/hooks";
 
-type ThemeOptions = "metro" | "elegant";
+type ThemeOptions = "default" | "metro" | "elegant";
 
 function Elements(): React.ReactElement {
   const { theme, setTheme } = useTheme<ThemeOptions>();
   const [isOpen, setOpen] = useState(false);
 
   const {
-    data: { username, email, password },
+    formData: { username, gender, email, password },
     onFormChange,
     onFormReset,
-  } = useForm({
+  } = useStateForm({
     initialValues: {
       username: "",
       email: "",
+      gender: "Prefer not to respond",
       password: "",
     },
-    validators: {
+    validators: ({ username, email, password }) => ({
       username: {
-        exp: /^[a-zA-Z0-9]+$/,
+        condition: () => {
+          return username ? /^[a-zA-Z0-9]+$/.exec(username) !== null : true;
+        },
         description: "Username can only contain letters or digits.",
       },
       email: {
-        exp: /[\d%+._a-z-]+@[\d.a-z-]+.[a-z]{2,}$/,
-        description: "Email is not valid.",
+        condition: () => {
+          return email ? /[\d%+._a-z-]+@[\d.a-z-]+.[a-z]{2,}$/.exec(email) !== null : true;
+        },
+        description: "The email address is not valid, make sure it follows the standard format.",
       },
       password: {
-        exp: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
+        condition: () => {
+          return password ? /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/.exec(password) !== null : true;
+        },
         description:
-          "Require 1 number, 1 uppercase and lowercase letter, with a minimum of 8 characters.",
+          "Password must contain at least one number, one uppercase letter, one lowercase letter, and be at least 8 characters.",
       },
-    },
+    }),
   });
 
   return (
@@ -60,6 +68,7 @@ function Elements(): React.ReactElement {
             setTheme(value as ThemeOptions);
           }}>
           <Tabs.List>
+            <Tabs.Item value="default">Default</Tabs.Item>
             <Tabs.Item value="metro">Metro</Tabs.Item>
             <Tabs.Item value="elegant">Elegant</Tabs.Item>
           </Tabs.List>
@@ -89,6 +98,22 @@ function Elements(): React.ReactElement {
                     You can use letters, numbers, and periods.
                   </FormField.Description>
                   <FormField.Error hidden={username.valid}>{username.error}</FormField.Error>
+                </FormField>
+
+                <FormField>
+                  <FormField.Label htmlFor="gender">Gender</FormField.Label>
+                  <FormField.Control>
+                    <Select id="gender" value={gender.value} name="gender" onChange={onFormChange}>
+                      <Select.Option value="Woman">Woman</Select.Option>
+                      <Select.Option value="Man">Man</Select.Option>
+                      <Select.Option value="Non-binary/non-conforming">
+                        Non-binary/non-conforming
+                      </Select.Option>
+                      <Select.Option value="Prefer not to respond">
+                        Prefer not to respond
+                      </Select.Option>
+                    </Select>
+                  </FormField.Control>
                 </FormField>
 
                 <FormField>
@@ -127,7 +152,7 @@ function Elements(): React.ReactElement {
                 </FormField>
               </Box>
             </Box>
-            <Separator space={{ y: "xl" }} />
+            <Separator space={{ block: "xl" }} />
             <Box items="start" justify="between">
               <Box direction="column">
                 <Text weight="semi-bold">Favorites</Text>
@@ -141,7 +166,7 @@ function Elements(): React.ReactElement {
                 <Switch size="sm">Slack</Switch>
               </Box>
             </Box>
-            <Separator space={{ y: "xl" }} />
+            <Separator space={{ block: "xl" }} />
             <Box items="start" justify="between">
               <Box direction="column">
                 <Text weight="semi-bold">New documents</Text>
@@ -162,23 +187,16 @@ function Elements(): React.ReactElement {
               <Button skin="neutral" appearance="outline" onClick={(): void => onFormReset()}>
                 Clean
               </Button>
-              <Button
-                onClick={(): void => setOpen(true)}
-                disabled={!username.value || !email.value || !password.value}>
-                Create an account
-              </Button>
+              <Button onClick={(): void => setOpen(true)}>Create an account</Button>
             </Box>
           </Card.Footer>
         </Card>
       </Box>
       <Dialog open={isOpen} size="sm">
         <Dialog.Header>
-          <Text as="h4">Create Account</Text>
+          <Text as="h4">Are you ready to create your account?</Text>
         </Dialog.Header>
         <Dialog.Body>
-          <Text size="sm" skin="neutral">
-            Are you ready to create your account?
-          </Text>
           <Text size="sm" skin="neutral">
             By proceeding, you'll be establishing a new account with us. Your information will be
             securely stored on our servers for your future access.
@@ -194,7 +212,7 @@ function Elements(): React.ReactElement {
               Cancel
             </Button>
             <Button type="button" skin="success" onClick={(): void => setOpen(false)}>
-              Activate account
+              Create Account
             </Button>
           </Box>
         </Dialog.Footer>
@@ -206,20 +224,39 @@ function Elements(): React.ReactElement {
 export function CustomTheme(): React.ReactElement {
   return (
     <Theme<ThemeOptions>
-      defaultTheme="metro"
       tokens={{
         metro: {
           color: {
-            text: "#444",
+            "text": "#444",
+            "primary": "#3f51b5",
+            "primary-faded": "#e8eaf6",
+            "primary-border": "#9fa8da",
+            "primary-pressed": "#3949ab",
           },
           fontFamily: {
             base: "'Roboto Serif', serif",
           },
           components: {
-            card: {
+            "text-field": {
               radius: "none",
             },
-            switch: {
+            "select": {
+              radius: "none",
+            },
+            "card": {
+              radius: "none",
+            },
+            "switch": {
+              radius: "none",
+            },
+            "dialog": {
+              radius: "none",
+              elevation: "xl",
+            },
+            "tabs": {
+              radius: "none",
+            },
+            "button": {
               radius: "none",
             },
           },
@@ -230,8 +267,9 @@ export function CustomTheme(): React.ReactElement {
           },
           color: {
             "primary": "#e91e63",
-            "primary-pressed": "#d81b60",
             "primary-faded": "#f48fb1",
+            "primary-border": "#f0c6d3",
+            "primary-pressed": "#d81b60",
             // Critical
             "critical": "#ef4444",
             "critical-pressed": "#dc2626",
@@ -244,12 +282,22 @@ export function CustomTheme(): React.ReactElement {
             "success-border": "#21ab6b",
           },
           components: {
-            button: {
+            "button": {
               radius: "full",
+            },
+            "tabs": {
+              radius: "xl",
+            },
+            "text-field": {
+              radius: "2xl",
+            },
+            "select": {
+              radius: "2xl",
             },
           },
         },
-      }}>
+      }}
+      defaultTheme="metro">
       <Elements />
     </Theme>
   );

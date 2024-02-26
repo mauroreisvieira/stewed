@@ -1,6 +1,4 @@
-@use "@stewed/react/src/theme/src/styles" as theme;
-
 $tag-root: "tag";
 
 // Skins
-$tag-skins: ("primary", "neutral", "info", "success", "warning", "critical");
+$tag-skins: ("primary", "secondary", "neutral", "info", "success", "warning", "critical");

@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from "react";
+import React, { useState, useCallback } from "react";
 import { Scope } from "../..";
 // Provider
 import { type DialogProviderProps, DialogProvider } from "./DialogProvider";
@@ -8,17 +8,18 @@ import { DialogHeader } from "./DialogHeader";
 import { DialogFooter } from "./DialogFooter";
 // Hooks
 import { useBem } from "@stewed/hooks";
+import { useFocusTrap } from "@stewed/hooks";
 // Tokens
 import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface DialogProps extends React.HTMLAttributes<HTMLDivElement>, DialogProviderProps {
+export interface DialogProps extends React.ComponentProps<"div">, DialogProviderProps {
   /** The controlled open state of the dialog. */
   open?: boolean;
   /**
    * Changes the size of the dialog, will specify the width of the element.
-   * @default "md"
+   * @default md
    */
   size?: "sm" | "md" | "lg" | "xl";
   /** Callback function invoked when the escape key is pressed. */
@@ -58,10 +59,15 @@ export function Dialog({
   onMouseDown,
   ...props
 }: DialogProps): React.ReactElement {
-  const rootRef = useRef<HTMLDivElement>(null);
+  const [rootRef, setRootRef] = useState<HTMLDivElement | null>(null);
 
   // Importing useBem to handle BEM class names
   const { getBlock, getElement } = useBem({ block: components.Dialog, styles });
+
+  useFocusTrap({
+    root: rootRef,
+    enabled: !!open && !!rootRef,
+  });
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
@@ -69,8 +75,8 @@ export function Dialog({
     surface: getElement([`surface`]),
   };
 
-  const onHandleKeydown = useCallback(
-    (event: React.KeyboardEvent<HTMLDivElement>): void => {
+  const onHandleKeydown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
+    (event): void => {
       if (onKeyDown) onKeyDown(event);
 
       if (event.key === "Escape") {
@@ -81,21 +87,21 @@ export function Dialog({
     [onEscape, onKeyDown],
   );
 
-  const onHandleMouseDown = useCallback(
-    (event: React.MouseEvent<HTMLDivElement>): void => {
+  const onHandleMouseDown: React.MouseEventHandler<HTMLDivElement> = useCallback(
+    (event): void => {
       if (onMouseDown) onMouseDown(event);
 
-      if (!rootRef.current) return;
+      if (!rootRef) return;
 
       const { target } = event;
 
-      if (rootRef.current === target) {
+      if (rootRef === target) {
         if (onClickOutside) onClickOutside();
       }
 
       event.stopPropagation();
     },
-    [onClickOutside, onMouseDown],
+    [onClickOutside, onMouseDown, rootRef],
   );
 
   return (
@@ -104,7 +110,7 @@ export function Dialog({
         <Scope>
           <DialogProvider onClose={onClose}>
             <div
-              ref={rootRef}
+              ref={setRootRef}
               className={cssClasses.root}
               onMouseDown={onHandleMouseDown}
               onKeyDown={onHandleKeydown}

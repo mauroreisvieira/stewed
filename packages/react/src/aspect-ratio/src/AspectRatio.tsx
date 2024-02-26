@@ -6,7 +6,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface AspectRatioProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface AspectRatioProps extends React.ComponentPropsWithRef<"div"> {
   /**
    * Specify the aspect ratio as a string in the format "width:height"
    * @default 1:1
@@ -24,6 +24,8 @@ export interface AspectRatioProps extends React.HTMLAttributes<HTMLDivElement> {
  * </AspectRatio>
  * ```
  *
+ * @remarks This component props extended from React.ComponentPropsWithRef<"div">.
+ *
  * @param {AspectRatioProps} props - The props for the AspectRatio component.
  * @returns {React.ReactElement} - The rendered AspectRatio component.
  */
@@ -34,12 +36,11 @@ export function AspectRatio({
   ...props
 }: AspectRatioProps): React.ReactElement {
   // Importing useBem to handle BEM class names
-  const { getBlock, getElement } = useBem({ block: components.AspectRatio, styles });
+  const { getBlock } = useBem({ block: components.AspectRatio, styles });
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({ modifiers: [ratio.replace(":", "-")], extraClasses: className }),
-    img: getElement(["img"]),
   };
 
   return (

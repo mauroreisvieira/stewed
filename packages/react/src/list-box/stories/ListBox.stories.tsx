@@ -1,8 +1,8 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-
+// UI Components
 import { Theme, ListBox } from "../../index";
-
+// Icons
 import { FiPenTool, FiFile, FiFilePlus, FiMap, FiTrash, FiLock, FiMapPin } from "react-icons/fi";
 
 type Story = StoryObj<typeof ListBox>;
@@ -21,7 +21,7 @@ const meta: Meta<typeof ListBox> = {
 
 export default meta;
 
-export const Default: Story = {
+export const Base: Story = {
   argTypes: {
     children: {
       control: false,

@@ -25,31 +25,43 @@ export function Plans(): React.ReactElement {
 
   return (
     <Theme>
-      <Box direction="column" gap="2xl">
-        <Box direction="column">
-          <Text alignment="center" weight="medium" skin="primary">
-            Teams for all sizes
-          </Text>
+      <Text
+        size="xs"
+        variation="uppercase"
+        alignment="center"
+        weight="bold"
+        skin="primary"
+        space={{ y: "xs" }}>
+        Teams for all sizes
+      </Text>
 
-          <Text as="h2" alignment="center" weight="extra-bold">
-            Pricing Plans
-          </Text>
-        </Box>
+      <Text as="h2" alignment="center" weight="extra-bold" space={{ y: "3xl" }}>
+        Pricing Plans
+      </Text>
 
-        <Text alignment="center" size="xl">
-          Start building for free, then add a site plan to go live. <br />
-          Account plans unlock additional features.
-        </Text>
+      <Text alignment="center" size="xl" space={{ y: "3xl" }}>
+        Start building for free, then add a site plan to go live. <br />
+        Account plans unlock additional features.
+      </Text>
 
+      <Box direction="column" gap="3xl">
         <Tabs alignment="center" value={value} onValueChange={setValue}>
           <Tabs.List>
             <Tabs.Item value="monthly">Monthly billing</Tabs.Item>
             <Tabs.Item value="annually">Yearly billing</Tabs.Item>
           </Tabs.List>
         </Tabs>
-        <Box gap="2xl" items="stretch">
+
+        <Box gap="2xl" items="center">
           {plans.map(({ title, description, price }, index) => (
-            <Card key={index} selected={index === 1}>
+            <Card
+              key={index}
+              selected={index === 1}
+              padding={{
+                block: index === 1 ? "2xl" : "xl",
+                inline: "xl",
+              }}
+              elevation={index === 1 ? "2xl" : undefined}>
               <Card.Header>
                 <Text as="h4">{title}</Text>
               </Card.Header>

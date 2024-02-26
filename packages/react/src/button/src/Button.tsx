@@ -2,7 +2,7 @@ import React from "react";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
-import { components } from "@stewed/tokens";
+import { type Color, components } from "@stewed/tokens";
 // Types
 import { type DistributiveOmit, fixedForwardRef } from "../../types";
 // Styles
@@ -21,7 +21,7 @@ export interface ButtonProps<T> extends React.ComponentProps<typeof defaultEleme
    * Change the visual style of the button.
    * @default primary
    */
-  skin?: "primary" | "neutral" | "critical" | "success";
+  skin?: Extract<Color, "primary" | "secondary" | "neutral" | "critical" | "success">;
   /**
    * Change the visual appearance of the button.
    * @default filled
@@ -31,11 +31,13 @@ export interface ButtonProps<T> extends React.ComponentProps<typeof defaultEleme
    * Changes the size of the button, giving it more or less padding.
    * @default md
    */
-  size?: "xs" | "sm" | "md" | "lg" | "xl";
+  size?: "xs" | "sm" | "md" | "lg";
   /** Slot for icon to display before the button text. */
   leftSlot?: React.ReactNode;
   /** Slot for icon to display after the button text. */
   rightSlot?: React.ReactNode;
+  /** Indicates whether the button is in a pressed state. */
+  pressed?: boolean;
   /** Allows the button to grow to the width of its container. */
   fullWidth?: boolean;
   /** Hide content and show only the icon. */
@@ -47,7 +49,6 @@ export interface ButtonProps<T> extends React.ComponentProps<typeof defaultEleme
 }
 
 /**
- * This component displays an button component.
  * Button component is used to trigger an action or event, such as submitting a form, opening a Dialog, canceling an action,
  * or performing a delete operation.
  *
@@ -71,9 +72,10 @@ export const Button = fixedForwardRef(
       size = "md",
       leftSlot,
       rightSlot,
+      pressed,
       fullWidth,
-      className,
       iconOnly,
+      className,
       children,
       ...props
     }: ButtonProps<T> &
@@ -95,6 +97,7 @@ export const Button = fixedForwardRef(
         modifiers: [
           `${skin}-${appearance}`,
           size,
+          pressed && "pressed",
           iconOnly && "icon-only",
           fullWidth && "full-width",
           props.disabled && "disabled",
@@ -107,7 +110,13 @@ export const Button = fixedForwardRef(
     };
 
     return (
-      <Comp ref={ref} className={cssClasses.root} {...props}>
+      <Comp
+        ref={ref}
+        className={cssClasses.root}
+        aria-pressed={pressed}
+        aria-disabled={props.disabled}
+        {...props}
+      >
         {leftSlot && <span className={cssClasses.left}>{leftSlot}</span>}
         {children && <span className={cssClasses.text}>{children}</span>}
         {rightSlot && <span className={cssClasses.right}>{rightSlot}</span>}

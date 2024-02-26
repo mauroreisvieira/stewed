@@ -56,6 +56,7 @@
           );
         }
 
+        &.#{$button-root}--pressed,
         &:active {
           @include theme.define-var(
             (
@@ -76,15 +77,16 @@
         &:hover {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "faded"),
+              background-color: color-mix(in srgb, theme.get-color($value), transparent 95%),
             )
           );
         }
 
+        &.#{$button-root}--pressed,
         &:active {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "faded"),
+              background-color: color-mix(in srgb, theme.get-color($value), transparent 90%),
             )
           );
         }
@@ -107,6 +109,7 @@
           );
         }
 
+        &.#{$button-root}--pressed,
         &:active {
           @include theme.define-var(
             (
@@ -193,17 +196,6 @@
     @include theme.define-var(
       (
         padding-inline: theme.get-spacing("md"),
-        padding-block: theme.get-spacing("lg"),
-        text-line-height: theme.get-line-height("md"),
-        text-font-size: theme.get-font-size("md"),
-      )
-    );
-  }
-
-  &--xl {
-    @include theme.define-var(
-      (
-        padding-inline: theme.get-spacing("lg"),
         padding-block: theme.get-spacing("lg"),
         text-line-height: theme.get-line-height("md"),
         text-font-size: theme.get-font-size("md"),

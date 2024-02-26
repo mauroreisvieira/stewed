@@ -33,7 +33,7 @@ export function RecentActivity(): React.ReactElement {
               June 21, 9:43 am
             </Text>
           </Box>
-          <Separator space={{ y: "2xl" }} />
+          <Separator space={{ block: "2xl" }} />
           <Box justify="between" gap="2xl" wrap="wrap">
             <Box gap="md" items="center">
               <Avatar size="md" name="Henrique Vieira" />

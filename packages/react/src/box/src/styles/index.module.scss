@@ -38,6 +38,19 @@
     }
   }
 
+  // Padding
+  @each $key, $value in $box-padding {
+    &--padding-block-#{$key} {
+      padding-block: #{$value};
+    }
+  }
+
+  @each $key, $value in $box-padding {
+    &--padding-inline-#{$key} {
+      padding-inline: #{$value};
+    }
+  }
+
   // Space
   @each $key, $value in $box-gap {
     &--space-x-#{$key} ~ :not([hidden]) {

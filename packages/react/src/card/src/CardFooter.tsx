@@ -10,7 +10,7 @@ export function CardFooter({
   className,
   children,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>): React.ReactElement {
+}: React.ComponentPropsWithRef<"div">): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: `${components.Card}__footer`, styles });
 

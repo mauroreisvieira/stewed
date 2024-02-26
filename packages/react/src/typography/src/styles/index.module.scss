@@ -82,16 +82,27 @@
     white-space: normal;
   }
 
+  // Skins
   @each $key, $value in $typography-skins {
     &--#{$key} {
       @include theme.define-var(
         (
-          color: $value,
+          color: theme.get-color($key),
         )
       );
     }
   }
 
+  @each $value in (1, 2, 3, 4, 5, 6, 7) {
+    &--line-clamp-#{$value} {
+      display: -webkit-box;
+      -webkit-line-clamp: $value;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+
+  // Sizes
   @each $key, $value in $typography-sizes {
     &--#{$key} {
       @include theme.define-var(
@@ -102,6 +113,7 @@
     }
   }
 
+  // Font Family
   @each $key, $value in $typography-family {
     &--#{$key} {
       @include theme.define-var(
@@ -112,6 +124,7 @@
     }
   }
 
+  // Weights
   @each $key, $value in $typography-weights {
     &--#{$key} {
       @include theme.define-var(
@@ -119,6 +132,17 @@
           font-weight: $value,
         )
       );
+    }
+  }
+
+  // Space
+  @each $key, $value in $typography-space {
+    &--space-x-#{$key} {
+      margin-inline-end: #{$value};
+    }
+
+    &--space-y-#{$key} {
+      margin-block-end: #{$value};
     }
   }
 }

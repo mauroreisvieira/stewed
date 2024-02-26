@@ -5,19 +5,33 @@ import { CardHeader } from "./CardHeader";
 import { CardFooter } from "./CardFooter";
 import { CardMedia } from "./CardMedia";
 // Tokens
-import { components } from "@stewed/tokens";
+import { Spacings, Color, components } from "@stewed/tokens";
 // Hooks
 import { useBem } from "@stewed/hooks";
+import { type Elevation } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  border?: boolean;
+export interface CardProps extends React.ComponentPropsWithRef<"div"> {
   /**
-   * The padding size for the card.
-   * @default md
+   * Change the visual style of the card.
+   * @default default
    */
-  padding?: "none" | "sm" | "md" | "lg";
+  skin?: "default" | Extract<Color, "neutral" | "neutral-faded" | "primary" | "primary-faded">;
+  /** Padding options for horizontal and vertical orientation. */
+  padding?: {
+    /** Adds padding in the block direction (e.g., top and bottom for vertical orientation). */
+    block?: Spacings;
+    /** Adds padding in the inline direction (e.g., left and right for vertical orientation). */
+    inline?: Spacings;
+  };
+  /** Enable a hover state on table rows within. */
+  hoverable?: boolean;
+  /**
+   * The elevation shadow of the card.
+   * @default sm
+   */
+  elevation?: Elevation;
   /** A boolean indicating whether the card is selected. */
   selected?: boolean;
 }
@@ -35,15 +49,20 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
  * </Card>
  * ```
  *
- * @remarks This component props extended from React.HTMLAttributes<HTMLDivElement>.
+ * @remarks This component props extended from React.ComponentPropsWithRef<"div">.
  *
  * @param {CardProps} props - The props for the Card component.
  * @returns {React.ReactElement} - The rendered Card component.
  */
 export function Card({
-  border = true,
+  skin = "default",
+  elevation = "sm",
+  padding = {
+    block: "xl",
+    inline: "xl",
+  },
   selected,
-  padding = "md",
+  hoverable,
   className,
   children,
   ...props
@@ -53,11 +72,21 @@ export function Card({
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ modifiers: [padding, selected && "selected",border && "border"], extraClasses: className }),
+    root: getBlock({
+      modifiers: [
+        skin,
+        padding?.block && `padding-block-${padding.block}`,
+        padding?.inline && `padding-inline-${padding.inline}`,
+        elevation && `elevation-${elevation}`,
+        hoverable && "hoverable",
+        selected && "selected",
+      ],
+      extraClasses: className,
+    }),
   };
 
   return (
-    <div className={cssClasses.root} {...props}>
+    <div className={cssClasses.root} aria-selected={selected} {...props}>
       {children}
     </div>
   );

@@ -11,10 +11,16 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface TabsProps extends React.HTMLAttributes<HTMLElement>, TabsProviderProps {
-  /** Allow possibility to change alignment of tabs.  */
+export interface TabsProps extends React.ComponentPropsWithRef<"div">, TabsProviderProps {
+  /**
+   * Allow possibility to change alignment of tabs.
+   * @default left
+   */
   alignment?: "left" | "right" | "center";
-  /** The direction of the tab container. */
+  /**
+   * The direction of the tab container.
+   * @default row
+   */
   direction?: "row" | "column";
 }
 
@@ -34,7 +40,10 @@ export function Tabs({
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ modifiers: [alignment, direction], extraClasses: className }),
+    root: getBlock({
+      modifiers: [alignment, direction !== "row" && direction],
+      extraClasses: className,
+    }),
   };
 
   return (
