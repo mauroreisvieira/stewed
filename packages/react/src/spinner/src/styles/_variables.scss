@@ -1,0 +1,19 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+
+$spinner-root: "spinner";
+
+/// Sizes
+$spinner-sizes: (
+  "xs": theme.get-spacing("md"),
+  "sm": theme.get-spacing("lg"),
+  "md": theme.get-spacing("xl"),
+  "lg": theme.get-spacing("2xl"),
+  "xl": theme.get-spacing("3xl"),
+  "2xl": theme.get-spacing("4xl"),
+  "3xl": theme.get-spacing("5xl"),
+  "4xl": theme.get-spacing("6xl"),
+  "5xl": theme.get-spacing("7xl"),
+);
+
+/// Skins
+$spinner-skins: ("white", "primary", "secondary", "neutral", "critical", "success");
