@@ -98,9 +98,8 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
 
   useEffect(() => {
     const styleTag = document.createElement("style");
-    styleTag.setAttribute("data-theme", theme);
 
-    styleTag.innerHTML = `[data-theme="${theme}"] { \n${Object.entries(cssProperties)
+    styleTag.innerHTML = `\n:root { \n${Object.entries(cssProperties)
       .map(([property, value]) => `${property}: ${value};`)
       .join("\n")}\n}`;
 
@@ -109,13 +108,11 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
     return () => {
       styleTag.remove();
     };
-  }, [cssProperties, theme]);
+  }, [cssProperties]);
 
   return (
     <>
-      <div data-theme={theme} {...props}>
-        {children}
-      </div>
+      <div {...props}>{children}</div>
     </>
   );
 }

@@ -16,6 +16,8 @@ export interface ProgressProps extends React.ComponentPropsWithRef<"progress"> {
   size?: "xs" | "sm" | "md" | "lg" | "xl";
   /** Allows the progress bar to have rounded corners. */
   rounded?: boolean;
+  /** The total step count. */
+  steps?: number;
 }
 
 /**
@@ -36,6 +38,7 @@ export const Progress = ({
   rounded = true,
   value,
   max = 100,
+  steps,
   className,
   ...props
 }: ProgressProps): React.ReactElement => {
@@ -46,11 +49,20 @@ export const Progress = ({
   const cssClasses = {
     root: getBlock({ modifiers: [skin, size, rounded && "rounded"], extraClasses: className }),
     control: getElement(["control"]),
+    steps: getElement(["steps"]),
+    dot: getElement(["dot"]),
   };
 
   return (
     <div className={cssClasses.root}>
       <progress {...props} value={value} max={max} className={cssClasses.control} />
+      {steps && (
+        <div className={cssClasses.steps}>
+          {Array.from({ length: steps + 1 }).map((_, index) => (
+            <span className={cssClasses.dot} key={index} style={{ left: `${(100 / steps) * (index)}%` }} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

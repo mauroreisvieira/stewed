@@ -1,0 +1,32 @@
+import { Canvas, Meta, ArgTypes } from "@storybook/blocks";
+import * as ProgressStories from "./Progress.stories";
+
+# Progress
+
+Bar displaying progress for a task that takes a long time or consists of several steps.
+
+### Installation
+
+```bash
+npm install --save @stewed/react
+```
+
+### Import
+
+```js
+import { Progress } from "@stewed/react";
+```
+
+<Meta of={ProgressStories} />
+
+## Base
+
+<Canvas of={ProgressStories.Base} />
+
+## Steps
+
+<Canvas of={ProgressStories.Steps} />
+
+## Props
+
+<ArgTypes of={ProgressStories} />
