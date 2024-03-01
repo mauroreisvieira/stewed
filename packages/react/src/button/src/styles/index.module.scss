@@ -38,6 +38,10 @@
     text-decoration: none;
   }
 
+  &--loading {
+    pointer-events: none;
+  }
+
   @each $value in $button-skins {
     &--#{$value} {
       &-filled {
@@ -132,12 +136,7 @@
     );
   }
 
-  /* stylelint-disable-next-line selector-max-type */
-  svg {
-    width: theme.get-var(text-line-height);
-    height: theme.get-var(text-line-height);
-  }
-
+  &__spinner,
   &__left,
   &__right {
     display: flex;
@@ -195,7 +194,7 @@
   &--lg {
     @include theme.define-var(
       (
-        padding-inline: theme.get-spacing("md"),
+        padding-inline: theme.get-spacing("lg"),
         padding-block: theme.get-spacing("lg"),
         text-line-height: theme.get-line-height("md"),
         text-font-size: theme.get-font-size("md"),
