@@ -40,12 +40,12 @@
     }
   }
 
-  &__steps {
+  &__wrapper {
     position: absolute;
     inset: 0;
   }
 
-  &__dot {
+  &__step {
     position: absolute;
     top: 50%;
     width: theme.get-var(height);

@@ -2,7 +2,7 @@ import React from "react";
 // Storybook
 import type { Meta, StoryObj } from "@storybook/react";
 // Packages
-import { Theme, Progress, Text } from "../../index";
+import { Theme, Progress } from "../../index";
 
 type Story = StoryObj<typeof Progress>;
 
