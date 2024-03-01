@@ -42,7 +42,7 @@ export function ProductDetail(): React.ReactElement {
         </Box>
         <Box direction="column" gap="2xl">
           <div>
-            <Tag skin="primary" appearance="soft" size="sm">
+            <Tag skin="primary" appearance="ghost" size="sm">
               Nova coleção
             </Tag>
           </div>
