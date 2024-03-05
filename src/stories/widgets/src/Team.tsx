@@ -68,7 +68,7 @@ function Action({ onClick, open }) {
             <ListBox.Item>Edit</ListBox.Item>
             <ListBox.Item>Send message</ListBox.Item>
           </ListBox.Group>
-          <Separator space={{ block: "sm" }} />
+          <Separator space={{ block: "xs" }} />
           <ListBox.Group>
             <ListBox.Item skin="critical">Delete</ListBox.Item>
           </ListBox.Group>

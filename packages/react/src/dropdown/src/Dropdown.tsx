@@ -1,15 +1,18 @@
 import React from "react";
+import { Scope } from "../../scope";
 // Hooks
 import { useBem, useFloating, type Placement } from "../../../../hooks/index";
 // Tokens
 import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
-import { Scope } from "../../scope";
 
 export interface DropdownProps<T> extends React.ComponentPropsWithRef<"div"> {
+  /** The reference element for positioning the dropdown. */
   reference: T | null;
+  /** The preferred placement of the dropdown. */
   placement?: Placement;
+  /** Determines if the dropdown is open. */
   open?: boolean;
   /** Callback function invoked when the escape key is pressed. */
   onEscape?: () => void;
@@ -17,8 +20,10 @@ export interface DropdownProps<T> extends React.ComponentPropsWithRef<"div"> {
   onClickOutside?: () => void;
 }
 
+
 /**
- * A React component that enforces a specific aspect ratio for its children.
+ * Dropdown component is a floating element designed to serve as a lightweight context menu,
+ * perfect for containing navigation options and action items within a user interface
  *
  * @example
  * ```tsx
@@ -49,9 +54,10 @@ export function Dropdown<T extends HTMLElement>({
     root: getBlock({ extraClasses: className }),
   };
 
-  const { floating, x, y } = useFloating<T, HTMLDivElement>({
+  const { floating, x, y, isPositioned } = useFloating<T, HTMLDivElement>({
+    open,
     placement,
-    reference: open ? reference : null,
+    reference,
   });
 
   return (
@@ -64,6 +70,7 @@ export function Dropdown<T extends HTMLElement>({
             {...props}
             style={{
               ...style,
+              visibility: isPositioned ? "visible" : "hidden",
               position: "absolute",
               left: `${x}px`,
               top: `${y}px`,

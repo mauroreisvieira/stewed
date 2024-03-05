@@ -14,29 +14,35 @@ export type Placement =
   | "left-start"
   | "left-end";
 
-interface UseFloatingProps<R> {
+interface FloatingOptions {
   placement?: Placement;
+  isPositioned?: boolean;
+}
+
+interface UseFloatingProps<R> extends Pick<FloatingOptions, "placement"> {
+  open?: boolean;
   reference: R | null;
 }
 
 export function useFloating<R extends HTMLElement, F extends HTMLElement>({
-  placement = "bottom",
   reference,
+  placement = "bottom",
+  open,
 }: UseFloatingProps<R>) {
   const floating = useRef<F>(null);
   const [floatingPosition, setFloatingPosition] = useState({ x: 0, y: 0 });
 
   const [options, setOptions] = useReducer(
-    (prev: UseFloatingProps<R>, next: Partial<UseFloatingProps<R>>) => {
+    (prev: FloatingOptions, next: Partial<FloatingOptions>) => {
       return { ...prev, ...next };
     },
-    { placement, reference },
+    { placement, isPositioned: open },
   );
 
   const updatePosition = useCallback(() => {
-    if (!options.reference || !floating?.current) return;
+    if (!options.isPositioned || !reference || !floating?.current) return;
 
-    const referenceRect = options.reference.getBoundingClientRect();
+    const referenceRect = reference.getBoundingClientRect();
     const floatingRect = floating.current.getBoundingClientRect();
 
     let x = 0;
@@ -45,7 +51,8 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
     switch (options.placement) {
       case "top":
         y = referenceRect.top - floatingRect.height + window.scrollY;
-        x = referenceRect.left + window.scrollX - ((floatingRect.width / 2) - referenceRect.width / 2);
+        x =
+          referenceRect.left + window.scrollX - (floatingRect.width / 2 - referenceRect.width / 2);
         break;
       case "top-start":
         y = referenceRect.top - floatingRect.height + window.scrollY;
@@ -68,7 +75,8 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
         break;
       case "bottom":
         y = referenceRect.bottom + window.scrollY;
-        x = referenceRect.left + window.scrollX - ((floatingRect.width / 2) - referenceRect.width / 2);
+        x =
+          referenceRect.left + window.scrollX - (floatingRect.width / 2 - referenceRect.width / 2);
         break;
       case "bottom-start":
         y = referenceRect.bottom + window.scrollY;
@@ -111,10 +119,10 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
     }
 
     setFloatingPosition({ x, y });
-  }, [options]);
+  }, [options.isPositioned, options.placement, reference]);
 
   useEffect(() => {
-    if (!reference) return;
+    if (!options.isPositioned || !reference) return;
 
     // Function to recalculate position
     const handleResize = () => {
@@ -135,19 +143,18 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("scroll", handleResize, { capture: true });
     };
-  }, [reference, updatePosition]);
-
-  useEffect(() => {
-    if (options.reference !== reference) {
-      // If the reference element changes, update the options
-      setOptions({ reference });
-    }
-  }, [options.reference, reference]);
+  }, [options.isPositioned, reference, updatePosition]);
 
   useEffect(() => {
     // Whenever placement changes, recalculate the position
     updatePosition();
   }, [options.placement, updatePosition]);
 
-  return { ...floatingPosition, floating };
+  // Once `open` flips to `true`, `isPositioned` will switch to `true`
+  // asynchronously. We can use an effect to determine when it has been positioned.
+  useEffect(() => {
+    setOptions({ isPositioned: open && !!reference });
+  }, [open, reference]);
+
+  return { floating, ...floatingPosition, ...options };
 }
