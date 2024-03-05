@@ -45,7 +45,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
     switch (options.placement) {
       case "top":
         y = referenceRect.top - floatingRect.height + window.scrollY;
-        x = referenceRect.left + window.scrollX;
+        x = referenceRect.left + window.scrollX - ((floatingRect.width / 2) - referenceRect.width / 2);
         break;
       case "top-start":
         y = referenceRect.top - floatingRect.height + window.scrollY;
@@ -53,7 +53,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
         break;
       case "top-end":
         y = referenceRect.top - floatingRect.height + window.scrollY;
-        x = referenceRect.right + window.scrollX;
+        x = referenceRect.right + window.scrollX - floatingRect.width;
         break;
       case "right":
         x = referenceRect.right + window.scrollX;
@@ -68,7 +68,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
         break;
       case "bottom":
         y = referenceRect.bottom + window.scrollY;
-        x = referenceRect.left + window.scrollX;
+        x = referenceRect.left + window.scrollX - ((floatingRect.width / 2) - referenceRect.width / 2);
         break;
       case "bottom-start":
         y = referenceRect.bottom + window.scrollY;
