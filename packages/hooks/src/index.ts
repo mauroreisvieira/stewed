@@ -2,6 +2,7 @@ export { useAsync } from './useAsync';
 export { useBem } from './useBem';
 export { useDebouncedValue } from './useDebouncedValue';
 export { useFetch } from './useFetch';
+export { useFloating, type Placement } from './useFloating';
 export { useFocusTrap } from './useFocusTrap';
 export { useGlobalState } from './useGlobalState';
 export { useInput } from './useInput';
