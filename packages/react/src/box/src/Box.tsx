@@ -108,7 +108,7 @@ export const Box = fixedForwardRef(
         grow,
         responsive,
       },
-      activeToken.screens,
+      activeToken.breakpoints,
     );
 
     // Importing useBem to handle BEM class names

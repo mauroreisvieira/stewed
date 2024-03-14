@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo } from "react";
 // Tokens
-import { defaultTokens, type Tokens, type Components, Radius, Elevation } from "@stewed/tokens";
+import { defaultTokens, type Tokens, type Components, Radius, Shadow } from "@stewed/tokens";
 // Utilities
 import { objectKeys } from "@stewed/utilities";
 // Hooks
@@ -14,13 +14,13 @@ type ThemeContextOmittedProps<T extends string> = Omit<
 type OutputTokens = Exclude<Tokens, "components"> & {
   [K in keyof Components]?: {
     radius?: string;
-    elevation?: string;
+    shadow?: string;
   };
 };
 
 type ComponentOverrides = {
   radius?: Radius;
-  elevation?: Elevation;
+  shadow?: Shadow;
 };
 
 export interface RootProps<T extends string>
@@ -69,9 +69,9 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
               ...(componentObj.radius && {
                 radius: activeToken.radius?.[componentObj.radius] || componentObj.radius,
               }),
-              ...(componentObj.elevation && {
-                elevation:
-                  activeToken.elevation?.[componentObj.elevation] || componentObj.elevation,
+              ...(componentObj.shadow && {
+                shadow:
+                  activeToken.shadow?.[componentObj.shadow] || componentObj.shadow,
               }),
             };
           }

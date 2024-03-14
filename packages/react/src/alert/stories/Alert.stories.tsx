@@ -44,7 +44,7 @@ export const LeftSlot: Story = {
   },
 };
 
-export const Elevation: Story = {
+export const Shadow: Story = {
   args: {
     skin: "critical",
     title: "Unexpected error happened",

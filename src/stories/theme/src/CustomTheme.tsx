@@ -251,7 +251,7 @@ export function CustomTheme(): React.ReactElement {
             },
             "dialog": {
               radius: "none",
-              elevation: "xl",
+              shadow: "xl",
             },
             "tabs": {
               radius: "none",

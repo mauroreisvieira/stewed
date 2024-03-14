@@ -62,7 +62,7 @@ function Action({ onClick, open }) {
         iconOnly>
         Settings
       </Button>
-      <Dropdown placement="bottom-end" reference={ref.current} open={open}>
+      <Dropdown reference={ref.current} open={open}>
         <ListBox>
           <ListBox.Group>
             <ListBox.Item>Edit</ListBox.Item>

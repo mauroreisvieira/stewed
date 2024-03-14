@@ -29,7 +29,7 @@
     background-color: theme.get-var(background);
     border: 1px solid theme.get-var(border-color);
     border-radius: theme.get-var(radius);
-    box-shadow: theme.get-var(elevation);
+    box-shadow: theme.get-var(shadow);
   }
 
   &__header {

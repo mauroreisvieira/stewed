@@ -58,7 +58,7 @@ export const Skin: Story = {
   args: {
     selected: false,
     skin: "primary",
-    elevation: "none",
+    shadow: "none",
     children: (
       <>
         <Card.Body>

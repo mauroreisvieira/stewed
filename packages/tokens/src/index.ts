@@ -5,6 +5,7 @@ import { type Components, components } from "./Components";
 
 // Define Tokens type that represents design tokens
 export type Tokens = {
+  breakpoints?: Partial<typeof tokens.breakpoints>;
   color?: Partial<typeof tokens.color>;
   elevation?: Partial<typeof tokens.elevation>;
   fontFamily?: Partial<typeof tokens.fontFamily>;
@@ -13,6 +14,7 @@ export type Tokens = {
   lineHeight?: Partial<typeof tokens.lineHeight>;
   radius?: Partial<typeof tokens.radius>;
   screens?: Partial<typeof tokens.screens>;
+  shadow?: Partial<typeof tokens.shadow>;
   spacings?: Partial<typeof tokens.spacings>;
   duration?: Partial<typeof tokens.duration>;
   timing?: Partial<typeof tokens.timing>;
@@ -21,6 +23,7 @@ export type Tokens = {
 
 // Define the tokens object containing design tokens
 export const defaultTokens: Tokens = {
+  breakpoints: tokens.breakpoints,
   color: tokens.color,
   elevation: tokens.elevation,
   fontFamily: tokens.fontFamily,
@@ -29,6 +32,7 @@ export const defaultTokens: Tokens = {
   lineHeight: tokens.lineHeight,
   radius: tokens.radius,
   screens: tokens.screens,
+  shadow: tokens.shadow,
   spacings: tokens.spacings,
   duration: tokens.duration,
   timing: tokens.timing,
@@ -36,7 +40,7 @@ export const defaultTokens: Tokens = {
   components: {
     [components.Alert]: {
       radius: "md",
-      elevation: "xl",
+      shadow: "xl",
     },
     [components.Avatar]: {
       radius: "sm",
@@ -55,7 +59,7 @@ export const defaultTokens: Tokens = {
     },
     [components.Dialog]: {
       radius: "md",
-      elevation: "3xl",
+      shadow: "3xl",
     },
     [components.ListBox]: {
       radius: "sm",
@@ -86,5 +90,6 @@ export const defaultTokens: Tokens = {
 
 // Export components and Components type
 export { components, type Components };
+
 // Export tokens
 export * from "./tokens/index";

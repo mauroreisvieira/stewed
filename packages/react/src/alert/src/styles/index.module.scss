@@ -53,6 +53,6 @@
   }
 
   &--floating {
-    box-shadow: theme.get-var(elevation);
+    box-shadow: theme.get-var(shadow);
   }
 }

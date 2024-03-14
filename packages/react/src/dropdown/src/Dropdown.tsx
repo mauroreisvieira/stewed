@@ -38,7 +38,7 @@ export interface DropdownProps<T> extends React.ComponentPropsWithRef<"div"> {
  * @returns {React.ReactElement} - The rendered Dropdown component.
  */
 export function Dropdown<T extends HTMLElement>({
-  placement = "bottom-end",
+  placement = "bottom-start",
   reference,
   open,
   className,

@@ -112,7 +112,7 @@ export const Carousel = forwardRef(
         showNavigation,
         responsive,
       },
-      activeToken.screens,
+      activeToken.breakpoints,
     );
 
     // Total Slides

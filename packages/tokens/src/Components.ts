@@ -1,4 +1,4 @@
-import { Elevation, type Radius } from "./tokens/index";
+import { Shadow, type Radius } from "./tokens/index";
 
 export const components = {
   Accordion: "accordion",
@@ -35,13 +35,13 @@ export const components = {
 } as const;
 
 export type Components = {
-  [components.Alert]?: { radius?: Radius, elevation?: Elevation };
+  [components.Alert]?: { radius?: Radius, shadow?: Shadow };
   [components.Avatar]?: { radius?: Radius };
   [components.Badge]?: { radius?: Radius };
   [components.Button]?: { radius?: Radius };
   [components.Card]?: { radius?: Radius };
   [components.Checkbox]?: { radius?: Radius };
-  [components.Dialog]?: { radius?: Radius; elevation?: Elevation };
+  [components.Dialog]?: { radius?: Radius; shadow?: Shadow };
   [components.ListBox]?: { radius?: Radius };
   [components.Select]?: { radius?: Radius };
   [components.Switch]?: { radius?: Radius };

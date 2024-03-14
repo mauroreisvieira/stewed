@@ -5,8 +5,8 @@ $card-root: "card";
 /// Space
 $card-padding: theme.get-spacing();
 
-/// Elevation
-$card-elevation: theme.get-elevation();
+/// Shadow
+$card-shadow: theme.get-shadow();
 
 /// Skins
 $card-skins: (

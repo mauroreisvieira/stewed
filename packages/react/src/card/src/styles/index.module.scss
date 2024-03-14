@@ -123,9 +123,9 @@
     }
   }
 
-  // Elevation
-  @each $key, $value in $card-elevation {
-    &--elevation-#{$key} {
+  // Shadow
+  @each $key, $value in $card-shadow {
+    &--shadow-#{$key} {
       @include theme.define-var(
         (
           box-shadow: $value,

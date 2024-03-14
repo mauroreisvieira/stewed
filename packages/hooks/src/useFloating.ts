@@ -109,9 +109,11 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
     const exceedsRight = x + floatingRect.width > windowWidth + scrollLeft;
     const exceedsBottom = y + floatingRect.height > windowHeight + scrollTop;
 
+    console.log("exceedsRight", exceedsRight);
+
     // If the element exceeds the viewport boundaries, adjust the position
-    if (options.placement === "right" && exceedsRight) {
-      setOptions({ placement: "left" });
+    if (options.placement === "bottom-start" && exceedsRight) {
+      setOptions({ placement: "bottom-end" });
     }
 
     if (options.placement === "bottom" && exceedsBottom) {
@@ -150,11 +152,11 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
     updatePosition();
   }, [options.placement, updatePosition]);
 
-  // Once `open` flips to `true`, `isPositioned` will switch to `true`
-  // asynchronously. We can use an effect to determine when it has been positioned.
+  // Once `open` flips to `true`, `isPositioned` will switch to `true` asynchronously.
+  // We can use an effect to determine when it has been positioned.
   useEffect(() => {
-    setOptions({ isPositioned: open && !!reference });
-  }, [open, reference]);
+    setOptions({ isPositioned: open && !!reference, placement }); // TODO placement should be the initial if have space available
+  }, [open, reference, placement]);
 
   return { floating, ...floatingPosition, ...options };
 }

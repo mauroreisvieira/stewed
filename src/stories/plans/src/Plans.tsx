@@ -61,7 +61,7 @@ export function Plans(): React.ReactElement {
                 block: index === 1 ? "2xl" : "xl",
                 inline: "xl",
               }}
-              elevation={index === 1 ? "2xl" : undefined}>
+              shadow={index === 1 ? "2xl" : undefined}>
               <Card.Header>
                 <Text as="h4">{title}</Text>
               </Card.Header>

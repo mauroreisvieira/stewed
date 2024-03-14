@@ -9,7 +9,7 @@
   background-color: #fff;
   border: 1px solid theme.get-color("neutral", "border");
   border-radius: theme.get-radius("sm");
-  box-shadow: theme.get-elevation("md");
+  box-shadow: theme.get-shadow("md");
 
   &__surface {
     position: fixed;
