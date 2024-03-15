@@ -18,12 +18,21 @@ $config: (
     "6xl": var(--spacings-6xl),
     "7xl": var(--spacings-7xl),
   ),
-  "screens": (
-    "sm": var(--font-screens-sm),
-    "md": var(--font-screens-md),
-    "lg": var(--font-screens-lg),
-    "xl": var(--font-screens-xl),
+  "breakpoints": (
+    "sm": var(--breakpoints-sm),
+    "md": var(--breakpoints-md),
+    "lg": var(--breakpoints-lg),
+    "xl": var(--breakpoints-xl),
   ),
+  "screens": (
+    "none": var(--screens-none),
+    "sm": var(--screens-sm),
+    "md": var(--screens-md),
+    "lg": var(--screens-lg),
+    "xl": var(--screens-xl),
+    "2xl": var(--screens-2xl),
+  ),
+
   "font-family": (
     "base": var(--font-family-base),
     "sans": var(--font-family-sans),
@@ -45,6 +54,16 @@ $config: (
     "7xl": var(--font-size-7xl),
     "8xl": var(--font-size-8xl),
   ),
+  "font-weight": (
+    "thin": var(--font-weight-thin),
+    "light": var(--font-weight-light),
+    "normal": var(--font-weight-normal),
+    "medium": var(--font-weight-medium),
+    "semi-bold": var(--font-weight-semi-bold),
+    "bold": var(--font-weight-bold),
+    "extra-bold": var(--font-weight-extra-bold),
+    "black": var(--font-weight-black),
+  ),
   "line-height": (
     "xs": var(--line-height-xs),
     "sm": var(--line-height-sm),
@@ -57,16 +76,6 @@ $config: (
     "5xl": var(--line-height-5xl),
     "6xl": var(--line-height-6xl),
   ),
-  "font-weight": (
-    "thin": var(--font-weight-thin),
-    "light": var(--font-weight-light),
-    "normal": var(--font-weight-normal),
-    "medium": var(--font-weight-medium),
-    "semi-bold": var(--font-weight-semi-bold),
-    "bold": var(--font-weight-bold),
-    "extra-bold": var(--font-weight-extra-bold),
-    "black": var(--font-weight-black),
-  ),
   "radius": (
     "none": var(--radius-none),
     "sm": var(--radius-sm),
@@ -76,14 +85,21 @@ $config: (
     "2xl": var(--radius-2xl),
     "full": var(--radius-full),
   ),
+  "shadow": (
+    "none": var(--shadow-none),
+    "sm": var(--shadow-sm),
+    "md": var(--shadow-md),
+    "lg": var(--shadow-lg),
+    "xl": var(--shadow-xl),
+    "2xl": var(--shadow-2xl),
+    "3xl": var(--shadow-3xl),
+  ),
   "elevation": (
-    "none": var(--elevation-none),
-    "sm": var(--elevation-sm),
-    "md": var(--elevation-md),
-    "lg": var(--elevation-lg),
-    "xl": var(--elevation-xl),
-    "2xl": var(--elevation-2xl),
-    "3xl": var(--elevation-3xl),
+    "100": var(--elevation-100),
+    "200": var(--elevation-200),
+    "300": var(--elevation-300),
+    "400": var(--elevation-400),
+    "500": var(--elevation-500),
   ),
   "colors": (
     "white": (
@@ -94,6 +110,9 @@ $config: (
     ),
     "text": (
       "default": var(--color-text),
+    ),
+    "backdrop": (
+      "default": var(--color-backdrop),
     ),
     "neutral": (
       "faded": var(--color-neutral-faded),
@@ -178,11 +197,17 @@ $radius: map.get($config, radius);
 /// Defines color palettes for primary, neutral, critical, success, info and warning
 $colors: map.get($config, colors);
 
-/// Defines responsive breakpoints for screen sizes (sm, md, lg, xl).
+/// Defines responsive breakpoints (sm, md, lg, xl).
+$breakpoints: map.get($config, breakpoints);
+
+/// Defines screen sizes (sm, md, lg, xl).
 $screens: map.get($config, screens);
 
 /// Defines elevation.
 $elevation: map.get($config, elevation);
+
+/// Defines shadows.
+$shadow: map.get($config, shadow);
 
 /// Opacity value for disabled elements.
 $disabled: map.get($config, disabled);

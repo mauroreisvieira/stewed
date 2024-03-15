@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 // Tokens
-import { defaultTokens, type Screens } from "@stewed/tokens";
+import { defaultTokens, type Breakpoints } from "@stewed/tokens";
 // Hooks
 import { useMounted } from "./useMounted";
 
@@ -10,10 +10,10 @@ import { useMounted } from "./useMounted";
  */
 export type UseResponsiveProps<I> = I & {
   /**
-   * Optional responsive configuration for different screen sizes.
-   * It is a dictionary where the key is the screen size and the value is a partial set of props for that screen size.
+   * Optional responsive configuration for different breakpoints sizes.
+   * It is a dictionary where the key is the breakpoints size and the value is a partial set of props for that breakpoints size.
    */
-  responsive?: { [key in Screens]?: Partial<I> };
+  responsive?: { [key in Breakpoints]?: Partial<I> };
 };
 
 interface UseBreakpointData<T> {
@@ -22,7 +22,7 @@ interface UseBreakpointData<T> {
   /** The numeric value associated with the breakpoint. */
   bpValue: number;
   /** The name of the breakpoint. */
-  bpName: Screens;
+  bpName: Breakpoints;
   /** Partial properties specific to the breakpoint. */
   mqProps: Partial<T>;
   /** Callback function to handle changes in the breakpoint. */
@@ -38,7 +38,7 @@ interface UseBreakpointData<T> {
  */
 export function useResponsive<T>(
   props: UseResponsiveProps<T>,
-  breakpoints?: typeof defaultTokens.screens,
+  breakpoints?: typeof defaultTokens.breakpoints,
 ): T {
   const isMounted = useMounted();
   const [memorized, setMemorized] = useState(props);
@@ -59,7 +59,7 @@ export function useResponsive<T>(
     if (!isMounted) return;
 
     let result: T = memorized;
-    const activeBps: Screens[] = [];
+    const activeBps: Breakpoints[] = [];
     bpList.forEach((bp) => {
       if (!bp.mq.matches) return;
 
@@ -75,11 +75,11 @@ export function useResponsive<T>(
 
   const bpList: UseBreakpointData<T>[] = Object.entries(breakpoints || {})
     .map(([name, value]) => {
-      const bpProps = (props.responsive || {})[name as Screens] || {};
+      const bpProps = (props.responsive || {})[name as Breakpoints] || {};
       return {
         mq: window.matchMedia(`(min-width: ${value})`),
         bpValue: parseInt(value),
-        bpName: name as Screens,
+        bpName: name as Breakpoints,
         mqProps: bpProps,
         onChange: onBreakpointChange,
       };

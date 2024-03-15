@@ -9,11 +9,17 @@ import {
   Button,
   Dialog,
   Separator,
+  Dropdown,
+  ListBox,
+  FormField,
 } from "../../../../packages/react/index";
+// Icons
+import { TbDotsVertical } from "react-icons/tb";
 
 export function EditProfile(): React.ReactElement {
   const [dialogOpen, setDialogOpen] = useState(false);
-
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const ref = useRef<HTMLButtonElement>(null);
   return (
     <Theme>
       <Card>
@@ -33,25 +39,44 @@ export function EditProfile(): React.ReactElement {
             <Separator />
             <Dialog.Body>
               <Box direction="column" gap="xl">
-                <div>
-                  <Text as="label" size="sm" htmlFor="name">
-                    Name
-                  </Text>
-                  <TextField id="name" type="text" placeholder="Enter your name" />
-                </div>
-                <div>
-                  <Text as="label" size="sm" htmlFor="email">
-                    Email address
-                  </Text>
-                  <TextField id="email" type="email" placeholder="Enter your email" />
-                </div>
+                <FormField>
+                  <FormField.Label htmlFor="name">Name</FormField.Label>
+                  <FormField.Control>
+                    <TextField id="name" type="text" placeholder="Enter your name" />
+                  </FormField.Control>
+                </FormField>
+                <FormField>
+                  <FormField.Label htmlFor="email">Email address</FormField.Label>
+                  <FormField.Control>
+                    <TextField id="email" type="email" placeholder="Enter your email" />
+                  </FormField.Control>
+                </FormField>
               </Box>
             </Dialog.Body>
             <Separator />
             <Dialog.Footer>
-              <Box justify="end" gap="md">
-                <Button appearance="outline">Cancel</Button>
-                <Button>Save Changes</Button>
+              <Box justify="between" gap="md">
+                <Button
+                  ref={ref}
+                  appearance="ghost"
+                  leftSlot={<TbDotsVertical />}
+                  size="sm"
+                  onClick={() => setDropdownOpen(!dropdownOpen)}
+                  iconOnly>
+                  Settings
+                </Button>
+                <Dropdown placement="bottom-start" reference={ref.current} open={dropdownOpen}>
+                  <ListBox>
+                    <ListBox.Group>
+                      <ListBox.Item>Edit</ListBox.Item>
+                      <ListBox.Item>Send message</ListBox.Item>
+                    </ListBox.Group>
+                  </ListBox>
+                </Dropdown>
+                <Box justify="end" gap="md">
+                  <Button appearance="outline">Cancel</Button>
+                  <Button>Save Changes</Button>
+                </Box>
               </Box>
             </Dialog.Footer>
           </Dialog>

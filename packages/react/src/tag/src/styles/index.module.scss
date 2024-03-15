@@ -94,7 +94,7 @@
         }
       }
 
-      &-ghost {
+      &-text {
         @include theme.define-var(
           (
             color: theme.get-color($value),
@@ -145,11 +145,11 @@
         }
       }
 
-      &-soft {
+      &-ghost {
         @include theme.define-var(
           (
             color: theme.get-color($value, "pressed"),
-            background-color: theme.get-color($value, "faded"),
+            background-color: color-mix(in srgb, theme.get-color($value), transparent 95%),
           )
         );
 

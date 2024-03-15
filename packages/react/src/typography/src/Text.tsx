@@ -149,7 +149,7 @@ export const Text = fixedForwardRef(
         whiteSpace,
         responsive,
       },
-      activeToken.screens,
+      activeToken.breakpoints,
     );
 
     // Ensure variation is an array

@@ -7,6 +7,7 @@ import { type Color, components } from "@stewed/tokens";
 import { type DistributiveOmit, fixedForwardRef } from "../../types";
 // Styles
 import styles from "./styles/index.module.scss";
+import { Spinner } from "../../spinner";
 
 // Default HTML element type for the this component
 const defaultElement = "button";
@@ -44,6 +45,8 @@ export interface ButtonProps<T> extends React.ComponentProps<typeof defaultEleme
   iconOnly?: boolean;
   /** Disables the button, disallowing merchant interaction. */
   disabled?: boolean;
+  /** Displays a loading indicator on the button. */
+  loading?: boolean;
   /** The content to display inside the button. */
   children?: React.ReactNode;
 }
@@ -75,6 +78,7 @@ export const Button = fixedForwardRef(
       pressed,
       fullWidth,
       iconOnly,
+      loading,
       className,
       children,
       ...props
@@ -100,10 +104,12 @@ export const Button = fixedForwardRef(
           pressed && "pressed",
           iconOnly && "icon-only",
           fullWidth && "full-width",
+          loading && "loading",
           props.disabled && "disabled",
         ],
         extraClasses: className,
       }),
+      spinner: getElement(["spinner"]),
       left: getElement(["left"]),
       text: getElement(["text"]),
       right: getElement(["right"]),
@@ -117,6 +123,7 @@ export const Button = fixedForwardRef(
         aria-disabled={props.disabled}
         {...props}
       >
+        {loading && <Spinner className={cssClasses.spinner} skin="default" size={size} />}
         {leftSlot && <span className={cssClasses.left}>{leftSlot}</span>}
         {children && <span className={cssClasses.text}>{children}</span>}
         {rightSlot && <span className={cssClasses.right}>{rightSlot}</span>}

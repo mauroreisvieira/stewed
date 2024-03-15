@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import { Scope } from "../..";
+import { Backdrop, Scope } from "../..";
 // Provider
 import { type DialogProviderProps, DialogProvider } from "./DialogProvider";
 // Compound Component
@@ -7,7 +7,7 @@ import { DialogBody } from "./DialogBody";
 import { DialogHeader } from "./DialogHeader";
 import { DialogFooter } from "./DialogFooter";
 // Hooks
-import { useBem } from "@stewed/hooks";
+import { useBem, useScrollLock } from "@stewed/hooks";
 import { useFocusTrap } from "@stewed/hooks";
 // Tokens
 import { components } from "@stewed/tokens";
@@ -56,14 +56,18 @@ export function Dialog({
   onEscape,
   onClickOutside,
   onKeyDown,
-  onMouseDown,
   ...props
 }: DialogProps): React.ReactElement {
+  // State to hold the reference to the root div element
   const [rootRef, setRootRef] = useState<HTMLDivElement | null>(null);
 
   // Importing useBem to handle BEM class names
   const { getBlock, getElement } = useBem({ block: components.Dialog, styles });
 
+  // Lock scrolling when dialog is open
+  useScrollLock({ enabled: !!open });
+
+  // Trap focus within the dialog when open and rootRef is available
   useFocusTrap({
     root: rootRef,
     enabled: !!open && !!rootRef,
@@ -87,32 +91,15 @@ export function Dialog({
     [onEscape, onKeyDown],
   );
 
-  const onHandleMouseDown: React.MouseEventHandler<HTMLDivElement> = useCallback(
-    (event): void => {
-      if (onMouseDown) onMouseDown(event);
-
-      if (!rootRef) return;
-
-      const { target } = event;
-
-      if (rootRef === target) {
-        if (onClickOutside) onClickOutside();
-      }
-
-      event.stopPropagation();
-    },
-    [onClickOutside, onMouseDown, rootRef],
-  );
-
   return (
     <>
       {open && (
-        <Scope>
+        <Scope elevation="200">
+          <Backdrop onClick={onClickOutside} />
           <DialogProvider onClose={onClose}>
             <div
               ref={setRootRef}
               className={cssClasses.root}
-              onMouseDown={onHandleMouseDown}
               onKeyDown={onHandleKeydown}
               {...props}
             >

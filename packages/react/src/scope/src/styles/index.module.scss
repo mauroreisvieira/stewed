@@ -1,0 +1,25 @@
+@use "sass:map";
+@use "@stewed/react/src/theme/src/styles" as theme;
+@use "./variables" as *;
+
+@include theme.scope($scope-root) {
+  position: absolute;
+  inset: 0;
+  z-index: theme.get-var(elevation);
+  pointer-events: none;
+
+  > * {
+    pointer-events: all;
+  }
+
+  // Elevation
+  @each $key, $value in $scope-elevation {
+    &--elevation-#{$key} {
+      @include theme.define-var(
+        (
+          elevation: #{$value},
+        )
+      );
+    }
+  }
+}

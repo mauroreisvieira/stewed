@@ -251,7 +251,7 @@ export function CustomTheme(): React.ReactElement {
             },
             "dialog": {
               radius: "none",
-              elevation: "xl",
+              shadow: "xl",
             },
             "tabs": {
               radius: "none",
@@ -266,6 +266,8 @@ export function CustomTheme(): React.ReactElement {
             base: "'DM Sans', sans-serif",
           },
           color: {
+            backdrop: "rgb(200 200 200 / 70%)",
+            // Primary
             "primary": "#e91e63",
             "primary-faded": "#f48fb1",
             "primary-border": "#f0c6d3",

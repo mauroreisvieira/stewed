@@ -15,6 +15,7 @@
   width: 100%;
 
   &__control {
+    position: relative;
     width: 100%;
     height: theme.get-var(height);
     appearance: none;
@@ -36,6 +37,26 @@
       background-color: theme.get-var(background-color);
       border-radius: theme.get-var(radius);
       box-shadow: none;
+    }
+  }
+
+  &__wrapper {
+    position: absolute;
+    inset: 0;
+  }
+
+  &__step {
+    position: absolute;
+    top: 50%;
+    width: theme.get-var(height);
+    height: theme.get-var(height);
+    background-color: color-mix(in srgb, theme.get-var(background-color) 20%, transparent);
+    border-radius: 50%;
+    scale: 0.5;
+    translate: -100% -50%;
+
+    &:first-child {
+      translate: 0% -50%;
     }
   }
 

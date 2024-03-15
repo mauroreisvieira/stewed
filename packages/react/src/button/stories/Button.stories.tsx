@@ -51,3 +51,10 @@ export const Polymorphic: Story = {
     children: "Button",
   },
 };
+
+export const Loading: Story = {
+  args: {
+    children: "",
+    loading: true,
+  },
+};

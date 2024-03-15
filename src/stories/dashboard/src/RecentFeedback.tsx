@@ -153,7 +153,7 @@ export function RecentFeedback(): React.ReactElement {
                           ? "critical"
                           : "neutral"
                     }
-                    appearance="soft"
+                    appearance="ghost"
                     size="sm">
                     {sentiment}
                   </Tag>

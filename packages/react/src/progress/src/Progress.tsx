@@ -16,6 +16,8 @@ export interface ProgressProps extends React.ComponentPropsWithRef<"progress"> {
   size?: "xs" | "sm" | "md" | "lg" | "xl";
   /** Allows the progress bar to have rounded corners. */
   rounded?: boolean;
+  /** The total step count. */
+  steps?: number;
 }
 
 /**
@@ -27,18 +29,21 @@ export interface ProgressProps extends React.ComponentPropsWithRef<"progress"> {
  * <Progress value={50} size="sm" />
  * ```
  *
- * @param props - ProgressProps
  * @remarks This component props extended from React.ProgressHTMLAttributes<HTMLProgressElement>.
+ *
+ * @param {ProgressProps} props - The props for the Progress component.
+ * @returns {React.ReactElement} - The rendered Progress component.
  */
-export const Progress = ({
+export function Progress({
   skin = "primary",
   size = "sm",
   rounded = true,
   value,
   max = 100,
+  steps,
   className,
   ...props
-}: ProgressProps): React.ReactElement => {
+}: ProgressProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock, getElement } = useBem({ block: components.Progress, styles });
 
@@ -46,11 +51,24 @@ export const Progress = ({
   const cssClasses = {
     root: getBlock({ modifiers: [skin, size, rounded && "rounded"], extraClasses: className }),
     control: getElement(["control"]),
+    wrapper: getElement(["wrapper"]),
+    step: getElement(["step"]),
   };
 
   return (
     <div className={cssClasses.root}>
       <progress {...props} value={value} max={max} className={cssClasses.control} />
+      {steps && (
+        <div className={cssClasses.wrapper}>
+          {Array.from({ length: steps + 1 }).map((_, index) => (
+            <span
+              className={cssClasses.step}
+              key={index}
+              style={{ left: `${(100 / steps) * index}%` }}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
-};
+}

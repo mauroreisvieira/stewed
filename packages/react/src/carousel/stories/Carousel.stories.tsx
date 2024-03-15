@@ -28,7 +28,7 @@ export const Base: Story = {
   args: {
     children: Array.from({ length: 4 }).map((_, index) => (
       <Card
-        elevation="none"
+        shadow="none"
         key={index}
         padding={{ block: "7xl", inline: "7xl" }}
         skin="primary-faded"
@@ -63,7 +63,7 @@ export const PerView: Story = {
       },
     },
     children: Array.from({ length: 12 }).map((_, index) => (
-      <Card elevation="none" padding={{ block: "7xl", inline: "7xl" }} skin="neutral-faded">
+      <Card shadow="none" padding={{ block: "7xl", inline: "7xl" }} skin="neutral-faded">
         <Card.Body>
           <Text alignment="center" size="8xl">
             {index + 1}

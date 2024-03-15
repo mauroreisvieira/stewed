@@ -1,0 +1,9 @@
+@use "sass:map";
+@use "@stewed/react/src/theme/src/styles" as theme;
+@use "./variables" as *;
+
+@include theme.scope($backdrop-root) {
+  position: fixed;
+  inset: 0;
+  background-color: theme.get-color("backdrop");
+}

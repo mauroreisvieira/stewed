@@ -9,12 +9,19 @@ import { components } from "@stewed/tokens";
 import styles from "./styles/index.module.scss";
 
 interface FormFieldErrorProps {
+  /** Boolean indicating whether the form field error should be hidden. */
   hidden?: boolean;
+  /** Custom class name for the form field error. */
   className?: string;
+  /** The children nodes to be rendered within the form field error. */
   children: React.ReactNode;
 }
 
-export function FormFieldError({ hidden, className, children }: FormFieldErrorProps): React.ReactElement {
+export function FormFieldError({
+  hidden,
+  className,
+  children,
+}: FormFieldErrorProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: `${components.FormField}__error`, styles });
 

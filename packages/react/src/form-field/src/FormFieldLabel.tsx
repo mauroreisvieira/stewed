@@ -9,8 +9,11 @@ import { components } from "@stewed/tokens";
 import styles from "./styles/index.module.scss";
 
 interface FormFieldLabelProps {
-  className?: string;
+  /** The ID of the form element the label is associated with. */
   htmlFor?: string;
+  /** Additional class name(s) for the label. */
+  className?: string;
+  /** The content of the label. */
   children: React.ReactNode;
 }
 

@@ -1,5 +1,5 @@
 import React from "react";
-//. Compound Component
+// Compound Component
 import { TableBody } from "./TableBody";
 import { TableCell } from "./TableCell";
 import { TableHead } from "./TableHead";

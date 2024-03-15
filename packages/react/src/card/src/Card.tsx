@@ -8,7 +8,7 @@ import { CardMedia } from "./CardMedia";
 import { Spacings, Color, components } from "@stewed/tokens";
 // Hooks
 import { useBem } from "@stewed/hooks";
-import { type Elevation } from "@stewed/tokens";
+import { type Shadow } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
@@ -28,10 +28,10 @@ export interface CardProps extends React.ComponentPropsWithRef<"div"> {
   /** Enable a hover state on table rows within. */
   hoverable?: boolean;
   /**
-   * The elevation shadow of the card.
+   * The shadow of the card.
    * @default sm
    */
-  elevation?: Elevation;
+  shadow?: Shadow;
   /** A boolean indicating whether the card is selected. */
   selected?: boolean;
 }
@@ -56,7 +56,7 @@ export interface CardProps extends React.ComponentPropsWithRef<"div"> {
  */
 export function Card({
   skin = "default",
-  elevation = "sm",
+  shadow = "sm",
   padding = {
     block: "xl",
     inline: "xl",
@@ -77,7 +77,7 @@ export function Card({
         skin,
         padding?.block && `padding-block-${padding.block}`,
         padding?.inline && `padding-inline-${padding.inline}`,
-        elevation && `elevation-${elevation}`,
+        shadow && `shadow-${shadow}`,
         hoverable && "hoverable",
         selected && "selected",
       ],
