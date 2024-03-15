@@ -32,7 +32,7 @@ export interface ButtonProps<T> extends React.ComponentProps<typeof defaultEleme
    * Changes the size of the button, giving it more or less padding.
    * @default md
    */
-  size?: "xs" | "sm" | "md" | "lg";
+  size?: "xs" | "sm" | "md" | "lg" | "xl";
   /** Slot for icon to display before the button text. */
   leftSlot?: React.ReactNode;
   /** Slot for icon to display after the button text. */

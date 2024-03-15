@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "@stewed/react/src/theme/src/styles" as theme;
 @use "@stewed/react/src/typography/src/styles" as text;
 @use "./variables" as *;
@@ -17,8 +18,7 @@
   gap: theme.get-var(gap);
   align-items: center;
   justify-content: center;
-  min-height: calc(calc(theme.get-var(padding-block) * 2) + theme.get-var(text-line-height));
-  padding-block: calc(theme.get-var(padding-block) - theme.get-var(border-width));
+  height: theme.get-var(size);
   padding-inline: calc(theme.get-var(padding-inline) - theme.get-var(border-width));
   overflow: hidden;
   color: theme.get-var(color);
@@ -136,6 +136,15 @@
     );
   }
 
+  &__left,
+  &__right {
+    /* stylelint-disable-next-line selector-max-type */
+    svg {
+      width: theme.get-var(text-line-height);
+      height: theme.get-var(text-line-height);
+    }
+  }
+
   &__spinner,
   &__left,
   &__right {
@@ -145,7 +154,8 @@
 
   &--icon-only {
     gap: 0;
-    width: calc(calc(theme.get-var(padding-block) * 2) + theme.get-var(text-line-height));
+    width: theme.get-var(size);
+    height: theme.get-var(size);
 
     .#{$button-root} {
       &__text {
@@ -161,7 +171,7 @@
   &--xs {
     @include theme.define-var(
       (
-        padding-block: theme.get-spacing("xs"),
+        size: map.get($button-sizes, "xs"),
         padding-inline: theme.get-spacing("xs"),
         text-line-height: theme.get-line-height("xs"),
         text-font-size: theme.get-font-size("xs"),
@@ -172,7 +182,7 @@
   &--sm {
     @include theme.define-var(
       (
-        padding-block: theme.get-spacing("sm"),
+        size: map.get($button-sizes, "sm"),
         padding-inline: theme.get-spacing("md"),
         text-line-height: theme.get-line-height("sm"),
         text-font-size: theme.get-font-size("sm"),
@@ -183,7 +193,7 @@
   &--md {
     @include theme.define-var(
       (
-        padding-block: theme.get-spacing("md"),
+        size: map.get($button-sizes, "md"),
         padding-inline: theme.get-spacing("lg"),
         text-line-height: theme.get-line-height("sm"),
         text-font-size: theme.get-font-size("sm"),
@@ -194,8 +204,19 @@
   &--lg {
     @include theme.define-var(
       (
+        size: map.get($button-sizes, "lg"),
         padding-inline: theme.get-spacing("lg"),
-        padding-block: theme.get-spacing("lg"),
+        text-line-height: theme.get-line-height("md"),
+        text-font-size: theme.get-font-size("md"),
+      )
+    );
+  }
+
+  &--xl {
+    @include theme.define-var(
+      (
+        size: map.get($button-sizes, "xl"),
+        padding-inline: theme.get-spacing("xl"),
         text-line-height: theme.get-line-height("md"),
         text-font-size: theme.get-font-size("md"),
       )

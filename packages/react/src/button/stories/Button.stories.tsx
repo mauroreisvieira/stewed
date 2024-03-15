@@ -39,7 +39,22 @@ export const LeftSlot: Story = {
   },
   args: {
     leftSlot: <FiSearch />,
-    pressed: true,
+    children: "Button",
+  },
+};
+
+export const IconOnly: Story = {
+  argTypes: {
+    leftSlot: {
+      control: false,
+    },
+  },
+  args: {
+    appearance: "filled",
+    skin: "primary",
+    size: "sm",
+    iconOnly: true,
+    leftSlot: <FiSearch />,
     children: "Button",
   },
 };

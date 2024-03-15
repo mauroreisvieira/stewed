@@ -9,6 +9,8 @@ import {
   Button,
   Checkbox,
 } from "../../../../packages/react/index";
+// Icons
+import { FiEye } from "react-icons/fi";
 
 export function Login(): React.ReactElement {
   return (
@@ -34,7 +36,16 @@ export function Login(): React.ReactElement {
                   Forgot password?
                 </Text>
               </Box>
-              <TextField id="password" type="password" placeholder="Enter your password" />
+              <TextField
+                id="password"
+                type="password"
+                placeholder="Enter your password"
+                rightSlot={
+                  <Button skin="neutral" appearance="ghost" leftSlot={<FiEye />} size="sm" iconOnly>
+                    Show password
+                  </Button>
+                }
+              />
             </Box>
             <Box justify="between" gap="lg" wrap="wrap">
               <Checkbox>Keep me logged in</Checkbox>
