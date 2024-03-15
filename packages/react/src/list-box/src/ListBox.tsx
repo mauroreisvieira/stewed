@@ -9,12 +9,14 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+interface ListBoxProps extends React.ComponentPropsWithRef<"div"> {}
+
 export function ListBox({
   className,
   children,
   onKeyDown,
   ...props
-}: React.ComponentPropsWithRef<"div">): React.ReactElement {
+}: ListBoxProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: components.ListBox, styles });
 

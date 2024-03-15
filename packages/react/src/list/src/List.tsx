@@ -25,6 +25,20 @@ export interface ListProps {
   children?: React.ReactNode;
 }
 
+/**
+ * List display a set of related text-only content. Each list item begins with a bullet or a decimal.
+ *
+ * @example
+ * ```tsx
+ * <List>
+ *   <List.Item>Item 1<List.Item>
+ *   <List.Item>Item 2<List.Item>
+ * </List>
+ * ```
+ *
+ * @param {ListProps} props - The props for the List component.
+ * @returns {React.ReactElement} - The rendered List component.
+ */
 export function List({
   type = "bullet",
   gap = "xs",

@@ -18,7 +18,7 @@ export const components = {
   FormField: "form-field",
   List: "list",
   ListBox: "list-box",
-  Overlay: "overlay",
+  Backdrop: "backdrop",
   Pagination: "pagination",
   Progress: "progress",
   Quantity: "quantity",

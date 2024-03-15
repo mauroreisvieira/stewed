@@ -26,9 +26,7 @@ export interface DropdownProps<T> extends React.ComponentPropsWithRef<"div"> {
  *
  * @example
  * ```tsx
- * <Dropdown >
- *   TODO
- * </Dropdown>
+ * <Dropdown placement="top">Your Content Place</Dropdown>
  * ```
  *
  * @remarks This component props extended from React.ComponentPropsWithRef<"div">.

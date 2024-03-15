@@ -59,7 +59,7 @@ export const defaultTokens: Tokens = {
     },
     [components.Dialog]: {
       radius: "md",
-      shadow: "3xl",
+      shadow: "2xl",
     },
     [components.ListBox]: {
       radius: "sm",

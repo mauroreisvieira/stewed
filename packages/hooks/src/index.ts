@@ -1,3 +1,4 @@
+export * from './useResponsive';
 export { useAsync } from './useAsync';
 export { useBem } from './useBem';
 export { useDebouncedValue } from './useDebouncedValue';
@@ -13,7 +14,7 @@ export { useMounted } from './useMounted';
 export { usePortal } from './usePortal';
 export { usePrevious } from './usePrevious';
 export { useResizeObserver } from './useResizeObserver';
-export * from './useResponsive';
+export { useScrollLock } from './useScrollLock';
 export { useSelect } from './useSelect';
 export { useStateForm } from './useStateForm';
 export { useToggle } from './useToggle';

@@ -9,7 +9,9 @@ import { components } from "@stewed/tokens";
 import styles from "./styles/index.module.scss";
 
 interface FormFieldDescriptionProps {
+  /** Custom class name for the form field description. */
   className?: string;
+  /** The children nodes to be rendered within the form field description. */
   children: React.ReactNode;
 }
 

@@ -7,7 +7,9 @@ import { components } from "@stewed/tokens";
 import styles from "./styles/index.module.scss";
 
 interface FormFieldControlProps {
+  /** Custom class name for the form field control. */
   className?: string;
+  /** The children nodes to be rendered within the form field control. */
   children: React.ReactNode;
 }
 

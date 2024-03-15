@@ -12,7 +12,9 @@ import { components } from "@stewed/tokens";
 import styles from "./styles/index.module.scss";
 
 interface FormFieldProps {
+  /** Custom class name for the form field. */
   className?: string;
+  /** The children nodes to be rendered within the form field. */
   children: React.ReactNode;
 }
 

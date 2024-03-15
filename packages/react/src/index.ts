@@ -2,6 +2,7 @@ export * from "./accordion";
 export * from "./alert";
 export * from "./aspect-ratio";
 export * from "./avatar";
+export * from "./backdrop";
 export * from "./badge";
 export * from "./box";
 export * from "./button";

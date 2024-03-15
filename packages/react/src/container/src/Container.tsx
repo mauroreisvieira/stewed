@@ -34,14 +34,14 @@ export interface ContainerProps<T>
   screen?: Screens;
 
   /**
-   * Specifies the type of element to use as the Container.
+   * Specifies the type of element to use as the container.
    * @default div
    */
   as?: T;
 }
 
 /**
- * Component that implements the ...
+ * Container component provides a flexible layout container for organizing and structuring content.
  *
  * @example
  * ```tsx
