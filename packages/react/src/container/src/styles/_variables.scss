@@ -1,0 +1,7 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+
+$container-root: "container";
+
+/// Maps
+$container-screens: theme.get-screens();
+$container-padding: theme.get-spacing();

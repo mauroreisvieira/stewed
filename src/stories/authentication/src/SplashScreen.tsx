@@ -8,12 +8,13 @@ import {
   Carousel,
   Button,
   AspectRatio,
+  Container,
 } from "../../../../packages/react/index";
 
 export function SplashScreen(): React.ReactElement {
   return (
-    <div style={{ maxWidth: 420 }}>
-      <Theme>
+    <Theme>
+      <Container screen="sm" alignment="center">
         <Card padding={{ inline: "3xl", block: "3xl" }}>
           <Carousel
             loop={false}
@@ -70,7 +71,7 @@ export function SplashScreen(): React.ReactElement {
             </Box>
           </Card.Body>
         </Card>
-      </Theme>
-    </div>
+      </Container>
+    </Theme>
   );
 }

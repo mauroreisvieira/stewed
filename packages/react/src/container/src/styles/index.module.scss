@@ -1,0 +1,31 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+@use "./variables" as *;
+
+@include theme.scope($container-root) {
+  display: flex;
+  height: 100%;
+
+  &--center {
+    margin: auto;
+  }
+
+  // Padding
+  @each $key, $value in $container-screens {
+    &--screen-#{$key} {
+      max-width: #{$value};
+    }
+  }
+
+  // Padding
+  @each $key, $value in $container-padding {
+    &--padding-block-#{$key} {
+      padding-block: #{$value};
+    }
+  }
+
+  @each $key, $value in $container-padding {
+    &--padding-inline-#{$key} {
+      padding-inline: #{$value};
+    }
+  }
+}

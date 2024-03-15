@@ -25,10 +25,12 @@ $config: (
     "xl": var(--breakpoints-xl),
   ),
   "screens": (
+    "none": var(--screens-none),
     "sm": var(--screens-sm),
     "md": var(--screens-md),
     "lg": var(--screens-lg),
     "xl": var(--screens-xl),
+    "2xl": var(--screens-2xl),
   ),
 
   "font-family": (
