@@ -1,0 +1,28 @@
+import { Canvas, Meta, ArgTypes } from "@storybook/blocks";
+import * as ListStories from "./List.stories";
+
+# List
+
+List display a set of related text-only content. Each list item begins with a bullet or a decimal.
+
+### Installation
+
+```bash
+npm install --save @stewed/react
+```
+
+### Import
+
+```js
+import { List } from "@stewed/react";
+```
+
+<Meta of={ListStories} />
+
+## Base
+
+<Canvas of={ListStories.Base} />
+
+## Props
+
+<ArgTypes of={ListStories} />

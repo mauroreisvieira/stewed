@@ -64,6 +64,9 @@ export const defaultTokens: Tokens = {
     [components.ListBox]: {
       radius: "sm",
     },
+    [components.Quantity]: {
+      radius: "sm",
+    },
     [components.Select]: {
       radius: "sm",
     },

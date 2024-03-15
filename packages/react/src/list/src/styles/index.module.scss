@@ -1,0 +1,30 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+@use "@stewed/react/src/typography/src/styles" as text;
+@use "./variables" as *;
+
+@include theme.scope($list-root) {
+  display: flex;
+  flex-direction: column;
+  padding-left: theme.get-spacing("xl");
+  margin-top: 0;
+  margin-bottom: 0;
+
+  &__item {
+    @include text.typography(base);
+  }
+
+  &--bullet {
+    list-style: disc none outside;
+  }
+
+  &--decimal {
+    list-style: decimal none outside;
+  }
+
+  // Gap
+  @each $key, $value in $list-gap {
+    &--gap-#{$key} {
+      gap: #{$value};
+    }
+  }
+}

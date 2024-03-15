@@ -16,7 +16,7 @@ export interface BoxProps<T>
     UseResponsiveProps<{
       /** The direction of the box container. */
       direction?: "row" | "column" | "row-reverse" | "column-reverse";
-      /** The gap between box items. Can be a predefined size or a custom value. */
+      /** The gap between box children's. */
       gap?: Spacings;
       /** Padding options for horizontal and vertical orientation. */
       padding?: {

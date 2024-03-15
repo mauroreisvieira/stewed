@@ -12,12 +12,16 @@ export const components = {
   Card: "card",
   Carousel: "carousel",
   Checkbox: "checkbox",
+  Container: "container",
   Dialog: "dialog",
   Dropdown: "dropdown",
   FormField: "form-field",
+  List: "list",
   ListBox: "list-box",
+  Overlay: "overlay",
   Pagination: "pagination",
   Progress: "progress",
+  Quantity: "quantity",
   Radio: "radio",
   Select: "select",
   Separator: "separator",
@@ -43,6 +47,7 @@ export type Components = {
   [components.Checkbox]?: { radius?: Radius };
   [components.Dialog]?: { radius?: Radius; shadow?: Shadow };
   [components.ListBox]?: { radius?: Radius };
+  [components.Quantity]?: { radius?: Radius };
   [components.Select]?: { radius?: Radius };
   [components.Switch]?: { radius?: Radius };
   [components.Tabs]?: { radius?: Radius };

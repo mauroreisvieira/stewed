@@ -1,0 +1,4 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+
+$list-root: "list";
+$list-gap: theme.get-spacing();

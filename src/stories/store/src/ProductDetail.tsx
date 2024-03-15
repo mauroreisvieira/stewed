@@ -9,6 +9,9 @@ import {
   Theme,
   Accordion,
   Toggle,
+  TextField,
+  List,
+  FormField,
 } from "../../../../packages/react/index";
 // Icons
 import { FiPlus } from "react-icons/fi";
@@ -60,26 +63,36 @@ export function ProductDetail(): React.ReactElement {
             </Box>
             <Text size="xs">Taxas Incluídas. Envio calculado ao finalizar.</Text>
           </Box>
-          <Box direction="column" gap="md">
-            <Text as="label" size="xs" variation={"uppercase"} weight="medium">
-              Seleccione o seu tamanho
-            </Text>
-            <Toggle.Group fullWidth>
-              {productsSizes.map((value) => (
-                <Toggle
-                  key={value}
-                  size="md"
-                  skin="secondary"
-                  onClick={() => setSelectedSize(value)}
-                  selected={value === selectedSize}>
-                  {value}
-                </Toggle>
-              ))}
-            </Toggle.Group>
-            <Button skin="primary" size="lg" fullWidth>
-              Adicionar ao carrinho
-            </Button>
-          </Box>
+
+          <FormField>
+            <FormField.Label htmlFor="group">Seleccione o seu tamanho</FormField.Label>
+            <FormField.Control>
+              <Toggle.Group id="group" fullWidth>
+                {productsSizes.map((value) => (
+                  <Toggle
+                    key={value}
+                    size="md"
+                    skin="secondary"
+                    onClick={() => setSelectedSize(value)}
+                    selected={value === selectedSize}>
+                    {value}
+                  </Toggle>
+                ))}
+              </Toggle.Group>
+            </FormField.Control>
+          </FormField>
+
+          <FormField>
+            <FormField.Label htmlFor="quantity">Quantidade</FormField.Label>
+            <FormField.Control>
+              <TextField id="quantity" type="number" min={10} max={100} step={10} />
+            </FormField.Control>
+          </FormField>
+
+          <Button skin="primary" size="lg" fullWidth>
+            Adicionar ao carrinho
+          </Button>
+
           <Box gap="lg" direction="column">
             <Text size="sm" whiteSpace="nowrap">
               Inclui uma etiqueta interativa na gola que concede acesso ao Club LEGACIES.
@@ -93,14 +106,14 @@ export function ProductDetail(): React.ReactElement {
                       Esta coleção inspira-se na mítica águia, com uma nova abordagem poderosa que
                       combina tradição e celebra a individualidade do Benfica.
                     </Text>
-                    <ul>
-                      <Text as="li">Algodão LEGACIES de peso médio</Text>
-                      <Text as="li">100% algodão</Text>
-                      <Text as="li">500 gmq</Text>
-                      <Text as="li">Corte unissexo</Text>
-                      <Text as="li">Impressão DTG</Text>
-                      <Text as="li">Fabricado em Portugal</Text>
-                    </ul>
+                    <List>
+                      <List.Item>Algodão LEGACIES de peso médio</List.Item>
+                      <List.Item>100% algodão</List.Item>
+                      <List.Item>500 gmq</List.Item>
+                      <List.Item>Corte unissexo</List.Item>
+                      <List.Item>Impressão DTG</List.Item>
+                      <List.Item>Fabricado em Portugal</List.Item>
+                    </List>
                   </Box>
                 </Accordion.Body>
               </Accordion.Item>
