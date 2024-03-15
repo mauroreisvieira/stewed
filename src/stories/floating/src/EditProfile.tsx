@@ -9,11 +9,16 @@ import {
   Button,
   Dialog,
   Separator,
+  Dropdown,
+  ListBox,
 } from "../../../../packages/react/index";
+// Icons
+import { TbDotsVertical } from "react-icons/tb";
 
 export function EditProfile(): React.ReactElement {
   const [dialogOpen, setDialogOpen] = useState(false);
-
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const ref = useRef<HTMLButtonElement>(null);
   return (
     <Theme>
       <Card>
@@ -49,9 +54,28 @@ export function EditProfile(): React.ReactElement {
             </Dialog.Body>
             <Separator />
             <Dialog.Footer>
-              <Box justify="end" gap="md">
-                <Button appearance="outline">Cancel</Button>
-                <Button>Save Changes</Button>
+              <Box justify="between" gap="md">
+                <Button
+                  ref={ref}
+                  appearance="ghost"
+                  leftSlot={<TbDotsVertical />}
+                  size="sm"
+                  onClick={() => setDropdownOpen(!dropdownOpen)}
+                  iconOnly>
+                  Settings
+                </Button>
+                <Dropdown placement="bottom-start" reference={ref.current} open={dropdownOpen}>
+                  <ListBox>
+                    <ListBox.Group>
+                      <ListBox.Item>Edit</ListBox.Item>
+                      <ListBox.Item>Send message</ListBox.Item>
+                    </ListBox.Group>
+                  </ListBox>
+                </Dropdown>
+                <Box justify="end" gap="md">
+                  <Button appearance="outline">Cancel</Button>
+                  <Button>Save Changes</Button>
+                </Box>
               </Box>
             </Dialog.Footer>
           </Dialog>

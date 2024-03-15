@@ -107,7 +107,7 @@ export function Dialog({
   return (
     <>
       {open && (
-        <Scope>
+        <Scope elevation="200">
           <DialogProvider onClose={onClose}>
             <div
               ref={setRootRef}

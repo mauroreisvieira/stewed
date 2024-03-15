@@ -63,15 +63,17 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
         x = referenceRect.right + window.scrollX - floatingRect.width;
         break;
       case "right":
-        x = referenceRect.right + window.scrollX;
+        y =
+          referenceRect.bottom + window.scrollY - (floatingRect.height - referenceRect.height / 2);
+        x = referenceRect.left + window.scrollX + referenceRect.width;
         break;
       case "right-start":
         y = referenceRect.top + window.scrollY;
-        x = referenceRect.right + window.scrollX;
+        x = referenceRect.left + window.scrollX + referenceRect.width;
         break;
       case "right-end":
-        y = referenceRect.bottom + window.scrollY;
-        x = referenceRect.right + window.scrollX;
+        y = referenceRect.bottom + window.scrollY - floatingRect.height;
+        x = referenceRect.left + window.scrollX + referenceRect.width;
         break;
       case "bottom":
         y = referenceRect.bottom + window.scrollY;
@@ -87,15 +89,17 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
         x = referenceRect.right + window.scrollX - floatingRect.width;
         break;
       case "left":
-        x = referenceRect.left + window.scrollX;
+        y =
+          referenceRect.bottom + window.scrollY - (floatingRect.height - referenceRect.height / 2);
+        x = referenceRect.left + window.scrollX - floatingRect.width;
         break;
       case "left-start":
         y = referenceRect.top + window.scrollY;
-        x = referenceRect.left + window.scrollX;
+        x = referenceRect.left + window.scrollX - floatingRect.width;
         break;
       case "left-end":
-        y = referenceRect.bottom + window.scrollY;
-        x = referenceRect.left + window.scrollX;
+        y = referenceRect.bottom + window.scrollY - floatingRect.height;
+        x = referenceRect.left + window.scrollX - floatingRect.width;
         break;
       default:
         break;
@@ -108,8 +112,6 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
     // Check if the element exceeds the viewport boundaries
     const exceedsRight = x + floatingRect.width > windowWidth + scrollLeft;
     const exceedsBottom = y + floatingRect.height > windowHeight + scrollTop;
-
-    console.log("exceedsRight", exceedsRight);
 
     // If the element exceeds the viewport boundaries, adjust the position
     if (options.placement === "bottom-start" && exceedsRight) {

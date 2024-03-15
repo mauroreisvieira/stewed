@@ -70,8 +70,7 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
                 radius: activeToken.radius?.[componentObj.radius] || componentObj.radius,
               }),
               ...(componentObj.shadow && {
-                shadow:
-                  activeToken.shadow?.[componentObj.shadow] || componentObj.shadow,
+                shadow: activeToken.shadow?.[componentObj.shadow] || componentObj.shadow,
               }),
             };
           }
@@ -98,8 +97,9 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
 
   useEffect(() => {
     const styleTag = document.createElement("style");
+    styleTag.setAttribute("data-theme", theme);
 
-    styleTag.innerHTML = `\n:root { \n${Object.entries(cssProperties)
+    styleTag.innerHTML = `[data-theme="${theme}"] { \n${Object.entries(cssProperties)
       .map(([property, value]) => `${property}: ${value};`)
       .join("\n")}\n}`;
 
@@ -108,11 +108,11 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
     return () => {
       styleTag.remove();
     };
-  }, [cssProperties]);
+  }, [cssProperties, theme]);
 
   return (
-    <>
-      <div {...props}>{children}</div>
-    </>
+    <div {...props} data-theme={theme}>
+      {children}
+    </div>
   );
 }

@@ -23,6 +23,7 @@ export const components = {
   Progress: "progress",
   Quantity: "quantity",
   Radio: "radio",
+  Scope: "scope",
   Select: "select",
   Separator: "separator",
   Skeleton: "skeleton",

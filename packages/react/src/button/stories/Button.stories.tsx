@@ -54,7 +54,7 @@ export const Polymorphic: Story = {
 
 export const Loading: Story = {
   args: {
-    children: "Loading",
+    children: "",
     loading: true,
   },
 };

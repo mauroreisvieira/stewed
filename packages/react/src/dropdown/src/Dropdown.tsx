@@ -20,7 +20,6 @@ export interface DropdownProps<T> extends React.ComponentPropsWithRef<"div"> {
   onClickOutside?: () => void;
 }
 
-
 /**
  * Dropdown component is a floating element designed to serve as a lightweight context menu,
  * perfect for containing navigation options and action items within a user interface
@@ -63,18 +62,19 @@ export function Dropdown<T extends HTMLElement>({
   return (
     <>
       {open && (
-        <Scope>
+        <Scope
+          elevation="300"
+        >
           <div
             ref={floating}
             className={cssClasses.root}
-            {...props}
             style={{
               ...style,
               visibility: isPositioned ? "visible" : "hidden",
-              position: "absolute",
               left: `${x}px`,
               top: `${y}px`,
             }}
+            {...props}
           >
             {children}
           </div>
