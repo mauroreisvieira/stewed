@@ -22,7 +22,7 @@ export default meta;
 export const Base: Story = {
   args: {
     placeholder: "Type your value...",
-    defaultValue: "",
+    appearance: "outline",
     skin: "default",
     disabled: false,
   },

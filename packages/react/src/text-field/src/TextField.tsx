@@ -8,6 +8,11 @@ import styles from "./styles/index.module.scss";
 
 export interface TextFieldProps extends React.ComponentPropsWithRef<"input"> {
   /**
+   * Change the visual appearance of the text field.
+   * @default outline
+   */
+  appearance?: "outline" | "ghost";
+  /**
    * Change the visual style of the input.
    * @default default
    */
@@ -30,6 +35,7 @@ export interface TextFieldProps extends React.ComponentPropsWithRef<"input"> {
  * @returns {React.ReactElement} - The rendered TextField component.
  */
 export function TextField({
+  appearance = "outline",
   skin = "default",
   className,
   disabled,
@@ -43,7 +49,7 @@ export function TextField({
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({
-      modifiers: [disabled && "disabled", skin],
+      modifiers: [disabled && "disabled", appearance, skin],
       extraClasses: className,
     }),
     input: getElement(["input"]),
