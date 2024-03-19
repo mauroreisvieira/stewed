@@ -70,6 +70,7 @@ export const Polymorphic: Story = {
 export const Loading: Story = {
   args: {
     children: "",
+    size: "md",
     loading: true,
   },
 };
