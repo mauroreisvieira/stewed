@@ -65,7 +65,11 @@ export function EditProfile(): React.ReactElement {
                   iconOnly>
                   Settings
                 </Button>
-                <Dropdown placement="bottom-start" reference={ref.current} open={dropdownOpen}>
+                <Dropdown
+                  placement="bottom-start"
+                  reference={ref.current}
+                  open={dropdownOpen}
+                  onClickOutside={() => setDropdownOpen(!dropdownOpen)}>
                   <ListBox>
                     <ListBox.Group>
                       <ListBox.Item>Option 1</ListBox.Item>

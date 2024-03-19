@@ -19,6 +19,10 @@
     appearance: auto;
     cursor: pointer;
 
+    &::-webkit-details-marker {
+      display: none;
+    }
+
     @include text.typography(
       "display-6",
       $overrides: (font-weight: theme.get-font-weight("medium"))

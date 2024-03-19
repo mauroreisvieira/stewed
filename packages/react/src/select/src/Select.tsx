@@ -14,6 +14,8 @@ export interface SelectProps extends React.ComponentPropsWithRef<"select"> {
    * @default default
    */
   skin?: "default" | Extract<Color, "critical">;
+  /** Slot for icon to display before the select. */
+  leftSlot?: React.ReactNode;
 }
 
 /**
@@ -33,6 +35,7 @@ export interface SelectProps extends React.ComponentPropsWithRef<"select"> {
  */
 export function Select({
   skin = "default",
+  leftSlot,
   disabled,
   className,
   children,
@@ -47,16 +50,17 @@ export function Select({
       modifiers: [disabled && "disabled", skin],
       extraClasses: className,
     }),
+    left: getElement(["left"]),
     input: getElement(["input"]),
     icon: getElement(["icon"]),
   };
 
   return (
     <div className={cssClasses.root}>
+      {leftSlot && <span className={cssClasses.left}>{leftSlot}</span>}
       <select className={cssClasses.input} disabled={disabled} {...props}>
         {children}
       </select>
-
       <svg
         viewBox="0 0 24 24"
         fill="none"

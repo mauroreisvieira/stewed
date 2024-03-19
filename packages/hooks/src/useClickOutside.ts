@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 /**
  * Represents a function that handles a click event.
@@ -10,7 +10,7 @@ type Handler = (event: MouseEvent) => void;
  */
 interface IUseClickOutside<T> {
   /** Reference to the DOM element or elements to detect clicks outside of. */
-  ref: React.RefObject<T> | React.RefObject<T>[];
+  reference: T | T[] | null;
   /** The handler function to be executed when a click outside occurs. */
   handler: Handler;
   /** Array of elements that will be ignored on click. */
@@ -24,23 +24,28 @@ interface IUseClickOutside<T> {
  * @returns void
  */
 export function useClickOutside<T extends HTMLElement = HTMLElement>({
-  ref,
+  reference,
   handler,
   ignoredElements = [],
 }: IUseClickOutside<T>): void {
+  console.log("Hook");
   useEffect(() => {
     /**
      * Handler for click events outside the specified elements.
      * @param event The MouseEvent object.
      */
     const onHandleClickOutside: Handler = (event) => {
+      console.log("onHandleClickOutside");
+      // If click is inside ignored element, do nothing
       if (ignoredElements?.some((el) => el && el.contains(event.target as Node))) {
-        return; // If click is inside ignored element, do nothing
+        return;
       }
 
-      const isOutside = Array.isArray(ref)
-        ? ref.every((r) => r.current && !r.current.contains(event.target as Node))
-        : ref.current && !ref.current.contains(event.target as Node);
+      console.log("reference", reference);
+
+      const isOutside = Array.isArray(reference)
+        ? reference.every((ref) => ref && !ref.contains(event.target as Node))
+        : reference && !reference.contains(event.target as Node);
 
       if (isOutside) {
         handler(event);
@@ -51,5 +56,5 @@ export function useClickOutside<T extends HTMLElement = HTMLElement>({
     return () => {
       document.removeEventListener("mousedown", onHandleClickOutside);
     };
-  }, [handler, ref, ignoredElements]);
+  }, [handler, reference, ignoredElements]);
 }
