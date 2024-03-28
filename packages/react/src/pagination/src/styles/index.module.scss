@@ -1,0 +1,8 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+@use "./variables" as *;
+
+@include theme.scope($pagination-root) {
+  display: flex;
+  flex-direction: row;
+  gap: theme.get-spacing("xs");
+}
