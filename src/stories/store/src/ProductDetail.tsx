@@ -16,7 +16,7 @@ import {
 // Icons
 import { FiPlus } from "react-icons/fi";
 
-const productsSizes = ["XXS", "XS", "S", "M", "L", "XL", "XXL", "XXXL"];
+const productsSizes = ["XXS", "XS", "S", "M", "L", "XL"];
 
 export function ProductDetail(): React.ReactElement {
   const [selectedSize, setSelectedSize] = useState("M");
@@ -36,21 +36,21 @@ export function ProductDetail(): React.ReactElement {
           },
         },
       }}>
-      <Box justify="between" gap="2xl">
-        <Box>
+      <Box justify="between" gap="2xl" wrap="wrap">
+        <Box grow>
           <Carousel>
             <img src="https://placehold.co/400x600" />
             <img src="https://placehold.co/400x600" />
           </Carousel>
         </Box>
-        <Box direction="column" gap="2xl">
+        <Box direction="column" gap="2xl" grow>
           <div>
             <Tag skin="primary" appearance="ghost" size="sm">
               Nova coleção
             </Tag>
           </div>
           <Box direction="column" gap="sm">
-            <Text as="h2" weight="light" whiteSpace="nowrap">
+            <Text as="h2" weight="light">
               Benfica ÁGUIA Hoodie Preto
             </Text>
             <Box gap="lg">
@@ -94,7 +94,7 @@ export function ProductDetail(): React.ReactElement {
           </Button>
 
           <Box gap="lg" direction="column">
-            <Text size="sm" whiteSpace="nowrap" skin="neutral">
+            <Text size="sm" skin="neutral">
               Inclui uma etiqueta interativa na gola que concede acesso ao Club LEGACIES.
             </Text>
             <Accordion>

@@ -6,7 +6,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: theme.get-var(size);
+  width: theme.get-var(size);
   height: theme.get-var(size);
   overflow: hidden;
   user-select: none;

@@ -27,9 +27,10 @@ export function Products(): React.ReactElement {
   ];
   return (
     <Theme>
-      <Box gap="xl">
+      <Box gap="xl" direction="row" wrap="wrap">
         {products.map(({ id, name, image, price }) => (
-          <Card key={id} padding={{ inline: "md", block: "md" }}>
+          <Box key={id} grow>
+          <Card padding={{ inline: "md", block: "md" }}>
             <Card.Media src={image} alt={name}>
               <Box justify="end">
                 <Tag appearance="ghost" skin="warning" size="sm">
@@ -53,6 +54,7 @@ export function Products(): React.ReactElement {
               </Button>
             </Card.Footer>
           </Card>
+          </Box>
         ))}
       </Box>
     </Theme>
