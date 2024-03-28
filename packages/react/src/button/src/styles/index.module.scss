@@ -18,6 +18,7 @@
   gap: theme.get-var(gap);
   align-items: center;
   justify-content: center;
+  min-width: theme.get-var(size);
   height: theme.get-var(size);
   padding-inline: calc(theme.get-var(padding-inline) - theme.get-var(border-width));
   overflow: hidden;

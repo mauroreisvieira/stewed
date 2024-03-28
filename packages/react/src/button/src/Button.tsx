@@ -1,4 +1,6 @@
 import React from "react";
+// UI Components
+import { Spinner } from "../../spinner";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
@@ -7,7 +9,6 @@ import { type Color, components } from "@stewed/tokens";
 import { type DistributiveOmit, fixedForwardRef } from "../../types";
 // Styles
 import styles from "./styles/index.module.scss";
-import { Spinner } from "../../spinner";
 
 // Default HTML element type for the this component
 const defaultElement = "button";
