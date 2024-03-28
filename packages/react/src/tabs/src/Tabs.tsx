@@ -14,9 +14,9 @@ import styles from "./styles/index.module.scss";
 export interface TabsProps extends React.ComponentPropsWithRef<"div">, TabsProviderProps {
   /**
    * Allow possibility to change alignment of tabs.
-   * @default left
+   * @default start
    */
-  alignment?: "left" | "right" | "center";
+  alignment?: "start" | "center" | "end";
   /**
    * The direction of the tab container.
    * @default row
@@ -26,7 +26,7 @@ export interface TabsProps extends React.ComponentPropsWithRef<"div">, TabsProvi
 
 export function Tabs({
   value,
-  alignment = "left",
+  alignment = "start",
   direction = "row",
   className,
   onValueChange,

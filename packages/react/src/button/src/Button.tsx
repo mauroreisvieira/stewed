@@ -1,4 +1,6 @@
 import React from "react";
+// UI Components
+import { Spinner } from "../../spinner";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
@@ -7,7 +9,6 @@ import { type Color, components } from "@stewed/tokens";
 import { type DistributiveOmit, fixedForwardRef } from "../../types";
 // Styles
 import styles from "./styles/index.module.scss";
-import { Spinner } from "../../spinner";
 
 // Default HTML element type for the this component
 const defaultElement = "button";
@@ -32,7 +33,7 @@ export interface ButtonProps<T> extends React.ComponentProps<typeof defaultEleme
    * Changes the size of the button, giving it more or less padding.
    * @default md
    */
-  size?: "xs" | "sm" | "md" | "lg";
+  size?: "xs" | "sm" | "md" | "lg" | "xl";
   /** Slot for icon to display before the button text. */
   leftSlot?: React.ReactNode;
   /** Slot for icon to display after the button text. */

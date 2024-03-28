@@ -4,3 +4,12 @@ $button-root: "button";
 
 /// Skins
 $button-skins: ("primary", "secondary", "neutral", "critical", "success");
+
+/// Sizes
+$button-sizes: (
+  "xs": 24px,
+  "sm": 32px,
+  "md": 40px,
+  "lg": 48px,
+  "xl": 56px,
+);

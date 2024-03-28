@@ -1,7 +1,7 @@
 import React from "react";
 import { Scope } from "../../scope";
 // Hooks
-import { useBem, useFloating, type Placement } from "../../../../hooks/index";
+import { useBem, useFloating, useClickOutside, type FloatingPlacement } from "@stewed/hooks";
 // Tokens
 import { components } from "@stewed/tokens";
 // Styles
@@ -11,11 +11,9 @@ export interface DropdownProps<T> extends React.ComponentPropsWithRef<"div"> {
   /** The reference element for positioning the dropdown. */
   reference: T | null;
   /** The preferred placement of the dropdown. */
-  placement?: Placement;
+  placement?: FloatingPlacement;
   /** Determines if the dropdown is open. */
   open?: boolean;
-  /** Callback function invoked when the escape key is pressed. */
-  onEscape?: () => void;
   /** Callback function invoked when the dialog is clicked outside. */
   onClickOutside?: () => void;
 }
@@ -40,6 +38,7 @@ export function Dropdown<T extends HTMLElement>({
   open,
   className,
   style,
+  onClickOutside,
   children,
   ...props
 }: DropdownProps<T>): React.ReactElement {
@@ -51,18 +50,24 @@ export function Dropdown<T extends HTMLElement>({
     root: getBlock({ extraClasses: className }),
   };
 
+  // Floating position calculation hook
   const { floating, x, y, isPositioned } = useFloating<T, HTMLDivElement>({
     open,
     placement,
     reference,
   });
 
+  // Hook to handle clicks outside the floating element
+  useClickOutside({
+    reference: floating.current,
+    ignoredElements: reference ? [reference] : undefined,
+    handler: () => onClickOutside?.(),
+  });
+
   return (
     <>
       {open && (
-        <Scope
-          elevation="300"
-        >
+        <Scope elevation="300">
           <div
             ref={floating}
             className={cssClasses.root}

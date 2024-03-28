@@ -6,7 +6,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-interface AccordionItemProps extends React.DetailsHTMLAttributes<HTMLDetailsElement> {
+interface AccordionItemProps extends React.ComponentPropsWithRef<"details"> {
   /** The controlled open state of the dialog.  */
   open?: boolean;
 }

@@ -1,7 +1,9 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-
-import { Theme, Select } from "../../index";
+// Components
+import { Theme, Select, Separator } from "../../index";
+// Icons
+import { FiSearch } from "react-icons/fi";
 
 type Story = StoryObj<typeof Select>;
 
@@ -28,6 +30,30 @@ export const Base: Story = {
   args: {
     disabled: false,
     skin: "default",
+    children: (
+      <>
+        <Select.Option value={1}>Option 1</Select.Option>
+        <Select.Option value={2}>Option 2</Select.Option>
+        <Select.Option value={3}>Option 3</Select.Option>
+        <Select.Option value={4}>Option 4</Select.Option>
+      </>
+    ),
+  },
+};
+
+export const LeftSlot: Story = {
+  argTypes: {
+    leftSlot: {
+      control: false,
+    },
+    children: {
+      control: false,
+    },
+  },
+  args: {
+    disabled: false,
+    skin: "default",
+    leftSlot: <FiSearch />,
     children: (
       <>
         <Select.Option value={1}>Option 1</Select.Option>

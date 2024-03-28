@@ -9,6 +9,8 @@ import {
   Tag,
   Checkbox,
   Button,
+  Pagination,
+  Separator,
 } from "../../../../packages/react/index";
 
 type Team = {
@@ -178,12 +180,15 @@ export function RecentFeedback(): React.ReactElement {
                         />
                       </svg>
                     }
+                    onClick={(event) => event.stopPropagation()}
                   />
                 </Table.Cell>
               </Table.Row>
             ))}
           </Table.Body>
         </Table>
+        <Separator space={{ block: "lg" }} />
+        <Pagination total={18} siblings={2} currentPage={1} alignment="center" />
       </Box>
     </Theme>
   );

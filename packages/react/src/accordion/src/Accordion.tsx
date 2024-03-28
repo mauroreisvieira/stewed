@@ -10,11 +10,27 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export function Accordion({
-  className,
-  children,
-  ...props
-}: React.ComponentPropsWithRef<"div">): React.ReactElement {
+interface AccordionProps extends React.ComponentPropsWithRef<"div"> {}
+
+/**
+ * The Accordion component lets users show and hide sections of related content on a page.
+ *
+ * @example
+ * ```tsx
+ * <Accordion>
+ *    <Accordion.Item>
+ *      <Accordion.Header>Title</Accordion.Header>
+ *      <Accordion.Body>Body</Accordion.Body>
+ *    </Accordion.Item>
+ * </Accordion>
+ * ```
+ *
+ * @remarks This component props extended from React.ComponentPropsWithRef<"div">.
+ *
+ * @param {AccordionProps} props - The props for the Accordion component.
+ * @returns {React.ReactElement} - The rendered Accordion component.
+ */
+export function Accordion({ className, children, ...props }: AccordionProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: components.Accordion, styles });
 

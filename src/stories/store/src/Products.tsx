@@ -32,7 +32,7 @@ export function Products(): React.ReactElement {
           <Card key={id} padding={{ inline: "md", block: "md" }}>
             <Card.Media src={image} alt={name}>
               <Box justify="end">
-                <Tag skin="warning" size="sm">
+                <Tag appearance="ghost" skin="warning" size="sm">
                   Promotion
                 </Tag>
               </Box>

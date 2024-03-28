@@ -30,7 +30,7 @@ export interface TagProps<T> extends React.ComponentProps<typeof defaultElement>
    * Change the visual appearance of the tag.
    * @default filled
    */
-  appearance?: "filled" | "ghost" | "outline" | "text";
+  appearance?: "filled" | "soft" | "outline" | "ghost";
   /**
    * Changes the size of the tag, giving it more or less padding.
    * @default md

@@ -170,7 +170,7 @@
         position: relative;
         .#{$table-root}__cell {
           cursor: pointer;
-          background-color: theme.get-color("neutral", "faded");
+          background-color: color-mix(in srgb, theme.get-color("primary"), transparent 95%);
         }
       }
     }

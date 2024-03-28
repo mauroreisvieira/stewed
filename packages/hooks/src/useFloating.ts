@@ -1,6 +1,6 @@
 import { useState, useEffect, useReducer, useCallback, useRef } from "react";
 
-export type Placement =
+export type FloatingPlacement =
   | "top"
   | "top-start"
   | "top-end"
@@ -15,7 +15,7 @@ export type Placement =
   | "left-end";
 
 interface FloatingOptions {
-  placement?: Placement;
+  placement?: FloatingPlacement;
   isPositioned?: boolean;
 }
 

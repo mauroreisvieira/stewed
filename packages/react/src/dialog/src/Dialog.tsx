@@ -7,7 +7,7 @@ import { DialogBody } from "./DialogBody";
 import { DialogHeader } from "./DialogHeader";
 import { DialogFooter } from "./DialogFooter";
 // Hooks
-import { useBem, useScrollLock } from "@stewed/hooks";
+import { useBem, useClickOutside, useScrollLock } from "../../../../hooks/index";
 import { useFocusTrap } from "@stewed/hooks";
 // Tokens
 import { components } from "@stewed/tokens";
@@ -55,7 +55,6 @@ export function Dialog({
   onClose,
   onEscape,
   onClickOutside,
-  onKeyDown,
   ...props
 }: DialogProps): React.ReactElement {
   // State to hold the reference to the root div element
@@ -81,15 +80,20 @@ export function Dialog({
 
   const onHandleKeydown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
     (event): void => {
-      if (onKeyDown) onKeyDown(event);
-
       if (event.key === "Escape") {
         if (onEscape) onEscape();
         event.stopPropagation();
       }
     },
-    [onEscape, onKeyDown],
+    [onEscape],
   );
+
+  // Hook to handle clicks outside the floating element
+  useClickOutside<HTMLDivElement>({
+    reference: rootRef,
+    ignoredElements: [],
+    handler: () => onClickOutside?.(),
+  });
 
   return (
     <>
@@ -97,13 +101,10 @@ export function Dialog({
         <Scope elevation="200">
           <Backdrop onClick={onClickOutside} />
           <DialogProvider onClose={onClose}>
-            <div
-              ref={setRootRef}
-              className={cssClasses.root}
-              onKeyDown={onHandleKeydown}
-              {...props}
-            >
-              <div className={cssClasses.surface}>{children}</div>
+            <div className={cssClasses.root} {...props}>
+              <div onKeyDown={onHandleKeydown} ref={setRootRef} className={cssClasses.surface}>
+                {children}
+              </div>
             </div>
           </DialogProvider>
         </Scope>

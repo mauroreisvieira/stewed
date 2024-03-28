@@ -28,6 +28,22 @@
     border-color: theme.get-var(border-color-hover);
   }
 
+  &__left,
+  &__right {
+    position: relative;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+  }
+
+  &__left {
+    padding-inline-start: theme.get-spacing("md");
+  }
+
+  &__right {
+    padding-inline-end: theme.get-spacing("md");
+  }
+
   &__input {
     all: unset;
     box-sizing: border-box;

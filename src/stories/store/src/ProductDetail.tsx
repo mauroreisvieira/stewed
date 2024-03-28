@@ -89,12 +89,12 @@ export function ProductDetail(): React.ReactElement {
             </FormField.Control>
           </FormField>
 
-          <Button skin="primary" size="lg" fullWidth>
+          <Button skin="primary" size="xl" fullWidth>
             Adicionar ao carrinho
           </Button>
 
           <Box gap="lg" direction="column">
-            <Text size="sm" whiteSpace="nowrap">
+            <Text size="sm" whiteSpace="nowrap" skin="neutral">
               Inclui uma etiqueta interativa na gola que concede acesso ao Club LEGACIES.
             </Text>
             <Accordion>
