@@ -28,7 +28,7 @@
     );
   }
 
-  &--left {
+  &--start {
     justify-content: left;
   }
 
@@ -36,8 +36,8 @@
     justify-content: center;
   }
 
-  &--right {
-    justify-content: right;
+  &--end {
+    justify-content: end;
   }
 
   &__list {

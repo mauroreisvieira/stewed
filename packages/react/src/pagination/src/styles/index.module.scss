@@ -5,4 +5,16 @@
   display: flex;
   flex-direction: row;
   gap: theme.get-spacing("xs");
+
+  &--start {
+    justify-content: left;
+  }
+
+  &--center {
+    justify-content: center;
+  }
+
+  &--end {
+    justify-content: right;
+  }
 }

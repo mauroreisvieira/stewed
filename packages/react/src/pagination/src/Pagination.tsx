@@ -14,7 +14,7 @@ export interface PaginationProps {
   /** Current active page. */
   currentPage: number;
   /**
-   * Number of pages visible before and after current page
+   * Number of pages visible before and after current page.
    * @default 1
    */
   siblings?: number;
@@ -28,6 +28,11 @@ export interface PaginationProps {
    * @default sm
    */
   size?: ButtonProps<"button">["size"];
+  /**
+   * Allow possibility to change alignment of tabs.
+   * @default start
+   */
+  alignment?: "start" | "center" | "end";
   /** Sets whether the pagination is disabled. */
   disabled?: boolean;
   /** Additional class name(s) for custom styling. */
@@ -72,6 +77,7 @@ export function Pagination({
   siblings = 1,
   skin = "primary",
   size = "sm",
+  alignment = "start",
   disabled,
   className,
   pageLabel,
@@ -85,6 +91,7 @@ export function Pagination({
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({
+      modifiers: [alignment],
       extraClasses: className,
     }),
   };
