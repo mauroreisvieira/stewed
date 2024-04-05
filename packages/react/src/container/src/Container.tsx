@@ -32,7 +32,6 @@ export interface ContainerProps<T>
    * @default none
    */
   screen?: Screens;
-
   /**
    * Specifies the type of element to use as the container.
    * @default div
