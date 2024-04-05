@@ -1,14 +1,12 @@
 {
   "name": "@stewed/react",
-  "version": "0.0.0",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "sideEffects": false,
-  "license": "MIT",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "dist/**"
+    "/dist"
   ],
+  "license": "MIT",
   "scripts": {
     "build": "NODE_ENV=production webpack",
     "lint": "eslint",
@@ -28,12 +26,9 @@
     "webpack-cli": "^5.1.4"
   },
   "devDependencies": {
-    "@types/webpack-node-externals": "^3.0.4",
-    "@harmonix-hub/tsconfig": "^1.3.0",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
-    "@vitejs/plugin-react": "^4.1.1",
-    "sass": "^1.69.5"
+    "@harmonix-hub/tsconfig": "^1.3.0"
   },
   "peerDependencies": {
     "react": "^18.2.0"
