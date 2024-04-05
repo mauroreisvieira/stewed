@@ -9,6 +9,7 @@ Thumbs.db
 .idea/
 
 # Generated folders
+.turbo
 node_modules/
 storybook-static
 dist/

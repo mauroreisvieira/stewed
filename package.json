@@ -3,21 +3,16 @@
   "description": "Stewed UI components in React.",
   "scripts": {
     "prepare": "husky install",
-    "start": "lerna run start --parallel --stream",
-    "build": "lerna run build",
-    "postbuild": "lerna run postbuild",
-    "test": "lerna run test --parallel",
-    "lint": "lerna run lint --parallel",
-    "lint:style": "lerna run lint:style --parallel",
-    "format": "lerna run format",
-    "clean": "lerna exec -- rm -rf node_modules && lerna exec -- rm -rf dist",
-    "publish": "lerna publish from-package --yes",
+    "start": "turbo run start --parallel --stream",
+    "build": "turbo run build",
+    "test": "turbo run test --parallel",
+    "lint": "turbo run lint --parallel",
+    "lint:style": "turbo run lint:style --parallel",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "clean": "turbo exec -- rm -rf node_modules && lerna exec -- rm -rf dist",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
-  "workspaces": [
-    "packages/*"
-  ],
   "devDependencies": {
     "@babel/core": "^7.23.9",
     "@babel/plugin-transform-runtime": "^7.23.9",
@@ -52,9 +47,11 @@
     "react-icons": "^5.0.1",
     "semantic-release": "^22.0.5",
     "semantic-release-config-conventional": "^1.0.1",
-    "storybook": "^7.6.11"
+    "storybook": "^7.6.11",
+    "turbo": "^1.12.4"
   },
   "optionalDependencies": {
     "@nx/nx-linux-x64-gnu": "^17.3.0"
-  }
+  },
+  "packageManager": "pnpm@8.9.0"
 }
