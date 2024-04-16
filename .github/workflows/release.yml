@@ -1,42 +1,60 @@
-name: Release
+name: 🚀 Release
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
+env:
+  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
 jobs:
   release:
-    name: Release
-    runs-on: ubuntu-latest
+    name: 🚀 Release
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node-version: [lts/*]
+        pnpm-version: [latest]
+    runs-on: ${{ matrix.os }}
     steps:
-      - name: Checkout Repo
+      - name: ⬇️ Checkout
+        id: checkout
         uses: actions/checkout@v4
-
-      - name: Setup pnpm 8
-        uses: pnpm/action-setup@v3
         with:
-          version: 8
+          token: ${{ env.GITHUB_TOKEN }}
+          fetch-depth: 0
 
-      - name: Setup Node
+      - name: 🟢 Setup Node
+        id: setup-node
         uses: actions/setup-node@v3
         with:
           cache: pnpm
 
-      - name: Install Dependencies
-        run: pnpm i --no-save
+      - name: 🥡 Setup PNPM 8
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
 
-      - name: Build
+      - name: 🧩 Install Dependencies
+        id: install-dependencies
+        run: pnpm install
+
+      - name: 🏗️ Build
         run: pnpm run build
 
-      - name: Create Release Pull Request or Publish to npm
+      - name: 📣 Create Release Pull Request or Publish to NPM
         id: changesets
         uses: changesets/action@v1
         with:
-          # This expects you to have a script called release which does a build for your packages and calls changeset publish
-          publish: pnpm release
+          title: "chore(release): version packages"
+          publish: pnpm publish:packages
+          version: pnpm version:packages
+          commit: "chore(release): version packages [skip ci]"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ env.NPM_TOKEN }}

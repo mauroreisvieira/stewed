@@ -12,9 +12,8 @@
     "clean": "turbo clean && rm -rf node_modules",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "changeset": "changeset",
-    "version-packages": "changeset version",
-    "release": "turbo build --filter=docs^... && changeset publish"
+    "publish:packages": "changeset publish",
+    "version:packages": "changeset version"
   },
   "dependencies": {
     "@stewed/react": "workspace:*",

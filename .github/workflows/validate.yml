@@ -1,4 +1,4 @@
-name: Validate
+name: 🔎 Validate
 
 on:
   push:
@@ -12,35 +12,39 @@ concurrency:
 
 jobs:
   validate:
-    name: Validate Changes
+    name: 🔎 Validate Changes
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
+      - name: ⬇️ Checkout
         uses: actions/checkout@v4
-
-      - name: Setup pnpm 8
-        uses: pnpm/action-setup@v3
         with:
-          version: 8
+          token: ${{ env.GITHUB_TOKEN }}
+          fetch-depth: 0
 
-      - name: Setup Node
+      - name: 🟢 Setup Node
         uses: actions/setup-node@v3
         with:
           cache: pnpm
 
-      - name: Install Dependencies
-        run: pnpm i --no-save
+      - name: 🥡 Setup PNPM 8
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
 
-      - name: Build
+      - name: 🧩 Install Dependencies
+        id: install-dependencies
+        run: pnpm install
+
+      - name: 🏗️ Build
         run: pnpm run build
 
-      # - name: Run Tests
+      # - name: 🧪 Run Tests
       #   run: pnpm run test
 
-      - name: Run Code Lint
+      - name: ⚛️ Code Lint
         continue-on-error: true
         run: pnpm run lint
 
-      - name: Run Code Style Lint
+      - name: 💈 Style Lint
         continue-on-error: true
         run: pnpm run lint:style
