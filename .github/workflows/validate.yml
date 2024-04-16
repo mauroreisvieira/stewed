@@ -18,15 +18,15 @@ jobs:
       - name: ⬇️ Checkout
         uses: actions/checkout@v4
 
-      - name: 🟢 Setup Node
-        uses: actions/setup-node@v3
-        with:
-          cache: pnpm
-
       - name: 🥡 Setup PNPM 8
         uses: pnpm/action-setup@v3
         with:
           version: 8
+
+      - name: 🟢 Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: pnpm
 
       - name: 🧩 Install Dependencies
         id: install-dependencies
