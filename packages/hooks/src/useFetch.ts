@@ -22,7 +22,6 @@ export function useFetch<T>(
     const [status, setStatus] = useState<Status>('');
     const controller = useRef<AbortController>();
 
-    // const controller = new AbortController();
     useEffect(() => {
         controller.current = new AbortController();
         if (!controller.current) return;

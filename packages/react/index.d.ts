@@ -9,6 +9,6 @@ declare module "*.svg" {
 }
 
 declare module "*.module.scss" {
-  const value: Record<string, string>;
-  export default value;
+  const classes: { [key: string]: string };
+  export default classes;
 }
