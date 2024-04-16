@@ -2,8 +2,8 @@
   "extends": "@harmonix-hub/tsconfig/react.json",
   "compilerOptions": {
     "outDir": "./dist",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
   },
-  "include": ["./*.d.ts", "./src/index.ts*"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["./index.d.ts", "./src/**/*"],
+  "exclude": ["dist", "node_modules"]
 }

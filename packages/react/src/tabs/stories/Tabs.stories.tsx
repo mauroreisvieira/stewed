@@ -28,7 +28,7 @@ export const Base: Story = {
     },
   },
   args: {
-    alignment: "left",
+    alignment: "start",
     direction: "row",
     children: (
       <>

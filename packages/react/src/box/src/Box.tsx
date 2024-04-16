@@ -12,7 +12,7 @@ import styles from "./styles/index.module.scss";
 const defaultElement = "div";
 
 export interface BoxProps<T>
-  extends React.ComponentPropsWithRef<"div">,
+  extends React.ComponentProps<typeof defaultElement>,
     UseResponsiveProps<{
       /** The direction of the box container. */
       direction?: "row" | "column" | "row-reverse" | "column-reverse";

@@ -8,12 +8,7 @@ declare module "*.svg" {
   export default content;
 }
 
-declare module "*.md" {
-  const content: string;
-  export default content;
-}
-
-declare module "*.scss" {
+declare module "*.module.scss" {
   const classes: { [key: string]: string };
   export default classes;
 }
