@@ -1,4 +1,4 @@
-import { classNames } from "../../index";
+import { classNames } from "@stewed/utilities";
 
 describe("classNames function", () => {
   it("should return an empty string if all arguments are falsy", () => {
