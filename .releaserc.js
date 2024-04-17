@@ -1,14 +1,9 @@
+// https://www.npmjs.com/package/semantic-release-config-conventional
+process.env.SR_CONFIG_NPM_PUBLISH = "false"; // prevent the main package to the registry
+
 /** @type import("semantic-release").GlobalConfig */
 const config = {
-  release: {
-    branches: ["main"],
-  },
-  plugins: [
-    "@semantic-release/commit-analyzer",
-    "@semantic-release/release-notes-generator",
-    "@semantic-release/npm",
-    "@semantic-release/github",
-  ],
+  extends: "semantic-release-config-conventional",
 };
 
 module.exports = config;
