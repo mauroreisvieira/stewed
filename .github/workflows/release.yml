@@ -8,16 +8,19 @@ on:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
+permissions:
+  contents: read # for checkout
 
 jobs:
   release:
     name: 🚀 Release
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node-version: [lts/*]
-        pnpm-version: [latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # to be able to publish a GitHub release
+      issues: write # to be able to comment on released issues
+      pull-requests: write # to be able to comment on released pull requests
+      id-token: write # to enable use of OIDC for npm provenance
+
     steps:
       - name: ⬇️ Checkout
         id: checkout
@@ -31,7 +34,7 @@ jobs:
       - name: 🟢 Setup Node
         uses: actions/setup-node@v4
         with:
-          cache: pnpm
+          node-version: "lts/*"
 
       - name: 🧩 Install Dependencies
         id: install-dependencies
@@ -44,4 +47,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx -p node@v18-lts -c "npx semantic-release"
+        run: npx semantic-release
