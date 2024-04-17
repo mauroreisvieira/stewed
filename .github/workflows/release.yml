@@ -22,9 +22,6 @@ jobs:
       - name: ⬇️ Checkout
         id: checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          persist-credentials: false
 
       - name: 🥡 Setup PNPM 8
         uses: pnpm/action-setup@v3
@@ -47,4 +44,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: pnpm run semantic-release
+        run: npx semantic-release
