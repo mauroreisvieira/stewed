@@ -40,7 +40,7 @@ export const components = {
 } as const;
 
 export type Components = {
-  [components.Alert]?: { radius?: Radius, shadow?: Shadow };
+  [components.Alert]?: { radius?: Radius; shadow?: Shadow };
   [components.Avatar]?: { radius?: Radius };
   [components.Badge]?: { radius?: Radius };
   [components.Button]?: { radius?: Radius };

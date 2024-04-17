@@ -35,9 +35,6 @@ jobs:
       - name: 🏗️ Build
         run: pnpm run build
 
-      # - name: 🧪 Run Tests
-      #   run: pnpm run test
-
       - name: ⚛️ Code Lint
         continue-on-error: true
         run: pnpm run lint
@@ -45,3 +42,6 @@ jobs:
       - name: 💈 Style Lint
         continue-on-error: true
         run: pnpm run lint:style
+
+      - name: 🧪 Run Tests
+        run: pnpm run test

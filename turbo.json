@@ -8,9 +8,11 @@
     "lint": {
       "dependsOn": ["^lint"]
     },
-    "dev": {
-      "cache": false,
-      "persistent": true
+    "format": {
+      "dependsOn": ["^format"]
+    },
+    "test": {
+      "cache": false
     },
     "clean": {
       "cache": false

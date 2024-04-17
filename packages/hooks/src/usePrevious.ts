@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect } from "react";
 
 /**
  * A custom React hook that returns the previous value of the input value.

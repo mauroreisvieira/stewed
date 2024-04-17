@@ -8,11 +8,7 @@ import styles from "./styles/index.module.scss";
 
 export type TableBodyProps = React.ComponentPropsWithRef<"tbody">;
 
-export function TableBody({
-  className,
-  children,
-  ...props
-}: TableBodyProps): React.ReactElement {
+export function TableBody({ className, children, ...props }: TableBodyProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: `${components.Table}__body`, styles });
 

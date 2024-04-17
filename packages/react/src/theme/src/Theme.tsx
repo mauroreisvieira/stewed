@@ -49,8 +49,7 @@ export function Theme<T extends string = "default">({
         setTheme,
         tokens: currentTokens,
         setTokens: setCurrentTokens,
-      }}
-    >
+      }}>
       {/* Root component to which the themed styles are applied */}
       <Root {...props} />
     </ThemeContext.Provider>

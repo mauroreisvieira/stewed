@@ -13,5 +13,5 @@
  *  ```
  */
 export type Mandatory<T, K extends keyof T> = Omit<T, K> & {
-    [MK in K]-?: NonNullable<T[MK]>;
+  [MK in K]-?: NonNullable<T[MK]>;
 };

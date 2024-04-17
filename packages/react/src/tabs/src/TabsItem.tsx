@@ -45,11 +45,14 @@ export function TabsItem({
     right: getElement(["right"]),
   };
 
-  const onHandleClick:React.MouseEventHandler<HTMLButtonElement> = useCallback((event) => {
-    if (disabled) return;
-    onValueChange?.(value);
-    onClick?.(event);
-  }, [disabled, onClick, onValueChange, value]);
+  const onHandleClick: React.MouseEventHandler<HTMLButtonElement> = useCallback(
+    (event) => {
+      if (disabled) return;
+      onValueChange?.(value);
+      onClick?.(event);
+    },
+    [disabled, onClick, onValueChange, value],
+  );
 
   return (
     <button
@@ -61,8 +64,7 @@ export function TabsItem({
       tabIndex={!isSelected || disabled ? -1 : tabIndex}
       className={cssClasses.root}
       onClick={onHandleClick}
-      {...props}
-    >
+      {...props}>
       {leftSlot && <div className={cssClasses.left}>{leftSlot}</div>}
       {children}
       {rightSlot && <div className={cssClasses.right}>{rightSlot}</div>}

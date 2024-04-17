@@ -2,7 +2,7 @@ import React from "react";
 // Storybook
 import type { Meta, StoryObj } from "@storybook/react";
 // Packages
-import { Theme, Tag,  } from "../../index";
+import { Theme, Tag } from "../../index";
 // Icons
 import { FiStar } from "react-icons/fi";
 

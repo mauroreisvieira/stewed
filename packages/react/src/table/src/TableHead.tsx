@@ -8,11 +8,7 @@ import styles from "./styles/index.module.scss";
 
 export type TableHeadProps = React.ComponentPropsWithRef<"thead">;
 
-export function TableHead({
-  className,
-  children,
-  ...props
-}: TableHeadProps): React.ReactElement {
+export function TableHead({ className, children, ...props }: TableHeadProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: `${components.Table}__head`, styles });
 

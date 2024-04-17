@@ -44,8 +44,7 @@ export function CarouselNavigation({
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            width={18}
-          >
+            width={18}>
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -59,8 +58,7 @@ export function CarouselNavigation({
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            width={18}
-          >
+            width={18}>
             <path
               strokeLinecap="round"
               strokeLinejoin="round"

@@ -122,8 +122,7 @@ export const Button = fixedForwardRef(
         className={cssClasses.root}
         aria-pressed={pressed}
         aria-disabled={props.disabled}
-        {...props}
-      >
+        {...props}>
         {loading && <Spinner className={cssClasses.spinner} skin="default" size={size} />}
         {leftSlot && <span className={cssClasses.left}>{leftSlot}</span>}
         {children && <span className={cssClasses.text}>{children}</span>}

@@ -21,7 +21,7 @@ export interface ThemeContextProps<T extends string> {
   theme: T | "default";
   /** Partial map of theme names to Tokens. */
   tokens?: Partial<Record<T, Tokens>>;
-   /** Currently selected token. */
+  /** Currently selected token. */
   activeToken: Tokens;
   /** Setter function for updating the current active theme. */
   setTheme: React.Dispatch<React.SetStateAction<ThemeContextProps<T>["theme"]>>;

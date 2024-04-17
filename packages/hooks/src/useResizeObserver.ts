@@ -1,32 +1,32 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 export type ResizeObserverCallback = (
-    entries: ResizeObserverEntry[],
-    observer: ResizeObserver,
+  entries: ResizeObserverEntry[],
+  observer: ResizeObserver,
 ) => void;
 
 interface ResizeObserverProps<T> {
-    element: T;
-    enabled: boolean;
-    callback: ResizeObserverCallback | null;
+  element: T;
+  enabled: boolean;
+  callback: ResizeObserverCallback | null;
 }
 
 export const useResizeObserver = <T extends HTMLElement>({
-    element,
-    enabled,
-    callback,
+  element,
+  enabled,
+  callback,
 }: ResizeObserverProps<T>) => {
-    useEffect(() => {
-        if (!element || !enabled || callback === null) return;
+  useEffect(() => {
+    if (!element || !enabled || callback === null) return;
 
-        const cb = (entries: ResizeObserverEntry[], observer: ResizeObserver) => {
-            callback(entries, observer);
-        };
+    const cb = (entries: ResizeObserverEntry[], observer: ResizeObserver) => {
+      callback(entries, observer);
+    };
 
-        const resizeObserver = new ResizeObserver(cb);
-        resizeObserver.observe(element);
+    const resizeObserver = new ResizeObserver(cb);
+    resizeObserver.observe(element);
 
-        // eslint-disable-next-line consistent-return
-        return () => resizeObserver.disconnect();
-    }, [element, callback, enabled]);
+    // eslint-disable-next-line consistent-return
+    return () => resizeObserver.disconnect();
+  }, [element, callback, enabled]);
 };

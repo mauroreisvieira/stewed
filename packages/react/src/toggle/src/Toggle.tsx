@@ -74,8 +74,7 @@ export function Toggle({
       tabIndex={disabled ? -1 : 0}
       aria-selected={selected}
       aria-disabled={disabled}
-      {...props}
-    >
+      {...props}>
       {leftSlot && <span className={cssClasses.left}>{leftSlot}</span>}
       {children && <span className={cssClasses.text}>{children}</span>}
     </button>

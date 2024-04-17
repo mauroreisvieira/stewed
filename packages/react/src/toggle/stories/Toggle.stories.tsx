@@ -23,16 +23,16 @@ export default meta;
 
 export const Base: Story = {
   args: {
-      size: "md",
-      selected: false,
-      disabled: false,
-      children: "Toggle",
+    size: "md",
+    selected: false,
+    disabled: false,
+    children: "Toggle",
   },
 };
 
 export const LeftSlot: Story = {
   args: {
-      leftSlot: <FiStar size={18} />,
-      children: "Toggle",
+    leftSlot: <FiStar size={18} />,
+    children: "Toggle",
   },
 };
