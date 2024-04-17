@@ -1,0 +1,177 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button applies correct size class 1`] = `
+<DocumentFragment>
+  <button
+    class="button button--primary-filled button--md"
+  >
+    <span
+      class="button__text"
+    >
+      Medium Button
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button applies correct skin and appearance classes 1`] = `
+<DocumentFragment>
+  <button
+    class="button button--primary-filled button--md"
+  >
+    <span
+      class="button__text"
+    >
+      Primary Filled
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button applies disabled class when disabled prop is true 1`] = `
+<DocumentFragment>
+  <button
+    aria-disabled="true"
+    class="button button--primary-filled button--md button--disabled"
+    disabled=""
+  >
+    <span
+      class="button__text"
+    >
+      Disabled Button
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button applies fullWidth class when fullWidth prop is true 1`] = `
+<DocumentFragment>
+  <button
+    class="button button--primary-filled button--md button--full-width"
+  >
+    <span
+      class="button__text"
+    >
+      Full Width Button
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button applies icon-only class when iconOnly prop is true 1`] = `
+<DocumentFragment>
+  <button
+    class="button button--primary-filled button--md button--icon-only"
+  >
+    <span
+      class="button__text"
+    >
+      <i
+        class="fas fa-star"
+      />
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button applies pressed class when pressed prop is true 1`] = `
+<DocumentFragment>
+  <button
+    aria-pressed="true"
+    class="button button--primary-filled button--md button--pressed"
+  >
+    <span
+      class="button__text"
+    >
+      Pressed Button
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button renders children correctly 1`] = `
+<DocumentFragment>
+  <button
+    class="button button--primary-filled button--md"
+  >
+    <span
+      class="button__text"
+    >
+      Click me
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button renders loading spinner when loading prop is true 1`] = `
+<DocumentFragment>
+  <button
+    class="button button--primary-filled button--md button--loading"
+  >
+    <div
+      class="spinner spinner--default spinner--md button__spinner"
+    >
+      <svg
+        class="spinner__svg"
+        viewBox="0 0 48 48"
+      >
+        <circle
+          cx="24"
+          cy="4"
+          r="4"
+        />
+        <circle
+          cx="12.19"
+          cy="7.86"
+          r="3.7"
+        />
+        <circle
+          cx="5.02"
+          cy="17.68"
+          r="3.4"
+        />
+        <circle
+          cx="5.02"
+          cy="30.32"
+          r="3.1"
+        />
+        <circle
+          cx="12.19"
+          cy="40.14"
+          r="2.8"
+        />
+        <circle
+          cx="24"
+          cy="44"
+          r="2.5"
+        />
+        <circle
+          cx="35.81"
+          cy="40.14"
+          r="2.2"
+        />
+        <circle
+          cx="42.98"
+          cy="30.32"
+          r="1.9"
+        />
+        <circle
+          cx="42.98"
+          cy="17.68"
+          r="1.6"
+        />
+        <circle
+          cx="35.81"
+          cy="7.86"
+          r="1.3"
+        />
+      </svg>
+    </div>
+    <span
+      class="button__text"
+    >
+      Loading...
+    </span>
+  </button>
+</DocumentFragment>
+`;

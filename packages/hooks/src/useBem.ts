@@ -1,5 +1,5 @@
-import { classNames } from "@stewed/utilities";
 import { useCallback } from "react";
+import { classNames } from "@stewed/utilities";
 
 // Define type for classNames parameters
 type ClassNamesParams = Parameters<typeof classNames>;

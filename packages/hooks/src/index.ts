@@ -9,7 +9,6 @@ export * from "./useFocusTrap";
 export * from "./useGlobalState";
 export * from "./useInput";
 export * from "./useIntersectionObserver";
-export * from "./useIsomorphicLayoutEffect";
 export * from "./useKeyboardNavigation";
 export * from "./useMounted";
 export * from "./usePortal";
