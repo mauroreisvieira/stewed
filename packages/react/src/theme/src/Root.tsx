@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect, useMemo, useId } from "react";
 // Tokens
 import { defaultTokens, type Tokens, type Components, Radius, Shadow } from "@stewed/tokens";
 // Utilities
@@ -26,10 +26,8 @@ type ComponentOverrides = {
 export interface RootProps<T extends string>
   extends React.ComponentPropsWithRef<"div">,
     ThemeContextOmittedProps<T> {
-  /** Additional class name for styling. */
-  className?: string;
-  /** React components to be rendered within the Root component. */
-  children?: React.ReactNode;
+  /** Boolean to indicate if the theme styles are scoped. */
+  scoped?: boolean;
 }
 
 /**
@@ -38,9 +36,15 @@ export interface RootProps<T extends string>
  * @param {RootProps} props - Props for the Root component.
  * @returns {React.ReactElement} - React element representing the root component with themed styles applied.
  */
-export function Root<T extends string>({ children, ...props }: RootProps<T>): React.ReactElement {
+export function Root<T extends string>({
+  scoped = false,
+  children,
+  ...props
+}: RootProps<T>): React.ReactElement {
   // Theme and tokens from the context
   const { theme, tokens, activeToken } = useTheme();
+
+  console.log("theme switch", theme);
 
   const outputObject = useMemo(() => {
     if (tokens?.[theme]?.components) {
@@ -95,13 +99,21 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
     );
   }, [outputObject]);
 
-  useEffect(() => {
-    const styleTag = document.createElement("style");
-    styleTag.setAttribute("data-theme", theme);
+  const computedStyles = useMemo(
+    () =>
+      `\n${Object.entries(cssProperties)
+        .map(([property, value]) => `${property}: ${value};`)
+        .join("\n")}`,
+    [],
+  );
 
-    styleTag.innerHTML = `[data-theme="${theme}"] { \n${Object.entries(cssProperties)
-      .map(([property, value]) => `${property}: ${value};`)
-      .join("\n")}\n}`;
+  const uniqueID = useId();
+
+  useEffect(() => {
+    if (scoped) return;
+
+    const styleTag = document.createElement("style");
+    styleTag.innerHTML = `[data-theme="${theme}"] {${computedStyles}\n}`;
 
     document.head.appendChild(styleTag);
 
@@ -111,7 +123,11 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
   }, [cssProperties, theme]);
 
   return (
-    <div {...props} data-theme={theme}>
+    <div
+      {...props}
+      data-theme={theme}
+      data-scope={scoped ? uniqueID : undefined}>
+      {scoped && <style>{`[data-scope="${uniqueID}"] { ${computedStyles}`}</style>}
       {children}
     </div>
   );
