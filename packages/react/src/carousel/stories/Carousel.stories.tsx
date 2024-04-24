@@ -31,7 +31,8 @@ export const Base: Story = {
         shadow="none"
         key={index}
         padding={{ block: "7xl", inline: "7xl" }}
-        skin="primary-faded">
+        skin="primary-faded"
+      >
         <Card.Body>
           <Text alignment="center" size="8xl">
             {index + 1}

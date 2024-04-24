@@ -3,7 +3,7 @@ import { renderHook, act } from "@testing-library/react";
 
 describe("useInput", () => {
   // Mock validate function for testing
-  const mockValidate = jest.fn((newValue: UseInputValue, currentValue: UseInputValue) => true);
+  const mockValidate = jest.fn(() => true);
 
   afterEach(() => {
     jest.clearAllMocks();

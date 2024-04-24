@@ -144,12 +144,14 @@ export function Pagination({
             stroke="currentColor"
             strokeWidth={2}
             strokeLinecap="round"
-            strokeLinejoin="round">
+            strokeLinejoin="round"
+          >
             <polyline points="15 18 9 12 15 6" />
           </svg>
         }
         onClick={() => onPageChange?.(selectedPage - 1)}
-        iconOnly>
+        iconOnly
+      >
         {previousLabel}
       </Button>
       {totalPages.map((page, index) => {
@@ -166,7 +168,8 @@ export function Pagination({
             aria-current={isEllipsis ? undefined : selected}
             aria-selected={isEllipsis ? undefined : selected}
             aria-label={isEllipsis ? undefined : pageLabel?.({ page: current })}
-            onClick={isEllipsis ? undefined : () => onPageChange?.(current)}>
+            onClick={isEllipsis ? undefined : () => onPageChange?.(current)}
+          >
             {page}
           </Button>
         );
@@ -184,12 +187,14 @@ export function Pagination({
             stroke="currentColor"
             strokeWidth={2}
             strokeLinecap="round"
-            strokeLinejoin="round">
+            strokeLinejoin="round"
+          >
             <polyline points="9 18 15 12 9 6" />
           </svg>
         }
         onClick={() => onPageChange?.(selectedPage + 1)}
-        iconOnly>
+        iconOnly
+      >
         {nextLabel}
       </Button>
     </nav>

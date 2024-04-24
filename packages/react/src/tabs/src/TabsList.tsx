@@ -41,7 +41,8 @@ export function TabsList({
       className={cssClasses.root}
       role="tablist"
       onKeyDown={onHandleKeyDown}
-      {...props}>
+      {...props}
+    >
       {children}
     </div>
   );

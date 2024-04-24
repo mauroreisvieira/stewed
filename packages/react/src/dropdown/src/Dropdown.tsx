@@ -77,7 +77,8 @@ export function Dropdown<T extends HTMLElement>({
               left: `${x}px`,
               top: `${y}px`,
             }}
-            {...props}>
+            {...props}
+          >
             {children}
           </div>
         </Scope>

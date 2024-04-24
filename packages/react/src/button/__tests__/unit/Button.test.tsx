@@ -40,7 +40,7 @@ describe("Button", () => {
   it("applies icon-only class when iconOnly prop is true", () => {
     const { asFragment } = render(
       <Button iconOnly>
-        <i className="fas fa-star"></i>
+        <i className="fas fa-star" />
       </Button>,
     );
 

@@ -305,11 +305,13 @@ export const Carousel = forwardRef(
           <div
             className={cssClasses.content}
             onTouchStart={onHandleTouchStart}
-            onTouchMove={onHandleTouchMove}>
+            onTouchMove={onHandleTouchMove}
+          >
             <div
               className={cssClasses.track}
               style={computedStyles}
-              onTransitionEnd={onHandleTransitionEnd}>
+              onTransitionEnd={onHandleTransitionEnd}
+            >
               {slidesCount > show && loopingEffect && renderExtraPreviousSlides}
               {renderSlides}
               {slidesCount > show && loopingEffect && renderExtraNextSlides}

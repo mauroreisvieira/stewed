@@ -5,9 +5,8 @@ const baseConfig = getEslintConfig();
 /** @type import("eslint").Linter.Config */
 module.exports = {
   ...baseConfig,
-
-  parserOptions: {
-    ...baseConfig.parserOptions,
+  rules: {
+    ...baseConfig.rules,
+    "no-console": "error",
   },
-  extends: ["plugin:storybook/recommended", "plugin:storybook/recommended"]
 };

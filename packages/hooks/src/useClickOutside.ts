@@ -28,20 +28,16 @@ export function useClickOutside<T extends HTMLElement = HTMLElement>({
   handler,
   ignoredElements = [],
 }: IUseClickOutside<T>): void {
-  console.log("Hook");
   useEffect(() => {
     /**
      * Handler for click events outside the specified elements.
      * @param event The MouseEvent object.
      */
     const onHandleClickOutside: Handler = (event) => {
-      console.log("onHandleClickOutside");
       // If click is inside ignored element, do nothing
       if (ignoredElements?.some((el) => el && el.contains(event.target as Node))) {
         return;
       }
-
-      console.log("reference", reference);
 
       const isOutside = Array.isArray(reference)
         ? reference.every((ref) => ref && !ref.contains(event.target as Node))
