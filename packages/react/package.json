@@ -32,7 +32,9 @@
     "@vitejs/plugin-react": "^4.2.1",
     "vite-plugin-dts": "^3.8.3",
     "vite-plugin-lib-inject-css": "^2.0.1",
-    "rollup-plugin-peer-deps-external": "^2.2.4"
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "jest-css-modules": "^2.1.0",
+    "jest": "^29.7.0"
   },
   "peerDependencies": {
     "react": "^18.2.0"
