@@ -12,6 +12,7 @@
     "clean": "turbo clean && rm -rf node_modules",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
+    "status:packages": "changeset status --verbose",
     "publish:packages": "changeset publish",
     "version:packages": "changeset version"
   },
