@@ -45,6 +45,3 @@ jobs:
 
       - name: 🏗️ Build
         run: pnpm run build
-
-      - name: 🔮 Predict Packages
-        run: pnpm run status:packages
