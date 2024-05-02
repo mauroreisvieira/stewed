@@ -11,7 +11,7 @@ $card-shadow: theme.get-shadow();
 /// Skins
 $card-skins: (
   "neutral": theme.get-color("neutral"),
-  "neutral-faded": theme.get-color("neutral", "faded"),
+  "neutral-faded": theme.get-color("neutral", "100"),
   "primary": theme.get-color("primary"),
-  "primary-faded": theme.get-color("primary", "faded"),
+  "primary-faded": theme.get-color("primary", "100"),
 );

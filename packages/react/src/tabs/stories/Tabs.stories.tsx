@@ -30,6 +30,7 @@ export const Base: Story = {
   args: {
     alignment: "start",
     direction: "row",
+    value:"2",
     children: (
       <>
         <Tabs.List>
@@ -39,7 +40,7 @@ export const Base: Story = {
           <Tabs.Item leftSlot={<FiBell />} value="2">
             Notifications
           </Tabs.Item>
-          <Tabs.Item leftSlot={<FiBell />} value="3" disabled>
+          <Tabs.Item leftSlot={<FiBell />} value="3">
             Team
           </Tabs.Item>
           <Tabs.Item leftSlot={<FiCalendar />} value="4">

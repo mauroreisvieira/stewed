@@ -11,8 +11,7 @@ interface SeparatorProps extends React.ComponentPropsWithRef<"hr"> {
    * Change the visual color of the separator.
    * @default neutral-border
    */
-  skin?: Extract<
-    Color,
+  skin?:
     | "white"
     | "neutral"
     | "neutral-border"
@@ -21,8 +20,7 @@ interface SeparatorProps extends React.ComponentPropsWithRef<"hr"> {
     | "secondary"
     | "secondary-border"
     | "critical"
-    | "critical-border"
-  >;
+    | "critical-border";
   /** Adds space between separators on the horizontal and vertical axes. */
   space?: {
     /**

@@ -6,8 +6,8 @@
   @include theme.define-var(
     (
       border-radius: theme.get-radius(md),
-      background-color: theme.get-color("neutral", "faded"),
-      border-color: theme.get-color("neutral", "border"),
+      background-color: theme.get-color("neutral", "100"),
+      border-color: theme.get-color("neutral", "300"),
     )
   );
 
@@ -45,7 +45,7 @@
 
     .#{$table-root}__row--selected {
       .#{$table-root}__cell {
-        background-color: theme.get-color("primary", "faded");
+        background-color: theme.get-color("primary", "100");
       }
     }
 

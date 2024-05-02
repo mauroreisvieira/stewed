@@ -5,16 +5,16 @@ $select-root: "select";
 // Appearance
 $select-skins: (
   "default": (
-    "border": theme.get-color("neutral", "border"),
-    "border-hover": theme.get-color("neutral", "border-hover"),
+    "border": theme.get-color("neutral", "300"),
+    "border-hover": theme.get-color("neutral", "400"),
   ),
   "success": (
-    "border": theme.get-color("success", "border"),
-    "border-hover": theme.get-color("success", "pressed"),
+    "border": theme.get-color("success", "300"),
+    "border-hover": theme.get-color("success", "600"),
   ),
   "critical": (
     "border": theme.get-color("critical"),
-    "border-hover": theme.get-color("critical", "pressed"),
+    "border-hover": theme.get-color("critical", "600"),
   ),
 );
 

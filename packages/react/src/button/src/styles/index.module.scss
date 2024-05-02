@@ -56,7 +56,7 @@
         &:hover {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "pressed"),
+              background-color: theme.get-color($value, "600"),
             )
           );
         }
@@ -65,7 +65,7 @@
         &:active {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value),
+              background-color: theme.get-color($value, "700"),
             )
           );
         }
@@ -109,7 +109,7 @@
         &:hover {
           @include theme.define-var(
             (
-              color: theme.get-color($value, "pressed"),
+              color: theme.get-color($value, "600"),
             )
           );
         }
@@ -118,7 +118,7 @@
         &:active {
           @include theme.define-var(
             (
-              color: theme.get-color($value),
+              color: theme.get-color($value, "700"),
             )
           );
         }

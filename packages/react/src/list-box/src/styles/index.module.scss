@@ -81,14 +81,14 @@
         @include theme.define-var(
           (
             background-color: transparent,
-            color: theme.get-color($value, "pressed"),
+            color: theme.get-color($value, "600"),
           )
         );
 
         &:hover {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "faded"),
+              background-color: theme.get-color($value, "100"),
             )
           );
         }
@@ -96,7 +96,7 @@
         &:active {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "faded"),
+              background-color: theme.get-color($value, "200"),
             )
           );
         }
@@ -104,7 +104,7 @@
         &.#{$list-box-root}__item--selected {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "faded"),
+              background-color: theme.get-color($value, "100"),
             )
           );
         }

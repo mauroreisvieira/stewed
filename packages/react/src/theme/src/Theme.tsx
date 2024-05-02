@@ -11,8 +11,9 @@ import { objectKeys } from "@stewed/utilities";
 export interface ThemeProps<T extends string = "default"> extends RootProps<T> {}
 
 /**
- * Theme component for managing themes in the application.
+ * A Theme component allows you to manage various objects that define your application's colors, spacing, fonts, and more in a coherent and organized manner.
  *
+ * @template T - The type of theme to be used.
  * @param {ThemeProps<T>} props - Props for the Theme component.
  * @returns {React.ReactElement} - React element representing the themed application.
  */
@@ -49,7 +50,8 @@ export function Theme<T extends string = "default">({
         setTheme,
         tokens: currentTokens,
         setTokens: setCurrentTokens,
-      }}>
+      }}
+    >
       {/* Root component to which the themed styles are applied */}
       <Root {...props} />
     </ThemeContext.Provider>

@@ -44,7 +44,7 @@
   &:active {
     @include theme.define-var(
       (
-        color: theme.get-color("neutral", "pressed"),
+        color: theme.get-color("neutral", "600"),
       )
     );
   }
@@ -101,7 +101,7 @@
       &:hover:not([aria-selected="true"]) {
         @include theme.define-var(
           (
-            background-color: theme.get-color($value, "faded"),
+            background-color: theme.get-color($value, "100"),
             color: theme.get-color($value),
           )
         );

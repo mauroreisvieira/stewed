@@ -17,7 +17,7 @@ export interface CardProps extends React.ComponentPropsWithRef<"div"> {
    * Change the visual style of the card.
    * @default default
    */
-  skin?: "default" | Extract<Color, "neutral" | "neutral-faded" | "primary" | "primary-faded">;
+  skin?: "default" | "neutral" | "neutral-faded" | "primary" | "primary-faded";
   /** Padding options for horizontal and vertical orientation. */
   padding?: {
     /** Adds padding in the block direction (e.g., top and bottom for vertical orientation). */

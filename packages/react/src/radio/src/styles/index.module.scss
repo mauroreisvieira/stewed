@@ -12,8 +12,8 @@
 
   @include theme.define-var(
     (
-      background-color: theme.get-color("neutral", "faded"),
-      border-color: theme.get-color("neutral", "border"),
+      background-color: theme.get-color("neutral", "100"),
+      border-color: theme.get-color("neutral", "300"),
     )
   );
 
@@ -23,7 +23,7 @@
   @include theme.hover {
     @include theme.define-var(
       (
-        background-color: theme.get-color("neutral", "faded"),
+        background-color: theme.get-color("neutral", "200"),
       )
     );
   }

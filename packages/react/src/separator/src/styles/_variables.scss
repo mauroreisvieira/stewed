@@ -4,15 +4,15 @@ $separator-root: "separator";
 
 /// Skins
 $separator-skins: (
-  "white",
-  "neutral",
-  "neutral-border",
-  "primary",
-  "primary-border",
-  "secondary",
-  "secondary-border",
-  "critical",
-  "critical-border"
+  "white": theme.get-color("white"),
+  "neutral": theme.get-color("neutral"),
+  "neutral-border": theme.get-color("neutral", "300"),
+  "primary": theme.get-color("primary"),
+  "primary-border": theme.get-color("primary", "300"),
+  "secondary": theme.get-color("secondary"),
+  "secondary-border": theme.get-color("secondary", "300"),
+  "critical": theme.get-color("critical"),
+  "critical-border": theme.get-color("critical", "300"),
 );
 
 /// Space
