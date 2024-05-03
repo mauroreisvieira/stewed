@@ -50,7 +50,7 @@ export const RecentFeedback = {
         email: "mauro.vieira@example.com",
         content: "We're looking to include a new calendar component, is this very difficult for me",
         sentiment: "Negative",
-        selected: false,
+        selected: true,
       },
       {
         id: "3",
@@ -58,7 +58,7 @@ export const RecentFeedback = {
         email: "lourenco.vieira@example.com",
         content: "We're looking to include a new calendar component, is this very difficult for me",
         sentiment: "Positive",
-        selected: true,
+        selected: false,
       },
       {
         id: "4",
@@ -91,7 +91,7 @@ export const RecentFeedback = {
             Find all of your customer feedback in one place.
           </Text>
 
-          <Table hoverable>
+          <Table appearance={"striped"}  hoverable>
             <Table.Head>
               <Table.Row>
                 <Table.Cell as="th">
@@ -168,7 +168,7 @@ export const RecentFeedback = {
                             ? "critical"
                             : "neutral"
                       }
-                      appearance="ghost"
+                      appearance="soft"
                       size="sm"
                     >
                       {sentiment}

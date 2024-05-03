@@ -17,9 +17,21 @@ import {
   Dialog,
   Select,
   Container,
+  Table,
 } from "../../index";
 // Hooks
 import { useStateForm } from "@stewed/hooks";
+// Tokens
+import {
+  breakpoints,
+  screens,
+  elevation,
+  fontFamily,
+  fontSize,
+  fontWeight,
+  lineHeight,
+  spacings,
+} from "@stewed/tokens";
 
 type Story = StoryObj<typeof Theme>;
 
@@ -32,6 +44,241 @@ const meta: Meta<typeof Theme> = {
 };
 
 export default meta;
+
+export const Colors: Story = {
+  render: (): React.ReactElement => {
+    return (
+      <Theme>
+        {["primary", "secondary", "neutral", "critical", "success", "info", "warning"].map(
+          (color) => (
+            <Box key={color} direction="column" gap="xs" space={{ y: "xl" }}>
+              <Text variation={"capitalize"} weight="medium">
+                {color}
+              </Text>
+              <Box items="baseline">
+                {[100, 200, 300, 400, 500, 600, 700, 800, 900].map((tone) => (
+                  <Box
+                    key={tone}
+                    justify="center"
+                    grow
+                    style={{
+                      padding: tone === 500 ? 32 : 24,
+                      backgroundColor:
+                        tone === 500 ? `var(--color-${color})` : `var(--color-${color}-${tone})`,
+                    }}
+                  >
+                    <Text size="xs" skin={tone > 400 ? "white" : "text"}>
+                      {tone}
+                    </Text>
+                  </Box>
+                ))}
+              </Box>
+            </Box>
+          ),
+        )}
+      </Theme>
+    );
+  },
+};
+
+export const Screens: Story = {
+  render: (): React.ReactElement => {
+    return (
+      <Theme>
+        <Table appearance={["border-rows", "border-columns", "striped"]}>
+          <Table.Head>
+            <Table.Row>
+              <Table.Cell as="th">Name</Table.Cell>
+              <Table.Cell as="th">Value</Table.Cell>
+            </Table.Row>
+          </Table.Head>
+          <Table.Body>
+            {Object.entries(screens).map(([key, val]) => (
+              <Table.Row key={key}>
+                <Table.Cell>{key}</Table.Cell>
+                <Table.Cell>{val}</Table.Cell>
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table>
+      </Theme>
+    );
+  },
+};
+
+export const Breakpoints: Story = {
+  render: (): React.ReactElement => {
+    return (
+      <Theme>
+        <Table appearance={["border-rows", "border-columns", "striped"]}>
+          <Table.Head>
+            <Table.Row>
+              <Table.Cell as="th">Name</Table.Cell>
+              <Table.Cell as="th">Value</Table.Cell>
+            </Table.Row>
+          </Table.Head>
+          <Table.Body>
+            {Object.entries(breakpoints).map(([key, val]) => (
+              <Table.Row key={key}>
+                <Table.Cell>{key}</Table.Cell>
+                <Table.Cell>{val}</Table.Cell>
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table>
+      </Theme>
+    );
+  },
+};
+
+export const FontFamily: Story = {
+  render: (): React.ReactElement => {
+    return (
+      <Theme>
+        <Table appearance={["border-rows", "border-columns", "striped"]}>
+          <Table.Head>
+            <Table.Row>
+              <Table.Cell as="th">Name</Table.Cell>
+              <Table.Cell as="th">Value</Table.Cell>
+            </Table.Row>
+          </Table.Head>
+          <Table.Body>
+            {Object.entries(fontFamily).map(([key, val]) => (
+              <Table.Row key={key}>
+                <Table.Cell>{key}</Table.Cell>
+                <Table.Cell>{val}</Table.Cell>
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table>
+      </Theme>
+    );
+  },
+};
+
+export const FontSize: Story = {
+  render: (): React.ReactElement => {
+    return (
+      <Theme>
+        <Table appearance={["border-rows", "border-columns", "striped"]}>
+          <Table.Head>
+            <Table.Row>
+              <Table.Cell as="th">Name</Table.Cell>
+              <Table.Cell as="th">Value</Table.Cell>
+            </Table.Row>
+          </Table.Head>
+          <Table.Body>
+            {Object.entries(fontSize).map(([key, val]) => (
+              <Table.Row key={key}>
+                <Table.Cell>{key}</Table.Cell>
+                <Table.Cell>{val}</Table.Cell>
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table>
+      </Theme>
+    );
+  },
+};
+
+export const FontWeight: Story = {
+  render: (): React.ReactElement => {
+    return (
+      <Theme>
+        <Table appearance={["border-rows", "border-columns", "striped"]}>
+          <Table.Head>
+            <Table.Row>
+              <Table.Cell as="th">Name</Table.Cell>
+              <Table.Cell as="th">Value</Table.Cell>
+            </Table.Row>
+          </Table.Head>
+          <Table.Body>
+            {Object.entries(fontWeight).map(([key, val]) => (
+              <Table.Row key={key}>
+                <Table.Cell>{key}</Table.Cell>
+                <Table.Cell>{val}</Table.Cell>
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table>
+      </Theme>
+    );
+  },
+};
+
+export const LineHeight: Story = {
+  render: (): React.ReactElement => {
+    return (
+      <Theme>
+        <Table appearance={["border-rows", "border-columns", "striped"]}>
+          <Table.Head>
+            <Table.Row>
+              <Table.Cell as="th">Name</Table.Cell>
+              <Table.Cell as="th">Value</Table.Cell>
+            </Table.Row>
+          </Table.Head>
+          <Table.Body>
+            {Object.entries(lineHeight).map(([key, val]) => (
+              <Table.Row key={key}>
+                <Table.Cell>{key}</Table.Cell>
+                <Table.Cell>{val}</Table.Cell>
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table>
+      </Theme>
+    );
+  },
+};
+
+export const Spacings: Story = {
+  render: (): React.ReactElement => {
+    return (
+      <Theme>
+        <Table appearance={["border-rows", "border-columns", "striped"]}>
+          <Table.Head>
+            <Table.Row>
+              <Table.Cell as="th">Name</Table.Cell>
+              <Table.Cell as="th">Value</Table.Cell>
+            </Table.Row>
+          </Table.Head>
+          <Table.Body>
+            {Object.entries(spacings).map(([key, val]) => (
+              <Table.Row key={key}>
+                <Table.Cell>{key}</Table.Cell>
+                <Table.Cell>{val}</Table.Cell>
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table>
+      </Theme>
+    );
+  },
+};
+export const Elevation: Story = {
+  render: (): React.ReactElement => {
+    return (
+      <Theme>
+        <Table appearance={["border-rows", "border-columns", "striped"]}>
+          <Table.Head>
+            <Table.Row>
+              <Table.Cell as="th">Name</Table.Cell>
+              <Table.Cell as="th">Value</Table.Cell>
+            </Table.Row>
+          </Table.Head>
+          <Table.Body>
+            {Object.entries(elevation).map(([key, val]) => (
+              <Table.Row key={key}>
+                <Table.Cell>{key}</Table.Cell>
+                <Table.Cell>{val}</Table.Cell>
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table>
+      </Theme>
+    );
+  },
+};
 
 function Elements(): React.ReactElement {
   const { theme, setTheme } = useTheme<ThemeOptions>();
@@ -237,9 +484,6 @@ function Elements(): React.ReactElement {
 }
 
 export const Example: Story = {
-  args: {
-    children: "Theme",
-  },
   render: (): React.ReactElement => {
     return (
       <Theme<ThemeOptions>
@@ -283,9 +527,7 @@ export const Example: Story = {
             },
             color: {
               backdrop: "rgb(200 200 200 / 70%)",
-              // Primary
-              primary: "#e91e63",
-              // Critical
+              primary: "#f00",
               critical: "#ef4444",
               success: "#14784a",
             },
@@ -310,41 +552,6 @@ export const Example: Story = {
         <Container screen="lg" alignment="center">
           <Elements />
         </Container>
-      </Theme>
-    );
-  },
-};
-
-export const Colors: Story = {
-  render: (): React.ReactElement => {
-    return (
-      <Theme>
-        {["primary", "secondary", "neutral", "critical", "success", "info", "warning"].map(
-          (color) => (
-            <Box direction="column" gap="xs" space={{ y: "xl" }}>
-              <Text variation={"capitalize"} weight="medium">
-                {color}
-              </Text>
-              <Box items="baseline">
-                {[100, 200, 300, 400, 500, 600, 700, 800, 900].map((tone) => (
-                  <Box
-                    justify="center"
-                    grow
-                    style={{
-                      padding: tone === 500 ? 32 : 24,
-                      backgroundColor:
-                        tone === 500 ? `var(--color-${color})` : `var(--color-${color}-${tone})`,
-                    }}
-                  >
-                    <Text size="xs" skin={tone > 400 ? "white" : "text"}>
-                      {tone}
-                    </Text>
-                  </Box>
-                ))}
-              </Box>
-            </Box>
-          ),
-        )}
       </Theme>
     );
   },
