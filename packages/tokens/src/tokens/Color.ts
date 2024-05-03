@@ -2,10 +2,6 @@ export const color = {
   // Global --------------------------------------------------------------------
   "text": "#000",
   "white": "#fff",
-  // Backdrop --------------------------------------------------------------------
-  "backdrop": "rgb(0 0 0 / 70%)",
-  // Focus ---------------------------------------------------------------------
-  "focus": "var(--color-primary-border)",
   // Primary -------------------------------------------------------------------
   "primary-100": "color-mix(in oklab, var(--color-primary) 10%, white)",
   "primary-200": "color-mix(in oklab, var(--color-primary) 20%, white)",
@@ -76,6 +72,10 @@ export const color = {
   "warning-700": "color-mix(in oklab, var(--color-warning) 80%, black)",
   "warning-800": "color-mix(in oklab, var(--color-warning) 70%, black)",
   "warning-900": "color-mix(in oklab, var(--color-warning) 60%, black)",
+  // Backdrop --------------------------------------------------------------------
+  "backdrop": "rgb(0 0 0 / 70%)",
+  // Focus ---------------------------------------------------------------------
+  "focus": "var(--color-primary-300)",
 };
 
 export type Color = keyof typeof color;
