@@ -1,8 +1,8 @@
-import React, { useEffect, useMemo, useId } from "react";
+import React, { useMemo } from "react";
 // Tokens
 import { defaultTokens, type Tokens, type Components, Radius, Shadow } from "@stewed/tokens";
 // Utilities
-import { objectKeys } from "@stewed/utilities";
+import { classNames, objectKeys } from "@stewed/utilities";
 // Hooks
 import { type ThemeContextProps, useTheme } from "./ThemeContext";
 
@@ -26,8 +26,7 @@ type ComponentOverrides = {
 export interface RootProps<T extends string>
   extends React.ComponentPropsWithRef<"div">,
     ThemeContextOmittedProps<T> {
-  /** Boolean to indicate if the theme styles are scoped. */
-  scoped?: boolean;
+  cssScope?: string;
 }
 
 /**
@@ -37,14 +36,13 @@ export interface RootProps<T extends string>
  * @returns {React.ReactElement} - React element representing the root component with themed styles applied.
  */
 export function Root<T extends string>({
-  scoped = false,
   children,
+  cssScope,
+  className,
   ...props
 }: RootProps<T>): React.ReactElement {
   // Theme and tokens from the context
   const { theme, tokens, activeToken } = useTheme();
-
-  console.log("theme switch", theme);
 
   const outputObject = useMemo(() => {
     if (tokens?.[theme]?.components) {
@@ -104,30 +102,12 @@ export function Root<T extends string>({
       `\n${Object.entries(cssProperties)
         .map(([property, value]) => `${property}: ${value};`)
         .join("\n")}`,
-    [],
+    [cssProperties],
   );
 
-  const uniqueID = useId();
-
-  useEffect(() => {
-    if (scoped) return;
-
-    const styleTag = document.createElement("style");
-    styleTag.innerHTML = `[data-theme="${theme}"] {${computedStyles}\n}`;
-
-    document.head.appendChild(styleTag);
-
-    return () => {
-      styleTag.remove();
-    };
-  }, [cssProperties, theme]);
-
   return (
-    <div
-      {...props}
-      data-theme={theme}
-      data-scope={scoped ? uniqueID : undefined}>
-      {scoped && <style>{`[data-scope="${uniqueID}"] { ${computedStyles}`}</style>}
+    <div className={classNames(cssScope, className)} {...props}>
+      <style>{`:root { ${computedStyles}`}</style>
       {children}
     </div>
   );
