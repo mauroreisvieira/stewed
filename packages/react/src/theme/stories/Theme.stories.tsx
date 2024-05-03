@@ -527,7 +527,7 @@ export const Example: Story = {
             },
             color: {
               backdrop: "rgb(200 200 200 / 70%)",
-              primary: "#f00",
+              primary: "#e91e63",
               critical: "#ef4444",
               success: "#14784a",
             },
