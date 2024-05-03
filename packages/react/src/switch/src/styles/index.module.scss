@@ -13,13 +13,22 @@
 
   @include theme.define-var(
     (
-      background-color: theme.get-color("neutral"),
-      border-color: theme.get-color("neutral"),
+      background-color: theme.get-color("neutral", "300"),
+      border-color: theme.get-color("neutral", "300"),
     )
   );
 
+
   @include theme.focus-styles($target: ":focus-within .#{$switch-root}__control");
   @include theme.disabled-styles;
+
+  @include theme.hover {
+    @include theme.define-var(
+      (
+        background-color: theme.get-color("neutral", "400"),
+      )
+    );
+  }
 
   &--reversed {
     flex-direction: row-reverse;
@@ -94,6 +103,14 @@
             border-color: theme.get-color($value),
           )
         );
+
+        @include theme.hover {
+          @include theme.define-var(
+            (
+              background-color: theme.get-color($value, "600"),
+            )
+          );
+        }
       }
     }
   }
