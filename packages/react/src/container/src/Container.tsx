@@ -57,7 +57,7 @@ export const Container = fixedForwardRef(
   <T extends React.ElementType>(
     {
       as,
-      screen = "none",
+      screen = "full",
       alignment = "default",
       padding = {
         inline: "xl",
