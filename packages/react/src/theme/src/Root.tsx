@@ -106,8 +106,8 @@ export function Root<T extends string>({
   );
 
   return (
-    <div className={classNames(cssScope, className)} {...props}>
-      <style>{`:root { ${computedStyles}`}</style>
+    <div className={classNames(cssScope, className)} data-theme={theme} {...props}>
+      <style>{`[data-theme="${theme}"] { ${computedStyles}`}</style>
       {children}
     </div>
   );

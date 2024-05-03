@@ -22,67 +22,15 @@ npm install --save @stewed/react
 import { Theme } from "@stewed/react";
 ```
 
-### Usage
-
-```tsx
-<Theme<"default" | "epic">
-  tokens={{
-    default: {
-      color: {
-        "primary": "#3f51b5",
-      },
-      fontFamily: {
-        base: "'Roboto Serif', serif",
-      },
-    },
-    epic: {
-      fontFamily: {
-        base: "'DM Sans', sans-serif",
-      },
-      color: {
-        "backdrop": "rgb(200 200 200 / 70%)",
-        "primary": "#9c27b0",
-        "secondary": "#000",
-        "critical": "#e91111",
-        "success": "#14784a",
-      },
-      components: {
-        "text-field": {
-          radius: "none",
-        },
-        "select": {
-          radius: "none",
-        },
-        "card": {
-          radius: "none",
-        },
-        "switch": {
-          radius: "none",
-        },
-        "dialog": {
-          radius: "none",
-          shadow: "xl",
-        },
-        "tabs": {
-          radius: "none",
-        },
-        "button": {
-          radius: "none",
-        },
-      },
-    },
-  }}
-  defaultTheme="epic"
-  scoped>
-    Children
-</Theme>
-```
-
 <Meta of={ThemeStories} />
 
 ## Colors
 
 <Canvas of={ThemeStories.Colors} sourceState="none"/>
+
+## Example
+
+<Canvas of={ThemeStories.Example}/>
 
 ## Props
 
