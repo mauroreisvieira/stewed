@@ -91,7 +91,7 @@ export const RecentFeedback = {
             Find all of your customer feedback in one place.
           </Text>
 
-          <Table appearance={"striped"}  hoverable>
+          <Table appearance={"striped"} hoverable>
             <Table.Head>
               <Table.Row>
                 <Table.Cell as="th">
