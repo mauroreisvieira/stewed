@@ -44,7 +44,8 @@ export function ListBox({
       className={cssClasses.root}
       role="listbox"
       onKeyDown={onHandleKeyDown}
-      {...props}>
+      {...props}
+    >
       {children}
     </div>
   );

@@ -7,7 +7,7 @@ import { DialogBody } from "./DialogBody";
 import { DialogHeader } from "./DialogHeader";
 import { DialogFooter } from "./DialogFooter";
 // Hooks
-import { useBem, useClickOutside, useScrollLock } from "../../../../hooks/index";
+import { useBem, useClickOutside, useScrollLock } from "@stewed/hooks";
 import { useFocusTrap } from "@stewed/hooks";
 // Tokens
 import { components } from "@stewed/tokens";
@@ -88,18 +88,18 @@ export function Dialog({
     [onEscape],
   );
 
-  // Hook to handle clicks outside the floating element
-  useClickOutside<HTMLDivElement>({
-    reference: rootRef,
-    ignoredElements: [],
-    handler: () => onClickOutside?.(),
+  // Hook to handle clicks outside the floating element.
+  useClickOutside({
+    enabled: open,
+    ignoredElements: rootRef ? [rootRef] : undefined,
+    onClickOutside: () => onClickOutside?.(),
   });
 
   return (
     <>
       {open && (
         <Scope elevation="200">
-          <Backdrop onClick={onClickOutside} />
+          <Backdrop />
           <DialogProvider onClose={onClose}>
             <div className={cssClasses.root} {...props}>
               <div onKeyDown={onHandleKeydown} ref={setRootRef} className={cssClasses.surface}>

@@ -5,7 +5,7 @@ import { CardHeader } from "./CardHeader";
 import { CardFooter } from "./CardFooter";
 import { CardMedia } from "./CardMedia";
 // Tokens
-import { Spacings, Color, components } from "@stewed/tokens";
+import { Spacings, components } from "@stewed/tokens";
 // Hooks
 import { useBem } from "@stewed/hooks";
 import { type Shadow } from "@stewed/tokens";

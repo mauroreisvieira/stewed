@@ -57,11 +57,11 @@ export function Dropdown<T extends HTMLElement>({
     reference,
   });
 
-  // Hook to handle clicks outside the floating element
+  // Hook to handle clicks outside the floating element.
   useClickOutside({
-    reference: floating.current,
-    ignoredElements: reference ? [reference] : undefined,
-    handler: () => onClickOutside?.(),
+    enabled: open,
+    ignoredElements: [reference as Element, floating.current as Element],
+    onClickOutside: () => onClickOutside?.(),
   });
 
   return (

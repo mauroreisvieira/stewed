@@ -15,7 +15,8 @@ export function TabsProvider({
       value={{
         value,
         onValueChange,
-      }}>
+      }}
+    >
       {children}
     </TabsContext.Provider>
   );

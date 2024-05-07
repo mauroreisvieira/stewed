@@ -53,7 +53,8 @@ export function ListBoxItem({
       tabIndex={disabled ? -1 : 0}
       aria-selected={selected}
       aria-disabled={disabled}
-      {...props}>
+      {...props}
+    >
       {leftSlot && <div className={cssClasses.left}>{leftSlot}</div>}
       {children && <div className={cssClasses.text}>{children}</div>}
       {rightSlot && <div className={cssClasses.right}>{rightSlot}</div>}
