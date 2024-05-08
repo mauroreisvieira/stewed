@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 // Tokens
 import { defaultTokens, type Tokens, type Components, Radius, Shadow } from "@stewed/tokens";
 // Utilities
-import { classNames, objectKeys } from "@stewed/utilities";
+import { objectKeys } from "@stewed/utilities";
 // Hooks
 import { type ThemeContextProps, useTheme } from "./ThemeContext";
 
@@ -25,9 +25,7 @@ type ComponentOverrides = {
 
 export interface RootProps<T extends string>
   extends React.ComponentPropsWithRef<"div">,
-    ThemeContextOmittedProps<T> {
-  cssScope?: string;
-}
+    ThemeContextOmittedProps<T> {}
 
 /**
  * Root component for applying themed styles to its children based on the current theme.
@@ -35,12 +33,7 @@ export interface RootProps<T extends string>
  * @param {RootProps} props - Props for the Root component.
  * @returns {React.ReactElement} - React element representing the root component with themed styles applied.
  */
-export function Root<T extends string>({
-  children,
-  cssScope,
-  className,
-  ...props
-}: RootProps<T>): React.ReactElement {
+export function Root<T extends string>({ children, ...props }: RootProps<T>): React.ReactElement {
   // Theme and tokens from the context
   const { theme, tokens, activeToken } = useTheme();
 
@@ -106,7 +99,7 @@ export function Root<T extends string>({
   );
 
   return (
-    <div className={classNames(cssScope, className)} data-theme={theme} {...props}>
+    <div data-theme={theme} {...props}>
       <style>{`[data-theme="${theme}"] { ${computedStyles}`}</style>
       {children}
     </div>
