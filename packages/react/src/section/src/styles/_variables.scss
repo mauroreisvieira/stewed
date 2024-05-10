@@ -1,0 +1,26 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+
+$section-root: "section";
+$section-padding: theme.get-spacing();
+$section-space: theme.get-spacing();
+
+$section-width: (
+  "auto": "auto",
+  "full": "100%",
+  "vw": theme.get-viewport("vw"),
+  "svw": theme.get-viewport("svw"),
+  "lvw": theme.get-viewport("lvw"),
+  "dvw": theme.get-viewport("dvw"),
+);
+
+$section-height: (
+  "auto": "auto",
+  "full": "100%",
+  "vh": theme.get-viewport("vh"),
+  "svh": theme.get-viewport("svh"),
+  "lvh": theme.get-viewport("lvh"),
+  "dvh": theme.get-viewport("dvh"),
+);
+
+/// Skins
+$section-skins: ("primary", "secondary", "neutral", "critical", "success");
