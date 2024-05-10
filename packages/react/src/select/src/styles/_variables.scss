@@ -9,11 +9,11 @@ $select-skins: (
     "border-hover": theme.get-color("neutral", "400"),
   ),
   "success": (
-    "border": theme.get-color("success", "300"),
+    "border": theme.get-color("success", "500"),
     "border-hover": theme.get-color("success", "600"),
   ),
   "critical": (
-    "border": theme.get-color("critical"),
+    "border": theme.get-color("critical", "500"),
     "border-hover": theme.get-color("critical", "600"),
   ),
 );

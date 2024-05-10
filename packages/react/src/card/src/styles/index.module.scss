@@ -5,7 +5,6 @@
   @include theme.define-var(
     (
       padding: 0,
-      background-color: #fff,
     )
   );
 
@@ -17,6 +16,7 @@
   background-color: theme.get-var(background-color);
   border-radius: theme.get-var(radius);
   box-shadow: theme.get-var(box-shadow);
+  box-sizing: border-box;
 
   &__body {
     flex: 1;
@@ -75,20 +75,11 @@
   }
 
   &--selected {
-    outline: 2px solid theme.get-color("primary");
+    outline: 2px solid theme.get-color("primary", "500");
   }
 
   &--hoverable {
     cursor: pointer;
-  }
-
-  // Skin
-  &--default {
-    @include theme.define-var(
-      (
-        background-color: #fff,
-      )
-    );
   }
 
   // Skins

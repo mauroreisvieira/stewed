@@ -28,7 +28,7 @@ export const Base: Story = {
   },
   args: {
     selected: false,
-    skin: "default",
+    skin: "light",
     children: (
       <>
         <Card.Header>

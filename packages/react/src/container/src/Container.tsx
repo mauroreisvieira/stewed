@@ -29,7 +29,7 @@ export interface ContainerProps<T>
   alignment?: "default" | "center";
   /**
    * Specifies the screen size for the container.
-   * @default none
+   * @default full
    */
   screen?: Screens;
   /**

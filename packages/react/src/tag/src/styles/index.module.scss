@@ -72,8 +72,8 @@
       &-filled {
         @include theme.define-var(
           (
-            background-color: theme.get-color($value),
-            color: #fff,
+            background-color: theme.get-color($value, "500"),
+            color: theme.get-color("white"),
           )
         );
 
@@ -88,7 +88,7 @@
         &[href]:active {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value),
+              background-color: theme.get-color($value, "500"),
             )
           );
         }
@@ -97,7 +97,7 @@
       &-ghost {
         @include theme.define-var(
           (
-            color: theme.get-color($value),
+            color: theme.get-color($value, "500"),
             background-color: transparent,
           )
         );
@@ -124,7 +124,7 @@
           (
             background-color: transparent,
             border-color: currentColor,
-            color: theme.get-color($value),
+            color: theme.get-color($value, "500"),
           )
         );
 
@@ -139,7 +139,7 @@
         &[href]:active {
           @include theme.define-var(
             (
-              color: theme.get-color($value),
+              color: theme.get-color($value, "500"),
             )
           );
         }
@@ -149,14 +149,14 @@
         @include theme.define-var(
           (
             color: theme.get-color($value, "600"),
-            background-color: color-mix(in srgb, theme.get-color($value), transparent 95%),
+            background-color: color-mix(in srgb, theme.get-color($value, "500"), transparent 95%),
           )
         );
 
         &[href]:hover {
           @include theme.define-var(
             (
-              color: theme.get-color($value),
+              color: theme.get-color($value, "500"),
             )
           );
         }
@@ -164,7 +164,7 @@
         &[href]:active {
           @include theme.define-var(
             (
-              color: theme.get-color($value),
+              color: theme.get-color($value, "500"),
             )
           );
         }

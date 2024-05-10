@@ -19,6 +19,6 @@ $list-box-item-skins: (
 );
 
 // List Box Section
-$list-box-title-color: #{theme.get-color("neutral")};
+$list-box-title-color: #{theme.get-color("neutral", "500")};
 $list-box-title-font-size: theme.get-font-size("xs");
 $list-box-title-font-weight: theme.get-font-weight("medium");

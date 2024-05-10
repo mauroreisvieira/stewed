@@ -1,6 +1,6 @@
 import React from "react";
 // Tokens
-import { type Spacings, components } from "@stewed/tokens";
+import { type Spacings, type Viewport, type Screens, components } from "@stewed/tokens";
 // Hooks
 import { useBem, useResponsive, type UseResponsiveProps } from "@stewed/hooks";
 import { useTheme } from "../../theme";
@@ -40,6 +40,8 @@ export interface BoxProps<T>
       };
       /** Renders the box container as an inline element. */
       inline?: boolean;
+      /** Renders the box container as an block element. */
+      block?: boolean;
       /** Allows the box container to grow to fill available space. */
       grow?: boolean;
     }> {
@@ -48,6 +50,17 @@ export interface BoxProps<T>
    * @default div
    */
   as?: T;
+  /**
+   * Change the visual style of the Section.
+   * @default light
+   */
+  skin?: "light" | "dark" | "neutral" | "neutral-faded" | "primary" | "primary-faded";
+  /**
+   * Identifies a styling option specifically for the screen size.
+   *
+   * @remarks This property can be used to set the height to fill the entire screen.
+   */
+  screen?: Extract<Viewport, "vh"> | Extract<Screens, "full">;
 }
 
 /**
@@ -68,6 +81,8 @@ export const Box = fixedForwardRef(
   <T extends React.ElementType>(
     {
       as,
+      skin,
+      screen,
       direction = "row",
       gap,
       padding,
@@ -76,6 +91,7 @@ export const Box = fixedForwardRef(
       wrap,
       space,
       inline,
+      block,
       grow,
       responsive,
       className,
@@ -105,6 +121,7 @@ export const Box = fixedForwardRef(
         wrap,
         space,
         inline,
+        block,
         grow,
         responsive,
       },
@@ -118,6 +135,8 @@ export const Box = fixedForwardRef(
     const cssClasses = {
       root: getBlock({
         modifiers: [
+          skin,
+          screen && `screen-${screen}`,
           computedProps.direction !== "row" && computedProps.direction,
           computedProps.gap && `gap-${computedProps.gap}`,
           computedProps.justify && `justify-${computedProps.justify}`,
@@ -128,6 +147,7 @@ export const Box = fixedForwardRef(
           computedProps.space?.y && `space-y-${computedProps.space.y}`,
           computedProps.wrap,
           computedProps.inline && "inline",
+          computedProps.block && "block",
           computedProps.grow && "grow",
         ],
         extraClasses: className,

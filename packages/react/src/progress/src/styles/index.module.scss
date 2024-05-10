@@ -72,11 +72,19 @@
   }
 
   // Skins
+  &--white {
+    @include theme.define-var(
+      (
+        background-color: #{theme.get-color("white")},
+      )
+    );
+  }
+
   @each $key, $value in $progress-skins {
     &--#{$key} {
       @include theme.define-var(
         (
-          background-color: #{theme.get-color($key)},
+          background-color: #{theme.get-color($key, "500")},
         )
       );
     }

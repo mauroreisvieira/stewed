@@ -26,13 +26,17 @@
   @return var($var);
 }
 
-@function get-color($value: null, $level: "default") {
+@function get-color($value: null, $level: null) {
   @if not $value {
     @return $colors;
   }
 
   @if not map.has-key($colors, $value) {
     @error "Invalid color specified! #{$value} doesn't exist. Choose one of #{map.keys($colors)}";
+  }
+
+  @if not $level {
+    @return map.get($colors, $value);
   }
 
   $levels: map.get($colors, $value);

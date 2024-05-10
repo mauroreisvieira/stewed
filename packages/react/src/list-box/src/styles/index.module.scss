@@ -125,7 +125,7 @@
       @include text.typography(
         base,
         $overrides: (
-          color: theme.get-color("neutral"),
+          color: theme.get-color("neutral", "500"),
           font-size: theme.get-font-size("xs"),
           line-height: theme.get-line-height("sm")
         )
