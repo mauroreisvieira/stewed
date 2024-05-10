@@ -9,6 +9,7 @@
   );
 
   display: theme.get-var(display);
+  box-sizing: border-box;
 
   &--inline {
     @include theme.define-var(

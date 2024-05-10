@@ -19,6 +19,7 @@ export * from "./pagination";
 export * from "./progress";
 export * from "./radio";
 export * from "./scope";
+export * from "./section";
 export * from "./select";
 export * from "./separator";
 export * from "./skeleton";

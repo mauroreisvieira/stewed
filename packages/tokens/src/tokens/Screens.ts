@@ -1,4 +1,5 @@
 export const screens = {
+  "auto": "auto",
   "full": "100%",
   "sm": "640px",
   "md": "768px",

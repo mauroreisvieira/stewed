@@ -10,8 +10,10 @@ $card-shadow: theme.get-shadow();
 
 /// Skins
 $card-skins: (
-  "neutral": theme.get-color("neutral"),
+  "light": theme.get-color("light"),
+  "dark": theme.get-color("dark"),
+  "neutral": theme.get-color("neutral", "500"),
   "neutral-faded": theme.get-color("neutral", "100"),
-  "primary": theme.get-color("primary"),
+  "primary": theme.get-color("primary", "500"),
   "primary-faded": theme.get-color("primary", "100"),
 );

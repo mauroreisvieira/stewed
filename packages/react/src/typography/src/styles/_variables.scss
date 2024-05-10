@@ -14,7 +14,7 @@ $typography-styles: (
     "font-family": theme.get-font-family("base"),
     "font-size": theme.get-font-size("md"),
     "font-weight": theme.get-font-weight("normal"),
-    "color": theme.get-color("primary"),
+    "color": theme.get-color("primary", "500"),
   ),
   "label": (
     "font-family": theme.get-font-family("base"),
@@ -80,8 +80,6 @@ $typography-space: theme.get-spacing();
 
 /// Skins
 $typography-skins: (
-  "text",
-  "white",
   "primary",
   "secondary",
   "neutral",

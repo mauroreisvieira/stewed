@@ -96,8 +96,8 @@
           + .checkbox__control {
             @include theme.define-var(
               (
-                background-color: theme.get-color($value),
-                border-color: theme.get-color($value),
+                background-color: theme.get-color($value, "500"),
+                border-color: theme.get-color($value, "500"),
               )
             );
 

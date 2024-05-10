@@ -50,11 +50,19 @@
     );
   }
 
+  &--white {
+    @include theme.define-var(
+      (
+        fill: #{theme.get-color("white")},
+      )
+    );
+  }
+
   @each $key, $value in $spinner-skins {
     &--#{$key} {
       @include theme.define-var(
         (
-          fill: #{theme.get-color($key)},
+          fill: #{theme.get-color($key, "500")},
         )
       );
     }
