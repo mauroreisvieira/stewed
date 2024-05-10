@@ -1,7 +1,4 @@
 export const palette = {
-  // Global --------------------------------------------------------------------
-  "light": "#fff",
-  "dark": "#000",
   // Primary -------------------------------------------------------------------
   "primary-100": "color-mix(in oklab, var(--color-primary) 10%, white)",
   "primary-200": "color-mix(in oklab, var(--color-primary) 20%, white)",

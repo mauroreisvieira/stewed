@@ -5,16 +5,28 @@
   @include theme.define-var(
     (
       display: flex,
+      screen: auto,
+      background-color: transparent,
     )
   );
 
   display: theme.get-var(display);
   box-sizing: border-box;
+  height: theme.get-var(screen);
+  background-color: theme.get-var(background-color);
 
   &--inline {
     @include theme.define-var(
       (
         display: inline-flex,
+      )
+    );
+  }
+
+  &--block {
+    @include theme.define-var(
+      (
+        display: block,
       )
     );
   }
@@ -36,6 +48,45 @@
   @each $key, $value in $box-gap {
     &--gap-#{$key} {
       gap: #{$value};
+    }
+  }
+
+  // Skins
+  &--light {
+    @include theme.define-var(
+      (
+        background-color: theme.get-color("light"),
+      )
+    );
+  }
+
+  &--dark {
+    @include theme.define-var(
+      (
+        background-color: theme.get-color("dark"),
+      )
+    );
+  }
+
+  // Skins
+  @each $key, $value in $box-skins {
+    &--#{$key} {
+      @include theme.define-var(
+        (
+          background-color: $value,
+        )
+      );
+    }
+  }
+
+  // Screen (Height)
+  @each $key, $value in $box-screen {
+    &--screen-#{$key} {
+      @include theme.define-var(
+        (
+          screen: #{$value},
+        )
+      );
     }
   }
 
