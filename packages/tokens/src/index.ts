@@ -16,6 +16,7 @@ export type Tokens = {
   screens?: Partial<typeof tokens.screens>;
   shadow?: Partial<typeof tokens.shadow>;
   spacings?: Partial<typeof tokens.spacings>;
+  viewport?: Partial<typeof tokens.viewport>;
   duration?: Partial<typeof tokens.duration>;
   timing?: Partial<typeof tokens.timing>;
   components?: Components;
@@ -32,6 +33,7 @@ export const defaultTokens: Tokens = {
   lineHeight: tokens.lineHeight,
   radius: tokens.radius,
   screens: tokens.screens,
+  viewport: tokens.viewport,
   shadow: tokens.shadow,
   spacings: tokens.spacings,
   duration: tokens.duration,

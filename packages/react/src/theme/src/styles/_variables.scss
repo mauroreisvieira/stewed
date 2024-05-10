@@ -25,6 +25,7 @@ $config: (
     "xl": var(--breakpoints-xl),
   ),
   "screens": (
+    "auto": var(--screens-auto),
     "full": var(--screens-full),
     "sm": var(--screens-sm),
     "md": var(--screens-md),
@@ -32,7 +33,16 @@ $config: (
     "xl": var(--screens-xl),
     "2xl": var(--screens-2xl),
   ),
-
+  "viewport": (
+    "vw": var(--viewport-vw),
+    "svw": var(--viewport-svw),
+    "lvw": var(--viewport-lvw),
+    "dvw": var(--viewport-dvw),
+    "vh": var(--viewport-vh),
+    "svh": var(--viewport-svh),
+    "lvh": var(--viewport-lvh),
+    "dvh": var(--viewport-dvh),
+  ),
   "font-family": (
     "base": var(--font-family-base),
     "sans": var(--font-family-sans),
@@ -236,6 +246,9 @@ $breakpoints: map.get($config, breakpoints);
 
 /// Defines screen sizes (sm, md, lg, xl).
 $screens: map.get($config, screens);
+
+/// Defines viewport sizes.
+$viewport: map.get($config, viewport);
 
 /// Defines elevation.
 $elevation: map.get($config, elevation);

@@ -112,6 +112,18 @@
   @return map.get($spacings, $value);
 }
 
+@function get-viewport($value: null) {
+  @if not $value {
+    @return $viewport;
+  }
+
+  @if not map.has-key($viewport, $value) {
+    @error "Invalid viewport's specified! #{$value} doesn't exist. Choose one of #{map.keys($viewport)}";
+  }
+
+  @return map.get($viewport, $value);
+}
+
 @function get-elevation($value: null) {
   @if not $value {
     @return $elevation;
