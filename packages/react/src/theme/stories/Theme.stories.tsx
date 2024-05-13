@@ -31,6 +31,11 @@ import {
   fontWeight,
   lineHeight,
   spacings,
+  viewport,
+  radius,
+  shadow,
+  duration,
+  timing,
 } from "@stewed/tokens";
 
 type Story = StoryObj<typeof Theme>;
@@ -94,6 +99,31 @@ export const Screens: Story = {
           </Table.Head>
           <Table.Body>
             {Object.entries(screens).map(([key, val]) => (
+              <Table.Row key={key}>
+                <Table.Cell>{key}</Table.Cell>
+                <Table.Cell>{val}</Table.Cell>
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table>
+      </Theme>
+    );
+  },
+};
+
+export const Viewport: Story = {
+  render: (): React.ReactElement => {
+    return (
+      <Theme>
+        <Table appearance={["border-rows", "border-columns", "striped"]}>
+          <Table.Head>
+            <Table.Row>
+              <Table.Cell as="th">Name</Table.Cell>
+              <Table.Cell as="th">Value</Table.Cell>
+            </Table.Row>
+          </Table.Head>
+          <Table.Body>
+            {Object.entries(viewport).map(([key, val]) => (
               <Table.Row key={key}>
                 <Table.Cell>{key}</Table.Cell>
                 <Table.Cell>{val}</Table.Cell>
@@ -255,7 +285,33 @@ export const Spacings: Story = {
     );
   },
 };
+
 export const Elevation: Story = {
+  render: (): React.ReactElement => {
+    return (
+      <Theme>
+        <Table appearance={["border-rows", "border-columns", "striped"]}>
+          <Table.Head>
+            <Table.Row>
+              <Table.Cell as="th">Level</Table.Cell>
+              <Table.Cell as="th">Z-Index</Table.Cell>
+            </Table.Row>
+          </Table.Head>
+          <Table.Body>
+            {Object.entries(elevation).map(([key, val]) => (
+              <Table.Row key={key}>
+                <Table.Cell>{key}</Table.Cell>
+                <Table.Cell>{val}</Table.Cell>
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table>
+      </Theme>
+    );
+  },
+};
+
+export const Radius: Story = {
   render: (): React.ReactElement => {
     return (
       <Theme>
@@ -267,7 +323,107 @@ export const Elevation: Story = {
             </Table.Row>
           </Table.Head>
           <Table.Body>
-            {Object.entries(elevation).map(([key, val]) => (
+            {Object.entries(radius).map(([key, val]) => (
+              <Table.Row key={key}>
+                <Table.Cell>{key}</Table.Cell>
+                <Table.Cell>{val}</Table.Cell>
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table>
+      </Theme>
+    );
+  },
+};
+
+export const Shadows: Story = {
+  render: (): React.ReactElement => {
+    return (
+      <Theme>
+        <Table appearance={["border-rows", "border-columns", "striped"]}>
+          <Table.Head>
+            <Table.Row>
+              <Table.Cell as="th">Name</Table.Cell>
+              <Table.Cell as="th">Value</Table.Cell>
+            </Table.Row>
+          </Table.Head>
+          <Table.Body>
+            {Object.entries(shadow).map(([key, val]) => (
+              <Table.Row key={key}>
+                <Table.Cell>{key}</Table.Cell>
+                <Table.Cell>{val}</Table.Cell>
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table>
+      </Theme>
+    );
+  },
+};
+
+export const Spaces: Story = {
+  render: (): React.ReactElement => {
+    return (
+      <Theme>
+        <Table appearance={["border-rows", "border-columns", "striped"]}>
+          <Table.Head>
+            <Table.Row>
+              <Table.Cell as="th">Name</Table.Cell>
+              <Table.Cell as="th">Value</Table.Cell>
+            </Table.Row>
+          </Table.Head>
+          <Table.Body>
+            {Object.entries(spacings).map(([key, val]) => (
+              <Table.Row key={key}>
+                <Table.Cell>{key}</Table.Cell>
+                <Table.Cell>{val}</Table.Cell>
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table>
+      </Theme>
+    );
+  },
+};
+
+export const Duration: Story = {
+  render: (): React.ReactElement => {
+    return (
+      <Theme>
+        <Table appearance={["border-rows", "border-columns", "striped"]}>
+          <Table.Head>
+            <Table.Row>
+              <Table.Cell as="th">Name</Table.Cell>
+              <Table.Cell as="th">Value</Table.Cell>
+            </Table.Row>
+          </Table.Head>
+          <Table.Body>
+            {Object.entries(duration).map(([key, val]) => (
+              <Table.Row key={key}>
+                <Table.Cell>{key}</Table.Cell>
+                <Table.Cell>{val}</Table.Cell>
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table>
+      </Theme>
+    );
+  },
+};
+
+export const Timing: Story = {
+  render: (): React.ReactElement => {
+    return (
+      <Theme>
+        <Table appearance={["border-rows", "border-columns", "striped"]}>
+          <Table.Head>
+            <Table.Row>
+              <Table.Cell as="th">Name</Table.Cell>
+              <Table.Cell as="th">Value</Table.Cell>
+            </Table.Row>
+          </Table.Head>
+          <Table.Body>
+            {Object.entries(timing).map(([key, val]) => (
               <Table.Row key={key}>
                 <Table.Cell>{key}</Table.Cell>
                 <Table.Cell>{val}</Table.Cell>

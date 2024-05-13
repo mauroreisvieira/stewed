@@ -52,23 +52,6 @@
   }
 
   // Skins
-  &--light {
-    @include theme.define-var(
-      (
-        background-color: theme.get-color("light"),
-      )
-    );
-  }
-
-  &--dark {
-    @include theme.define-var(
-      (
-        background-color: theme.get-color("dark"),
-      )
-    );
-  }
-
-  // Skins
   @each $key, $value in $box-skins {
     &--#{$key} {
       @include theme.define-var(

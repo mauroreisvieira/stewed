@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 // Tokens
 import { defaultTokens, type Tokens, type Components, Radius, Shadow } from "@stewed/tokens";
 // Utilities
@@ -35,7 +35,7 @@ export interface RootProps<T extends string>
  */
 export function Root<T extends string>({ children, ...props }: RootProps<T>): React.ReactElement {
   // Theme and tokens from the context
-  const { theme, tokens, activeToken } = useTheme();
+  const { theme, setTheme, modes, tokens, activeToken } = useTheme();
 
   const outputObject = useMemo(() => {
     if (tokens?.[theme]?.components) {
@@ -97,6 +97,29 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
         .join("\n")}`,
     [cssProperties],
   );
+
+  useEffect(() => {
+    if (!modes) return;
+
+    const eventListenerCallback = (event: MediaQueryListEvent) => {
+      if (modes.dark && modes.light) {
+        setTheme(event.matches ? modes.dark : modes.light);
+      }
+    };
+
+    if (window.matchMedia) {
+      setTheme(
+        window.matchMedia("(prefers-color-scheme: dark)").matches ? modes.dark : modes.light,
+      );
+    }
+
+    const mediaQueryList = window.matchMedia("(prefers-color-scheme: dark)");
+    mediaQueryList.addEventListener("change", eventListenerCallback);
+
+    return () => {
+      mediaQueryList.removeEventListener("change", eventListenerCallback);
+    };
+  }, [modes, setTheme]);
 
   return (
     <div data-theme={theme} {...props}>

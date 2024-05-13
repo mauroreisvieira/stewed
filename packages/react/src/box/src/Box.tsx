@@ -52,9 +52,9 @@ export interface BoxProps<T>
   as?: T;
   /**
    * Change the visual style of the Section.
-   * @default light
+   * @default default
    */
-  skin?: "light" | "dark" | "neutral" | "neutral-faded" | "primary" | "primary-faded";
+  skin?: "default" | "neutral" | "neutral-faded" | "primary" | "primary-faded";
   /**
    * Identifies a styling option specifically for the screen size.
    *

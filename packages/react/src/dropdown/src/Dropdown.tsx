@@ -67,7 +67,7 @@ export function Dropdown<T extends HTMLElement>({
   return (
     <>
       {open && (
-        <Scope elevation="300">
+        <Scope elevation="navigation">
           <div
             ref={floating}
             className={cssClasses.root}

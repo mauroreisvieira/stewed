@@ -18,12 +18,13 @@ export interface ThemeProps<T extends string = "default"> extends RootProps<T> {
  * @returns {React.ReactElement} - React element representing the themed application.
  */
 export function Theme<T extends string = "default">({
-  defaultTheme,
+  defaultTheme = "default",
+  modes,
   tokens,
   ...props
 }: ThemeProps<T>): React.ReactElement {
   // State for managing the current theme
-  const [theme, setTheme] = useState<T | string>(defaultTheme || "default");
+  const [theme, setTheme] = useState<T | string>(defaultTheme);
 
   // State for managing tokens
   const [currentTokens, setCurrentTokens] = useState<ThemeContextProps<T>["tokens"]>(tokens);
@@ -44,6 +45,7 @@ export function Theme<T extends string = "default">({
   return (
     <ThemeContext.Provider
       value={{
+        modes,
         defaultTheme,
         activeToken,
         theme,

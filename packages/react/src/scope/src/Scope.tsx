@@ -25,7 +25,7 @@ interface ScopeProps {
  *
  * @example
  * ```tsx
- * <Scope elevation="100" />
+ * <Scope elevation="hint" />
  * ```
  *
  * @param {ScopeProps} props - The props for the Scope component.

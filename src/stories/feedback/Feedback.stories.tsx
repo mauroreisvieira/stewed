@@ -7,14 +7,18 @@ const meta = {
   decorators: [
     (Story) => (
       <Theme
+        defaultTheme="light"
         tokens={{
-          default: {
+          dark: {
             color: {
-              primary: "#607d8b",
               text: "#fff",
-              dark: "#000",
+              background: "#000",
             },
           },
+        }}
+        modes={{
+          light: "light",
+          dark: "dark",
         }}
       >
         <Story />
@@ -28,7 +32,7 @@ export default meta;
 export const Page404 = {
   render: function Example() {
     return (
-      <Box as="main" skin="dark" screen="vh" direction="column" items="center" justify="center">
+      <Box as="main" skin="default" screen="vh" direction="column" items="center" justify="center">
         <Container screen="md" alignment="center" padding={{ block: "7xl" }}>
           <Box block>
             <Text weight="bold" variation={"uppercase"}>

@@ -15,9 +15,9 @@ import styles from "./styles/index.module.scss";
 export interface CardProps extends React.ComponentPropsWithRef<"div"> {
   /**
    * Change the visual style of the card.
-   * @default light
+   * @default default
    */
-  skin?: "light" | "dark" | "neutral" | "neutral-faded" | "primary" | "primary-faded";
+  skin?: "default" | "neutral" | "neutral-faded" | "primary" | "primary-faded";
   /** Padding options for horizontal and vertical orientation. */
   padding?: {
     /** Adds padding in the block direction (e.g., top and bottom for vertical orientation). */
@@ -55,7 +55,7 @@ export interface CardProps extends React.ComponentPropsWithRef<"div"> {
  * @returns {React.ReactElement} - The rendered Card component.
  */
 export function Card({
-  skin = "light",
+  skin = "default",
   shadow = "sm",
   padding = {
     block: "xl",

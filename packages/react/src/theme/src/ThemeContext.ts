@@ -10,17 +10,27 @@ const definitionError = (): null => {
 };
 
 /**
+ * Represents the preferred color scheme for the user.
+ */
+type PrefersColorScheme = "light" | "dark";
+
+/**
  * Defines the properties expected in the context for client groups.
  *
  * @template T - The type representing theme names.
  */
 export interface ThemeContextProps<T extends string> {
   /** Default theme to be used when no theme is set. */
-  defaultTheme?: T;
+  defaultTheme?: T | "default";
   /** Current active theme. */
   theme: T | "default";
   /** Partial map of theme names to Tokens. */
   tokens?: Partial<Record<T, Tokens>>;
+  /**
+   * An object containing mappings of preferred color schemes to theme names.
+   * If a preferred color scheme is matched, the corresponding theme will be applied.
+   */
+  modes?: Record<PrefersColorScheme, T | "default">;
   /** Currently selected token. */
   activeToken: Tokens;
   /** Setter function for updating the current active theme. */
@@ -40,9 +50,10 @@ export interface ThemeContextProps<T extends string> {
  */
 function createThemeContext<T extends string>() {
   return createContext<ThemeContextProps<T>>({
-    defaultTheme: undefined,
+    defaultTheme: "default",
     theme: "default",
     tokens: undefined,
+    modes: undefined,
     activeToken: {},
     setTheme: definitionError,
     setTokens: definitionError,
