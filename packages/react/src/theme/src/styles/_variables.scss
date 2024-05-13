@@ -104,11 +104,11 @@ $config: (
     "3xl": var(--shadow-3xl),
   ),
   "elevation": (
-    "base": var(--elevation-100),
-    "menu": var(--elevation-200),
-    "popup": var(--elevation-300),
-    "notification": var(--elevation-400),
-    "hint": var(--elevation-500),
+    "base": var(--elevation-default),
+    "menu": var(--elevation-navigation),
+    "popup": var(--elevation-popup),
+    "notification": var(--elevation-notification),
+    "hint": var(--elevation-hint),
   ),
   "colors": (
     "white": var(--color-white),
