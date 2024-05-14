@@ -1,8 +1,8 @@
 import React from "react";
 // Compound Component
-import { AccordionItem } from "./AccordionItem";
-import { AccordionHeader } from "./AccordionHeader";
 import { AccordionBody } from "./AccordionBody";
+import { AccordionHeader } from "./AccordionHeader";
+import { AccordionItem } from "./AccordionItem";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
@@ -21,6 +21,19 @@ interface AccordionProps extends React.ComponentPropsWithRef<"div"> {}
  *    <Accordion.Item>
  *      <Accordion.Header>Title</Accordion.Header>
  *      <Accordion.Body>Body</Accordion.Body>
+ *    </Accordion.Item>
+ * </Accordion>
+ * ```
+ *
+ * ```tsx
+ * <Accordion>
+ *    <Accordion.Item>
+ *        {( { open }) => (
+ *            <>
+ *                <Accordion.Header rightSlot={open ? "-" : "+"}>Title</Accordion.Header
+ *                <Accordion.Body>Body</Accordion.Body>
+ *            </>
+ *        )}
  *    </Accordion.Item>
  * </Accordion>
  * ```

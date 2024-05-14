@@ -4,10 +4,7 @@
 
 @include theme.scope($accordion-root) {
   position: relative;
-
-  &__item {
-    border-bottom: 1px solid theme.get-color("neutral", "300");
-  }
+  width: 100%;
 
   &__header,
   &__body {
