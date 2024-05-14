@@ -125,7 +125,6 @@ export const EditProfile = {
                     Settings
                   </Button>
                   <Dropdown
-                    placement="bottom-start"
                     reference={ref.current}
                     open={dropdownOpen}
                     onClickOutside={() => setDropdownOpen(!dropdownOpen)}

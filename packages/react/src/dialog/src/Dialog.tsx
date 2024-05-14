@@ -98,7 +98,7 @@ export function Dialog({
   return (
     <>
       {open && (
-        <Scope elevation="popup">
+        <Scope elevation="navigation">
           <Backdrop />
           <DialogProvider onClose={onClose}>
             <div className={cssClasses.root} {...props}>

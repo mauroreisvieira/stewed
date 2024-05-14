@@ -79,7 +79,7 @@ export interface TextProps<T>
    * Change the visual style of the text.
    * @default text
    */
-  skin?: Extract<
+  skin?: "inherit" | Extract<
     Color,
     | "text"
     | "white"

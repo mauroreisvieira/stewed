@@ -83,6 +83,14 @@
   }
 
   // Skins
+  &--inherit {
+    @include theme.define-var(
+      (
+        color: inherit,
+      )
+    );
+  }
+
   &--white {
     @include theme.define-var(
       (

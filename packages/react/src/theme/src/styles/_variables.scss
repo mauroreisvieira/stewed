@@ -105,7 +105,7 @@ $config: (
   ),
   "elevation": (
     "base": var(--elevation-default),
-    "menu": var(--elevation-navigation),
+    "navigation": var(--elevation-navigation),
     "popup": var(--elevation-popup),
     "notification": var(--elevation-notification),
     "hint": var(--elevation-hint),
