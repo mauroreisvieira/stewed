@@ -12,8 +12,7 @@ export default defineConfig({
     react(),
     libInjectCss(),
     dts({
-      insertTypesEntry: true,
-      rollupTypes: true,
+      copyDtsFiles: true
     }),
   ],
   build: {

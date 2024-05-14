@@ -16,7 +16,7 @@
     margin: 0 auto;
   }
 
-  // Padding
+  // Max width
   @each $key, $value in $container-screens {
     &--screen-#{$key} {
       @include theme.define-var(
