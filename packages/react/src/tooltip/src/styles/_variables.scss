@@ -1,0 +1,27 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+
+$tooltip-root: "tooltip";
+
+/// Skins
+$tooltip-skins: (
+  "default": (
+    "background-color": theme.get-color("neutral", "900"),
+    "color": theme.get-color("white"),
+  ),
+  "neutral": (
+    "background-color": theme.get-color("neutral", "500"),
+    "color": theme.get-color("white"),
+  ),
+  "neutral-faded": (
+    "background-color": theme.get-color("neutral", "100"),
+    "color": theme.get-color("text"),
+  ),
+  "primary": (
+    "background-color": theme.get-color("primary", "500"),
+    "color": theme.get-color("background"),
+  ),
+  "primary-faded": (
+    "background-color": theme.get-color("primary", "100"),
+    "color": theme.get-color("text"),
+  ),
+);
