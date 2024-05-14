@@ -15,18 +15,25 @@ export type FloatingPlacement =
   | "left-end";
 
 interface FloatingOptions {
+  /** The placement of the floating component. */
   placement?: FloatingPlacement;
+  /** Specifies if the floating component is positioned. */
   isPositioned?: boolean;
 }
 
 interface UseFloatingProps<R> extends Pick<FloatingOptions, "placement"> {
-  open?: boolean;
+  /** The reference element used for positioning the floating component. */
   reference: R | null;
+  /** Indicates if the floating component is open or closed. */
+  open?: boolean;
+  /** This lets you add distance (margin or spacing) between the reference and floating element. */
+  offset?: number;
 }
 
 export function useFloating<R extends HTMLElement, F extends HTMLElement>({
   reference,
   placement = "bottom",
+  offset = 0,
   open,
 }: UseFloatingProps<R>) {
   const floating = useRef<F>(null);
@@ -50,56 +57,60 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
 
     switch (options.placement) {
       case "top":
-        y = referenceRect.top - floatingRect.height + window.scrollY;
+        y = referenceRect.top - floatingRect.height + window.scrollY - offset;
         x =
           referenceRect.left + window.scrollX - (floatingRect.width / 2 - referenceRect.width / 2);
         break;
       case "top-start":
-        y = referenceRect.top - floatingRect.height + window.scrollY;
+        y = referenceRect.top - floatingRect.height + window.scrollY - offset;
         x = referenceRect.left + window.scrollX;
         break;
       case "top-end":
-        y = referenceRect.top - floatingRect.height + window.scrollY;
+        y = referenceRect.top - floatingRect.height + window.scrollY - offset;
         x = referenceRect.right + window.scrollX - floatingRect.width;
         break;
       case "right":
         y =
-          referenceRect.bottom + window.scrollY - (floatingRect.height - referenceRect.height / 2);
-        x = referenceRect.left + window.scrollX + referenceRect.width;
+          referenceRect.bottom +
+          window.scrollY -
+          (floatingRect.height / 2 + referenceRect.height / 2);
+        x = referenceRect.left + window.scrollX + referenceRect.width + offset;
         break;
       case "right-start":
         y = referenceRect.top + window.scrollY;
-        x = referenceRect.left + window.scrollX + referenceRect.width;
+        x = referenceRect.left + window.scrollX + referenceRect.width + offset;
         break;
       case "right-end":
         y = referenceRect.bottom + window.scrollY - floatingRect.height;
-        x = referenceRect.left + window.scrollX + referenceRect.width;
+        x = referenceRect.left + window.scrollX + referenceRect.width + offset;
         break;
       case "bottom":
-        y = referenceRect.bottom + window.scrollY;
+        y = referenceRect.bottom + window.scrollY + offset;
         x =
           referenceRect.left + window.scrollX - (floatingRect.width / 2 - referenceRect.width / 2);
         break;
       case "bottom-start":
-        y = referenceRect.bottom + window.scrollY;
+        y = referenceRect.bottom + window.scrollY + offset;
         x = referenceRect.left + window.scrollX;
         break;
       case "bottom-end":
-        y = referenceRect.bottom + window.scrollY;
+        y = referenceRect.bottom + window.scrollY + offset;
         x = referenceRect.right + window.scrollX - floatingRect.width;
         break;
       case "left":
         y =
-          referenceRect.bottom + window.scrollY - (floatingRect.height - referenceRect.height / 2);
-        x = referenceRect.left + window.scrollX - floatingRect.width;
+          referenceRect.bottom +
+          window.scrollY -
+          (floatingRect.height / 2 + referenceRect.height / 2);
+        x = referenceRect.left + window.scrollX - floatingRect.width - offset;
         break;
       case "left-start":
         y = referenceRect.top + window.scrollY;
-        x = referenceRect.left + window.scrollX - floatingRect.width;
+        x = referenceRect.left + window.scrollX - floatingRect.width - offset;
         break;
       case "left-end":
         y = referenceRect.bottom + window.scrollY - floatingRect.height;
-        x = referenceRect.left + window.scrollX - floatingRect.width;
+        x = referenceRect.left + window.scrollX - floatingRect.width - offset;
         break;
       default:
         break;
@@ -123,7 +134,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
     }
 
     setFloatingPosition({ x, y });
-  }, [options.isPositioned, options.placement, reference]);
+  }, [offset, options.isPositioned, options.placement, reference]);
 
   useEffect(() => {
     if (!options.isPositioned || !reference) return;
