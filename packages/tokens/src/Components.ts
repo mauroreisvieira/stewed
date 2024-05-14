@@ -1,4 +1,4 @@
-import { Shadow, type Radius } from "./tokens/index";
+import type { Shadow, Radius, Blur } from "./tokens/index";
 
 export const components = {
   Accordion: "accordion",
@@ -42,6 +42,7 @@ export const components = {
 export type Components = {
   [components.Alert]?: { radius?: Radius; shadow?: Shadow };
   [components.Avatar]?: { radius?: Radius };
+  [components.Backdrop]?: { blur?: Blur };
   [components.Badge]?: { radius?: Radius };
   [components.Button]?: { radius?: Radius };
   [components.Card]?: { radius?: Radius };

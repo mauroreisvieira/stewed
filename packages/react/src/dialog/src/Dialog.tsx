@@ -99,7 +99,7 @@ export function Dialog({
     <>
       {open && (
         <Scope elevation="navigation">
-          <Backdrop />
+          <Backdrop blur />
           <DialogProvider onClose={onClose}>
             <div className={cssClasses.root} {...props}>
               <div onKeyDown={onHandleKeydown} ref={setRootRef} className={cssClasses.surface}>

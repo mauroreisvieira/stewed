@@ -5,8 +5,10 @@ import { type Components, components } from "./Components";
 
 // Define Tokens type that represents design tokens
 export type Tokens = {
+  blur?: Partial<typeof tokens.blur>;
   breakpoints?: Partial<typeof tokens.breakpoints>;
   color?: Partial<typeof tokens.color>;
+  duration?: Partial<typeof tokens.duration>;
   elevation?: Partial<typeof tokens.elevation>;
   fontFamily?: Partial<typeof tokens.fontFamily>;
   fontSize?: Partial<typeof tokens.fontSize>;
@@ -16,14 +18,14 @@ export type Tokens = {
   screens?: Partial<typeof tokens.screens>;
   shadow?: Partial<typeof tokens.shadow>;
   spacings?: Partial<typeof tokens.spacings>;
-  viewport?: Partial<typeof tokens.viewport>;
-  duration?: Partial<typeof tokens.duration>;
   timing?: Partial<typeof tokens.timing>;
+  viewport?: Partial<typeof tokens.viewport>;
   components?: Components;
 };
 
 // Define the tokens object containing design tokens
 export const defaultTokens: Tokens = {
+  blur: tokens.blur,
   breakpoints: tokens.breakpoints,
   color: tokens.color,
   elevation: tokens.elevation,
@@ -46,6 +48,9 @@ export const defaultTokens: Tokens = {
     },
     [components.Avatar]: {
       radius: "sm",
+    },
+    [components.Backdrop]: {
+      blur: "sm",
     },
     [components.Badge]: {
       radius: "full",

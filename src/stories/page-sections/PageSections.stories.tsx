@@ -11,7 +11,7 @@ import {
   Accordion,
   Separator,
   Avatar,
-} from "../../../packages/react/index";
+} from "@stewed/react";
 // Icons
 import { FiPlus, FiMinus } from "react-icons/fi";
 

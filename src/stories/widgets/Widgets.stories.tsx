@@ -13,7 +13,6 @@ import {
   Switch,
   Progress,
   Tooltip,
-  TooltipChildrenProps,
 } from "@stewed/react";
 // Icons
 import { TbPin } from "react-icons/tb";

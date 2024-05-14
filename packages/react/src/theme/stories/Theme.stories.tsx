@@ -700,6 +700,9 @@ export const Example: Story = {
               "select": {
                 radius: "2xl",
               },
+              "backdrop": {
+                blur: "md",
+              },
             },
           },
         }}

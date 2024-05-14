@@ -18,6 +18,12 @@ $config: (
     "6xl": var(--spacings-6xl),
     "7xl": var(--spacings-7xl),
   ),
+  "blur": (
+    "none": var(--blur-none),
+    "sm": var(--blur-sm),
+    "md": var(--blur-md),
+    "lg": var(--blur-lg),
+  ),
   "breakpoints": (
     "sm": var(--breakpoints-sm),
     "md": var(--breakpoints-md),
@@ -112,7 +118,7 @@ $config: (
   ),
   "colors": (
     "white": var(--color-white),
-    "black":var(--color-black),
+    "black": var(--color-black),
     "focus": var(--color-focus),
     "text": var(--color-text),
     "background": var(--color-background),

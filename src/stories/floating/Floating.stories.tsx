@@ -15,7 +15,7 @@ import {
   ListBox,
   FormField,
   TextArea,
-} from "../../../packages/react/index";
+} from "@stewed/react";
 // Icons
 import { TbDotsVertical } from "react-icons/tb";
 
