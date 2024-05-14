@@ -26,7 +26,7 @@ type Action =
   | "hide-timer-elapsed"
   | "hide-animation-completed";
 
-export interface TooltipRenderProps<T> {
+export interface TooltipChildrenProps<T> {
   /** Ref to attach to the tooltip element */
   ref: React.Ref<T>;
   /** Event handler for focus */
@@ -56,7 +56,7 @@ export interface TooltipProps<T>
    * Function that returns a React element with events to trigger tooltip position and visibility.
    * @param props - Render props for Tooltip component.
    */
-  children: (props: TooltipRenderProps<T>) => React.ReactElement;
+  children: (props: TooltipChildrenProps<T>) => React.ReactElement;
 }
 
 /**
@@ -70,7 +70,7 @@ export interface TooltipProps<T>
  * @example
  * ```tsx
  * <Tooltip placement="top" content="This order has shipping labels.">
- *   {(props: TooltipRenderProps<HTMLButtonElement>) => (
+ *   {(props: TooltipChildrenProps<HTMLButtonElement>) => (
  *     <button {...props}>Order #1001</button>
  *   )}
  * </Tooltip>

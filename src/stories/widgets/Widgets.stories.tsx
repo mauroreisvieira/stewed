@@ -12,6 +12,8 @@ import {
   Separator,
   Switch,
   Progress,
+  Tooltip,
+  TooltipChildrenProps,
 } from "@stewed/react";
 // Icons
 import { TbPin } from "react-icons/tb";
@@ -181,9 +183,20 @@ export const RecentActivity = {
           <Card.Header>
             <Box items="baseline" justify="between" gap="2xl">
               <Text as="h5">Recent activity</Text>
-              <Button size="sm" leftSlot={<TbPin />} appearance="ghost" iconOnly>
-                Bookmark
-              </Button>
+              <Tooltip
+                placement="top"
+                content={
+                  <Text size="xs" skin="inherit">
+                    Pin this widget to your dashboard for quick access.
+                  </Text>
+                }
+              >
+                {(props) => (
+                  <Button size="sm" leftSlot={<TbPin />} appearance="ghost" iconOnly {...props}>
+                    Bookmark
+                  </Button>
+                )}
+              </Tooltip>
             </Box>
             <Text size="sm" skin="neutral">
               Review what has happened over the past days.

@@ -4,6 +4,7 @@
 
 @include theme.scope($tooltip-root) {
   position: absolute;
+  max-width: 240px;
 
   &__content {
     padding-inline: theme.get-spacing("sm");

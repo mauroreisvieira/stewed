@@ -11,7 +11,7 @@ const meta: Meta<typeof Tooltip> = {
   decorators: [
     (Story) => (
       <Theme>
-        <Box justify="center" items="center" screen="vh" grow>
+        <Box justify="center" items="center" padding={{ block: "7xl", inline: "7xl" }} grow>
           <Story />
         </Box>
       </Theme>
@@ -22,13 +22,38 @@ const meta: Meta<typeof Tooltip> = {
 export default meta;
 
 export const Base: Story = {
-  render: () => {
+  args: {
+    skin: "primary-faded",
+    placement: "top",
+  },
+  argTypes: {
+    content: {
+      control: false,
+    },
+    placement: {
+      options: [
+        "top",
+        "top-start",
+        "top-end",
+        "right",
+        "right-start",
+        "right-end",
+        "bottom",
+        "bottom-start",
+        "bottom-end",
+        "left",
+        "left-start",
+        "left-end",
+      ],
+    },
+  },
+  render: (args) => {
     return (
       <Tooltip<HTMLButtonElement>
-        placement="top"
+        {...args}
         content={
           <Text size="xs" skin="inherit">
-            This order has shipping labels.
+            This order has shipping labels
           </Text>
         }
       >
