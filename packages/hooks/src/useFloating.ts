@@ -168,7 +168,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
   // Once `open` flips to `true`, `isPositioned` will switch to `true` asynchronously.
   // We can use an effect to determine when it has been positioned.
   useEffect(() => {
-    setOptions({ isPositioned: open && !!reference, placement }); // TODO placement should be the initial if have space available
+    requestAnimationFrame(() => setOptions({ isPositioned: open && !!reference, placement }));
   }, [open, reference, placement]);
 
   return { floating, ...floatingPosition, ...options };
