@@ -9,7 +9,7 @@ import {
   type Blur,
 } from "@stewed/tokens";
 // Utilities
-import { objectKeys } from "@stewed/utilities";
+import { objectKeys, invertColor } from "@stewed/utilities";
 // Hooks
 import { type ThemeContextProps, useTheme } from "./ThemeContext";
 
@@ -83,7 +83,9 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
           }
         });
       } else {
-        acc[key] = activeToken[key];
+        acc[key] = {
+          ...activeToken[key],
+        };
       }
 
       return acc;
@@ -93,7 +95,19 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
   // Convert merged tokens to CSS custom properties
   const cssProperties = useMemo(() => {
     return Object.fromEntries(
-      Object.entries(outputObject).flatMap(([context, data]) =>
+      Object.entries({
+        ...outputObject,
+        ...{
+          color: {
+            ...outputObject.color,
+            inverted: outputObject?.color?.inverted
+              ? outputObject?.color?.inverted
+              : outputObject?.color?.background
+                ? invertColor(outputObject?.color?.background)
+                : "",
+          },
+        },
+      }).flatMap(([context, data]) =>
         Object.entries(data).map(([key, value]) => [
           `--${context}-${key}`.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase(),
           value,

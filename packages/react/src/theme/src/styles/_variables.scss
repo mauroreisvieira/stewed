@@ -122,7 +122,8 @@ $config: (
     "focus": var(--color-focus),
     "text": var(--color-text),
     "background": var(--color-background),
-    "backdrop": var(--color-backdrop),
+    "inverted": var(--color-inverted),
+    "overlay": var(--color-overlay),
     "neutral": (
       "100": var(--color-neutral-100),
       "200": var(--color-neutral-200),

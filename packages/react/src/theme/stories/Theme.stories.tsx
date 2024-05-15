@@ -646,7 +646,7 @@ export const Example: Story = {
         tokens={{
           metro: {
             color: {
-              text: "#444",
+              text: "#fff",
               primary: "#3f51b5",
             },
             fontFamily: {
@@ -682,7 +682,7 @@ export const Example: Story = {
               base: "'DM Sans', sans-serif",
             },
             color: {
-              backdrop: "rgb(200 200 200 / 70%)",
+              overlay: "rgb(200 200 200 / 70%)",
               primary: "#e91e63",
               critical: "#ef4444",
               success: "#14784a",

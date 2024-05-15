@@ -5,7 +5,7 @@
 @include theme.scope($backdrop-root) {
   position: fixed;
   inset: 0;
-  background-color: theme.get-color("backdrop");
+  background-color: theme.get-color("overlay");
 
   &--blur {
     backdrop-filter: blur(theme.get-var(blur));

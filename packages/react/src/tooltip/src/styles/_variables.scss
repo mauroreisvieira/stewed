@@ -5,8 +5,8 @@ $tooltip-root: "tooltip";
 /// Skins
 $tooltip-skins: (
   "default": (
-    "background-color": theme.get-color("neutral", "900"),
-    "color": theme.get-color("white"),
+    "background-color": theme.get-color("inverted"),
+    "color": theme.get-color("background"),
   ),
   "neutral": (
     "background-color": theme.get-color("neutral", "500"),

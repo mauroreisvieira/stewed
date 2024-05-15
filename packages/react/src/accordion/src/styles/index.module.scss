@@ -6,6 +6,10 @@
   position: relative;
   width: 100%;
 
+  &__item {
+    display: flex;
+  }
+
   &__header,
   &__body {
     padding-block: theme.get-spacing("lg");
@@ -16,6 +20,7 @@
     appearance: auto;
     cursor: pointer;
 
+    @include theme.focus-styles;
     &::-webkit-details-marker {
       display: none;
     }

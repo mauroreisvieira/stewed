@@ -44,6 +44,7 @@
         line-height: theme.get-line-height("sm")
       )
     );
+
     @include theme.focus-styles;
     @include theme.disabled-styles;
 
