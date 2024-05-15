@@ -646,7 +646,6 @@ export const Example: Story = {
         tokens={{
           metro: {
             color: {
-              text: "#fff",
               primary: "#3f51b5",
             },
             fontFamily: {
