@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 // UI Components
 import {
   Container,
@@ -35,8 +35,6 @@ export default meta;
 export const EditProfile = {
   render: function Example() {
     const [dialogOpen, setDialogOpen] = useState(false);
-    const [dropdownOpen, setDropdownOpen] = useState(false);
-    const ref = useRef<HTMLButtonElement>(null);
 
     return (
       <Container screen="md" alignment="center" padding={{ block: "7xl" }}>
@@ -114,28 +112,29 @@ export const EditProfile = {
               <Separator />
               <Dialog.Footer>
                 <Box justify="between" gap="md">
-                  <Button
-                    ref={ref}
-                    appearance="ghost"
-                    leftSlot={<TbDotsVertical />}
-                    size="sm"
-                    onClick={() => setDropdownOpen(!dropdownOpen)}
-                    iconOnly
-                  >
-                    Settings
-                  </Button>
                   <Dropdown
-                    reference={ref.current}
-                    open={dropdownOpen}
-                    onClickOutside={() => setDropdownOpen(!dropdownOpen)}
+                    placement="right"
+                    content={
+                      <ListBox>
+                        <ListBox.Group>
+                          <ListBox.Item>Option 1</ListBox.Item>
+                          <ListBox.Item>Option 2</ListBox.Item>
+                          <ListBox.Item>Option 3</ListBox.Item>
+                        </ListBox.Group>
+                      </ListBox>
+                    }
                   >
-                    <ListBox>
-                      <ListBox.Group>
-                        <ListBox.Item>Option 1</ListBox.Item>
-                        <ListBox.Item>Option 2</ListBox.Item>
-                        <ListBox.Item>Option 3</ListBox.Item>
-                      </ListBox.Group>
-                    </ListBox>
+                    {(props) => (
+                      <Button
+                        {...props}
+                        appearance="ghost"
+                        leftSlot={<TbDotsVertical />}
+                        size="sm"
+                        iconOnly
+                      >
+                        Settings
+                      </Button>
+                    )}
                   </Dropdown>
                   <Box justify="end" gap="md">
                     <Button appearance="outline">Cancel</Button>
