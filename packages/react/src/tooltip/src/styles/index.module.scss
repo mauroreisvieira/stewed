@@ -5,15 +5,12 @@
 @include theme.scope($tooltip-root) {
   position: absolute;
   max-width: 240px;
-
-  &__content {
-    padding-inline: theme.get-spacing("sm");
-    padding-block: theme.get-spacing("xs");
-    background-color: theme.get-var(background-color);
-    color: theme.get-var(color);
-    border-radius: theme.get-radius("sm");
-    box-shadow: theme.get-shadow("md");
-  }
+  padding-inline: theme.get-spacing("sm");
+  padding-block: theme.get-spacing("xs");
+  background-color: theme.get-var(background-color);
+  color: theme.get-var(color);
+  border-radius: theme.get-radius("sm");
+  box-shadow: theme.get-shadow("md");
 
   @each $key, $value in $tooltip-skins {
     &--#{$key} {

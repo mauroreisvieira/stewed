@@ -42,39 +42,42 @@ export interface TooltipChildrenProps<T> {
 export interface TooltipProps<T>
   extends Omit<React.ComponentPropsWithRef<"div">, "children" | "content"> {
   /**
-   * Change the visual style of the card.
+   * Change the visual style of the `Tooltip`.
    * @default default
    */
   skin?: "default" | "neutral" | "neutral-faded" | "primary" | "primary-faded";
-  /** The preferred placement of the tooltip */
+  /**
+   * Specifies the preferred placement of the `Tooltip` relative to its trigger.
+   * @example "top", "bottom", "left", "right"
+   */
   placement?: FloatingPlacement;
-  /** Determines if the tooltip is open */
+  /** Determines if the `Tooltip` is open. */
   open?: boolean;
-  /** Content to be displayed inside the tooltip */
+  /** Content to be displayed inside the `Tooltip`. */
   content: React.ReactNode;
   /**
-   * Function that returns a React element with events to trigger tooltip position and visibility.
-   * @param props - Render props for Tooltip component.
+   * Function that returns a React element with events to trigger `Tooltip` position and visibility.
+   * @param props - Render props for `Tooltip` component.
    */
   children: (props: TooltipChildrenProps<T>) => React.ReactElement;
 }
 
 /**
- * Tooltips are floating labels that briefly explain the function of a user interface element
+ * Tooltips component are floating labels that briefly explain the function of a user interface element.
+ *
+ * @example
+ * ```tsx
+ * <Tooltip<HTMLButtonElement> placement="top" content="This order has shipping labels.">
+ *   {(props) => (
+ *     <button {...props}>Order #1001</button>
+ *   )}
+ * </Tooltip>
+ * ```
  *
  * @remarks This component's props extend from React.ComponentPropsWithRef<"div">.
  *
  * @param props - The props for the Tooltip component.
  * @returns The rendered Tooltip component.
- *
- * @example
- * ```tsx
- * <Tooltip placement="top" content="This order has shipping labels.">
- *   {(props: TooltipChildrenProps<HTMLButtonElement>) => (
- *     <button {...props}>Order #1001</button>
- *   )}
- * </Tooltip>
- * ```
  */
 export function Tooltip<T extends HTMLElement>({
   skin = "default",
@@ -89,12 +92,11 @@ export function Tooltip<T extends HTMLElement>({
   ...props
 }: TooltipProps<T>): React.ReactElement {
   // Importing useBem to handle BEM class names
-  const { getBlock, getElement } = useBem({ block: components.Tooltip, styles });
+  const { getBlock } = useBem({ block: components.Tooltip, styles });
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({ modifiers: [skin], extraClasses: className }),
-    content: getElement(["content"]),
   };
 
   // Create a reference to manage the tooltip element
@@ -196,6 +198,7 @@ export function Tooltip<T extends HTMLElement>({
         <Scope elevation="hint">
           <div
             ref={floating}
+            role="tooltip"
             className={cssClasses.root}
             style={{
               ...style,
@@ -213,9 +216,7 @@ export function Tooltip<T extends HTMLElement>({
             }}
             {...props}
           >
-            <div className={cssClasses.content} role="tooltip">
-              {content}
-            </div>
+            {content}
           </div>
         </Scope>
       )}
