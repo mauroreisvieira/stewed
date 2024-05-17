@@ -7,7 +7,7 @@ import { useRef, useEffect } from "react";
  * @returns The previous value.
  *
  * @example
- * ```typescript
+ * ```ts
  * const previousCount = usePrevious(count);
  * ```
  */

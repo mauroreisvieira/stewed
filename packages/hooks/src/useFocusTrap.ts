@@ -9,8 +9,11 @@ export interface FocusTrapProps {
 }
 
 /**
- * A React hook that manages focus trapping within a specified root element.
- * @param props The props for the focus trap hook.
+ * Hook that manages focus trapping within a specified root element.
+ *
+ * @param props - The props for the focus trap hook.
+ * @param props.root - The root element to trap focus within.
+ * @param props.enabled - A boolean indicating whether the focus trapping should be active.
  */
 export const useFocusTrap = ({ enabled, root }: FocusTrapProps): void => {
   const focusTrapRef = useRef<FocusTrap | null>(null);

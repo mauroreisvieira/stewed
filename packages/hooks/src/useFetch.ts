@@ -1,18 +1,38 @@
 import { useState, useEffect, useRef } from "react";
 
+/**
+ * A utility type to allow a string literal type or any other string.
+ */
 type LooseAutoComplete<T extends string> = T | Omit<string, T>;
 
+/**
+ * Represents the status of the fetch operation.
+ * Can be "loading", "loaded", "aborted", or any other string.
+ */
 type Status = LooseAutoComplete<"loading" | "loaded" | "aborted">;
 
-type Response<T> = {
+
+interface Response<T> {
+  /** The current status of the fetch operation. */
   status: Status;
+  /** The data returned by the fetch operation, if any. */
   data?: T;
-};
+}
 
-type FetchOptions = RequestInit & {
+interface FetchOptions extends RequestInit {
+  /** Whether the fetch request should be aborted. */
   aborted?: boolean;
-};
+}
 
+/**
+ * Hook to fetch data from a given URL.
+ *
+ * @template T - The type of the data expected to be returned by the fetch.
+ *
+ * @param url - The resource that you want to fetch.
+ * @param options - The options to configure the fetch request.
+ * @returns An object containing the status of the fetch operation and the fetched data.
+ */
 export function useFetch<T>(url: RequestInfo, options: FetchOptions = {}): Response<T> {
   const { aborted, ...init } = options;
   const [data, setData] = useState<T>();

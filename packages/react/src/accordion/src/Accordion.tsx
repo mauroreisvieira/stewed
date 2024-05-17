@@ -15,6 +15,11 @@ interface AccordionProps extends React.ComponentPropsWithRef<"div"> {}
 /**
  * The Accordion component lets users show and hide sections of related content on a page.
  *
+ * @param {AccordionProps} props - The props for the Accordion component.
+ * @returns {React.ReactElement} - The rendered Accordion component.
+ *
+ * @remarks This component props extended from React.ComponentPropsWithRef<"div">.
+ *
  * @example
  * ```tsx
  * <Accordion>
@@ -37,11 +42,6 @@ interface AccordionProps extends React.ComponentPropsWithRef<"div"> {}
  *    </Accordion.Item>
  * </Accordion>
  * ```
- *
- * @remarks This component props extended from React.ComponentPropsWithRef<"div">.
- *
- * @param {AccordionProps} props - The props for the Accordion component.
- * @returns {React.ReactElement} - The rendered Accordion component.
  */
 export function Accordion({ className, children, ...props }: AccordionProps): React.ReactElement {
   // Importing useBem to handle BEM class names

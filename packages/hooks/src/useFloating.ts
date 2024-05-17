@@ -1,5 +1,8 @@
 import { useState, useEffect, useReducer, useCallback, useRef } from "react";
 
+/**
+ * Defines the possible placements for the floating element relative to the reference element.
+ */
 export type FloatingPlacement =
   | "top"
   | "top-start"
@@ -15,21 +18,52 @@ export type FloatingPlacement =
   | "left-end";
 
 interface FloatingOptions {
-  /** The placement of the floating component. */
+  /**
+   * The preferred placement of the floating component relative to the reference element.
+   * Can be one of the following: "top", "top-start", "top-end", "right", "right-start",
+   * "right-end", "bottom", "bottom-start", "bottom-end", "left", "left-start", "left-end".
+   * @default "bottom"
+   */
   placement?: FloatingPlacement;
-  /** Specifies if the floating component is positioned. */
+  /**
+   * Specifies if the floating component is currently positioned.
+   * This property can be used to toggle the positioning logic on or off.
+   */
   isPositioned?: boolean;
 }
 
-interface UseFloatingProps<R> extends Pick<FloatingOptions, "placement"> {
-  /** The reference element used for positioning the floating component. */
+
+interface UseFloatingProps<R extends HTMLElement> extends Pick<FloatingOptions, "placement"> {
+  /**
+   * The reference element used for positioning the floating component.
+   * Should be a DOM element or null.
+   */
   reference: R | null;
-  /** Indicates if the floating component is open or closed. */
+  /**
+   * Indicates if the floating component is open or closed.
+   * When true, the floating component is displayed.
+   */
   open?: boolean;
-  /** This lets you add distance (margin or spacing) between the reference and floating element. */
+  /**
+   * Adds distance (margin or spacing) between the reference and floating element.
+   * Default is 0.
+   */
   offset?: number;
 }
 
+/**
+ * Hook to position a floating element relative to a reference element.
+ *
+ * @template R - The type of the reference element (extends HTMLElement).
+ * @template F - The type of the floating element (extends HTMLElement).
+ *
+ * @param props - Configuration options for positioning the floating element.
+ * @param props.reference - The reference element used for positioning the floating component.
+ * @param props.placement - The preferred placement of the floating component relative to the reference element.
+ * @param props.offset - The offset distance between the reference element and the floating element.
+ * @param props.open - Whether the floating element is currently open and should be displayed.
+ * @returns An object containing styles and references for the floating element.
+ */
 export function useFloating<R extends HTMLElement, F extends HTMLElement>({
   reference,
   placement = "bottom",
