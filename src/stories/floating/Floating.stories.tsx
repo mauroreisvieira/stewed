@@ -42,10 +42,10 @@ export const EditProfile = {
           <Card.Body>
             <Box justify="between" gap="2xl" wrap="wrap" items="center">
               <Box gap="md" items="center">
-                <Avatar size="lg" name="Lourenço Vieira" />
+                <Avatar size="lg" name="Noah Andersen" />
                 <Box direction="column">
                   <Text size="lg" weight="medium">
-                    Lourenço Vieira
+                    Noah Andersen
                   </Text>
                 </Box>
               </Box>
@@ -124,9 +124,10 @@ export const EditProfile = {
                       </ListBox>
                     }
                   >
-                    {(props) => (
+                    {({ ref, onClick }) => (
                       <Button
-                        {...props}
+                        ref={ref as React.Ref<HTMLButtonElement>}
+                        onClick={onClick}
                         appearance="ghost"
                         leftSlot={<TbDotsVertical />}
                         size="sm"

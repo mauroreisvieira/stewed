@@ -22,18 +22,18 @@ export default meta;
 const data = [
   {
     id: "1",
-    name: "Lourenço Vieira",
-    email: "lourenco.vieira@mail.com",
+    name: "Benjamin Martinez",
+    email: "benjamin.martinez@example.com",
   },
   {
     id: "2",
-    name: "Mauro Vieira",
-    email: "mauro.vieira@mail.com",
+    name: "Sophia Chang",
+    email: "sophia.chang@example.com",
   },
   {
     id: "3",
-    name: "Henrique Vieira",
-    email: "henrique.vieira@mail.com",
+    name: "Olivia Patel",
+    email: "olivia.patel@example.com",
   },
 ];
 

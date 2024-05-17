@@ -37,32 +37,32 @@ export const Team = {
     const team = [
       {
         id: 1,
-        name: "Mauro Vieira",
-        email: "mauro.vieira@example.com",
+        name: "Sophia Chang",
+        email: "sophia.chang@example.com",
         open: false,
       },
       {
         id: 2,
-        name: "Henrique Vieira",
-        email: "henrique.vieira@example.com",
+        name: "Olivia Patel",
+        email: "olivia.patel@example.com",
         open: false,
       },
       {
         id: 3,
-        name: "Lourenco Vieira",
-        email: "lourenco.vieira@example.com",
+        name: "Benjamin Martinez",
+        email: "benjamin.martinez@example.com",
         open: false,
       },
       {
         id: 4,
-        name: "Bruna Santos",
-        email: "bruna.santos@example.com",
+        name: "Noah Andersen",
+        email: "noah.andersen@example.com",
         open: false,
       },
       {
         id: 5,
-        name: "Daniel Reis Vieira",
-        email: "daniel.vieira@example.com",
+        name: "Liam O'Connor",
+        email: "liam.connor@example.com",
         open: false,
       },
     ];
@@ -204,9 +204,9 @@ export const RecentActivity = {
           <Card.Body>
             <Box justify="between" gap="2xl" wrap="wrap">
               <Box gap="md" items="center">
-                <Avatar size="md" name="Lourenço Vieira" />
+                <Avatar size="md" name="Noah Andersen" />
                 <Box direction="column">
-                  <Text weight="medium">Lourenço Vieira</Text>
+                  <Text weight="medium">Noah Andersen</Text>
                   <Text size="sm" skin="neutral">
                     Purchased 15 office chairs and 2 drum sets
                   </Text>
@@ -219,9 +219,9 @@ export const RecentActivity = {
             <Separator space={{ block: "2xl" }} />
             <Box justify="between" gap="2xl" wrap="wrap">
               <Box gap="md" items="center">
-                <Avatar size="md" name="Henrique Vieira" />
+                <Avatar size="md" name="Olivia Patel" />
                 <Box direction="column">
-                  <Text weight="medium">Henrique Vieira</Text>
+                  <Text weight="medium">Olivia Patel</Text>
                   <Text size="sm" skin="neutral">
                     Updated client details for{" "}
                     <Text as="a" size="sm" href="">

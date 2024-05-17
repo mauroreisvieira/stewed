@@ -28,7 +28,7 @@ export interface TextFieldProps extends React.ComponentPropsWithRef<"input"> {
  *
  * @example
  * ```tsx
- * <TextField name="username" value="mauroreisvieira" />
+ * <TextField name="name" value="Benjamin Martinez" />
  * ```
  *
  * @param {TextFieldProps} props - The props for the TextField component.
