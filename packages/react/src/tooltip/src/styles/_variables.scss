@@ -5,8 +5,8 @@ $tooltip-root: "tooltip";
 /// Skins
 $tooltip-skins: (
   "default": (
-    "background-color": theme.get-color("inverted"),
-    "color": theme.get-color("background"),
+    "background-color": theme.get-color("background-inverted"),
+    "color": theme.get-color("text-inverted"),
   ),
   "neutral": (
     "background-color": theme.get-color("neutral", "500"),
@@ -14,14 +14,14 @@ $tooltip-skins: (
   ),
   "neutral-faded": (
     "background-color": theme.get-color("neutral", "100"),
-    "color": theme.get-color("text"),
+    "color": theme.get-color("black"),
   ),
   "primary": (
     "background-color": theme.get-color("primary", "500"),
-    "color": theme.get-color("background"),
+    "color": theme.get-color("white"),
   ),
   "primary-faded": (
     "background-color": theme.get-color("primary", "100"),
-    "color": theme.get-color("text"),
+    "color": theme.get-color("black"),
   ),
 );

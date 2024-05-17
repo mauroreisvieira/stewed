@@ -39,7 +39,6 @@
     @include text.typography(
       base,
       $overrides: (
-        color: null,
         font-size: theme.get-font-size("sm"),
         line-height: theme.get-line-height("sm")
       )

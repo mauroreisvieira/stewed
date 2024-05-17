@@ -23,7 +23,7 @@ export default meta;
 
 export const Base: Story = {
   args: {
-    skin: "primary-faded",
+    skin: "default",
     placement: "top",
   },
   argTypes: {

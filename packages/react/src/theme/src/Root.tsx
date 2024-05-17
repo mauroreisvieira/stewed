@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useMemo } from "react";
 // Tokens
 import {
   defaultTokens,
@@ -13,11 +13,6 @@ import { objectKeys, invertColor } from "@stewed/utilities";
 // Hooks
 import { type ThemeContextProps, useTheme } from "./ThemeContext";
 
-type ThemeContextOmittedProps<T extends string> = Omit<
-  ThemeContextProps<T>,
-  "setTheme" | "setTokens" | "theme" | "activeToken"
->;
-
 type OutputTokens = Exclude<Tokens, "components"> & {
   [K in keyof Components]?: {
     radius?: string;
@@ -26,15 +21,14 @@ type OutputTokens = Exclude<Tokens, "components"> & {
   };
 };
 
-type ComponentOverrides = {
+interface ComponentOverrides {
   radius?: Radius;
   shadow?: Shadow;
   blur?: Blur;
-};
+}
 
-export interface RootProps<T extends string>
-  extends React.ComponentPropsWithRef<"div">,
-    ThemeContextOmittedProps<T> {}
+type RootProps<T extends string> = React.ComponentPropsWithRef<"div"> &
+  Omit<ThemeContextProps<T>, "setTheme" | "setTokens" | "theme" | "activeToken">;
 
 /**
  * Root component for applying themed styles to its children based on the current theme.
@@ -44,10 +38,12 @@ export interface RootProps<T extends string>
  */
 export function Root<T extends string>({ children, ...props }: RootProps<T>): React.ReactElement {
   // Theme and tokens from the context
-  const { theme, setTheme, modes, tokens, activeToken } = useTheme();
+  const { theme, tokens, activeToken } = useTheme();
+
+  const currentTheme = theme || "default";
 
   const outputObject = useMemo(() => {
-    if (tokens?.[theme]?.components) {
+    if (tokens?.[currentTheme]?.components) {
       activeToken.components = objectKeys(defaultTokens.components || {}).reduce(
         (acc: Components, component) => {
           acc[component] = {
@@ -55,7 +51,7 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
               keyof Components,
               Components[keyof Components]
             >),
-            ...(tokens[theme]?.components?.[component] || {}),
+            ...(tokens[currentTheme]?.components?.[component] || {}),
           };
           return acc;
         },
@@ -90,24 +86,12 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
 
       return acc;
     }, {}) as OutputTokens;
-  }, [theme, activeToken, tokens]);
+  }, [currentTheme, activeToken, tokens]);
 
   // Convert merged tokens to CSS custom properties
   const cssProperties = useMemo(() => {
     return Object.fromEntries(
-      Object.entries({
-        ...outputObject,
-        ...{
-          color: {
-            ...outputObject.color,
-            inverted: outputObject?.color?.inverted
-              ? outputObject?.color?.inverted
-              : outputObject?.color?.background
-                ? invertColor(outputObject?.color?.background)
-                : "",
-          },
-        },
-      }).flatMap(([context, data]) =>
+      Object.entries(outputObject).flatMap(([context, data]) =>
         Object.entries(data).map(([key, value]) => [
           `--${context}-${key}`.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase(),
           value,
@@ -124,32 +108,9 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
     [cssProperties],
   );
 
-  useEffect(() => {
-    if (!modes) return;
-
-    const eventListenerCallback = (event: MediaQueryListEvent) => {
-      if (modes.dark && modes.light) {
-        setTheme(event.matches ? modes.dark : modes.light);
-      }
-    };
-
-    if (window.matchMedia) {
-      setTheme(
-        window.matchMedia("(prefers-color-scheme: dark)").matches ? modes.dark : modes.light,
-      );
-    }
-
-    const mediaQueryList = window.matchMedia("(prefers-color-scheme: dark)");
-    mediaQueryList.addEventListener("change", eventListenerCallback);
-
-    return () => {
-      mediaQueryList.removeEventListener("change", eventListenerCallback);
-    };
-  }, [modes, setTheme]);
-
   return (
-    <div data-theme={theme} {...props}>
-      <style>{`[data-theme="${theme}"] { ${computedStyles}`}</style>
+    <div data-theme={currentTheme} {...props}>
+      <style>{`[data-theme="${currentTheme}"] { ${computedStyles}`}</style>
       {children}
     </div>
   );

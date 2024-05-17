@@ -81,8 +81,9 @@ export interface TextProps<T>
    */
   skin?: "inherit" | Extract<
     Color,
-    | "text"
+    | "text-base"
     | "white"
+    | "black"
     | "primary"
     | "secondary"
     | "neutral"
@@ -114,7 +115,7 @@ export const Text = fixedForwardRef(
       size,
       family,
       weight,
-      skin = "text",
+      skin = "text-base",
       variation,
       lineClamp,
       alignment,

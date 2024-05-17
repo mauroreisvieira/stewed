@@ -5,7 +5,7 @@
   @include theme.define-var(
     (
       opacity: 0,
-      background: theme.get-color("background"),
+      background: theme.get-color("background-elevated"),
     )
   );
 

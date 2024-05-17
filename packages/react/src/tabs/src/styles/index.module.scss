@@ -72,7 +72,7 @@
     @include theme.disabled-styles;
     @include text.typography(
       base,
-      $overrides: (color: currentColor, font-size: theme.get-font-size("sm"))
+      $overrides: (font-size: theme.get-font-size("sm"))
     );
 
     &__left,
@@ -85,7 +85,7 @@
     &--selected {
       @include theme.define-var(
         (
-          item-background-color: #fff,
+          item-background-color: theme.get-color("background-elevated"),
         )
       );
     }

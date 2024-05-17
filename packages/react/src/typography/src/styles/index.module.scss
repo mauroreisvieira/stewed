@@ -107,10 +107,10 @@
     );
   }
 
-  &--text {
+  &--text-base {
     @include theme.define-var(
       (
-        color: theme.get-color("text"),
+        color: theme.get-color("text-base"),
       )
     );
   }
