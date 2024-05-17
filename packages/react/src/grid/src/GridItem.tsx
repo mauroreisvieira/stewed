@@ -13,7 +13,7 @@ const defaultElement = "div";
 
 export type Size = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
-interface GridProps<T>
+export interface GridProps<T>
   extends React.ComponentProps<typeof defaultElement>,
     UseResponsiveProps<{
       /** The number of rows that the element should span. */
