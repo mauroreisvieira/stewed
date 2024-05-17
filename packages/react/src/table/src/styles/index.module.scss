@@ -63,6 +63,12 @@
   &__row {
     display: table-row;
     vertical-align: middle;
+
+    &--critical {
+      .#{$table-root}__cell {
+        background-color: theme.get-color("critical", "100");
+      }
+    }
   }
 
   &__cell {
