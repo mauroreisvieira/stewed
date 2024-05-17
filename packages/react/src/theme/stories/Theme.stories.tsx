@@ -40,8 +40,6 @@ import {
 
 type Story = StoryObj<typeof Theme>;
 
-type ThemeOptions = "default" | "metro" | "elegant";
-
 const meta: Meta<typeof Theme> = {
   title: "Components/Theme",
   component: Theme,
@@ -437,7 +435,7 @@ export const Timing: Story = {
 };
 
 function Elements(): React.ReactElement {
-  const { theme, setTheme } = useTheme<ThemeOptions>();
+  const { theme, setTheme } = useTheme<"metro" | "elegant">();
   const [isOpen, setOpen] = useState(false);
 
   const {
@@ -481,7 +479,7 @@ function Elements(): React.ReactElement {
           value={theme}
           alignment="center"
           onValueChange={(value) => {
-            setTheme(value as ThemeOptions);
+            setTheme(value as "metro" | "elegant");
           }}
         >
           <Tabs.List>
@@ -639,10 +637,10 @@ function Elements(): React.ReactElement {
   );
 }
 
-export const Example: Story = {
+export const CustomTokens: Story = {
   render: (): React.ReactElement => {
     return (
-      <Theme<ThemeOptions>
+      <Theme<"metro" | "elegant">
         tokens={{
           metro: {
             color: {
@@ -705,11 +703,62 @@ export const Example: Story = {
             },
           },
         }}
-        defaultTheme="metro"
+        theme="metro"
       >
         <Container screen="lg" alignment="center">
           <Elements />
         </Container>
+      </Theme>
+    );
+  },
+};
+
+export const LightDarkMode: Story = {
+  render: (): React.ReactElement => {
+    return (
+      <Theme<"dark">
+        theme="default"
+        modes={{
+          dark: "dark",
+          light: "default",
+        }}
+        tokens={{
+          dark: {
+            color: {
+              text: "#fff",
+              background: "#000",
+            },
+          },
+        }}
+      >
+        <Box
+          as="main"
+          skin="default"
+          screen="vh"
+          direction="column"
+          items="center"
+          justify="center"
+        >
+          <Container screen="md" alignment="center" padding={{ block: "7xl" }}>
+            <Box block>
+              <Text weight="bold" variation={"uppercase"}>
+                404 Page
+              </Text>
+              <Text size="7xl" space={{ y: "sm" }}>
+                Oops! Page not found.
+              </Text>
+              <Text size="xl" skin="neutral" space={{ y: "7xl" }}>
+                Sorry, we could`t find the page you where looking for.
+              </Text>
+              <Box gap="lg">
+                <Button>Go back home</Button>
+                <Button appearance="outline" rightSlot="→">
+                  Contact support
+                </Button>
+              </Box>
+            </Box>
+          </Container>
+        </Box>
       </Theme>
     );
   },

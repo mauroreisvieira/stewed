@@ -6,11 +6,11 @@ $separator-root: "separator";
 $separator-skins: (
   "white": theme.get-color("white"),
   "neutral": theme.get-color("neutral", "500"),
-  "neutral-border": theme.get-color("neutral", "300"),
+  "neutral-faded": theme.get-color("neutral", "300"),
   "primary": theme.get-color("primary", "500"),
-  "primary-border": theme.get-color("primary", "300"),
+  "primary-faded": theme.get-color("primary", "300"),
   "secondary": theme.get-color("secondary", "500"),
-  "secondary-border": theme.get-color("secondary", "300"),
+  "secondary-faded": theme.get-color("secondary", "300"),
   "critical": theme.get-color("critical", "500"),
   "critical-border": theme.get-color("critical", "300"),
 );

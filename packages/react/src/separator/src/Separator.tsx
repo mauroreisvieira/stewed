@@ -9,18 +9,18 @@ import styles from "./styles/index.module.scss";
 interface SeparatorProps extends React.ComponentPropsWithRef<"hr"> {
   /**
    * Change the visual color of the separator.
-   * @default neutral-border
+   * @default neutral-faded
    */
   skin?:
     | "white"
     | "neutral"
-    | "neutral-border"
+    | "neutral-faded"
     | "primary"
-    | "primary-border"
+    | "primary-faded"
     | "secondary"
-    | "secondary-border"
+    | "secondary-faded"
     | "critical"
-    | "critical-border";
+    | "critical-faded";
   /** Adds space between separators on the horizontal and vertical axes. */
   space?: {
     /**
@@ -47,7 +47,7 @@ interface SeparatorProps extends React.ComponentPropsWithRef<"hr"> {
  *
  * @example
  * ```tsx
- * <Separator skin="primary-border" space={{ block: 'sm', inline: 'md' }} orientation="horizontal" />
+ * <Separator skin="primary-faded" space={{ block: 'sm', inline: 'md' }} orientation="horizontal" />
  * ```
  *
  * @remarks This component props extended from React.ComponentPropsWithRef<"hr">.
@@ -56,7 +56,7 @@ interface SeparatorProps extends React.ComponentPropsWithRef<"hr"> {
  * @returns {React.ReactElement} - The rendered Separator component.
  */
 export function Separator({
-  skin = "neutral-border",
+  skin = "neutral-faded",
   space = { block: "none", inline: "none" },
   orientation = "horizontal",
   className,

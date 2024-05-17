@@ -5,8 +5,7 @@
   @include theme.define-var(
     (
       opacity: 0,
-      background: $dialog-background,
-      border-color: theme.get-color("neutral", "100"),
+      background: theme.get-color("background"),
     )
   );
 
@@ -21,7 +20,6 @@
     max-width: 100%;
     margin: auto;
     background-color: theme.get-var(background);
-    border: 1px solid theme.get-var(border-color);
     border-radius: theme.get-var(radius);
     box-shadow: theme.get-var(shadow);
   }
