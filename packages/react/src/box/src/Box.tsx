@@ -64,7 +64,7 @@ export interface BoxProps<T>
 }
 
 /**
- * Component that implements the CSS flex box API.
+ * Component that implements the CSS flex box.
  *
  * @example
  * ```tsx
