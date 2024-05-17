@@ -126,7 +126,7 @@ export const EditProfile = {
                   >
                     {({ ref, onClick }) => (
                       <Button
-                        ref={ref as React.Ref<HTMLButtonElement>}
+                        ref={ref}
                         onClick={onClick}
                         appearance="ghost"
                         leftSlot={<TbDotsVertical />}
