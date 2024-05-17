@@ -1,0 +1,6 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+
+$grid-root: "grid";
+$grid-gap: theme.get-spacing();
+$grid-padding: theme.get-spacing();
+$grid-space: theme.get-spacing();

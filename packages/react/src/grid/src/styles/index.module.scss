@@ -1,0 +1,97 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+@use "./variables" as *;
+
+@include theme.scope($grid-root) {
+  display: grid;
+
+  &__column {
+    box-sizing: border-box;
+
+    @for $i from 1 through 12 {
+      &--row-span-#{$i} {
+        grid-row: span $i/span $i;
+      }
+
+      &--row-start-#{$i} {
+        grid-row-start: $i;
+      }
+
+      &--row-end-#{$i} {
+        grid-row-end: $i;
+      }
+
+      &--col-span-#{$i} {
+        grid-column: span $i/span $i;
+      }
+
+      &--col-start-#{$i} {
+        grid-column-start: $i;
+      }
+
+      &--col-end-#{$i} {
+        grid-column-end: $i;
+      }
+    }
+  }
+
+  &--subgrid {
+    grid-template-columns: subgrid;
+  }
+
+  &--flow-row {
+    grid-auto-flow: row;
+  }
+
+  &--flow-column {
+    grid-auto-flow: column;
+  }
+
+  &--flow-row-dense {
+    grid-auto-flow: row dense;
+  }
+
+  &--flow-column-dense {
+    grid-auto-flow: column dense;
+  }
+
+  @for $i from 1 through 12 {
+    &--cols-#{$i} {
+      grid-template-columns: repeat($i, minmax(0, 1fr));
+    }
+
+    &--rows-#{$i} {
+      grid-template-rows: repeat($i, minmax(0, 1fr));
+    }
+  }
+
+  // Gap
+  @each $key, $value in $grid-gap {
+    &--gap-#{$key} {
+      gap: #{$value};
+    }
+  }
+
+  // Padding
+  @each $key, $value in $grid-padding {
+    &--padding-block-#{$key} {
+      padding-block: #{$value};
+    }
+  }
+
+  @each $key, $value in $grid-padding {
+    &--padding-inline-#{$key} {
+      padding-inline: #{$value};
+    }
+  }
+
+  // Space
+  @each $key, $value in $grid-gap {
+    &--space-x-#{$key} ~ :not([hidden]) {
+      margin-left: #{$value};
+    }
+
+    &--space-y-#{$key}:not([hidden]) ~ :not([hidden]) {
+      margin-top: #{$value};
+    }
+  }
+}
