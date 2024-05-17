@@ -23,6 +23,7 @@ import {
 import { useStateForm } from "@stewed/hooks";
 // Tokens
 import {
+  color,
   breakpoints,
   screens,
   elevation,
@@ -48,7 +49,7 @@ const meta: Meta<typeof Theme> = {
 
 export default meta;
 
-export const Colors: Story = {
+export const Palette: Story = {
   render: (): React.ReactElement => {
     return (
       <Theme>
@@ -70,7 +71,7 @@ export const Colors: Story = {
                         tone === 500 ? `var(--color-${color})` : `var(--color-${color}-${tone})`,
                     }}
                   >
-                    <Text size="xs" skin={tone > 400 ? "white" : "text"}>
+                    <Text size="xs" skin={tone > 400 ? "white" : "black"}>
                       {tone}
                     </Text>
                   </Box>
@@ -79,6 +80,31 @@ export const Colors: Story = {
             </Box>
           ),
         )}
+      </Theme>
+    );
+  },
+};
+
+export const Colors: Story = {
+  render: (): React.ReactElement => {
+    return (
+      <Theme>
+        <Table appearance={["border-rows", "border-columns", "striped"]}>
+          <Table.Head>
+            <Table.Row>
+              <Table.Cell as="th">Name</Table.Cell>
+              <Table.Cell as="th">Value</Table.Cell>
+            </Table.Row>
+          </Table.Head>
+          <Table.Body>
+            {Object.entries(color).map(([key, val]) => (
+              <Table.Row key={key}>
+                <Table.Cell>{key}</Table.Cell>
+                <Table.Cell>{val}</Table.Cell>
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table>
       </Theme>
     );
   },
@@ -679,10 +705,10 @@ export const CustomTokens: Story = {
               base: "'DM Sans', sans-serif",
             },
             color: {
-              overlay: "rgb(200 200 200 / 70%)",
-              primary: "#e91e63",
-              critical: "#ef4444",
-              success: "#14784a",
+              "background-backdrop": "rgb(200 200 200 / 70%)",
+              "primary": "#e91e63",
+              "critical": "#ef4444",
+              "success": "#14784a",
             },
             components: {
               "button": {
@@ -708,57 +734,6 @@ export const CustomTokens: Story = {
         <Container screen="lg" alignment="center">
           <Elements />
         </Container>
-      </Theme>
-    );
-  },
-};
-
-export const LightDarkMode: Story = {
-  render: (): React.ReactElement => {
-    return (
-      <Theme<"dark">
-        theme="default"
-        modes={{
-          dark: "dark",
-          light: "default",
-        }}
-        tokens={{
-          dark: {
-            color: {
-              text: "#fff",
-              background: "#000",
-            },
-          },
-        }}
-      >
-        <Box
-          as="main"
-          skin="default"
-          screen="vh"
-          direction="column"
-          items="center"
-          justify="center"
-        >
-          <Container screen="md" alignment="center" padding={{ block: "7xl" }}>
-            <Box block>
-              <Text weight="bold" variation={"uppercase"}>
-                404 Page
-              </Text>
-              <Text size="7xl" space={{ y: "sm" }}>
-                Oops! Page not found.
-              </Text>
-              <Text size="xl" skin="neutral" space={{ y: "7xl" }}>
-                Sorry, we could`t find the page you where looking for.
-              </Text>
-              <Box gap="lg">
-                <Button>Go back home</Button>
-                <Button appearance="outline" rightSlot="→">
-                  Contact support
-                </Button>
-              </Box>
-            </Box>
-          </Container>
-        </Box>
       </Theme>
     );
   },
