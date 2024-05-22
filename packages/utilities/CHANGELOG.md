@@ -1,5 +1,20 @@
 # @stewed/utilities
 
+## 0.3.0
+
+### Minor Changes
+
+- c8513f3: update packages versions
+- c8513f3: feat: add singleton for click outside to work with multiple instances
+- c8513f3: feat: add utility to invert color
+
+### Patch Changes
+
+- c8513f3: style: fix lint
+- c8513f3: style: fix lint issues
+- c8513f3: docs: update comments
+- c8513f3: chore(release): version packages
+
 ## 0.2.1
 
 ### Patch Changes
