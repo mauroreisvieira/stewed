@@ -6,5 +6,5 @@
     "moduleResolution": "node"
   },
   "include": ["./index.d.ts", "./src/**/*"],
-  "exclude": ["dist", "node_modules"]
+  "exclude": ["dist", "src/**/stories", "node_modules"]
 }

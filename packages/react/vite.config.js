@@ -11,14 +11,12 @@ export default defineConfig({
   plugins: [
     react(),
     libInjectCss(),
-    dts({
-      copyDtsFiles: true
-    }),
+    dts(),
   ],
   build: {
     copyPublicDir: false,
     lib: {
-      entry: resolve(__dirname, "src/index.ts"),
+      entry: resolve(__dirname, "index.ts"),
       formats: ["es"],
     },
     rollupOptions: {
