@@ -8,9 +8,9 @@ $list-box-item-inner-spacing-inline: theme.get-spacing("xl");
 $list-box-item-inner-spacing-block: theme.get-spacing("md");
 $list-box-item-outer-spacing-bottom: theme.get-spacing("xxs");
 $list-box-item-border-radius: theme.get-radius("md");
-$list-box-item-color-hover: #{theme.get-color("neutral", "pressed")};
-$list-box-item-background-hover: #{theme.get-color("neutral", "faded")};
-$list-box-item-background-active: #{theme.get-color("neutral", "faded")};
+$list-box-item-color-hover: #{theme.get-color("neutral", "600")};
+$list-box-item-background-hover: #{theme.get-color("neutral", "100")};
+$list-box-item-background-active: #{theme.get-color("neutral", "200")};
 
 /// Skins
 $list-box-item-skins: (
@@ -19,6 +19,6 @@ $list-box-item-skins: (
 );
 
 // List Box Section
-$list-box-title-color: #{theme.get-color("neutral")};
+$list-box-title-color: #{theme.get-color("neutral", "500")};
 $list-box-title-font-size: theme.get-font-size("xs");
 $list-box-title-font-weight: theme.get-font-weight("medium");

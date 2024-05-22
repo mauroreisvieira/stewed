@@ -22,7 +22,7 @@ export default meta;
 
 export const Base: Story = {
   args: {
-    skin: "neutral-border",
+    skin: "neutral-faded",
   },
 };
 

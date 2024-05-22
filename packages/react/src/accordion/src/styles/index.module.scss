@@ -4,9 +4,10 @@
 
 @include theme.scope($accordion-root) {
   position: relative;
+  width: 100%;
 
   &__item {
-    border-bottom: 1px solid theme.get-color("neutral", "border");
+    display: flex;
   }
 
   &__header,
@@ -19,6 +20,7 @@
     appearance: auto;
     cursor: pointer;
 
+    @include theme.focus-styles;
     &::-webkit-details-marker {
       display: none;
     }

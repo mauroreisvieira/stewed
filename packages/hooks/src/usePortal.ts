@@ -3,9 +3,13 @@ import { useEffect, useRef } from "react";
 /** Hook to append a container to the DOM on mount and return the node to use for createPortal.
  * Automatically handles creating and tearing-down the root elements (no SRR
  * makes this trivial), so there is no need to ensure the parent target already exists.
- * @example
- * const target = usePortal();
+ *
  * @returns The DOM node to use as the Portal target.
+ *
+ * @example
+ * ```ts
+ * const target = usePortal();
+ * ```
  */
 export const usePortal = (): HTMLElement => {
   const rootElemRef = useRef<HTMLElement>();

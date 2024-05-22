@@ -1,34 +1,52 @@
-import React, { useEffect, useMemo, useId } from "react";
+import React, { useMemo } from "react";
 // Tokens
-import { defaultTokens, type Tokens, type Components, Radius, Shadow } from "@stewed/tokens";
+import {
+  defaultTokens,
+  type Tokens,
+  type Components,
+  type Radius,
+  type Shadow,
+  type Blur,
+} from "@stewed/tokens";
 // Utilities
 import { objectKeys } from "@stewed/utilities";
 // Hooks
 import { type ThemeContextProps, useTheme } from "./ThemeContext";
 
-type ThemeContextOmittedProps<T extends string> = Omit<
-  ThemeContextProps<T>,
-  "setTheme" | "setTokens" | "theme" | "activeToken"
->;
-
-type OutputTokens = Exclude<Tokens, "components"> & {
-  [K in keyof Components]?: {
-    radius?: string;
-    shadow?: string;
-  };
+/**
+ * Converts properties of a given type to optional string properties.
+ * @template T - Generic type for the object whose properties are to be converted to strings.
+ */
+type StringifyProperties<T> = {
+  [K in keyof T]?: string;
 };
 
-type ComponentOverrides = {
+/** Represents overrides that can be applied to components */
+interface ComponentOverrides {
+  /** Optional override for the radius property of a component. */
   radius?: Radius;
+  /** Optional override for the shadow property of a component. */
   shadow?: Shadow;
+  /** Override for the blur property of a component. */
+  blur?: Blur;
+}
+
+/**
+ * Represents the structure for tokens specifically for output purposes, combining general token properties
+ * with override capabilities for component-specific properties.
+ */
+type OutputTokens = Exclude<Tokens, "components"> & {
+  [K in keyof Components]?: StringifyProperties<ComponentOverrides>;
 };
 
-export interface RootProps<T extends string>
-  extends React.ComponentPropsWithRef<"div">,
-    ThemeContextOmittedProps<T> {
-  /** Boolean to indicate if the theme styles are scoped. */
-  scoped?: boolean;
-}
+/**
+ * Type definition for the root properties of a component derived from standard div properties and theme context properties.
+ * This type filters out specific theme-related properties, making it suitable for the root element of a component.
+ *
+ * @template T - A generic string type constraint that extends to theming properties specified in ThemeContextProps.
+ */
+type RootProps<T extends string> = React.ComponentPropsWithRef<"div"> &
+  Omit<ThemeContextProps<T>, "setTheme" | "setTokens" | "theme" | "activeToken">;
 
 /**
  * Root component for applying themed styles to its children based on the current theme.
@@ -36,26 +54,27 @@ export interface RootProps<T extends string>
  * @param {RootProps} props - Props for the Root component.
  * @returns {React.ReactElement} - React element representing the root component with themed styles applied.
  */
-export function Root<T extends string>({
-  scoped = false,
-  children,
-  ...props
-}: RootProps<T>): React.ReactElement {
+export function Root<T extends string>({ children, ...props }: RootProps<T>): React.ReactElement {
   // Theme and tokens from the context
   const { theme, tokens, activeToken } = useTheme();
 
-  console.log("theme switch", theme);
+  // Determine the current theme, defaulting to 'default' if not otherwise specified.
+  const currentTheme = theme || "default";
 
+  // Memoize the outputObject to prevent unnecessary recalculations
   const outputObject = useMemo(() => {
-    if (tokens?.[theme]?.components) {
+    // If the current theme has components defined, proceed to merge them
+    if (tokens?.[currentTheme]?.components) {
+      // Merge default and theme-specific components
       activeToken.components = objectKeys(defaultTokens.components || {}).reduce(
         (acc: Components, component) => {
+          // Merge each component from the default with the theme-specific one, if exists
           acc[component] = {
             ...((defaultTokens.components || {})[component] as Record<
               keyof Components,
               Components[keyof Components]
             >),
-            ...(tokens[theme]?.components?.[component] || {}),
+            ...(tokens[currentTheme]?.components?.[component] || {}),
           };
           return acc;
         },
@@ -63,11 +82,14 @@ export function Root<T extends string>({
       );
     }
 
+    // Return the modified activeToken, applying any component-specific overrides specified in 'activeToken'
     return objectKeys(activeToken).reduce((acc: OutputTokens, key) => {
-      if (activeToken.components && key === "components") {
-        objectKeys(activeToken.components).forEach((component) => {
-          const componentObj: ComponentOverrides | undefined = activeToken?.components?.[component];
+      if (key === "components") {
+        // Process each component specified in activeToken
+        objectKeys(activeToken.components || {}).forEach((component) => {
+          const componentObj: ComponentOverrides | undefined = activeToken.components?.[component];
           if (componentObj) {
+            // Merge component-level overrides such as radius, shadow, and blur values
             acc[component] = {
               ...componentObj,
               ...(componentObj.radius && {
@@ -76,16 +98,22 @@ export function Root<T extends string>({
               ...(componentObj.shadow && {
                 shadow: activeToken.shadow?.[componentObj.shadow] || componentObj.shadow,
               }),
+              ...(componentObj.blur && {
+                blur: activeToken.blur?.[componentObj.blur] || componentObj.blur,
+              }),
             };
           }
         });
       } else {
-        acc[key] = activeToken[key];
+        // For keys other than 'components', simply copy the values
+        acc[key] = {
+          ...activeToken[key],
+        };
       }
 
       return acc;
     }, {}) as OutputTokens;
-  }, [theme, activeToken, tokens]);
+  }, [currentTheme, activeToken, tokens]);
 
   // Convert merged tokens to CSS custom properties
   const cssProperties = useMemo(() => {
@@ -104,30 +132,12 @@ export function Root<T extends string>({
       `\n${Object.entries(cssProperties)
         .map(([property, value]) => `${property}: ${value};`)
         .join("\n")}`,
-    [],
+    [cssProperties],
   );
 
-  const uniqueID = useId();
-
-  useEffect(() => {
-    if (scoped) return;
-
-    const styleTag = document.createElement("style");
-    styleTag.innerHTML = `[data-theme="${theme}"] {${computedStyles}\n}`;
-
-    document.head.appendChild(styleTag);
-
-    return () => {
-      styleTag.remove();
-    };
-  }, [cssProperties, theme]);
-
   return (
-    <div
-      {...props}
-      data-theme={theme}
-      data-scope={scoped ? uniqueID : undefined}>
-      {scoped && <style>{`[data-scope="${uniqueID}"] { ${computedStyles}`}</style>}
+    <div data-theme={currentTheme} {...props}>
+      <style>{`[data-theme="${currentTheme}"] { ${computedStyles}`}</style>
       {children}
     </div>
   );

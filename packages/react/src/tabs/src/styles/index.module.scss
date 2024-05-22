@@ -5,8 +5,8 @@
 @include theme.scope($tabs-root) {
   @include theme.define-var(
     (
-      background-color: theme.get-color("neutral", "faded"),
-      border-color: theme.get-color("neutral", "border"),
+      background-color: theme.get-color("neutral", "100"),
+      border-color: theme.get-color("neutral", "300"),
       flex-direction: row,
       width: auto,
       height: theme.get-spacing("6xl"),
@@ -72,7 +72,7 @@
     @include theme.disabled-styles;
     @include text.typography(
       base,
-      $overrides: (color: currentColor, font-size: theme.get-font-size("sm"))
+      $overrides: (font-size: theme.get-font-size("sm"))
     );
 
     &__left,
@@ -85,7 +85,7 @@
     &--selected {
       @include theme.define-var(
         (
-          item-background-color: #fff,
+          item-background-color: theme.get-color("background-elevated"),
         )
       );
     }

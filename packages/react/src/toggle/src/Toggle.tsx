@@ -36,7 +36,7 @@ export interface ToggleProps extends React.ComponentPropsWithRef<"button"> {
  *
  * @example
  * ```tsx
- * <Toggle size="sm" onClick={() => console.log("Toggled!")}>
+ * <Toggle size="sm">
  *   Click me
  * </Toggle>
  * ```

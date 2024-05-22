@@ -41,7 +41,7 @@ export interface AvatarProps {
  *
  * @example
  * ```tsx
- * <Avatar appearance="square" name="Lourenço Vieira" size="3xl" skin="neutral" />
+ * <Avatar appearance="square" name="Noah Andersen" size="3xl" skin="neutral" />
  * ```
  *
  * @param {AvatarProps} props - The props for the Avatar component.

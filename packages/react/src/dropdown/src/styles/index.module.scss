@@ -5,16 +5,8 @@
   position: absolute;
   min-width: 180px;
   padding: theme.get-spacing("sm");
-  background-color: #fff;
-  border: 1px solid theme.get-color("neutral", "border");
+  background-color: theme.get-color("background-elevated");
+  border: 1px solid theme.get-color("neutral", "300");
   border-radius: theme.get-radius("sm");
   box-shadow: theme.get-shadow("md");
-
-  &__surface {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
 }

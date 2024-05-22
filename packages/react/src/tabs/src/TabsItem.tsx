@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 // Context
-import { useTabs } from "./TabsContext";
+import { useTabs } from "./context/TabsContext";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens

@@ -45,8 +45,8 @@
     &--#{$value} {
       @include theme.define-var(
         (
-          background-color: theme.get-color($value, "faded"),
-          color: theme.get-color($value, "pressed"),
+          background-color: theme.get-color($value, "100"),
+          color: theme.get-color($value, "900"),
         )
       );
     }

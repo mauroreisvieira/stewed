@@ -28,9 +28,9 @@ export const Group: Story = {
   args: {
     children: (
       <>
-        <Avatar skin="primary" name="Mauro Vieira" />
-        <Avatar skin="primary" name="Bruna Santos" />
-        <Avatar skin="primary" name="Lourenço Vieira" />
+        <Avatar skin="primary" name="Sophia Chang" />
+        <Avatar skin="primary" name="Noah Andersen" />
+        <Avatar skin="primary" name="Benjamin Martinez" />
       </>
     ),
   },

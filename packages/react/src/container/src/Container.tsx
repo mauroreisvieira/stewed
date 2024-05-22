@@ -29,7 +29,7 @@ export interface ContainerProps<T>
   alignment?: "default" | "center";
   /**
    * Specifies the screen size for the container.
-   * @default none
+   * @default full
    */
   screen?: Screens;
   /**
@@ -57,7 +57,7 @@ export const Container = fixedForwardRef(
   <T extends React.ElementType>(
     {
       as,
-      screen = "none",
+      screen = "full",
       alignment = "default",
       padding = {
         inline: "xl",

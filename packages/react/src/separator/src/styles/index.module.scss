@@ -21,26 +21,15 @@
   }
 
   // Skin
-  @each $key in $separator-skins {
+  @each $key, $value in $separator-skins {
     &--#{$key} {
-      $value: string.split($key, "-");
-
-      @if length($value) > 1 {
-        @include theme.define-var(
-          (
-            background-color: theme.get-color(list.nth($value, 1), list.nth($value, 2)),
-          )
-        );
-      } @else {
-        @include theme.define-var(
-          (
-            background-color: theme.get-color($key),
-          )
-        );
-      }
+      @include theme.define-var(
+        (
+          background-color: $value,
+        )
+      );
     }
   }
-
   // Spacing
   @each $key, $value in $separator-spacing {
     &--space-inline-#{$key} {

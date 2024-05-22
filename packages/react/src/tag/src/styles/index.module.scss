@@ -72,15 +72,15 @@
       &-filled {
         @include theme.define-var(
           (
-            background-color: theme.get-color($value),
-            color: #fff,
+            background-color: theme.get-color($value, "500"),
+            color: theme.get-color("white"),
           )
         );
 
         &[href]:hover {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "pressed"),
+              background-color: theme.get-color($value, "600"),
             )
           );
         }
@@ -88,7 +88,7 @@
         &[href]:active {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value),
+              background-color: theme.get-color($value, "500"),
             )
           );
         }
@@ -97,7 +97,7 @@
       &-ghost {
         @include theme.define-var(
           (
-            color: theme.get-color($value),
+            color: theme.get-color($value, "500"),
             background-color: transparent,
           )
         );
@@ -105,7 +105,7 @@
         &[href]:hover {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "faded"),
+              background-color: theme.get-color($value, "100"),
             )
           );
         }
@@ -113,7 +113,7 @@
         &[href]:active {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "faded"),
+              background-color: theme.get-color($value, "200"),
             )
           );
         }
@@ -124,14 +124,14 @@
           (
             background-color: transparent,
             border-color: currentColor,
-            color: theme.get-color($value),
+            color: theme.get-color($value, "500"),
           )
         );
 
         &[href]:hover {
           @include theme.define-var(
             (
-              color: theme.get-color($value, "pressed"),
+              color: theme.get-color($value, "600"),
             )
           );
         }
@@ -139,7 +139,7 @@
         &[href]:active {
           @include theme.define-var(
             (
-              color: theme.get-color($value),
+              color: theme.get-color($value, "500"),
             )
           );
         }
@@ -148,15 +148,15 @@
       &-soft {
         @include theme.define-var(
           (
-            color: theme.get-color($value, "pressed"),
-            background-color: color-mix(in srgb, theme.get-color($value), transparent 95%),
+            color: theme.get-color($value, "600"),
+            background-color: color-mix(in srgb, theme.get-color($value, "500"), transparent 95%),
           )
         );
 
         &[href]:hover {
           @include theme.define-var(
             (
-              color: theme.get-color($value),
+              color: theme.get-color($value, "500"),
             )
           );
         }
@@ -164,7 +164,7 @@
         &[href]:active {
           @include theme.define-var(
             (
-              color: theme.get-color($value),
+              color: theme.get-color($value, "500"),
             )
           );
         }

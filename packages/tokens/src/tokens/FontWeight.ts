@@ -6,7 +6,7 @@ export const fontWeight = {
   "semi-bold": "600",
   "bold": "700",
   "extra-bold": "800",
-  "black": "900",
+  "bolder": "900",
 };
 
 export type FontWeight = keyof typeof fontWeight;

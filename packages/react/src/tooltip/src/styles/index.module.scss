@@ -1,0 +1,25 @@
+@use "sass:map";
+@use "@stewed/react/src/theme/src/styles" as theme;
+@use "./variables" as *;
+
+@include theme.scope($tooltip-root) {
+  position: absolute;
+  max-width: 240px;
+  padding-inline: theme.get-spacing("sm");
+  padding-block: theme.get-spacing("xs");
+  background-color: theme.get-var(background-color);
+  color: theme.get-var(color);
+  border-radius: theme.get-radius("sm");
+  box-shadow: theme.get-shadow("md");
+
+  @each $key, $value in $tooltip-skins {
+    &--#{$key} {
+      @include theme.define-var(
+        (
+          color: map.get($value, "color"),
+          background-color: map.get($value, "background-color"),
+        )
+      );
+    }
+  }
+}

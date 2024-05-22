@@ -67,10 +67,12 @@ interface UseStateForm<T> {
  * @returns {UseStateForm<T>} - Returns an object containing form state and handlers.
  *
  * @example
+ * ```tsx
  * const { data: { firstName, lastName }, onFormChange } = useStateForm({ initialValues: { firstName: "", lastName: ""}});
  *
  * <input name="firstName" value={firstName} onChange={onFormChange} />
  * <input name="lastName" value={lastName} onChange={onFormChange} />
+ * ```
  */
 export function useStateForm<T>({
   initialValues,

@@ -5,15 +5,15 @@ $input-root: "text-field";
 /// Skins
 $input-skins: (
   "default": (
-    "border": theme.get-color("neutral", "border"),
-    "border-hover": theme.get-color("neutral", "border-hover"),
+    "border": theme.get-color("neutral", "300"),
+    "border-hover": theme.get-color("neutral", "400"),
   ),
   "success": (
-    "border": theme.get-color("success"),
-    "border-hover": theme.get-color("success", "pressed"),
+    "border": theme.get-color("success", "500"),
+    "border-hover": theme.get-color("success", "600"),
   ),
   "critical": (
-    "border": theme.get-color("critical"),
-    "border-hover": theme.get-color("critical", "pressed"),
+    "border": theme.get-color("critical", "500"),
+    "border-hover": theme.get-color("critical", "600"),
   ),
 );

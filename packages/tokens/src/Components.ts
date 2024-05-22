@@ -1,10 +1,11 @@
-import { Shadow, type Radius } from "./tokens/index";
+import type { Shadow, Radius, Blur } from "./tokens/index";
 
 export const components = {
   Accordion: "accordion",
   Alert: "alert",
   AspectRatio: "aspect-ratio",
   Avatar: "avatar",
+  Backdrop: "backdrop",
   Badge: "badge",
   Box: "box",
   Button: "button",
@@ -16,10 +17,10 @@ export const components = {
   Dialog: "dialog",
   Dropdown: "dropdown",
   FormField: "form-field",
+  Grid: "grid",
   List: "list",
   ListBox: "list-box",
   Pagination: "pagination",
-  Backdrop: "backdrop",
   Progress: "progress",
   Quantity: "quantity",
   Radio: "radio",
@@ -42,6 +43,7 @@ export const components = {
 export type Components = {
   [components.Alert]?: { radius?: Radius; shadow?: Shadow };
   [components.Avatar]?: { radius?: Radius };
+  [components.Backdrop]?: { blur?: Blur };
   [components.Badge]?: { radius?: Radius };
   [components.Button]?: { radius?: Radius };
   [components.Card]?: { radius?: Radius };

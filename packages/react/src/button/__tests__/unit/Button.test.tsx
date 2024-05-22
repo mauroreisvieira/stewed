@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "@stewed/react";
+import { Button } from "../../index";
 import { render } from "@testing-library/react";
 
 describe("Button", () => {
@@ -40,7 +40,7 @@ describe("Button", () => {
   it("applies icon-only class when iconOnly prop is true", () => {
     const { asFragment } = render(
       <Button iconOnly>
-        <i className="fas fa-star"></i>
+        <i className="fas fa-star" />
       </Button>,
     );
 

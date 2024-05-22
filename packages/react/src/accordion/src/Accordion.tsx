@@ -1,8 +1,8 @@
 import React from "react";
 // Compound Component
-import { AccordionItem } from "./AccordionItem";
-import { AccordionHeader } from "./AccordionHeader";
 import { AccordionBody } from "./AccordionBody";
+import { AccordionHeader } from "./AccordionHeader";
+import { AccordionItem } from "./AccordionItem";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
@@ -15,6 +15,11 @@ interface AccordionProps extends React.ComponentPropsWithRef<"div"> {}
 /**
  * The Accordion component lets users show and hide sections of related content on a page.
  *
+ * @param {AccordionProps} props - The props for the Accordion component.
+ * @returns {React.ReactElement} - The rendered Accordion component.
+ *
+ * @remarks This component props extended from React.ComponentPropsWithRef<"div">.
+ *
  * @example
  * ```tsx
  * <Accordion>
@@ -25,10 +30,18 @@ interface AccordionProps extends React.ComponentPropsWithRef<"div"> {}
  * </Accordion>
  * ```
  *
- * @remarks This component props extended from React.ComponentPropsWithRef<"div">.
- *
- * @param {AccordionProps} props - The props for the Accordion component.
- * @returns {React.ReactElement} - The rendered Accordion component.
+ * ```tsx
+ * <Accordion>
+ *    <Accordion.Item>
+ *        {( { open }) => (
+ *            <>
+ *                <Accordion.Header rightSlot={open ? "-" : "+"}>Title</Accordion.Header
+ *                <Accordion.Body>Body</Accordion.Body>
+ *            </>
+ *        )}
+ *    </Accordion.Item>
+ * </Accordion>
+ * ```
  */
 export function Accordion({ className, children, ...props }: AccordionProps): React.ReactElement {
   // Importing useBem to handle BEM class names

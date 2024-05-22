@@ -48,7 +48,7 @@
       &-filled {
         @include theme.define-var(
           (
-            background-color: theme.get-color($value),
+            background-color: theme.get-color($value, "500"),
             color: #fff,
           )
         );
@@ -56,7 +56,7 @@
         &:hover {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "pressed"),
+              background-color: theme.get-color($value, "600"),
             )
           );
         }
@@ -65,7 +65,7 @@
         &:active {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value),
+              background-color: theme.get-color($value, "700"),
             )
           );
         }
@@ -74,7 +74,7 @@
       &-ghost {
         @include theme.define-var(
           (
-            color: theme.get-color($value),
+            color: theme.get-color($value, "500"),
             background-color: transparent,
           )
         );
@@ -82,7 +82,7 @@
         &:hover {
           @include theme.define-var(
             (
-              background-color: color-mix(in srgb, theme.get-color($value), transparent 95%),
+              background-color: color-mix(in srgb, theme.get-color($value, "500"), transparent 95%),
             )
           );
         }
@@ -91,7 +91,7 @@
         &:active {
           @include theme.define-var(
             (
-              background-color: color-mix(in srgb, theme.get-color($value), transparent 90%),
+              background-color: color-mix(in srgb, theme.get-color($value, "500"), transparent 90%),
             )
           );
         }
@@ -102,14 +102,14 @@
           (
             background-color: transparent,
             border-color: currentColor,
-            color: theme.get-color($value),
+            color: theme.get-color($value, "500"),
           )
         );
 
         &:hover {
           @include theme.define-var(
             (
-              color: theme.get-color($value, "pressed"),
+              color: theme.get-color($value, "600"),
             )
           );
         }
@@ -118,7 +118,7 @@
         &:active {
           @include theme.define-var(
             (
-              color: theme.get-color($value),
+              color: theme.get-color($value, "700"),
             )
           );
         }

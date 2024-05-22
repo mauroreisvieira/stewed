@@ -13,6 +13,7 @@ export * from "./container";
 export * from "./dialog";
 export * from "./dropdown";
 export * from "./form-field";
+export * from "./grid";
 export * from "./list";
 export * from "./list-box";
 export * from "./pagination";
@@ -32,6 +33,7 @@ export * from "./text-field";
 export * from "./theme";
 export * from "./theme";
 export * from "./toggle";
+export * from "./tooltip";
 export * from "./typography";
 
 // Utilities

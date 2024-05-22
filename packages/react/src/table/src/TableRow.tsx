@@ -7,12 +7,18 @@ import { components } from "@stewed/tokens";
 import styles from "./styles/index.module.scss";
 
 export interface TableRowProps extends React.ComponentPropsWithRef<"tr"> {
+  /**
+   * Specifies the visual style of the table row.
+   * @default default
+   */
+  skin?: "default" | "critical";
   /** Indicates whether the item is selected. */
   selected?: boolean;
 }
 
 export function TableRow({
   selected = false,
+  skin = "default",
   className,
   children,
   ...props
@@ -22,7 +28,10 @@ export function TableRow({
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ modifiers: [selected && "selected"], extraClasses: className }),
+    root: getBlock({
+      modifiers: [selected && "selected", skin !== "default" && skin],
+      extraClasses: className,
+    }),
   };
 
   return (

@@ -5,7 +5,8 @@
 @include theme.scope($form-field-root) {
   display: flex;
   flex-direction: column;
-  gap: theme.get-spacing("xs");
+  gap: theme.get-spacing("sm");
+  width: 100%;
 
   &__control,
   &__description {

@@ -12,7 +12,7 @@ interface UseBemProps {
 }
 
 /**
- * Custom hook for managing BEM (Block Element Modifier) class names.
+ * Hook for managing BEM (Block Element Modifier) class names.
  *
  * @param block - The base block name for BEM classes.
  * @param styles - Object containing class name mappings.

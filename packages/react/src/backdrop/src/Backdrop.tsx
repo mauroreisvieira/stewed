@@ -6,14 +6,17 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface BackdropProps extends React.ComponentPropsWithRef<"div"> {}
+export interface BackdropProps extends React.ComponentPropsWithRef<"div"> {
+  /** Whether to apply a blur effect to the backdrop. */
+  blur?: boolean;
+}
 
 /**
  * Backdrop component to provide a overlay behind other content.
  *
  * @example
  * ```tsx
- * <Backdrop />
+ * <Backdrop blur />
  * ```
  *
  * @remarks
@@ -22,13 +25,14 @@ export interface BackdropProps extends React.ComponentPropsWithRef<"div"> {}
  * @param {BackdropProps} props - The props for the Backdrop component.
  * @returns {React.ReactElement} - The rendered Backdrop component.
  */
-export function Backdrop({ className, ...props }: BackdropProps): React.ReactElement {
+export function Backdrop({ blur = false, className, ...props }: BackdropProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: components.Backdrop, styles });
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({
+      modifiers: [blur && "blur"],
       extraClasses: className,
     }),
   };

@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // Components
-import { Theme, Select, Separator } from "../../index";
+import { Theme, Select } from "../../index";
 // Icons
 import { FiSearch } from "react-icons/fi";
 

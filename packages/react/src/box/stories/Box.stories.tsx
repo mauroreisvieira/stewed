@@ -58,3 +58,28 @@ export const Base: Story = {
     ),
   },
 };
+
+export const Full: Story = {
+  argTypes: {
+    as: {
+      control: false,
+    },
+    children: {
+      control: false,
+    },
+  },
+  args: {
+    as: "section",
+    items: "center",
+    justify: "center",
+    screen: "vh",
+    skin: "neutral-faded",
+    children: (
+      <>
+        <Text size="7xl" skin="neutral">
+          Fullscreen
+        </Text>
+      </>
+    ),
+  },
+};

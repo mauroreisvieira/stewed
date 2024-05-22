@@ -83,11 +83,43 @@
   }
 
   // Skins
+  &--inherit {
+    @include theme.define-var(
+      (
+        color: inherit,
+      )
+    );
+  }
+
+  &--white {
+    @include theme.define-var(
+      (
+        color: theme.get-color("white"),
+      )
+    );
+  }
+
+  &--black {
+    @include theme.define-var(
+      (
+        color: theme.get-color("black"),
+      )
+    );
+  }
+
+  &--text-base {
+    @include theme.define-var(
+      (
+        color: theme.get-color("text-base"),
+      )
+    );
+  }
+
   @each $key, $value in $typography-skins {
     &--#{$key} {
       @include theme.define-var(
         (
-          color: theme.get-color($key),
+          color: theme.get-color($key, "500"),
         )
       );
     }

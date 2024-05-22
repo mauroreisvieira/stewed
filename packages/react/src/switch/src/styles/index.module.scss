@@ -13,13 +13,21 @@
 
   @include theme.define-var(
     (
-      background-color: theme.get-color("neutral"),
-      border-color: theme.get-color("neutral"),
+      background-color: theme.get-color("neutral", "300"),
     )
   );
 
+
   @include theme.focus-styles($target: ":focus-within .#{$switch-root}__control");
   @include theme.disabled-styles;
+
+  @include theme.hover {
+    @include theme.define-var(
+      (
+        background-color: theme.get-color("neutral", "400"),
+      )
+    );
+  }
 
   &--reversed {
     flex-direction: row-reverse;
@@ -46,7 +54,6 @@
     width: theme.get-var(width);
     height: theme.get-var(height);
     background-color: theme.get-var(background-color);
-    border: 1px solid theme.get-var(border-color);
     border-radius: theme.get-var(radius);
 
     @include theme.transition((background-color, border));
@@ -61,7 +68,7 @@
       content: "";
       background-color: white;
       border-radius: theme.get-var(radius);
-      transform: translate(1px, -50%);
+      transform: translate(2px, -50%);
       transform-origin: 0 0;
 
       @include theme.transition(transform);
@@ -90,10 +97,17 @@
       .#{$switch-root}__input:checked + .switch__control {
         @include theme.define-var(
           (
-            background-color: theme.get-color($value),
-            border-color: theme.get-color($value),
+            background-color: theme.get-color($value, "500"),
           )
         );
+
+        @include theme.hover {
+          @include theme.define-var(
+            (
+              background-color: theme.get-color($value, "600"),
+            )
+          );
+        }
       }
     }
   }

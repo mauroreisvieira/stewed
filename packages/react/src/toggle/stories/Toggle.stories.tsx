@@ -24,6 +24,7 @@ export default meta;
 export const Base: Story = {
   args: {
     size: "md",
+    skin: "neutral",
     selected: false,
     disabled: false,
     children: "Toggle",
@@ -33,6 +34,7 @@ export const Base: Story = {
 export const LeftSlot: Story = {
   args: {
     leftSlot: <FiStar size={18} />,
+    skin: "primary",
     children: "Toggle",
   },
 };

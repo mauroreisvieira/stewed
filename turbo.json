@@ -13,6 +13,9 @@
     },
     "clean": {
       "cache": false
+    },
+    "watch": {
+      "cache": false
     }
   }
 }

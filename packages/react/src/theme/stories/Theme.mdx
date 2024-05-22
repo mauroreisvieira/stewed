@@ -1,0 +1,95 @@
+import { Canvas, Meta, ArgTypes } from "@storybook/blocks";
+import * as ThemeStories from "./Theme.stories";
+
+# Theme
+
+A theme component allows you to manage various objects that define your application's colors, spacing, fonts, and more in a coherent and organized manner. 
+
+By centralizing these design elements within a theme component, you can ensure consistency and ease of maintenance throughout your application. 
+
+This approach enables you to easily update and modify the visual aspects of your application by making changes within the theme component, 
+leading to a more streamlined and efficient design process.
+
+### Installation
+
+```bash
+npm install --save @stewed/react
+```
+
+### Import
+
+```js
+import { Theme } from "@stewed/react";
+```
+
+<Meta of={ThemeStories} />
+
+## Props
+
+<ArgTypes of={ThemeStories} />
+
+
+### Palette
+
+<Canvas of={ThemeStories.Palette} sourceState="none"/>
+
+## Tokens
+
+### Colors
+
+<Canvas of={ThemeStories.Colors} sourceState="none"/>
+
+### Screens
+
+<Canvas of={ThemeStories.Screens} sourceState="none"/>
+
+### Viewport
+
+<Canvas of={ThemeStories.Viewport} sourceState="none"/>
+
+### Breakpoints
+
+<Canvas of={ThemeStories.Breakpoints} sourceState="none"/>
+
+### Font Family
+
+<Canvas of={ThemeStories.FontFamily} sourceState="none"/>
+
+### Font Size
+
+<Canvas of={ThemeStories.FontSize} sourceState="none"/>
+
+### Font Weight
+
+<Canvas of={ThemeStories.FontWeight} sourceState="none"/>
+
+### Line Height
+
+<Canvas of={ThemeStories.LineHeight} sourceState="none"/>
+
+### Elevation
+
+<Canvas of={ThemeStories.Elevation} sourceState="none"/>
+
+### Radius
+
+<Canvas of={ThemeStories.Radius} sourceState="none"/>
+
+### Shadows
+
+<Canvas of={ThemeStories.Shadows} sourceState="none"/>
+
+### Spaces
+
+<Canvas of={ThemeStories.Spaces} sourceState="none"/>
+
+### Transitions
+
+<Canvas of={ThemeStories.Duration} sourceState="none"/>
+<Canvas of={ThemeStories.Timing} sourceState="none"/>
+
+## Custom Tokens
+
+<Canvas of={ThemeStories.CustomTokens}/>
+
+

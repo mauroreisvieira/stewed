@@ -4,3 +4,20 @@ $box-root: "box";
 $box-gap: theme.get-spacing();
 $box-padding: theme.get-spacing();
 $box-space: theme.get-spacing();
+
+/// Screen
+$box-screen: (
+  "auto": "auto",
+  "full": theme.get-screens("full"),
+  "vh": theme.get-viewport("vh"),
+);
+
+/// Skins
+$box-skins: (
+  "default": theme.get-color("background-base"),
+  "neutral": theme.get-color("neutral", "500"),
+  "neutral-faded": theme.get-color("neutral", "100"),
+  "primary": theme.get-color("primary", "500"),
+  "primary-faded": theme.get-color("primary", "100"),
+);
+

@@ -1,60 +1,50 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { ClickOutside, type ClickOutsideOptions } from "@stewed/utilities";
 
-/**
- * Represents a function that handles a click event.
- */
-type Handler = (event: MouseEvent) => void;
-
-/**
- * Represents the options for the useClickOutside hook.
- */
-interface IUseClickOutside<T> {
-  /** Reference to the DOM element or elements to detect clicks outside of. */
-  reference: T | T[] | null;
-  /** The handler function to be executed when a click outside occurs. */
-  handler: Handler;
-  /** Array of elements that will be ignored on click. */
-  ignoredElements?: Element[] | null[];
+export interface UseClickOutside extends ClickOutsideOptions {
+  /** Whether the hook is active and listening for outside clicks. */
+  enabled?: boolean;
 }
 
 /**
- * A hook that detects clicks outside specified elements.
+ * Hook that detects clicks outside of specified elements and triggers a callback.
  *
- * @param {IUseClickOutside<T>} props - Options for the hook.
- * @returns void
+ * @param props - Configuration options for the hook.
+ * @param props.enabled - Determines if the hook is active. Default is false.
+ * @param props.ignoredElements - Array of elements to ignore clicks on.
+ * @param props.onClickOutside - Callback function to trigger on outside click.
  */
-export function useClickOutside<T extends HTMLElement = HTMLElement>({
-  reference,
-  handler,
-  ignoredElements = [],
-}: IUseClickOutside<T>): void {
-  console.log("Hook");
+export const useClickOutside = ({
+  enabled = false,
+  ignoredElements,
+  onClickOutside,
+}: UseClickOutside): void => {
+  const clickOutside = useRef<ClickOutside>();
+
   useEffect(() => {
-    /**
-     * Handler for click events outside the specified elements.
-     * @param event The MouseEvent object.
-     */
-    const onHandleClickOutside: Handler = (event) => {
-      console.log("onHandleClickOutside");
-      // If click is inside ignored element, do nothing
-      if (ignoredElements?.some((el) => el && el.contains(event.target as Node))) {
-        return;
-      }
+    clickOutside.current = new ClickOutside();
 
-      console.log("reference", reference);
-
-      const isOutside = Array.isArray(reference)
-        ? reference.every((ref) => ref && !ref.contains(event.target as Node))
-        : reference && !reference.contains(event.target as Node);
-
-      if (isOutside) {
-        handler(event);
-      }
+    return (): void => {
+      if (clickOutside.current) clickOutside.current.deactivate();
     };
+  }, []);
 
-    document.addEventListener("mousedown", onHandleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", onHandleClickOutside);
-    };
-  }, [handler, reference, ignoredElements]);
-}
+  useEffect(() => {
+    if (!clickOutside.current) return;
+
+    clickOutside.current.update({
+      ignoredElements,
+      onClickOutside,
+    });
+
+    if (enabled) {
+      clickOutside.current.activate({
+        ignoredElements,
+        onClickOutside,
+      });
+      return;
+    }
+
+    clickOutside.current.deactivate();
+  }, [enabled, onClickOutside, ignoredElements]);
+};

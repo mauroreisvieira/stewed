@@ -3,6 +3,7 @@ import type { Tokens } from "@stewed/tokens";
 
 /**
  * Dummy function to throw an error when theme is not provided by a ThemeProvider.
+ *
  * @returns Always throws an error.
  */
 const definitionError = (): null => {
@@ -16,10 +17,10 @@ const definitionError = (): null => {
  */
 export interface ThemeContextProps<T extends string> {
   /** Default theme to be used when no theme is set. */
-  defaultTheme?: T;
+  defaultTheme?: T | "default";
   /** Current active theme. */
-  theme: T | "default";
-  /** Partial map of theme names to Tokens. */
+  theme?: T | "default";
+  /** Partial map of theme names to tokens. */
   tokens?: Partial<Record<T, Tokens>>;
   /** Currently selected token. */
   activeToken: Tokens;
@@ -40,8 +41,8 @@ export interface ThemeContextProps<T extends string> {
  */
 function createThemeContext<T extends string>() {
   return createContext<ThemeContextProps<T>>({
-    defaultTheme: undefined,
     theme: "default",
+    defaultTheme: undefined,
     tokens: undefined,
     activeToken: {},
     setTheme: definitionError,
