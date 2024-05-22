@@ -30,7 +30,7 @@ export const Base: Story = {
   args: {
     alignment: "start",
     direction: "row",
-    value:"2",
+    value: "2",
     children: (
       <>
         <Tabs.List>

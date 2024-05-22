@@ -76,7 +76,9 @@ export const Full: Story = {
     skin: "neutral-faded",
     children: (
       <>
-        <Text size="7xl" skin="neutral">Fullscreen</Text>
+        <Text size="7xl" skin="neutral">
+          Fullscreen
+        </Text>
       </>
     ),
   },

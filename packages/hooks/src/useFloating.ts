@@ -32,7 +32,6 @@ interface FloatingOptions {
   isPositioned?: boolean;
 }
 
-
 interface UseFloatingProps<R extends HTMLElement> extends Pick<FloatingOptions, "placement"> {
   /**
    * The reference element used for positioning the floating component.

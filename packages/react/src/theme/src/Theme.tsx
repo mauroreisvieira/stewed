@@ -54,9 +54,8 @@ export function Theme<T extends string>({
     setTheme(activeTheme); //
   }, [activeTheme]);
 
-
   // Merge default tokens with theme-specific tokens
-  const mergedTokens = useMemo(
+  const activeToken = useMemo(
     () =>
       objectKeys(defaultTokens).reduce((acc, key) => {
         acc[key] = {
@@ -72,13 +71,12 @@ export function Theme<T extends string>({
     <ThemeContext.Provider
       value={{
         defaultTheme,
-        activeToken: mergedTokens,
+        activeToken,
         theme,
         setTheme,
         tokens,
         setTokens,
-      }}
-    >
+      }}>
       {/* Root component to which the themed styles are applied */}
       <Root {...props} />
     </ThemeContext.Provider>

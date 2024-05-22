@@ -79,19 +79,21 @@ export interface TextProps<T>
    * Change the visual style of the text.
    * @default text
    */
-  skin?: "inherit" | Extract<
-    Color,
-    | "text-base"
-    | "white"
-    | "black"
-    | "primary"
-    | "secondary"
-    | "neutral"
-    | "critical"
-    | "success"
-    | "info"
-    | "warning"
-  >;
+  skin?:
+    | "inherit"
+    | Extract<
+        Color,
+        | "text-base"
+        | "white"
+        | "black"
+        | "primary"
+        | "secondary"
+        | "neutral"
+        | "critical"
+        | "success"
+        | "info"
+        | "warning"
+      >;
 }
 
 /**

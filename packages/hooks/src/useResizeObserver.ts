@@ -11,7 +11,6 @@ export type ResizeObserverCallback = (
   observer: ResizeObserver,
 ) => void;
 
-
 interface ResizeObserverProps<T extends HTMLElement> {
   /** The element to observe for resize events. */
   element: T | null;

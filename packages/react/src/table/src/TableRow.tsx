@@ -28,7 +28,10 @@ export function TableRow({
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ modifiers: [selected && "selected", skin !== "default" && skin], extraClasses: className }),
+    root: getBlock({
+      modifiers: [selected && "selected", skin !== "default" && skin],
+      extraClasses: className,
+    }),
   };
 
   return (

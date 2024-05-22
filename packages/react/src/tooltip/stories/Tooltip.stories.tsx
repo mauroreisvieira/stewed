@@ -55,8 +55,7 @@ export const Base: Story = {
           <Text size="xs" skin="inherit">
             This order has shipping labels
           </Text>
-        }
-      >
+        }>
         {(props) => {
           return <Button {...props}>Order #1001</Button>;
         }}

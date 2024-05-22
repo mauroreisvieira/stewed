@@ -10,8 +10,7 @@ export function DialogProvider({ onClose, children }: DialogProviderProps): Reac
     <DialogContext.Provider
       value={{
         onClose,
-      }}
-    >
+      }}>
       {children}
     </DialogContext.Provider>
   );

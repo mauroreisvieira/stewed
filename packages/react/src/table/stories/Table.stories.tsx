@@ -153,9 +153,7 @@ export const Error: Story = {
           {data.map(({ id, name, email }, index) => (
             <Table.Row key={id} skin={index === 1 ? "critical" : "default"}>
               <Table.Cell>
-                <Checkbox
-                  skin={index === 1 ? "critical" : "primary"}
-                />
+                <Checkbox skin={index === 1 ? "critical" : "primary"} />
               </Table.Cell>
               <Table.Cell>{id}</Table.Cell>
               <Table.Cell>{id}</Table.Cell>

@@ -59,8 +59,7 @@ export const PricingPlans = {
             alignment="center"
             weight="bold"
             skin="primary"
-            space={{ y: "xs" }}
-          >
+            space={{ y: "xs" }}>
             Teams for all sizes
           </Text>
 
@@ -91,8 +90,7 @@ export const PricingPlans = {
                 md: {
                   wrap: "nowrap",
                 },
-              }}
-            >
+              }}>
               {plans.map(({ title, description, price }, index) => (
                 <Card
                   key={index}
@@ -101,8 +99,7 @@ export const PricingPlans = {
                     block: index === 1 ? "2xl" : "xl",
                     inline: "xl",
                   }}
-                  shadow={index === 1 ? "2xl" : undefined}
-                >
+                  shadow={index === 1 ? "2xl" : undefined}>
                   <Card.Header>
                     <Text as="h4">{title}</Text>
                   </Card.Header>
@@ -135,13 +132,7 @@ export const PricingPlans = {
 export const CTASection = {
   render: function Example() {
     return (
-      <Box
-        as="main"
-        padding={{ block: "7xl" }}
-        direction="column"
-        items="center"
-        justify="center"
-      >
+      <Box as="main" padding={{ block: "7xl" }} direction="column" items="center" justify="center">
         <Container screen="md" alignment="center" padding={{ block: "7xl" }}>
           <Box justify="center" direction="column" grow>
             <Text as="h1" alignment="center" space={{ y: "4xl" }}>

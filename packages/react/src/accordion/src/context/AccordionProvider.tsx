@@ -15,8 +15,7 @@ export function AccordionProvider({
       value={{
         open,
         setOpen,
-      }}
-    >
+      }}>
       {children}
     </AccordionContext.Provider>
   );

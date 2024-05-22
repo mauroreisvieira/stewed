@@ -60,8 +60,7 @@ export const EditProfile = {
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth="2"
-                    stroke="currentColor"
-                  >
+                    stroke="currentColor">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -69,8 +68,7 @@ export const EditProfile = {
                     />
                   </svg>
                 }
-                onClick={() => setDialogOpen((prev) => !prev)}
-              >
+                onClick={() => setDialogOpen((prev) => !prev)}>
                 Edit Profile
               </Button>
             </Box>
@@ -78,8 +76,7 @@ export const EditProfile = {
               open={dialogOpen}
               onEscape={() => setDialogOpen(false)}
               onClickOutside={() => setDialogOpen(false)}
-              onClose={() => setDialogOpen(false)}
-            >
+              onClose={() => setDialogOpen(false)}>
               <Dialog.Header>
                 <Text as="h4">Edit Profile</Text>
                 <Text size="sm" skin="neutral">
@@ -122,8 +119,7 @@ export const EditProfile = {
                           <ListBox.Item>Option 3</ListBox.Item>
                         </ListBox.Group>
                       </ListBox>
-                    }
-                  >
+                    }>
                     {({ ref, onClick }) => (
                       <Button
                         ref={ref}
@@ -131,8 +127,7 @@ export const EditProfile = {
                         appearance="ghost"
                         leftSlot={<TbDotsVertical />}
                         size="sm"
-                        iconOnly
-                      >
+                        iconOnly>
                         Settings
                       </Button>
                     )}

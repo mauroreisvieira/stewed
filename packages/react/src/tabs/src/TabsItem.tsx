@@ -64,8 +64,7 @@ export function TabsItem({
       tabIndex={!isSelected || disabled ? -1 : tabIndex}
       className={cssClasses.root}
       onClick={onHandleClick}
-      {...props}
-    >
+      {...props}>
       {leftSlot && <div className={cssClasses.left}>{leftSlot}</div>}
       {children}
       {rightSlot && <div className={cssClasses.right}>{rightSlot}</div>}

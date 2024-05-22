@@ -19,8 +19,7 @@ const meta = {
         modes={{
           light: "light",
           dark: "dark",
-        }}
-      >
+        }}>
         <Story />
       </Theme>
     ),

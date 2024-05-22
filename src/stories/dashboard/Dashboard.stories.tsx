@@ -126,8 +126,7 @@ export const RecentFeedback = {
                         selected: value.id === id ? !value.selected : value.selected,
                       })),
                     );
-                  }}
-                >
+                  }}>
                   <Table.Cell>
                     <Checkbox
                       checked={selected}
@@ -169,8 +168,7 @@ export const RecentFeedback = {
                             : "neutral"
                       }
                       appearance="soft"
-                      size="sm"
-                    >
+                      size="sm">
                       {sentiment}
                     </Tag>
                   </Table.Cell>
@@ -186,8 +184,7 @@ export const RecentFeedback = {
                           fill="none"
                           viewBox="0 0 24 24"
                           strokeWidth="2"
-                          stroke="currentColor"
-                        >
+                          stroke="currentColor">
                           <path
                             strokeLinecap="round"
                             strokeLinejoin="round"
@@ -224,8 +221,7 @@ export const SidePanel = {
               size="2xl"
               weight="light"
               variation="uppercase"
-              whiteSpace="nowrap"
-            >
+              whiteSpace="nowrap">
               Stewed Board
             </Text>
           </Box>

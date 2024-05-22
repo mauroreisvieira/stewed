@@ -52,8 +52,7 @@ export const Login = {
                       appearance="ghost"
                       leftSlot={<FiEye />}
                       size="sm"
-                      iconOnly
-                    >
+                      iconOnly>
                       Show password
                     </Button>
                   }

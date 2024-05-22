@@ -63,14 +63,13 @@ export const Palette: Story = {
                 {[100, 200, 300, 400, 500, 600, 700, 800, 900].map((tone) => (
                   <Box
                     key={tone}
+                    padding={{ block: tone === 500 ? "5xl" : "3xl", inline: "2xl" }}
                     justify="center"
                     grow
                     style={{
-                      padding: tone === 500 ? 32 : 24,
                       backgroundColor:
                         tone === 500 ? `var(--color-${color})` : `var(--color-${color}-${tone})`,
-                    }}
-                  >
+                    }}>
                     <Text size="xs" skin={tone > 400 ? "white" : "black"}>
                       {tone}
                     </Text>
@@ -506,8 +505,7 @@ function Elements(): React.ReactElement {
           alignment="center"
           onValueChange={(value) => {
             setTheme(value as "metro" | "elegant");
-          }}
-        >
+          }}>
           <Tabs.List>
             <Tabs.Item value="default">Default</Tabs.Item>
             <Tabs.Item value="metro">Metro</Tabs.Item>
@@ -649,8 +647,7 @@ function Elements(): React.ReactElement {
               skin="neutral"
               appearance="outline"
               type="button"
-              onClick={(): void => setOpen(false)}
-            >
+              onClick={(): void => setOpen(false)}>
               Cancel
             </Button>
             <Button type="button" skin="success" onClick={(): void => setOpen(false)}>
@@ -729,8 +726,7 @@ export const CustomTokens: Story = {
             },
           },
         }}
-        theme="metro"
-      >
+        theme="metro">
         <Container screen="lg" alignment="center">
           <Elements />
         </Container>

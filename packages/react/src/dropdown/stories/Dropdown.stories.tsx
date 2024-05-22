@@ -58,8 +58,7 @@ export const Base: Story = {
             <ListBox.Item rightSlot="⌘Z">Undo</ListBox.Item>
             <ListBox.Item rightSlot="⌘Y">Redo</ListBox.Item>
           </ListBox>
-        }
-      >
+        }>
         {(props) => {
           return <Button {...props}>Edit</Button>;
         }}

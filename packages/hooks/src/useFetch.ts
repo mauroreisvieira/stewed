@@ -11,7 +11,6 @@ type LooseAutoComplete<T extends string> = T | Omit<string, T>;
  */
 type Status = LooseAutoComplete<"loading" | "loaded" | "aborted">;
 
-
 interface Response<T> {
   /** The current status of the fetch operation. */
   status: Status;
