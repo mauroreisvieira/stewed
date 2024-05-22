@@ -42,8 +42,16 @@ export interface BoxProps<T>
       inline?: boolean;
       /** Renders the box container as an block element. */
       block?: boolean;
-      /** Allows the box container to grow to fill available space. */
+      /**
+       * Allows the box container to grow and fill the available space.
+       * If true, the container will expand to occupy the remaining space in its parent.
+       */
       grow?: boolean;
+      /**
+       * Sets the box to use the full width of its container.
+       * If true, the box will stretch to fill the container's width.
+       */
+      fullWidth?: boolean;
     }> {
   /**
    * Specifies the type of element to use as the box.

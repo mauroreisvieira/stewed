@@ -40,7 +40,10 @@ export interface ButtonProps<T> extends React.ComponentProps<typeof defaultEleme
   rightSlot?: React.ReactNode;
   /** Indicates whether the button is in a pressed state. */
   pressed?: boolean;
-  /** Allows the button to grow to the width of its container. */
+  /**
+   * Sets the button to use the full width of its container.
+   * If true, the button will stretch to fill the container's width.
+   */
   fullWidth?: boolean;
   /** Hide content and show only the icon. */
   iconOnly?: boolean;

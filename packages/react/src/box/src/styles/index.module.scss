@@ -31,6 +31,10 @@
     );
   }
 
+  &--fullWidth {
+    width: 100%;
+  }
+
   // Direction
   &--row-reverse {
     flex-direction: row-reverse;
