@@ -16,9 +16,9 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "dependencies": {
-    "@stewed/hooks": "workspace:*",
-    "@stewed/tokens": "workspace:*",
-    "@stewed/utilities": "workspace:*"
+    "@stewed/hooks": "^0.2.0",
+    "@stewed/tokens": "^0.3.0",
+    "@stewed/utilities": "^0.3.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.79",

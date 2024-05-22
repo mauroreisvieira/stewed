@@ -137,10 +137,10 @@ importers:
   packages/hooks:
     dependencies:
       '@stewed/tokens':
-        specifier: workspace:*
+        specifier: ^0.3.0
         version: link:../tokens
       '@stewed/utilities':
-        specifier: workspace:*
+        specifier: ^0.3.0
         version: link:../utilities
     devDependencies:
       '@harmonix-hub/babel':
@@ -165,13 +165,13 @@ importers:
   packages/react:
     dependencies:
       '@stewed/hooks':
-        specifier: workspace:*
+        specifier: ^0.2.0
         version: link:../hooks
       '@stewed/tokens':
-        specifier: workspace:*
+        specifier: ^0.3.0
         version: link:../tokens
       '@stewed/utilities':
-        specifier: workspace:*
+        specifier: ^0.3.0
         version: link:../utilities
       react:
         specifier: ^18.2.0

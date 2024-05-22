@@ -40,6 +40,9 @@ jobs:
       - name: 🏗️ Build
         run: pnpm run build
 
+      - name: 📋 Changelog
+        run: pnpm run changelog
+
       - name: 📣 Create Release Pull Request or Publish to NPM
         id: changesets
         uses: changesets/action@v1
