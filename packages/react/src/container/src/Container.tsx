@@ -59,9 +59,7 @@ export const Container = fixedForwardRef(
       as,
       screen = "full",
       alignment = "default",
-      padding = {
-        inline: "xl",
-      },
+      padding,
       className,
       children,
       ...props

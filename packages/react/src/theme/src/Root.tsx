@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 // Tokens
 import {
   defaultTokens,
@@ -55,6 +55,8 @@ type RootProps<T extends string> = React.ComponentPropsWithRef<"div"> &
  * @returns {React.ReactElement} - React element representing the root component with themed styles applied.
  */
 export function Root<T extends string>({ children, ...props }: RootProps<T>): React.ReactElement {
+  const themeRef = useRef<HTMLDivElement>(null);
+
   // Theme and tokens from the context
   const { theme, tokens, activeToken } = useTheme();
 
@@ -135,9 +137,23 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
     [cssProperties],
   );
 
+  useEffect(() => {
+    if (!themeRef.current) {
+      return;
+    }
+
+    const styleTag = document.createElement("style");
+    styleTag.innerHTML = `[data-theme="${currentTheme}"] {${computedStyles}\n}`;
+
+    themeRef.current.insertAdjacentElement("afterbegin", styleTag);
+
+    return () => {
+      styleTag.remove();
+    };
+  }, [computedStyles, cssProperties, currentTheme]);
+
   return (
-    <div data-theme={currentTheme} {...props}>
-      <style>{`[data-theme="${currentTheme}"] { ${computedStyles}`}</style>
+    <div ref={themeRef} data-theme={currentTheme} {...props}>
       {children}
     </div>
   );
