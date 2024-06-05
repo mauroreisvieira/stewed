@@ -223,25 +223,24 @@ export function useDateTime(options?: UseDateTimeProps): UseFormatDateTime {
             .toString()
             .padStart(2, "0")}-${currentDate.getDate().toString().padStart(2, "0")}`,
         currentDate: () => currentDate,
-        diff: function (value, unit) {
+        diff: function (dateToCompare, unit) {
           // Convert the value to a Date object if it's a string
-          const dateToCompare = typeof value === "string" ? new Date(value) : value;
+          const toCompare =
+            typeof dateToCompare === "string" ? new Date(dateToCompare) : dateToCompare;
           // Calculate the difference in years, months, and days
           const diffUnits = {
             years:
-              currentDate.getMonth() > dateToCompare.getMonth() ||
-              (currentDate.getMonth() === dateToCompare.getMonth() &&
-                currentDate.getDate() > dateToCompare.getDate())
-                ? dateToCompare.getFullYear() - currentDate.getFullYear() - 1
-                : dateToCompare.getFullYear() - currentDate.getFullYear(),
+              currentDate.getMonth() > toCompare.getMonth() ||
+              (currentDate.getMonth() === toCompare.getMonth() &&
+                currentDate.getDate() > toCompare.getDate())
+                ? toCompare.getFullYear() - currentDate.getFullYear() - 1
+                : toCompare.getFullYear() - currentDate.getFullYear(),
             months:
-              dateToCompare.getMonth() +
-              12 * dateToCompare.getFullYear() -
+              toCompare.getMonth() +
+              12 * toCompare.getFullYear() -
               (currentDate.getMonth() + 12 * currentDate.getFullYear()) -
-              (dateToCompare.getDate() >= currentDate.getDate() ? 0 : 1),
-            days: Math.round(
-              (dateToCompare.getTime() - currentDate.getTime()) / (1000 * 60 * 60 * 24),
-            ),
+              (toCompare.getDate() >= currentDate.getDate() ? 0 : 1),
+            days: Math.round((toCompare.getTime() - currentDate.getTime()) / (1000 * 60 * 60 * 24)),
           };
           // Use the new instance for manipulation
           switch (unit) {
