@@ -2,6 +2,7 @@ export * from "./useResponsive";
 export * from "./useAsync";
 export * from "./useBem";
 export * from "./useClickOutside";
+export * from "./useDateTime";
 export * from "./useDebouncedValue";
 export * from "./useFetch";
 export * from "./useFloating";

@@ -99,7 +99,6 @@ export function useResponsive<T>(
         bp.mq.removeEventListener("change", bp.onChange);
       });
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [memorized]);
 
   return computedProps;

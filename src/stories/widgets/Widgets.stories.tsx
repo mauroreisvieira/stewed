@@ -13,11 +13,13 @@ import {
   Switch,
   Progress,
   Tooltip,
+  FormField,
+  Select,
 } from "@stewed/react";
+// Hooks
+import { useDateTime } from "@stewed/hooks";
 // Icons
 import { TbPin } from "react-icons/tb";
-import { FormField } from "@stewed/react";
-import { Select } from "@stewed/react";
 
 const meta = {
   title: "Examples/Widgets",
@@ -176,6 +178,8 @@ export const Notification = {
 
 export const RecentActivity = {
   render: function Example() {
+    const { createDate } = useDateTime();
+
     return (
       <Container screen="md" alignment="center" padding={{ block: "7xl" }}>
         <Card>
@@ -212,7 +216,11 @@ export const RecentActivity = {
                 </Box>
               </Box>
               <Text size="xs" skin="neutral">
-                June 21, 9:43 am
+                {createDate().format({
+                  dateStyle: "medium",
+                  timeStyle: "short",
+                  hour12: true,
+                })}
               </Text>
             </Box>
             <Separator space={{ block: "2xl" }} />
@@ -230,7 +238,11 @@ export const RecentActivity = {
                 </Box>
               </Box>
               <Text size="xs" skin="neutral">
-                June 20, 3:30 pm
+                {createDate().subtract(10, "days").format({
+                  dateStyle: "medium",
+                  timeStyle: "short",
+                  hour12: true,
+                })}
               </Text>
             </Box>
           </Card.Body>
