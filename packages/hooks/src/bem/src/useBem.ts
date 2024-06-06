@@ -8,7 +8,7 @@ interface UseBemProps {
   /** The block name or identifier for the BEM structure. */
   block: string;
   /** A collection of styles where keys are CSS class names and values are corresponding style definitions. */
-  styles: { [key: string]: string };
+  styles?: { [key: string]: string };
 }
 
 /**
@@ -27,7 +27,11 @@ export function useBem({ block, styles }: UseBemProps) {
    */
   const getClass = useCallback(
     (value: string) => {
-      if (styles[value]) {
+      if (!styles) {
+        return value;
+      }
+
+      if (styles?.[value]) {
         return styles[value];
       }
 

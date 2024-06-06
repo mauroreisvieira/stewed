@@ -1,0 +1,28 @@
+import { Canvas, Meta, ArgTypes } from "@storybook/blocks";
+import * as BemStories from './Bem.stories';
+
+# useBem
+
+Hook for managing BEM (Block Element Modifier) class names.
+
+### Installation
+
+```bash
+npm install --save @stewed/hooks
+```
+
+### Import
+
+```js
+import { useBem } from "@stewed/hooks";
+```
+
+<Meta of={BemStories} />
+
+## Base
+
+<Canvas of={BemStories.Base} />
+
+## Props
+
+<ArgTypes of={BemStories} />
