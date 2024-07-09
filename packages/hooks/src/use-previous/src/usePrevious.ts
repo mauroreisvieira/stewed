@@ -1,15 +1,15 @@
 import { useRef, useEffect } from "react";
 
 /**
- * A custom React hook that returns the previous value of the input value.
- *
- * @param value The current value to track.
- * @returns The previous value.
+ * Hook that returns the previous value.
  *
  * @example
  * ```ts
  * const previousCount = usePrevious(count);
  * ```
+ *
+ * @param value The current value to track.
+ * @returns The previous value.
  */
 export function usePrevious<T>(value: T): T | undefined {
   const ref = useRef<T>();
