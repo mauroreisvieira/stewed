@@ -9,12 +9,14 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [
     react(),
-    dts(),
+    dts({
+      rollupTypes: true,
+    }),
   ],
   build: {
     copyPublicDir: false,
     lib: {
-      entry: resolve(__dirname, "index.ts"),
+      entry: resolve(__dirname, "src/index.ts"),
       formats: ["es"],
     },
     rollupOptions: {

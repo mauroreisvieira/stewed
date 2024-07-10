@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // Components
-import { Theme, DataTable, ColumnsDef, Table, Tag, Text, Card } from "../../index";
+import { Theme, DataTable, DataTableProps, ColumnsDef, Table, Tag, Text } from "../../index";
 
 type Story = StoryObj<typeof DataTable>;
 
@@ -37,7 +37,7 @@ const data: Payment[] = [
       currency: "€",
     },
     status: "pending",
-    email: "example@email.com",
+    email: "olivia.patel@example.com",
   },
   {
     id: "2",
@@ -46,16 +46,16 @@ const data: Payment[] = [
       currency: "€",
     },
     status: "success",
-    email: "example@email.com",
+    email: "sophia.chang@example.com",
   },
   {
     id: "3",
     amount: {
-      value: 3000,
+      value: 300,
       currency: "€",
     },
     status: "failed",
-    email: "example@email.com",
+    email: "noah.andersen@example.com",
   },
   {
     id: "4",
@@ -64,7 +64,7 @@ const data: Payment[] = [
       currency: "€",
     },
     status: "success",
-    email: "example@email.com",
+    email: "benjamin.martinez@example.com",
   },
   {
     id: "5",
@@ -73,7 +73,7 @@ const data: Payment[] = [
       currency: "€",
     },
     status: "success",
-    email: "example@email.com",
+    email: "liam.connor@example.com",
   },
 ];
 
@@ -82,8 +82,13 @@ export const Base: Story = {
     children: {
       control: false,
     },
+    sortableColumns: { control: "check", options: ["id", "amount", "email", "status"] },
+    hiddenColumns: { control: "check", options: ["id", "amount", "email", "status"] },
   },
-  render: (): React.ReactElement => {
+  args: {
+    sortableColumns: "amount"
+  },
+  render: (args: React.JSX.IntrinsicAttributes & DataTableProps<Payment>): React.ReactElement => {
     const columns: ColumnsDef<Payment>[] = [
       {
         accessorKey: "id",
@@ -114,95 +119,95 @@ export const Base: Story = {
     ];
 
     return (
-      <Card>
-        <DataTable<Payment>
-          data={data}
-          columns={columns}
-          itemRowKey={({ id }) => id}
-          sortableColumns={["id", "amount"]}
-          onSort={({ column, direction, items }) => {
-            if (column === "amount") {
-              return [...items].sort((a, b) => {
-                return direction === "ASC"
-                  ? a.amount.value - b.amount.value
-                  : b.amount.value - a.amount.value;
-              });
-            }
-            return null;
-          }}>
-          {({ headCells, bodyRows, footCells }) => (
-            <Table appearance={["striped", "border-rows", "border-columns"]}>
-              <Table.Head>
-                <Table.Row>
-                  {headCells.map(
-                    ({ cellKey, children, isSortable, sortedColumn, sortDirection, onSort }) => (
-                      <Table.Cell
-                        as="th"
-                        key={`head-${cellKey}`}
-                        onClick={isSortable ? onSort : undefined}>
-                        {children}
-                        {sortedColumn === cellKey && (
-                          <span>
-                            {sortDirection === "ASC" ? (
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                strokeWidth={2}
-                                width={12}
-                                stroke="currentColor">
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  d="M8.25 6.75 12 3m0 0 3.75 3.75M12 3v18"
-                                />
-                              </svg>
-                            ) : (
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                strokeWidth={2}
-                                width={12}
-                                stroke="currentColor">
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3"
-                                />
-                              </svg>
-                            )}
-                          </span>
-                        )}
-                      </Table.Cell>
-                    ),
-                  )}
+      <DataTable<Payment>
+        {...args}
+        data={data}
+        columns={columns}
+        itemRowKey={({ id }) => id}
+        defaultDirection="DESC"
+        defaultSortedColumn="amount"
+        onSort={({ column, direction, items }) => {
+          if (column === "amount") {
+            return [...items].sort((a, b) => {
+              return direction === "ASC"
+                ? a.amount.value - b.amount.value
+                : b.amount.value - a.amount.value;
+            });
+          }
+          return null;
+        }}>
+        {({ headCells, bodyRows, footCells }) => (
+          <Table appearance={["border", "border-rows", "border-columns"]}>
+            <Table.Head>
+              <Table.Row>
+                {headCells.map(
+                  ({ cellKey, children, isSortable, sortedColumn, sortDirection, onSort }) => (
+                    <Table.Cell
+                      as="th"
+                      key={`head-${cellKey}`}
+                      onClick={isSortable ? onSort : undefined}>
+                      {children}
+                      {sortedColumn === cellKey && (
+                        <span>
+                          {sortDirection === "ASC" ? (
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth={2}
+                              width={12}
+                              stroke="currentColor">
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M8.25 6.75 12 3m0 0 3.75 3.75M12 3v18"
+                              />
+                            </svg>
+                          ) : (
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth={2}
+                              width={12}
+                              stroke="currentColor">
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3"
+                              />
+                            </svg>
+                          )}
+                        </span>
+                      )}
+                    </Table.Cell>
+                  ),
+                )}
+              </Table.Row>
+            </Table.Head>
+            <Table.Body>
+              {bodyRows.map(({ rowKey, bodyCells }) => (
+                <Table.Row key={rowKey}>
+                  {bodyCells.map(({ cellKey, children }) => (
+                    <Table.Cell key={cellKey}>{children}</Table.Cell>
+                  ))}
                 </Table.Row>
-              </Table.Head>
-              <Table.Body>
-                {bodyRows.map(({ rowKey, bodyCells }) => (
-                  <Table.Row key={rowKey}>
-                    {bodyCells.map(({ cellKey, children }) => (
-                      <Table.Cell key={cellKey}>{children}</Table.Cell>
-                    ))}
-                  </Table.Row>
-                ))}
-              </Table.Body>
-              {footCells.length > 0 && (
-                <Table.Foot>
-                  <Table.Row>
-                    {footCells.map(({ cellKey, children, ...props }) => (
-                      <Table.Cell key={`foot-${cellKey}`} {...props}>
-                        {children}
-                      </Table.Cell>
-                    ))}
-                  </Table.Row>
-                </Table.Foot>
-              )}
-            </Table>
-          )}
-        </DataTable>
-      </Card>
+              ))}
+            </Table.Body>
+            {footCells.length > 0 && (
+              <Table.Foot>
+                <Table.Row>
+                  {footCells.map(({ cellKey, children, ...props }) => (
+                    <Table.Cell key={`foot-${cellKey}`} {...props}>
+                      {children}
+                    </Table.Cell>
+                  ))}
+                </Table.Row>
+              </Table.Foot>
+            )}
+          </Table>
+        )}
+      </DataTable>
     );
   },
 };
