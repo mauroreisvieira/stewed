@@ -60,6 +60,20 @@
     }
   }
 
+  &__foot {
+    display: table-row-group;
+
+    .#{$table-root}__cell {
+      padding-block: theme.get-spacing("md");
+      padding-inline: theme.get-spacing("xl");
+
+      @include text.typography(
+        base,
+        $overrides: (color: currentColor, font-size: theme.get-font-size("sm"))
+      );
+    }
+  }
+
   &__row {
     display: table-row;
     vertical-align: middle;
@@ -100,21 +114,24 @@
     border-spacing: 0 theme.get-spacing("xxs");
 
     &:not([class*="border"]) {
-      .#{$table-root}__head .#{$table-root}__cell {
-        background-color: theme.get-var(background-color);
-        border-top: 1px solid theme.get-var(border-color);
-        border-bottom: 1px solid theme.get-var(border-color);
+      .#{$table-root}__head,
+      .#{$table-root}__foot {
+        .#{$table-root}__cell {
+          background-color: theme.get-var(background-color);
+          border-top: 1px solid theme.get-var(border-color);
+          border-bottom: 1px solid theme.get-var(border-color);
 
-        &:first-child {
-          border-left: 1px solid theme.get-var(border-color);
-          border-top-left-radius: theme.get-var(border-radius);
-          border-bottom-left-radius: theme.get-var(border-radius);
-        }
+          &:first-child {
+            border-left: 1px solid theme.get-var(border-color);
+            border-top-left-radius: theme.get-var(border-radius);
+            border-bottom-left-radius: theme.get-var(border-radius);
+          }
 
-        &:last-child {
-          border-right: 1px solid theme.get-var(border-color);
-          border-top-right-radius: theme.get-var(border-radius);
-          border-bottom-right-radius: theme.get-var(border-radius);
+          &:last-child {
+            border-right: 1px solid theme.get-var(border-color);
+            border-top-right-radius: theme.get-var(border-radius);
+            border-bottom-right-radius: theme.get-var(border-radius);
+          }
         }
       }
 
@@ -137,7 +154,8 @@
   }
 
   &--border-rows {
-    .#{$table-root}__body {
+    .#{$table-root}__body,
+    .#{$table-root}__foot {
       .#{$table-root}__cell {
         border-block-start: 1px solid theme.get-var(border-color);
       }

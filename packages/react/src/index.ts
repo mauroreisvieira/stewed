@@ -10,6 +10,7 @@ export * from "./card";
 export * from "./carousel";
 export * from "./checkbox";
 export * from "./container";
+export * from "./data-table";
 export * from "./dialog";
 export * from "./dropdown";
 export * from "./form-field";
