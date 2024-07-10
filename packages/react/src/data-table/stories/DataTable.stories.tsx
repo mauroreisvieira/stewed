@@ -124,8 +124,8 @@ export const Base: Story = {
         data={data}
         columns={columns}
         itemRowKey={({ id }) => id}
-        defaultDirection="DESC"
-        defaultSortedColumn="amount"
+        defaultColumnDirection="DESC"
+        defaultColumnSorted="amount"
         onSort={({ column, direction, items }) => {
           if (column === "amount") {
             return [...items].sort((a, b) => {

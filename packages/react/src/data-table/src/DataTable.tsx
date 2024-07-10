@@ -18,7 +18,7 @@ interface HeadCell<T> {
   cellKey: keyof T | undefined;
   /** Indicates if the column is sortable. */
   isSortable: boolean | undefined;
-  /** Direction of the sorting (e.g., 'asc' or 'desc'). */
+  /** Direction of the sorting (e.g., 'ASC' or 'DESC'). */
   sortDirection: TSortDirection;
   /** Key of the currently sorted column. */
   sortedColumn: keyof T | undefined;
@@ -69,12 +69,12 @@ export interface DataTableProps<T> {
   hiddenColumns?: (keyof T)[];
   /** Array of ordered column keys. */
   orderColumns?: (keyof T)[];
+  /** Default sorting direction. */
+  defaultColumnDirection?: TSortDirection;
   /** Array of sortable column keys. */
   sortableColumns?: (keyof T)[];
   /** Key of the default sorted column. */
-  defaultSortedColumn?: keyof T;
-  /** Default sorting direction. */
-  defaultDirection?: TSortDirection;
+  defaultColumnSorted?: keyof T;
   /** Function to handle sorting. */
   onSort?: (props: { column: keyof T; direction: TSortDirection; items: T[] }) => T[] | null;
   /** Function to render the child components of the table. */
@@ -82,7 +82,7 @@ export interface DataTableProps<T> {
 }
 
 /**
- * DataTable component for displaying tabular data.
+ * The Data Table component is a powerful and flexible tool for displaying and managing tabular data.
  *
  * @template T - The type of data to be displayed in the table.
  *
@@ -113,8 +113,8 @@ export interface DataTableProps<T> {
  *     columns={columns}
  *     data={data}
  *     itemRowKey={(item) => item.id}
- *     defaultSortedColumn="name"
- *     defaultDirection="asc"
+ *     defaultColumnSorted="name"
+ *     defaultColumnDirection="ASC"
  *     sortableColumns={['name', 'email']}>
  *     {({ headCells, bodyRows }) => (
  *       ...
@@ -126,19 +126,19 @@ export function DataTable<T>({
   columns,
   data,
   itemRowKey,
-  defaultSortedColumn,
   orderColumns,
   hiddenColumns,
-  defaultDirection,
+  defaultColumnDirection,
   sortableColumns,
+  defaultColumnSorted,
   onSort,
   children,
 }: DataTableProps<T>): React.ReactElement {
   // Initially set to the default sorting direction.
-  const [sortDirection, setSortDirection] = useState<TSortDirection>(defaultDirection || "ASC");
+  const [sortDirection, setSortDirection] = useState<TSortDirection>(defaultColumnDirection || "ASC");
 
   // Initially set to the default sorted column.
-  const [sortedColumn, setSortedColumn] = useState(defaultSortedColumn);
+  const [sortedColumn, setSortedColumn] = useState(defaultColumnSorted);
 
   // Sort data based on the current sorted column and direction, if no sorting column is specified, the items remain unsorted.
   const sortedItems = useMemo(() => {
