@@ -33,20 +33,20 @@ export interface UseSelect<T> {
  * @returns An object containing selection state and functions to update it.
  */
 export function useSelect<T>(list: T[], initialIndex = 0): UseSelect<T> {
-  const [selectedIndex, setSelectedIndex] = useState(initialIndex);
+  const [index, setIndex] = useState(initialIndex);
 
   // Sets the selected item based on its value.
   const setItem = useCallback(
     (item: T) => {
-      setSelectedIndex(list.indexOf(item));
+      setIndex(list.indexOf(item));
     },
     [list],
   );
 
   return {
-    index: selectedIndex,
-    item: list[selectedIndex],
-    setIndex: setSelectedIndex,
+    item: list[index],
+    index,
+    setIndex,
     setItem,
   };
 }
