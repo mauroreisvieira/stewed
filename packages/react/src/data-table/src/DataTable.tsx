@@ -25,7 +25,7 @@ interface HeadCell<T> {
   /** Function to handle sorting. */
   onSort: () => void;
   /** The content to be rendered inside the header cell. */
-  children: React.ReactNode;
+  cellNode: React.ReactNode;
 }
 
 interface BodyRows<T> {
@@ -39,14 +39,14 @@ interface BodyCell<T> {
   /** Key to access the cell value from the data object. */
   cellKey: keyof T | undefined;
   /** The content to be rendered inside the body cell. */
-  children: React.ReactNode;
+  cellNode: React.ReactNode;
 }
 
 interface FootCell<T> {
   /** Key to access the cell value from the data object. */
   cellKey: keyof T | undefined;
   /** The content to be rendered inside the footer cell. */
-  children: React.ReactNode;
+  cellNode: React.ReactNode;
 }
 
 interface ChildProps<T> {
@@ -210,7 +210,7 @@ export function DataTable<T>({
           setSortedColumn(column?.accessorKey);
           setSortDirection((prev) => (prev === "ASC" ? "DESC" : "ASC"));
         },
-        children: column?.headCell?.(),
+        cellNode: column?.headCell?.(),
       })),
     [sortedItems, visibleColumns, itemRowKey],
   );
@@ -222,7 +222,7 @@ export function DataTable<T>({
         rowKey: itemRowKey(item),
         bodyCells: visibleColumns?.map((column) => ({
           cellKey: column?.accessorKey,
-          children: column?.bodyCell?.(item),
+          cellNode: column?.bodyCell?.(item),
         })),
       })),
     [sortedItems, visibleColumns, itemRowKey],
@@ -233,16 +233,16 @@ export function DataTable<T>({
     (): FootCell<T>[] =>
       (visibleColumns || [])?.map((column) => ({
         cellKey: column?.accessorKey,
-        children: column?.footCell?.(),
+        cellNode: column?.footCell?.(),
       })),
     [sortedItems, visibleColumns, itemRowKey],
   );
 
-  // Flag indicating whether there are any children present in the foot cells.
-  const displayFoot = useMemo(() => footCells.some(({ children }) => children), [footCells]);
+  // Flag indicating whether there are any cell node present in the foot cells.
+  const displayFoot = useMemo(() => footCells.some(({ cellNode }) => cellNode), [footCells]);
 
   // Flag indicating whether there are any children present in the head cells.
-  const displayHead = useMemo(() => headCells.some(({ children }) => children), [headCells]);
+  const displayHead = useMemo(() => headCells.some(({ cellNode }) => cellNode), [headCells]);
 
   return children({
     headCells: displayHead ? headCells : [],

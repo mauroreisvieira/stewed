@@ -1,7 +1,9 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // Components
-import { Theme, DataTable, DataTableProps, ColumnsDef, Table, Tag, Text } from "../../index";
+import { Theme, Box, DataTable, DataTableProps, ColumnsDef, Table, Tag, Text, type TagProps } from "../../index";
+// Icons
+import { MdOutlineArrowUpward, MdOutlineArrowDownward } from "react-icons/md";
 
 type Story = StoryObj<typeof DataTable>;
 
@@ -33,7 +35,7 @@ const data: Payment[] = [
   {
     id: "1",
     amount: {
-      value: 100,
+      value: 1000,
       currency: "€",
     },
     status: "pending",
@@ -42,7 +44,7 @@ const data: Payment[] = [
   {
     id: "2",
     amount: {
-      value: 20,
+      value: 2100,
       currency: "€",
     },
     status: "success",
@@ -51,7 +53,7 @@ const data: Payment[] = [
   {
     id: "3",
     amount: {
-      value: 300,
+      value: 3000,
       currency: "€",
     },
     status: "failed",
@@ -60,16 +62,16 @@ const data: Payment[] = [
   {
     id: "4",
     amount: {
-      value: 200,
+      value: 2000,
       currency: "€",
     },
-    status: "success",
+    status: "processing",
     email: "benjamin.martinez@example.com",
   },
   {
     id: "5",
     amount: {
-      value: 50,
+      value: 1500,
       currency: "€",
     },
     status: "success",
@@ -86,9 +88,9 @@ export const Base: Story = {
     hiddenColumns: { control: "check", options: ["id", "amount", "email", "status"] },
   },
   args: {
-    sortableColumns: "amount"
+    sortableColumns: "amount",
   },
-  render: (args: React.JSX.IntrinsicAttributes & DataTableProps<Payment>): React.ReactElement => {
+  render: (args: DataTableProps<Payment>): React.ReactElement => {
     const columns: ColumnsDef<Payment>[] = [
       {
         accessorKey: "id",
@@ -103,11 +105,21 @@ export const Base: Story = {
       },
       {
         accessorKey: "status",
-        bodyCell: ({ status }) => (
-          <Tag skin={status === "failed" ? "critical" : "neutral"} appearance="soft" size="sm">
-            {status}
-          </Tag>
-        ),
+        bodyCell: ({ status }) => {
+
+          const skins = {
+            failed: "critical",
+            processing: "warning",
+            success: "success",
+            pending: "neutral",
+          };
+
+          return (
+            <Tag skin={skins[status] as TagProps<"span">["skin"]} appearance="soft" size="sm">
+              {status}
+            </Tag>
+          );
+        },
         headCell: () => "Status",
       },
       {
@@ -141,45 +153,23 @@ export const Base: Story = {
             <Table.Head>
               <Table.Row>
                 {headCells.map(
-                  ({ cellKey, children, isSortable, sortedColumn, sortDirection, onSort }) => (
+                  ({ cellKey, cellNode, isSortable, sortedColumn, sortDirection, onSort }) => (
                     <Table.Cell
                       as="th"
                       key={`head-${cellKey}`}
                       onClick={isSortable ? onSort : undefined}>
-                      {children}
-                      {sortedColumn === cellKey && (
-                        <span>
-                          {sortDirection === "ASC" ? (
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              strokeWidth={2}
-                              width={12}
-                              stroke="currentColor">
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M8.25 6.75 12 3m0 0 3.75 3.75M12 3v18"
-                              />
-                            </svg>
-                          ) : (
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              strokeWidth={2}
-                              width={12}
-                              stroke="currentColor">
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3"
-                              />
-                            </svg>
-                          )}
-                        </span>
-                      )}
+                      <Box gap="xs">
+                        {cellNode}
+                        {sortedColumn === cellKey && (
+                          <span>
+                            {sortDirection === "ASC" ? (
+                              <MdOutlineArrowUpward size={12} />
+                            ) : (
+                              <MdOutlineArrowDownward size={12} />
+                            )}
+                          </span>
+                        )}
+                      </Box>
                     </Table.Cell>
                   ),
                 )}
@@ -188,8 +178,8 @@ export const Base: Story = {
             <Table.Body>
               {bodyRows.map(({ rowKey, bodyCells }) => (
                 <Table.Row key={rowKey}>
-                  {bodyCells.map(({ cellKey, children }) => (
-                    <Table.Cell key={cellKey}>{children}</Table.Cell>
+                  {bodyCells.map(({ cellKey, cellNode }) => (
+                    <Table.Cell key={cellKey}>{cellNode}</Table.Cell>
                   ))}
                 </Table.Row>
               ))}
@@ -197,9 +187,9 @@ export const Base: Story = {
             {footCells.length > 0 && (
               <Table.Foot>
                 <Table.Row>
-                  {footCells.map(({ cellKey, children, ...props }) => (
+                  {footCells.map(({ cellKey, cellNode, ...props }) => (
                     <Table.Cell key={`foot-${cellKey}`} {...props}>
-                      {children}
+                      {cellNode}
                     </Table.Cell>
                   ))}
                 </Table.Row>
