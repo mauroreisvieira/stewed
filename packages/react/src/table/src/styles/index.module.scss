@@ -88,6 +88,10 @@
   &__cell {
     display: table-cell;
 
+    &--sortable {
+      cursor: pointer;
+    }
+
     &--start {
       text-align: start;
     }
