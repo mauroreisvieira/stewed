@@ -1,12 +1,12 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // Components
-import { Theme, DataTable, ColumnsDef, Table, Tag } from "../../index";
+import { Theme, DataTable, ColumnsDef, Table, Tag, Text, Card } from "../../index";
 
 type Story = StoryObj<typeof DataTable>;
 
 const meta: Meta<typeof DataTable> = {
-  title: "Components/DataTable",
+  title: "Components/Data Table",
   component: DataTable,
   decorators: [
     (Story) => (
@@ -21,7 +21,10 @@ export default meta;
 
 type Payment = {
   id: string;
-  amount: number;
+  amount: {
+    value: number;
+    currency: string;
+  };
   status: "pending" | "processing" | "success" | "failed";
   email: string;
 };
@@ -29,20 +32,47 @@ type Payment = {
 const data: Payment[] = [
   {
     id: "1",
-    amount: 1000,
+    amount: {
+      value: 100,
+      currency: "€",
+    },
     status: "pending",
     email: "example@email.com",
   },
   {
     id: "2",
-    amount: 2000,
+    amount: {
+      value: 20,
+      currency: "€",
+    },
     status: "success",
     email: "example@email.com",
   },
   {
     id: "3",
-    amount: 5000,
+    amount: {
+      value: 3000,
+      currency: "€",
+    },
     status: "failed",
+    email: "example@email.com",
+  },
+  {
+    id: "4",
+    amount: {
+      value: 200,
+      currency: "€",
+    },
+    status: "success",
+    email: "example@email.com",
+  },
+  {
+    id: "5",
+    amount: {
+      value: 50,
+      currency: "€",
+    },
+    status: "success",
     email: "example@email.com",
   },
 ];
@@ -59,19 +89,12 @@ export const Base: Story = {
         accessorKey: "id",
         bodyCell: ({ id }) => id,
         headCell: () => "ID",
-        footCell: () => "Total",
-        isHidden: false,
+        footCell: () => <Text weight="semi-bold">Total</Text>,
       },
       {
         accessorKey: "email",
         bodyCell: ({ email }) => email,
         headCell: () => "Email",
-      },
-      {
-        accessorKey: "amount",
-        bodyCell: ({ amount }) => <span>{amount}</span>,
-        headCell: () => "Amount",
-        isSortable: true,
       },
       {
         accessorKey: "status",
@@ -82,47 +105,104 @@ export const Base: Story = {
         ),
         headCell: () => "Status",
       },
+      {
+        accessorKey: "amount",
+        bodyCell: ({ amount }) => `${amount.value}${amount.currency}`,
+        headCell: () => "Amount",
+        footCell: () => `${data.reduce((acc, curr) => (acc = acc + curr.amount.value), 0)}€`,
+      },
     ];
 
     return (
-      <DataTable<Payment>
-        data={data}
-        columns={columns}
-        itemKey={({ id }) => id}
-        sortedColumn="id"
-        orderColumns={["id", "status"]}>
-        {({ headCells, bodyRows, footCells }) => (
-          <Table appearance={["border", "border-columns", "border-rows", "striped"]}>
-            <Table.Head>
-              <Table.Row>
-                {headCells.map(({ key, children }) => (
-                  <Table.Cell as="th" key={`head-${key}`}>
-                    {children}
-                  </Table.Cell>
-                ))}
-              </Table.Row>
-            </Table.Head>
-            <Table.Body>
-              {bodyRows.map(({ key, bodyCells }) => (
-                <Table.Row key={key}>
-                  {bodyCells.map(({ key, children }) => (
-                    <Table.Cell key={key}>{children}</Table.Cell>
-                  ))}
-                </Table.Row>
-              ))}
-            </Table.Body>
-            {footCells.length > 0 && (
-              <Table.Foot>
+      <Card>
+        <DataTable<Payment>
+          data={data}
+          columns={columns}
+          itemRowKey={({ id }) => id}
+          sortableColumns={["id", "amount"]}
+          onSort={({ column, direction, items }) => {
+            if (column === "amount") {
+              return [...items].sort((a, b) => {
+                return direction === "ASC"
+                  ? a.amount.value - b.amount.value
+                  : b.amount.value - a.amount.value;
+              });
+            }
+            return null;
+          }}>
+          {({ headCells, bodyRows, footCells }) => (
+            <Table appearance={["striped", "border-rows", "border-columns"]}>
+              <Table.Head>
                 <Table.Row>
-                  {footCells.map(({ key, children }) => (
-                    <Table.Cell key={`foot-${key}`}>{children}</Table.Cell>
-                  ))}
+                  {headCells.map(
+                    ({ cellKey, children, isSortable, sortedColumn, sortDirection, onSort }) => (
+                      <Table.Cell
+                        as="th"
+                        key={`head-${cellKey}`}
+                        onClick={isSortable ? onSort : undefined}>
+                        {children}
+                        {sortedColumn === cellKey && (
+                          <span>
+                            {sortDirection === "ASC" ? (
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth={2}
+                                width={12}
+                                stroke="currentColor">
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  d="M8.25 6.75 12 3m0 0 3.75 3.75M12 3v18"
+                                />
+                              </svg>
+                            ) : (
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth={2}
+                                width={12}
+                                stroke="currentColor">
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3"
+                                />
+                              </svg>
+                            )}
+                          </span>
+                        )}
+                      </Table.Cell>
+                    ),
+                  )}
                 </Table.Row>
-              </Table.Foot>
-            )}
-          </Table>
-        )}
-      </DataTable>
+              </Table.Head>
+              <Table.Body>
+                {bodyRows.map(({ rowKey, bodyCells }) => (
+                  <Table.Row key={rowKey}>
+                    {bodyCells.map(({ cellKey, children }) => (
+                      <Table.Cell key={cellKey}>{children}</Table.Cell>
+                    ))}
+                  </Table.Row>
+                ))}
+              </Table.Body>
+              {footCells.length > 0 && (
+                <Table.Foot>
+                  <Table.Row>
+                    {footCells.map(({ cellKey, children, ...props }) => (
+                      <Table.Cell key={`foot-${cellKey}`} {...props}>
+                        {children}
+                      </Table.Cell>
+                    ))}
+                  </Table.Row>
+                </Table.Foot>
+              )}
+            </Table>
+          )}
+        </DataTable>
+      </Card>
     );
   },
 };
