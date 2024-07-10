@@ -1,4 +1,4 @@
-import { useBem } from "@stewed/hooks";
+import { useBem } from "../../index";
 import { renderHook } from "@testing-library/react";
 
 // Mock classNames utility

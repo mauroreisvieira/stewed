@@ -1,4 +1,4 @@
-import { useInput, UseInputValue, UseInputOptions } from "@stewed/hooks";
+import { useInput, UseInputValue, UseInputOptions } from "../../index";
 import { renderHook, act } from "@testing-library/react";
 
 describe("useInput", () => {
