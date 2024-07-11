@@ -1,0 +1,78 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+@use "./variables" as *;
+
+@include theme.scope($drawer-root) {
+  @include theme.define-var(
+    (
+      opacity: 0,
+      background: theme.get-color("background-elevated"),
+    )
+  );
+
+  position: fixed;
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  &__surface {
+    position: absolute;
+    right: 0;
+    width: theme.get-var(width);
+    max-width: 100%;
+    height: 100%;
+    margin: auto;
+    background-color: theme.get-var(background);
+    border-top-left-radius: theme.get-var(radius);
+    border-bottom-left-radius: theme.get-var(radius);
+    box-shadow: theme.get-var(shadow);
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__body {
+    flex: 1;
+  }
+
+  &__header,
+  &__body,
+  &__footer {
+    padding: theme.get-spacing("xl");
+  }
+
+  &--open {
+    @include theme.define-var(
+      (
+        opacity: 1,
+      )
+    );
+  }
+
+  &--sm {
+    @include theme.define-var(
+      (
+        width: 380px,
+      )
+    );
+  }
+
+  &--md {
+    @include theme.define-var(
+      (
+        width: 760px,
+      )
+    );
+  }
+
+  &--lg {
+    @include theme.define-var(
+      (
+        width: 1024px,
+      )
+    );
+  }
+}

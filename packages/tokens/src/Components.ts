@@ -15,6 +15,7 @@ export const components = {
   Checkbox: "checkbox",
   Container: "container",
   Dialog: "dialog",
+  Drawer: "drawer",
   Dropdown: "dropdown",
   FormField: "form-field",
   Grid: "grid",
@@ -49,6 +50,7 @@ export type Components = {
   [components.Card]?: { radius?: Radius };
   [components.Checkbox]?: { radius?: Radius };
   [components.Dialog]?: { radius?: Radius; shadow?: Shadow };
+  [components.Drawer]?: { radius?: Radius; shadow?: Shadow };
   [components.ListBox]?: { radius?: Radius };
   [components.Quantity]?: { radius?: Radius };
   [components.Select]?: { radius?: Radius };

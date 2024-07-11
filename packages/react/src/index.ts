@@ -12,6 +12,7 @@ export * from "./checkbox";
 export * from "./container";
 export * from "./data-table";
 export * from "./dialog";
+export * from "./drawer";
 export * from "./dropdown";
 export * from "./form-field";
 export * from "./grid";
