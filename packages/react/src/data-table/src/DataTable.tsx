@@ -15,7 +15,7 @@ export interface ColumnsDef<T> {
 
 interface HeadCell<T> {
   /** Key to access the cell value from the data object. */
-  cellKey: keyof T | undefined;
+  columnKey: keyof T | undefined;
   /** Indicates if the column is sortable. */
   isSortable: boolean | undefined;
   /** Direction of the sorting (e.g., 'ASC' or 'DESC'). */
@@ -37,14 +37,14 @@ interface BodyRows<T> {
 
 interface BodyCell<T> {
   /** Key to access the cell value from the data object. */
-  cellKey: keyof T | undefined;
+  columnKey: keyof T | undefined;
   /** The content to be rendered inside the body cell. */
   cellNode: React.ReactNode;
 }
 
 interface FootCell<T> {
   /** Key to access the cell value from the data object. */
-  cellKey: keyof T | undefined;
+  columnKey: keyof T | undefined;
   /** The content to be rendered inside the footer cell. */
   cellNode: React.ReactNode;
 }
@@ -215,7 +215,7 @@ export function DataTable<T>({
     (): HeadCell<T>[] =>
       // Map over the visibleColumns to create an array of HeadCell objects
       (visibleColumns || [])?.map((column) => ({
-        cellKey: column?.accessorKey,
+        columnKey: column?.accessorKey,
         isSortable: sortableColumns && sortableColumns?.includes(column?.accessorKey as keyof T),
         sortDirection,
         sortedColumn,
@@ -237,7 +237,7 @@ export function DataTable<T>({
           data: item as T,
           bodyCells:
             visibleColumns?.map((column) => ({
-              cellKey: column?.accessorKey,
+              columnKey: column?.accessorKey,
               cellNode: column?.bodyCell?.(item),
             })) ?? [],
         })),
@@ -248,7 +248,7 @@ export function DataTable<T>({
   const footCells = useMemo(
     (): FootCell<T>[] =>
       (visibleColumns || [])?.map((column) => ({
-        cellKey: column?.accessorKey,
+        columnKey: column?.accessorKey,
         cellNode: column?.footCell?.(),
       })),
     [sortedItems, visibleColumns],

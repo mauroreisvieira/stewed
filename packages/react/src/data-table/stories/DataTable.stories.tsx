@@ -34,15 +34,17 @@ const meta: Meta<typeof DataTable> = {
 
 export default meta;
 
-type Payment = {
+type Status = "pending" | "processing" | "success" | "failed";
+
+interface Payment {
   id: string;
   amount: {
     value: number;
     currency: string;
   };
-  status: "pending" | "processing" | "success" | "failed";
+  status: Status;
   email: string;
-};
+}
 
 const data: Payment[] = [
   {
@@ -139,9 +141,9 @@ export const Base: Story = {
     ];
 
     // Example data
-    const items = ["all", "processing", "pending", "success", "failed"];
+    const items: (Status | "all")[] = ["all", "processing", "pending", "success", "failed"];
     // Using the useSelect hook to manage selection
-    const { index, item: selectedOption, setIndex } = useSelect<string>(items);
+    const { index, item: selectedOption, setIndex } = useSelect<Status | "all">(items);
 
     // Event handler to handle selection change
     const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -188,14 +190,14 @@ export const Base: Story = {
               <Table.Head>
                 <Table.Row>
                   {headCells.map(
-                    ({ cellKey, cellNode, isSortable, sortedColumn, sortDirection, onSort }) => (
+                    ({ columnKey, cellNode, isSortable, sortedColumn, sortDirection, onSort }) => (
                       <Table.Cell
                         as="th"
-                        key={`head-${cellKey}`}
+                        key={`head-${columnKey}`}
                         onClick={isSortable ? onSort : undefined}>
                         <Box gap="xs">
                           {cellNode}
-                          {sortedColumn === cellKey && (
+                          {sortedColumn === columnKey && (
                             <span>
                               {sortDirection === "ASC" ? (
                                 <MdOutlineArrowUpward size={12} />
@@ -213,8 +215,8 @@ export const Base: Story = {
               <Table.Body>
                 {bodyRows.map(({ bodyCells, data: { id } }) => (
                   <Table.Row key={id}>
-                    {bodyCells.map(({ cellKey, cellNode }) => (
-                      <Table.Cell key={cellKey}>{cellNode}</Table.Cell>
+                    {bodyCells.map(({ columnKey, cellNode }) => (
+                      <Table.Cell key={`${id}-${columnKey}`}>{cellNode}</Table.Cell>
                     ))}
                   </Table.Row>
                 ))}
@@ -222,8 +224,8 @@ export const Base: Story = {
               {footCells.length > 0 && (
                 <Table.Foot>
                   <Table.Row>
-                    {footCells.map(({ cellKey, cellNode, ...props }) => (
-                      <Table.Cell key={`foot-${cellKey}`} {...props}>
+                    {footCells.map(({ columnKey, cellNode, ...props }) => (
+                      <Table.Cell key={`foot-${columnKey}`} {...props}>
                         {cellNode}
                       </Table.Cell>
                     ))}
