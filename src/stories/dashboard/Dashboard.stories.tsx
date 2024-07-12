@@ -17,7 +17,7 @@ import {
   Drawer,
 } from "@stewed/react";
 // Hooks
-import { useInput } from "@stewed/hooks";
+import { useInput, useToggle } from "@stewed/hooks";
 // Icons
 import { FiFile, FiFilePlus, FiSearch, FiTrash, FiUsers, FiActivity } from "react-icons/fi";
 
@@ -88,6 +88,7 @@ export const RecentFeedback = {
           <Text as="h5" space={{ y: "xs" }}>
             Recent feedback
           </Text>
+
           <Text size="sm" skin="neutral" space={{ y: "3xl" }}>
             Find all of your customer feedback in one place.
           </Text>
@@ -212,11 +213,14 @@ export const SidePanel = {
   render: function Example() {
     const searchInput = useInput("");
 
+    const [opened, setOpened] = useToggle(false);
+
     return (
       <Container screen="sm" alignment="center" padding={{ block: "7xl" }}>
-        <Drawer>
-          <Box gap="2xl" direction="column" grow>
-            <Box gap="lg" items="center" direction="column" grow>
+        <Button onClick={setOpened}>Open Side Panel</Button>
+        <Drawer open={opened} size="sm" onClickOutside={setOpened}>
+          <Drawer.Header>
+            <Box gap="lg" items="center" direction="column" justify="center" grow>
               <Avatar size="3xl" name="Stewed Board" skin="primary" appearance="square" />
               <Text
                 skin="primary"
@@ -227,37 +231,44 @@ export const SidePanel = {
                 Stewed Board
               </Text>
             </Box>
-            <TextField
-              {...searchInput}
-              placeholder="Quick search"
-              leftSlot={<FiSearch />}
-              rightSlot={
-                <Text skin="neutral" size="xs">
-                  ⌘K
-                </Text>
-              }
-            />
-            <ListBox>
-              <ListBox.Group>
-                <ListBox.Item leftSlot={<FiActivity />}>Activity</ListBox.Item>
-                <ListBox.Item leftSlot={<FiFile />} rightSlot={<FiUsers />} selected>
-                  All boards
-                </ListBox.Item>
-                <ListBox.Item leftSlot={<FiFilePlus />}>Tasks</ListBox.Item>
-                <ListBox.Item skin="critical" leftSlot={<FiTrash />}>
-                  Trash
-                </ListBox.Item>
-              </ListBox.Group>
-              <Separator space={{ block: "sm" }} />
-              <ListBox.Group>
-                <ListBox.Item>Lee Evans new tour</ListBox.Item>
-                <ListBox.Item>Individual errors coast</ListBox.Item>
-                <ListBox.Item>Re-skin signs</ListBox.Item>
-                <ListBox.Item>Reflect roadmap</ListBox.Item>
-                <ListBox.Item>Top of mind</ListBox.Item>
-              </ListBox.Group>
-            </ListBox>
-          </Box>
+          </Drawer.Header>
+
+          <Separator />
+
+          <Drawer.Body>
+            <Box gap="2xl" direction="column">
+              <TextField
+                {...searchInput}
+                placeholder="Quick search"
+                leftSlot={<FiSearch />}
+                rightSlot={
+                  <Text skin="neutral" size="xs">
+                    ⌘K
+                  </Text>
+                }
+              />
+              <ListBox>
+                <ListBox.Group>
+                  <ListBox.Item leftSlot={<FiActivity />}>Activity</ListBox.Item>
+                  <ListBox.Item leftSlot={<FiFile />} rightSlot={<FiUsers />} selected>
+                    All boards
+                  </ListBox.Item>
+                  <ListBox.Item leftSlot={<FiFilePlus />}>Tasks</ListBox.Item>
+                  <ListBox.Item skin="critical" leftSlot={<FiTrash />}>
+                    Trash
+                  </ListBox.Item>
+                </ListBox.Group>
+                <Separator space={{ block: "sm" }} />
+                <ListBox.Group>
+                  <ListBox.Item>Lee Evans new tour</ListBox.Item>
+                  <ListBox.Item>Individual errors coast</ListBox.Item>
+                  <ListBox.Item>Re-skin signs</ListBox.Item>
+                  <ListBox.Item>Reflect roadmap</ListBox.Item>
+                  <ListBox.Item>Top of mind</ListBox.Item>
+                </ListBox.Group>
+              </ListBox>
+            </Box>
+          </Drawer.Body>
         </Drawer>
       </Container>
     );
