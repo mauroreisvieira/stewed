@@ -1,18 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // UI Components
-import {
-  Box,
-  Text,
-  Card,
-  Container,
-  FormField,
-  Select,
-  Separator,
-  Switch,
-  TextField,
-  Theme,
-} from "@stewed/react";
+import { Box, Card, Container, FormField, TextField, Theme } from "@stewed/react";
 // Hooks
 import { useStateForm } from "../index";
 
