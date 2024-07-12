@@ -69,7 +69,7 @@ export const defaultTokens: Tokens = {
       shadow: "2xl",
     },
     [components.Drawer]: {
-      radius: "md",
+      radius: "lg",
       shadow: "2xl",
     },
     [components.ListBox]: {

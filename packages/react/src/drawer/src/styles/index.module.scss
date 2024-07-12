@@ -32,6 +32,7 @@
   &__header {
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
   }
 
   &__body {
@@ -55,7 +56,7 @@
   &--sm {
     @include theme.define-var(
       (
-        width: 380px,
+        width: 320px,
       )
     );
   }
@@ -63,15 +64,7 @@
   &--md {
     @include theme.define-var(
       (
-        width: 760px,
-      )
-    );
-  }
-
-  &--lg {
-    @include theme.define-var(
-      (
-        width: 1024px,
+        width: 640px,
       )
     );
   }

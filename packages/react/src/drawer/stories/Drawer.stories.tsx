@@ -31,7 +31,7 @@ export const Base: Story = {
     children: (
       <>
         <Drawer.Header>
-          <Text as="h4">Drawer Header</Text>
+          <Text as="h6">Drawer Header</Text>
         </Drawer.Header>
         <Separator />
         <Drawer.Body>
@@ -41,10 +41,6 @@ export const Base: Story = {
             nulla in laoreet. Maecenas semper mi egestas, dignissim nisi et, elementum neque.
           </Text>
         </Drawer.Body>
-        <Separator />
-        <Drawer.Footer>
-          <Text as="h4">Drawer Footer</Text>
-        </Drawer.Footer>
       </>
     ),
   },

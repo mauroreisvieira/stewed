@@ -27,10 +27,7 @@
   &__header {
     display: flex;
     justify-content: space-between;
-  }
-
-  &__body {
-    flex: 1;
+    align-items: baseline;
   }
 
   &__header,

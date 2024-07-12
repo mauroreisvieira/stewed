@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 // UI Components
-import { Scope } from "../..";
+import { Backdrop, Scope } from "../..";
 // Provider
 import { type DrawerProviderProps, DrawerProvider } from "./DrawerProvider";
 // Compound Component
@@ -22,7 +22,7 @@ export interface DrawerProps extends React.ComponentProps<"div">, DrawerProvider
    * Changes the size of the Drawer, will specify the width of the element.
    * @default md
    */
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "md";
   /** Callback function invoked when the escape key is pressed. */
   onEscape?: () => void;
   /** Callback function invoked when the Drawer is clicked outside. */
@@ -100,6 +100,7 @@ export function Drawer({
     <>
       {open && (
         <Scope elevation="navigation">
+          <Backdrop blur />
           <DrawerProvider onClose={onClose}>
             <div className={cssClasses.root} {...props}>
               <div onKeyDown={onHandleKeydown} ref={setRootRef} className={cssClasses.surface}>
