@@ -29,8 +29,8 @@ interface HeadCell<T> {
 }
 
 interface BodyRows<T> {
-  /** Unique key for the row. */
-  rowKey: string;
+  /** The data item representing the row. */
+  data: T;
   /** Array of body cells in the row. */
   bodyCells: BodyCell<T>[];
 }
@@ -63,8 +63,6 @@ export interface DataTableProps<T> {
   columns: ColumnsDef<T>[];
   /** Array of data items. */
   data: T[];
-  /** Function to get the unique key for each data item. */
-  itemRowKey: (data: T) => string;
   /** Array of hidden column keys. */
   hiddenColumns?: (keyof T)[];
   /** Array of ordered column keys. */
@@ -75,7 +73,21 @@ export interface DataTableProps<T> {
   sortableColumns?: (keyof T)[];
   /** Key of the default sorted column. */
   defaultColumnSorted?: keyof T;
-  /** Function to handle sorting. */
+  /**
+   * Function to filter items, will takes an item of type T and returns a boolean indicating
+   * whether the item should be included (true) or excluded (false) from the filtered results.
+   *
+   * @param data - The item of type T to be evaluated for inclusion in the filtered results.
+   * @returns A boolean indicating whether the item should be included (true) or excluded (false) from the filtered results.
+   */
+  onFilter?: (data: T) => boolean;
+  /**
+   * Function to handle sorting, will takes sorting properties and returns a sorted array of items of type T,
+   * or null if sorting is not applied.
+   *
+   * @param props - Sorting properties including the column to sort by, sorting direction, and items to sort.
+   * @returns A sorted array of items of type T, or null if sorting is not applied.
+   */
   onSort?: (props: { column: keyof T; direction: TSortDirection; items: T[] }) => T[] | null;
   /** Function to render the child components of the table. */
   children: (props: ChildProps<T>) => React.ReactElement;
@@ -112,7 +124,6 @@ export interface DataTableProps<T> {
  *   <DataTable<UserData>
  *     columns={columns}
  *     data={data}
- *     itemRowKey={(item) => item.id}
  *     defaultColumnSorted="name"
  *     defaultColumnDirection="ASC"
  *     sortableColumns={['name', 'email']}>
@@ -125,7 +136,7 @@ export interface DataTableProps<T> {
 export function DataTable<T>({
   columns,
   data,
-  itemRowKey,
+  onFilter,
   orderColumns,
   hiddenColumns,
   defaultColumnDirection,
@@ -135,7 +146,9 @@ export function DataTable<T>({
   children,
 }: DataTableProps<T>): React.ReactElement {
   // Initially set to the default sorting direction.
-  const [sortDirection, setSortDirection] = useState<TSortDirection>(defaultColumnDirection || "ASC");
+  const [sortDirection, setSortDirection] = useState<TSortDirection>(
+    defaultColumnDirection || "ASC",
+  );
 
   // Initially set to the default sorted column.
   const [sortedColumn, setSortedColumn] = useState(defaultColumnSorted);
@@ -212,20 +225,23 @@ export function DataTable<T>({
         },
         cellNode: column?.headCell?.(),
       })),
-    [sortedItems, visibleColumns, itemRowKey],
+    [sortedItems, visibleColumns],
   );
 
   // Generate an array of body rows based on sorted items and ordered columns.
   const bodyRows = useMemo(
     (): BodyRows<T>[] =>
-      sortedItems?.map((item) => ({
-        rowKey: itemRowKey(item),
-        bodyCells: visibleColumns?.map((column) => ({
-          cellKey: column?.accessorKey,
-          cellNode: column?.bodyCell?.(item),
+      sortedItems
+        ?.filter((item) => onFilter?.(item))
+        .map((item) => ({
+          data: item as T,
+          bodyCells:
+            visibleColumns?.map((column) => ({
+              cellKey: column?.accessorKey,
+              cellNode: column?.bodyCell?.(item),
+            })) ?? [],
         })),
-      })),
-    [sortedItems, visibleColumns, itemRowKey],
+    [sortedItems, visibleColumns, onFilter],
   );
 
   // Array to store foot cells of the table.
@@ -235,7 +251,7 @@ export function DataTable<T>({
         cellKey: column?.accessorKey,
         cellNode: column?.footCell?.(),
       })),
-    [sortedItems, visibleColumns, itemRowKey],
+    [sortedItems, visibleColumns],
   );
 
   // Flag indicating whether there are any cell node present in the foot cells.

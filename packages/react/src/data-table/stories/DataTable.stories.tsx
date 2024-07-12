@@ -1,9 +1,22 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // Components
-import { Theme, Box, DataTable, DataTableProps, ColumnsDef, Table, Tag, Text, type TagProps } from "../../index";
+import {
+  Theme,
+  Box,
+  DataTable,
+  ColumnsDef,
+  Table,
+  Tag,
+  Text,
+  Select,
+  Separator,
+  Grid,
+  type TagProps,
+} from "../../index";
 // Icons
 import { MdOutlineArrowUpward, MdOutlineArrowDownward } from "react-icons/md";
+import { useSelect } from "@stewed/hooks";
 
 type Story = StoryObj<typeof DataTable>;
 
@@ -84,13 +97,9 @@ export const Base: Story = {
     children: {
       control: false,
     },
-    sortableColumns: { control: "check", options: ["id", "amount", "email", "status"] },
     hiddenColumns: { control: "check", options: ["id", "amount", "email", "status"] },
   },
-  args: {
-    sortableColumns: "amount",
-  },
-  render: (args: DataTableProps<Payment>): React.ReactElement => {
+  render: (args): React.ReactElement => {
     const columns: ColumnsDef<Payment>[] = [
       {
         accessorKey: "id",
@@ -106,7 +115,6 @@ export const Base: Story = {
       {
         accessorKey: "status",
         bodyCell: ({ status }) => {
-
           const skins = {
             failed: "critical",
             processing: "warning",
@@ -130,74 +138,102 @@ export const Base: Story = {
       },
     ];
 
+    // Example data
+    const items = ["all", "processing", "pending", "success", "failed"];
+    // Using the useSelect hook to manage selection
+    const { index, item: selectedOption, setIndex } = useSelect<string>(items);
+
+    // Event handler to handle selection change
+    const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+      const newIndex = Number(event.target.value);
+      setIndex(newIndex);
+    };
+
     return (
-      <DataTable<Payment>
-        {...args}
-        data={data}
-        columns={columns}
-        itemRowKey={({ id }) => id}
-        defaultColumnDirection="DESC"
-        defaultColumnSorted="amount"
-        onSort={({ column, direction, items }) => {
-          if (column === "amount") {
-            return [...items].sort((a, b) => {
-              return direction === "ASC"
-                ? a.amount.value - b.amount.value
-                : b.amount.value - a.amount.value;
-            });
-          }
-          return null;
-        }}>
-        {({ headCells, bodyRows, footCells }) => (
-          <Table appearance={["border", "border-rows", "border-columns"]}>
-            <Table.Head>
-              <Table.Row>
-                {headCells.map(
-                  ({ cellKey, cellNode, isSortable, sortedColumn, sortDirection, onSort }) => (
-                    <Table.Cell
-                      as="th"
-                      key={`head-${cellKey}`}
-                      onClick={isSortable ? onSort : undefined}>
-                      <Box gap="xs">
-                        {cellNode}
-                        {sortedColumn === cellKey && (
-                          <span>
-                            {sortDirection === "ASC" ? (
-                              <MdOutlineArrowUpward size={12} />
-                            ) : (
-                              <MdOutlineArrowDownward size={12} />
-                            )}
-                          </span>
-                        )}
-                      </Box>
-                    </Table.Cell>
-                  ),
-                )}
-              </Table.Row>
-            </Table.Head>
-            <Table.Body>
-              {bodyRows.map(({ rowKey, bodyCells }) => (
-                <Table.Row key={rowKey}>
-                  {bodyCells.map(({ cellKey, cellNode }) => (
-                    <Table.Cell key={cellKey}>{cellNode}</Table.Cell>
-                  ))}
-                </Table.Row>
-              ))}
-            </Table.Body>
-            {footCells.length > 0 && (
-              <Table.Foot>
+      <>
+        <Grid cols={3}>
+          <Select value={index} onChange={handleSelectChange}>
+            {items.map((item, idx) => (
+              <Select.Option key={idx} value={idx}>
+                {item}
+              </Select.Option>
+            ))}
+          </Select>
+        </Grid>
+        <Separator space={{ block: "lg" }} />
+        <DataTable<Payment>
+          {...args}
+          data={data}
+          columns={columns}
+          sortableColumns={["amount"]}
+          defaultColumnDirection="DESC"
+          defaultColumnSorted="amount"
+          onFilter={({ status }) => {
+            return selectedOption && selectedOption !== "all"
+              ? selectedOption.includes(status)
+              : true;
+          }}
+          onSort={({ column, direction, items }) => {
+            if (column === "amount") {
+              return [...items].sort((a, b) => {
+                return direction === "ASC"
+                  ? a.amount.value - b.amount.value
+                  : b.amount.value - a.amount.value;
+              });
+            }
+            return null;
+          }}>
+          {({ headCells, bodyRows, footCells }) => (
+            <Table appearance={["border", "border-rows", "border-columns"]}>
+              <Table.Head>
                 <Table.Row>
-                  {footCells.map(({ cellKey, cellNode, ...props }) => (
-                    <Table.Cell key={`foot-${cellKey}`} {...props}>
-                      {cellNode}
-                    </Table.Cell>
-                  ))}
+                  {headCells.map(
+                    ({ cellKey, cellNode, isSortable, sortedColumn, sortDirection, onSort }) => (
+                      <Table.Cell
+                        as="th"
+                        key={`head-${cellKey}`}
+                        onClick={isSortable ? onSort : undefined}>
+                        <Box gap="xs">
+                          {cellNode}
+                          {sortedColumn === cellKey && (
+                            <span>
+                              {sortDirection === "ASC" ? (
+                                <MdOutlineArrowUpward size={12} />
+                              ) : (
+                                <MdOutlineArrowDownward size={12} />
+                              )}
+                            </span>
+                          )}
+                        </Box>
+                      </Table.Cell>
+                    ),
+                  )}
                 </Table.Row>
-              </Table.Foot>
-            )}
-          </Table>
-        )}
-      </DataTable>
+              </Table.Head>
+              <Table.Body>
+                {bodyRows.map(({ bodyCells, data: { id } }) => (
+                  <Table.Row key={id}>
+                    {bodyCells.map(({ cellKey, cellNode }) => (
+                      <Table.Cell key={cellKey}>{cellNode}</Table.Cell>
+                    ))}
+                  </Table.Row>
+                ))}
+              </Table.Body>
+              {footCells.length > 0 && (
+                <Table.Foot>
+                  <Table.Row>
+                    {footCells.map(({ cellKey, cellNode, ...props }) => (
+                      <Table.Cell key={`foot-${cellKey}`} {...props}>
+                        {cellNode}
+                      </Table.Cell>
+                    ))}
+                  </Table.Row>
+                </Table.Foot>
+              )}
+            </Table>
+          )}
+        </DataTable>
+      </>
     );
   },
 };
