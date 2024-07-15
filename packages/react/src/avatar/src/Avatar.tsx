@@ -8,7 +8,7 @@ import { type Color, components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface AvatarProps {
+export interface AvatarProps extends React.ComponentPropsWithRef<"div"> {
   /**
    * Defines the skin color of the avatar.
    * @default primary
@@ -54,6 +54,7 @@ export function Avatar({
   className,
   src,
   name,
+  ...props
 }: AvatarProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock, getElement } = useBem({ block: components.Avatar, styles });
@@ -67,7 +68,7 @@ export function Avatar({
   const initials = name?.match(/[A-Z]/g)?.join("").slice(0, 2).toUpperCase();
 
   return (
-    <div className={cssClasses.root}>
+    <div className={cssClasses.root} {...props}>
       {src ? <img className={cssClasses.img} src={src} alt={name} /> : initials}
     </div>
   );
