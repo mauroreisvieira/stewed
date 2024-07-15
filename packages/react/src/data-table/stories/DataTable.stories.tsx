@@ -168,7 +168,7 @@ export const Base: Story = {
           data={data}
           columns={columns}
           sortableColumns={["amount"]}
-          defaultColumnDirection="DESC"
+          defaultColumnDirection="ASC"
           defaultColumnSorted="amount"
           onFilter={({ status }) => {
             return selectedOption && selectedOption !== "all"
@@ -186,7 +186,7 @@ export const Base: Story = {
             return null;
           }}>
           {({ headCells, bodyRows, footCells }) => (
-            <Table appearance={["border", "border-rows", "border-columns"]}>
+            <Table appearance={["border", "border-columns", "striped", "border-rows"]}>
               <Table.Head>
                 <Table.Row>
                   {headCells.map(
@@ -213,8 +213,8 @@ export const Base: Story = {
                 </Table.Row>
               </Table.Head>
               <Table.Body>
-                {bodyRows.map(({ bodyCells, data: { id } }) => (
-                  <Table.Row key={id}>
+                {bodyRows.map(({ bodyCells, data: { id, status } }) => (
+                  <Table.Row key={id} skin={status === "failed" ? "critical" : "default"}>
                     {bodyCells.map(({ columnKey, cellNode }) => (
                       <Table.Cell key={`${id}-${columnKey}`}>{cellNode}</Table.Cell>
                     ))}

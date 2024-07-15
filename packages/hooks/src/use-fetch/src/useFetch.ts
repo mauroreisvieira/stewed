@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 
 /**
  * A utility type to allow a string literal type or any other string.
- */
+*/
 type LooseAutoComplete<T extends string> = T | Omit<string, T>;
 
 /**
@@ -14,9 +14,10 @@ type Status = LooseAutoComplete<"loading" | "error" | "loaded" | "aborted" | "un
 interface FetchResponse<T> {
   /** The current status of the fetch operation. */
   status: Status;
-  /** The data returned by the fetch operation, if any. */
-  data?: T;
-  error: Error | undefined;
+  /** The data returned by the fetch operation. */
+  data?: T | null;
+  /** The error returned by the fetch operation. */
+  error: Error | undefined | null;
 }
 
 interface FetchOptions extends RequestInit {
@@ -36,12 +37,18 @@ interface FetchOptions extends RequestInit {
  * - `error`: The error object, if the fetch request fails.
  */
 export function useFetch<T>(url: RequestInfo, options: FetchOptions = {}): FetchResponse<T> {
-  const [data, setData] = useState<T>();
+  const [data, setData] = useState<T | null>(null);
   const [status, setStatus] = useState<Status>("loading");
-  const [error, setError] = useState<Error>();
+  const [error, setError] = useState<Error | null>(null);
   const controller = useRef<AbortController>(new AbortController());
 
   useEffect(() => {
+    let isCanceled = false;
+
+    setData(null);
+    setError(null);
+    setStatus("loading");
+
     const fetchData = async () => {
       try {
         const response = await fetch(url, {
@@ -53,15 +60,19 @@ export function useFetch<T>(url: RequestInfo, options: FetchOptions = {}): Fetch
           throw new Error(`Error: ${response.status} ${response.statusText}`);
         }
 
-        const result = (await response.json()) as T;
-        setData(result);
-        setStatus("loaded");
+        const json = (await response.json()) as T;
+        if (!isCanceled) {
+          setData(json);
+          setStatus("loaded");
+        }
       } catch (err: unknown) {
-        if ((err as Error).name === "AbortError") {
-          setStatus("aborted");
-        } else {
-          setError(err as Error);
-          setStatus("error");
+        if (!isCanceled) {
+          if ((err as Error).name === "AbortError") {
+            setStatus("aborted");
+          } else {
+            setError(err as Error);
+            setStatus("error");
+          }
         }
       }
     };
@@ -69,6 +80,7 @@ export function useFetch<T>(url: RequestInfo, options: FetchOptions = {}): Fetch
     fetchData();
 
     return () => {
+      isCanceled = true;
       controller.current.abort();
       setStatus("unmounted");
     };
@@ -82,4 +94,3 @@ export function useFetch<T>(url: RequestInfo, options: FetchOptions = {}): Fetch
 
   return { data, status, error };
 }
-

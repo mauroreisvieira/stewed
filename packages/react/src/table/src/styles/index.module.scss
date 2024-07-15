@@ -179,9 +179,9 @@
   &--border-columns {
     border-spacing: 0;
 
-    .#{$table-root}__body .#{$table-root}__row {
+    .#{$table-root}__body:last-of-type .#{$table-root}__row {
       &:last-child > .#{$table-root}__cell {
-        &:first-child {
+        &:first-of-type {
           border-bottom-left-radius: theme.get-var(border-radius);
         }
 

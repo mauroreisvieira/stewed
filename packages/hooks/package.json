@@ -16,8 +16,8 @@
     "clean": "rm -rf dist node_modules"
   },
   "dependencies": {
-    "@stewed/tokens": "^0.3.0",
-    "@stewed/utilities": "^0.3.0"
+    "@stewed/tokens": "workspace:*",
+    "@stewed/utilities": "workspace:*"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

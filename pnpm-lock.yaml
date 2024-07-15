@@ -137,10 +137,10 @@ importers:
   packages/hooks:
     dependencies:
       '@stewed/tokens':
-        specifier: ^0.3.0
+        specifier: workspace:*
         version: link:../tokens
       '@stewed/utilities':
-        specifier: ^0.3.0
+        specifier: workspace:*
         version: link:../utilities
       react:
         specifier: ^18.3.1
@@ -180,13 +180,13 @@ importers:
   packages/react:
     dependencies:
       '@stewed/hooks':
-        specifier: ^0.2.1
+        specifier: workspace:*
         version: link:../hooks
       '@stewed/tokens':
-        specifier: ^0.3.0
+        specifier: workspace:*
         version: link:../tokens
       '@stewed/utilities':
-        specifier: ^0.3.0
+        specifier: workspace:*
         version: link:../utilities
       react:
         specifier: ^18.3.1
