@@ -1,5 +1,18 @@
 # @stewed/hooks
 
+## 0.3.0
+
+### Minor Changes
+
+- ad08f57: add new `DataTable` and `Drawer` components
+
+### Patch Changes
+
+- Updated dependencies [ad08f57]
+- Updated dependencies [ad08f57]
+  - @stewed/utilities@0.3.1
+  - @stewed/tokens@0.3.1
+
 ## 0.2.0
 
 ### Minor Changes

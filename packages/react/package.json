@@ -1,6 +1,6 @@
 {
   "name": "@stewed/react",
-  "version": "0.2.7",
+  "version": "0.3.0",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/src/index.d.ts",
