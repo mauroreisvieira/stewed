@@ -58,7 +58,7 @@
     "storybook": "^8.2.1",
     "turbo": "^2.0.6",
     "@types/jest": "^29.5.12",
-    "typescript": "^5.4.5",
+    "typescript": "^5.5.3",
     "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/react": "^16.0.0"
   },
