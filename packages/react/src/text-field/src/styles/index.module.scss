@@ -6,7 +6,7 @@
 @include theme.scope($input-root) {
   @include theme.define-var(
     (
-      height: theme.get-spacing("6xl"),
+      height: 40px,
     )
   );
 
@@ -19,6 +19,7 @@
   padding-inline: theme.get-spacing("md");
   overflow: hidden;
   border-radius: theme.get-var(radius);
+    height: theme.get-var(height);
 
   @include text.typography(base, $overrides: (font-size: theme.get-font-size("md")));
   @include theme.focus-styles($target: ":focus-within");
@@ -33,7 +34,6 @@
     box-sizing: border-box;
     flex-grow: 1;
     width: 100%;
-    height: theme.get-var(height);
     padding-block: theme.get-spacing("md");
     touch-action: manipulation;
 

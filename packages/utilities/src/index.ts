@@ -6,3 +6,4 @@ export * from "./focusTrap";
 export * from "./objectUtils";
 export * from "./invertColor";
 export * from "./platform";
+export * from "./sortData";

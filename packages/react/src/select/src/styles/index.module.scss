@@ -6,7 +6,7 @@
 @include theme.scope($select-root) {
   @include theme.define-var(
     (
-      height: theme.get-spacing("6xl"),
+      height: 40px,
     )
   );
 
@@ -16,6 +16,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  height: theme.get-var(height);
   overflow: hidden;
   border: 1px solid theme.get-var(border-color);
   border-radius: theme.get-var(radius);
@@ -50,7 +51,6 @@
     display: flex;
     align-items: center;
     width: 100%;
-    height: theme.get-var(height);
     padding-inline: theme.get-spacing("md");
     touch-action: manipulation;
 

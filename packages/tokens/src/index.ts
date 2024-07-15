@@ -68,6 +68,10 @@ export const defaultTokens: Tokens = {
       radius: "md",
       shadow: "2xl",
     },
+    [components.Drawer]: {
+      radius: "lg",
+      shadow: "2xl",
+    },
     [components.ListBox]: {
       radius: "sm",
     },

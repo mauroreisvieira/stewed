@@ -93,6 +93,9 @@ export const Border: Story = {
             </Table.Row>
           ))}
         </Table.Body>
+        <Table.Foot>
+          <Table.Cell colSpan={4}>Foot</Table.Cell>
+        </Table.Foot>
       </>
     ),
   },

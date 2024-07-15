@@ -3,6 +3,7 @@ import React from "react";
 import { TableBody } from "./TableBody";
 import { TableCell } from "./TableCell";
 import { TableHead } from "./TableHead";
+import { TableFoot } from "./TableFoot";
 import { TableRow } from "./TableRow";
 // Hooks
 import { useBem } from "@stewed/hooks";
@@ -53,6 +54,7 @@ export function Table({
 
 // Compound component composition
 Table.Head = TableHead;
+Table.Foot = TableFoot;
 Table.Cell = TableCell;
 Table.Body = TableBody;
 Table.Row = TableRow;
