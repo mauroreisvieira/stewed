@@ -1,5 +1,12 @@
 # @stewed/tokens
 
+## 0.3.1
+
+### Patch Changes
+
+- ad08f57: add new `DataTable` and `Drawer` components
+- ad08f57: update tokens for new components
+
 ## 0.3.0
 
 ### Minor Changes
