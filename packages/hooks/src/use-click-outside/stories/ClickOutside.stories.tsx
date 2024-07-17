@@ -43,9 +43,7 @@ export const Outside: Story = {
           items="center"
           justify="center"
           skin="neutral-faded">
-          <Text size="md">
-            Number of outside clicks: {clicks}
-          </Text>
+          <Text size="md">Number of outside clicks: {clicks}</Text>
         </Box>
       </>
     );

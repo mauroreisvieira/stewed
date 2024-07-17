@@ -52,9 +52,7 @@ export const Floating: Story = {
                 left: `${x}px`,
                 top: `${y}px`,
               }}>
-              <Text size="md">
-                Text Floating...
-              </Text>
+              <Text size="md">Text Floating...</Text>
             </Box>
           </Scope>
         )}

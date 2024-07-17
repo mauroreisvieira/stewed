@@ -28,6 +28,7 @@ export const Base: Story = {
   args: {
     size: "sm",
     open: false,
+    placement: "left",
     children: (
       <>
         <Drawer.Header>

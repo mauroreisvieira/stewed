@@ -23,6 +23,11 @@ export interface DrawerProps extends React.ComponentProps<"div">, DrawerProvider
    * @default md
    */
   size?: "sm" | "md";
+  /**
+   * The preferred placement of the drawer.
+   * @default "right"
+   */
+  placement?: "left" | "right" | "bottom";
   /** Callback function invoked when the escape key is pressed. */
   onEscape?: () => void;
   /** Callback function invoked when the Drawer is clicked outside. */
@@ -35,7 +40,7 @@ export interface DrawerProps extends React.ComponentProps<"div">, DrawerProvider
  *
  * @example
  * ```tsx
- * <Drawer open>
+ * <Drawer placement="left" open>
  *   <Drawer.Body>
  *     <p>This action cannot be undone...</p>
  *   </Drawer.Body>
@@ -51,6 +56,7 @@ export interface DrawerProps extends React.ComponentProps<"div">, DrawerProvider
 export function Drawer({
   size = "md",
   open,
+  placement = "left",
   className,
   children,
   onClose,
@@ -75,7 +81,7 @@ export function Drawer({
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ modifiers: [size, open && "open"], extraClasses: className }),
+    root: getBlock({ modifiers: [size, placement, open && "open"], extraClasses: className }),
     surface: getElement([`surface`]),
   };
 

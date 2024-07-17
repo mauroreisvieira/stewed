@@ -19,9 +19,9 @@
     "version:packages": "changeset version"
   },
   "dependencies": {
-    "@stewed/react": "workspace:*",
-    "@stewed/hooks": "workspace:*",
-    "@stewed/utilities": "workspace:*"
+    "@stewed/react": "^0.3.0",
+    "@stewed/hooks": "^0.3.0",
+    "@stewed/utilities": "^0.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.24.7",

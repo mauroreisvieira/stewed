@@ -9,13 +9,13 @@ importers:
   .:
     dependencies:
       '@stewed/hooks':
-        specifier: workspace:*
+        specifier: ^0.3.0
         version: link:packages/hooks
       '@stewed/react':
-        specifier: workspace:*
+        specifier: ^0.3.0
         version: link:packages/react
       '@stewed/utilities':
-        specifier: workspace:*
+        specifier: ^0.3.1
         version: link:packages/utilities
     optionalDependencies:
       '@nx/nx-linux-x64-gnu':

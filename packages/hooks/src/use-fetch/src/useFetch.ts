@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 
 /**
  * A utility type to allow a string literal type or any other string.
-*/
+ */
 type LooseAutoComplete<T extends string> = T | Omit<string, T>;
 
 /**

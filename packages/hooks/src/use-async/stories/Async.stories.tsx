@@ -42,7 +42,6 @@ export const Async: Story = {
         </button>
 
         {status === "success" && <pre>{JSON.stringify(value, null, 4)}</pre>}
-
       </div>
     );
   },
