@@ -56,6 +56,11 @@ export interface TooltipProps<T>
   /** Content to be displayed inside the `Tooltip`. */
   content: React.ReactNode;
   /**
+   * Determines the delay in milliseconds ('ms') to displaying the tooltip after hovering.
+   * @default 300
+   */
+  delay?: number;
+  /**
    * Function that returns a React element with events to trigger `Tooltip` position and visibility.
    * @param props - Render props for `Tooltip` component.
    */
@@ -83,6 +88,7 @@ export function Tooltip<T extends HTMLElement>({
   skin = "default",
   placement = "bottom-start",
   open,
+  delay = SHOW_DELAY,
   className,
   style,
   children,
@@ -108,7 +114,7 @@ export function Tooltip<T extends HTMLElement>({
         if (action === "hovered") {
           return {
             stage: "might-show",
-            timeoutId: setTimeout(() => dispatch("show-timer-elapsed"), SHOW_DELAY),
+            timeoutId: setTimeout(() => dispatch("show-timer-elapsed"), delay),
           };
         }
       }
