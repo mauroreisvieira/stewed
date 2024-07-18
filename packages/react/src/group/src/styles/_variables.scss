@@ -1,3 +1,6 @@
 @use "@stewed/react/src/theme/src/styles" as theme;
 
 $group-root: "group";
+
+/// Gap
+$group-gap: ("xs", "sm", "md");

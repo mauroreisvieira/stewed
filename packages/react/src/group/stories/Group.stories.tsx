@@ -22,6 +22,7 @@ export default meta;
 
 export const Buttons: Story = {
   args: {
+    gap: "md",
     children: (
       <>
         <Button skin="neutral" size="xs" appearance="outline">

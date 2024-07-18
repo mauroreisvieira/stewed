@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // UI Components
-import { Theme, Toggle } from "@stewed/react";
+import { Theme, Button } from "@stewed/react";
 // Hooks
 import { useToggle } from "../index";
 
@@ -27,9 +27,9 @@ export const Base: Story = {
 
     return (
       <>
-        <Toggle skin="primary" onClick={handleToggle} selected={isToggle}>
-          Toggle: {isToggle ? "On" : "Off"}
-        </Toggle>
+        <Button skin="primary" appearance={isToggle ? "filled" : "outline"} onClick={handleToggle}>
+          Button: {isToggle ? "On" : "Off"}
+        </Button>
       </>
     );
   },
