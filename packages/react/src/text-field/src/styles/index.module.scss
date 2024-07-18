@@ -19,7 +19,7 @@
   padding-inline: theme.get-spacing("md");
   overflow: hidden;
   border-radius: theme.get-var(radius);
-    height: theme.get-var(height);
+  height: theme.get-var(height);
 
   @include text.typography(base, $overrides: (font-size: theme.get-font-size("md")));
   @include theme.focus-styles($target: ":focus-within");
@@ -78,5 +78,17 @@
         )
       );
     }
+  }
+
+  &--start {
+    text-align: start;
+  }
+
+  &--center {
+    text-align: center;
+  }
+
+  &--end {
+    text-align: end;
   }
 }

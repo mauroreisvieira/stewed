@@ -17,6 +17,10 @@ export interface TextFieldProps extends React.ComponentPropsWithRef<"input"> {
    * @default default
    */
   skin?: "default" | Extract<Color, "critical" | "success">;
+  /** Adjust horizontal alignment of value in input. */
+  alignment?: "start" | "center" | "end";
+  /** Maximum number of characters allowed in the input. */
+  maxChars?: number;
   /** Slot to display before the input value. */
   leftSlot?: React.ReactNode;
   /** Slot to display after the input value. */
@@ -37,6 +41,8 @@ export interface TextFieldProps extends React.ComponentPropsWithRef<"input"> {
 export function TextField({
   appearance = "outline",
   skin = "default",
+  alignment,
+  maxChars,
   className,
   disabled,
   leftSlot,
@@ -49,7 +55,7 @@ export function TextField({
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({
-      modifiers: [disabled && "disabled", appearance, skin],
+      modifiers: [disabled && "disabled", alignment, appearance, skin],
       extraClasses: className,
     }),
     input: getElement(["input"]),
@@ -60,7 +66,7 @@ export function TextField({
   return (
     <div className={cssClasses.root}>
       {leftSlot && <span className={cssClasses.left}>{leftSlot}</span>}
-      <input className={cssClasses.input} disabled={disabled} {...props} />
+      <input className={cssClasses.input} size={maxChars} disabled={disabled} {...props} />
       {rightSlot && <span className={cssClasses.right}>{rightSlot}</span>}
     </div>
   );
