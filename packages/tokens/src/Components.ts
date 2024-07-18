@@ -19,6 +19,7 @@ export const components = {
   Dropdown: "dropdown",
   FormField: "form-field",
   Grid: "grid",
+  Group: "group",
   List: "list",
   ListBox: "list-box",
   Pagination: "pagination",
@@ -51,6 +52,7 @@ export type Components = {
   [components.Checkbox]?: { radius?: Radius };
   [components.Dialog]?: { radius?: Radius; shadow?: Shadow };
   [components.Drawer]?: { radius?: Radius; shadow?: Shadow };
+  [components.Group]?: { radius?: Radius };
   [components.ListBox]?: { radius?: Radius };
   [components.Quantity]?: { radius?: Radius };
   [components.Select]?: { radius?: Radius };

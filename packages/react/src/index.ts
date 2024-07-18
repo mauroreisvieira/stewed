@@ -35,6 +35,7 @@ export * from "./text-area";
 export * from "./text-field";
 export * from "./theme";
 export * from "./theme";
+export * from "./group";
 export * from "./tooltip";
 export * from "./typography";
 
