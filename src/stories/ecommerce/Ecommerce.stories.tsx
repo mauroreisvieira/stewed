@@ -23,7 +23,7 @@ export const OrderSummary = {
   render: function Example() {
     const { value, setValue, onChange } = useInput<number>(1, {
       validate: (newValue) => {
-        return !isNaN(newValue) && newValue > -1;
+        return newValue >= 0 && newValue <= 100;
       },
     });
 
@@ -32,18 +32,11 @@ export const OrderSummary = {
         <Card>
           <Card.Body>
             <Group gap="sm">
-              <Button
-                skin="neutral"
-                appearance="outline"
-                leftSlot={<HiMinusSm />}
-                onClick={() => setValue(Number(value) - 1)}
-                iconOnly>
+              <Button leftSlot={<HiMinusSm />} onClick={() => setValue(Number(value) - 1)} iconOnly>
                 Decrease
               </Button>
-              <TextField value={value} onChange={onChange} />
+              <TextField value={value} onChange={onChange} maxChars={3} alignment="center" />
               <Button
-                skin="neutral"
-                appearance="outline"
                 leftSlot={<HiOutlinePlusSm />}
                 onClick={() => setValue(Number(value) + 1)}
                 iconOnly>
