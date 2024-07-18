@@ -1,3 +1,4 @@
+// Components
 export * from "./accordion";
 export * from "./alert";
 export * from "./aspect-ratio";
@@ -37,5 +38,5 @@ export * from "./theme";
 export * from "./tooltip";
 export * from "./typography";
 
-// Utilities
+// Types
 export * from "./types";
