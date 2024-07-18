@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 
 /** The value type of the input field. */
 export type UseInputValue = React.HTMLAttributes<HTMLInputElement>["defaultValue"];
@@ -6,16 +6,24 @@ export type UseInputValue = React.HTMLAttributes<HTMLInputElement>["defaultValue
 interface UseInputHandler<T> {
   /**
    * Event handler to handle input changes.
-   * @param event The change event object.
+   * @param event - The change event object.
    */
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** The current value of the input field. */
   value: T;
+  /**
+   * Function to set a new value.
+   * @param newValue - The new value.
+   */
+  setValue: (newValue: T) => void;
+  /** Indicates whether the current value is valid. */
+  isValid: boolean;
 }
 
 export interface UseInputOptions<T> {
   /**
    * Validation function to validate the new value.
+   *
    * @param newValue The new value being set.
    * @param currentValue The current value of the input field.
    * @returns A boolean indicating whether the new value is valid.
@@ -24,7 +32,7 @@ export interface UseInputOptions<T> {
 }
 
 /**
- * Custom hook for managing input state and validation.
+ * Hook for managing input state and validation.
  *
  * @param initialValue The initial value of the input field.
  * @param options Additional options for customizing behavior.
@@ -34,33 +42,43 @@ export function useInput<T extends UseInputValue>(
   initialValue: T,
   { validate }: UseInputOptions<T> = {},
 ): UseInputHandler<T> {
-  const [value, setValue] = useState<T>(initialValue);
+  // State for the current value of the input field
+  const [currentValue, setCurrentValue] = useState<T>(initialValue);
 
-  /**
-   * Handles input change events.
-   * @param event The change event object.
-   */
+  // State to track the validity of the current value
+  const [isValid, setValid] = useState<boolean>(true);
+
+  // Handles input change events.
   const onHandleChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const newValue = event.target.value as T;
-      let shouldUpdate = true;
-
-      if (validate) {
-        shouldUpdate = validate(newValue, value);
-      }
-
-      if (shouldUpdate) setValue(newValue);
+      // Validated and update value
+      onUpdateValue(newValue);
     },
-    [validate, value],
+    [currentValue],
   );
 
-  // Reset value when initialValue changes
-  useEffect(() => {
-    setValue(initialValue);
-  }, [initialValue]);
+  // Function to set a new value for the input field.
+  const onUpdateValue = useCallback(
+    (newValue: T) => {
+      // Validate the value if a validation function is provided
+      const valid = validate?.(newValue, currentValue);
+
+      if (valid) {
+        // Update the current value if the new value is valid
+        setCurrentValue(newValue);
+      }
+
+      // Update valid state
+      setValid(!!valid);
+    },
+    [validate],
+  );
 
   return {
     onChange: onHandleChange,
-    value,
+    setValue: onUpdateValue,
+    value: currentValue,
+    isValid,
   };
 }
