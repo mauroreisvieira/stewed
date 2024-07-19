@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from "react";
+import React, { useCallback, useRef, useState } from "react";
 
 interface UseKeyboardNavigationProps {
   /** The CSS selector string that identifies the elements to navigate. */
@@ -25,18 +25,8 @@ interface UseKeyboardNavigation<T> {
    * @param {number} index - The index to be focused.
    */
   setFocusedIndex: (index: number) => void;
-  /**
-   * Function to get the current focused item's index.
-   *
-   * @returns {number} The current focused item's index.
-   */
-  getCurrentIndex: () => number;
-  /**
-   * Function to get the total count of items.
-   *
-   * @returns {number} The total number of items.
-   */
-  getItemCount: () => number;
+  /** The current focused item's index. */
+  currentIndex: number;
 }
 
 /**
@@ -55,45 +45,38 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
   },
 }: UseKeyboardNavigationProps): UseKeyboardNavigation<T> {
   const listRef = useRef<T>(null);
-
-  const getCurrentIndex = useCallback((): number => {
-    const list = listRef.current;
-
-    if (!list) {
-      return -1;
-    }
-
-    const items = Array.from<HTMLElement>(list.querySelectorAll(target));
-    return items.findIndex((item) => item === document.activeElement);
-  }, [target]);
-
-  const getItemCount = useCallback((): number => {
-    const list = listRef.current;
-
-    if (!list) {
-      return 0;
-    }
-
-    const items = Array.from<HTMLElement>(list.querySelectorAll(target));
-    return items.length;
-  }, [target]);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   const onHandleKeyDown: React.KeyboardEventHandler<T> = useCallback(
     (event) => {
+      // Get the current reference to the list element.
       const list = listRef.current;
 
+      // If the list reference is not available (null or undefined), exit the function.
       if (!list) {
         return;
       }
 
+      // Convert the NodeList of elements matching the 'target' selector into an array of HTMLElements.
       const items = Array.from<HTMLElement>(list.querySelectorAll(target));
-      const currentIndex = items.findIndex((item) => item === document.activeElement);
 
+      // Find the index of the currently focused item in the items array.
+      const index = items.findIndex((item) => item === document.activeElement);
+
+      // Determine the direction of navigation based on the pressed key using the keyboardKey mapping.
       const direction = keyboardKey?.[event.key];
 
-      if (currentIndex !== -1 && direction !== undefined) {
-        const next = (currentIndex + direction + items.length) % items.length;
-        items[next]?.focus();
+      // If a valid focused item is found (index >= 0) and a direction is defined (not undefined):
+      if (index >= 0 && direction !== undefined) {
+        // Calculate the next index by adding the direction to the current index and wrapping around
+        // using modulo to stay within bounds of the items array length.
+        const nextIndex = (index + direction + items.length) % items.length;
+
+        // Update the current index state.
+        setCurrentIndex(nextIndex);
+
+        // Focus the item at the calculated next index, if it exists.
+        items[nextIndex]?.focus();
       }
     },
     [target],
@@ -101,16 +84,25 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
 
   const setFocusedIndex = useCallback(
     (index: number) => {
+      // Get the current reference to the list element.
       const list = listRef.current;
 
+      // If the list reference is not available (null or undefined), exit the function.
       if (!list) {
         return;
       }
 
+      // Convert the NodeList of elements matching the 'target' selector into an array of HTMLElements.
       const items = Array.from<HTMLElement>(list.querySelectorAll(target));
-      if (index >= 0 && index < items.length) {
-        items[index]?.focus();
-      }
+
+      // Calculate the next index to focus. Ensure it's within bounds, otherwise, default to 0.
+      const nextIndex = index >= 0 && index < items.length ? index : 0;
+
+      // Update the current index state.
+      setCurrentIndex(nextIndex);
+
+      // Focus the item at the next index, if it exists.
+      items[nextIndex]?.focus();
     },
     [target],
   );
@@ -119,7 +111,6 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
     ref: listRef,
     onNavigate: onHandleKeyDown,
     setFocusedIndex,
-    getCurrentIndex,
-    getItemCount,
+    currentIndex,
   };
 }

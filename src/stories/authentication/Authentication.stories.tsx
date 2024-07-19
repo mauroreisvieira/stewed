@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // UI Components
-import { Checkbox, Box, Button, Card, Container, Text, TextField, Theme } from "@stewed/react";
+import { Box, Button, Card, Checkbox, Container, TextField, Theme, Text } from "@stewed/react";
+// Hooks
+import { useKeyboardNavigation, useInput } from "@stewed/hooks";
 // Icons
 import { FiEye, FiEyeOff } from "react-icons/fi";
 
@@ -70,6 +72,76 @@ export const Login = {
                   <Button>Sign in</Button>
                 </Box>
               </Box>
+            </Box>
+          </Card.Body>
+        </Card>
+      </Container>
+    );
+  },
+};
+
+function MyInput({ onInputChange }) {
+  const [currentValue, setCurrentValue] = useState("");
+
+  return (
+    <TextField
+      alignment="center"
+      value={currentValue}
+      maxChars={1}
+      onChange={(event) => {
+        event.target.setSelectionRange(1, 0);
+
+        // Ensure we only take the first character
+        const value = event.currentTarget.value.slice(0, 1);
+        const validNumber = /^\d$/.test(value);
+
+        if (validNumber) {
+          setCurrentValue(value);
+          onInputChange(value);
+        }
+      }}
+    />
+  );
+}
+
+export const VerifyAccount = {
+  render: function Example() {
+    const { ref, onNavigate, setFocusedIndex } = useKeyboardNavigation<HTMLDivElement>({
+      target: "input",
+    });
+
+    return (
+      <Container screen="sm" alignment="center" padding={{ block: "7xl" }}>
+        <Card>
+          <Card.Body>
+            <Text size="xl" weight="medium" alignment="center">
+              Verify your account
+            </Text>
+            <Text skin="neutral" alignment="center" space={{ y: "2xl" }}>
+              We are sending a OTP to validate you mobile number.
+            </Text>
+
+            <Box justify="center" space={{ y: "2xl" }}>
+              <Box ref={ref} gap="md" onKeyDown={onNavigate} inline>
+                {Array.from({ length: 6 }).map((_, idx) => (
+                  <MyInput
+                    key={idx}
+                    onInputChange={() => {
+                      setFocusedIndex(idx + 1);
+                    }}
+                  />
+                ))}
+              </Box>
+            </Box>
+
+            <Text skin="neutral" size="sm" alignment="center" space={{ y: "2xl" }}>
+              A SMS has been sent to{" "}
+              <Text as="span" size="sm" weight="medium">
+                123-456-789
+              </Text>
+            </Text>
+            <Box justify="center">
+              <Button>Submit</Button>
             </Box>
           </Card.Body>
         </Card>
