@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 // UI Components
 import { Checkbox, Box, Button, Card, Container, Text, TextField, Theme } from "@stewed/react";
 // Icons
-import { FiEye } from "react-icons/fi";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 
 const meta = {
   title: "Examples/Authentication",
@@ -19,6 +19,8 @@ export default meta;
 
 export const Login = {
   render: function Example() {
+    const [inputType, setInputType] = useState<"text" | "password">("password");
+
     return (
       <Container screen="md" alignment="center" padding={{ block: "7xl" }}>
         <Card>
@@ -44,14 +46,17 @@ export const Login = {
                 </Box>
                 <TextField
                   id="password"
-                  type="password"
+                  type={inputType}
                   placeholder="Enter your password"
                   rightSlot={
                     <Button
                       skin="neutral"
                       appearance="ghost"
-                      leftSlot={<FiEye />}
-                      size="sm"
+                      leftSlot={inputType === "text" ? <FiEyeOff /> : <FiEye />}
+                      size="xs"
+                      onClick={() =>
+                        setInputType((prev) => (prev === "text" ? "password" : "text"))
+                      }
                       iconOnly>
                       Show password
                     </Button>

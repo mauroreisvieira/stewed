@@ -10,6 +10,7 @@
   "license": "MIT",
   "scripts": {
     "build": "vite build",
+    "watch": "vite build --watch",
     "lint": "eslint .",
     "lint:style": "stylelint \"**/*.scss\"",
     "test": "jest",

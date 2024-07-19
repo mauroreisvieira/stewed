@@ -159,7 +159,6 @@ export const Error: Story = {
                 <Checkbox skin={index === 1 ? "critical" : "primary"} />
               </Table.Cell>
               <Table.Cell>{id}</Table.Cell>
-              <Table.Cell>{id}</Table.Cell>
               <Table.Cell>{name}</Table.Cell>
               <Table.Cell>{email}</Table.Cell>
             </Table.Row>
