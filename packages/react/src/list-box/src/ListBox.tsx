@@ -32,7 +32,7 @@ export function ListBox({
 
   const onHandleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
     (event) => {
-      onNavigate?.(event);
+      onNavigate(event);
       onKeyDown?.(event);
     },
     [onKeyDown, onNavigate],

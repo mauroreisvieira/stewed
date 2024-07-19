@@ -29,7 +29,7 @@ export function TabsList({
 
   const onHandleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
     (event) => {
-      onNavigate?.(event);
+      onNavigate(event);
       onKeyDown?.(event);
     },
     [onKeyDown, onNavigate],

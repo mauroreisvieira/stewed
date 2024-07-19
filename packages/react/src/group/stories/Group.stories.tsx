@@ -48,8 +48,8 @@ export const TextFields: Story = {
   args: {
     children: (
       <>
-        <TextField appearance="outline" value={"Input field..."} />
-        <TextField appearance="outline" value={"Input field..."} />
+        <TextField appearance="outline" defaultValue={"Input field..."} />
+        <TextField appearance="outline" defaultValue={"Input field..."} />
       </>
     ),
   },
