@@ -25,7 +25,7 @@ export const Base: Story = {
   args: {
     placeholder: "Type your value...",
     appearance: "outline",
-    skin: "default",
+    skin: "neutral-faded",
     disabled: false,
   },
 };
@@ -39,7 +39,7 @@ export const LeftSlot: Story = {
   args: {
     placeholder: "Type your value...",
     appearance: "outline",
-    skin: "default",
+    skin: "critical",
     leftSlot: <FiSearch />,
     disabled: false,
   },

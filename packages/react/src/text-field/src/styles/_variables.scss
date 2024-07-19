@@ -4,9 +4,13 @@ $input-root: "text-field";
 
 /// Skins
 $input-skins: (
-  "default": (
+  "neutral-faded": (
     "border": theme.get-color("neutral", "300"),
     "border-hover": theme.get-color("neutral", "400"),
+  ),
+  "neutral": (
+    "border": theme.get-color("neutral", "500"),
+    "border-hover": theme.get-color("neutral", "600"),
   ),
   "success": (
     "border": theme.get-color("success", "500"),
@@ -16,4 +20,13 @@ $input-skins: (
     "border": theme.get-color("critical", "500"),
     "border-hover": theme.get-color("critical", "600"),
   ),
+);
+
+
+/// Sizes
+$input-sizes: (
+  "sm": 32px,
+  "md": 40px,
+  "lg": 48px,
+  "xl": 56px,
 );

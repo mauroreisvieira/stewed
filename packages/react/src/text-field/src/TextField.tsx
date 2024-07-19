@@ -6,7 +6,7 @@ import { type Color, components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface TextFieldProps extends React.ComponentPropsWithRef<"input"> {
+export interface TextFieldProps extends Omit<React.ComponentPropsWithRef<"input">, "size"> {
   /**
    * Change the visual appearance of the text field.
    * @default outline
@@ -16,7 +16,12 @@ export interface TextFieldProps extends React.ComponentPropsWithRef<"input"> {
    * Change the visual style of the input.
    * @default default
    */
-  skin?: "default" | Extract<Color, "critical" | "success">;
+  skin?: "neutral-faded" | Extract<Color, "neutral" | "critical" | "success">;
+  /**
+   * Changes the size of the input, giving it more or less padding.
+   * @default md
+   */
+  size?: "sm" | "md" | "lg" | "xl";
   /** Adjust horizontal alignment of value in input. */
   alignment?: "start" | "center" | "end";
   /** Maximum number of characters allowed in the input. */
@@ -40,7 +45,8 @@ export interface TextFieldProps extends React.ComponentPropsWithRef<"input"> {
  */
 export function TextField({
   appearance = "outline",
-  skin = "default",
+  skin = "neutral-faded",
+  size = "md",
   alignment,
   maxChars,
   className,
@@ -55,7 +61,7 @@ export function TextField({
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({
-      modifiers: [disabled && "disabled", alignment, appearance, skin],
+      modifiers: [disabled && "disabled", size, alignment, appearance, skin],
       extraClasses: className,
     }),
     input: getElement(["input"]),
