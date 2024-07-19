@@ -13,29 +13,19 @@
   display: inline-flex;
   align-items: center;
 
-  // Gap
-  @each $key, $value in $group-gap {
-    &--gap-#{$key} {
-      gap: theme.get-spacing($key);
-    }
+  :not(:first-child) {
+    margin-left: -1px;
+    border-radius: 0;
   }
 
-  // No Gap
-  &--gap-none {
-    :not(:first-child) {
-      margin-left: -1px;
-      border-radius: 0;
-    }
+  :first-child {
+    border-radius: 0;
+    border-top-left-radius: theme.get-var(border-radius);
+    border-bottom-left-radius: theme.get-var(border-radius);
+  }
 
-    :first-child {
-      border-radius: 0;
-      border-top-left-radius: theme.get-var(border-radius);
-      border-bottom-left-radius: theme.get-var(border-radius);
-    }
-
-    :last-child {
-      border-top-right-radius: theme.get-var(border-radius);
-      border-bottom-right-radius: theme.get-var(border-radius);
-    }
+  :last-child {
+    border-top-right-radius: theme.get-var(border-radius);
+    border-bottom-right-radius: theme.get-var(border-radius);
   }
 }

@@ -2,14 +2,11 @@ import React, { useCallback } from "react";
 // Hooks
 import { useBem, useKeyboardNavigation } from "@stewed/hooks";
 // Tokens
-import { type Spacings, components } from "@stewed/tokens";
+import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface GroupProps extends React.ComponentPropsWithRef<"div"> {
-  /** The gap between box children's. */
-  gap?: Extract<Spacings, "none" | "xs" | "sm" | "md">;
-}
+export interface GroupProps extends React.ComponentPropsWithRef<"div"> {}
 
 /**
  * Group component arranges its children components in a horizontal group,
@@ -27,7 +24,6 @@ export interface GroupProps extends React.ComponentPropsWithRef<"div"> {
  * @returns {React.ReactElement} - The rendered `Group` component.
  */
 export function Group({
-  gap = "none",
   className,
   children,
   onKeyDown,
@@ -38,12 +34,12 @@ export function Group({
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ modifiers: [`gap-${gap}`], extraClasses: className }),
+    root: getBlock({ extraClasses: className }),
   };
 
   // Define a reference to a list element
   const { ref, onNavigate } = useKeyboardNavigation<HTMLDivElement>({
-    target: "button:not([aria-disabled='true'])",
+    target: "button:not([aria-disabled='true']), input:not([disabled='true'])",
   });
 
   const onHandleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
