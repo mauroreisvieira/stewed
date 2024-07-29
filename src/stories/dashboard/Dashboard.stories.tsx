@@ -213,12 +213,9 @@ export const SidePanel = {
   render: function Example() {
     const searchInput = useInput("");
 
-    const [opened, setOpened] = useToggle(false);
-
     return (
       <Container screen="sm" alignment="center" padding={{ block: "7xl" }}>
-        <Button onClick={setOpened}>Open Side Panel</Button>
-        <Drawer open={opened} size="sm" onClickOutside={setOpened}>
+        <Drawer size="sm" open>
           <Drawer.Header>
             <Box gap="lg" items="center" direction="column" justify="center" grow>
               <Avatar size="3xl" name="Stewed Board" skin="primary" appearance="square" />
