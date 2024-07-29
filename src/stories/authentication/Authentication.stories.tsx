@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 // UI Components
 import { Box, Button, Card, Checkbox, Container, TextField, Theme, Text } from "@stewed/react";
 // Hooks
@@ -80,7 +80,7 @@ export const Login = {
   },
 };
 
-function MyInput({ onInputChange }) {
+function OTPInput({ onInputChange }) {
   const [currentValue, setCurrentValue] = useState("");
 
   return (
@@ -88,6 +88,12 @@ function MyInput({ onInputChange }) {
       alignment="center"
       value={currentValue}
       maxChars={1}
+      onKeyDown={(event) => {
+        if (event.code === "Backspace") {
+          setCurrentValue("");
+          onInputChange(-1);
+        }
+      }}
       onChange={(event) => {
         event.target.setSelectionRange(1, 0);
 
@@ -97,7 +103,7 @@ function MyInput({ onInputChange }) {
 
         if (validNumber) {
           setCurrentValue(value);
-          onInputChange(value);
+          onInputChange(1);
         }
       }}
     />
@@ -124,10 +130,10 @@ export const VerifyAccount = {
             <Box justify="center" space={{ y: "2xl" }}>
               <Box ref={ref} gap="md" onKeyDown={onNavigate} inline>
                 {Array.from({ length: 6 }).map((_, idx) => (
-                  <MyInput
+                  <OTPInput
                     key={idx}
-                    onInputChange={() => {
-                      setFocusedIndex(idx + 1);
+                    onInputChange={(direction) => {
+                        setFocusedIndex(idx + direction);
                     }}
                   />
                 ))}
@@ -143,6 +149,7 @@ export const VerifyAccount = {
             <Box justify="center">
               <Button>Submit</Button>
             </Box>
+
           </Card.Body>
         </Card>
       </Container>
