@@ -45,10 +45,6 @@ export function useFetch<T>(url: RequestInfo, options: FetchOptions = {}): Fetch
   useEffect(() => {
     let isCanceled = false;
 
-    setData(null);
-    setError(null);
-    setStatus("loading");
-
     const fetchData = async () => {
       try {
         const response = await fetch(url, {
