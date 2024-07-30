@@ -30,6 +30,24 @@ export const Base: Story = {
   },
 };
 
+export const Critical: Story = {
+  args: {
+    placeholder: "Type your value...",
+    value: "mail@mail",
+    skin: "critical",
+  },
+};
+
+export const Small: Story = {
+  args: {
+    placeholder: "Type your value...",
+    size: "sm",
+    appearance: "outline",
+    skin: "neutral-faded",
+    disabled: false,
+  },
+};
+
 export const LeftSlot: Story = {
   argTypes: {
     leftSlot: {
@@ -39,7 +57,6 @@ export const LeftSlot: Story = {
   args: {
     placeholder: "Type your value...",
     appearance: "outline",
-    skin: "critical",
     leftSlot: <FiSearch />,
     disabled: false,
   },

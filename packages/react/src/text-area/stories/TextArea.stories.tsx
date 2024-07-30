@@ -26,3 +26,10 @@ export const Base: Story = {
     disabled: false,
   },
 };
+
+export const Critical: Story = {
+  args: {
+    placeholder: "Type your value...",
+    skin: "critical",
+  },
+};
