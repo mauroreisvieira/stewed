@@ -49,6 +49,6 @@ export const Shadow: Story = {
     skin: "critical",
     title: "Unexpected error happened",
     children: "We have encountered an error while making a request. Please try again later.",
-    floating: true,
+    shadow: "xl",
   },
 };

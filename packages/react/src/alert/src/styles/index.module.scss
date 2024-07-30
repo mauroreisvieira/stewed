@@ -11,6 +11,7 @@
   width: 100%;
   padding: theme.get-spacing("xl");
   background-color: theme.get-var(background-color);
+  box-shadow: theme.get-var(box-shadow);
   border-radius: theme.get-var(radius);
 
   &__title {
@@ -52,7 +53,14 @@
     }
   }
 
-  &--floating {
-    box-shadow: theme.get-var(shadow);
+  // Shadow
+  @each $key, $value in $alert-shadow {
+    &--shadow-#{$key} {
+      @include theme.define-var(
+        (
+          box-shadow: $value,
+        )
+      );
+    }
   }
 }

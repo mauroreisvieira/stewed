@@ -4,3 +4,6 @@ $alert-root: "alert";
 
 /// Skins
 $alert-skins: ("primary", "secondary", "neutral", "info", "success", "warning", "critical");
+
+/// Shadow
+$alert-shadow: theme.get-shadow();
