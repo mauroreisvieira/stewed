@@ -2,6 +2,7 @@ import React from "react";
 import { DialogContext, type DialogContextProps } from "./DialogContext";
 
 export interface DialogProviderProps extends DialogContextProps {
+  /** Slot for children components to be wrapped by the provider */
   children?: React.ReactNode;
 }
 
