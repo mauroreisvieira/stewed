@@ -26,9 +26,8 @@ export const Base: Story = {
   args: {
     children: "Base",
   },
-};export
-
-const Outline: Story = {
+};
+export const Outline: Story = {
   args: {
     skin: "primary",
     appearance: "outline",

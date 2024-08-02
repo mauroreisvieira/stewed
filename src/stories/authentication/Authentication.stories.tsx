@@ -133,7 +133,7 @@ export const VerifyAccount = {
                   <OTPInput
                     key={idx}
                     onInputChange={(direction) => {
-                        setFocusedIndex(idx + direction);
+                      setFocusedIndex(idx + direction);
                     }}
                   />
                 ))}
@@ -149,7 +149,6 @@ export const VerifyAccount = {
             <Box justify="center">
               <Button>Submit</Button>
             </Box>
-
           </Card.Body>
         </Card>
       </Container>

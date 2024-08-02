@@ -48,7 +48,7 @@ export function Tabs({
 
   return (
     <div ref={ref} className={cssClasses.root} {...props}>
-      <TabsProvider  value={value} onValueChange={onValueChange}>
+      <TabsProvider value={value} onValueChange={onValueChange}>
         {children}
       </TabsProvider>
     </div>

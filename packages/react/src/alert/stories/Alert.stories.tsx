@@ -44,7 +44,6 @@ export const LeftSlot: Story = {
   },
 };
 
-
 export const Small: Story = {
   args: {
     size: "sm",

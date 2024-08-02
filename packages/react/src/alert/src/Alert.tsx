@@ -67,7 +67,10 @@ export function Alert({
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ modifiers: [skin, size, shadow && `shadow-${shadow}`], extraClasses: className }),
+    root: getBlock({
+      modifiers: [skin, size, shadow && `shadow-${shadow}`],
+      extraClasses: className,
+    }),
     title: getElement(["title"]),
     body: getElement(["body"]),
     wrapper: getElement(["wrapper"]),

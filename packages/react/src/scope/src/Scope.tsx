@@ -27,7 +27,12 @@ interface ScopeProps extends React.ComponentPropsWithRef<"div"> {
  * @param {ScopeProps} props - The props for the Scope component.
  * @returns {React.ReactElement} - The rendered Scope component.
  */
-export function Scope({ elevation, className, children, ...props }: ScopeProps): React.ReactElement {
+export function Scope({
+  elevation,
+  className,
+  children,
+  ...props
+}: ScopeProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: components.Scope, styles });
 
