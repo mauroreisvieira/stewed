@@ -18,6 +18,11 @@ export interface AlertProps extends React.ComponentPropsWithRef<"div"> {
     "info" | "primary" | "secondary" | "neutral" | "critical" | "success" | "warning"
   >;
   /**
+   * Changes the size of the alert, giving it more or less padding.
+   * @default md
+   */
+  size?: "xs" | "sm" | "md" | "lg";
+  /**
    * The shadow of the card.
    * @default sm
    */
@@ -49,6 +54,7 @@ export interface AlertProps extends React.ComponentPropsWithRef<"div"> {
 export function Alert({
   title,
   skin = "info",
+  size = "md",
   shadow = "none",
   className,
   leftSlot,
@@ -61,7 +67,7 @@ export function Alert({
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ modifiers: [skin, shadow && `shadow-${shadow}`], extraClasses: className }),
+    root: getBlock({ modifiers: [skin, size, shadow && `shadow-${shadow}`], extraClasses: className }),
     title: getElement(["title"]),
     body: getElement(["body"]),
     wrapper: getElement(["wrapper"]),
@@ -74,7 +80,7 @@ export function Alert({
       {leftSlot && <div className={cssClasses.left}>{leftSlot}</div>}
       <div className={cssClasses.wrapper}>
         {title && <div className={cssClasses.title}>{title}</div>}
-        <div className={cssClasses.body}>{children}</div>
+        {children && <div className={cssClasses.body}>{children}</div>}
       </div>
       {rightSlot && <div className={cssClasses.right}>{rightSlot}</div>}
     </div>

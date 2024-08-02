@@ -44,6 +44,15 @@ export const LeftSlot: Story = {
   },
 };
 
+
+export const Small: Story = {
+  args: {
+    size: "sm",
+    skin: "success",
+    title: "Here is a gentle confirmation that your action was successful.",
+  },
+};
+
 export const Shadow: Story = {
   args: {
     skin: "critical",

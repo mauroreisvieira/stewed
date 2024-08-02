@@ -8,8 +8,7 @@
   display: flex;
   flex-direction: row;
   gap: theme.get-spacing("lg");
-  width: 100%;
-  padding: theme.get-spacing("xl");
+  padding: theme.get-var(padding);
   background-color: theme.get-var(background-color);
   box-shadow: theme.get-var(box-shadow);
   border-radius: theme.get-var(radius);
@@ -20,7 +19,7 @@
       $overrides: (
         color: inherit,
         font-size: theme.get-font-size("md"),
-        font-weight: theme.get-font-weight("semi-bold")
+        font-weight: theme.get-font-weight("medium")
       )
     );
   }
@@ -42,12 +41,24 @@
     @include text.typography("base", $overrides: (font-size: theme.get-font-size("sm")));
   }
 
+  /// Skins
   @each $value in $alert-skins {
     &--#{$value} {
       @include theme.define-var(
         (
           background-color: theme.get-color($value, "100"),
           color: theme.get-color($value, "900"),
+        )
+      );
+    }
+  }
+
+  /// Size
+  @each $key, $value in $alert-size {
+    &--#{$key} {
+      @include theme.define-var(
+        (
+          padding: $value,
         )
       );
     }
