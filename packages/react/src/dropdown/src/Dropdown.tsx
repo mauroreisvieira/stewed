@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
-import { Scope } from "../../scope";
+// UI Components
+import { Scope } from "../..";
 // Hooks
 import { useBem, useFloating, useClickOutside, type FloatingPlacement } from "@stewed/hooks";
 // Tokens
