@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 // Provider
-import { TabsProvider, type TabsProviderProps } from "./context/TabsProvider";
+import { TabsProvider, type TabsProviderProps } from "./context";
 //. Compound Component
 import { TabsItem } from "./TabsItem";
 import { TabsList } from "./TabsList";
@@ -48,7 +48,7 @@ export function Tabs({
 
   return (
     <div ref={ref} className={cssClasses.root} {...props}>
-      <TabsProvider value={value} onValueChange={onValueChange}>
+      <TabsProvider  value={value} onValueChange={onValueChange}>
         {children}
       </TabsProvider>
     </div>
