@@ -20,7 +20,7 @@ export interface BackdropProps extends React.ComponentPropsWithRef<"div"> {
  * ```
  *
  * @remarks
- * This component extends `ReactDialogHTMLAttributes<HTMLDivElement>`.
+ * This component extends `React.ComponentPropsWithRef<"div">`.
  *
  * @param {BackdropProps} props - The props for the Backdrop component.
  * @returns {React.ReactElement} - The rendered Backdrop component.
