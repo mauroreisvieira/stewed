@@ -14,9 +14,10 @@ import {
   Grid,
   type TagProps,
 } from "../../index";
+// Hooks
+import { useSelect } from "@stewed/hooks";
 // Icons
 import { MdOutlineArrowUpward, MdOutlineArrowDownward } from "react-icons/md";
-import { useSelect } from "@stewed/hooks";
 
 type Story = StoryObj<typeof DataTable>;
 

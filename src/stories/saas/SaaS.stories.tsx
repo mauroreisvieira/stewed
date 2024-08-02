@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from "react";
+import type { Meta } from "@storybook/react";
 // UI Components
 import {
   Theme,
@@ -6,6 +7,7 @@ import {
   Box,
   Text,
   Container,
+  Grid,
   Avatar,
   Separator,
   Table,
@@ -15,14 +17,21 @@ import {
   Checkbox,
   ListBox,
   Drawer,
+  ColumnsDef,
+  TagProps,
+  DataTable,
+  Progress,
+  Badge,
 } from "@stewed/react";
 // Hooks
-import { useInput, useToggle } from "@stewed/hooks";
+import { useInput } from "@stewed/hooks";
 // Icons
 import { FiFile, FiFilePlus, FiSearch, FiTrash, FiUsers, FiActivity } from "react-icons/fi";
+import { MdOutlineArrowUpward, MdOutlineArrowDownward } from "react-icons/md";
+import { LuFilter } from "react-icons/lu";
 
-const meta = {
-  title: "Examples/Dashboard",
+const meta: Meta = {
+  title: "Examples/SaaS",
   decorators: [
     (Story) => (
       <Theme>
@@ -35,7 +44,7 @@ const meta = {
 export default meta;
 
 export const RecentFeedback = {
-  render: function Example() {
+  render: function Render() {
     const [team, setTeam] = useState([
       {
         id: "1",
@@ -209,8 +218,267 @@ export const RecentFeedback = {
   },
 };
 
+type TStock = {
+  id: string;
+  image: string;
+  name: string;
+  category: string;
+  sku: string;
+  vendor: string;
+  stock: number;
+  status: "in-stock" | "low-stock" | "out-stock";
+};
+
+export const Inventory = {
+  render: function Render() {
+    const [search, setSearch] = useState("");
+    const stock: TStock[] = [
+      {
+        id: "001",
+        image: "https://placehold.co/120x120",
+        name: "Septodont",
+        category: "Local Anesthesia",
+        sku: "ZKS8124",
+        vendor: "Barone LLC.",
+        stock: 124,
+        status: "in-stock",
+      },
+      {
+        id: "002",
+        image: "https://placehold.co/120x120",
+        name: "Chlorhexidine Gluconate",
+        category: "Antiseptic",
+        sku: "ZKS2098",
+        vendor: "Acme Co.",
+        stock: 10,
+        status: "low-stock",
+      },
+      {
+        id: "003",
+        image: "https://placehold.co/120x120",
+        name: "Amoxicillin",
+        category: "Antibiotic",
+        sku: "ZKS3498",
+        vendor: "Abstergo Ltd.",
+        stock: 0,
+        status: "out-stock",
+      },
+      {
+        id: "004",
+        image: "https://placehold.co/120x120",
+        name: "Ibuprofen",
+        category: "Anti-inflammatory",
+        sku: "ZKS3487",
+        vendor: "Binford Ltd.",
+        stock: 124,
+        status: "low-stock",
+      },
+      {
+        id: "005",
+        image: "https://placehold.co/120x120",
+        name: "Acetaminophen",
+        category: "Analgesic",
+        sku: "ZKS9823",
+        vendor: "Acme Co.",
+        stock: 10,
+        status: "in-stock",
+      },
+      {
+        id: "006",
+        image: "https://placehold.co/120x120",
+        name: "Methylprednisolone",
+        category: "Steroid",
+        sku: "ZKS2348",
+        vendor: "Dentalku",
+        stock: 0,
+        status: "out-stock",
+      },
+      {
+        id: "007",
+        image: "https://placehold.co/120x120",
+        name: "Fluconazole",
+        category: "Antifungal",
+        sku: "ZKS2342",
+        vendor: "Acme Co.",
+        stock: 124,
+        status: "in-stock",
+      },
+      {
+        id: "008",
+        image: "https://placehold.co/120x120",
+        name: "Chlorhexidine Gluconate",
+        category: "Antiseptic",
+        sku: "ZKS9817",
+        vendor: "Biffco Enterprises",
+        stock: 10,
+        status: "low-stock",
+      },
+    ];
+
+    const columns: ColumnsDef<TStock>[] = [
+      {
+        accessorKey: "name",
+        bodyCell: ({ image, name }) => (
+          <Box items="center" gap="md">
+            <Avatar src={image} />
+            {name}
+          </Box>
+        ),
+        headCell: () => "Name",
+      },
+      {
+        accessorKey: "category",
+        bodyCell: ({ category }) => category,
+        headCell: () => "Categories",
+      },
+      {
+        accessorKey: "sku",
+        bodyCell: ({ sku }) => sku,
+        headCell: () => "SKU",
+      },
+      {
+        accessorKey: "vendor",
+        bodyCell: ({ vendor }) => vendor,
+        headCell: () => "Vendor",
+      },
+      {
+        accessorKey: "stock",
+        bodyCell: ({ stock }) => stock,
+        headCell: () => "Stock",
+      },
+      {
+        accessorKey: "status",
+        bodyCell: ({ status }) => {
+          const skins = {
+            "out-stock": "critical",
+            "low-stock": "warning",
+            "in-stock": "success",
+          };
+
+          return (
+            <Tag skin={skins[status] as TagProps<"span">["skin"]} appearance="ghost" size="sm">
+              {status.replace("-", " ").toUpperCase()}
+            </Tag>
+          );
+        },
+        headCell: () => "Status",
+      },
+    ];
+
+    const totalProducts = stock.reduce((acc, curr) => (acc = acc + curr.stock), 0);
+
+    return (
+      <Container screen="2xl" alignment="center" padding={{ block: "7xl" }}>
+        <Box direction="column" space={{ y: "xl" }}>
+          <Text as="h3">Stock</Text>
+
+          <Separator space={{ block: "xl" }} />
+
+          <Grid cols={2} space={{ y: "2xl" }}>
+            <Grid.Item>
+              <Text size="xl" variation={"uppercase"} skin="neutral">
+                Total assets value
+              </Text>
+              <Text size="4xl" weight="semi-bold">
+                $10,100,323
+              </Text>
+            </Grid.Item>
+            <Grid.Item>
+              <Box gap="lg" grow>
+                <Separator orientation="vertical" />
+                <Box direction="column" gap="lg" padding={{ block: "md" }} grow>
+                  <Text size="3xl" weight="semi-bold">
+                    {totalProducts}{" "}
+                    <Text as="sup" skin="neutral">
+                      products
+                    </Text>
+                  </Text>
+
+                  <Progress value={totalProducts} max={2000} skin="primary" />
+
+                  <Text skin="neutral" size="sm">
+                    <Badge skin="primary" /> Max of capacity:{" "}
+                    <Text as="span" skin="text-base" size="sm">
+                      2000
+                    </Text>
+                  </Text>
+                </Box>
+              </Box>
+            </Grid.Item>
+          </Grid>
+
+          <Box justify="between">
+            <TextField
+              leftSlot={<FiSearch />}
+              placeholder="Search inventory"
+              onChange={(event) => setSearch(event.target.value)}
+              value={search}
+            />
+
+            <div>
+              <Button size="sm" appearance="outline" skin="neutral" leftSlot={<LuFilter />}>
+                Filters
+              </Button>
+            </div>
+          </Box>
+        </Box>
+
+        <DataTable<TStock>
+          data={stock}
+          columns={columns}
+          sortableColumns={["name", "category", "sku", "vendor", "stock", "status"]}
+          defaultColumnDirection="ASC"
+          defaultColumnSorted="name"
+          onFilter={({ name, vendor }) =>
+            name.toLowerCase().includes(search.toLowerCase()) ||
+            vendor.toLowerCase().includes(search.toLowerCase())
+          }>
+          {({ headCells, bodyRows }) => (
+            <Table appearance={["striped"]}>
+              <Table.Head>
+                <Table.Row>
+                  {headCells.map(
+                    ({ columnKey, cellNode, isSortable, sortedColumn, sortDirection, onSort }) => (
+                      <Table.Cell
+                        as="th"
+                        key={`head-${columnKey}`}
+                        onClick={isSortable ? onSort : undefined}>
+                        <Box gap="xs">
+                          {cellNode}
+                          {sortedColumn === columnKey && (
+                            <span>
+                              {sortDirection === "ASC" ? (
+                                <MdOutlineArrowUpward size={12} />
+                              ) : (
+                                <MdOutlineArrowDownward size={12} />
+                              )}
+                            </span>
+                          )}
+                        </Box>
+                      </Table.Cell>
+                    ),
+                  )}
+                </Table.Row>
+              </Table.Head>
+              <Table.Body>
+                {bodyRows.map(({ bodyCells, data: { id } }) => (
+                  <Table.Row key={id}>
+                    {bodyCells.map(({ columnKey, cellNode }) => (
+                      <Table.Cell key={`${id}-${columnKey}`}>{cellNode}</Table.Cell>
+                    ))}
+                  </Table.Row>
+                ))}
+              </Table.Body>
+            </Table>
+          )}
+        </DataTable>
+      </Container>
+    );
+  },
+};
+
 export const SidePanel = {
-  render: function Example() {
+  render: function Render() {
     const searchInput = useInput("");
 
     return (

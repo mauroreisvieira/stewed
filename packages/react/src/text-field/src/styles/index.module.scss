@@ -9,7 +9,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+
   padding-inline: theme.get-spacing("md");
   overflow: hidden;
   border-radius: theme.get-var(radius);
@@ -95,5 +95,9 @@
 
   &--end {
     text-align: end;
+  }
+
+  &--full-width {
+    width: 100%;
   }
 }
