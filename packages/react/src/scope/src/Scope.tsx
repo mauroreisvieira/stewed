@@ -1,7 +1,7 @@
 import React from "react";
 import { createPortal } from "react-dom";
 // UI Components
-import { Theme, useTheme } from "../../theme";
+import { Theme, useTheme } from "../..";
 // Hooks
 import { useBem, usePortal } from "@stewed/hooks";
 // Tokens
@@ -9,13 +9,9 @@ import { Elevation, components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-interface ScopeProps {
+interface ScopeProps extends React.ComponentPropsWithRef<"div"> {
   /** Elevation level of the component. */
   elevation?: Elevation;
-  /** Custom class name for the component. */
-  className?: string;
-  /** The children nodes to be rendered within the Scope component. */
-  children?: React.ReactNode;
 }
 
 /**
@@ -31,7 +27,7 @@ interface ScopeProps {
  * @param {ScopeProps} props - The props for the Scope component.
  * @returns {React.ReactElement} - The rendered Scope component.
  */
-export function Scope({ elevation, className, children }: ScopeProps): React.ReactElement {
+export function Scope({ elevation, className, children, ...props }: ScopeProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: components.Scope, styles });
 
@@ -50,7 +46,7 @@ export function Scope({ elevation, className, children }: ScopeProps): React.Rea
   };
 
   const content = (
-    <Theme defaultTheme={theme} tokens={tokens} className={cssClasses.root}>
+    <Theme defaultTheme={theme} tokens={tokens} className={cssClasses.root} {...props}>
       {children}
     </Theme>
   );
