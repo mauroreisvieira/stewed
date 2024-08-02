@@ -229,20 +229,21 @@ export function DataTable<T>({
   );
 
   // Generate an array of body rows based on sorted items and ordered columns.
-  const bodyRows = useMemo(
-    (): BodyRows<T>[] =>
-      sortedItems
-        ?.filter((item) => onFilter?.(item))
-        .map((item) => ({
-          data: item as T,
-          bodyCells:
-            visibleColumns?.map((column) => ({
-              columnKey: column?.accessorKey,
-              cellNode: column?.bodyCell?.(item),
-            })) ?? [],
-        })),
-    [sortedItems, visibleColumns, onFilter],
-  );
+  const bodyRows = useMemo(() => {
+    // Default to empty array if sortedItems is not defined
+    const items = sortedItems ?? [];
+
+    // Default to empty array if visibleColumns is not defined
+    const columns = visibleColumns ?? [];
+
+    return items.filter(onFilter ? (item: T) => onFilter(item) : () => true).map((item) => ({
+      data: item as T,
+      bodyCells: columns.map((column) => ({
+        columnKey: column?.accessorKey,
+        cellNode: column?.bodyCell?.(item),
+      })),
+    }));
+  }, [sortedItems, visibleColumns, onFilter]);
 
   // Array to store foot cells of the table.
   const footCells = useMemo(
