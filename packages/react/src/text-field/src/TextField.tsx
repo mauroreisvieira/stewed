@@ -30,6 +30,11 @@ export interface TextFieldProps extends Omit<React.ComponentPropsWithRef<"input"
   leftSlot?: React.ReactNode;
   /** Slot to display after the input value. */
   rightSlot?: React.ReactNode;
+  /**
+   * Sets the input to use the full width of its container.
+   * If true, the input will stretch to fill the container's width.
+   */
+  fullWidth?: boolean;
 }
 
 /**
@@ -51,6 +56,7 @@ export function TextField({
   maxChars,
   className,
   disabled,
+  fullWidth,
   leftSlot,
   rightSlot,
   ...props
@@ -61,7 +67,14 @@ export function TextField({
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({
-      modifiers: [disabled && "disabled", size, alignment, appearance, skin],
+      modifiers: [
+        disabled && "disabled",
+        fullWidth && "full-width",
+        size,
+        alignment,
+        appearance,
+        skin,
+      ],
       extraClasses: className,
     }),
     input: getElement(["input"]),
