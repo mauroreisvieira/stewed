@@ -30,6 +30,7 @@ export const components = {
   Select: "select",
   Separator: "separator",
   Skeleton: "skeleton",
+  Snackbar: "snackbar",
   Spinner: "spinner",
   Switch: "switch",
   Table: "table",
