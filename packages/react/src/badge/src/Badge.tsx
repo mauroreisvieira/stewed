@@ -16,6 +16,11 @@ export interface BadgeProps extends React.ComponentPropsWithRef<"div"> {
     "primary" | "secondary" | "neutral" | "critical" | "success" | "info" | "warning"
   >;
   /**
+   * Change the visual appearance of the badge.
+   * @default filled
+   */
+  appearance?: "filled" | "outline";
+  /**
    * Position of the badge.
    * @default top-right
    */
@@ -40,6 +45,7 @@ export interface BadgeProps extends React.ComponentPropsWithRef<"div"> {
  */
 export function Badge({
   skin = "primary",
+  appearance = "filled",
   position = "top-right",
   value,
   className,
@@ -51,7 +57,7 @@ export function Badge({
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({
-      modifiers: [skin, !!children && position, value && value.length > 2 && "padded"],
+      modifiers: [skin, appearance, !!children && position, value && value.length > 2 && "padded"],
       extraClasses: className,
     }),
     value: getElement(["value"]),
