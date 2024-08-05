@@ -390,7 +390,11 @@ export const Inventory = {
 
           <Separator space={{ block: "xl" }} />
 
-          <Grid cols={2} space={{ y: "2xl" }}>
+          <Grid
+            responsive={{ sm: { cols: 2 } }}
+            cols={1}
+            space={{ y: "2xl" }}
+            padding={{ block: "md" }}>
             <Grid.Item>
               <Text size="md" variation={"uppercase"} skin="neutral">
                 Total assets value
@@ -401,9 +405,20 @@ export const Inventory = {
             </Grid.Item>
 
             <Grid.Item>
-              <Box gap="lg" grow>
-                <Separator orientation="vertical" />
-                <Box direction="column" gap="lg" padding={{ block: "md" }} grow>
+              <Box
+                direction="column"
+                responsive={{
+                  sm: {
+                    direction: "row",
+                  },
+                }}
+                grow>
+                <Separator
+                  orientation="horizontal"
+                  space={{ block: "md" }}
+                  responsive={{ sm: { orientation: "vertical", space: { inline: "xl" } } }}
+                />
+                <Box direction="column" gap="lg" grow>
                   <Text size="3xl" weight="semi-bold">
                     {totalProducts}{" "}
                     <Text as="sup" skin="neutral">
