@@ -28,6 +28,10 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+
+    &__content {
+      flex: 1;
+    }
   }
 
   &__header,
