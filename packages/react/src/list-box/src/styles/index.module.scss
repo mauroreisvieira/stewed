@@ -33,15 +33,12 @@
     border-radius: theme.get-var(radius);
 
     &:not(:last-child) {
-      margin-bottom: $list-box-item-outer-spacing-bottom;
+      margin-bottom: theme.get-spacing("xxs");
     }
 
     @include text.typography(
       base,
-      $overrides: (
-        font-size: theme.get-font-size("sm"),
-        line-height: theme.get-line-height("sm")
-      )
+      $overrides: (font-size: theme.get-font-size("sm"), line-height: theme.get-line-height("sm"))
     );
 
     @include theme.focus-styles;
@@ -50,7 +47,7 @@
     &:hover {
       @include theme.define-var(
         (
-          background-color: $list-box-item-background-hover,
+          background-color: theme.get-color("neutral", "100"),
         )
       );
     }
@@ -58,7 +55,7 @@
     &:active {
       @include theme.define-var(
         (
-          background-color: $list-box-item-background-active,
+          background-color: theme.get-color("neutral", "200"),
         )
       );
     }
@@ -115,11 +112,7 @@
   }
 
   &__group {
-    padding-block: 4px;
-
-    &:not(:last-child) {
-      margin-bottom: $list-box-item-outer-spacing-bottom;
-    }
+    padding-block: theme.get-spacing("xxs");
 
     &__title {
       @include text.typography(
