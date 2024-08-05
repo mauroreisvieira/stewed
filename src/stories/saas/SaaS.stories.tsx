@@ -252,7 +252,7 @@ export const Inventory = {
         category: "Antiseptic",
         sku: "ZKS2098",
         vendor: "Acme Co.",
-        stock: 10,
+        stock: 4,
         status: "low-stock",
       },
       {
@@ -272,8 +272,8 @@ export const Inventory = {
         category: "Anti-inflammatory",
         sku: "ZKS3487",
         vendor: "Binford Ltd.",
-        stock: 124,
-        status: "low-stock",
+        stock: 104,
+        status: "in-stock",
       },
       {
         id: "005",
@@ -282,7 +282,7 @@ export const Inventory = {
         category: "Analgesic",
         sku: "ZKS9823",
         vendor: "Acme Co.",
-        stock: 10,
+        stock: 50,
         status: "in-stock",
       },
       {
@@ -302,7 +302,7 @@ export const Inventory = {
         category: "Antifungal",
         sku: "ZKS2342",
         vendor: "Acme Co.",
-        stock: 124,
+        stock: 24,
         status: "in-stock",
       },
       {
