@@ -13,6 +13,8 @@ export interface DropdownChildrenProps<T> {
   ref: React.Ref<T>;
   /** Event handler for mouse click */
   onClick: React.MouseEventHandler<T>;
+  /** Current state of the dropdown */
+  isOpen: boolean;
 }
 
 export interface DropdownProps<T>
@@ -111,6 +113,7 @@ export function Dropdown<T extends HTMLElement>({
       {children?.({
         ref: dropdownRef,
         onClick: onHandleOpen,
+        isOpen: !!isVisible,
       })}
       {isVisible && (
         <Scope elevation="navigation">
