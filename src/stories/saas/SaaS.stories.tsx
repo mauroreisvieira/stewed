@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import type { Meta } from "@storybook/react";
 // UI Components
 import {
@@ -22,12 +22,14 @@ import {
   DataTable,
   Progress,
   Badge,
+  Dropdown,
 } from "@stewed/react";
 // Hooks
 import { useInput } from "@stewed/hooks";
 // Icons
 import { FiFile, FiFilePlus, FiSearch, FiTrash, FiUsers, FiActivity } from "react-icons/fi";
 import { MdOutlineArrowUpward, MdOutlineArrowDownward } from "react-icons/md";
+import { HiArrowsUpDown } from "react-icons/hi2";
 import { LuFilter } from "react-icons/lu";
 
 const meta: Meta = {
@@ -367,6 +369,20 @@ export const Inventory = {
 
     const totalProducts = stock.reduce((acc, curr) => (acc = acc + curr.stock), 0);
 
+    const allColumns = ["name", "category", "sku", "vendor", "stock", "status"] as (keyof TStock)[];
+
+    const [hiddenColumns, setHiddenColumns] = useState<(keyof TStock)[]>(["sku"]);
+
+    const onHandleChange = useCallback(
+      (value) => {
+        const hidden = hiddenColumns.includes(value)
+          ? hiddenColumns.filter((v) => v !== value)
+          : [...hiddenColumns, value];
+        setHiddenColumns(hidden);
+      },
+      [hiddenColumns],
+    );
+
     return (
       <Container screen="2xl" alignment="center" padding={{ block: "7xl" }}>
         <Box direction="column" space={{ y: "xl" }}>
@@ -376,13 +392,14 @@ export const Inventory = {
 
           <Grid cols={2} space={{ y: "2xl" }}>
             <Grid.Item>
-              <Text size="xl" variation={"uppercase"} skin="neutral">
+              <Text size="md" variation={"uppercase"} skin="neutral">
                 Total assets value
               </Text>
-              <Text size="4xl" weight="semi-bold">
+              <Text size="5xl" weight="semi-bold">
                 $10,100,323
               </Text>
             </Grid.Item>
+
             <Grid.Item>
               <Box gap="lg" grow>
                 <Separator orientation="vertical" />
@@ -394,7 +411,7 @@ export const Inventory = {
                     </Text>
                   </Text>
 
-                  <Progress value={totalProducts} max={2000} skin="primary" />
+                  <Progress size="md" value={totalProducts} max={2000} skin="primary" />
 
                   <Text skin="neutral" size="sm">
                     <Badge skin="primary" /> Max of capacity:{" "}
@@ -415,11 +432,43 @@ export const Inventory = {
               value={search}
             />
 
-            <div>
-              <Button size="sm" appearance="outline" skin="neutral" leftSlot={<LuFilter />}>
-                Filters
-              </Button>
-            </div>
+            <Dropdown<HTMLButtonElement>
+              placement="bottom-end"
+              content={
+                <ListBox>
+                  <ListBox.Group>
+                    {allColumns.map((column) => (
+                      <ListBox.Item
+                        key={column}
+                        onClick={() => onHandleChange(column)}
+                        leftSlot={
+                          <Checkbox
+                            checked={!hiddenColumns.includes(column)}
+                            onClick={(event) => {
+                              event.preventDefault();
+                              event.stopPropagation();
+                            }}
+                          />
+                        }>
+                        <Text size="sm" variation={"capitalize"}>
+                          {column}
+                        </Text>
+                      </ListBox.Item>
+                    ))}
+                  </ListBox.Group>
+                </ListBox>
+              }>
+              {({ ref, onClick, isOpen }) => (
+                <Button
+                  ref={ref}
+                  onClick={onClick}
+                  appearance="outline"
+                  skin={isOpen ? "primary" : "neutral"}
+                  leftSlot={<LuFilter />}>
+                  Filters
+                </Button>
+              )}
+            </Dropdown>
           </Box>
         </Box>
 
@@ -427,6 +476,7 @@ export const Inventory = {
           data={stock}
           columns={columns}
           sortableColumns={["name", "category", "sku", "vendor", "stock", "status"]}
+          hiddenColumns={hiddenColumns}
           defaultColumnDirection="ASC"
           defaultColumnSorted="name"
           onFilter={({ name, vendor }) =>
@@ -445,7 +495,7 @@ export const Inventory = {
                         onClick={isSortable ? onSort : undefined}>
                         <Box gap="xs">
                           {cellNode}
-                          {sortedColumn === columnKey && (
+                          {sortedColumn === columnKey ? (
                             <span>
                               {sortDirection === "ASC" ? (
                                 <MdOutlineArrowUpward size={12} />
@@ -453,7 +503,9 @@ export const Inventory = {
                                 <MdOutlineArrowDownward size={12} />
                               )}
                             </span>
-                          )}
+                          ) : isSortable ? (
+                            <HiArrowsUpDown size={12} />
+                          ) : null}
                         </Box>
                       </Table.Cell>
                     ),
