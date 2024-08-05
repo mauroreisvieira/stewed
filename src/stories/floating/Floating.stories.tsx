@@ -89,13 +89,13 @@ export const EditProfile = {
                   <FormField>
                     <FormField.Label htmlFor="name">Name</FormField.Label>
                     <FormField.Control>
-                      <TextField id="name" type="text" placeholder="Enter your name" />
+                      <TextField id="name" type="text" placeholder="Enter your name" fullWidth />
                     </FormField.Control>
                   </FormField>
                   <FormField>
                     <FormField.Label htmlFor="email">Email</FormField.Label>
                     <FormField.Control>
-                      <TextField id="email" type="email" placeholder="Enter your email" />
+                      <TextField id="email" type="email" placeholder="Enter your email" fullWidth />
                     </FormField.Control>
                   </FormField>
                   <FormField>

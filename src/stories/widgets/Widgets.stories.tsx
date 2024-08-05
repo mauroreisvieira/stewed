@@ -79,7 +79,7 @@ export const Team = {
             </Text>
 
             <Box items="baseline" gap="lg">
-              <TextField placeholder="Email address" />
+              <TextField placeholder="Email address" fullWidth />
               <Button>Invite</Button>
             </Box>
           </Card.Header>
@@ -327,14 +327,14 @@ export const PaymentMethod = {
               <FormField>
                 <FormField.Label>Name</FormField.Label>
                 <FormField.Control>
-                  <TextField id="name" type="name" placeholder="Card name" />
+                  <TextField id="name" type="name" placeholder="Card name" fullWidth />
                 </FormField.Control>
               </FormField>
 
               <FormField>
                 <FormField.Label>Card number</FormField.Label>
                 <FormField.Control>
-                  <TextField id="card" type="text" />
+                  <TextField id="card" type="text" fullWidth />
                 </FormField.Control>
               </FormField>
 
