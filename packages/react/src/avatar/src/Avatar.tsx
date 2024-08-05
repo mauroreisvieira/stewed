@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 // Compound Component
 import { AvatarGroup } from "./AvatarGroup";
 // Hooks
@@ -65,11 +65,24 @@ export function Avatar({
     img: getElement(["img"]),
   };
 
+  // State to track if there is an error loading the image
+  const [imageError, setImageError] = useState(false);
+
+  // Extract initials from the given name, using only the first two uppercase letters
   const initials = name?.match(/[A-Z]/g)?.join("").slice(0, 2).toUpperCase();
+
+  // Callback to handle image load errors, setting the error state
+  const onHandleError = useCallback<React.ReactEventHandler<HTMLImageElement>>(() => {
+    setImageError(true);
+  }, []);
 
   return (
     <div className={cssClasses.root} {...props}>
-      {src ? <img className={cssClasses.img} src={src} alt={name} /> : initials}
+      {!imageError && src ? (
+        <img className={cssClasses.img} src={src} alt={name} onError={onHandleError} />
+      ) : (
+        initials
+      )}
     </div>
   );
 }
