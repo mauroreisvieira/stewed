@@ -16,18 +16,19 @@ export function DialogHeader({
   ...props
 }: React.ComponentPropsWithRef<"div">): React.ReactElement {
   // Importing useBem to handle BEM class names
-  const { getBlock } = useBem({ block: `${components.Dialog}__header`, styles });
+  const { getBlock, getElement } = useBem({ block: `${components.Dialog}__header`, styles });
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({ extraClasses: className }),
+    content: getElement(["content"]),
   };
 
   const { onClose } = useDialog();
 
   return (
     <div className={cssClasses.root} {...props}>
-      {children}
+      {children && <div className={cssClasses.content}>{children}</div>}
       {onClose && (
         <Button
           onClick={onClose}
