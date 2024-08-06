@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 
 export interface HoverableProps {
+  /**
+   * Enables hover state handling for touch devices.
+   * If set to `true`, touch events will be used to simulate hover behavior.
+   * @default true
+   */
+  enabledTouch?: boolean;
   /** Additional class name(s) for the element. */
   className?: string;
   /**
@@ -29,7 +35,11 @@ export interface HoverableProps {
  * @param {HoverableProps} props - The props for the `Hoverable` component.
  * @returns {React.ReactElement} - The rendered `Hoverable` component.
  */
-export function Hoverable({ className, children }: HoverableProps): React.ReactElement {
+export function Hoverable({
+  enabledTouch = true,
+  className,
+  children,
+}: HoverableProps): React.ReactElement {
   // State to track whether the component is being hovered over.
   const [isHovering, setHovering] = useState(false);
 
@@ -44,9 +54,9 @@ export function Hoverable({ className, children }: HoverableProps): React.ReactE
       className={className}
       onMouseEnter={onHandleHover}
       onMouseLeave={onHandleLeave}
-      onTouchStart={onHandleHover}
-      onTouchEnd={onHandleLeave}
-      onTouchCancel={onHandleLeave}>
+      onTouchStart={enabledTouch ? onHandleHover : undefined}
+      onTouchEnd={enabledTouch ? onHandleLeave : undefined}
+      onTouchCancel={enabledTouch ? onHandleLeave : undefined}>
       {children({ isHovering })}
     </div>
   );
