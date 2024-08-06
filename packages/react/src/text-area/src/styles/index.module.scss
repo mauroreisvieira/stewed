@@ -33,4 +33,8 @@
       );
     }
   }
+
+  &--auto-height {
+    field-sizing: content;
+  }
 }

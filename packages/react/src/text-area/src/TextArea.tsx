@@ -12,6 +12,12 @@ export interface TextAreaProps extends React.ComponentPropsWithRef<"textarea"> {
    * @default default
    */
   skin?: "default" | Extract<Color, "critical" | "success">;
+  /**
+   * Automatically adjusts the height of the text area based on its content.
+   * When set to `true`, the text area will expand or contract vertically as the user types.
+   * @default false
+   */
+  autoHeight?: boolean;
 }
 
 /**
@@ -29,6 +35,7 @@ export function TextArea({
   skin = "default",
   className,
   disabled,
+  autoHeight,
   children,
   ...props
 }: TextAreaProps): React.ReactElement {
@@ -38,7 +45,7 @@ export function TextArea({
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({
-      modifiers: [disabled && "disabled", skin],
+      modifiers: [disabled && "disabled", autoHeight && "auto-height", skin],
       extraClasses: className,
     }),
   };
