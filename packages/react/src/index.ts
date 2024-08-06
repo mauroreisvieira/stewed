@@ -19,6 +19,7 @@ export * from "./form-field";
 export * from "./grid";
 export * from "./group";
 export * from "./hoverable";
+export * from "./list";
 export * from "./list-box";
 export * from "./pagination";
 export * from "./progress";

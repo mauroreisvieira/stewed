@@ -13,6 +13,8 @@ import { type Shadow } from "@stewed/tokens";
 import styles from "./styles/index.module.scss";
 
 export interface CardProps extends React.ComponentPropsWithRef<"div"> {
+  /** The direction of the card. */
+  direction?: "row" | "column";
   /**
    * Change the visual style of the card.
    * @default default
@@ -55,6 +57,7 @@ export interface CardProps extends React.ComponentPropsWithRef<"div"> {
  * @returns {React.ReactElement} - The rendered Card component.
  */
 export function Card({
+  direction = "column",
   skin = "default",
   shadow = "sm",
   padding = {
@@ -75,6 +78,7 @@ export function Card({
     root: getBlock({
       modifiers: [
         skin,
+        direction,
         padding?.block && `padding-block-${padding.block}`,
         padding?.inline && `padding-inline-${padding.inline}`,
         shadow && `shadow-${shadow}`,

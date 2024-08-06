@@ -10,7 +10,6 @@
 
   position: relative;
   display: flex;
-  flex-direction: column;
   width: 100%;
   overflow: hidden;
   background-color: theme.get-var(background-color);
@@ -23,9 +22,6 @@
   }
 
   &__media {
-    border-top-left-radius: theme.get-var(radius);
-    border-top-right-radius: theme.get-var(radius);
-
     &__img {
       width: 100%;
       height: 100%;
@@ -41,6 +37,11 @@
       padding-block: theme.get-var(padding-block);
       padding-inline: theme.get-var(padding-inline);
     }
+
+    &:last-of-type {
+      border-bottom-left-radius: theme.get-var(radius);
+      border-bottom-right-radius: theme.get-var(radius);
+    }
   }
 
   &__header,
@@ -48,6 +49,28 @@
   &__footer {
     padding-block: theme.get-var(padding-block);
     padding-inline: theme.get-var(padding-inline);
+  }
+
+  &--column {
+    flex-direction: column;
+
+    .#{$card-root} {
+      &__media {
+        border-top-left-radius: theme.get-var(radius);
+        border-top-right-radius: theme.get-var(radius);
+      }
+    }
+  }
+
+  &--row {
+    flex-direction: row;
+
+    .#{$card-root} {
+      &__media {
+        border-top-left-radius: theme.get-var(radius);
+        border-bottom-left-radius: theme.get-var(radius);
+      }
+    }
   }
 
   &--sm {
