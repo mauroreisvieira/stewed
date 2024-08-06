@@ -23,6 +23,7 @@ export const Base: Story = {
   args: {
     placeholder: "Type your value...",
     skin: "default",
+    rows: 5,
     disabled: false,
   },
 };

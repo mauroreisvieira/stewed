@@ -17,7 +17,8 @@ export * from "./drawer";
 export * from "./dropdown";
 export * from "./form-field";
 export * from "./grid";
-export * from "./list";
+export * from "./group";
+export * from "./hoverable";
 export * from "./list-box";
 export * from "./pagination";
 export * from "./progress";
@@ -36,7 +37,6 @@ export * from "./text-area";
 export * from "./text-field";
 export * from "./theme";
 export * from "./theme";
-export * from "./group";
 export * from "./tooltip";
 export * from "./typography";
 
