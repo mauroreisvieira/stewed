@@ -15,11 +15,16 @@ import {
   Tooltip,
   FormField,
   Select,
+  Group,
+  Dropdown,
+  ListBox,
+  Badge,
 } from "@stewed/react";
 // Hooks
-import { useDateTime } from "@stewed/hooks";
+import { useDateTime, useToggle } from "@stewed/hooks";
 // Icons
-import { TbPin } from "react-icons/tb";
+import { TbPin, TbStar, TbPlus } from "react-icons/tb";
+import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
 
 const meta = {
   title: "Examples/Widgets",
@@ -35,7 +40,7 @@ const meta = {
 export default meta;
 
 export const Team = {
-  render: function Example() {
+  render: function Render() {
     const team = [
       {
         id: 1,
@@ -110,7 +115,7 @@ export const Team = {
 };
 
 export const Notification = {
-  render: function Example() {
+  render: function Render() {
     return (
       <Container screen="sm" alignment="center" padding={{ block: "7xl" }}>
         <Card>
@@ -177,7 +182,7 @@ export const Notification = {
 };
 
 export const RecentActivity = {
-  render: function Example() {
+  render: function Render() {
     const { createDate } = useDateTime();
 
     return (
@@ -186,7 +191,7 @@ export const RecentActivity = {
           <Card.Header>
             <Box items="baseline" justify="between" gap="2xl">
               <Text as="h5">Recent activity</Text>
-              <Tooltip
+              <Tooltip<HTMLButtonElement>
                 placement="top"
                 content={
                   <Text size="xs" skin="inherit">
@@ -252,8 +257,84 @@ export const RecentActivity = {
   },
 };
 
+export const Suggested = {
+  render: function Render() {
+    const [liked, handleToggle] = useToggle(false);
+
+    return (
+      <Container screen="sm" alignment="center" padding={{ block: "7xl" }}>
+        <Card>
+          <Card.Body>
+            <Box space={{ y: "2xl" }} items="baseline">
+              <div>
+                <Text weight="semi-bold" space={{ y: "lg" }}>
+                  @stewed/react
+                </Text>
+                <Text skin="neutral" size="sm">
+                  This is a collection of reusable React components built with SCSS, accompanied by
+                  React hooks, and a set of utilities to enhance the front-end development
+                  experience.
+                </Text>
+              </div>
+              <Group>
+                <Button
+                  size="sm"
+                  skin="neutral"
+                  appearance={liked ? "filled" : "outline"}
+                  leftSlot={<TbStar />}
+                  onClick={handleToggle}>
+                  Start
+                </Button>
+                <Dropdown<HTMLButtonElement>
+                  placement="bottom-end"
+                  content={
+                    <ListBox>
+                      <ListBox.Group title="Suggested list">
+                        <ListBox.Item>Future ideas</ListBox.Item>
+                        <ListBox.Item>My Stack</ListBox.Item>
+                        <ListBox.Item>Inspiration</ListBox.Item>
+                      </ListBox.Group>
+                      <Separator space={{ block: "none" }} />
+                      <ListBox.Group>
+                        <ListBox.Item leftSlot={<TbPlus />}>Create list</ListBox.Item>
+                      </ListBox.Group>
+                    </ListBox>
+                  }>
+                  {(props) => (
+                    <Button
+                      {...props}
+                      size="sm"
+                      skin="neutral"
+                      appearance="outline"
+                      leftSlot={
+                        props.isOpen ? <MdOutlineKeyboardArrowUp /> : <MdOutlineKeyboardArrowDown />
+                      }
+                      iconOnly>
+                      Start
+                    </Button>
+                  )}
+                </Dropdown>
+              </Group>
+            </Box>
+            <Box gap="lg">
+              <Box gap="xs" items="center">
+                <Badge appearance="outline" skin="info" />
+                <Text size="xs">Typescript</Text>
+              </Box>
+              <Box gap="xs" items="center">
+                <Badge appearance="outline" skin="critical" />
+                <Text size="xs">SCSS</Text>
+              </Box>
+            </Box>
+          </Card.Body>
+        </Card>
+      </Container>
+    );
+  },
+};
+
 export const PaymentMethod = {
-  render: function Example() {
+  render: function Render() {
     return (
       <Container screen="sm" alignment="center" padding={{ block: "7xl" }}>
         <Card>
@@ -382,7 +463,7 @@ export const PaymentMethod = {
 };
 
 export const CompletedProgress = {
-  render: function Example() {
+  render: function Render() {
     return (
       <Container screen="xl" alignment="center" padding={{ block: "7xl" }}>
         <Card skin="primary" padding={{ block: "2xl", inline: "2xl" }}>
