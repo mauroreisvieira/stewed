@@ -32,6 +32,7 @@ export function DrawerHeader({
       {onClose && (
         <Button
           onClick={onClose}
+          skin="neutral"
           size="sm"
           appearance="ghost"
           iconOnly

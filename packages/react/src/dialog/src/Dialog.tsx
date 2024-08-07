@@ -103,7 +103,7 @@ export function Dialog({
           <Backdrop blur />
           <DialogProvider onClose={onClose}>
             <div className={cssClasses.root} {...props}>
-              <div onKeyDown={onHandleKeydown} ref={setRootRef} className={cssClasses.surface}>
+              <div role="dialog" onKeyDown={onHandleKeydown} ref={setRootRef} className={cssClasses.surface}>
                 {children}
               </div>
             </div>
