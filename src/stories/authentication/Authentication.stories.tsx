@@ -1,8 +1,8 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useState } from "react";
 // UI Components
 import { Box, Button, Card, Checkbox, Container, TextField, Theme, Text } from "@stewed/react";
 // Hooks
-import { useKeyboardNavigation, useInput } from "@stewed/hooks";
+import { useKeyboardNavigation } from "@stewed/hooks";
 // Icons
 import { FiEye, FiEyeOff } from "react-icons/fi";
 
