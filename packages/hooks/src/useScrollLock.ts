@@ -16,9 +16,6 @@ export function useScrollLock({ enabled }: UseScrollLockProps) {
     const originalStyle = window.getComputedStyle(document.body).overflow;
 
     if (enabled) {
-      // Preventing layout shifts when body becomes locked
-      const paddingRight = `${String(window.innerWidth - document.documentElement.clientWidth)}px`;
-      document.body.style.paddingRight = paddingRight;
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.paddingRight = "";
