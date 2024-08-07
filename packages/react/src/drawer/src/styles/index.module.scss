@@ -1,6 +1,24 @@
 @use "@stewed/react/src/theme/src/styles" as theme;
 @use "./variables" as *;
 
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slideInBottom {
+  0% {
+    transform: translateY(100%);
+  }
+}
+
 @include theme.scope($drawer-root) {
   @include theme.define-var(
     (
@@ -55,6 +73,11 @@
       max-width: theme.get-var(width);
       border-top-left-radius: theme.get-var(radius);
       border-bottom-left-radius: theme.get-var(radius);
+
+      @media screen and (prefers-reduced-motion: no-preference) {
+        animation: theme.get-transition-duration("quickly")
+          theme.get-transition-timing-function("ease-in") 0s 1 normal none running slideInLeft;
+      }
     }
   }
 
@@ -64,6 +87,11 @@
       max-width: theme.get-var(width);
       border-top-right-radius: theme.get-var(radius);
       border-bottom-right-radius: theme.get-var(radius);
+
+      @media screen and (prefers-reduced-motion: no-preference) {
+        animation: theme.get-transition-duration("quickly")
+          theme.get-transition-timing-function("ease-in") 0s 1 normal none running slideInRight;
+      }
     }
   }
 
@@ -73,6 +101,11 @@
       max-height: theme.get-var(height);
       border-top-right-radius: theme.get-var(radius);
       border-top-left-radius: theme.get-var(radius);
+
+      @media screen and (prefers-reduced-motion: no-preference) {
+        animation: theme.get-transition-duration("quickly")
+          theme.get-transition-timing-function("ease-in") 0s 1 normal none running slideInBottom;
+      }
     }
   }
 

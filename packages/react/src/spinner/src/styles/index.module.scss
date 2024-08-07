@@ -2,6 +2,16 @@
 @use "@stewed/react/src/theme/src/styles" as theme;
 @use "./variables" as *;
 
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @include theme.scope($spinner-root) {
   position: relative;
   width: theme.get-var(width);
@@ -17,16 +27,6 @@
     animation-duration: 1.2s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
-  }
-
-  @keyframes rotate {
-    from {
-      transform: rotate(0deg);
-    }
-
-    to {
-      transform: rotate(360deg);
-    }
   }
 
   // Sizes

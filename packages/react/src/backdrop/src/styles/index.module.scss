@@ -2,10 +2,25 @@
 @use "@stewed/react/src/theme/src/styles" as theme;
 @use "./variables" as *;
 
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 @include theme.scope($backdrop-root) {
   position: fixed;
   inset: 0;
   background-color: theme.get-color("background-backdrop");
+
+  @media screen and (prefers-reduced-motion: no-preference) {
+    animation: theme.get-transition-duration("quickly")
+      theme.get-transition-timing-function("ease-in") 0s 1 normal none running fade;
+  }
 
   &--blur {
     backdrop-filter: blur(theme.get-var(blur));

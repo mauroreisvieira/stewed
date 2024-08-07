@@ -1,6 +1,18 @@
 @use "@stewed/react/src/theme/src/styles" as theme;
 @use "./variables" as *;
 
+@keyframes scaleFade {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 @include theme.scope($dialog-root) {
   @include theme.define-var(
     (
@@ -22,6 +34,11 @@
     background-color: theme.get-var(background);
     border-radius: theme.get-var(radius);
     box-shadow: theme.get-var(shadow);
+
+    @media screen and (prefers-reduced-motion: no-preference) {
+      animation: theme.get-transition-duration("quickly")
+        theme.get-transition-timing-function("ease-in") 0s 1 normal none running scaleFade;
+    }
   }
 
   &__header {
