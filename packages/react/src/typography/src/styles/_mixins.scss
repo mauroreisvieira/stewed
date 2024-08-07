@@ -6,7 +6,7 @@
   font-family: theme.get-var(font-family);
   font-size: theme.get-var(font-size);
   font-weight: theme.get-var(font-weight);
-  line-height: theme.get-var(line-height, 1lh);
+  line-height: theme.get-var(line-height, calc(1lh * theme.get-var(font-size)));
   color: theme.get-var(color);
 }
 
