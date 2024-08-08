@@ -8,13 +8,13 @@ $avatar-skins: ("primary", "secondary", "neutral", "critical", "success", "info"
 
 /// Sizes
 $avatar-sizes: (
-  "xs": calc(theme.get-spacing("sm") * 3),
-  "sm": calc(theme.get-spacing("sm") * 4),
-  "md": calc(theme.get-spacing("sm") * 5),
-  "lg": calc(theme.get-spacing("sm") * 6),
-  "xl": calc(theme.get-spacing("sm") * 8),
-  "2xl": calc(theme.get-spacing("sm") * 9),
-  "3xl": calc(theme.get-spacing("sm") * 10),
-  "4xl": calc(theme.get-spacing("sm") * 11),
-  "5xl": calc(theme.get-spacing("sm") * 12),
+  "xs": 24px,
+  "sm": 32px,
+  "md": 40px,
+  "lg": 48px,
+  "xl": 56px,
+  "2xl": 64px,
+  "3xl": 72px,
+  "4xl": 80px,
+  "5xl": 88px,
 );

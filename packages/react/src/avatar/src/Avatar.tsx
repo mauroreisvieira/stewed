@@ -48,7 +48,7 @@ export interface AvatarProps extends React.ComponentPropsWithRef<"div"> {
  * @returns {React.ReactElement} - The rendered Avatar component.
  */
 export function Avatar({
-  size = "sm",
+  size = "md",
   skin = "primary",
   appearance = "circle",
   className,
