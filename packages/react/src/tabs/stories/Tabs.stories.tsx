@@ -12,7 +12,13 @@ const meta: Meta<typeof Tabs> = {
   component: Tabs,
   decorators: [
     (Story) => (
-      <Theme>
+      <Theme tokens={{ default: {
+        components: {
+          tabs: {
+            radius: "2xl"
+          }
+        }
+      } }}>
         <Story />
       </Theme>
     ),

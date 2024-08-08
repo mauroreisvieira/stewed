@@ -22,12 +22,18 @@ export interface TabsProps extends React.ComponentPropsWithRef<"div">, TabsProvi
    * @default row
    */
   direction?: "row" | "column";
+  /**
+   * Changes the size of the tabs, giving it more or less padding.
+   * @default md
+   */
+  size?: "sm" | "md" | "lg";
 }
 
 export function Tabs({
   value,
   alignment = "start",
   direction = "row",
+  size = "md",
   className,
   onValueChange,
   children,
@@ -41,7 +47,7 @@ export function Tabs({
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({
-      modifiers: [alignment, direction !== "row" && direction],
+      modifiers: [alignment, size, direction !== "row" && direction],
       extraClasses: className,
     }),
   };

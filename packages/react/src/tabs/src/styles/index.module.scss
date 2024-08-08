@@ -9,7 +9,6 @@
       border-color: theme.get-color("neutral", "300"),
       flex-direction: row,
       width: auto,
-      height: theme.get-spacing("6xl"),
       justify-content: center,
       item-background-color: transparent,
     )
@@ -47,11 +46,13 @@
     gap: theme.get-spacing("sm");
     align-items: center;
     width: theme.get-var(width);
-    padding: theme.get-spacing("xxs");
+    height: theme.get-var(height);
+
     user-select: none;
     background-color: theme.get-var(background-color);
     border: 1px solid theme.get-var(border-color);
-    border-radius: calc(theme.get-var(radius) + theme.get-spacing("xxs"));
+    border-radius: theme.get-var(radius);
+    padding-inline: 2px;
   }
 
   &__item {
@@ -62,18 +63,15 @@
     align-items: center;
     justify-content: theme.get-var(justify-content);
     width: theme.get-var(width);
-    height: calc(theme.get-var(height) - 6px);
+    height: calc(theme.get-var(height) - 4px);
     padding-inline: theme.get-spacing("md");
     cursor: pointer;
     background-color: theme.get-var(item-background-color);
-    border-radius: theme.get-var(radius);
+    border-radius: calc(theme.get-var(radius) - 4px);
 
     @include theme.focus-styles;
     @include theme.disabled-styles;
-    @include text.typography(
-      base,
-      $overrides: (font-size: theme.get-font-size("sm"))
-    );
+    @include text.typography(base, $overrides: (font-size: theme.get-font-size("sm")));
 
     &__left,
     &__right {
@@ -86,6 +84,17 @@
       @include theme.define-var(
         (
           item-background-color: theme.get-color("background-elevated"),
+        )
+      );
+    }
+  }
+
+  // Sizes
+  @each $key, $value in $tabs-sizes {
+    &--#{$key} {
+      @include theme.define-var(
+        (
+          height: $value,
         )
       );
     }
