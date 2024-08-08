@@ -51,6 +51,7 @@
 
   &__body {
     flex: 1;
+    overflow-y: auto;
   }
 
   &__header,
