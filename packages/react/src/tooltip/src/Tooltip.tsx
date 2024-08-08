@@ -48,9 +48,9 @@ export interface TooltipProps<T>
   skin?: "default" | "neutral" | "neutral-faded" | "primary" | "primary-faded";
   /**
    * Specifies the preferred placement of the `Tooltip` relative to its trigger.
-   * @example "top", "bottom", "left", "right"
+   * @default "top"
    */
-  placement?: FloatingPlacement;
+  placement?: Extract<FloatingPlacement, "top" | "bottom" | "left" | "right">;
   /** Determines if the `Tooltip` is open. */
   open?: boolean;
   /** Content to be displayed inside the `Tooltip`. */
@@ -86,7 +86,7 @@ export interface TooltipProps<T>
  */
 export function Tooltip<T extends HTMLElement>({
   skin = "default",
-  placement = "bottom-start",
+  placement = "top",
   open,
   delay = SHOW_DELAY,
   className,
