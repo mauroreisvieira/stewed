@@ -109,7 +109,7 @@ export const EditProfile = {
               <Separator />
               <Dialog.Footer>
                 <Box justify="between" gap="md">
-                  <Dropdown
+                  <Dropdown<HTMLButtonElement>
                     placement="right"
                     content={
                       <ListBox>

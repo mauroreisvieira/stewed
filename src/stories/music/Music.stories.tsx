@@ -6,6 +6,7 @@ import {
   Button,
   Card,
   Container,
+  Dialog,
   Drawer,
   Dropdown,
   Grid,
@@ -67,6 +68,8 @@ export default meta;
 export const Discover = {
   render: function Render() {
     const [drawerState, onHandleDrawer] = useToggle(false);
+    const [dialogState, onHandleDialog] = useToggle(false);
+
     return (
       <Container screen="full">
         <Grid cols={3}>
@@ -110,7 +113,7 @@ export const Discover = {
         <Separator space={{ block: "md" }} />
 
         <Box items="baseline" space={{ y: "4xl" }}>
-          <Tabs value="music">
+          <Tabs value="music" size="lg">
             <Tabs.List>
               <Tabs.Item value="music">Music</Tabs.Item>
               <Tabs.Item value="podcast">Podcast</Tabs.Item>
@@ -119,7 +122,7 @@ export const Discover = {
               </Tabs.Item>
             </Tabs.List>
           </Tabs>
-          <Button leftSlot={<IoIosAddCircleOutline />}>Add music</Button>
+          <Button onClick={onHandleDialog} leftSlot={<IoIosAddCircleOutline />}>Add music</Button>
         </Box>
 
         <Grid cols={2} responsive={{ md: { cols: 4 } }} gap="md">
@@ -251,6 +254,17 @@ export const Discover = {
             </Box>
           </Drawer.Body>
         </Drawer>
+
+        <Dialog onClose={onHandleDialog} open={dialogState}>
+          <Dialog.Header>
+            <Text size="lg" weight="semi-bold">
+              Add music
+            </Text>
+          </Dialog.Header>
+          <Dialog.Body>
+            Dialog Content
+          </Dialog.Body>
+        </Dialog>
       </Container>
     );
   },
