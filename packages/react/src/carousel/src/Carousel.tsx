@@ -10,7 +10,7 @@ import React, {
 import { CarouselNavigation } from "./CarouselNavigation";
 import { CarouselSlide } from "./CarouselSlide";
 // Tokens
-import { components } from "@stewed/tokens";
+import { components, type Spacings } from "@stewed/tokens";
 // Hooks
 import { useBem, useResponsive, type UseResponsiveProps } from "@stewed/hooks";
 import { useTheme } from "../../theme";
@@ -20,6 +20,8 @@ import styles from "./styles/index.module.scss";
 export interface CarouselProps
   extends React.ComponentPropsWithRef<"div">,
     UseResponsiveProps<{
+      /** The gap between box children's. */
+      gap?: Spacings;
       /**
        * Touch drag enabled.
        * @default true
@@ -75,6 +77,7 @@ export const Carousel = forwardRef(
   (
     {
       touched = true,
+      gap = "md",
       loop = true,
       showNavigation = true,
       perView,
@@ -89,9 +92,29 @@ export const Carousel = forwardRef(
     // Importing useBem to handle BEM class names
     const { getBlock, getElement } = useBem({ block: components.Carousel, styles });
 
+    // Retrieve values from the current theme context
+    const { activeToken } = useTheme();
+
+    // Compute responsive props based on current theme and screen sizes
+    const computedProps = useResponsive(
+      {
+        gap,
+        perView,
+        touched,
+        loop,
+        showNavigation,
+        responsive,
+      },
+      activeToken.breakpoints,
+    );
+
+    // Number of slider per view
+    const show = computedProps.perView || 1;
+
     // Generating CSS classes based on component props and styles
     const cssClasses = {
       root: getBlock({
+        modifiers: [show > 1 && computedProps.gap && `gap-${computedProps.gap}`],
         extraClasses: className,
       }),
       wrapper: getElement(["wrapper"]),
@@ -102,26 +125,8 @@ export const Carousel = forwardRef(
       bottom: getElement(["bottom"]),
     };
 
-    // Retrieve values from the current theme context
-    const { activeToken } = useTheme();
-
-    // Compute responsive props based on current theme and screen sizes
-    const computedProps = useResponsive(
-      {
-        perView,
-        touched,
-        loop,
-        showNavigation,
-        responsive,
-      },
-      activeToken.breakpoints,
-    );
-
     // Total Slides
     const slidesCount = useMemo(() => React.Children.count(children), [children]);
-
-    // Number of slider per view
-    const show = computedProps.perView || 1;
 
     // The carousel repeating it's item
     const loopingEffect = useMemo(
@@ -318,6 +323,7 @@ export const Carousel = forwardRef(
               {renderSlides}
               {slidesCount > show && loopingEffect && renderExtraNextSlides}
             </div>
+            </div>
             {computedProps.showNavigation && (
               <>
                 <CarouselNavigation
@@ -332,7 +338,7 @@ export const Carousel = forwardRef(
                 />
               </>
             )}
-          </div>
+
         </div>
       </div>
     );
