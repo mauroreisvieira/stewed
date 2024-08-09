@@ -9,7 +9,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
+  border: 1px solid transparent;
   padding-inline: theme.get-spacing("md");
   overflow: hidden;
   border-radius: theme.get-var(radius);
@@ -18,10 +18,6 @@
   @include text.typography(base, $overrides: (font-size: theme.get-font-size("md")));
   @include theme.focus-styles($target: ":focus-within");
   @include theme.disabled-styles;
-
-  &:hover {
-    border-color: theme.get-var(border-color-hover);
-  }
 
   &__input {
     all: unset;
@@ -55,20 +51,13 @@
     padding-inline-start: theme.get-spacing("md");
   }
 
-  &--outline {
-    border: 1px solid theme.get-var(border-color);
-  }
-
-  &--ghost {
-    border: none;
-  }
-
   @each $key, $value in $input-skins {
     &--#{$key} {
       @include theme.define-var(
         (
           border-color: map.get($value, "border"),
           border-color-hover: map.get($value, "border-hover"),
+          background-color: map.get($value, "background-color"),
         )
       );
     }
@@ -82,6 +71,27 @@
           height: $value,
         )
       );
+    }
+  }
+
+  &--outline {
+    border: 1px solid theme.get-var(border-color);
+
+    &:hover {
+      border-color: theme.get-var(border-color-hover);
+    }
+  }
+
+  &--ghost {
+    border-color: transparent;
+  }
+
+  &--soft {
+    border-color: transparent;
+    background-color: color-mix(in srgb, theme.get-var(background-color), transparent 95%);
+
+    &:hover {
+      background-color: color-mix(in srgb, theme.get-var(background-color), transparent 90%);
     }
   }
 

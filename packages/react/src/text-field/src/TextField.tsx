@@ -11,10 +11,10 @@ export interface TextFieldProps extends Omit<React.ComponentPropsWithRef<"input"
    * Change the visual appearance of the text field.
    * @default outline
    */
-  appearance?: "outline" | "ghost";
+  appearance?: "ghost" | "outline" | "soft";
   /**
    * Change the visual style of the input.
-   * @default default
+   * @default "neutral-faded"
    */
   skin?: "neutral-faded" | Extract<Color, "neutral" | "critical" | "success">;
   /**
@@ -49,8 +49,8 @@ export interface TextFieldProps extends Omit<React.ComponentPropsWithRef<"input"
  * @returns {React.ReactElement} - The rendered TextField component.
  */
 export function TextField({
-  appearance = "outline",
   skin = "neutral-faded",
+  appearance = "outline",
   size = "md",
   alignment,
   maxChars,
