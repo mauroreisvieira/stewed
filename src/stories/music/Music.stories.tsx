@@ -5,13 +5,16 @@ import {
   Box,
   Button,
   Card,
+  Carousel,
   Container,
   Dialog,
   Drawer,
   Dropdown,
+  FormField,
   Grid,
   Hoverable,
   ListBox,
+  Select,
   Separator,
   Snackbar,
   Tabs,
@@ -25,7 +28,7 @@ import { useToggle } from "@stewed/hooks";
 // Icons
 import { TbMenuDeep } from "react-icons/tb";
 import { FaPlayCircle } from "react-icons/fa";
-import { IoIosAddCircleOutline } from "react-icons/io";
+import { IoMdAdd } from "react-icons/io";
 import { MdOutlinePlayCircleOutline } from "react-icons/md";
 import { IoRadioOutline } from "react-icons/io5";
 import { RxGrid } from "react-icons/rx";
@@ -54,7 +57,10 @@ const meta = {
                 radius: "full",
               },
               "text-field": {
-                radius: "full",
+                radius: "lg",
+              },
+              "select": {
+                radius: "lg",
               },
             },
           },
@@ -106,7 +112,8 @@ function Music(): React.ReactElement {
         </Button>
 
         <TextField
-          skin="neutral-faded"
+          skin="neutral"
+          appearance="soft"
           leftSlot={<FiSearch />}
           size="lg"
           placeholder="What do you want to play?"
@@ -145,7 +152,8 @@ function Music(): React.ReactElement {
             </Tabs.Item>
           </Tabs.List>
         </Tabs>
-        <Button onClick={onHandleDialog} leftSlot={<IoIosAddCircleOutline />}>
+
+        <Button onClick={onHandleDialog} size="lg" leftSlot={<IoMdAdd />} iconOnly>
           Add music
         </Button>
       </Box>
@@ -155,7 +163,7 @@ function Music(): React.ReactElement {
           <Grid.Item key={index}>
             <Hoverable>
               {({ isHovering }) => (
-                <Card shadow="none" onClick={() => onHandleClick(index)} hoverable>
+                <Card shadow="none">
                   <Box direction="row" skin="neutral-faded" items="center" justify="between" grow>
                     <Box items="center" gap="md">
                       <img src="https://placehold.co/80x80" style={{ height: "100%" }} />
@@ -163,9 +171,13 @@ function Music(): React.ReactElement {
                     </Box>
                     {isHovering && (
                       <Box padding={{ inline: "md" }} items="center">
-                        <Text skin="primary" size="5xl">
-                          <FaPlayCircle />
-                        </Text>
+                        <Button
+                          skin="primary"
+                          leftSlot={<FaPlayCircle />}
+                          onClick={() => onHandleClick(index)}
+                          iconOnly>
+                          Play
+                        </Button>
                       </Box>
                     )}
                   </Box>
@@ -186,27 +198,22 @@ function Music(): React.ReactElement {
 
         <Separator space={{ block: "lg" }} />
 
-        <Grid cols={2} responsive={{ md: { cols: 4 } }} gap="md">
-          {Array.from({ length: 4 }).map((_, index) => (
-            <Card key={index} shadow="none" hoverable>
-              <Box direction="column" gap="md">
-                <img
-                  src="https://placehold.co/900x1200"
-                  style={{ width: "100%", height: "100%" }}
-                />
+        <Carousel perView={4} loop={false}>
+          {Array.from({ length: 12 }).map((_, index) => (
+            <Box key={index} direction="column" gap="md">
+              <img src="https://placehold.co/900x1200" style={{ width: "100%", height: "100%" }} />
 
-                <div>
-                  <Text size="sm" weight="medium">
-                    React Rendezvous
-                  </Text>
-                  <Text size="sm" skin="neutral">
-                    Ethan Byte
-                  </Text>
-                </div>
+              <Box direction="column">
+                <Text size="sm" weight="medium">
+                  React Rendezvous
+                </Text>
+                <Text size="sm" skin="neutral">
+                  Ethan Byte
+                </Text>
               </Box>
-            </Card>
+            </Box>
           ))}
-        </Grid>
+        </Carousel>
       </Box>
 
       <Box direction="column">
@@ -277,13 +284,41 @@ function Music(): React.ReactElement {
         </Drawer.Body>
       </Drawer>
 
-      <Dialog onClose={onHandleDialog} open={dialogState}>
+      <Dialog size="sm" onClose={onHandleDialog} open={dialogState}>
         <Dialog.Header>
           <Text size="lg" weight="semi-bold">
             Add music
           </Text>
         </Dialog.Header>
-        <Dialog.Body>Dialog Content</Dialog.Body>
+        <Dialog.Body>
+          <Box direction="column" gap="xl">
+            <FormField>
+              <FormField.Label htmlFor="name">Name</FormField.Label>
+              <FormField.Control>
+                <TextField id="name" type="text" placeholder="Enter your name" fullWidth />
+              </FormField.Control>
+            </FormField>
+
+            <FormField>
+              <FormField.Label htmlFor="name">Playlists</FormField.Label>
+              <FormField.Control>
+                <Select>
+                  <Select.Option>Daily Mix 1</Select.Option>
+                  <Select.Option>Daily Mix 2</Select.Option>
+                  <Select.Option>Daily Mix 3</Select.Option>
+                  <Select.Option>Daily Mix 4</Select.Option>
+                  <Select.Option>Daily Mix 5</Select.Option>
+                  <Select.Option>Daily Mix 6</Select.Option>
+                </Select>
+              </FormField.Control>
+            </FormField>
+          </Box>
+        </Dialog.Body>
+        <Dialog.Footer>
+          <Box justify="end">
+            <Button>Save Changes</Button>
+          </Box>
+        </Dialog.Footer>
       </Dialog>
     </Container>
   );
