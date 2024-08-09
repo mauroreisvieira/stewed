@@ -9,9 +9,14 @@ import styles from "./styles/index.module.scss";
 export interface TextAreaProps extends React.ComponentPropsWithRef<"textarea"> {
   /**
    * Change the visual style of the text area.
-   * @default default
+   * @default "neutral-faded"
    */
-  skin?: "default" | Extract<Color, "critical" | "success">;
+  skin?: "neutral-faded" | Extract<Color, "neutral" | "critical" | "success">;
+  /**
+   * Change the visual appearance of the text area.
+   * @default outline
+   */
+  appearance?: "ghost" | "outline" | "soft";
   /**
    * Automatically adjusts the height of the text area based on its content.
    * When set to `true`, the text area will expand or contract vertically as the user types.
@@ -32,7 +37,8 @@ export interface TextAreaProps extends React.ComponentPropsWithRef<"textarea"> {
  * @returns {React.ReactElement} - The rendered TextArea component.
  */
 export function TextArea({
-  skin = "default",
+  skin = "neutral-faded",
+  appearance = "outline",
   className,
   disabled,
   autoHeight,
@@ -45,7 +51,7 @@ export function TextArea({
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({
-      modifiers: [disabled && "disabled", autoHeight && "auto-height", skin],
+      modifiers: [disabled && "disabled", autoHeight && "auto-height", skin, appearance],
       extraClasses: className,
     }),
   };
