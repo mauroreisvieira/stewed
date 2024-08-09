@@ -4,12 +4,6 @@
 @use "./variables" as *;
 
 @include theme.scope($select-root) {
-  @include theme.define-var(
-    (
-      height: 40px,
-    )
-  );
-
   position: relative;
   box-sizing: border-box;
   display: inline-flex;
@@ -74,6 +68,17 @@
         (
           border-color: map.get($value, "border"),
           border-color-hover: map.get($value, "border-hover"),
+        )
+      );
+    }
+  }
+
+  // Sizes
+  @each $key, $value in $select-sizes {
+    &--#{$key} {
+      @include theme.define-var(
+        (
+          height: $value,
         )
       );
     }

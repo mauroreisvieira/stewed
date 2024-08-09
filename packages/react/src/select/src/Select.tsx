@@ -8,12 +8,17 @@ import { type Color, components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface SelectProps extends React.ComponentPropsWithRef<"select"> {
+export interface SelectProps extends Omit<React.ComponentPropsWithRef<"select">, "size"> {
   /**
    * Change the visual style of the select.
    * @default default
    */
   skin?: "default" | Extract<Color, "critical">;
+  /**
+   * Changes the size of the select, giving it more or less padding.
+   * @default md
+   */
+  size?: "sm" | "md" | "lg" | "xl";
   /** Slot for icon to display before the select. */
   leftSlot?: React.ReactNode;
 }
@@ -35,6 +40,7 @@ export interface SelectProps extends React.ComponentPropsWithRef<"select"> {
  */
 export function Select({
   skin = "default",
+  size = "md",
   leftSlot,
   disabled,
   className,
@@ -47,7 +53,7 @@ export function Select({
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({
-      modifiers: [disabled && "disabled", skin],
+      modifiers: [disabled && "disabled", skin, size],
       extraClasses: className,
     }),
     left: getElement(["left"]),
