@@ -39,6 +39,7 @@ import { TbMicrophone2 } from "react-icons/tb";
 import { RiAlbumFill } from "react-icons/ri";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { FiSearch } from "react-icons/fi";
+import { PiBrowsersFill } from "react-icons/pi";
 
 const meta = {
   title: "Examples/Music",
@@ -57,10 +58,10 @@ const meta = {
                 radius: "full",
               },
               "text-field": {
-                radius: "lg",
+                radius: "full",
               },
               "select": {
-                radius: "lg",
+                radius: "full",
               },
             },
           },
@@ -102,42 +103,61 @@ function Music(): React.ReactElement {
   return (
     <Container screen="full">
       <Grid cols={3}>
-        <Button
-          leftSlot={<TbMenuDeep />}
-          skin="secondary"
-          appearance="ghost"
-          onClick={onHandleDrawer}
-          iconOnly>
-          Menu
-        </Button>
+        <Grid.Item>
+          <Button
+            leftSlot={<TbMenuDeep />}
+            skin="secondary"
+            appearance="ghost"
+            onClick={onHandleDrawer}
+            iconOnly>
+            Menu
+          </Button>
+        </Grid.Item>
 
-        <TextField
-          skin="neutral"
-          appearance="soft"
-          leftSlot={<FiSearch />}
-          size="lg"
-          placeholder="What do you want to play?"
-          fullWidth
-        />
+        <Grid.Item>
+          <TextField
+            skin="neutral"
+            appearance="soft"
+            leftSlot={<FiSearch />}
+            rightSlot={
+              <Box gap="sm">
+                <Separator orientation="vertical" />
+                <Button
+                  leftSlot={<PiBrowsersFill />}
+                  size="sm"
+                  skin="neutral"
+                  appearance="ghost"
+                  iconOnly>
+                  Browse
+                </Button>
+              </Box>
+            }
+            size="lg"
+            placeholder="What do you want to play?"
+            fullWidth
+          />
+        </Grid.Item>
 
-        <Box justify="end">
-          <Dropdown<HTMLSpanElement>
-            placement="bottom-end"
-            content={
-              <ListBox>
-                <ListBox.Item>Account</ListBox.Item>
-                <ListBox.Item>Profile</ListBox.Item>
-                <ListBox.Item>Settings</ListBox.Item>
-                <ListBox.Item>Logout</ListBox.Item>
-              </ListBox>
-            }>
-            {({ ref, onClick }) => (
-              <span ref={ref} onClick={onClick}>
-                <Avatar src="https://placehold.co/100x100" name="Mauro Vieira" />
-              </span>
-            )}
-          </Dropdown>
-        </Box>
+        <Grid.Item>
+          <Box justify="end">
+            <Dropdown<HTMLSpanElement>
+              placement="bottom-end"
+              content={
+                <ListBox>
+                  <ListBox.Item>Account</ListBox.Item>
+                  <ListBox.Item>Profile</ListBox.Item>
+                  <ListBox.Item>Settings</ListBox.Item>
+                  <ListBox.Item>Logout</ListBox.Item>
+                </ListBox>
+              }>
+              {({ ref, onClick }) => (
+                <span ref={ref} onClick={onClick}>
+                  <Avatar src="https://placehold.co/100x100" name="Mauro Vieira" />
+                </span>
+              )}
+            </Dropdown>
+          </Box>
+        </Grid.Item>
       </Grid>
 
       <Separator space={{ block: "md" }} />
@@ -158,7 +178,7 @@ function Music(): React.ReactElement {
         </Button>
       </Box>
 
-      <Grid cols={2} responsive={{ md: { cols: 4 } }} gap="md">
+      <Grid cols={1} responsive={{ sm: { cols: 2 }, md: { cols: 4 } }} gap="md">
         {Array.from({ length: 8 }).map((_, index) => (
           <Grid.Item key={index}>
             <Hoverable>
@@ -198,20 +218,32 @@ function Music(): React.ReactElement {
 
         <Separator space={{ block: "lg" }} />
 
-        <Carousel perView={4} loop={false}>
-          {Array.from({ length: 12 }).map((_, index) => (
-            <Box key={index} direction="column" gap="md">
-              <img src="https://placehold.co/900x1200" style={{ width: "100%", height: "100%" }} />
+        <Carousel
+          responsive={{
+            xs: {
+              perView: 2,
+            },
+            md: { perView: 5 },
+          }}
+          loop={false}>
+          {Array.from({ length: 10 }).map((_, index) => (
+            <Card key={index} shadow="none">
+              <Box direction="column" gap="md">
+                <img
+                  src="https://placehold.co/900x1000"
+                  style={{ width: "100%", height: "100%" }}
+                />
 
-              <Box direction="column">
-                <Text size="sm" weight="medium">
-                  React Rendezvous
-                </Text>
-                <Text size="sm" skin="neutral">
-                  Ethan Byte
-                </Text>
+                <Box direction="column">
+                  <Text size="sm" weight="medium">
+                    React Rendezvous
+                  </Text>
+                  <Text size="sm" skin="neutral">
+                    Ethan Byte
+                  </Text>
+                </Box>
               </Box>
-            </Box>
+            </Card>
           ))}
         </Carousel>
       </Box>
@@ -295,14 +327,20 @@ function Music(): React.ReactElement {
             <FormField>
               <FormField.Label htmlFor="name">Name</FormField.Label>
               <FormField.Control>
-                <TextField id="name" type="text" placeholder="Enter your name" fullWidth />
+                <TextField
+                  id="name"
+                  type="text"
+                  placeholder="Enter your name"
+                  size="lg"
+                  fullWidth
+                />
               </FormField.Control>
             </FormField>
 
             <FormField>
               <FormField.Label htmlFor="name">Playlists</FormField.Label>
               <FormField.Control>
-                <Select>
+                <Select size="lg">
                   <Select.Option>Daily Mix 1</Select.Option>
                   <Select.Option>Daily Mix 2</Select.Option>
                   <Select.Option>Daily Mix 3</Select.Option>
@@ -316,7 +354,7 @@ function Music(): React.ReactElement {
         </Dialog.Body>
         <Dialog.Footer>
           <Box justify="end">
-            <Button>Save Changes</Button>
+            <Button size="lg">Save Changes</Button>
           </Box>
         </Dialog.Footer>
       </Dialog>
