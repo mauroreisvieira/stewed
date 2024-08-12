@@ -4,7 +4,7 @@ import {
   Theme,
   Card,
   Button,
-  Box,
+  Stack,
   Tabs,
   Text,
   Container,
@@ -52,7 +52,7 @@ export const PricingPlans = {
 
     return (
       <Container screen="lg" alignment="center" padding={{ block: "7xl" }}>
-        <Box direction="column">
+        <Stack direction="column">
           <Text
             size="xs"
             variation="uppercase"
@@ -67,12 +67,12 @@ export const PricingPlans = {
             Pricing Plans
           </Text>
 
-          <Text alignment="center" size="xl" space={{ y: "3xl" }}>
+          <Text alignment="center" skin="neutral" size="xl" space={{ y: "3xl" }}>
             Start building for free, then add a site plan to go live. Account plans unlock
             additional features.
           </Text>
 
-          <Box direction="column" gap="3xl">
+          <Stack direction="column" gap="3xl">
             <Tabs alignment="center" value={value} onValueChange={setValue}>
               <Tabs.List>
                 <Tabs.Item value="monthly">Monthly billing</Tabs.Item>
@@ -80,7 +80,7 @@ export const PricingPlans = {
               </Tabs.List>
             </Tabs>
 
-            <Box
+            <Stack
               gap="2xl"
               items="center"
               responsive={{
@@ -104,26 +104,26 @@ export const PricingPlans = {
                     <Text as="h4">{title}</Text>
                   </Card.Header>
                   <Card.Body>
-                    <Box direction="column" gap="2xl">
+                    <Stack direction="column" gap="2xl">
                       <Text skin="neutral">{description}</Text>
-                      <Box items="baseline" gap="sm">
+                      <Stack items="baseline" gap="sm">
                         <Text size="4xl" weight="bold">
                           {value === "monthly" ? price : price * 12 * 0.5}€
                         </Text>
                         <Text size="xs" weight="medium">
                           {value === "monthly" ? "/month" : "/year"}
                         </Text>
-                      </Box>
-                    </Box>
+                      </Stack>
+                    </Stack>
                   </Card.Body>
                   <Card.Footer>
                     <Button fullWidth>Subscribe</Button>
                   </Card.Footer>
                 </Card>
               ))}
-            </Box>
-          </Box>
-        </Box>
+            </Stack>
+          </Stack>
+        </Stack>
       </Container>
     );
   },
@@ -132,9 +132,9 @@ export const PricingPlans = {
 export const CTASection = {
   render: function Example() {
     return (
-      <Box as="main" padding={{ block: "7xl" }} direction="column" items="center" justify="center">
+      <Stack as="main" direction="column" items="center" justify="center">
         <Container screen="md" alignment="center" padding={{ block: "7xl" }}>
-          <Box justify="center" direction="column" grow>
+          <Stack justify="center" direction="column" grow>
             <Text as="h1" alignment="center" space={{ y: "4xl" }}>
               Boost your productivity. <br />
               Start using our app today.
@@ -143,15 +143,15 @@ export const CTASection = {
               Incididunt sint fugiat pariatur cupidatat consectetur sit cillum anim id veniam aliqua
               proident excepteur commodo do ea.
             </Text>
-            <Box justify="center" gap="lg">
+            <Stack justify="center" gap="lg">
               <Button>Get started</Button>
               <Button appearance="ghost" rightSlot="→">
                 Learn more
               </Button>
-            </Box>
-          </Box>
+            </Stack>
+          </Stack>
         </Container>
-      </Box>
+      </Stack>
     );
   },
 };
@@ -159,10 +159,10 @@ export const CTASection = {
 export const Testimonials = {
   render: function Example() {
     return (
-      <Box as="main" padding={{ block: "7xl" }} direction="column" items="center" justify="center">
+      <Stack as="main" direction="column" items="center" justify="center">
         <Container screen="xl" alignment="center" padding={{ block: "7xl" }}>
-          <Box justify="between" grow>
-            <Box direction="column" gap="2xl" padding={{ inline: "2xl", block: "7xl" }} grow>
+          <Stack justify="between" grow>
+            <Stack direction="column" gap="2xl" grow>
               <Text size="xl" weight="light" space={{ y: "2xl" }}>
                 <Text size="3xl" skin="primary" as="span">
                   “
@@ -174,22 +174,22 @@ export const Testimonials = {
                   ”
                 </Text>
               </Text>
-              <Box items="center" gap="md">
+              <Stack items="center" gap="md">
                 <Avatar
                   skin="neutral"
                   size="xl"
                   src="https://images.unsplash.com/photo-1494790108377-be9c29b29330"
                 />
-                <Box direction="column">
+                <Stack direction="column">
                   <Text weight="medium">Judith Black</Text>
                   <Text size="sm" skin="neutral">
                     CEO of Tuple
                   </Text>
-                </Box>
-              </Box>
-            </Box>
+                </Stack>
+              </Stack>
+            </Stack>
             <Separator space={{ inline: "7xl" }} orientation="vertical" />
-            <Box direction="column" gap="2xl" padding={{ inline: "2xl", block: "7xl" }} grow>
+            <Stack direction="column" gap="2xl" grow>
               <Text size="xl" weight="light" space={{ y: "2xl" }}>
                 <Text size="3xl" skin="primary" as="span">
                   “
@@ -201,23 +201,23 @@ export const Testimonials = {
                   ”
                 </Text>
               </Text>
-              <Box items="center" gap="md">
+              <Stack items="center" gap="md">
                 <Avatar
                   skin="neutral"
                   size="xl"
                   src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
                 />
-                <Box direction="column">
+                <Stack direction="column">
                   <Text weight="medium">Joseph Rodriguez</Text>
                   <Text size="sm" skin="neutral">
                     CEO of Reform
                   </Text>
-                </Box>
-              </Box>
-            </Box>
-          </Box>
+                </Stack>
+              </Stack>
+            </Stack>
+          </Stack>
         </Container>
-      </Box>
+      </Stack>
     );
   },
 };
@@ -225,13 +225,13 @@ export const Testimonials = {
 export const FAQ = {
   render: function Example() {
     return (
-      <Box as="main" padding={{ block: "7xl" }} direction="column" items="center" justify="center">
+      <Stack as="main" direction="column" items="center" justify="center">
         <Container screen="md" alignment="center" padding={{ block: "7xl" }}>
-          <Box justify="center" direction="column" grow>
+          <Stack justify="center" direction="column" grow>
             <Text as="h4" space={{ y: "4xl" }}>
               Frequently asked questions
             </Text>
-            <Box grow gap="lg">
+            <Stack grow gap="lg">
               <Accordion>
                 <Accordion.Item>
                   {({ open }) => (
@@ -281,10 +281,10 @@ export const FAQ = {
                   )}
                 </Accordion.Item>
               </Accordion>
-            </Box>
-          </Box>
+            </Stack>
+          </Stack>
         </Container>
-      </Box>
+      </Stack>
     );
   },
 };

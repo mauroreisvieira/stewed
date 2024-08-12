@@ -1,6 +1,16 @@
 import React, { useState } from "react";
 // UI Components
-import { Box, Button, Card, Checkbox, Container, TextField, Theme, Text } from "@stewed/react";
+import {
+  Box,
+  Stack,
+  Button,
+  Card,
+  Checkbox,
+  Container,
+  TextField,
+  Theme,
+  Text,
+} from "@stewed/react";
 // Hooks
 import { useKeyboardNavigation } from "@stewed/hooks";
 // Icons
@@ -20,7 +30,7 @@ const meta = {
 export default meta;
 
 export const Login = {
-  render: function Example() {
+  render: function Render() {
     const [inputType, setInputType] = useState<"text" | "password">("password");
 
     return (
@@ -30,22 +40,22 @@ export const Login = {
             <Text as="h2">Sign in to your account</Text>
           </Card.Header>
           <Card.Body>
-            <Box direction="column" gap="2xl">
-              <Box direction="column" gap="sm">
+            <Stack direction="column" gap="2xl">
+              <Stack direction="column" gap="sm">
                 <Text as="label" size="sm" htmlFor="email">
                   Email address
                 </Text>
                 <TextField id="email" type="email" placeholder="Enter your email" />
-              </Box>
-              <Box direction="column" gap="sm">
-                <Box justify="between">
+              </Stack>
+              <Stack direction="column" gap="sm">
+                <Stack justify="between">
                   <Text as="label" size="sm" htmlFor="password">
                     Password
                   </Text>
                   <Text as="a" href="" size="xs">
                     Forgot password?
                   </Text>
-                </Box>
+                </Stack>
                 <TextField
                   id="password"
                   type={inputType}
@@ -64,15 +74,15 @@ export const Login = {
                     </Button>
                   }
                 />
-              </Box>
-              <Box justify="between" gap="lg" wrap="wrap">
+              </Stack>
+              <Stack justify="between" gap="lg" wrap="wrap">
                 <Checkbox>Keep me logged in</Checkbox>
-                <Box justify="end" gap="md">
+                <Stack justify="end" gap="md">
                   <Button appearance="outline">Create an account</Button>
                   <Button>Sign in</Button>
-                </Box>
-              </Box>
-            </Box>
+                </Stack>
+              </Stack>
+            </Stack>
           </Card.Body>
         </Card>
       </Container>
@@ -111,7 +121,7 @@ function OTPInput({ onInputChange }) {
 }
 
 export const VerifyAccount = {
-  render: function Example() {
+  render: function Render() {
     const { ref, onNavigate, setFocusedIndex } = useKeyboardNavigation<HTMLDivElement>({
       target: "input",
     });
@@ -127,8 +137,8 @@ export const VerifyAccount = {
               We are sending a OTP to validate you mobile number.
             </Text>
 
-            <Box justify="center" space={{ y: "2xl" }}>
-              <Box ref={ref} gap="md" onKeyDown={onNavigate} inline>
+            <Box space={{ y: "2xl" }} fullWidth>
+              <Stack ref={ref} gap="md" items="center" justify="center" onKeyDown={onNavigate}>
                 {Array.from({ length: 6 }).map((_, idx) => (
                   <OTPInput
                     key={idx}
@@ -137,7 +147,7 @@ export const VerifyAccount = {
                     }}
                   />
                 ))}
-              </Box>
+              </Stack>
             </Box>
 
             <Text skin="neutral" size="sm" alignment="center" space={{ y: "2xl" }}>
@@ -146,9 +156,9 @@ export const VerifyAccount = {
                 123-456-789
               </Text>
             </Text>
-            <Box justify="center">
+            <Stack justify="center">
               <Button>Submit</Button>
-            </Box>
+            </Stack>
           </Card.Body>
         </Card>
       </Container>

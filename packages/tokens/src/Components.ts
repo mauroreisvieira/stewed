@@ -32,6 +32,7 @@ export const components = {
   Skeleton: "skeleton",
   Snackbar: "snackbar",
   Spinner: "spinner",
+  Stack: "stack",
   Switch: "switch",
   Table: "table",
   Tabs: "tabs",

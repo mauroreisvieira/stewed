@@ -8,7 +8,7 @@ import {
   Button,
   TextField,
   Drawer,
-  Box,
+  Stack,
   FormField,
   List,
   Separator,
@@ -45,21 +45,21 @@ export const QuickViews = {
 
     return (
       <Container screen="md" alignment="center" padding={{ block: "7xl" }}>
-        <Drawer placement="right" onClose={() => console.log("Close")} open>
+        <Drawer placement="right" open>
           <Drawer.Header>
             <Text as="h5">Benfica ÁGUIA Hoodie</Text>
           </Drawer.Header>
           <Separator />
           <Drawer.Body>
-            <Box direction="column" gap="2xl">
-              <Box gap="lg">
+            <Stack direction="column" gap="2xl">
+              <Stack gap="lg">
                 <Text size="3xl" weight="bold">
                   €89,95
                 </Text>
                 <Text size="3xl" variation={["line-through"]} skin="critical">
                   €120
                 </Text>
-              </Box>
+              </Stack>
 
               <FormField>
                 <FormField.Label htmlFor="group">Size</FormField.Label>
@@ -114,7 +114,7 @@ export const QuickViews = {
                 </FormField.Control>
               </FormField>
 
-              <Box gap="lg" direction="column">
+              <Stack gap="lg" direction="column">
                 <Text weight="medium">Description</Text>
                 <Text size="sm" skin="neutral">
                   The Basic tee is an honest new take on a classic. The tee uses super soft,
@@ -152,11 +152,11 @@ export const QuickViews = {
                     </Text>
                   </List.Item>
                 </List>
-              </Box>
-            </Box>
+              </Stack>
+            </Stack>
           </Drawer.Body>
           <Drawer.Footer>
-            <Box gap="md">
+            <Stack gap="md">
               <Button skin="primary" size="xl" fullWidth>
                 Add to bug
               </Button>
@@ -164,7 +164,7 @@ export const QuickViews = {
               <Button skin="neutral" appearance="ghost" size="xl" leftSlot={<HiHeart />} iconOnly>
                 Add to favorites
               </Button>
-            </Box>
+            </Stack>
           </Drawer.Footer>
         </Drawer>
       </Container>

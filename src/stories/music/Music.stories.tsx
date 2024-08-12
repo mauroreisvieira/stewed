@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 // UI Components
 import {
   Avatar,
-  Box,
+  Stack,
   Button,
   Card,
   Carousel,
@@ -22,6 +22,7 @@ import {
   TextField,
   Theme,
   useSnackbar,
+  Box,
 } from "@stewed/react";
 // Hooks
 import { useToggle } from "@stewed/hooks";
@@ -120,7 +121,7 @@ function Music(): React.ReactElement {
             appearance="soft"
             leftSlot={<FiSearch />}
             rightSlot={
-              <Box gap="sm">
+              <Stack gap="sm">
                 <Separator orientation="vertical" />
                 <Button
                   leftSlot={<PiBrowsersFill />}
@@ -130,7 +131,7 @@ function Music(): React.ReactElement {
                   iconOnly>
                   Browse
                 </Button>
-              </Box>
+              </Stack>
             }
             size="lg"
             placeholder="What do you want to play?"
@@ -139,7 +140,7 @@ function Music(): React.ReactElement {
         </Grid.Item>
 
         <Grid.Item>
-          <Box justify="end">
+          <Stack justify="end">
             <Dropdown<HTMLSpanElement>
               placement="bottom-end"
               content={
@@ -156,26 +157,28 @@ function Music(): React.ReactElement {
                 </span>
               )}
             </Dropdown>
-          </Box>
+          </Stack>
         </Grid.Item>
       </Grid>
 
       <Separator space={{ block: "md" }} />
 
-      <Box items="baseline" space={{ y: "4xl" }}>
-        <Tabs value="music" size="lg">
-          <Tabs.List>
-            <Tabs.Item value="music">Music</Tabs.Item>
-            <Tabs.Item value="podcast">Podcast</Tabs.Item>
-            <Tabs.Item value="live" disabled>
-              Live
-            </Tabs.Item>
-          </Tabs.List>
-        </Tabs>
+      <Box space={{ y: "4xl" }}>
+        <Stack items="baseline">
+          <Tabs value="music" size="lg">
+            <Tabs.List>
+              <Tabs.Item value="music">Music</Tabs.Item>
+              <Tabs.Item value="podcast">Podcast</Tabs.Item>
+              <Tabs.Item value="live" disabled>
+                Live
+              </Tabs.Item>
+            </Tabs.List>
+          </Tabs>
 
-        <Button onClick={onHandleDialog} size="lg" leftSlot={<IoMdAdd />} iconOnly>
-          Add music
-        </Button>
+          <Button onClick={onHandleDialog} size="lg" leftSlot={<IoMdAdd />} iconOnly>
+            Add music
+          </Button>
+        </Stack>
       </Box>
 
       <Grid cols={1} responsive={{ sm: { cols: 2 }, md: { cols: 4 } }} gap="md">
@@ -184,22 +187,26 @@ function Music(): React.ReactElement {
             <Hoverable>
               {({ isHovering }) => (
                 <Card shadow="none">
-                  <Box direction="row" skin="neutral-faded" items="center" justify="between" grow>
-                    <Box items="center" gap="md">
-                      <img src="https://placehold.co/80x80" style={{ height: "100%" }} />
-                      <Text weight="medium">Daily Mix {index + 1}</Text>
-                    </Box>
-                    {isHovering && (
-                      <Box padding={{ inline: "md" }} items="center">
-                        <Button
-                          skin="primary"
-                          leftSlot={<FaPlayCircle />}
-                          onClick={() => onHandleClick(index)}
-                          iconOnly>
-                          Play
-                        </Button>
-                      </Box>
-                    )}
+                  <Box skin="neutral-faded">
+                    <Stack direction="row" items="center" justify="between" grow>
+                      <Stack items="center" gap="md">
+                        <img src="https://placehold.co/80x80" style={{ height: "100%" }} />
+                        <Text weight="medium">Daily Mix {index + 1}</Text>
+                      </Stack>
+                      {isHovering && (
+                        <Box padding={{ inline: "md" }}>
+                          <Stack items="center">
+                            <Button
+                              skin="primary"
+                              leftSlot={<FaPlayCircle />}
+                              onClick={() => onHandleClick(index)}
+                              iconOnly>
+                              Play
+                            </Button>
+                          </Stack>
+                        </Box>
+                      )}
+                    </Stack>
                   </Box>
                 </Card>
               )}
@@ -208,7 +215,7 @@ function Music(): React.ReactElement {
         ))}
       </Grid>
 
-      <Box direction="column">
+      <Stack direction="column">
         <Text as="h4" space={{ y: "xs" }}>
           Listen Now
         </Text>
@@ -228,27 +235,27 @@ function Music(): React.ReactElement {
           loop={false}>
           {Array.from({ length: 10 }).map((_, index) => (
             <Card key={index} shadow="none">
-              <Box direction="column" gap="md">
+              <Stack direction="column" gap="md">
                 <img
-                  src="https://placehold.co/900x1000"
+                  src="https://placehold.co/900x1200"
                   style={{ width: "100%", height: "100%" }}
                 />
 
-                <Box direction="column">
+                <Stack direction="column">
                   <Text size="sm" weight="medium">
                     React Rendezvous
                   </Text>
                   <Text size="sm" skin="neutral">
                     Ethan Byte
                   </Text>
-                </Box>
-              </Box>
+                </Stack>
+              </Stack>
             </Card>
           ))}
         </Carousel>
-      </Box>
+      </Stack>
 
-      <Box direction="column">
+      <Stack direction="column">
         <Text as="h4" space={{ y: "xs" }}>
           Made for You
         </Text>
@@ -259,7 +266,7 @@ function Music(): React.ReactElement {
         <Grid cols={2} responsive={{ sm: { cols: 4 }, md: { cols: 8 } }} gap="md">
           {Array.from({ length: 8 }).map((_, index) => (
             <Card key={index} shadow="none">
-              <Box direction="column" gap="md">
+              <Stack direction="column" gap="md">
                 <img src="https://placehold.co/200x200" style={{ width: "100%", height: "100%" }} />
 
                 <div>
@@ -270,60 +277,66 @@ function Music(): React.ReactElement {
                     Ethan Byte
                   </Text>
                 </div>
-              </Box>
+              </Stack>
             </Card>
           ))}
         </Grid>
-      </Box>
+      </Stack>
 
-      <Drawer size="sm" onClose={onHandleDrawer} open={drawerState}>
+      <Drawer size="sm" onClose={onHandleDrawer} onClickOutside={onHandleDrawer} open={drawerState}>
         <Drawer.Header>
           <Text size="lg" weight="semi-bold">
             Your Library
           </Text>
         </Drawer.Header>
         <Drawer.Body>
-          <Box direction="column" space={{ y: "2xl" }} gap="md">
-            <Text weight="bold">Discover</Text>
-            <ListBox>
-              <ListBox.Item leftSlot={<MdOutlinePlayCircleOutline />}>Listen now</ListBox.Item>
-              <ListBox.Item leftSlot={<RxGrid />}>Browse</ListBox.Item>
-              <ListBox.Item leftSlot={<IoRadioOutline />}>Radio</ListBox.Item>
-            </ListBox>
+          <Box space={{ y: "2xl" }}>
+            <Stack direction="column" gap="md">
+              <Text weight="bold">Discover</Text>
+              <ListBox>
+                <ListBox.Item leftSlot={<MdOutlinePlayCircleOutline />}>Listen now</ListBox.Item>
+                <ListBox.Item leftSlot={<RxGrid />}>Browse</ListBox.Item>
+                <ListBox.Item leftSlot={<IoRadioOutline />}>Radio</ListBox.Item>
+              </ListBox>
+            </Stack>
           </Box>
 
-          <Box direction="column" space={{ y: "2xl" }} gap="md">
-            <Text weight="bold">Library</Text>
-            <ListBox>
-              <ListBox.Item leftSlot={<RiPlayListFill />}>Playlist</ListBox.Item>
-              <ListBox.Item leftSlot={<LuMusic2 />}>Songs</ListBox.Item>
-              <ListBox.Item leftSlot={<IoPersonCircleOutline />}>Made for you</ListBox.Item>
-              <ListBox.Item leftSlot={<TbMicrophone2 />}>Artists</ListBox.Item>
-              <ListBox.Item leftSlot={<RiAlbumFill />}>Albums</ListBox.Item>
-            </ListBox>
+          <Box space={{ y: "2xl" }}>
+            <Stack direction="column" gap="md">
+              <Text weight="bold">Library</Text>
+              <ListBox>
+                <ListBox.Item leftSlot={<RiPlayListFill />}>Playlist</ListBox.Item>
+                <ListBox.Item leftSlot={<LuMusic2 />}>Songs</ListBox.Item>
+                <ListBox.Item leftSlot={<IoPersonCircleOutline />}>Made for you</ListBox.Item>
+                <ListBox.Item leftSlot={<TbMicrophone2 />}>Artists</ListBox.Item>
+                <ListBox.Item leftSlot={<RiAlbumFill />}>Albums</ListBox.Item>
+              </ListBox>
+            </Stack>
           </Box>
 
-          <Box direction="column" space={{ y: "2xl" }} gap="md">
-            <Text weight="bold">Playlists</Text>
-            <ListBox>
-              <ListBox.Item leftSlot={<LuListMusic />}>Recently Added</ListBox.Item>
-              <ListBox.Item leftSlot={<LuListMusic />}>Recently Played</ListBox.Item>
-              <ListBox.Item leftSlot={<LuListMusic />}>Top Songs</ListBox.Item>
-              <ListBox.Item leftSlot={<LuListMusic />}>Top Albums</ListBox.Item>
-              <ListBox.Item leftSlot={<LuListMusic />}>Top Artists</ListBox.Item>
-            </ListBox>
+          <Box space={{ y: "2xl" }}>
+            <Stack direction="column" gap="md">
+              <Text weight="bold">Playlists</Text>
+              <ListBox>
+                <ListBox.Item leftSlot={<LuListMusic />}>Recently Added</ListBox.Item>
+                <ListBox.Item leftSlot={<LuListMusic />}>Recently Played</ListBox.Item>
+                <ListBox.Item leftSlot={<LuListMusic />}>Top Songs</ListBox.Item>
+                <ListBox.Item leftSlot={<LuListMusic />}>Top Albums</ListBox.Item>
+                <ListBox.Item leftSlot={<LuListMusic />}>Top Artists</ListBox.Item>
+              </ListBox>
+            </Stack>
           </Box>
         </Drawer.Body>
       </Drawer>
 
-      <Dialog size="sm" onClose={onHandleDialog} open={dialogState}>
+      <Dialog size="sm" onClose={onHandleDialog} onClickOutside={onHandleDialog} open={dialogState}>
         <Dialog.Header>
           <Text size="lg" weight="semi-bold">
             Add music
           </Text>
         </Dialog.Header>
         <Dialog.Body>
-          <Box direction="column" gap="xl">
+          <Stack direction="column" gap="xl">
             <FormField>
               <FormField.Label htmlFor="name">Name</FormField.Label>
               <FormField.Control>
@@ -350,12 +363,12 @@ function Music(): React.ReactElement {
                 </Select>
               </FormField.Control>
             </FormField>
-          </Box>
+          </Stack>
         </Dialog.Body>
         <Dialog.Footer>
-          <Box justify="end">
+          <Stack justify="end">
             <Button size="lg">Save Changes</Button>
-          </Box>
+          </Stack>
         </Dialog.Footer>
       </Dialog>
     </Container>

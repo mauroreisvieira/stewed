@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // UI Components
-import { Box, Card, Container, FormField, TextField, Theme } from "@stewed/react";
+import { Card, Container, FormField, Stack, TextField, Theme } from "@stewed/react";
 // Hooks
 import { useStateForm } from "../index";
 
@@ -21,7 +21,7 @@ const meta: Meta<typeof useStateForm> = {
 export default meta;
 
 export const Validators: Story = {
-  render: () => {
+  render: function Render() {
     const {
       formData: { email, password },
       onFormChange,
@@ -52,7 +52,7 @@ export const Validators: Story = {
         <Container screen="lg" alignment="center">
           <Card>
             <Card.Body>
-              <Box direction="column" gap="md">
+              <Stack direction="column" gap="md">
                 <FormField>
                   <FormField.Label htmlFor="email">Email</FormField.Label>
                   <FormField.Control>
@@ -87,7 +87,7 @@ export const Validators: Story = {
                   </FormField.Description>
                   <FormField.Error hidden={password.valid}>{password.error}</FormField.Error>
                 </FormField>
-              </Box>
+              </Stack>
             </Card.Body>
           </Card>
         </Container>

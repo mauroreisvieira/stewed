@@ -5,6 +5,7 @@ import {
   Theme,
   Button,
   Box,
+  Stack,
   Text,
   Container,
   Grid,
@@ -95,7 +96,7 @@ export const RecentFeedback = {
 
     return (
       <Container screen="2xl" alignment="center" padding={{ block: "7xl" }}>
-        <Box direction="column" grow>
+        <Stack direction="column" grow>
           <Text as="h5" space={{ y: "xs" }}>
             Recent feedback
           </Text>
@@ -154,17 +155,17 @@ export const RecentFeedback = {
                     />
                   </Table.Cell>
                   <Table.Cell>
-                    <Box items="center" gap="md">
+                    <Stack items="center" gap="md">
                       <Avatar skin="neutral" size="lg" name={name} />
-                      <Box direction="column">
+                      <Stack direction="column">
                         <Text size="sm" weight="medium">
                           {name}
                         </Text>
                         <Text as="a" href="" size="xs" skin="neutral" alignment="end">
                           {email}
                         </Text>
-                      </Box>
-                    </Box>
+                      </Stack>
+                    </Stack>
                   </Table.Cell>
                   <Table.Cell>
                     <Text size="sm" weight="light" lineClamp={2}>
@@ -214,7 +215,7 @@ export const RecentFeedback = {
           </Table>
           <Separator space={{ block: "2xl" }} />
           <Pagination total={18} siblings={2} currentPage={1} />
-        </Box>
+        </Stack>
       </Container>
     );
   },
@@ -321,10 +322,10 @@ export const Inventory = {
       {
         accessorKey: "name",
         bodyCell: ({ image, name }) => (
-          <Box items="center" gap="md">
+          <Stack items="center" gap="md">
             <Avatar src={image} />
             {name}
-          </Box>
+          </Stack>
         ),
         headCell: () => "Name",
       },
@@ -385,160 +386,169 @@ export const Inventory = {
 
     return (
       <Container screen="2xl" alignment="center" padding={{ block: "7xl" }}>
-        <Box direction="column" space={{ y: "xl" }}>
-          <Text as="h3">Stock</Text>
+        <Box space={{ y: "xl" }}>
+          <Stack direction="column">
+            <Text as="h3">Stock</Text>
 
-          <Separator space={{ block: "xl" }} />
+            <Separator space={{ block: "xl" }} />
 
-          <Grid
-            responsive={{ sm: { cols: 2 } }}
-            cols={1}
-            space={{ y: "2xl" }}
-            padding={{ block: "md" }}>
-            <Grid.Item>
-              <Text size="md" variation={"uppercase"} skin="neutral">
-                Total assets value
-              </Text>
-              <Text size="5xl" weight="semi-bold">
-                $10,100,323
-              </Text>
-            </Grid.Item>
+            <Grid
+              responsive={{ sm: { cols: 2 } }}
+              cols={1}
+              space={{ y: "2xl" }}
+              padding={{ block: "md" }}>
+              <Grid.Item>
+                <Text size="md" variation={"uppercase"} skin="neutral">
+                  Total assets value
+                </Text>
+                <Text size="5xl" weight="semi-bold">
+                  $10,100,323
+                </Text>
+              </Grid.Item>
 
-            <Grid.Item>
-              <Box
-                direction="column"
-                responsive={{
-                  sm: {
-                    direction: "row",
-                  },
-                }}
-                grow>
-                <Separator
-                  orientation="horizontal"
-                  space={{ block: "md" }}
-                  responsive={{ sm: { orientation: "vertical", space: { inline: "xl" } } }}
-                />
-                <Box direction="column" gap="lg" grow>
-                  <Text size="3xl" weight="semi-bold">
-                    {totalProducts}{" "}
-                    <Text as="sup" skin="neutral">
-                      products
+              <Grid.Item>
+                <Stack
+                  direction="column"
+                  responsive={{
+                    sm: {
+                      direction: "row",
+                    },
+                  }}
+                  grow>
+                  <Separator
+                    orientation="horizontal"
+                    space={{ block: "md" }}
+                    responsive={{ sm: { orientation: "vertical", space: { inline: "xl" } } }}
+                  />
+                  <Stack direction="column" gap="lg" grow>
+                    <Text size="3xl" weight="semi-bold">
+                      {totalProducts}{" "}
+                      <Text as="sup" skin="neutral">
+                        products
+                      </Text>
                     </Text>
-                  </Text>
 
-                  <Progress size="md" value={totalProducts} max={2000} skin="primary" />
+                    <Progress size="md" value={totalProducts} max={2000} skin="primary" />
 
-                  <Text skin="neutral" size="sm">
-                    <Badge skin="primary" /> Max of capacity:{" "}
-                    <Text as="span" skin="text-base" size="sm">
-                      2000
+                    <Text skin="neutral" size="sm">
+                      <Badge skin="primary" /> Max of capacity:{" "}
+                      <Text as="span" skin="text-base" size="sm">
+                        2000
+                      </Text>
                     </Text>
-                  </Text>
-                </Box>
-              </Box>
-            </Grid.Item>
-          </Grid>
+                  </Stack>
+                </Stack>
+              </Grid.Item>
+            </Grid>
 
-          <Box justify="between">
-            <TextField
-              leftSlot={<FiSearch />}
-              placeholder="Search inventory"
-              onChange={(event) => setSearch(event.target.value)}
-              value={search}
-            />
+            <Stack justify="between">
+              <TextField
+                leftSlot={<FiSearch />}
+                placeholder="Search inventory"
+                onChange={(event) => setSearch(event.target.value)}
+                value={search}
+              />
 
-            <Dropdown<HTMLButtonElement>
-              placement="bottom-end"
-              content={
-                <ListBox>
-                  <ListBox.Group>
-                    {allColumns.map((column) => (
-                      <ListBox.Item
-                        key={column}
-                        onClick={() => onHandleChange(column)}
-                        leftSlot={
-                          <Checkbox
-                            checked={!hiddenColumns.includes(column)}
-                            onClick={(event) => {
-                              event.preventDefault();
-                              event.stopPropagation();
-                            }}
-                          />
-                        }>
-                        <Text size="sm" variation={"capitalize"}>
-                          {column}
-                        </Text>
-                      </ListBox.Item>
-                    ))}
-                  </ListBox.Group>
-                </ListBox>
+              <Dropdown<HTMLButtonElement>
+                placement="bottom-end"
+                content={
+                  <ListBox>
+                    <ListBox.Group>
+                      {allColumns.map((column) => (
+                        <ListBox.Item
+                          key={column}
+                          onClick={() => onHandleChange(column)}
+                          leftSlot={
+                            <Checkbox
+                              checked={!hiddenColumns.includes(column)}
+                              onClick={(event) => {
+                                event.preventDefault();
+                                event.stopPropagation();
+                              }}
+                            />
+                          }>
+                          <Text size="sm" variation={"capitalize"}>
+                            {column}
+                          </Text>
+                        </ListBox.Item>
+                      ))}
+                    </ListBox.Group>
+                  </ListBox>
+                }>
+                {({ ref, onClick, isOpen }) => (
+                  <Button
+                    ref={ref}
+                    onClick={onClick}
+                    appearance="outline"
+                    skin={isOpen ? "primary" : "neutral"}
+                    leftSlot={<LuFilter />}>
+                    Filters
+                  </Button>
+                )}
+              </Dropdown>
+            </Stack>
+
+            <DataTable<TStock>
+              data={stock}
+              columns={columns}
+              sortableColumns={["name", "category", "sku", "vendor", "stock", "status"]}
+              hiddenColumns={hiddenColumns}
+              defaultColumnDirection="ASC"
+              defaultColumnSorted="name"
+              onFilter={({ name, vendor }) =>
+                name.toLowerCase().includes(search.toLowerCase()) ||
+                vendor.toLowerCase().includes(search.toLowerCase())
               }>
-              {({ ref, onClick, isOpen }) => (
-                <Button
-                  ref={ref}
-                  onClick={onClick}
-                  appearance="outline"
-                  skin={isOpen ? "primary" : "neutral"}
-                  leftSlot={<LuFilter />}>
-                  Filters
-                </Button>
-              )}
-            </Dropdown>
-          </Box>
-        </Box>
-
-        <DataTable<TStock>
-          data={stock}
-          columns={columns}
-          sortableColumns={["name", "category", "sku", "vendor", "stock", "status"]}
-          hiddenColumns={hiddenColumns}
-          defaultColumnDirection="ASC"
-          defaultColumnSorted="name"
-          onFilter={({ name, vendor }) =>
-            name.toLowerCase().includes(search.toLowerCase()) ||
-            vendor.toLowerCase().includes(search.toLowerCase())
-          }>
-          {({ headCells, bodyRows }) => (
-            <Table appearance={["striped"]}>
-              <Table.Head>
-                <Table.Row>
-                  {headCells.map(
-                    ({ columnKey, cellNode, isSortable, sortedColumn, sortDirection, onSort }) => (
-                      <Table.Cell
-                        as="th"
-                        key={`head-${columnKey}`}
-                        onClick={isSortable ? onSort : undefined}>
-                        <Box gap="xs">
-                          {cellNode}
-                          {sortedColumn === columnKey ? (
-                            <span>
-                              {sortDirection === "ASC" ? (
-                                <MdOutlineArrowUpward size={12} />
-                              ) : (
-                                <MdOutlineArrowDownward size={12} />
-                              )}
-                            </span>
-                          ) : isSortable ? (
-                            <HiArrowsUpDown size={12} />
-                          ) : null}
-                        </Box>
-                      </Table.Cell>
-                    ),
-                  )}
-                </Table.Row>
-              </Table.Head>
-              <Table.Body>
-                {bodyRows.map(({ bodyCells, data: { id } }) => (
-                  <Table.Row key={id}>
-                    {bodyCells.map(({ columnKey, cellNode }) => (
-                      <Table.Cell key={`${id}-${columnKey}`}>{cellNode}</Table.Cell>
+              {({ headCells, bodyRows }) => (
+                <Table appearance={["striped"]}>
+                  <Table.Head>
+                    <Table.Row>
+                      {headCells.map(
+                        ({
+                          columnKey,
+                          cellNode,
+                          isSortable,
+                          sortedColumn,
+                          sortDirection,
+                          onSort,
+                        }) => (
+                          <Table.Cell
+                            as="th"
+                            key={`head-${columnKey}`}
+                            onClick={isSortable ? onSort : undefined}>
+                            <Stack gap="xs">
+                              {cellNode}
+                              {sortedColumn === columnKey ? (
+                                <span>
+                                  {sortDirection === "ASC" ? (
+                                    <MdOutlineArrowUpward size={12} />
+                                  ) : (
+                                    <MdOutlineArrowDownward size={12} />
+                                  )}
+                                </span>
+                              ) : isSortable ? (
+                                <HiArrowsUpDown size={12} />
+                              ) : null}
+                            </Stack>
+                          </Table.Cell>
+                        ),
+                      )}
+                    </Table.Row>
+                  </Table.Head>
+                  <Table.Body>
+                    {bodyRows.map(({ bodyCells, data: { id } }) => (
+                      <Table.Row key={id}>
+                        {bodyCells.map(({ columnKey, cellNode }) => (
+                          <Table.Cell key={`${id}-${columnKey}`}>{cellNode}</Table.Cell>
+                        ))}
+                      </Table.Row>
                     ))}
-                  </Table.Row>
-                ))}
-              </Table.Body>
-            </Table>
-          )}
-        </DataTable>
+                  </Table.Body>
+                </Table>
+              )}
+            </DataTable>
+          </Stack>
+        </Box>
       </Container>
     );
   },
@@ -552,7 +562,7 @@ export const SidePanel = {
       <Container screen="sm" alignment="center" padding={{ block: "7xl" }}>
         <Drawer size="sm" open>
           <Drawer.Header>
-            <Box gap="lg" items="center" direction="column" justify="center" grow>
+            <Stack gap="lg" items="center" direction="column" justify="center" grow>
               <Avatar size="3xl" name="Stewed Board" skin="primary" appearance="square" />
               <Text
                 skin="primary"
@@ -562,13 +572,13 @@ export const SidePanel = {
                 whiteSpace="nowrap">
                 Stewed Board
               </Text>
-            </Box>
+            </Stack>
           </Drawer.Header>
 
           <Separator />
 
           <Drawer.Body>
-            <Box gap="2xl" direction="column">
+            <Stack gap="2xl" direction="column">
               <TextField
                 {...searchInput}
                 placeholder="Quick search"
@@ -599,7 +609,7 @@ export const SidePanel = {
                   <ListBox.Item>Top of mind</ListBox.Item>
                 </ListBox.Group>
               </ListBox>
-            </Box>
+            </Stack>
           </Drawer.Body>
         </Drawer>
       </Container>

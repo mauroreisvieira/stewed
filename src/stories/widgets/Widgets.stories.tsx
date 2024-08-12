@@ -5,6 +5,7 @@ import {
   Card,
   Button,
   Box,
+  Stack,
   Text,
   Container,
   TextField,
@@ -18,7 +19,6 @@ import {
   Group,
   Dropdown,
   ListBox,
-  Badge,
 } from "@stewed/react";
 // Hooks
 import { useDateTime, useToggle } from "@stewed/hooks";
@@ -83,27 +83,27 @@ export const Team = {
               Invite and manage your team members.
             </Text>
 
-            <Box items="baseline" gap="lg">
+            <Stack items="baseline" gap="lg">
               <TextField placeholder="Email address" fullWidth />
               <Button>Invite</Button>
-            </Box>
+            </Stack>
           </Card.Header>
           <Card.Body>
             {team.map(({ id, name, email }) => (
               <React.Fragment key={id}>
-                <Box items="center" justify="between">
-                  <Box items="center" gap="md">
+                <Stack items="center" justify="between">
+                  <Stack items="center" gap="md">
                     <Avatar name={name} />
-                    <Box direction="column">
+                    <Stack direction="column">
                       <Text size="sm" weight="medium">
                         {name}
                       </Text>
                       <Text as="a" href="" size="xs" skin="neutral" alignment="end">
                         {email}
                       </Text>
-                    </Box>
-                  </Box>
-                </Box>
+                    </Stack>
+                  </Stack>
+                </Stack>
                 <Separator space={{ block: "xl" }} />
               </React.Fragment>
             ))}
@@ -120,55 +120,55 @@ export const Notification = {
       <Container screen="sm" alignment="center" padding={{ block: "7xl" }}>
         <Card>
           <Card.Header>
-            <Box direction="column" space={{ y: "lg" }}>
+            <Stack direction="column">
               <Text as="h5">Notification</Text>
               <Text size="sm" skin="neutral">
                 Manage your notification settings.
               </Text>
-            </Box>
+            </Stack>
           </Card.Header>
           <Card.Body>
-            <Box items="baseline" justify="between" gap="md">
-              <Box direction="column">
+            <Stack items="baseline" justify="between" gap="md">
+              <Stack direction="column">
                 <Text weight="semi-bold">Comments</Text>
                 <Text size="xs" skin="neutral">
                   Receive notifications when someone comments on your documents or mentions you.
                 </Text>
-              </Box>
-              <Box gap="md" direction="column" items="baseline">
+              </Stack>
+              <Stack gap="md" direction="column" items="baseline">
                 <Switch size="sm">Push</Switch>
                 <Switch size="sm">Email</Switch>
                 <Switch size="sm">Slack</Switch>
-              </Box>
-            </Box>
+              </Stack>
+            </Stack>
             <Separator space={{ block: "xl" }} />
-            <Box items="start" justify="between">
-              <Box direction="column">
+            <Stack items="start" justify="between">
+              <Stack direction="column">
                 <Text weight="semi-bold">Favorites</Text>
                 <Text size="xs" skin="neutral">
                   Receive notifications when there is activity related to your favorite items.
                 </Text>
-              </Box>
-              <Box gap="md" direction="column" items="baseline">
+              </Stack>
+              <Stack gap="md" direction="column" items="baseline">
                 <Switch size="sm">Push</Switch>
                 <Switch size="sm">Email</Switch>
                 <Switch size="sm">Slack</Switch>
-              </Box>
-            </Box>
+              </Stack>
+            </Stack>
             <Separator space={{ block: "xl" }} />
-            <Box items="start" justify="between">
-              <Box direction="column">
+            <Stack items="start" justify="between">
+              <Stack direction="column">
                 <Text weight="semi-bold">New documents</Text>
                 <Text size="xs" skin="neutral">
                   Receive notifications whenever people on your team create new documents.
                 </Text>
-              </Box>
-              <Box gap="md" direction="column" items="baseline">
+              </Stack>
+              <Stack gap="md" direction="column" items="baseline">
                 <Switch size="sm">Push</Switch>
                 <Switch size="sm">Email</Switch>
                 <Switch size="sm">Slack</Switch>
-              </Box>
-            </Box>
+              </Stack>
+            </Stack>
           </Card.Body>
           <Card.Footer>
             <Button appearance="outline" fullWidth>
@@ -189,7 +189,7 @@ export const RecentActivity = {
       <Container screen="md" alignment="center" padding={{ block: "7xl" }}>
         <Card>
           <Card.Header>
-            <Box items="baseline" justify="between" gap="2xl">
+            <Stack items="baseline" justify="between" gap="2xl">
               <Text as="h5">Recent activity</Text>
               <Tooltip<HTMLButtonElement>
                 placement="top"
@@ -204,22 +204,22 @@ export const RecentActivity = {
                   </Button>
                 )}
               </Tooltip>
-            </Box>
+            </Stack>
             <Text size="sm" skin="neutral">
               Review what has happened over the past days.
             </Text>
           </Card.Header>
           <Card.Body>
-            <Box justify="between" gap="2xl" wrap="wrap">
-              <Box gap="md" items="center">
+            <Stack justify="between" gap="2xl" wrap="wrap">
+              <Stack gap="md" items="center">
                 <Avatar size="md" name="Noah Andersen" />
-                <Box direction="column">
+                <Stack direction="column">
                   <Text weight="medium">Noah Andersen</Text>
                   <Text size="sm" skin="neutral">
                     Purchased 15 office chairs and 2 drum sets
                   </Text>
-                </Box>
-              </Box>
+                </Stack>
+              </Stack>
               <Text size="xs" skin="neutral">
                 {createDate().format({
                   dateStyle: "medium",
@@ -227,12 +227,12 @@ export const RecentActivity = {
                   hour12: true,
                 })}
               </Text>
-            </Box>
+            </Stack>
             <Separator space={{ block: "2xl" }} />
-            <Box justify="between" gap="2xl" wrap="wrap">
-              <Box gap="md" items="center">
+            <Stack justify="between" gap="2xl" wrap="wrap">
+              <Stack gap="md" items="center">
                 <Avatar size="md" name="Olivia Patel" />
-                <Box direction="column">
+                <Stack direction="column">
                   <Text weight="medium">Olivia Patel</Text>
                   <Text size="sm" skin="neutral">
                     Updated client details for{" "}
@@ -240,8 +240,8 @@ export const RecentActivity = {
                       Acme Co.
                     </Text>
                   </Text>
-                </Box>
-              </Box>
+                </Stack>
+              </Stack>
               <Text size="xs" skin="neutral">
                 {createDate().subtract(10, "days").format({
                   dateStyle: "medium",
@@ -249,7 +249,7 @@ export const RecentActivity = {
                   hour12: true,
                 })}
               </Text>
-            </Box>
+            </Stack>
           </Card.Body>
         </Card>
       </Container>
@@ -265,8 +265,8 @@ export const Suggested = {
       <Container screen="sm" alignment="center" padding={{ block: "7xl" }}>
         <Card>
           <Card.Body>
-            <Box space={{ y: "2xl" }} items="baseline">
-              <div>
+            <Stack items="baseline">
+              <Box>
                 <Text weight="semi-bold" space={{ y: "lg" }}>
                   @stewed/react
                 </Text>
@@ -275,7 +275,7 @@ export const Suggested = {
                   React hooks, and a set of utilities to enhance the front-end development
                   experience.
                 </Text>
-              </div>
+              </Box>
               <Group>
                 <Button
                   size="sm"
@@ -315,17 +315,7 @@ export const Suggested = {
                   )}
                 </Dropdown>
               </Group>
-            </Box>
-            <Box gap="lg">
-              <Box gap="xs" items="center">
-                <Badge appearance="outline" skin="info" />
-                <Text size="xs">Typescript</Text>
-              </Box>
-              <Box gap="xs" items="center">
-                <Badge appearance="outline" skin="critical" />
-                <Text size="xs">SCSS</Text>
-              </Box>
-            </Box>
+            </Stack>
           </Card.Body>
         </Card>
       </Container>
@@ -339,16 +329,16 @@ export const PaymentMethod = {
       <Container screen="sm" alignment="center" padding={{ block: "7xl" }}>
         <Card>
           <Card.Header>
-            <Box gap="2xl">
+            <Stack gap="2xl">
               <Text as="h5">Payment Method</Text>
-            </Box>
+            </Stack>
             <Text size="sm" skin="neutral">
               Add a new payment method to your account.
             </Text>
           </Card.Header>
           <Card.Body>
-            <Box justify="between" gap="2xl" wrap="wrap" space={{ y: "3xl" }}>
-              <Box gap="md" items="center" grow>
+            <Stack justify="between" gap="2xl" wrap="wrap">
+              <Stack gap="md" items="center" grow>
                 <Card hoverable>
                   <Card.Body>
                     <Text alignment="center">
@@ -368,8 +358,8 @@ export const PaymentMethod = {
                     <Text alignment="center">Card</Text>
                   </Card.Body>
                 </Card>
-              </Box>
-              <Box gap="md" items="center" grow>
+              </Stack>
+              <Stack gap="md" items="center" grow>
                 <Card selected hoverable>
                   <Card.Body>
                     <Text alignment="center">
@@ -383,8 +373,8 @@ export const PaymentMethod = {
                     <Text alignment="center">Paypal</Text>
                   </Card.Body>
                 </Card>
-              </Box>
-              <Box gap="md" items="center" grow>
+              </Stack>
+              <Stack gap="md" items="center" grow>
                 <Card hoverable>
                   <Card.Body>
                     <Text alignment="center">
@@ -402,9 +392,9 @@ export const PaymentMethod = {
                     <Text alignment="center">Apple</Text>
                   </Card.Body>
                 </Card>
-              </Box>
-            </Box>
-            <Box direction="column" gap="lg">
+              </Stack>
+            </Stack>
+            <Stack direction="column" gap="lg">
               <FormField>
                 <FormField.Label>Name</FormField.Label>
                 <FormField.Control>
@@ -419,7 +409,7 @@ export const PaymentMethod = {
                 </FormField.Control>
               </FormField>
 
-              <Box gap="xl">
+              <Stack gap="xl">
                 <FormField>
                   <FormField.Label>Expires</FormField.Label>
                   <FormField.Control>
@@ -450,8 +440,8 @@ export const PaymentMethod = {
                     <TextField id="cvc" type="text" />
                   </FormField.Control>
                 </FormField>
-              </Box>
-            </Box>
+              </Stack>
+            </Stack>
           </Card.Body>
           <Card.Footer>
             <Button fullWidth>Continue</Button>
@@ -468,7 +458,7 @@ export const CompletedProgress = {
       <Container screen="xl" alignment="center" padding={{ block: "7xl" }}>
         <Card skin="primary" padding={{ block: "2xl", inline: "2xl" }}>
           <Card.Body>
-            <Box direction="column" gap="xl">
+            <Stack direction="column" gap="xl">
               <Text weight="semi-bold" skin="white" space={{ y: "lg" }}>
                 UI Component Progress
               </Text>
@@ -476,24 +466,24 @@ export const CompletedProgress = {
                 This widget tracks the percentage of UI components already built in relation to the
                 total project scope.
               </Text>
-              <Box gap="md" items="center">
+              <Stack gap="md" items="center">
                 <Avatar src="./images/logo/stewed.svg" skin="neutral" size="2xl" name="Stewed" />
-                <Box direction="column">
+                <Stack direction="column">
                   <Text weight="medium" skin="white" size="xs">
                     Assigned to
                   </Text>
                   <Text weight="medium" size="lg" skin="white">
                     Stewed React Kit
                   </Text>
-                </Box>
-              </Box>
-              <Box gap="4xl" items="center">
+                </Stack>
+              </Stack>
+              <Stack gap="4xl" items="center">
                 <Progress size="lg" skin="white" value={70} />
                 <Text weight="bold" skin="white">
                   70%
                 </Text>
-              </Box>
-            </Box>
+              </Stack>
+            </Stack>
           </Card.Body>
         </Card>
       </Container>
