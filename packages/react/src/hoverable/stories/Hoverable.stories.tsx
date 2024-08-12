@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // Components
-import { Theme, Hoverable, Button, TextField } from "../../index";
+import { Theme, Hoverable } from "../../index";
 // Icons
 
 type Story = StoryObj<typeof Hoverable>;
