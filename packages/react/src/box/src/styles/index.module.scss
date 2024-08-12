@@ -4,55 +4,23 @@
 @include theme.scope($box-root) {
   @include theme.define-var(
     (
-      display: flex,
+      display: block,
       screen: auto,
       background-color: transparent,
     )
   );
 
-  display: theme.get-var(display);
+  display: block;
   box-sizing: border-box;
   height: theme.get-var(screen);
   background-color: theme.get-var(background-color);
 
-  &--inline {
-    @include theme.define-var(
-      (
-        display: inline-flex,
-      )
-    );
-  }
-
-  &--block {
-    @include theme.define-var(
-      (
-        display: block,
-      )
-    );
-  }
-
-  &--full-width {
-    width: 100%;
-  }
-
-  // Direction
-  &--row-reverse {
-    flex-direction: row-reverse;
-  }
-
-  &--column {
-    flex-direction: column;
-  }
-
-  &--column-reverse {
-    flex-direction: column-reverse;
-  }
-
-  // Gap
-  @each $key, $value in $box-gap {
-    &--gap-#{$key} {
-      gap: #{$value};
-    }
+  &--hidden {
+  @include theme.define-var(
+    (
+      display: none,
+    )
+  );
   }
 
   // Skins
@@ -77,13 +45,14 @@
     }
   }
 
-  // Padding
+  // Padding Block
   @each $key, $value in $box-padding {
     &--padding-block-#{$key} {
       padding-block: #{$value};
     }
   }
 
+  // Padding Inline
   @each $key, $value in $box-padding {
     &--padding-inline-#{$key} {
       padding-inline: #{$value};
@@ -91,7 +60,7 @@
   }
 
   // Space
-  @each $key, $value in $box-gap {
+  @each $key, $value in $box-space {
     &--space-x-#{$key} ~ :not([hidden]) {
       margin-left: #{$value};
     }
@@ -99,70 +68,5 @@
     &--space-y-#{$key}:not([hidden]) ~ :not([hidden]) {
       margin-top: #{$value};
     }
-  }
-
-  // Justify Content
-  &--justify-start {
-    justify-content: start;
-  }
-
-  &--justify-end {
-    justify-content: end;
-  }
-
-  &--justify-center {
-    justify-content: center;
-  }
-
-  &--justify-between {
-    justify-content: space-between;
-  }
-
-  &--justify-around {
-    justify-content: space-around;
-  }
-
-  &--justify-evenly {
-    justify-content: space-evenly;
-  }
-
-  // Align Items
-  &--items-start {
-    align-items: start;
-  }
-
-  &--items-end {
-    align-items: end;
-  }
-
-  &--items-center {
-    align-items: center;
-  }
-
-  &--items-baseline {
-    align-items: baseline;
-  }
-
-  &--items-stretch {
-    align-items: stretch;
-  }
-
-  // box Grow
-  &--grow {
-    flex-basis: 0;
-    flex-grow: 1;
-  }
-
-  // box Wrap
-  &--wrap {
-    flex-wrap: wrap;
-  }
-
-  &--wrap-reverse {
-    flex-wrap: wrap-reverse;
-  }
-
-  &--nowrap {
-    flex-wrap: nowrap;
   }
 }

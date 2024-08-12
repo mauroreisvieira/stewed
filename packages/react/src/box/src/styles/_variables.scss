@@ -1,8 +1,11 @@
 @use "@stewed/react/src/theme/src/styles" as theme;
 
 $box-root: "box";
-$box-gap: theme.get-spacing();
+
+/// Padding
 $box-padding: theme.get-spacing();
+
+/// Space
 $box-space: theme.get-spacing();
 
 /// Screen
