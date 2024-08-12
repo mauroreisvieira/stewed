@@ -30,6 +30,7 @@ export * from "./separator";
 export * from "./skeleton";
 export * from "./snackbar";
 export * from "./spinner";
+export * from "./stack";
 export * from "./switch";
 export * from "./table";
 export * from "./tabs";
