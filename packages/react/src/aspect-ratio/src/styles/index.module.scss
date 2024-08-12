@@ -14,7 +14,8 @@
     }
   }
 
-  &:not(:empty) > * {
+  &:not(:empty) > [src] {
+    display: block;
     aspect-ratio: theme.get-var(aspect-ratio);
   }
 }

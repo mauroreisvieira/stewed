@@ -13,7 +13,7 @@
 }
 
 @include theme.scope($backdrop-root) {
-  position: fixed;
+  position: absolute;
   inset: 0;
   background-color: theme.get-color("background-backdrop");
 
