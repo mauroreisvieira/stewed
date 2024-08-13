@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
@@ -7,6 +7,8 @@ import { type Color, components } from "@stewed/tokens";
 import styles from "./styles/index.module.scss";
 
 export interface TextFieldProps extends Omit<React.ComponentPropsWithRef<"input">, "size"> {
+  /** The ref to attach to the root `div` element. */
+  rootRef?: React.Ref<HTMLDivElement>;
   /**
    * Change the visual appearance of the text field.
    * @default outline
@@ -47,50 +49,65 @@ export interface TextFieldProps extends Omit<React.ComponentPropsWithRef<"input"
  * <TextField name="name" value="Benjamin Martinez" />
  * ```
  *
+ * @remarks This component support all native props from the `HTMLInputElement`.
+ *
  * @param {TextFieldProps} props - The props for the TextField component.
  * @returns {React.ReactElement} - The rendered TextField component.
  */
-export function TextField({
-  skin = "neutral-faded",
-  appearance = "outline",
-  size = "md",
-  alignment,
-  maxChars,
-  className,
-  disabled,
-  fullWidth,
-  srOnly,
-  leftSlot,
-  rightSlot,
-  ...props
-}: TextFieldProps): React.ReactElement {
-  // Importing useBem to handle BEM class names
-  const { getBlock, getElement } = useBem({ block: components.TextField, styles });
 
-  // Generating CSS classes based on component props and styles
-  const cssClasses = {
-    root: getBlock({
-      modifiers: [
-        disabled && "disabled",
-        fullWidth && "full-width",
-        srOnly && "sr-only",
-        size,
-        alignment,
-        appearance,
-        skin,
-      ],
-      extraClasses: className,
-    }),
-    input: getElement(["input"]),
-    left: getElement(["left"]),
-    right: getElement(["right"]),
-  };
+export const TextField = forwardRef(
+  (
+    {
+      rootRef,
+      skin = "neutral-faded",
+      appearance = "outline",
+      size = "md",
+      alignment,
+      maxChars,
+      className,
+      disabled,
+      fullWidth,
+      srOnly,
+      leftSlot,
+      rightSlot,
+      ...props
+    }: TextFieldProps,
+    ref: React.ForwardedRef<HTMLInputElement>,
+  ): React.ReactElement => {
+    // Importing useBem to handle BEM class names
+    const { getBlock, getElement } = useBem({ block: components.TextField, styles });
 
-  return (
-    <div className={cssClasses.root}>
-      {leftSlot && <span className={cssClasses.left}>{leftSlot}</span>}
-      <input className={cssClasses.input} size={maxChars} disabled={disabled} {...props} />
-      {rightSlot && <span className={cssClasses.right}>{rightSlot}</span>}
-    </div>
-  );
-}
+    // Generating CSS classes based on component props and styles
+    const cssClasses = {
+      root: getBlock({
+        modifiers: [
+          disabled && "disabled",
+          fullWidth && "full-width",
+          srOnly && "sr-only",
+          size,
+          alignment,
+          appearance,
+          skin,
+        ],
+        extraClasses: className,
+      }),
+      input: getElement(["input"]),
+      left: getElement(["left"]),
+      right: getElement(["right"]),
+    };
+
+    return (
+      <div ref={rootRef} className={cssClasses.root}>
+        {leftSlot && <span className={cssClasses.left}>{leftSlot}</span>}
+        <input
+          ref={ref}
+          className={cssClasses.input}
+          size={maxChars}
+          disabled={disabled}
+          {...props}
+        />
+        {rightSlot && <span className={cssClasses.right}>{rightSlot}</span>}
+      </div>
+    );
+  },
+);
