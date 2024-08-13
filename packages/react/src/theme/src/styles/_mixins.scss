@@ -1,4 +1,5 @@
 @use "sass:map";
+@use "sass:meta";
 @use "./variables" as *;
 @use "./functions" as func;
 
@@ -58,7 +59,7 @@
 /// @param {string} [$timing-function=ease-in-out] - Timing function of the transition.
 /// @param {string} [$delay=null] - Delay before the transition starts.
 @mixin transition($property, $duration: "quickly", $timing-function: "ease-in", $delay: null) {
-  @if type-of($property) == list {
+  @if meta.type-of($property) == list {
     transition: func.get-transition-duration($duration)
       func.get-transition-timing-function($timing-function)
       $delay;
