@@ -96,7 +96,7 @@ export function Dropdown<T extends HTMLElement>({
     open: isVisible,
     placement,
     reference: dropdownRef.current,
-    offset: 2,
+    offset: 4,
   });
 
   // Hook to handle clicks outside the floating element.

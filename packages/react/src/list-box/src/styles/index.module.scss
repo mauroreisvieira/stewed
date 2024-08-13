@@ -13,7 +13,6 @@
       (
         background-color: transparent,
         color: inherit,
-        padding-block: theme.get-spacing("sm"),
         padding-inline: theme.get-spacing("md"),
       )
     );
@@ -25,7 +24,7 @@
     align-items: center;
     justify-content: flex-start;
     width: 100%;
-    padding-block: theme.get-var(padding-block);
+    min-height: 34px;
     padding-inline: theme.get-var(padding-inline);
     overflow: hidden;
     cursor: pointer;

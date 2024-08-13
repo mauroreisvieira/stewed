@@ -49,7 +49,7 @@ export interface AvatarProps extends React.ComponentPropsWithRef<"div"> {
  * @param {AvatarProps} props - The props for the Avatar component.
  * @returns {React.ReactElement} - The rendered Avatar component.
  */
-export const Root = forwardRef(
+const Root = forwardRef(
   (
     {
       rootRef,

@@ -300,14 +300,15 @@ export const Suggested = {
                       </ListBox.Group>
                     </ListBox>
                   }>
-                  {(props) => (
+                  {({ ref, isOpen, open, close }) => (
                     <Button
-                      {...props}
+                      ref={ref}
+                      onClick={isOpen ? close : open}
                       size="sm"
                       skin="neutral"
                       appearance="outline"
                       leftSlot={
-                        props.isOpen ? <MdOutlineKeyboardArrowUp /> : <MdOutlineKeyboardArrowDown />
+                        isOpen ? <MdOutlineKeyboardArrowUp /> : <MdOutlineKeyboardArrowDown />
                       }
                       iconOnly>
                       Start

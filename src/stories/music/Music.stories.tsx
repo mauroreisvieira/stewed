@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useRef, useState } from "react";
 // UI Components
 import {
   Avatar,
@@ -23,14 +23,17 @@ import {
   Theme,
   useSnackbar,
   Box,
+  Scope,
 } from "@stewed/react";
 // Hooks
-import { useToggle } from "@stewed/hooks";
+import { useToggle, useFloating } from "@stewed/hooks";
 // Icons
+import { IoMdClose } from "react-icons/io";
+import { RiHistoryLine } from "react-icons/ri";
 import { TbMenuDeep } from "react-icons/tb";
 import { FaPlayCircle } from "react-icons/fa";
 import { IoMdAdd } from "react-icons/io";
-import { MdOutlinePlayCircleOutline } from "react-icons/md";
+import { MdOutlinePlayCircleOutline, MdOutlinePodcasts } from "react-icons/md";
 import { IoRadioOutline } from "react-icons/io5";
 import { RxGrid } from "react-icons/rx";
 import { RiPlayListFill } from "react-icons/ri";
@@ -76,12 +79,23 @@ const meta = {
 export default meta;
 
 function Music(): React.ReactElement {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [tabValue, setTabValue] = useState<"music" | "podcast">("music");
   const [drawerState, onHandleDrawer] = useToggle(false);
-  const [dialogState, onHandleDialog] = useToggle(false);
+  const [musicDialogState, onHandleMusicDialog] = useToggle(false);
+  const [podcastDialogState, onHandlePodcastDialog] = useToggle(false);
+  const [displayRecentSearch, onHandleDisplayRecentSearch] = useToggle(false);
 
   const { add } = useSnackbar();
 
   const idx = new Date().getTime().toString();
+
+  const { floating, x, y, isPositioned, width } = useFloating<HTMLInputElement, HTMLDivElement>({
+    open: displayRecentSearch,
+    placement: "bottom",
+    reference: inputRef.current,
+    offset: 12,
+  });
 
   const onHandleClick = useCallback(
     (index: number) => {
@@ -117,6 +131,10 @@ function Music(): React.ReactElement {
 
         <Grid.Item>
           <TextField
+            onFocus={onHandleDisplayRecentSearch}
+            onBlur={onHandleDisplayRecentSearch}
+            rootRef={inputRef}
+            list="recent-search"
             skin="neutral"
             appearance="soft"
             leftSlot={<FiSearch />}
@@ -137,11 +155,56 @@ function Music(): React.ReactElement {
             placeholder="What do you want to play?"
             fullWidth
           />
+
+          {displayRecentSearch && (
+            <Scope elevation="navigation">
+              <Card
+                ref={floating}
+                padding={{ block: "md", inline: "md" }}
+                style={{
+                  position: "absolute",
+                  visibility: isPositioned ? "visible" : "hidden",
+                  width: `${width}px`,
+                  left: `${x}px`,
+                  top: `${y}px`,
+                }}>
+                  <Card.Body>
+                    <ListBox>
+                      <ListBox.Group title="Recent searches">
+                        {Array.from({ length: 6 }).map((_, index) => (
+                          <Hoverable key={index}>
+                            {({ isHovering }) => (
+                              <ListBox.Item
+                                leftSlot={<RiHistoryLine />}
+                                rightSlot={
+                                  isHovering ? (
+                                    <Button
+                                      size="xs"
+                                      skin="neutral"
+                                      appearance="ghost"
+                                      leftSlot={<IoMdClose />}
+                                      iconOnly>
+                                      Remove
+                                    </Button>
+                                  ) : undefined
+                                }>
+                                Daily Mix 1
+                              </ListBox.Item>
+                            )}
+                          </Hoverable>
+                        ))}
+                      </ListBox.Group>
+                    </ListBox>
+                  </Card.Body>
+                </Card>
+
+            </Scope>
+          )}
         </Grid.Item>
 
         <Grid.Item>
           <Stack justify="end">
-            <Dropdown<HTMLSpanElement>
+            <Dropdown<HTMLDivElement>
               placement="bottom-end"
               content={
                 <ListBox>
@@ -151,10 +214,13 @@ function Music(): React.ReactElement {
                   <ListBox.Item>Logout</ListBox.Item>
                 </ListBox>
               }>
-              {({ ref, onClick }) => (
-                <span ref={ref} onClick={onClick}>
-                  <Avatar src="https://placehold.co/100x100" name="Mauro Vieira" />
-                </span>
+              {({ ref, open, close, isOpen }) => (
+                <Avatar
+                  rootRef={ref}
+                  onClick={isOpen ? close : open}
+                  src="https://placehold.co/100x100"
+                  name="Mauro Vieira"
+                />
               )}
             </Dropdown>
           </Stack>
@@ -165,7 +231,7 @@ function Music(): React.ReactElement {
 
       <Box space={{ y: "4xl" }}>
         <Stack items="baseline">
-          <Tabs value="music" size="lg">
+          <Tabs<"music" | "podcast"> value={tabValue} onValueChange={setTabValue}>
             <Tabs.List>
               <Tabs.Item value="music">Music</Tabs.Item>
               <Tabs.Item value="podcast">Podcast</Tabs.Item>
@@ -175,113 +241,152 @@ function Music(): React.ReactElement {
             </Tabs.List>
           </Tabs>
 
-          <Button onClick={onHandleDialog} size="lg" leftSlot={<IoMdAdd />} iconOnly>
+          <Button onClick={onHandleMusicDialog} size="lg" leftSlot={<IoMdAdd />} iconOnly>
             Add music
           </Button>
         </Stack>
       </Box>
 
-      <Grid cols={1} responsive={{ sm: { cols: 2 }, md: { cols: 4 } }} gap="md">
-        {Array.from({ length: 8 }).map((_, index) => (
-          <Grid.Item key={index}>
-            <Hoverable>
-              {({ isHovering }) => (
-                <Card shadow="none">
-                  <Box skin="neutral-faded">
-                    <Stack direction="row" items="center" justify="between" grow>
-                      <Stack items="center" gap="md">
-                        <img src="https://placehold.co/80x80" style={{ height: "100%" }} />
-                        <Text weight="medium">Daily Mix {index + 1}</Text>
-                      </Stack>
-                      {isHovering && (
-                        <Box padding={{ inline: "md" }}>
-                          <Stack items="center">
-                            <Button
-                              skin="primary"
-                              leftSlot={<FaPlayCircle />}
-                              onClick={() => onHandleClick(index)}
-                              iconOnly>
-                              Play
-                            </Button>
+      {tabValue === "music" ? (
+        <>
+          <Grid cols={1} responsive={{ sm: { cols: 2 }, md: { cols: 4 } }} gap="md">
+            {Array.from({ length: 8 }).map((_, index) => (
+              <Grid.Item key={index}>
+                <Hoverable>
+                  {({ isHovering }) => (
+                    <Card shadow="none">
+                      <Box skin="neutral-faded">
+                        <Stack direction="row" items="center" justify="between" grow>
+                          <Stack items="center" gap="md">
+                            <img src="https://placehold.co/80x80" style={{ height: "100%" }} />
+                            <Text weight="medium">Daily Mix {index + 1}</Text>
                           </Stack>
-                        </Box>
-                      )}
+                          {isHovering && (
+                            <Box padding={{ inline: "md" }}>
+                              <Stack items="center">
+                                <Button
+                                  skin="primary"
+                                  leftSlot={<FaPlayCircle />}
+                                  onClick={() => onHandleClick(index)}
+                                  iconOnly>
+                                  Play
+                                </Button>
+                              </Stack>
+                            </Box>
+                          )}
+                        </Stack>
+                      </Box>
+                    </Card>
+                  )}
+                </Hoverable>
+              </Grid.Item>
+            ))}
+          </Grid>
+
+          <Stack direction="column">
+            <Text as="h4" space={{ y: "xs" }}>
+              Listen Now
+            </Text>
+            <Text size="sm" skin="neutral">
+              Top picks for you. Updated daily.
+            </Text>
+
+            <Separator space={{ block: "lg" }} />
+
+            <Carousel
+              responsive={{
+                xs: {
+                  perView: 2,
+                },
+                md: { perView: 5 },
+              }}
+              loop={false}>
+              {Array.from({ length: 10 }).map((_, index) => (
+                <Card key={index} shadow="none">
+                  <Stack direction="column" gap="md">
+                    <img
+                      src="https://placehold.co/900x1200"
+                      style={{ width: "100%", height: "100%" }}
+                    />
+
+                    <Stack direction="column">
+                      <Text size="sm" weight="medium">
+                        React Rendezvous
+                      </Text>
+                      <Text size="sm" skin="neutral">
+                        Ethan Byte
+                      </Text>
                     </Stack>
-                  </Box>
+                  </Stack>
                 </Card>
-              )}
-            </Hoverable>
-          </Grid.Item>
-        ))}
-      </Grid>
+              ))}
+            </Carousel>
+          </Stack>
 
-      <Stack direction="column">
-        <Text as="h4" space={{ y: "xs" }}>
-          Listen Now
-        </Text>
-        <Text size="sm" skin="neutral">
-          Top picks for you. Updated daily.
-        </Text>
+          <Stack direction="column">
+            <Text as="h4" space={{ y: "xs" }}>
+              Made for You
+            </Text>
+            <Text size="sm" skin="neutral">
+              Your personal playlists. Updated daily.
+            </Text>
+            <Separator space={{ block: "lg" }} />
+            <Grid cols={2} responsive={{ sm: { cols: 4 }, md: { cols: 8 } }} gap="md">
+              {Array.from({ length: 8 }).map((_, index) => (
+                <Card key={index} shadow="none">
+                  <Stack direction="column" gap="md">
+                    <img
+                      src="https://placehold.co/200x200"
+                      style={{ width: "100%", height: "100%" }}
+                    />
 
-        <Separator space={{ block: "lg" }} />
+                    <div>
+                      <Text size="sm" weight="medium">
+                        React Rendezvous
+                      </Text>
+                      <Text size="xs" skin="neutral">
+                        Ethan Byte
+                      </Text>
+                    </div>
+                  </Stack>
+                </Card>
+              ))}
+            </Grid>
+          </Stack>
+        </>
+      ) : (
+        <>
+          <Stack direction="column">
+            <Text as="h4" space={{ y: "xs" }}>
+              New Episodes
+            </Text>
+            <Text size="sm" skin="neutral">
+              Your favorite podcasts. Updated daily.
+            </Text>
 
-        <Carousel
-          responsive={{
-            xs: {
-              perView: 2,
-            },
-            md: { perView: 5 },
-          }}
-          loop={false}>
-          {Array.from({ length: 10 }).map((_, index) => (
-            <Card key={index} shadow="none">
-              <Stack direction="column" gap="md">
-                <img
-                  src="https://placehold.co/900x1200"
-                  style={{ width: "100%", height: "100%" }}
-                />
+            <Separator space={{ block: "lg" }} />
 
-                <Stack direction="column">
-                  <Text size="sm" weight="medium">
-                    React Rendezvous
+            <Card>
+              <Box skin="neutral-faded" padding={{ block: "7xl", inline: "7xl" }}>
+                <Stack direction="column" justify="center" items="center" gap="lg">
+                  <Text size="6xl" skin="neutral">
+                    <MdOutlinePodcasts />
                   </Text>
-                  <Text size="sm" skin="neutral">
-                    Ethan Byte
+                  <Text size="xl" weight="medium">
+                    No episodes added
                   </Text>
+                  <Text skin="neutral" size="sm">
+                    You have not added any podcasts. Add one below.
+                  </Text>
+                  <Button size="sm" skin="secondary" onClick={onHandlePodcastDialog}>
+                    Add Podcast
+                  </Button>
                 </Stack>
-              </Stack>
+              </Box>
             </Card>
-          ))}
-        </Carousel>
-      </Stack>
-
-      <Stack direction="column">
-        <Text as="h4" space={{ y: "xs" }}>
-          Made for You
-        </Text>
-        <Text size="sm" skin="neutral">
-          Your personal playlists. Updated daily.
-        </Text>
-        <Separator space={{ block: "lg" }} />
-        <Grid cols={2} responsive={{ sm: { cols: 4 }, md: { cols: 8 } }} gap="md">
-          {Array.from({ length: 8 }).map((_, index) => (
-            <Card key={index} shadow="none">
-              <Stack direction="column" gap="md">
-                <img src="https://placehold.co/200x200" style={{ width: "100%", height: "100%" }} />
-
-                <div>
-                  <Text size="sm" weight="medium">
-                    React Rendezvous
-                  </Text>
-                  <Text size="xs" skin="neutral">
-                    Ethan Byte
-                  </Text>
-                </div>
-              </Stack>
-            </Card>
-          ))}
-        </Grid>
-      </Stack>
+          </Stack>
+        </>
+      )}
 
       <Drawer size="sm" onClose={onHandleDrawer} onClickOutside={onHandleDrawer} open={drawerState}>
         <Drawer.Header>
@@ -329,10 +434,14 @@ function Music(): React.ReactElement {
         </Drawer.Body>
       </Drawer>
 
-      <Dialog size="sm" onClose={onHandleDialog} onClickOutside={onHandleDialog} open={dialogState}>
+      <Dialog
+        onClose={onHandleMusicDialog}
+        onClickOutside={onHandleMusicDialog}
+        open={musicDialogState}>
         <Dialog.Header>
-          <Text size="lg" weight="semi-bold">
-            Add music
+          <Text as="h5">Add music</Text>
+          <Text size="sm" skin="neutral">
+            Upload a music directly to a playlist
           </Text>
         </Dialog.Header>
         <Dialog.Body>
@@ -343,7 +452,7 @@ function Music(): React.ReactElement {
                 <TextField
                   id="name"
                   type="text"
-                  placeholder="Enter your name"
+                  placeholder="Enter music name"
                   size="lg"
                   fullWidth
                 />
@@ -367,7 +476,40 @@ function Music(): React.ReactElement {
         </Dialog.Body>
         <Dialog.Footer>
           <Stack justify="end">
-            <Button size="lg">Save Changes</Button>
+            <Button size="lg">Add Music</Button>
+          </Stack>
+        </Dialog.Footer>
+      </Dialog>
+
+      <Dialog
+        onClose={onHandlePodcastDialog}
+        onClickOutside={onHandlePodcastDialog}
+        open={podcastDialogState}>
+        <Dialog.Header>
+          <Text as="h5">Add Podcast</Text>
+          <Text size="sm" skin="neutral">
+            Copy and paste the podcast feed URL to import.
+          </Text>
+        </Dialog.Header>
+        <Dialog.Body>
+          <Stack direction="column" gap="xl">
+            <FormField>
+              <FormField.Label htmlFor="url">Podcast URL</FormField.Label>
+              <FormField.Control>
+                <TextField
+                  id="url"
+                  type="text"
+                  placeholder="https://example.com/feed.xml"
+                  size="lg"
+                  fullWidth
+                />
+              </FormField.Control>
+            </FormField>
+          </Stack>
+        </Dialog.Body>
+        <Dialog.Footer>
+          <Stack justify="end">
+            <Button size="lg">Import podcast</Button>
           </Stack>
         </Dialog.Footer>
       </Dialog>

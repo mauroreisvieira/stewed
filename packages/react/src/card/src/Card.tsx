@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 // Compound Component
 import { CardBody } from "./CardBody";
 import { CardHeader } from "./CardHeader";
@@ -56,48 +56,55 @@ export interface CardProps extends React.ComponentPropsWithRef<"div"> {
  * @param {CardProps} props - The props for the Card component.
  * @returns {React.ReactElement} - The rendered Card component.
  */
-export function Card({
-  direction = "column",
-  skin = "default",
-  shadow = "sm",
-  padding = {
-    block: "xl",
-    inline: "xl",
+const Root = forwardRef(
+  (
+    {
+      direction = "column",
+      skin = "default",
+      shadow = "sm",
+      padding = {
+        block: "xl",
+        inline: "xl",
+      },
+      selected,
+      hoverable,
+      className,
+      children,
+      ...props
+    }: CardProps,
+    ref: React.Ref<HTMLDivElement>,
+  ): React.ReactElement => {
+    // Importing useBem to handle BEM class names
+    const { getBlock } = useBem({ block: components.Card, styles });
+
+    // Generating CSS classes based on component props and styles
+    const cssClasses = {
+      root: getBlock({
+        modifiers: [
+          skin,
+          direction,
+          padding?.block && `padding-block-${padding.block}`,
+          padding?.inline && `padding-inline-${padding.inline}`,
+          shadow && `shadow-${shadow}`,
+          hoverable && "hoverable",
+          selected && "selected",
+        ],
+        extraClasses: className,
+      }),
+    };
+
+    return (
+      <div ref={ref} className={cssClasses.root} aria-selected={selected} {...props}>
+        {children}
+      </div>
+    );
   },
-  selected,
-  hoverable,
-  className,
-  children,
-  ...props
-}: CardProps): React.ReactElement {
-  // Importing useBem to handle BEM class names
-  const { getBlock } = useBem({ block: components.Card, styles });
-
-  // Generating CSS classes based on component props and styles
-  const cssClasses = {
-    root: getBlock({
-      modifiers: [
-        skin,
-        direction,
-        padding?.block && `padding-block-${padding.block}`,
-        padding?.inline && `padding-inline-${padding.inline}`,
-        shadow && `shadow-${shadow}`,
-        hoverable && "hoverable",
-        selected && "selected",
-      ],
-      extraClasses: className,
-    }),
-  };
-
-  return (
-    <div className={cssClasses.root} aria-selected={selected} {...props}>
-      {children}
-    </div>
-  );
-}
+);
 
 // Compound component composition
-Card.Body = CardBody;
-Card.Media = CardMedia;
-Card.Header = CardHeader;
-Card.Footer = CardFooter;
+export const Card = Object.assign(Root, {
+  Body: CardBody,
+  Media: CardMedia,
+  Header: CardHeader,
+  Footer: CardFooter,
+});

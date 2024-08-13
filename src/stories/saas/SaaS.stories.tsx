@@ -475,10 +475,10 @@ export const Inventory = {
                     </ListBox.Group>
                   </ListBox>
                 }>
-                {({ ref, onClick, isOpen }) => (
+                {({ ref, open, close, isOpen }) => (
                   <Button
                     ref={ref}
-                    onClick={onClick}
+                    onClick={isOpen ? close : open}
                     appearance="outline"
                     skin={isOpen ? "primary" : "neutral"}
                     leftSlot={<LuFilter />}>

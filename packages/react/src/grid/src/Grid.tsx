@@ -62,7 +62,7 @@ export interface GridProps<T>
  * @param {GridProps} props - The props for the Grid component.
  * @returns {React.ReactElement} - The rendered Grid component.
  */
-export const Root = fixedForwardRef(
+const Root = fixedForwardRef(
   <T extends React.ElementType>(
     {
       as,
