@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 // UI Components
-import { Backdrop, Scope } from "../..";
+import { Backdrop, Scope, useTheme } from "../..";
 // Provider
 import { type DialogProviderProps, DialogProvider } from "./DialogProvider";
 // Compound Component
@@ -8,21 +8,41 @@ import { DialogBody } from "./DialogBody";
 import { DialogHeader } from "./DialogHeader";
 import { DialogFooter } from "./DialogFooter";
 // Hooks
-import { useBem, useClickOutside, useScrollLock } from "@stewed/hooks";
-import { useFocusTrap } from "@stewed/hooks";
+import {
+  useBem,
+  useClickOutside,
+  useResponsive,
+  useScrollLock,
+  useFocusTrap,
+  type UseResponsiveProps,
+} from "@stewed/hooks";
 // Tokens
-import { components } from "@stewed/tokens";
+import { components, type Spacings } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface DialogProps extends React.ComponentProps<"div">, DialogProviderProps {
+export interface DialogProps
+  extends React.ComponentProps<"div">,
+    DialogProviderProps,
+    UseResponsiveProps<{
+      /**
+       * Specifies the margin around the dialog to ensure safe spacing from the viewport edges.
+       * @default xl
+       */
+      safeMargin?: Spacings;
+      /**
+       * Changes the size of the dialog, will specify the width of the element.
+       * @default md
+       */
+      size?: "sm" | "md" | "lg" | "xl";
+    }> {
   /** The controlled open state of the dialog. */
   open?: boolean;
   /**
-   * Changes the size of the dialog, will specify the width of the element.
-   * @default md
+   * Allows scrolling within the viewport when content overflows.
+   * @default false
    */
-  size?: "sm" | "md" | "lg" | "xl";
+  scrollInViewport?: boolean;
   /** Callback function invoked when the escape key is pressed. */
   onEscape?: () => void;
   /** Callback function invoked when the dialog is clicked outside. */
@@ -50,7 +70,10 @@ export interface DialogProps extends React.ComponentProps<"div">, DialogProvider
  */
 export function Dialog({
   size = "md",
+  safeMargin = "xl",
+  responsive,
   open,
+  scrollInViewport = false,
   className,
   children,
   onClose,
@@ -73,9 +96,30 @@ export function Dialog({
     enabled: !!open && !!rootRef,
   });
 
+  // Retrieve values from the current theme context
+  const { activeToken } = useTheme();
+
+  // Compute responsive props based on current theme and screen sizes
+  const computedProps = useResponsive(
+    {
+      size,
+      safeMargin,
+      responsive,
+    },
+    activeToken.breakpoints,
+  );
+
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ modifiers: [size, open && "open"], extraClasses: className }),
+    root: getBlock({
+      modifiers: [
+        computedProps.size,
+        open && "open",
+        scrollInViewport && "scroll-in-viewport",
+        safeMargin && `safe-margin-${safeMargin}`,
+      ],
+      extraClasses: className,
+    }),
     surface: getElement([`surface`]),
   };
 
@@ -103,7 +147,11 @@ export function Dialog({
           <Backdrop blur />
           <DialogProvider onClose={onClose}>
             <div className={cssClasses.root} {...props}>
-              <div role="dialog" onKeyDown={onHandleKeydown} ref={setRootRef} className={cssClasses.surface}>
+              <div
+                role="dialog"
+                onKeyDown={onHandleKeydown}
+                ref={setRootRef}
+                className={cssClasses.surface}>
                 {children}
               </div>
             </div>

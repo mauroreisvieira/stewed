@@ -53,6 +53,7 @@ export const HugeContent: Story = {
   },
   args: {
     open: false,
+    scrollInViewport: true,
     children: (
       <>
         <Dialog.Header>

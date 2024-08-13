@@ -10,11 +10,13 @@ import { useBem } from "@stewed/hooks";
 // Styles
 import styles from "./styles/index.module.scss";
 
+interface DialogHeaderProps extends React.ComponentPropsWithRef<"div"> {}
+
 export function DialogHeader({
   className,
   children,
   ...props
-}: React.ComponentPropsWithRef<"div">): React.ReactElement {
+}: DialogHeaderProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock, getElement } = useBem({ block: `${components.Dialog}__header`, styles });
 

@@ -17,7 +17,8 @@
   @include theme.define-var(
     (
       opacity: 0,
-      background: theme.get-color("background-elevated"),
+      background-color: theme.get-color("background-elevated"),
+      border-radius: theme.get-var(radius),
     )
   );
 
@@ -28,13 +29,14 @@
 
   &__surface {
     position: relative;
-    width: 95%;
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - theme.get-var(safe-margin));
     max-width: theme.get-var(width);
-    max-height: 95%;
+    max-height: calc(100% - theme.get-var(safe-margin));
     margin: auto;
-    overflow-y: auto;
-    background-color: theme.get-var(background);
-    border-radius: theme.get-var(radius);
+    background-color: theme.get-var(background-color);
+    border-radius: theme.get-var(border-radius);
     box-shadow: theme.get-var(shadow);
 
     @media screen and (prefers-reduced-motion: no-preference) {
@@ -53,6 +55,10 @@
     }
   }
 
+  &__body {
+    overflow-y: auto;
+  }
+
   &__header,
   &__body,
   &__footer {
@@ -63,6 +69,35 @@
     @include theme.define-var(
       (
         opacity: 1,
+      )
+    );
+  }
+
+  &--scroll-in-viewport {
+    overflow-y: auto;
+
+    .#{$dialog-root} {
+      &__body {
+        overflow-y: unset;
+      }
+    }
+  }
+
+  // Space
+  @each $key, $value in $dialog-space {
+    &--safe-margin-#{$key} {
+      @include theme.define-var(
+        (
+          safe-margin: $value,
+        )
+      );
+    }
+  }
+
+  &--safe-margin-none {
+    @include theme.define-var(
+      (
+        border-radius: 0,
       )
     );
   }
