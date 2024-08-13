@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 // Context
-import { AccordionProvider } from "./context/AccordionProvider";
+import { AccordionProvider } from "./AccordionProvider";
 // Components
 import { Separator } from "../../separator";
 // Hooks

@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 // Hooks
 import { useBem } from "@stewed/hooks";
-import { useAccordion } from "./context/AccordionContext";
+import { useAccordion } from "./AccordionContext";
 // Tokens
 import { components } from "@stewed/tokens";
 // Styles
