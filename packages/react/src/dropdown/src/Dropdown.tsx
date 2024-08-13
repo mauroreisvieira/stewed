@@ -11,9 +11,11 @@ import styles from "./styles/index.module.scss";
 export interface DropdownChildrenProps<T> {
   /** Ref to attach to the `Dropdown` element */
   ref: React.Ref<T>;
-  /** Event handler for mouse click */
-  onClick: React.MouseEventHandler<T>;
-  /** Current state of the dropdown */
+  /** Callback to open the dropdown */
+  open: () => void;
+  /** Callback to close dropdown  */
+  close: () => void;
+  /** Indicates whether the dropdown is currently open */
   isOpen: boolean;
 }
 
@@ -51,8 +53,8 @@ export interface DropdownProps<T>
  * @example
  * ```tsx
  * <Dropdown<HTMLButtonElement> placement="top" content="Surprise surprise, the king is back...">
- *   {(props) => (
- *     <button {...props}>Conor McGregor</button>
+ *   {({ ref, open }) => (
+ *     <button ref={ref} onClick={open}>Conor McGregor</button>
  *   )}
  * </Dropdown>
  * ```
@@ -104,15 +106,22 @@ export function Dropdown<T extends HTMLElement>({
     onClickOutside: () => (allowClickOutside ? onClickOutside : setOpen(false)),
   });
 
+  // Opens the dropdown by setting the state to true.
   const onHandleOpen = (): void => {
-    setOpen((prev) => !prev);
+    setOpen(true);
+  };
+
+  // Closes the dropdown by setting the state to false.
+  const onHandleClose = (): void => {
+    setOpen(false);
   };
 
   return (
     <>
       {children?.({
         ref: dropdownRef,
-        onClick: onHandleOpen,
+        open: onHandleOpen,
+        close: onHandleClose,
         isOpen: !!isVisible,
       })}
       {isVisible && (

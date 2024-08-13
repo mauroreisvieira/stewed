@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // Components
-import { Button, Theme, Dropdown, Box, ListBox, Separator } from "../../index";
+import { Button, Theme, Dropdown, Stack, Box, ListBox, Separator } from "../../index";
 
 type Story = StoryObj<typeof Dropdown>;
 
@@ -11,8 +11,10 @@ const meta: Meta<typeof Dropdown> = {
   decorators: [
     (Story) => (
       <Theme>
-        <Box justify="center" items="center" padding={{ block: "7xl", inline: "7xl" }} grow>
-          <Story />
+        <Box padding={{ block: "7xl", inline: "7xl" }}>
+          <Stack justify="center" items="center">
+            <Story />
+          </Stack>
         </Box>
       </Theme>
     ),
@@ -59,8 +61,12 @@ export const Base: Story = {
             <ListBox.Item rightSlot="⌘Y">Redo</ListBox.Item>
           </ListBox>
         }>
-        {(props) => {
-          return <Button {...props}>Edit</Button>;
+        {({ ref, open, close, isOpen }) => {
+          return (
+            <Button ref={ref} onClick={isOpen ? close : open}>
+              Edit
+            </Button>
+          );
         }}
       </Dropdown>
     );
