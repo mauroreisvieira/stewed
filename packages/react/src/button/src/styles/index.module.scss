@@ -175,7 +175,7 @@
         size: map.get($button-sizes, "xs"),
         padding-inline: theme.get-spacing("xs"),
         text-line-height: theme.get-line-height("xs"),
-        text-font-size: theme.get-font-size("xs"),
+        text-font-size: theme.get-font-size("xxs"),
       )
     );
   }
@@ -186,7 +186,7 @@
         size: map.get($button-sizes, "sm"),
         padding-inline: theme.get-spacing("md"),
         text-line-height: theme.get-line-height("sm"),
-        text-font-size: theme.get-font-size("sm"),
+        text-font-size: theme.get-font-size("xs"),
       )
     );
   }
