@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
@@ -33,32 +33,39 @@ export interface TextAreaProps extends React.ComponentPropsWithRef<"textarea"> {
  * <TextArea>Type something...</TextArea>
  * ```
  *
+ * @remarks This component support all native props from the `HTMLTextAreaElement`.
+ *
  * @param {TextAreaProps} props - The props for the TextArea component.
  * @returns {React.ReactElement} - The rendered TextArea component.
  */
-export function TextArea({
-  skin = "neutral-faded",
-  appearance = "outline",
-  className,
-  disabled,
-  autoHeight,
-  children,
-  ...props
-}: TextAreaProps): React.ReactElement {
-  // Importing useBem to handle BEM class names
-  const { getBlock } = useBem({ block: components.TextArea, styles });
+export const TextArea = forwardRef(
+  (
+    {
+      skin = "neutral-faded",
+      appearance = "outline",
+      className,
+      disabled,
+      autoHeight,
+      children,
+      ...props
+    }: TextAreaProps,
+    ref: React.Ref<HTMLTextAreaElement>,
+  ): React.ReactElement => {
+    // Importing useBem to handle BEM class names
+    const { getBlock } = useBem({ block: components.TextArea, styles });
 
-  // Generating CSS classes based on component props and styles
-  const cssClasses = {
-    root: getBlock({
-      modifiers: [disabled && "disabled", autoHeight && "auto-height", skin, appearance],
-      extraClasses: className,
-    }),
-  };
+    // Generating CSS classes based on component props and styles
+    const cssClasses = {
+      root: getBlock({
+        modifiers: [disabled && "disabled", autoHeight && "auto-height", skin, appearance],
+        extraClasses: className,
+      }),
+    };
 
-  return (
-    <textarea className={cssClasses.root} disabled={disabled} {...props}>
-      {children}
-    </textarea>
-  );
-}
+    return (
+      <textarea ref={ref} className={cssClasses.root} disabled={disabled} {...props}>
+        {children}
+      </textarea>
+    );
+  },
+);
