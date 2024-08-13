@@ -1,4 +1,4 @@
-import { useState, useEffect, useReducer, useCallback, useRef } from "react";
+import React, { useState, useEffect, useReducer, useCallback, useRef } from "react";
 
 /**
  * Defines the possible placements for the floating element relative to the reference element.
@@ -45,9 +45,20 @@ interface UseFloatingProps<R extends HTMLElement> extends Pick<FloatingOptions, 
   open?: boolean;
   /**
    * Adds distance (margin or spacing) between the reference and floating element.
-   * Default is 0.
+   * @default 0
    */
   offset?: number;
+}
+
+interface UseFloating<T> extends FloatingOptions {
+  /** The reference to attach to the floating element. */
+  floating: React.Ref<T>;
+  /** The x-coordinate of the floating element. */
+  x: number;
+  /** The y-coordinate of the floating element. */
+  y: number;
+  /** The width of the reference element. */
+  width: number;
 }
 
 /**
@@ -68,9 +79,9 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
   placement = "bottom",
   offset = 0,
   open,
-}: UseFloatingProps<R>) {
+}: UseFloatingProps<R>): UseFloating<F> {
   const floating = useRef<F>(null);
-  const [floatingPosition, setFloatingPosition] = useState({ x: 0, y: 0 });
+  const [floatingPosition, setFloatingPosition] = useState({ x: 0, y: 0, width: 0 });
 
   const [options, setOptions] = useReducer(
     (prev: FloatingOptions, next: Partial<FloatingOptions>) => {
@@ -166,7 +177,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
       setOptions({ placement: "top" });
     }
 
-    setFloatingPosition({ x, y });
+    setFloatingPosition({ x, y, width: referenceRect.width });
   }, [offset, options.isPositioned, options.placement, reference]);
 
   useEffect(() => {

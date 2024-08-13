@@ -26,7 +26,7 @@ export const Floating: Story = {
 
     const [isOpen, setOpen] = useState(false);
 
-    const { floating, x, y, isPositioned } = useFloating<HTMLButtonElement, HTMLDivElement>({
+    const { floating, x, y, isPositioned, width } = useFloating<HTMLButtonElement, HTMLDivElement>({
       open: isOpen,
       placement: "bottom-start",
       reference: btnRef.current,
@@ -36,7 +36,7 @@ export const Floating: Story = {
     return (
       <>
         <Button ref={btnRef} onClick={() => setOpen(!isOpen)}>
-          Click Me
+          Reference of floating element
         </Button>
         {isOpen && (
           <Scope elevation="navigation">
@@ -47,6 +47,7 @@ export const Floating: Story = {
               style={{
                 position: "absolute",
                 visibility: isPositioned ? "visible" : "hidden",
+                width: `${width}px`,
                 left: `${x}px`,
                 top: `${y}px`,
               }}>
