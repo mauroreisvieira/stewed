@@ -21,6 +21,7 @@
     cursor: pointer;
 
     @include theme.focus-styles;
+
     &::-webkit-details-marker {
       display: none;
     }

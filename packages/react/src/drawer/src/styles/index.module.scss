@@ -1,19 +1,19 @@
 @use "@stewed/react/src/theme/src/styles" as theme;
 @use "./variables" as *;
 
-@keyframes slideInLeft {
+@keyframes slide-in-left {
   0% {
     transform: translateX(100%);
   }
 }
 
-@keyframes slideInRight {
+@keyframes slide-in-right {
   0% {
     transform: translateX(-100%);
   }
 }
 
-@keyframes slideInBottom {
+@keyframes slide-in-bottom {
   0% {
     transform: translateY(100%);
   }
@@ -34,19 +34,19 @@
 
   &__surface {
     position: absolute;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     height: 100%;
     margin: auto;
     background-color: theme.get-var(background);
     box-shadow: theme.get-var(shadow);
-    display: flex;
-    flex-direction: column;
   }
 
   &__header {
     display: flex;
-    justify-content: space-between;
     align-items: baseline;
+    justify-content: space-between;
   }
 
   &__body {
@@ -77,7 +77,7 @@
 
       @media screen and (prefers-reduced-motion: no-preference) {
         animation: theme.get-transition-duration("quickly")
-          theme.get-transition-timing-function("ease-in") 0s 1 normal none running slideInLeft;
+          theme.get-transition-timing-function("ease-in") 0s 1 normal none running slide-in-left;
       }
     }
   }
@@ -91,7 +91,7 @@
 
       @media screen and (prefers-reduced-motion: no-preference) {
         animation: theme.get-transition-duration("quickly")
-          theme.get-transition-timing-function("ease-in") 0s 1 normal none running slideInRight;
+          theme.get-transition-timing-function("ease-in") 0s 1 normal none running slide-in-right;
       }
     }
   }
@@ -100,12 +100,12 @@
     .#{$drawer-root}__surface {
       bottom: 0;
       max-height: theme.get-var(height);
-      border-top-right-radius: theme.get-var(radius);
       border-top-left-radius: theme.get-var(radius);
+      border-top-right-radius: theme.get-var(radius);
 
       @media screen and (prefers-reduced-motion: no-preference) {
         animation: theme.get-transition-duration("quickly")
-          theme.get-transition-timing-function("ease-in") 0s 1 normal none running slideInBottom;
+          theme.get-transition-timing-function("ease-in") 0s 1 normal none running slide-in-bottom;
       }
     }
   }

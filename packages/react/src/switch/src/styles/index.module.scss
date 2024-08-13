@@ -17,7 +17,6 @@
     )
   );
 
-
   @include theme.focus-styles($target: ":focus-within .#{$switch-root}__control");
   @include theme.disabled-styles;
 

@@ -12,7 +12,6 @@
     "build": "vite build",
     "watch": "vite build --watch",
     "lint": "eslint .",
-    "lint:style": "stylelint \"**/*.scss\"",
     "test": "jest",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },

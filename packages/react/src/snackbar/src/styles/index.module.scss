@@ -2,7 +2,7 @@
 @use "@stewed/react/src/theme/src/styles" as theme;
 @use "./variables" as *;
 
-@keyframes slideInLeft {
+@keyframes slide-in-left {
   0% {
     opacity: 0;
     transform: translateX(100%);
@@ -14,47 +14,46 @@
   }
 }
 
-@keyframes slideInRight {
+@keyframes slide-in-right {
   0% {
     transform: translateX(-100%);
   }
 }
 
-@keyframes slideInBottom {
+@keyframes slide-in-bottom {
   0% {
     transform: translateY(100%);
   }
 }
 
-@keyframes slideInTop {
+@keyframes slide-in-top {
   0% {
     transform: translateY(-100%);
   }
 }
 
 @include theme.scope($snackbar-root) {
-  display: flex;
   position: fixed;
   inset: 0;
+  display: flex;
 
   &__content {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 16px;
-    padding: 16px;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    height: 100%;
     align-items: theme.get-var(align-items);
     justify-content: theme.get-var(justify-content);
+    width: 100%;
+    height: 100%;
+    padding: 16px;
     pointer-events: none;
   }
 
   &__notification {
-    pointer-events: all;
     width: 100%;
     max-width: theme.get-var(max-width);
+    pointer-events: all;
   }
 
   // Max width of the screen
@@ -79,7 +78,7 @@
     .#{$snackbar-root}__notification {
       @media screen and (prefers-reduced-motion: no-preference) {
         animation: theme.get-transition-duration("normal")
-          theme.get-transition-timing-function("ease-in") 0s 1 normal none running slideInTop;
+          theme.get-transition-timing-function("ease-in") 0s 1 normal none running slide-in-top;
       }
     }
   }
@@ -95,7 +94,7 @@
     .#{$snackbar-root}__notification {
       @media screen and (prefers-reduced-motion: no-preference) {
         animation: theme.get-transition-duration("normal")
-          theme.get-transition-timing-function("ease-in") 0s 1 normal none running slideInRight;
+          theme.get-transition-timing-function("ease-in") 0s 1 normal none running slide-in-right;
       }
     }
   }
@@ -111,7 +110,7 @@
     .#{$snackbar-root}__notification {
       @media screen and (prefers-reduced-motion: no-preference) {
         animation: theme.get-transition-duration("normal")
-          theme.get-transition-timing-function("ease-in") 0s 1 normal none running slideInLeft;
+          theme.get-transition-timing-function("ease-in") 0s 1 normal none running slide-in-left;
       }
     }
   }
@@ -127,7 +126,7 @@
     .#{$snackbar-root}__notification {
       @media screen and (prefers-reduced-motion: no-preference) {
         animation: theme.get-transition-duration("normal")
-          theme.get-transition-timing-function("ease-in") 0s 1 normal none running slideInBottom;
+          theme.get-transition-timing-function("ease-in") 0s 1 normal none running slide-in-bottom;
       }
     }
   }
@@ -143,7 +142,7 @@
     .#{$snackbar-root}__notification {
       @media screen and (prefers-reduced-motion: no-preference) {
         animation: theme.get-transition-duration("normal")
-          theme.get-transition-timing-function("ease-in") 0s 1 normal none running slideInRight;
+          theme.get-transition-timing-function("ease-in") 0s 1 normal none running slide-in-right;
       }
     }
   }
@@ -159,7 +158,7 @@
     .#{$snackbar-root}__notification {
       @media screen and (prefers-reduced-motion: no-preference) {
         animation: theme.get-transition-duration("normal")
-          theme.get-transition-timing-function("ease-in") 0s 1 normal none running slideInLeft;
+          theme.get-transition-timing-function("ease-in") 0s 1 normal none running slide-in-left;
       }
     }
   }

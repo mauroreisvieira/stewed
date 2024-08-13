@@ -11,17 +11,17 @@
   );
 
   position: relative;
-  display: block;
   box-sizing: border-box;
+  display: block;
   height: theme.get-var(screen);
   background-color: theme.get-var(background-color);
 
   &--hidden {
-  @include theme.define-var(
-    (
-      display: none,
-    )
-  );
+    @include theme.define-var(
+      (
+        display: none,
+      )
+    );
   }
 
   // Skins

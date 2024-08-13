@@ -15,10 +15,10 @@
 @include theme.scope($tooltip-root) {
   position: absolute;
   max-width: 240px;
-  padding-inline: theme.get-spacing("sm");
   padding-block: theme.get-spacing("xs");
-  background-color: theme.get-var(background-color);
+  padding-inline: theme.get-spacing("sm");
   color: theme.get-var(color);
+  background-color: theme.get-var(background-color);
   border-radius: theme.get-radius("sm");
   box-shadow: theme.get-shadow("md");
 

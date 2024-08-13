@@ -10,8 +10,8 @@
   gap: theme.get-spacing("lg");
   padding: theme.get-var(padding);
   background-color: theme.get-var(background-color);
-  box-shadow: theme.get-var(box-shadow);
   border-radius: theme.get-var(radius);
+  box-shadow: theme.get-var(box-shadow);
 
   &__title {
     @include text.typography(

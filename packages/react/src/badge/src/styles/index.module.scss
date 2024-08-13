@@ -24,19 +24,19 @@
 
     position: theme.get-var(position);
     inset: theme.get-var(inset);
+    box-sizing: border-box;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     min-width: theme.get-var(size);
     height: theme.get-var(size);
     padding-inline: theme.get-var(padding-inline);
-    white-space: nowrap;
-    transform: theme.get-var(transform);
     color: theme.get-var(color);
+    white-space: nowrap;
     background-color: theme.get-var(background-color);
     border: 1px solid theme.get-var(border-color);
     border-radius: theme.get-var(radius);
-    box-sizing: border-box;
+    transform: theme.get-var(transform);
 
     &:empty {
       @include theme.define-var(

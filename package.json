@@ -7,7 +7,8 @@
     "build": "turbo run build",
     "watch": "turbo run watch",
     "lint": "turbo run lint --parallel",
-    "lint:style": "turbo run lint:style --parallel",
+    "lint:style": "stylelint '**/*.scss'",
+    "lint:style:fix": "stylelint '**/*.scss' --fix",
     "format": "prettier --write \"**/*.{ts,tsx,md,mdx}\"",
     "test": "turbo run test",
     "clean": "turbo clean && rm -rf node_modules",
@@ -60,7 +61,8 @@
     "@types/jest": "^29.5.12",
     "typescript": "^5.5.3",
     "@testing-library/react-hooks": "^8.0.1",
-    "@testing-library/react": "^16.0.0"
+    "@testing-library/react": "^16.0.0",
+    "stylelint": "^16.2.1"
   },
   "optionalDependencies": {
     "@nx/nx-linux-x64-gnu": "^19.4.2"

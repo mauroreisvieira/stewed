@@ -6,13 +6,6 @@ export interface DialogProviderProps extends DialogContextProps {
   children?: React.ReactNode;
 }
 
-export function DialogProvider({ onClose, children }: DialogProviderProps): React.ReactElement {
-  return (
-    <DialogContext.Provider
-      value={{
-        onClose,
-      }}>
-      {children}
-    </DialogContext.Provider>
-  );
+export function DialogProvider({ children, ...props }: DialogProviderProps): React.ReactElement {
+  return <DialogContext.Provider value={props}>{children}</DialogContext.Provider>;
 }

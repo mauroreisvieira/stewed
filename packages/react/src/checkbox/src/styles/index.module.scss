@@ -92,22 +92,20 @@
     &--#{$key} {
       .#{$checkbox-root}__input {
         &:indeterminate,
-        &:checked {
-          + .checkbox__control {
+        &:checked + .checkbox__control {
+          @include theme.define-var(
+            (
+              background-color: theme.get-color($value, "500"),
+              border-color: theme.get-color($value, "500"),
+            )
+          );
+
+          @include theme.hover {
             @include theme.define-var(
               (
-                background-color: theme.get-color($value, "500"),
-                border-color: theme.get-color($value, "500"),
+                background-color: theme.get-color($value, "600"),
               )
             );
-
-            @include theme.hover {
-              @include theme.define-var(
-                (
-                  background-color: theme.get-color($value, "600"),
-                )
-              );
-            }
           }
         }
       }

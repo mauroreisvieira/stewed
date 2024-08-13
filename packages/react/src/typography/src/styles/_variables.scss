@@ -79,12 +79,4 @@ $typography-weights: theme.get-font-weight();
 $typography-space: theme.get-spacing();
 
 /// Skins
-$typography-skins: (
-  "primary",
-  "secondary",
-  "neutral",
-  "critical",
-  "success",
-  "info",
-  "warning"
-);
+$typography-skins: ("primary", "secondary", "neutral", "critical", "success", "info", "warning");

@@ -14,9 +14,9 @@
   $width: 2px
 ) {
   &#{$target} {
+    z-index: 1;
     outline: $width solid $color;
     outline-offset: $offset;
-    z-index: 1;
 
     @content;
   }

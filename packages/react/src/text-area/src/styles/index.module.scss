@@ -11,8 +11,8 @@
   justify-content: center;
   width: 100%;
   padding: $textarea-spacings;
-  border: 1px solid transparent;
   touch-action: manipulation;
+  border: 1px solid transparent;
   border-radius: theme.get-var(radius);
 
   @include text.typography(base, $overrides: (font-size: theme.get-font-size("md")));
@@ -44,8 +44,8 @@
   }
 
   &--soft {
-    border-color: transparent;
     background-color: color-mix(in srgb, theme.get-var(background-color), transparent 95%);
+    border-color: transparent;
 
     &:hover {
       background-color: color-mix(in srgb, theme.get-var(background-color), transparent 90%);
