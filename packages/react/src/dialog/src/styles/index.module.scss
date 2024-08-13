@@ -19,13 +19,16 @@
       opacity: 0,
       background-color: theme.get-color("background-elevated"),
       border-radius: theme.get-var(radius),
+      height: 100%,
+      padding-block: 0,
     )
   );
 
   position: fixed;
   display: flex;
   width: 100%;
-  height: 100%;
+  height: theme.get-var(height);
+  padding-block: theme.get-var(padding-block);
 
   &__surface {
     position: relative;
@@ -76,14 +79,25 @@
   &--scroll-in-viewport {
     overflow-y: auto;
 
+    @include theme.define-var(
+      (
+        height: calc(100% - theme.get-var(safe-margin)),
+        padding-block: calc(theme.get-var(safe-margin) / 2),
+      )
+    );
+
     .#{$dialog-root} {
+      &__surface {
+        max-height: unset;
+      }
+
       &__body {
         overflow-y: unset;
       }
     }
   }
 
-  // Space
+  // Safe Margin
   @each $key, $value in $dialog-space {
     &--safe-margin-#{$key} {
       @include theme.define-var(
@@ -94,14 +108,7 @@
     }
   }
 
-  &--safe-margin-none {
-    @include theme.define-var(
-      (
-        border-radius: 0,
-      )
-    );
-  }
-
+  // Sizes
   &--sm {
     @include theme.define-var(
       (

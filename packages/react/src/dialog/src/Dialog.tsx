@@ -69,10 +69,10 @@ export interface DialogProps
  * @returns {React.ReactElement} - The rendered Dialog component.
  */
 export function Dialog({
+  open,
   size = "md",
   safeMargin = "xl",
   responsive,
-  open,
   scrollInViewport = false,
   className,
   children,
