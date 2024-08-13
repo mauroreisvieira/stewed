@@ -1,6 +1,7 @@
 import React, { useCallback, useRef, useState } from "react";
-// Provider
-import { SnackbarProvider, type SnackbarContextProps, type SnackbarNotification } from "./context";
+// Context Provider
+import { type SnackbarContextProps, type SnackbarNotification } from "./SnackbarContext";
+import { SnackbarProvider } from "./SnackbarProvider";
 // UI Components
 import { Scope, Alert } from "../..";
 // Hooks
