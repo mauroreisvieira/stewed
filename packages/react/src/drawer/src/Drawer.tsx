@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 // UI Components
-import { Backdrop, Scope } from "../..";
+import { Backdrop, Scope, useTheme } from "../..";
 // Provider
 import { type DrawerProviderProps, DrawerProvider } from "./DrawerProvider";
 // Compound Component
@@ -8,21 +8,36 @@ import { DrawerBody } from "./DrawerBody";
 import { DrawerHeader } from "./DrawerHeader";
 import { DrawerFooter } from "./DrawerFooter";
 // Hooks
-import { useBem, useClickOutside, useScrollLock } from "@stewed/hooks";
-import { useFocusTrap } from "@stewed/hooks";
+import {
+  useBem,
+  useClickOutside,
+  useResponsive,
+  useScrollLock,
+  useFocusTrap,
+  type UseResponsiveProps,
+} from "@stewed/hooks";
 // Tokens
-import { components } from "@stewed/tokens";
+import { components, type Spacings } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface DrawerProps extends React.ComponentProps<"div">, DrawerProviderProps {
+export interface DrawerProps
+  extends React.ComponentProps<"div">,
+    DrawerProviderProps,
+    UseResponsiveProps<{
+      /**
+       * Specifies the margin around the drawer to ensure safe spacing from the viewport edges.
+       * @default xl
+       */
+      safeMargin?: Spacings;
+      /**
+       * Changes the size of the Drawer, will specify the width of the element.
+       * @default md
+       */
+      size?: "sm" | "md";
+    }> {
   /** The controlled open state of the Drawer. */
   open?: boolean;
-  /**
-   * Changes the size of the Drawer, will specify the width of the element.
-   * @default md
-   */
-  size?: "sm" | "md";
   /**
    * The preferred placement of the drawer.
    * @default "right"
@@ -54,8 +69,10 @@ export interface DrawerProps extends React.ComponentProps<"div">, DrawerProvider
  * @returns {React.ReactElement} - The rendered Drawer component.
  */
 export function Drawer({
-  size = "md",
   open,
+  size = "md",
+  safeMargin = "xl",
+  responsive,
   placement = "left",
   className,
   children,
@@ -79,9 +96,30 @@ export function Drawer({
     enabled: !!open && !!rootRef,
   });
 
+  // Retrieve values from the current theme context
+  const { activeToken } = useTheme();
+
+  // Compute responsive props based on current theme and screen sizes
+  const computedProps = useResponsive(
+    {
+      size,
+      safeMargin,
+      responsive,
+    },
+    activeToken.breakpoints,
+  );
+
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ modifiers: [size, placement, open && "open"], extraClasses: className }),
+    root: getBlock({
+      modifiers: [
+        computedProps.size,
+        placement,
+        open && "open",
+        safeMargin && `safe-margin-${safeMargin}`,
+      ],
+      extraClasses: className,
+    }),
     surface: getElement([`surface`]),
   };
 
