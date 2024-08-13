@@ -62,7 +62,7 @@
     align-items: center;
     justify-content: theme.get-var(justify-content);
     width: theme.get-var(width);
-    height: calc(theme.get-var(height) - 4px);
+    height: calc(theme.get-var(height) - 8px);
     padding-inline: theme.get-spacing("md");
     cursor: pointer;
     background-color: theme.get-var(item-background-color);
@@ -80,6 +80,7 @@
     }
 
     &--selected {
+      box-shadow: theme.get-shadow("md");
       @include theme.define-var(
         (
           item-background-color: theme.get-color("background-elevated"),

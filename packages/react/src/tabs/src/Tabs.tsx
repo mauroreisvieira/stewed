@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 // Provider
-import { TabsProvider, type TabsProviderProps } from "./context";
+import { TabsProvider, type TabsProviderProps } from "./TabsProvider";
 //. Compound Component
 import { TabsItem } from "./TabsItem";
 import { TabsList } from "./TabsList";
@@ -11,7 +11,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface TabsProps extends React.ComponentPropsWithRef<"div">, TabsProviderProps {
+export interface TabsProps<T extends string> extends React.ComponentPropsWithRef<"div">, TabsProviderProps<T> {
   /**
    * Allow possibility to change alignment of tabs.
    * @default start
@@ -29,7 +29,7 @@ export interface TabsProps extends React.ComponentPropsWithRef<"div">, TabsProvi
   size?: "sm" | "md" | "lg";
 }
 
-export function Tabs({
+export function Tabs<T extends string>({
   value,
   alignment = "start",
   direction = "row",
@@ -38,7 +38,7 @@ export function Tabs({
   onValueChange,
   children,
   ...props
-}: TabsProps): React.ReactElement {
+}: TabsProps<T>): React.ReactElement {
   const ref = useRef<React.ElementRef<"div">>(null);
 
   // Importing useBem to handle BEM class names
