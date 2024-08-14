@@ -117,7 +117,7 @@ function Music(): React.ReactElement {
 
   return (
     <Container screen="full">
-      <Grid cols={3}>
+      <Grid cols={2} responsive={{ sm: { cols: 3 } }}>
         <Grid.Item>
           <Button
             leftSlot={<TbMenuDeep />}
@@ -129,7 +129,7 @@ function Music(): React.ReactElement {
           </Button>
         </Grid.Item>
 
-        <Grid.Item>
+        <Grid.Item hidden={true} responsive={{ sm: { hidden: false } }}>
           <TextField
             onFocus={onHandleDisplayRecentSearch}
             onBlur={onHandleDisplayRecentSearch}
@@ -240,8 +240,13 @@ function Music(): React.ReactElement {
             </Tabs.List>
           </Tabs>
 
-          <Button onClick={onHandleMusicDialog} size="lg" leftSlot={<IoMdAdd />} iconOnly>
-            Add music
+          <Button
+            skin="neutral"
+            onClick={onHandleMusicDialog}
+            size="lg"
+            leftSlot={<IoMdAdd />}
+            iconOnly>
+            Add Music
           </Button>
         </Stack>
       </Box>
@@ -264,7 +269,6 @@ function Music(): React.ReactElement {
                             <Box padding={{ inline: "md" }}>
                               <Stack items="center">
                                 <Button
-                                  skin="primary"
                                   leftSlot={<FaPlayCircle />}
                                   onClick={() => onHandleClick(index)}
                                   iconOnly>
@@ -366,7 +370,7 @@ function Music(): React.ReactElement {
             <Separator space={{ block: "lg" }} />
 
             <Card>
-              <Box skin="neutral-faded" padding={{ block: "7xl", inline: "7xl" }}>
+              <Box skin="neutral-faded" padding={{ block: "9xl", inline: "9xl" }}>
                 <Stack direction="column" justify="center" items="center" gap="lg">
                   <Text size="6xl" skin="neutral">
                     <MdOutlinePodcasts />
@@ -434,6 +438,7 @@ function Music(): React.ReactElement {
       </Drawer>
 
       <Dialog
+        size="sm"
         onClose={onHandleMusicDialog}
         onClickOutside={onHandleMusicDialog}
         open={musicDialogState}>
@@ -481,6 +486,7 @@ function Music(): React.ReactElement {
       </Dialog>
 
       <Dialog
+        size="sm"
         onClose={onHandlePodcastDialog}
         onClickOutside={onHandlePodcastDialog}
         open={podcastDialogState}>

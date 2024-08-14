@@ -14,7 +14,7 @@ const defaultElement = "div";
 export type Size = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
 export interface GridProps<T>
-  extends React.ComponentProps<typeof defaultElement>,
+  extends Omit<React.ComponentProps<typeof defaultElement>, "hidden">,
     UseResponsiveProps<{
       /** The number of rows that the element should span. */
       rowSpan?: Size;
@@ -28,6 +28,8 @@ export interface GridProps<T>
       colStart?: Size;
       /** The column at which the element should end. */
       colEnd?: Size;
+      /** Boolean indicating if the element should be hidden. */
+      hidden?: boolean;
     }> {
   /**
    * Specifies the type of element to use as the Grid.
@@ -46,6 +48,7 @@ export const GridItem = fixedForwardRef(
       rowSpan,
       rowStart,
       rowEnd,
+      hidden,
       responsive,
       className,
       children,
@@ -72,13 +75,14 @@ export const GridItem = fixedForwardRef(
         rowSpan,
         rowStart,
         rowEnd,
+        hidden,
         responsive,
       },
       activeToken.breakpoints,
     );
 
     // Importing useBem to handle BEM class names
-    const { getBlock } = useBem({ block: `${components.Grid}__column`, styles });
+    const { getBlock } = useBem({ block: `${components.Grid}__item`, styles });
 
     // Generating CSS classes based on component props and styles
     const cssClasses = {
@@ -90,6 +94,7 @@ export const GridItem = fixedForwardRef(
           computedProps.rowSpan && `row-span-${computedProps.rowSpan}`,
           computedProps.rowStart && `row-start-${computedProps.rowStart}`,
           computedProps.rowStart && `row-end-${computedProps.rowStart}`,
+          computedProps.hidden && "hidden",
         ],
         extraClasses: className,
       }),
