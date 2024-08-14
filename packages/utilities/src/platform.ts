@@ -85,3 +85,10 @@ export const isWebKit = (): boolean => testUserAgent(/AppleWebKit/) && !isChrome
  * @returns A boolean indicating whether the current platform is Android.
  */
 export const isAndroid = (): boolean => testUserAgent(/Android/);
+
+/**
+ * Checks if the current platform is touch.
+ *
+ * @returns A boolean indicating whether the current platform is touch.
+ */
+export const isTouch = (): boolean => "ontouchstart" in window || navigator.maxTouchPoints > 0;
