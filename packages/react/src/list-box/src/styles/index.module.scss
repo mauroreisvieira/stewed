@@ -13,7 +13,6 @@
       (
         background-color: transparent,
         color: inherit,
-        padding-inline: theme.get-spacing("md"),
       )
     );
 
@@ -25,7 +24,7 @@
     justify-content: flex-start;
     width: 100%;
     min-height: 34px;
-    padding-inline: theme.get-var(padding-inline);
+    padding-inline: theme.get-spacing("md");
     overflow: hidden;
     cursor: pointer;
     background-color: theme.get-var(background-color);
@@ -61,7 +60,6 @@
 
     &__text {
       flex-grow: 1;
-      white-space: nowrap;
     }
 
     &__left,

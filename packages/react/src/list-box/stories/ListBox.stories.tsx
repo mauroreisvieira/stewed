@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // UI Components
-import { Theme, ListBox, Button } from "../../index";
+import { Theme, ListBox, Button, Text, Avatar, Box } from "../../index";
 // Icons
 import { FiPenTool, FiFile, FiFilePlus, FiMap, FiTrash, FiLock } from "react-icons/fi";
 import { FaMapPin } from "react-icons/fa";
@@ -33,15 +33,13 @@ export const Base: Story = {
       <>
         <ListBox.Group>
           <ListBox.Item leftSlot={<FiPenTool />} selected>
-            <span>Daily notes</span>
+            Daily notes
           </ListBox.Item>
           <ListBox.Item leftSlot={<FiFile />}>All notes</ListBox.Item>
           <ListBox.Item leftSlot={<FiFilePlus />} disabled>
-            <span>Tasks</span>
+            Tasks
           </ListBox.Item>
-          <ListBox.Item leftSlot={<FiMap />}>
-            <span>Map</span>
-          </ListBox.Item>
+          <ListBox.Item leftSlot={<FiMap />}>Map</ListBox.Item>
           <ListBox.Item
             skin="critical"
             leftSlot={<FiTrash />}
@@ -50,7 +48,7 @@ export const Base: Story = {
                 Remove
               </Button>
             }>
-            <span>Trash</span>
+            Trash
           </ListBox.Item>
         </ListBox.Group>
         <ListBox.Group title="Pinned messages">
@@ -66,6 +64,30 @@ export const Base: Story = {
           <ListBox.Item>Re-skin signs</ListBox.Item>
           <ListBox.Item>Reflect roadmap</ListBox.Item>
           <ListBox.Item>Top of mind</ListBox.Item>
+        </ListBox.Group>
+      </>
+    ),
+  },
+};
+
+export const MultiLine: Story = {
+  argTypes: {
+    children: {
+      control: false,
+    },
+  },
+  args: {
+    children: (
+      <>
+        <ListBox.Group>
+          <ListBox.Item leftSlot={<Avatar name="A" />}>
+            <Box padding={{ block: "lg" }}>
+              <Text size="sm">Headline</Text>
+              <Text skin="neutral" size="xs">
+                Supporting text that is long enough to fill up multiline lines
+              </Text>
+            </Box>
+          </ListBox.Item>
         </ListBox.Group>
       </>
     ),
