@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
+// Utilities
+import { isTouch } from "@stewed/utilities";
 
 export interface HoverableProps {
   /**
@@ -10,13 +12,18 @@ export interface HoverableProps {
   /** Additional class name(s) for the element. */
   className?: string;
   /**
-   * A function that takes an object with the `isHovering` boolean property and returns a React node.
-   * The `isHovering` property indicates whether the hover state is active or not.
+   * A function that returns a React node based on the hover state and device type.
    *
-   * @param isHovering - A boolean indicating the current hover state.
-   * @returns {React.ReactNode} - The React node to render.
+   * The function takes an object with two properties:
+   * - `isHovering` (boolean): Indicates whether the hover state is currently active.
+   * - `isTouch` (boolean): Indicates whether the device is a touch device.
+   *
+   * @param {Object} params - The parameters object.
+   * @param {boolean} params.isHovering - A boolean indicating if the hover state is active.
+   * @param {boolean} params.isTouch - A boolean indicating if the device is a touch device.
+   * @returns {React.ReactNode} - The React node to render based on the hover state and device type.
    */
-  children: ({ isHovering }: { isHovering: boolean }) => React.ReactNode;
+  children: ({ isHovering, isTouch }: { isHovering: boolean; isTouch: boolean }) => React.ReactNode;
 }
 
 /**
@@ -49,6 +56,9 @@ export function Hoverable({
   // Event handler for when the mouse or touch stops hovering over the component.
   const onHandleLeave = () => setHovering(false);
 
+  // Check if the current device is touch.
+  const touchDevice = useMemo(() => isTouch(), []);
+
   return (
     <div
       className={className}
@@ -57,7 +67,7 @@ export function Hoverable({
       onTouchStart={enabledTouch ? onHandleHover : undefined}
       onTouchEnd={enabledTouch ? onHandleLeave : undefined}
       onTouchCancel={enabledTouch ? onHandleLeave : undefined}>
-      {children({ isHovering })}
+      {children({ isHovering, isTouch: touchDevice })}
     </div>
   );
 }

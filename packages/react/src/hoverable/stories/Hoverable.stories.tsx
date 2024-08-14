@@ -29,3 +29,14 @@ export const Base: Story = {
     );
   },
 };
+
+
+export const Touch: Story = {
+  render: function Render() {
+    return (
+      <Hoverable>
+        {({ isTouch }) => <div>{isTouch ? "Touch device" : "Not touch device"}</div>}
+      </Hoverable>
+    );
+  },
+};

@@ -168,36 +168,35 @@ function Music(): React.ReactElement {
                   left: `${x}px`,
                   top: `${y}px`,
                 }}>
-                  <Card.Body>
-                    <ListBox>
-                      <ListBox.Group title="Recent searches">
-                        {Array.from({ length: 6 }).map((_, index) => (
-                          <Hoverable key={index}>
-                            {({ isHovering }) => (
-                              <ListBox.Item
-                                leftSlot={<RiHistoryLine />}
-                                rightSlot={
-                                  isHovering ? (
-                                    <Button
-                                      size="xs"
-                                      skin="neutral"
-                                      appearance="ghost"
-                                      leftSlot={<IoMdClose />}
-                                      iconOnly>
-                                      Remove
-                                    </Button>
-                                  ) : undefined
-                                }>
-                                Daily Mix 1
-                              </ListBox.Item>
-                            )}
-                          </Hoverable>
-                        ))}
-                      </ListBox.Group>
-                    </ListBox>
-                  </Card.Body>
-                </Card>
-
+                <Card.Body>
+                  <ListBox>
+                    <ListBox.Group title="Recent searches">
+                      {Array.from({ length: 6 }).map((_, index) => (
+                        <Hoverable key={index}>
+                          {({ isHovering, isTouch }) => (
+                            <ListBox.Item
+                              leftSlot={<RiHistoryLine />}
+                              rightSlot={
+                                isHovering || isTouch ? (
+                                  <Button
+                                    size="xs"
+                                    skin="neutral"
+                                    appearance="ghost"
+                                    leftSlot={<IoMdClose />}
+                                    iconOnly>
+                                    Remove
+                                  </Button>
+                                ) : undefined
+                              }>
+                              Daily Mix 1
+                            </ListBox.Item>
+                          )}
+                        </Hoverable>
+                      ))}
+                    </ListBox.Group>
+                  </ListBox>
+                </Card.Body>
+              </Card>
             </Scope>
           )}
         </Grid.Item>
@@ -253,7 +252,7 @@ function Music(): React.ReactElement {
             {Array.from({ length: 8 }).map((_, index) => (
               <Grid.Item key={index}>
                 <Hoverable>
-                  {({ isHovering }) => (
+                  {({ isHovering, isTouch }) => (
                     <Card shadow="none">
                       <Box skin="neutral-faded">
                         <Stack direction="row" items="center" justify="between" grow>
@@ -261,7 +260,7 @@ function Music(): React.ReactElement {
                             <img src="https://placehold.co/80x80" style={{ height: "100%" }} />
                             <Text weight="medium">Daily Mix {index + 1}</Text>
                           </Stack>
-                          {isHovering && (
+                          {(isHovering || isTouch) && (
                             <Box padding={{ inline: "md" }}>
                               <Stack items="center">
                                 <Button
