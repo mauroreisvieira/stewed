@@ -90,9 +90,8 @@
   // Skins
   @each $key, $value in $checkbox-skins {
     &--#{$key} {
-      .#{$checkbox-root}__input {
-        &:indeterminate,
-        &:checked + .checkbox__control {
+      .#{$checkbox-root}__input:is(:indeterminate, :checked) {
+        + .checkbox__control {
           @include theme.define-var(
             (
               background-color: theme.get-color($value, "500"),
