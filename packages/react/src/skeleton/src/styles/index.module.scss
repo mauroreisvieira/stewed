@@ -3,19 +3,14 @@
 
 @include theme.scope($skeleton-root) {
   @keyframes pulse {
-    0%,
-    100% {
-      opacity: 1;
-    }
-
     50% {
       opacity: 0.5;
     }
   }
 
-  background-color: theme.get-color("neutral", "100");
+  background-color: color-mix(in srgb, theme.get-color("neutral", "500"), transparent 90%);
   border-radius: theme.get-var("rounded");
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: pulse 2s linear infinite;
 
   &--line,
   &--rectangle {
@@ -33,7 +28,7 @@
   }
 
   &--circle {
-    width: theme.get-var("size");
+    min-width: theme.get-var("size");
 
     @include theme.define-var(
       (
@@ -50,6 +45,14 @@
         )
       );
     }
+  }
+
+  &--auto {
+    @include theme.define-var(
+      (
+        size: auto,
+      )
+    );
   }
 
   // Rounded

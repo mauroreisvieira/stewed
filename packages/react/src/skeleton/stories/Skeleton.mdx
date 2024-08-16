@@ -1,9 +1,11 @@
-import { Canvas, Meta, ArgTypes } from "@storybook/blocks";
+import { Canvas, Meta, ArgTypes, Stories } from "@storybook/blocks";
 import * as SkeletonStories from "./Skeleton.stories";
 
 # Skeleton
 
-Skeleton is a animated placeholder, should be used to render content placeholders before the real data is available.
+Skeleton is a animated placeholder component used to render content placeholders before the actual data or content is available.
+
+It helps improve the user experience by indicating that content is loading.
 
 ### Installation
 
@@ -19,9 +21,7 @@ import { Skeleton } from "@stewed/react";
 
 <Meta of={SkeletonStories} />
 
-## Base
-
-<Canvas of={SkeletonStories.Base} />
+<Stories />
 
 ## Props
 
