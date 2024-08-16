@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-
 import { Theme, Checkbox } from "../../index";
+// Hooks
 import { useToggle } from "@stewed/hooks";
 
 type Story = StoryObj<typeof Checkbox>;
