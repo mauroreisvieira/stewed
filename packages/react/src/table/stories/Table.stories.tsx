@@ -35,6 +35,26 @@ const data = [
     name: "Olivia Patel",
     email: "olivia.patel@example.com",
   },
+  {
+    id: "4",
+    name: "Mark Zen",
+    email: "mark.zen@example.com",
+  },
+  {
+    id: "5",
+    name: "Kevin Clark",
+    email: "kevin.clark@example.com",
+  },
+ {
+    id: "6",
+    name: "Albert Frost",
+    email: "albert.frost@example.com",
+  },
+ {
+    id: "7",
+    name: "Katheryn Winnick",
+    email: "kath.winnick@example.com",
+  },
 ];
 
 export const Base: Story = {
@@ -62,6 +82,11 @@ export const Base: Story = {
             </Table.Row>
           ))}
         </Table.Body>
+        <Table.Foot>
+          <Table.Cell>Foot</Table.Cell>
+          <Table.Cell>Foot</Table.Cell>
+          <Table.Cell>Foot</Table.Cell>
+        </Table.Foot>
       </>
     ),
   },
@@ -108,7 +133,7 @@ export const Striped: Story = {
     },
   },
   args: {
-    appearance: ["striped"],
+    appearance: ["striped-rows", "border"],
     children: (
       <>
         <Table.Head>
@@ -139,7 +164,8 @@ export const Error: Story = {
     },
   },
   args: {
-    appearance: ["border", "border-rows"],
+
+    hoverable: true,
     children: (
       <>
         <Table.Head>
@@ -164,6 +190,12 @@ export const Error: Story = {
             </Table.Row>
           ))}
         </Table.Body>
+        <Table.Foot>
+          <Table.Cell>Foot</Table.Cell>
+          <Table.Cell>Foot</Table.Cell>
+          <Table.Cell>Foot</Table.Cell>
+          <Table.Cell>Foot</Table.Cell>
+        </Table.Foot>
       </>
     ),
   },

@@ -24,6 +24,7 @@
     .#{$table-root}__cell {
       padding-block: theme.get-spacing("md");
       padding-inline: theme.get-spacing("xl");
+      background-color: theme.get-var(background-color-head);
 
       @include text.typography(
         base,
@@ -33,6 +34,25 @@
           line-height: 1
         )
       );
+
+      &:first-child {
+        border-top-left-radius: theme.get-var(border-radius);
+      }
+
+      &:last-child {
+        border-top-right-radius: theme.get-var(border-radius);
+      }
+    }
+
+    // Skins
+    @each $key, $value in $table-head-skins {
+      &--#{$key} {
+        @include theme.define-var(
+          (
+            background-color-head: $value,
+          )
+        );
+      }
     }
   }
 
@@ -66,6 +86,15 @@
     .#{$table-root}__cell {
       padding-block: theme.get-spacing("md");
       padding-inline: theme.get-spacing("xl");
+      background-color: theme.get-var(background-color);
+
+      &:first-child {
+        border-bottom-left-radius: theme.get-var(border-radius);
+      }
+
+      &:last-child {
+        border-bottom-right-radius: theme.get-var(border-radius);
+      }
 
       @include text.typography(
         base,
@@ -105,7 +134,7 @@
     }
   }
 
-  &--striped {
+  &--striped-rows {
     .#{$table-root}__body .#{$table-root}__row {
       &:nth-child(even) {
         background-color: theme.get-var(background-color);
@@ -114,14 +143,13 @@
   }
 
   &--default,
-  &--striped {
-    border-spacing: 0 theme.get-spacing("xxs");
-
-    &:not([class*="border"]) {
+  &--striped-rows,
+  &--border-rows,
+  &--border-columns {
+    &:not(.#{$table-root}--border) {
       .#{$table-root}__head,
       .#{$table-root}__foot {
         .#{$table-root}__cell {
-          background-color: theme.get-var(background-color);
           border-top: 1px solid theme.get-var(border-color);
           border-bottom: 1px solid theme.get-var(border-color);
 
@@ -138,7 +166,14 @@
           }
         }
       }
+    }
+  }
 
+  &--default,
+  &--striped-rows {
+    border-spacing: 0 theme.get-spacing("xxs");
+
+    &:not(.#{$table-root}--border) {
       .#{$table-root}__body .#{$table-root}__row .#{$table-root}__cell {
         &:first-child {
           border-top-left-radius: theme.get-var(border-radius);
@@ -155,10 +190,29 @@
 
   &--border {
     border: 1px solid theme.get-var(border-color);
+
+    .#{$table-root}__head {
+      .#{$table-root}__cell {
+        border-bottom: 1px solid theme.get-var(border-color);
+      }
+    }
+
+    .#{$table-root}__foot {
+      .#{$table-root}__cell {
+        border-top: 1px solid theme.get-var(border-color);
+      }
+    }
   }
 
   &--border-rows {
-    .#{$table-root}__body,
+    .#{$table-root}__body {
+      .#{$table-root}__row:not(:first-of-type) {
+        .#{$table-root}__cell {
+          border-block-start: 1px solid theme.get-var(border-color);
+        }
+      }
+    }
+
     .#{$table-root}__foot {
       .#{$table-root}__cell {
         border-block-start: 1px solid theme.get-var(border-color);
@@ -177,8 +231,6 @@
   &--border,
   &--border-rows,
   &--border-columns {
-    border-spacing: 0;
-
     .#{$table-root}__body:last-of-type .#{$table-root}__row {
       &:last-child > .#{$table-root}__cell {
         &:first-of-type {
