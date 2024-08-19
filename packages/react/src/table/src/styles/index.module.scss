@@ -15,6 +15,7 @@
   display: table;
   width: 100%;
   text-align: left;
+  border-spacing: 0;
   border: 0;
   border-radius: theme.get-var(border-radius);
 
@@ -169,11 +170,13 @@
     }
   }
 
+  &--default {
+    border-spacing: 0 theme.get-spacing("xxs");
+  }
+
   &--default,
   &--striped-rows {
-    border-spacing: 0 theme.get-spacing("xxs");
-
-    &:not(.#{$table-root}--border) {
+    &:not(.#{$table-root}--border, .#{$table-root}--border-rows) {
       .#{$table-root}__body .#{$table-root}__row .#{$table-root}__cell {
         &:first-child {
           border-top-left-radius: theme.get-var(border-radius);
