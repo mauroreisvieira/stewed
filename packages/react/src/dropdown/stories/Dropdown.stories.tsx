@@ -28,7 +28,7 @@ export const Base: Story = {
     placement: "bottom-start",
   },
   argTypes: {
-    content: {
+    renderAnchor: {
       control: false,
     },
     placement: {
@@ -52,20 +52,20 @@ export const Base: Story = {
     return (
       <Dropdown<HTMLButtonElement>
         {...args}
-        content={
-          <ListBox>
-            <ListBox.Item rightSlot="⌘C">Copy</ListBox.Item>
-            <ListBox.Item rightSlot="⌘V">Past</ListBox.Item>
-            <Separator space={{ block: "xs" }} />
-            <ListBox.Item rightSlot="⌘Z">Undo</ListBox.Item>
-            <ListBox.Item rightSlot="⌘Y">Redo</ListBox.Item>
-          </ListBox>
-        }>
-        {({ ref, open, close, isOpen }) => {
+        renderAnchor={({ ref, isOpen, open, close }) => (
+          <Button ref={ref} onClick={isOpen ? close : open}>
+            Edit
+          </Button>
+        )}>
+        {() => {
           return (
-            <Button ref={ref} onClick={isOpen ? close : open}>
-              Edit
-            </Button>
+            <ListBox>
+              <ListBox.Item rightSlot="⌘C">Copy</ListBox.Item>
+              <ListBox.Item rightSlot="⌘V">Past</ListBox.Item>
+              <Separator space={{ block: "xs" }} />
+              <ListBox.Item rightSlot="⌘Z">Undo</ListBox.Item>
+              <ListBox.Item rightSlot="⌘Y">Redo</ListBox.Item>
+            </ListBox>
           );
         }}
       </Dropdown>

@@ -36,14 +36,17 @@ export interface DropdownProps<T>
   /** Callback function invoked when the dialog is clicked outside. */
   onClickOutside?: () => void;
   /**
-   * Defines the content to be displayed inside the `Dropdown`.
+   * Function that returns a React element used as the anchor for the `Dropdown`.
+   * @param props - Render props for the `Dropdown` component, including the necessary event handlers.
+   * @returns A React element that serves as the anchor for the `Dropdown`.
    */
-  content: React.ReactNode;
+  renderAnchor: (props: DropdownChildrenProps<T>) => React.ReactElement;
   /**
    * Function that returns a React element with events to trigger `Dropdown` position and visibility.
-   * @param props - Render props for `Dropdown` component.
+   * @param props - Render props for `Dropdown` component, excluding the `ref` property.
+   * @returns A React element that controls the position and visibility of the `Dropdown`.
    */
-  children: (props: DropdownChildrenProps<T>) => React.ReactElement;
+  children: (props: Omit<DropdownChildrenProps<T>, "ref">) => React.ReactElement;
 }
 
 /**
@@ -52,10 +55,12 @@ export interface DropdownProps<T>
  *
  * @example
  * ```tsx
- * <Dropdown<HTMLButtonElement> placement="top" content="Surprise surprise, the king is back...">
- *   {({ ref, open }) => (
+ * <Dropdown<HTMLButtonElement>
+ *   placement="top"
+ *   renderAnchor={({ ref, open }) => (
  *     <button ref={ref} onClick={open}>Conor McGregor</button>
- *   )}
+ *   )}>
+ *   Surprise surprise, the king is back...
  * </Dropdown>
  * ```
  *
@@ -71,7 +76,7 @@ export function Dropdown<T extends HTMLElement>({
   style,
   allowClickOutside = false,
   onClickOutside,
-  content,
+  renderAnchor,
   children,
   ...props
 }: DropdownProps<T>): React.ReactElement {
@@ -118,7 +123,7 @@ export function Dropdown<T extends HTMLElement>({
 
   return (
     <>
-      {children?.({
+      {renderAnchor({
         ref: dropdownRef,
         open: onHandleOpen,
         close: onHandleClose,
@@ -136,7 +141,7 @@ export function Dropdown<T extends HTMLElement>({
               top: `${y}px`,
             }}
             {...props}>
-            {content}
+            {children({ open: onHandleOpen, close: onHandleClose, isOpen: !!isVisible })}
           </div>
         </Scope>
       )}
