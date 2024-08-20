@@ -8,14 +8,14 @@
     (
       border-width: 1px,
       border-color: transparent,
-      gap: theme.get-spacing("sm"),
     )
   );
 
   position: relative;
   box-sizing: border-box;
   display: inline-flex;
-  gap: theme.get-var(gap);
+  flex-shrink: 0;
+  gap: calc(theme.get-var(padding-inline) / 2);
   align-items: center;
   justify-content: center;
   min-width: theme.get-var(size);
@@ -206,7 +206,7 @@
     @include theme.define-var(
       (
         size: map.get($button-sizes, "lg"),
-        padding-inline: theme.get-spacing("lg"),
+        padding-inline: theme.get-spacing("xl"),
         text-line-height: theme.get-line-height("md"),
         text-font-size: theme.get-font-size("md"),
       )
@@ -217,9 +217,9 @@
     @include theme.define-var(
       (
         size: map.get($button-sizes, "xl"),
-        padding-inline: theme.get-spacing("xl"),
+        padding-inline: theme.get-spacing("2xl"),
         text-line-height: theme.get-line-height("md"),
-        text-font-size: theme.get-font-size("md"),
+        text-font-size: theme.get-font-size("lg"),
       )
     );
   }
