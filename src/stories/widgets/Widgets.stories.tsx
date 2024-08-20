@@ -469,8 +469,8 @@ export const PaymentMethod = {
             </Text>
           </Card.Header>
           <Card.Body>
-            <Stack justify="between" gap="2xl" wrap="wrap">
-              <Stack gap="md" items="center" grow>
+            <Box space={{ y: "lg" }}>
+              <Stack direction="row" justify="between" gap="2xl">
                 <Card hoverable>
                   <Card.Body>
                     <Text alignment="center">
@@ -490,8 +490,7 @@ export const PaymentMethod = {
                     <Text alignment="center">Card</Text>
                   </Card.Body>
                 </Card>
-              </Stack>
-              <Stack gap="md" items="center" grow>
+
                 <Card selected hoverable>
                   <Card.Body>
                     <Text alignment="center">
@@ -505,8 +504,7 @@ export const PaymentMethod = {
                     <Text alignment="center">Paypal</Text>
                   </Card.Body>
                 </Card>
-              </Stack>
-              <Stack gap="md" items="center" grow>
+
                 <Card hoverable>
                   <Card.Body>
                     <Text alignment="center">
@@ -525,7 +523,8 @@ export const PaymentMethod = {
                   </Card.Body>
                 </Card>
               </Stack>
-            </Stack>
+            </Box>
+
             <Stack direction="column" gap="lg">
               <FormField>
                 <FormField.Label>Name</FormField.Label>

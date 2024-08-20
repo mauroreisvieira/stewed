@@ -90,7 +90,13 @@ function Music(): React.ReactElement {
 
   const idx = new Date().getTime().toString();
 
-  const { floating, x, y, isPositioned, width } = useFloating<HTMLInputElement, HTMLDivElement>({
+  const {
+    floating,
+    x,
+    y,
+    isPositioned,
+    reference: { width },
+  } = useFloating<HTMLInputElement, HTMLDivElement>({
     open: displayRecentSearch,
     placement: "bottom",
     reference: inputRef.current,

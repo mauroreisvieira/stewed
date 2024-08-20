@@ -105,7 +105,7 @@ export const RecentFeedback = {
             Find all of your customer feedback in one place.
           </Text>
 
-          <Table appearance={"striped"} hoverable>
+          <Table appearance={"striped-rows"} hoverable>
             <Table.Head>
               <Table.Row>
                 <Table.Cell as="th">
@@ -500,7 +500,7 @@ export const Inventory = {
                 vendor.toLowerCase().includes(search.toLowerCase())
               }>
               {({ headCells, bodyRows }) => (
-                <Table appearance={["striped"]}>
+                <Table appearance={["striped-rows"]}>
                   <Table.Head>
                     <Table.Row>
                       {headCells.map(
