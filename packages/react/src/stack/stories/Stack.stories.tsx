@@ -58,3 +58,43 @@ export const Base: Story = {
     ),
   },
 };
+
+export const Sizing: Story = {
+  argTypes: {
+    as: {
+      control: false,
+    },
+    children: {
+      control: false,
+    },
+  },
+  args: {
+    gap: "md",
+    wrap: "nowrap",
+    children: (
+      <>
+        <Stack size={12} responsive={{ sm: { size: 3 } }}>
+          <Card padding={{ block: "xl", inline: "xl" }}>
+            <Card.Body>
+              <Text>Column 4</Text>
+            </Card.Body>
+          </Card>
+        </Stack>
+        <Stack size={12} responsive={{ sm: { size: 6 } }}>
+          <Card padding={{ block: "xl", inline: "xl" }}>
+            <Card.Body>
+              <Text>Column 6</Text>
+            </Card.Body>
+          </Card>
+        </Stack>
+        <Stack size={12} responsive={{ sm: { size: 3 } }}>
+          <Card padding={{ block: "xl", inline: "xl" }}>
+            <Card.Body>
+              <Text>Column 4</Text>
+            </Card.Body>
+          </Card>
+        </Stack>
+      </>
+    ),
+  },
+};

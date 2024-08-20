@@ -10,6 +10,7 @@
 
   box-sizing: border-box;
   display: theme.get-var(display);
+  gap: theme.get-var(gap);
 
   &--inline {
     @include theme.define-var(
@@ -79,8 +80,8 @@
   }
 
   &--grow {
-    flex-basis: 0;
     flex-grow: 1;
+    flex-shrink: 1;
   }
 
   &--wrap {
@@ -98,7 +99,22 @@
   // Gap
   @each $key, $value in $stack-gap {
     &--gap-#{$key} {
-      gap: #{$value};
+      @include theme.define-var(
+        (
+          gap: $value,
+        )
+      );
     }
+  }
+
+  // Size
+  @for $i from 1 through 12 {
+    &--size-#{$i} {
+      width: calc((100% / 12 * $i));
+    }
+  }
+
+  &--hidden {
+    display: none;
   }
 }

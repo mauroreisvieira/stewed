@@ -18,6 +18,10 @@ export interface StackProps<T>
       direction?: "row" | "column" | "row-reverse" | "column-reverse";
       /** The gap between stack children's. */
       gap?: Spacings;
+      /** Specifies the size of the element. */
+      size: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+      /** Boolean indicating if the element should be hidden. */
+      hidden?: boolean;
       /** Aligns stack items along the main axis. */
       justify?: "start" | "end" | "center" | "between" | "around" | "evenly";
       /** Aligns stack items along the cross axis. */
@@ -70,6 +74,8 @@ export const Stack = fixedForwardRef(
       as,
       direction = "row",
       gap,
+      size,
+      hidden,
       justify,
       items,
       wrap,
@@ -97,6 +103,8 @@ export const Stack = fixedForwardRef(
       {
         direction,
         gap,
+        size,
+        hidden,
         justify,
         items,
         wrap,
@@ -116,10 +124,12 @@ export const Stack = fixedForwardRef(
         modifiers: [
           computedProps.direction !== "row" && computedProps.direction,
           computedProps.gap && `gap-${computedProps.gap}`,
+          computedProps.size && `size-${computedProps.size}`,
           computedProps.justify && `justify-${computedProps.justify}`,
           computedProps.items && `items-${computedProps.items}`,
           computedProps.wrap,
           computedProps.inline && "inline",
+          computedProps.hidden && "hidden",
           computedProps.grow && "grow",
         ],
         extraClasses: className,
