@@ -26,7 +26,13 @@ export const Floating: Story = {
 
     const [isOpen, setOpen] = useState(false);
 
-    const { floating, x, y, isPositioned, width } = useFloating<HTMLButtonElement, HTMLDivElement>({
+    const {
+      floating,
+      x,
+      y,
+      isPositioned,
+      reference: { width },
+    } = useFloating<HTMLButtonElement, HTMLDivElement>({
       open: isOpen,
       placement: "bottom-start",
       reference: btnRef.current,
