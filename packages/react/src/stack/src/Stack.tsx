@@ -19,7 +19,7 @@ export interface StackProps<T>
       /** The gap between stack children's. */
       gap?: Spacings;
       /** Specifies the size of the element. */
-      size: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+      size?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
       /** Boolean indicating if the element should be hidden. */
       hidden?: boolean;
       /** Aligns stack items along the main axis. */
