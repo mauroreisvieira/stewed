@@ -53,8 +53,6 @@ export interface TooltipProps<T>
   placement?: Extract<FloatingPlacement, "top" | "bottom" | "left" | "right">;
   /** Determines if the `Tooltip` is open. */
   open?: boolean;
-  /** Content to be displayed inside the `Tooltip`. */
-  content: React.ReactNode;
   /**
    * Determines the delay in milliseconds ('ms') to displaying the tooltip after hovering.
    * @default 300
@@ -64,7 +62,9 @@ export interface TooltipProps<T>
    * Function that returns a React element with events to trigger `Tooltip` position and visibility.
    * @param props - Render props for `Tooltip` component.
    */
-  children: (props: TooltipChildrenProps<T>) => React.ReactElement;
+  renderAnchor: (props: TooltipChildrenProps<T>) => React.ReactElement;
+  /** Slot for Content to be displayed inside the `Tooltip`. */
+  children: React.ReactNode;
 }
 
 /**
@@ -72,10 +72,12 @@ export interface TooltipProps<T>
  *
  * @example
  * ```tsx
- * <Tooltip<HTMLButtonElement> placement="top" content="This order has shipping labels.">
- *   {(props) => (
+ * <Tooltip<HTMLButtonElement>
+ *   placement="top"
+ *   renderAnchor={(props) => (
  *     <button {...props}>Order #1001</button>
- *   )}
+ *   )}>
+ *   This order has shipping labels.
  * </Tooltip>
  * ```
  *
@@ -92,7 +94,7 @@ export function Tooltip<T extends HTMLElement>({
   className,
   style,
   children,
-  content,
+  renderAnchor,
   onMouseEnter,
   onMouseLeave,
   ...props
@@ -193,7 +195,7 @@ export function Tooltip<T extends HTMLElement>({
 
   return (
     <>
-      {children?.({
+      {renderAnchor({
         ref: tooltipRef,
         onFocus: onHandleOpen,
         onBlur: onHandleClose,
@@ -221,7 +223,7 @@ export function Tooltip<T extends HTMLElement>({
               onMouseLeave?.(event);
             }}
             {...props}>
-            {content}
+            {children}
           </div>
         </Scope>
       )}
