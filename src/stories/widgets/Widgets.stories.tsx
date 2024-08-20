@@ -25,7 +25,7 @@ import { useDateTime, useToggle } from "@stewed/hooks";
 // Icons
 import { TbPin, TbStar, TbPlus } from "react-icons/tb";
 import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
-import { FiChevronDown } from "react-icons/fi";
+import { FiCopy } from "react-icons/fi";
 
 const meta = {
   title: "Examples/Widgets",
@@ -433,6 +433,21 @@ export const ShareSettings = {
                 <Separator space={{ block: "xl" }} />
               </React.Fragment>
             ))}
+
+            <FormField>
+              <FormField.Label>Copy link</FormField.Label>
+              <FormField.Control>
+                <TextField
+                  placeholder="https://figma.com/design/oobq11Zltwz0ai"
+                  rightSlot={
+                    <Button size="sm" appearance="ghost" leftSlot={<FiCopy />} iconOnly>
+                      Copy
+                    </Button>
+                  }
+                  fullWidth
+                />
+              </FormField.Control>
+            </FormField>
           </Card.Body>
         </Card>
       </Container>
