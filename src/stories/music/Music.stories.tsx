@@ -205,21 +205,21 @@ function Music(): React.ReactElement {
           <Stack justify="end">
             <Dropdown<HTMLDivElement>
               placement="bottom-end"
-              content={
-                <ListBox>
-                  <ListBox.Item>Account</ListBox.Item>
-                  <ListBox.Item>Profile</ListBox.Item>
-                  <ListBox.Item>Settings</ListBox.Item>
-                  <ListBox.Item>Logout</ListBox.Item>
-                </ListBox>
-              }>
-              {({ ref, open, close, isOpen }) => (
+              renderAnchor={({ ref, open, close, isOpen }) => (
                 <Avatar
                   rootRef={ref}
                   onClick={isOpen ? close : open}
                   src="https://placehold.co/100x100"
                   name="Mauro Vieira"
                 />
+              )}>
+              {() => (
+                <ListBox>
+                  <ListBox.Item>Account</ListBox.Item>
+                  <ListBox.Item>Profile</ListBox.Item>
+                  <ListBox.Item>Settings</ListBox.Item>
+                  <ListBox.Item>Logout</ListBox.Item>
+                </ListBox>
               )}
             </Dropdown>
           </Stack>

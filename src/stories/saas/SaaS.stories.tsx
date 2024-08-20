@@ -451,7 +451,17 @@ export const Inventory = {
 
               <Dropdown<HTMLButtonElement>
                 placement="bottom-end"
-                content={
+                renderAnchor={({ ref, open, close, isOpen }) => (
+                  <Button
+                    ref={ref}
+                    onClick={isOpen ? close : open}
+                    appearance="outline"
+                    skin={isOpen ? "primary" : "neutral"}
+                    leftSlot={<LuFilter />}>
+                    Filters
+                  </Button>
+                )}>
+                {() => (
                   <ListBox>
                     <ListBox.Group>
                       {allColumns.map((column) => (
@@ -474,16 +484,6 @@ export const Inventory = {
                       ))}
                     </ListBox.Group>
                   </ListBox>
-                }>
-                {({ ref, open, close, isOpen }) => (
-                  <Button
-                    ref={ref}
-                    onClick={isOpen ? close : open}
-                    appearance="outline"
-                    skin={isOpen ? "primary" : "neutral"}
-                    leftSlot={<LuFilter />}>
-                    Filters
-                  </Button>
                 )}
               </Dropdown>
             </Stack>

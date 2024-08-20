@@ -25,6 +25,7 @@ import { useDateTime, useToggle } from "@stewed/hooks";
 // Icons
 import { TbPin, TbStar, TbPlus } from "react-icons/tb";
 import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
+import { FiChevronDown } from "react-icons/fi";
 
 const meta = {
   title: "Examples/Widgets",
@@ -39,41 +40,41 @@ const meta = {
 
 export default meta;
 
+const team = [
+  {
+    id: 1,
+    name: "Sophia Chang",
+    email: "sophia.chang@example.com",
+    open: false,
+  },
+  {
+    id: 2,
+    name: "Olivia Patel",
+    email: "olivia.patel@example.com",
+    open: false,
+  },
+  {
+    id: 3,
+    name: "Benjamin Martinez",
+    email: "benjamin.martinez@example.com",
+    open: false,
+  },
+  {
+    id: 4,
+    name: "Noah Andersen",
+    email: "noah.andersen@example.com",
+    open: false,
+  },
+  {
+    id: 5,
+    name: "Liam O'Connor",
+    email: "liam.connor@example.com",
+    open: false,
+  },
+];
+
 export const Team = {
   render: function Render() {
-    const team = [
-      {
-        id: 1,
-        name: "Sophia Chang",
-        email: "sophia.chang@example.com",
-        open: false,
-      },
-      {
-        id: 2,
-        name: "Olivia Patel",
-        email: "olivia.patel@example.com",
-        open: false,
-      },
-      {
-        id: 3,
-        name: "Benjamin Martinez",
-        email: "benjamin.martinez@example.com",
-        open: false,
-      },
-      {
-        id: 4,
-        name: "Noah Andersen",
-        email: "noah.andersen@example.com",
-        open: false,
-      },
-      {
-        id: 5,
-        name: "Liam O'Connor",
-        email: "liam.connor@example.com",
-        open: false,
-      },
-    ];
-
     return (
       <Container screen="lg" alignment="center" padding={{ block: "7xl" }}>
         <Card>
@@ -193,16 +194,14 @@ export const RecentActivity = {
               <Text as="h5">Recent activity</Text>
               <Tooltip<HTMLButtonElement>
                 placement="top"
-                content={
-                  <Text size="xs" skin="inherit">
-                    Pin this widget to your dashboard for quick access.
-                  </Text>
-                }>
-                {(props) => (
+                renderAnchor={(props) => (
                   <Button size="sm" leftSlot={<TbPin />} appearance="ghost" iconOnly {...props}>
                     Bookmark
                   </Button>
-                )}
+                )}>
+                <Text size="xs" skin="inherit">
+                  Pin this widget to your dashboard for quick access.
+                </Text>
               </Tooltip>
             </Stack>
             <Text size="sm" skin="neutral">
@@ -287,20 +286,7 @@ export const Suggested = {
                 </Button>
                 <Dropdown<HTMLButtonElement>
                   placement="bottom-end"
-                  content={
-                    <ListBox>
-                      <ListBox.Group title="Suggested list">
-                        <ListBox.Item>Future ideas</ListBox.Item>
-                        <ListBox.Item>My Stack</ListBox.Item>
-                        <ListBox.Item>Inspiration</ListBox.Item>
-                      </ListBox.Group>
-                      <Separator space={{ block: "none" }} />
-                      <ListBox.Group>
-                        <ListBox.Item leftSlot={<TbPlus />}>Create list</ListBox.Item>
-                      </ListBox.Group>
-                    </ListBox>
-                  }>
-                  {({ ref, isOpen, open, close }) => (
+                  renderAnchor={({ ref, isOpen, open, close }) => (
                     <Button
                       ref={ref}
                       onClick={isOpen ? close : open}
@@ -313,10 +299,140 @@ export const Suggested = {
                       iconOnly>
                       Start
                     </Button>
+                  )}>
+                  {() => (
+                    <ListBox>
+                      <ListBox.Group title="Suggested list">
+                        <ListBox.Item>Future ideas</ListBox.Item>
+                        <ListBox.Item>My Stack</ListBox.Item>
+                        <ListBox.Item>Inspiration</ListBox.Item>
+                      </ListBox.Group>
+                      <Separator space={{ block: "none" }} />
+                      <ListBox.Group>
+                        <ListBox.Item leftSlot={<TbPlus />}>Create list</ListBox.Item>
+                      </ListBox.Group>
+                    </ListBox>
                   )}
                 </Dropdown>
               </Group>
             </Stack>
+          </Card.Body>
+        </Card>
+      </Container>
+    );
+  },
+};
+
+export const ShareSettings = {
+  render: function Render() {
+    return (
+      <Container screen="sm" alignment="center" padding={{ block: "7xl" }}>
+        <Card>
+          <Card.Header>
+            <Stack items="center" gap="lg">
+              <Avatar name="Acme" size="xl" appearance="square" />
+              <Stack direction="column">
+                <Text as="h5">Share Settings</Text>
+                <Text size="sm" skin="neutral">
+                  Manage the authorization of this workspaces
+                </Text>
+              </Stack>
+            </Stack>
+          </Card.Header>
+          <Card.Body>
+            <Stack direction="column" gap="xl">
+              <Card skin="neutral-faded">
+                <Card.Body>
+                  <Stack justify="between">
+                    <div>
+                      <Text weight="medium" space={{ y: "sm" }}>
+                        Public Access
+                      </Text>
+                      <Text size="xs">Publish and share link with anyone</Text>
+                    </div>
+                    <Switch defaultChecked />
+                  </Stack>
+                </Card.Body>
+              </Card>
+
+              <Stack direction="column" gap="sm">
+                <Text weight="medium">Team members</Text>
+                <Stack justify="between" gap="lg">
+                  <TextField
+                    placeholder="Enter email"
+                    rightSlot={
+                      <Dropdown<HTMLButtonElement>
+                        placement="bottom-end"
+                        renderAnchor={({ ref, isOpen, open, close }) => (
+                          <Button
+                            ref={ref}
+                            onClick={isOpen ? close : open}
+                            size="xs"
+                            skin="neutral"
+                            appearance="ghost"
+                            rightSlot={
+                              isOpen ? <MdOutlineKeyboardArrowUp /> : <MdOutlineKeyboardArrowDown />
+                            }>
+                            Can view
+                          </Button>
+                        )}>
+                        {({ close }) => (
+                          <ListBox>
+                            <ListBox.Item onClick={close}>Can view</ListBox.Item>
+                            <ListBox.Item onClick={close}>Can edit</ListBox.Item>
+                          </ListBox>
+                        )}
+                      </Dropdown>
+                    }
+                    fullWidth
+                  />
+                  <Button>Send Invite</Button>
+                </Stack>
+              </Stack>
+            </Stack>
+
+            <Separator space={{ block: "xl" }} />
+
+            {team.map(({ id, name, email }) => (
+              <React.Fragment key={id}>
+                <Stack items="center" justify="between">
+                  <Stack items="center" gap="md">
+                    <Avatar name={name} />
+                    <Stack direction="column">
+                      <Text size="sm" weight="medium">
+                        {name}
+                      </Text>
+                      <Text as="a" href="" size="xs" skin="neutral" alignment="end">
+                        {email}
+                      </Text>
+                    </Stack>
+                  </Stack>
+                  <Dropdown<HTMLButtonElement>
+                    placement="bottom-end"
+                    renderAnchor={({ ref, isOpen, open, close }) => (
+                      <Button
+                        ref={ref}
+                        onClick={isOpen ? close : open}
+                        size="xs"
+                        skin="neutral"
+                        appearance="ghost"
+                        rightSlot={
+                          isOpen ? <MdOutlineKeyboardArrowUp /> : <MdOutlineKeyboardArrowDown />
+                        }>
+                        Can view
+                      </Button>
+                    )}>
+                    {({ close }) => (
+                      <ListBox>
+                        <ListBox.Item onClick={close}>Can view</ListBox.Item>
+                        <ListBox.Item onClick={close}>Can edit</ListBox.Item>
+                      </ListBox>
+                    )}
+                  </Dropdown>
+                </Stack>
+                <Separator space={{ block: "xl" }} />
+              </React.Fragment>
+            ))}
           </Card.Body>
         </Card>
       </Container>
