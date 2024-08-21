@@ -91,12 +91,12 @@ export const Slide: Story = {
   render: function Render() {
     const slides = [
       "slide-in-top",
-      "slide-in-right",
-      "slide-in-bottom",
-      "slide-in-left",
       "slide-out-top",
+      "slide-in-right",
       "slide-out-right",
+      "slide-in-bottom",
       "slide-out-bottom",
+      "slide-in-left",
       "slide-out-left",
     ] as const;
 

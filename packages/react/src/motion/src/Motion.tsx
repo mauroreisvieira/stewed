@@ -26,20 +26,32 @@ const animations = {
 type TAnimation = (typeof animations)[keyof typeof animations][number];
 
 export interface MotionProps {
-  duration?: Duration;
-  timing?: Timing;
+  /** The animation type. */
   animation?: TAnimation;
+  /**
+   * The duration of the animation.
+   * @default quickly
+   */
+  duration?: Duration;
+  /**
+   * The timing function for the animation. Defines the speed curve of the animation.
+   * @default ease-in
+   */
+  timing?: Timing;
+  /** Callback function that is called when the animation completes. */
   onDone?: () => void;
+  /** The child element to which the animation will be applied. */
   children: React.ReactElement;
 }
 
 /**
- * A React component that applies motion/animation effects to its children.
+ * Component that provides animation capabilities to its child element.
+ * It allows configuration of animation duration, timing function, and type, as well as handling completion via a callback function.
  *
  * @example
  * ```tsx
  * <Motion animation="slide-in-right">
- *   <img src="your-image.jpg" alt="Your Image" />
+ *   <div />
  * </Motion>
  * ```
  *
