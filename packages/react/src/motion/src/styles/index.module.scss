@@ -2,11 +2,20 @@
 @use "./variables" as *;
 
 // Zoom In ---------------------------------------------------------------------
-
 @keyframes zoom-in {
   0% {
     opacity: 0;
-    transform: scale3d(0.5, 0.5, 0.5);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes zoom-in-soft {
+  0% {
+    opacity: 0;
+    transform: scale3d(0.9, 0.9, 0.9);
   }
 
   100% {
@@ -23,6 +32,16 @@
   100% {
     opacity: 0;
     transform: scale3d(0.5, 0.5, 0.5);
+  }
+}
+@keyframes zoom-out-soft {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale3d(0.9, 0.9, 0.9);
   }
 }
 

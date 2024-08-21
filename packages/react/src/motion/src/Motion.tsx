@@ -8,7 +8,7 @@ import styles from "./styles/index.module.scss";
 import { classNames } from "@stewed/utilities";
 
 const animations = {
-  zoom: ["zoom-in", "zoom-out"],
+  zoom: ["zoom-in", "zoom-out", "zoom-in-soft", "zoom-out-soft"],
   fade: ["fade-in", "fade-out"],
   slide: [
     "slide-in-top",

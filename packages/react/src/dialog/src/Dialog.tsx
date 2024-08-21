@@ -162,8 +162,8 @@ export function Dialog({
           <DialogProvider onClose={onClose}>
             <div className={cssClasses.root} {...props}>
               <Motion
-                duration="normal"
-                animation={open ? "zoom-in" : "zoom-out"}
+                duration={open ? "normal" : "quickly"}
+                animation={open ? "zoom-in-soft" : "zoom-out-soft"}
                 onDone={onHandleAnimationEnd}>
                 <div
                   role="dialog"

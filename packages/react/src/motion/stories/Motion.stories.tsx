@@ -19,9 +19,9 @@ const meta: Meta<typeof Motion> = {
 
 export default meta;
 
-export const Rotate: Story = {
+export const Zoom: Story = {
   render: function Render() {
-    const zooms = ["zoom-in", "zoom-out"] as const;
+    const zooms = ["zoom-in", "zoom-out", "zoom-in-soft", "zoom-out-soft"] as const;
 
     const [animation, setAnimation] = useState<(typeof zooms)[number]>();
     return (

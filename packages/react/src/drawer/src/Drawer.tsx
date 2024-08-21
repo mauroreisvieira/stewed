@@ -163,6 +163,7 @@ export function Drawer({
             <div className={cssClasses.root} {...props}>
               <Motion
                 animation={open ? `slide-in-${placement}` : `slide-out-${placement}`}
+                duration={open ? "normal" : "quickly"}
                 onDone={onHandleAnimationEnd}>
                 <div onKeyDown={onHandleKeydown} ref={setRootRef} className={cssClasses.surface}>
                   {children}

@@ -11,7 +11,9 @@ $motion-timing: theme.get-transition-timing-function();
 /// Animations
 $motion-animation: (
   zoom-in,
+  zoom-in-soft,
   zoom-out,
+  zoom-out-soft,
   fade-in,
   fade-out,
   slide-in-top,
