@@ -1,0 +1,25 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+
+$motion-root: "motion";
+
+/// Duration
+$motion-duration: theme.get-transition-duration();
+
+/// Timing
+$motion-timing: theme.get-transition-timing-function();
+
+/// Animations
+$motion-animation: (
+  zoom-in,
+  zoom-out,
+  fade-in,
+  fade-out,
+  slide-in-top,
+  slide-in-right,
+  slide-in-bottom,
+  slide-in-left,
+  slide-out-top,
+  slide-out-right,
+  slide-out-bottom,
+  slide-out-left
+);

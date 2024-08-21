@@ -1,0 +1,136 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+@use "./variables" as *;
+
+// Zoom In ---------------------------------------------------------------------
+
+@keyframes zoom-in {
+  0% {
+    opacity: 0;
+    transform: scale3d(0.5, 0.5, 0.5);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+// Zoom Out --------------------------------------------------------------------
+@keyframes zoom-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale3d(0.5, 0.5, 0.5);
+  }
+}
+
+// Fade In ---------------------------------------------------------------------
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+// Fade Out --------------------------------------------------------------------
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+// Slide In --------------------------------------------------------------------
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slide-in-bottom {
+  0% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-100%);
+  }
+}
+
+// Slide Out -------------------------------------------------------------------
+@keyframes slide-out-top {
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes slide-out-right {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slide-out-bottom {
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes slide-out-left {
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@include theme.scope($motion-root) {
+  animation-duration: theme.get-var(duration);
+  animation-timing-function: theme.get-var(timing);
+  animation-fill-mode: forwards;
+
+  // Animation
+  @each $value in $motion-animation {
+    &--#{$value} {
+      @media screen and (prefers-reduced-motion: no-preference) {
+        animation-name: $value;
+      }
+    }
+  }
+
+  // Timing
+  @each $key, $value in $motion-timing {
+    &--#{$key} {
+      @include theme.define-var(
+        (
+          timing: $value,
+        )
+      );
+    }
+  }
+
+  // Duration
+  @each $key, $value in $motion-duration {
+    &--#{$key} {
+      @include theme.define-var(
+        (
+          duration: $value,
+        )
+      );
+    }
+  }
+}
