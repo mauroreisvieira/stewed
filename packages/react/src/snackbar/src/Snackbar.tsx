@@ -1,9 +1,9 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useMemo, useRef, useState } from "react";
 // Context Provider
 import { type SnackbarContextProps, type SnackbarNotification } from "./SnackbarContext";
 import { SnackbarProvider } from "./SnackbarProvider";
 // UI Components
-import { Scope, Alert } from "../..";
+import { Scope, Alert, Motion } from "../..";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
@@ -115,17 +115,24 @@ export function Snackbar({
     [max, remove],
   );
 
+  const animation = useMemo(() => {
+    if (placement.endsWith("start")) return "slide-in-left";
+    if (placement.endsWith("end")) return "slide-in-right";
+
+    return placement.startsWith("bottom") ? "slide-in-bottom" : "slide-in-top";
+  }, [placement]);
+
   return (
     <SnackbarProvider add={add} remove={remove} notifications={notifications}>
       {notifications.length > 0 && (
         <Scope elevation="notification" className={cssClasses.root} role="presentation">
           <div className={cssClasses.content}>
-            {notifications.map(({ id, message, ...rest }) => (
-              <div key={id} className={cssClasses.notification}>
-                <Alert shadow="xl" {...rest}>
+            {notifications.map(({ id, message, leftSlot, rightSlot, size, skin, title }) => (
+              <Motion animation={animation} key={id}>
+                <Alert shadow="xl" {...{ leftSlot, rightSlot, size, skin, title }}>
                   {message}
                 </Alert>
-              </div>
+              </Motion>
             ))}
           </div>
         </Scope>

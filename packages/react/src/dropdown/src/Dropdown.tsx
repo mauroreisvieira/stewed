@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 // UI Components
-import { Scope } from "../..";
+import { Motion, Scope } from "../..";
 // Hooks
 import { useBem, useFloating, useClickOutside, type FloatingPlacement } from "@stewed/hooks";
 // Tokens
@@ -131,18 +131,20 @@ export function Dropdown<T extends HTMLElement>({
       })}
       {isVisible && (
         <Scope elevation="navigation">
-          <div
-            ref={floating}
-            className={cssClasses.root}
-            style={{
-              ...style,
-              visibility: isPositioned ? "visible" : "hidden",
-              left: `${x}px`,
-              top: `${y}px`,
-            }}
-            {...props}>
-            {children({ open: onHandleOpen, close: onHandleClose, isOpen: !!isVisible })}
-          </div>
+          <Motion animation="fade-in">
+            <div
+              ref={floating}
+              className={cssClasses.root}
+              style={{
+                ...style,
+                visibility: isPositioned ? "visible" : "hidden",
+                left: `${x}px`,
+                top: `${y}px`,
+              }}
+              {...props}>
+              {children({ open: onHandleOpen, close: onHandleClose, isOpen: !!isVisible })}
+            </div>
+          </Motion>
         </Scope>
       )}
     </>

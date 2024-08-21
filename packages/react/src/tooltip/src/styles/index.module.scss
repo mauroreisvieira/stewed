@@ -2,16 +2,6 @@
 @use "@stewed/react/src/theme/src/styles" as theme;
 @use "./variables" as *;
 
-@keyframes fade {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 @include theme.scope($tooltip-root) {
   position: absolute;
   max-width: 240px;
@@ -21,11 +11,6 @@
   background-color: theme.get-var(background-color);
   border-radius: theme.get-radius("sm");
   box-shadow: theme.get-shadow("md");
-
-  @media screen and (prefers-reduced-motion: no-preference) {
-    animation: theme.get-transition-duration("quickly")
-      theme.get-transition-timing-function("ease-in") 0s 1 normal none running fade;
-  }
 
   @each $key, $value in $tooltip-skins {
     &--#{$key} {

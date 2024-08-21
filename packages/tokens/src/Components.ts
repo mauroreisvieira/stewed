@@ -23,6 +23,7 @@ export const components = {
   List: "list",
   ListBox: "list-box",
   Pagination: "pagination",
+  Motion: "motion",
   Progress: "progress",
   Quantity: "quantity",
   Radio: "radio",

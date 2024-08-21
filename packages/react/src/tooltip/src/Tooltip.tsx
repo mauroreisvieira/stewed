@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useReducer } from "react";
-import { Scope } from "../../scope";
+// UI Components
+import { Motion, Scope } from "../../";
 // Hooks
 import { useBem, useFloating, type FloatingPlacement } from "@stewed/hooks";
 // Tokens
@@ -204,27 +205,29 @@ export function Tooltip<T extends HTMLElement>({
       })}
       {isVisible && (
         <Scope elevation="hint">
-          <div
-            ref={floating}
-            role="tooltip"
-            className={cssClasses.root}
-            style={{
-              ...style,
-              visibility: isPositioned ? "visible" : "hidden",
-              left: `${x}px`,
-              top: `${y}px`,
-            }}
-            onMouseEnter={(event): void => {
-              onHandleOpen();
-              onMouseEnter?.(event);
-            }}
-            onMouseLeave={(event): void => {
-              onHandleClose();
-              onMouseLeave?.(event);
-            }}
-            {...props}>
-            {children}
-          </div>
+          <Motion animation="fade-in">
+            <div
+              ref={floating}
+              role="tooltip"
+              className={cssClasses.root}
+              style={{
+                ...style,
+                visibility: isPositioned ? "visible" : "hidden",
+                left: `${x}px`,
+                top: `${y}px`,
+              }}
+              onMouseEnter={(event): void => {
+                onHandleOpen();
+                onMouseEnter?.(event);
+              }}
+              onMouseLeave={(event): void => {
+                onHandleClose();
+                onMouseLeave?.(event);
+              }}
+              {...props}>
+              {children}
+            </div>
+          </Motion>
         </Scope>
       )}
     </>

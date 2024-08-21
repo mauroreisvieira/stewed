@@ -1,6 +1,6 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 // UI Components
-import { Backdrop, Scope, useTheme } from "../..";
+import { Backdrop, Motion, Scope, useTheme } from "../..";
 // Provider
 import { type DialogProviderProps, DialogProvider } from "./DialogProvider";
 // Compound Component
@@ -84,6 +84,8 @@ export function Dialog({
   // State to hold the reference to the root div element
   const [rootRef, setRootRef] = useState<HTMLDivElement | null>(null);
 
+  const [shouldRender, setShouldRender] = useState(open);
+
   // Importing useBem to handle BEM class names
   const { getBlock, getElement } = useBem({ block: components.Dialog, styles });
 
@@ -140,20 +142,37 @@ export function Dialog({
     onClickOutside: () => onClickOutside?.(),
   });
 
+  useEffect(() => {
+    if (open) {
+      setShouldRender(true);
+    }
+  }, [open]);
+
+  const onHandleAnimationEnd = () => {
+    if (!open) {
+      setShouldRender(false);
+    }
+  };
+
   return (
     <>
-      {open && (
+      {shouldRender && (
         <Scope elevation="navigation">
           <Backdrop blur />
           <DialogProvider onClose={onClose}>
             <div className={cssClasses.root} {...props}>
-              <div
-                role="dialog"
-                onKeyDown={onHandleKeydown}
-                ref={setRootRef}
-                className={cssClasses.surface}>
-                {children}
-              </div>
+              <Motion
+                duration="normal"
+                animation={open ? "zoom-in" : "zoom-out"}
+                onDone={onHandleAnimationEnd}>
+                <div
+                  role="dialog"
+                  onKeyDown={onHandleKeydown}
+                  ref={setRootRef}
+                  className={cssClasses.surface}>
+                  {children}
+                </div>
+              </Motion>
             </div>
           </DialogProvider>
         </Scope>

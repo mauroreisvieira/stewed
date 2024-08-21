@@ -1,6 +1,6 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 // UI Components
-import { Backdrop, Scope, useTheme } from "../..";
+import { Backdrop, Motion, Scope, useTheme } from "../..";
 // Provider
 import { type DrawerProviderProps, DrawerProvider } from "./DrawerProvider";
 // Compound Component
@@ -84,6 +84,8 @@ export function Drawer({
   // State to hold the reference to the root div element
   const [rootRef, setRootRef] = useState<HTMLDivElement | null>(null);
 
+  const [shouldRender, setShouldRender] = useState(open);
+
   // Importing useBem to handle BEM class names
   const { getBlock, getElement } = useBem({ block: components.Drawer, styles });
 
@@ -140,16 +142,32 @@ export function Drawer({
     onClickOutside: () => onClickOutside?.(),
   });
 
+  useEffect(() => {
+    if (open) {
+      setShouldRender(true);
+    }
+  }, [open]);
+
+  const onHandleAnimationEnd = () => {
+    if (!open) {
+      setShouldRender(false);
+    }
+  };
+
   return (
     <>
-      {open && (
+      {shouldRender && (
         <Scope elevation="navigation">
           <Backdrop blur />
           <DrawerProvider onClose={onClose}>
             <div className={cssClasses.root} {...props}>
-              <div onKeyDown={onHandleKeydown} ref={setRootRef} className={cssClasses.surface}>
-                {children}
-              </div>
+              <Motion
+                animation={open ? `slide-in-${placement}` : `slide-out-${placement}`}
+                onDone={onHandleAnimationEnd}>
+                <div onKeyDown={onHandleKeydown} ref={setRootRef} className={cssClasses.surface}>
+                  {children}
+                </div>
+              </Motion>
             </div>
           </DrawerProvider>
         </Scope>

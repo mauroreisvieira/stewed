@@ -21,6 +21,7 @@ export * from "./group";
 export * from "./hoverable";
 export * from "./list";
 export * from "./list-box";
+export * from "./motion";
 export * from "./pagination";
 export * from "./progress";
 export * from "./radio";

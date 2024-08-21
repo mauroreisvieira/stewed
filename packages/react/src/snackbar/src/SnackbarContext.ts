@@ -15,6 +15,7 @@ export interface SnackbarNotification
   id: string;
   /** The message content of the notification. */
   message?: React.ReactNode;
+  hide?: boolean;
   /**
    * Duration in milliseconds after which the notification will automatically dismiss itself.
    * @remark If not specified, the item will not auto-dismiss.
