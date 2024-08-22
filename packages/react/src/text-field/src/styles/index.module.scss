@@ -16,7 +16,7 @@
   border-radius: theme.get-var(radius);
 
   @include text.typography(base, $overrides: (font-size: theme.get-font-size("md")));
-  @include theme.focus-styles($target: ":focus-within");
+  @include theme.focus-styles($target: ":has(input:focus-visible)");
   @include theme.disabled-styles;
 
   &__input {
