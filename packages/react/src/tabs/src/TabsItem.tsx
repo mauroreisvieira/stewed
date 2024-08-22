@@ -61,7 +61,7 @@ export function TabsItem({
       disabled={disabled}
       aria-disabled={disabled}
       aria-selected={isSelected}
-      tabIndex={!isSelected || disabled ? -1 : tabIndex}
+      tabIndex={isSelected ? 0 : -1}
       className={cssClasses.root}
       onClick={onHandleClick}
       {...props}>

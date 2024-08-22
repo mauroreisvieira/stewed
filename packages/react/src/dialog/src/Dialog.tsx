@@ -166,9 +166,9 @@ export function Dialog({
                 animation={open ? "zoom-in-soft" : "zoom-out-soft"}
                 onDone={onHandleAnimationEnd}>
                 <div
+                  ref={setRootRef}
                   role="dialog"
                   onKeyDown={onHandleKeydown}
-                  ref={setRootRef}
                   className={cssClasses.surface}>
                   {children}
                 </div>

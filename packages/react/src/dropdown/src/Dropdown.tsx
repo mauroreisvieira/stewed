@@ -34,8 +34,6 @@ export interface DropdownProps<T>
    * @example "top", "bottom", "left", "right"
    */
   placement?: FloatingPlacement;
-  /** Indicates whether the `Dropdown` is currently open. */
-  open?: boolean;
   /**
    * Allows the `Dropdown` to remain open even when clicking outside of it.
    * @default false
@@ -79,7 +77,6 @@ export interface DropdownProps<T>
  */
 export function Dropdown<T extends HTMLElement>({
   placement = "bottom-start",
-  open,
   className,
   style,
   allowClickOutside = false,
@@ -100,14 +97,12 @@ export function Dropdown<T extends HTMLElement>({
   // Create a reference to manage the dropdown element
   const dropdownRef = useRef<T>(null);
 
-  const [isOpen, setOpen] = useState(open);
-
-  // Determines the visibility of the Dropdown based on controlled (open) or uncontrolled (isOpen) state.
-  const isVisible = open || isOpen;
+  // Determines the visibility of the Dropdown based onstate.
+  const [isOpen, setOpen] = useState(false);
 
   // Floating position calculation hook
   const { floating, x, y, isPositioned } = useFloating<T, HTMLDivElement>({
-    open: isVisible,
+    open: isOpen,
     placement,
     reference: dropdownRef.current,
     offset: 4,
@@ -115,16 +110,16 @@ export function Dropdown<T extends HTMLElement>({
 
   // Hook to handle clicks outside the floating element.
   useClickOutside({
-    enabled: isVisible,
+    enabled: isOpen,
     ignoredElements: [dropdownRef.current as Element, floating.current as Element],
     onClickOutside: () => (allowClickOutside ? onClickOutside : setOpen(false)),
   });
 
   // Disable arrow key scrolling in users browser
   useKey({
-    enabled: !!isVisible,
+    enabled: !!isOpen,
     keys: ["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"],
-    callback: (event) => {
+    callback: (event: KeyboardEvent) => {
       event.preventDefault();
     },
   });
@@ -133,20 +128,13 @@ export function Dropdown<T extends HTMLElement>({
   const {
     ref: navigationRef,
     onNavigate,
-    setFocusedIndex,
+    setFirstElementFocusable,
   } = useKeyboardNavigation<HTMLDivElement>({
     target: '[role="option"]:not([aria-disabled])',
   });
 
   // Merge the floating reference (likely for a floating UI element) with the navigation reference
   const contentRef = useMergeRefs([floating, navigationRef]);
-
-  useEffect(() => {
-    // Set the first element as focusable when the floating element is mounted or updated
-    if (floating.current) {
-      setFocusedIndex(0);
-    }
-  }, [floating.current]);
 
   // Handles the `keydown` event on a specific HTML element.
   const onHandleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
@@ -179,15 +167,30 @@ export function Dropdown<T extends HTMLElement>({
     setOpen(false);
   };
 
+  useEffect(() => {
+    // Set the first element as focusable when the floating element is mounted or updated
+    if (floating.current) {
+      setFirstElementFocusable();
+    }
+  }, [floating.current]);
+
+  useEffect(() => {
+    // Cleanup function to run when the component unmounts or the effect is re-run
+    return () => {
+      // Close the floating element or popup when the component is unmounted
+      setOpen(false);
+    };
+  }, []);
+
   return (
     <>
       {renderAnchor({
         ref: dropdownRef,
         open: onHandleOpen,
         close: onHandleClose,
-        isOpen: !!isVisible,
+        isOpen: !!isOpen,
       })}
-      {isVisible && (
+      {isOpen && (
         <Scope elevation="navigation">
           <Motion animation="fade-in">
             <div
@@ -201,7 +204,7 @@ export function Dropdown<T extends HTMLElement>({
                 top: `${y}px`,
               }}
               {...props}>
-              {children({ open: onHandleOpen, close: onHandleClose, isOpen: !!isVisible })}
+              {children({ open: onHandleOpen, close: onHandleClose, isOpen: !!isOpen })}
             </div>
           </Motion>
         </Scope>

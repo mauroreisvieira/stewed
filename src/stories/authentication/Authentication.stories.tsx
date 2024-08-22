@@ -137,7 +137,7 @@ export const VerifyAccount = {
               We are sending a OTP to validate you mobile number.
             </Text>
 
-            <Box space={{ y: "2xl" }} fullWidth>
+            <Box space={{ y: "2xl" }}>
               <Stack ref={ref} gap="md" items="center" justify="center" onKeyDown={onNavigate}>
                 {Array.from({ length: 6 }).map((_, idx) => (
                   <OTPInput

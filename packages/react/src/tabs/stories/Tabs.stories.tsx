@@ -40,7 +40,7 @@ export const Base: Story = {
           <Tabs.Item leftSlot={<FiBell />} value="2">
             Notifications
           </Tabs.Item>
-          <Tabs.Item leftSlot={<FiBell />} value="3">
+          <Tabs.Item leftSlot={<FiBell />} value="3" disabled>
             Team
           </Tabs.Item>
           <Tabs.Item leftSlot={<FiCalendar />} value="4">

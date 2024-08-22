@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
 interface UseKeyboardNavigationProps {
   /** The CSS selector string that identifies the elements to navigate. */
@@ -36,6 +36,11 @@ interface UseKeyboardNavigation<T> {
    */
   setFocusedIndex: (index: number) => void;
   /**
+   * Function to set the first focusable element within the container as focused.
+   * Typically used to ensure that the first item in the list is focused when the component is initialized.
+   */
+  setFirstElementFocusable: () => void;
+  /**
    * The current focused item's index.
    * This reflects the index of the item that is currently focused within the list.
    */
@@ -63,6 +68,31 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
   // State to track the current index of the focused or selected item within the list
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
+  const setFocusedIndex = useCallback(
+    (index: number) => {
+      // Get the current reference to the list element.
+      const list = listRef.current;
+
+      // If the list reference is not available (null or undefined), exit the function.
+      if (!list) {
+        return;
+      }
+
+      // Convert the NodeList of elements matching the 'target' selector into an array of HTMLElements.
+      const items = Array.from<HTMLElement>(list.querySelectorAll(target));
+
+      // Calculate the next index to focus. Ensure it's within bounds, otherwise, default to 0.
+      const nextIndex = index >= 0 && index < items.length ? index : 0;
+
+      // Update the current index state.
+      setCurrentIndex(nextIndex);
+
+      // Focus the item at the next index, if it exists.
+      items[nextIndex]?.focus();
+    },
+    [target],
+  );
+
   const onHandleKeyDown: React.KeyboardEventHandler<T> = useCallback(
     (event) => {
       // Get the current reference to the list element.
@@ -89,44 +119,36 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
         const nextIndex = (index + direction + items.length) % items.length;
 
         // Update the current index state.
-        setCurrentIndex(nextIndex);
-
-        // Focus the item at the calculated next index, if it exists.
-        items[nextIndex]?.focus();
+        setFocusedIndex(nextIndex);
       }
     },
     [target],
   );
 
-  const setFocusedIndex = useCallback(
-    (index: number) => {
-      // Get the current reference to the list element.
-      const list = listRef.current;
+  // Sets the first element with `[aria-selected="true"]` as focusable, or the first item if none found.
+  const setFirstElementFocusable = useCallback(() => {
+    // Get the current reference to the list element.
+    const list = listRef.current;
 
-      // If the list reference is not available (null or undefined), exit the function.
-      if (!list) {
-        return;
-      }
+    // If the list reference is not available (null or undefined), exit the function.
+    if (!list) {
+      return;
+    }
 
-      // Convert the NodeList of elements matching the 'target' selector into an array of HTMLElements.
-      const items = Array.from<HTMLElement>(list.querySelectorAll(target));
+    // Convert the NodeList of elements matching the 'target' selector into an array of HTMLElements.
+    const items = Array.from<HTMLElement>(list.querySelectorAll(target));
 
-      // Calculate the next index to focus. Ensure it's within bounds, otherwise, default to 0.
-      const nextIndex = index >= 0 && index < items.length ? index : 0;
+    // Try to find the first item with `aria-selected="true"`.
+    const selectedIndex = items.findIndex((item) => item.getAttribute("aria-selected") === "true");
 
-      // Update the current index state.
-      setCurrentIndex(nextIndex);
-
-      // Focus the item at the next index, if it exists.
-      items[nextIndex]?.focus();
-    },
-    [target],
-  );
+    setFocusedIndex(selectedIndex);
+  }, [target, setFocusedIndex]);
 
   return {
     ref: listRef,
     onNavigate: onHandleKeyDown,
     setFocusedIndex,
     currentIndex,
+    setFirstElementFocusable,
   };
 }
