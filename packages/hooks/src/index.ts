@@ -14,6 +14,8 @@ export * from "./use-toggle";
 export * from "./useFocusTrap";
 export * from "./useGlobalState";
 export * from "./useIntersectionObserver";
+export * from "./useKey";
+export * from "./useMergeRefs";
 export * from "./useMounted";
 export * from "./usePortal";
 export * from "./useResizeObserver";
