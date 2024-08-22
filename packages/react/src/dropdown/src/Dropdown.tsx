@@ -1,8 +1,16 @@
-import React, { useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 // UI Components
 import { Motion, Scope } from "../..";
 // Hooks
-import { useBem, useFloating, useClickOutside, type FloatingPlacement } from "@stewed/hooks";
+import {
+  useBem,
+  useFloating,
+  useClickOutside,
+  useKey,
+  useKeyboardNavigation,
+  useMergeRefs,
+  type FloatingPlacement,
+} from "@stewed/hooks";
 // Tokens
 import { components } from "@stewed/tokens";
 // Styles
@@ -77,6 +85,7 @@ export function Dropdown<T extends HTMLElement>({
   allowClickOutside = false,
   onClickOutside,
   renderAnchor,
+  onKeyDown,
   children,
   ...props
 }: DropdownProps<T>): React.ReactElement {
@@ -111,12 +120,61 @@ export function Dropdown<T extends HTMLElement>({
     onClickOutside: () => (allowClickOutside ? onClickOutside : setOpen(false)),
   });
 
-  // Opens the dropdown by setting the state to true.
+  // Disable arrow key scrolling in users browser
+  useKey({
+    enabled: !!isVisible,
+    keys: ["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"],
+    callback: (event) => {
+      event.preventDefault();
+    },
+  });
+
+  // Define a reference for the list element and enable keyboard navigation within it
+  const {
+    ref: navigationRef,
+    onNavigate,
+    setFocusedIndex,
+  } = useKeyboardNavigation<HTMLDivElement>({
+    target: '[role="option"]:not([aria-disabled])',
+  });
+
+  // Merge the floating reference (likely for a floating UI element) with the navigation reference
+  const contentRef = useMergeRefs([floating, navigationRef]);
+
+  useEffect(() => {
+    // Set the first element as focusable when the floating element is mounted or updated
+    if (floating.current) {
+      setFocusedIndex(0);
+    }
+  }, [floating.current]);
+
+  // Handles the `keydown` event on a specific HTML element.
+  const onHandleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
+    (event): void => {
+      // Call function to navigate between dropdown content childs
+      onNavigate(event);
+
+      // Call the custom onKeyDown handler, if provided.
+      onKeyDown?.(event);
+
+      // Check if the pressed key is "Escape".
+      if (event.key === "Escape") {
+        // Close the dropdown component.
+        setOpen(false);
+
+        // Stop the event from bubbling up to other elements.
+        event.stopPropagation();
+      }
+    },
+    [onKeyDown, setOpen],
+  );
+
+  // Opens the dropdown by set the state to true.
   const onHandleOpen = (): void => {
     setOpen(true);
   };
 
-  // Closes the dropdown by setting the state to false.
+  // Closes the dropdown by set the state to false.
   const onHandleClose = (): void => {
     setOpen(false);
   };
@@ -133,8 +191,9 @@ export function Dropdown<T extends HTMLElement>({
         <Scope elevation="navigation">
           <Motion animation="fade-in">
             <div
-              ref={floating}
+              ref={contentRef}
               className={cssClasses.root}
+              onKeyDown={onHandleKeyDown}
               style={{
                 ...style,
                 visibility: isPositioned ? "visible" : "hidden",

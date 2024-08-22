@@ -10,22 +10,35 @@ interface UseKeyboardNavigationProps {
   keyboardKey?: Record<string, number>;
 }
 
+/**
+ * Interface for keyboard navigation within a list or collection of elements.
+ *
+ * @template T - The type of the DOM element to be navigated (e.g., HTMLDivElement, HTMLUListElement).
+ */
 interface UseKeyboardNavigation<T> {
-  /** Reference to the DOM element to be used for navigation. */
+  /**
+   * Reference to the DOM element used for navigation.
+   * This ref should be attached to the container element that holds the navigable items.
+   */
   ref: React.RefObject<T>;
   /**
    * Event handler function to navigate through keyboard interactions.
+   * This function should be called within the `onKeyDown` event handler of the container element.
    *
-   * @param {React.KeyboardEvent<T>} event - The keyboard event.
+   * @param {React.KeyboardEvent<T>} event - The keyboard event triggered by user interaction.
    */
   onNavigate: (event: React.KeyboardEvent<T>) => void;
   /**
    * Function to set the focused index of the items.
+   * This is useful for programmatically changing the focus to a specific item in the list.
    *
-   * @param {number} index - The index to be focused.
+   * @param {number} index - The index of the item to be focused.
    */
   setFocusedIndex: (index: number) => void;
-  /** The current focused item's index. */
+  /**
+   * The current focused item's index.
+   * This reflects the index of the item that is currently focused within the list.
+   */
   currentIndex: number;
 }
 
@@ -44,7 +57,10 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
     ArrowRight: 1,
   },
 }: UseKeyboardNavigationProps): UseKeyboardNavigation<T> {
+  // Create a reference to the list element, where `T` is a generic type representing the element type (e.g., HTMLUListElement, HTMLDivElement)
   const listRef = useRef<T>(null);
+
+  // State to track the current index of the focused or selected item within the list
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   const onHandleKeyDown: React.KeyboardEventHandler<T> = useCallback(

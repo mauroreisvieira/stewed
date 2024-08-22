@@ -63,7 +63,7 @@ export const Base: Story = {
               <ListBox.Item rightSlot="⌘C">Copy</ListBox.Item>
               <ListBox.Item rightSlot="⌘V">Past</ListBox.Item>
               <Separator space={{ block: "xs" }} />
-              <ListBox.Item rightSlot="⌘Z">Undo</ListBox.Item>
+              <ListBox.Item rightSlot="⌘Z" disabled>Undo</ListBox.Item>
               <ListBox.Item rightSlot="⌘Y">Redo</ListBox.Item>
             </ListBox>
           );

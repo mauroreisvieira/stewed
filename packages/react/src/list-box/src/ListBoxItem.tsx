@@ -50,7 +50,7 @@ export function ListBoxItem({
     <div
       className={cssClasses.root}
       role="option"
-      tabIndex={disabled ? -1 : 0}
+      tabIndex={-1}
       aria-selected={selected}
       aria-disabled={disabled}
       {...props}>
