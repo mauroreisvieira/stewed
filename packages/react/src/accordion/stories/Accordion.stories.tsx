@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 // UI Components
 import { Theme, Accordion, Text } from "../../index";
 // Icons
-import { FiPlus } from "react-icons/fi";
+import { FiPlus, FiMinus } from "react-icons/fi";
 
 type Story = StoryObj<typeof Accordion>;
 
@@ -31,16 +31,28 @@ export const Base: Story = {
     children: (
       <>
         <Accordion.Item>
-          <Accordion.Header rightSlot={<FiPlus />}>Item 1</Accordion.Header>
-          <Accordion.Body>
-            <Text>Body for Item 1</Text>
-          </Accordion.Body>
+          {({ open }) => (
+            <>
+              <Accordion.Header rightSlot={open ? <FiMinus /> : <FiPlus />}>
+                Item 1
+              </Accordion.Header>
+              <Accordion.Body>
+                <Text>Body for Item 1</Text>
+              </Accordion.Body>
+            </>
+          )}
         </Accordion.Item>
         <Accordion.Item>
-          <Accordion.Header rightSlot={<FiPlus />}>Item 2</Accordion.Header>
-          <Accordion.Body>
-            <Text>Body for Item 2</Text>
-          </Accordion.Body>
+          {({ open }) => (
+            <>
+              <Accordion.Header rightSlot={open ? <FiMinus /> : <FiPlus />}>
+                Item 2
+              </Accordion.Header>
+              <Accordion.Body>
+                <Text>Body for Item 2</Text>
+              </Accordion.Body>
+            </>
+          )}
         </Accordion.Item>
       </>
     ),

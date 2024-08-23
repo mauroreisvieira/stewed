@@ -17,6 +17,8 @@
 
   &__header {
     display: flex;
+    gap: theme.get-spacing("lg");
+    align-items: baseline;
     appearance: auto;
     cursor: pointer;
 
@@ -33,7 +35,6 @@
 
     &__text {
       flex-grow: 1;
-      white-space: nowrap;
     }
 
     &__left,

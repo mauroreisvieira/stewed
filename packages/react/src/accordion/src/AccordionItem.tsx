@@ -12,8 +12,8 @@ import styles from "./styles/index.module.scss";
 
 interface AccordionItemProps extends Omit<React.ComponentPropsWithRef<"details">, "children"> {
   /**
-   * The content to be displayed in the accordion item body.
-   * This can be a React node or a function receiving the open state and returning a React node.
+   * The content to be displayed in the accordion item body
+   * or a function receiving the open state and returning a React node.
    */
   children?: React.ReactNode | (({ open }: { open: boolean }) => React.ReactNode);
 }
