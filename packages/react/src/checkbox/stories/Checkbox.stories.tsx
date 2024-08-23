@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Theme, Checkbox } from "../../index";
+// UI Components
+import { Theme, Checkbox, Text, Separator } from "../../index";
 // Hooks
 import { useToggle } from "@stewed/hooks";
 
@@ -9,6 +10,9 @@ type Story = StoryObj<typeof Checkbox>;
 const meta: Meta<typeof Checkbox> = {
   title: "Components/Checkbox",
   component: Checkbox,
+  subcomponents: {
+    Group: Checkbox.Group as React.FC<unknown>,
+  },
   decorators: [
     (Story) => (
       <Theme>
@@ -28,6 +32,7 @@ export const Controlled: Story = {
     onChange: { action: "change" },
   },
   args: {
+    defaultChecked: true,
     children: "Label",
   },
 };
@@ -72,5 +77,33 @@ export const Error: Story = {
     skin: "critical",
     defaultChecked: true,
     children: "Label",
+  },
+};
+
+export const Group: Story = {
+  render: function Render() {
+    const [checkedValues, setCheckedValues] = useState<string[]>(["Red", "Orange"]);
+    return (
+      <>
+        <Checkbox.Group
+          checkedValues={checkedValues}
+          onCheckedChange={(checked) => setCheckedValues(checked)}>
+          {["Red", "Blue", "Green", "Orange", "Pink"].map((color) => (
+            <Checkbox key={color} value={color}>
+              {color}
+            </Checkbox>
+          ))}
+        </Checkbox.Group>
+
+        <Separator space={{ block: "xl" }} />
+
+        <Text size="sm">
+          <Text as="strong" weight="bold" size="sm">
+            Selected Values:
+          </Text>{" "}
+          {checkedValues.toString()}
+        </Text>
+      </>
+    );
   },
 };

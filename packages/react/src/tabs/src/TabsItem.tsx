@@ -23,7 +23,6 @@ export function TabsItem({
   leftSlot,
   rightSlot,
   className,
-  tabIndex,
   children,
   onClick,
   ...props

@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 // Provider
 import { TabsProvider, type TabsProviderProps } from "./TabsProvider";
-//. Compound Component
+// Compound Component
 import { TabsItem } from "./TabsItem";
 import { TabsList } from "./TabsList";
 // Hooks

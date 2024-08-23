@@ -87,6 +87,20 @@
     }
   }
 
+  &__group {
+    display: flex;
+    gap: theme.get-spacing("md");
+    align-items: start;
+
+    &--horizontal {
+      flex-direction: column;
+    }
+
+    &--vertical {
+      flex-direction: row;
+    }
+  }
+
   // Skins
   @each $key, $value in $checkbox-skins {
     &--#{$key} {

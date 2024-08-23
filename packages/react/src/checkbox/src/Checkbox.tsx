@@ -1,6 +1,9 @@
-import React, { useEffect, useImperativeHandle, useRef } from "react";
+import React, { useCallback, useEffect, useImperativeHandle, useRef, useState } from "react";
+// Compound Component
+import { CheckboxGroup } from "./CheckboxGroup";
 // Hooks
 import { useBem } from "@stewed/hooks";
+import { useCheckboxGroup } from "./CheckboxGroupContext";
 // Tokens
 import { components } from "@stewed/tokens";
 // Styles
@@ -26,6 +29,7 @@ export interface CheckboxProps extends Omit<React.ComponentPropsWithRef<"input">
   /** Content to be rendered within the checkbox, usually used for labels. */
   children?: React.ReactNode;
 }
+
 /**
  * Checkbox component allow the user to select multiple options from a set.
  *
@@ -46,13 +50,26 @@ export function Checkbox({
   disabled,
   indeterminate = false,
   children,
+  value,
+  defaultChecked,
+  checked,
   ref,
+  onChange,
   ...props
 }: CheckboxProps): React.ReactElement {
+  // Create a ref for the input element, initialized to null
   const inputRef = useRef<HTMLInputElement>(null);
 
   // Importing useBem to handle BEM class names
   const { getBlock, getElement } = useBem({ block: components.Checkbox, styles });
+
+  // Use the custom hook useCheckboxGroup to access functions and state related to checkbox management
+  const { onCheckedChange, checkedValues = [] } = useCheckboxGroup();
+
+  // Manage the internal checked state of the checkbox
+  const [internalChecked, setInternalChecked] = useState(
+    (value && checkedValues.includes(value.toString())) || defaultChecked || false,
+  );
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
@@ -66,11 +83,13 @@ export function Checkbox({
     text: getElement(["text"]),
   };
 
+  // Exposing the inputRef to the parent component via the ref passed as a prop
   useImperativeHandle<HTMLInputElement | null, HTMLInputElement | null>(
     ref,
     () => inputRef.current,
   );
 
+  // Effect to handle the indeterminate state of the checkbox
   useEffect(() => {
     const node = inputRef.current;
 
@@ -79,13 +98,44 @@ export function Checkbox({
     }
   }, [indeterminate]);
 
+  // Determine the checked state: controlled or uncontrolled
+  const isChecked = checked || internalChecked;
+
+  // Event handler for when the checkbox state changes
+  const onHandleChange: React.ChangeEventHandler<HTMLInputElement> = useCallback(
+    (event) => {
+      // Trigger the external onChange handler if provided
+      onChange?.(event);
+
+      // Calculate the new checked state by toggling the current checked state
+      const newChecked = !isChecked;
+
+      if (value) {
+        // Manage checkedValues if value is defined
+        const newCheckedValues = newChecked
+          ? [...checkedValues, value.toString()]
+          : checkedValues.filter((checkedValue) => checkedValue !== value);
+
+        // Update the parent component's checkedValues if onCheckedChange is provided
+        onCheckedChange?.(newCheckedValues);
+      }
+
+      // Manage internal state if value is not defined
+      setInternalChecked(newChecked);
+    },
+    [isChecked, checkedValues, value, onChange, onCheckedChange],
+  );
+
   return (
     <label className={cssClasses.root}>
       <input
         ref={inputRef}
         type="checkbox"
         disabled={disabled}
+        checked={isChecked}
+        value={value}
         className={cssClasses.input}
+        onChange={onHandleChange}
         {...props}
       />
       <span className={cssClasses.control}>
@@ -103,3 +153,6 @@ export function Checkbox({
     </label>
   );
 }
+
+// Compound component composition
+Checkbox.Group = CheckboxGroup;
