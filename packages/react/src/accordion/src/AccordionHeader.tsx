@@ -42,8 +42,8 @@ export function AccordionHeader({
    *
    * @param event - The click event
    */
-  const onHandleClick = useCallback(
-    (event: React.MouseEvent<HTMLDivElement>): void => {
+  const onHandleClick: React.MouseEventHandler<HTMLDivElement> = useCallback(
+    (event): void => {
       event.stopPropagation();
       setOpen((prev) => !prev);
       onClick?.(event);
