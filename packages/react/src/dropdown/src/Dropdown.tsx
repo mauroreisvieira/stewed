@@ -48,11 +48,12 @@ export interface DropdownProps<T>
    */
   renderAnchor: (props: DropdownChildrenProps<T>) => React.ReactElement;
   /**
-   * Function that returns a React element with events to trigger `Dropdown` position and visibility.
-   * @param props - Render props for `Dropdown` component, excluding the `ref` property.
-   * @returns A React element that controls the position and visibility of the `Dropdown`.
+   * The content to be displayed in the dropdown
+   * or function that returns a React element with events to trigger `Dropdown` position and visibility.
    */
-  children: (props: Omit<DropdownChildrenProps<T>, "ref">) => React.ReactElement;
+  children:
+    | React.ReactNode
+    | ((props: Omit<DropdownChildrenProps<T>, "ref">) => React.ReactElement);
 }
 
 /**
@@ -204,7 +205,9 @@ export function Dropdown<T extends HTMLElement>({
                 top: `${y}px`,
               }}
               {...props}>
-              {children({ open: onHandleOpen, close: onHandleClose, isOpen: !!isOpen })}
+              {typeof children === "function"
+                ? children({ open: onHandleOpen, close: onHandleClose, isOpen: !!isOpen })
+                : children}
             </div>
           </Motion>
         </Scope>
