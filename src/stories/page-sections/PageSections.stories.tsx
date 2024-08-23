@@ -161,7 +161,15 @@ export const Testimonials = {
     return (
       <Stack as="main" direction="column" items="center" justify="center">
         <Container screen="xl" alignment="center" padding={{ block: "7xl" }}>
-          <Stack justify="between" grow>
+          <Stack
+            direction="column"
+            justify="between"
+            gap="4xl"
+            responsive={{
+              md: {
+                direction: "row",
+              },
+            }}>
             <Stack direction="column" gap="2xl" grow>
               <Text size="xl" weight="light" space={{ y: "2xl" }}>
                 <Text size="3xl" skin="primary" as="span">
@@ -188,7 +196,19 @@ export const Testimonials = {
                 </Stack>
               </Stack>
             </Stack>
-            <Separator space={{ inline: "7xl" }} orientation="vertical" />
+            <Separator
+              space={{ block: "xl" }}
+              orientation="horizontal"
+              responsive={{
+                md: {
+                  orientation: "vertical",
+                  space: {
+                    inline: "7xl",
+                    block: "none",
+                  },
+                },
+              }}
+            />
             <Stack direction="column" gap="2xl" grow>
               <Text size="xl" weight="light" space={{ y: "2xl" }}>
                 <Text size="3xl" skin="primary" as="span">
