@@ -135,7 +135,7 @@ export function Dropdown<T extends HTMLElement>({
   });
 
   // Merge the floating reference (likely for a floating UI element) with the navigation reference
-  const contentRef = useMergeRefs([floating, navigationRef]);
+  const mergedRefs = useMergeRefs([floating, navigationRef]);
 
   // Handles the `keydown` event on a specific HTML element.
   const onHandleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
@@ -195,7 +195,7 @@ export function Dropdown<T extends HTMLElement>({
         <Scope elevation="navigation">
           <Motion animation="fade-in">
             <div
-              ref={contentRef}
+              ref={mergedRefs}
               className={cssClasses.root}
               onKeyDown={onHandleKeyDown}
               style={{
