@@ -10,9 +10,18 @@ const definitionError = (): null => {
 };
 
 export interface CheckboxGroupContextProps {
-  /** Sets values of checkbox selected. */
+  /**
+   * Sets values of checkbox selected.
+   *
+   * @remarks If `checkedValues` is undefined, this component will act as an uncontrolled input.
+   * To avoid this, ensure `checkedValues` is either consistently controlled (always defined) or managed properly to handle potential undefined cases.
+   */
   checkedValues?: string[];
-  /** Callback fired when the checked state changes. */
+  /**
+   * Callback fired when the checked state changes.
+   *
+   * @param value The new array of selected checkbox values.
+   */
   onCheckedChange?: (value: string[]) => void;
 }
 

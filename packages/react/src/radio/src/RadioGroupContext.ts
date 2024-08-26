@@ -12,10 +12,19 @@ const definitionError = (): null => {
 export interface RadioGroupContextProps {
   /** The name used to reference the value of the control. */
   name: string;
-  /** Sets value of radio selected. */
-  checkedValue: string;
-  /** Callback fired when the checked state changes. */
-  onCheckedChange: (value: string) => void;
+  /**
+   * Sets values of radio selected.
+   *
+   * @remarks If `checkedValues` is undefined, this component will act as an uncontrolled input.
+   * To avoid this, ensure `checkedValues` is either consistently controlled (always defined) or managed properly to handle potential undefined cases.
+   */
+  checkedValue?: string;
+  /**
+   * Callback fired when the checked state changes.
+   *
+   * @param value The new array of selected radio values.
+   */
+  onCheckedChange?: (value: string) => void;
 }
 
 /**
@@ -29,7 +38,7 @@ export interface RadioGroupContextProps {
 function createRadioGroupContext() {
   return createContext<RadioGroupContextProps>({
     name: "",
-    checkedValue: "",
+    checkedValue: undefined,
     onCheckedChange: definitionError,
   });
 }

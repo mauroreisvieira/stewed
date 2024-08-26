@@ -62,9 +62,14 @@ export const Error: Story = {
   },
 };
 
+/**
+ * If `checkedValues` is undefined, this component will act as an uncontrolled input.
+ * To avoid this, ensure `checkedValues` is either consistently controlled (always defined) or managed properly to handle potential undefined cases.
+ */
 export const Group: Story = {
   render: function Render() {
-    const [checkedValue, setCheckedValues] = useState("Red");
+    const [checkedValue, setCheckedValues] = useState<string>("");
+
     return (
       <>
         <Radio.Group name="colors" checkedValue={checkedValue} onCheckedChange={setCheckedValues}>
@@ -81,7 +86,7 @@ export const Group: Story = {
           <Text as="strong" weight="bold" size="sm">
             Selected Value:
           </Text>{" "}
-          {checkedValue.toString()}
+          {checkedValue?.toString()}
         </Text>
       </>
     );

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // UI Components
-import { Theme, Checkbox, Text, Separator, Card, Stack, Box } from "../../index";
+import { Theme, Checkbox, Text, Separator } from "../../index";
 // Hooks
 import { useToggle } from "@stewed/hooks";
 
@@ -99,9 +99,13 @@ export const Custom: Story = {
   },
 };
 
+/**
+ * If `checkedValues` is undefined, this component will act as an uncontrolled input.
+ * To avoid this, ensure `checkedValues` is either consistently controlled (always defined) or managed properly to handle potential undefined cases.
+ */
 export const Group: Story = {
   render: function Render() {
-    const [checkedValues, setCheckedValues] = useState<string[]>([]);
+    const [checkedValues, setCheckedValues] = useState<string[]>();
 
     return (
       <>

@@ -57,7 +57,7 @@ const Root = forwardRef(
     const { getBlock, getElement } = useBem({ block: components.Radio, styles });
 
     // Use the custom hook useCheckboxGroup to access functions and state related to radio management
-    const { onCheckedChange, checkedValue = "", name: groupName } = useRadioGroup();
+    const { onCheckedChange, checkedValue, name: groupName } = useRadioGroup();
 
     // Generating CSS classes based on component props and styles
     const cssClasses = {
@@ -71,7 +71,7 @@ const Root = forwardRef(
     };
 
     // Determine the checked state: controlled or uncontrolled
-    const isChecked = checkedValue ? checkedValue === value : checked;
+    const isChecked = typeof checkedValue !== "undefined" ? checkedValue === value : checked;
 
     // Event handler for when the radio state changes
     const onHandleChange: React.ChangeEventHandler<HTMLInputElement> = useCallback(

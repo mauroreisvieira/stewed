@@ -93,7 +93,7 @@ const Root = forwardRef(
     }, [indeterminate]);
 
     // Determine the checked state: controlled or uncontrolled
-    const isChecked = checkedValues
+    const isChecked = typeof checkedValues !== "undefined"
       ? !!(value && checkedValues.includes(value.toString()))
       : checked;
 
