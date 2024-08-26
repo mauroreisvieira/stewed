@@ -70,4 +70,8 @@
       margin-top: #{$value};
     }
   }
+
+  &--full-width {
+    width: 100%;
+  }
 }

@@ -47,6 +47,8 @@ export interface BoxProps<T>
    * @remarks This property can be used to set the height to fill the entire screen.
    */
   screen?: Extract<Viewport, "vh"> | Extract<Screens, "full">;
+  /** Sets the box to use the full width of its container. */
+  fullWidth?: boolean;
 }
 
 /**
@@ -73,6 +75,7 @@ export const Box = fixedForwardRef(
       space,
       hidden,
       responsive,
+      fullWidth,
       className,
       children,
       ...props
@@ -113,6 +116,7 @@ export const Box = fixedForwardRef(
           computedProps.space?.x && `space-x-${computedProps.space.x}`,
           computedProps.space?.y && `space-y-${computedProps.space.y}`,
           hidden && "hidden",
+          fullWidth && "full-width",
         ],
         extraClasses: className,
       }),
