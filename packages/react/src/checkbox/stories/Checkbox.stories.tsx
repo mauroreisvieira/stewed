@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // UI Components
-import { Theme, Checkbox, Text, Separator } from "../../index";
+import { Theme, Checkbox, Text, Separator, Card, Stack, Box } from "../../index";
 // Hooks
 import { useToggle } from "@stewed/hooks";
 
@@ -80,14 +80,32 @@ export const Error: Story = {
   },
 };
 
+export const Custom: Story = {
+  argTypes: {
+    onChange: { action: "change" },
+  },
+  args: {
+    defaultChecked: true,
+    children: (
+      <>
+        <Text weight="medium" size="sm">
+          Use different settings for my mobile devices
+        </Text>
+        <Text size="xs" skin="neutral">
+          You can manage your mobile notifications in the mobile settings page.
+        </Text>
+      </>
+    ),
+  },
+};
+
 export const Group: Story = {
   render: function Render() {
-    const [checkedValues, setCheckedValues] = useState<string[]>(["Red", "Orange"]);
+    const [checkedValues, setCheckedValues] = useState<string[]>([]);
+
     return (
       <>
-        <Checkbox.Group
-          checkedValues={checkedValues}
-          onCheckedChange={(checked) => setCheckedValues(checked)}>
+        <Checkbox.Group checkedValues={checkedValues} onCheckedChange={setCheckedValues}>
           {["Red", "Blue", "Green", "Orange", "Pink"].map((color) => (
             <Checkbox key={color} value={color}>
               {color}
@@ -101,7 +119,7 @@ export const Group: Story = {
           <Text as="strong" weight="bold" size="sm">
             Selected Values:
           </Text>{" "}
-          {checkedValues.toString()}
+          {checkedValues?.toString()}
         </Text>
       </>
     );

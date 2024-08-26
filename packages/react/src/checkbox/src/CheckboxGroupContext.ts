@@ -9,9 +9,6 @@ const definitionError = (): null => {
   throw new Error('Please make sure "<Checkbox.Group>" component is wrapping your component.');
 };
 
-/**
- * Defines the properties expected in the context for client groups.
- */
 export interface CheckboxGroupContextProps {
   /** Sets values of checkbox selected. */
   checkedValues?: string[];
