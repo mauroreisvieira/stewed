@@ -75,6 +75,20 @@
     @include text.typography(label);
   }
 
+  &__group {
+    display: flex;
+    gap: theme.get-spacing("md");
+    align-items: start;
+
+    &--horizontal {
+      flex-direction: column;
+    }
+
+    &--vertical {
+      flex-direction: row;
+    }
+  }
+
   // Sizes
   @each $key, $value in $radio-sizes {
     &--#{$key} {

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Theme, Radio } from "../../index";
+// UI Components
+import { Theme, Radio, Separator, Text } from "../../index";
 // Hooks
 import { useToggle } from "@stewed/hooks";
 
@@ -9,6 +10,9 @@ type Story = StoryObj<typeof Radio>;
 const meta: Meta<typeof Radio> = {
   title: "Components/Radio",
   component: Radio,
+  subcomponents: {
+    Group: Radio.Group as React.FC<unknown>,
+  },
   decorators: [
     (Story) => (
       <Theme>
@@ -20,14 +24,10 @@ const meta: Meta<typeof Radio> = {
 
 export default meta;
 
-
 /**
  * A [controlled component](https://reactjs.org/docs/forms.html#controlled-components) is a component that renders form elements and controls them by keeping the form data in the component's state.
  */
 export const Controlled: Story = {
-  argTypes: {
-    onChange: { action: "change" },
-  },
   args: {
     children: "Label",
   },
@@ -59,5 +59,31 @@ export const Error: Story = {
     skin: "critical",
     defaultChecked: true,
     children: "Label",
+  },
+};
+
+export const Group: Story = {
+  render: function Render() {
+    const [checkedValue, setCheckedValues] = useState("Red");
+    return (
+      <>
+        <Radio.Group name="colors" checkedValue={checkedValue} onCheckedChange={setCheckedValues}>
+          {["Red", "Blue", "Green", "Orange", "Pink"].map((color) => (
+            <Radio key={color} value={color}>
+              {color}
+            </Radio>
+          ))}
+        </Radio.Group>
+
+        <Separator space={{ block: "xl" }} />
+
+        <Text size="sm">
+          <Text as="strong" weight="bold" size="sm">
+            Selected Value:
+          </Text>{" "}
+          {checkedValue.toString()}
+        </Text>
+      </>
+    );
   },
 };
