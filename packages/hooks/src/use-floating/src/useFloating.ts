@@ -24,7 +24,7 @@ interface FloatingOptions {
    * "right-end", "bottom", "bottom-start", "bottom-end", "left", "left-start", "left-end".
    * @default "bottom"
    */
-  placement?: FloatingPlacement;
+  placement: FloatingPlacement;
   /**
    * Specifies if the floating component is currently positioned.
    * This property can be used to toggle the positioning logic on or off.
@@ -87,7 +87,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
   const [floatingPosition, setFloatingPosition] = useState({ x: 0, y: 0, reference: { width: 0 } });
 
   const [options, setOptions] = useReducer(
-    (prev: FloatingOptions, next: Partial<FloatingOptions>) => {
+    (prev: FloatingOptions, next: FloatingOptions) => {
       return { ...prev, ...next };
     },
     { placement, isPositioned: open },
@@ -165,21 +165,123 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
 
     // Adjust position to keep the element within the viewport
     const { innerHeight: windowHeight, innerWidth: windowWidth } = window;
+    // Get the current scroll position of the document
     const { scrollTop, scrollLeft } = document.documentElement;
 
-    // Check if the element exceeds the viewport boundaries
+    // Check if the floating element exceeds the viewport boundaries
     const exceedsRight = x + floatingRect.width > windowWidth + scrollLeft;
     const exceedsBottom = y + floatingRect.height > windowHeight + scrollTop;
+    const exceedsLeft = x < scrollLeft;
+    const exceedsTop = y < scrollTop;
 
-    // If the element exceeds the viewport boundaries, adjust the position
-    if (options.placement === "bottom-start" && exceedsRight) {
-      setOptions({ placement: "bottom-end" });
-    }
+    // Define the opposite placements for each possible placement
+    const oppositePlacement: Record<FloatingPlacement, FloatingPlacement> = {
+      "top": "bottom",
+      "top-start": "bottom-start",
+      "top-end": "bottom-end",
+      "bottom": "top",
+      "bottom-start": "top-start",
+      "bottom-end": "top-end",
+      "right": "left",
+      "right-start": "left-end",
+      "right-end": "left-start",
+      "left": "right",
+      "left-start": "right-start",
+      "left-end": "right-end",
+    };
 
-    if (options.placement === "bottom" && exceedsBottom) {
-      setOptions({ placement: "top" });
-    }
+    // Check if a given placement fits within the viewport
+    const doesPlacementFit = (placement: FloatingPlacement): boolean => {
+      switch (placement) {
+        case "top":
+          return !exceedsTop;
+        case "bottom":
+          return !exceedsBottom;
+        case "right":
+          return !exceedsRight && !exceedsTop && !exceedsBottom;
+        case "left":
+          return !exceedsLeft && !exceedsTop && !exceedsBottom;
+        case "top-start":
+          return !exceedsTop && !exceedsRight;
+        case "top-end":
+          return !exceedsTop && !exceedsLeft;
+        case "right-start":
+          return !exceedsRight && !exceedsBottom;
+        case "right-end":
+          return !exceedsRight && !exceedsTop;
+        case "left-start":
+          return !exceedsLeft && !exceedsBottom;
+        case "left-end":
+          return !exceedsLeft && !exceedsTop;
+        default:
+          return true; // Default case, assume it fits
+      }
+    };
 
+    // Adjust the placement of the floating element to fit within the viewport
+    const adjustPlacement = (initialPlacement: FloatingPlacement): FloatingPlacement => {
+      // First, check if the initial placement fits
+      if (doesPlacementFit(initialPlacement)) {
+        return initialPlacement;
+      }
+
+      // Define alternative placements for cases where the initial placement does not fit
+      const relatedPlacements = {
+        "top": ["top-start", "top-end"],
+        "bottom": ["bottom-start", "bottom-end"],
+        "left": ["left-start", "left-end"],
+        "right": ["right-start", "right-end"],
+        "top-start": ["top-end"],
+        "top-end": ["top-start"],
+        "bottom-start": ["bottom-end"],
+        "bottom-end": ["bottom-start"],
+        "left-start": ["left-end"],
+        "left-end": ["left-start"],
+        "right-start": ["right-end"],
+        "right-end": ["right-start"],
+      } as const;
+
+      // Try the related placements to see if they fit
+      for (const placement of relatedPlacements[initialPlacement] || []) {
+        if (doesPlacementFit(placement)) {
+          return placement;
+        }
+      }
+
+      // Specific cases for right and left placements
+      if (initialPlacement === "right" || initialPlacement === "left") {
+        const startPlacement = `${initialPlacement}-start` as FloatingPlacement;
+        const endPlacement = `${initialPlacement}-end` as FloatingPlacement;
+
+        if (doesPlacementFit(startPlacement)) {
+          return startPlacement;
+        }
+        if (doesPlacementFit(endPlacement)) {
+          return endPlacement;
+        }
+      }
+
+      // If no related placement fits, try the opposite placement
+      const oppositePlacements = [
+        oppositePlacement[initialPlacement],
+        ...(relatedPlacements[oppositePlacement[initialPlacement]] || []),
+      ];
+
+      for (const placement of oppositePlacements) {
+        if (doesPlacementFit(placement)) {
+          return placement;
+        }
+      }
+
+      // Fallback to the initial placement if nothing else fits
+      return initialPlacement;
+    };
+
+    // Adjust the placement and update the options
+    const newPlacement = adjustPlacement(options.placement);
+    setOptions({ placement: newPlacement });
+
+    // Update floating element position
     setFloatingPosition({ x, y, reference: { width: referenceRect.width } });
   }, [offset, options.isPositioned, options.placement, reference]);
 
