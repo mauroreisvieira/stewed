@@ -21,4 +21,5 @@ export * from "./usePortal";
 export * from "./useResizeObserver";
 export * from "./useResponsive";
 export * from "./useScrollLock";
+export * from "./useStorage";
 export * from "./useVisualViewport";
