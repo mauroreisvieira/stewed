@@ -49,6 +49,7 @@
   &__control {
     position: relative;
     box-sizing: border-box;
+    flex-shrink: 0;
     width: theme.get-var(size);
     height: theme.get-var(size);
     background-color: theme.get-var(background-color);
