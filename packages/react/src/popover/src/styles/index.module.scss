@@ -1,0 +1,10 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+@use "./variables" as *;
+
+@include theme.scope($popover-root) {
+  position: absolute;
+  background-color: theme.get-color("background-elevated");
+  border: 1px solid theme.get-color("neutral", "300");
+  border-radius: theme.get-var(radius);
+  box-shadow: theme.get-var(shadow);
+}
