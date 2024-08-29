@@ -47,7 +47,6 @@ export const Base: Story = {
   },
 };
 
-
 export const HugeContent: Story = {
   argTypes: {
     children: {

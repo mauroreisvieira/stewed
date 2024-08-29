@@ -93,9 +93,10 @@ const Root = forwardRef(
     }, [indeterminate]);
 
     // Determine the checked state: controlled or uncontrolled
-    const isChecked = typeof checkedValues !== "undefined"
-      ? !!(value && checkedValues.includes(value.toString()))
-      : checked;
+    const isChecked =
+      typeof checkedValues !== "undefined"
+        ? !!(value && checkedValues.includes(value.toString()))
+        : checked;
 
     // Event handler for when the checkbox state changes
     const onHandleChange: React.ChangeEventHandler<HTMLInputElement> = useCallback(

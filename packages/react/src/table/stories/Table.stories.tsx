@@ -45,12 +45,12 @@ const data = [
     name: "Kevin Clark",
     email: "kevin.clark@example.com",
   },
- {
+  {
     id: "6",
     name: "Albert Frost",
     email: "albert.frost@example.com",
   },
- {
+  {
     id: "7",
     name: "Katheryn Winnick",
     email: "kath.winnick@example.com",
@@ -164,7 +164,6 @@ export const Error: Story = {
     },
   },
   args: {
-
     hoverable: true,
     children: (
       <>

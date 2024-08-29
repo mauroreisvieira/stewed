@@ -3,7 +3,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 // Components
 import {
   Theme,
-  Box,
   DataTable,
   ColumnsDef,
   Table,
@@ -13,6 +12,7 @@ import {
   Separator,
   Grid,
   type TagProps,
+  Stack,
 } from "../../index";
 // Hooks
 import { useSelect } from "@stewed/hooks";
@@ -187,7 +187,7 @@ export const Base: Story = {
             return null;
           }}>
           {({ headCells, bodyRows, footCells }) => (
-            <Table appearance={["border", "border-columns", "striped", "border-rows"]}>
+            <Table appearance={["border", "border-columns", "striped-rows", "border-rows"]}>
               <Table.Head>
                 <Table.Row>
                   {headCells.map(
@@ -196,7 +196,7 @@ export const Base: Story = {
                         as="th"
                         key={`head-${columnKey}`}
                         onClick={isSortable ? onSort : undefined}>
-                        <Box gap="xs">
+                        <Stack gap="xs">
                           {cellNode}
                           {sortedColumn === columnKey && (
                             <span>
@@ -207,7 +207,7 @@ export const Base: Story = {
                               )}
                             </span>
                           )}
-                        </Box>
+                        </Stack>
                       </Table.Cell>
                     ),
                   )}

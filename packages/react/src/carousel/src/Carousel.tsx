@@ -323,22 +323,21 @@ export const Carousel = forwardRef(
               {renderSlides}
               {slidesCount > show && loopingEffect && renderExtraNextSlides}
             </div>
-            </div>
-            {computedProps.showNavigation && (
-              <>
-                <CarouselNavigation
-                  direction="prev"
-                  onClick={onHandleClickPrev}
-                  disabled={!loopingEffect && currentIndex === 0}
-                />
-                <CarouselNavigation
-                  direction="next"
-                  onClick={onHandleClickNext}
-                  disabled={!loopingEffect && currentIndex === slidesCount - show}
-                />
-              </>
-            )}
-
+          </div>
+          {computedProps.showNavigation && (
+            <>
+              <CarouselNavigation
+                direction="prev"
+                onClick={onHandleClickPrev}
+                disabled={!loopingEffect && currentIndex === 0}
+              />
+              <CarouselNavigation
+                direction="next"
+                onClick={onHandleClickNext}
+                disabled={!loopingEffect && currentIndex === slidesCount - show}
+              />
+            </>
+          )}
         </div>
       </div>
     );

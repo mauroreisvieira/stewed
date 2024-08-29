@@ -55,10 +55,7 @@ export function RadioGroup({
 
   return (
     <div className={cssClasses.root} {...props}>
-      <RadioGroupProvider
-        name={name}
-        checkedValue={checkedValue}
-        onCheckedChange={onCheckedChange}>
+      <RadioGroupProvider name={name} checkedValue={checkedValue} onCheckedChange={onCheckedChange}>
         {children}
       </RadioGroupProvider>
     </div>

@@ -30,7 +30,6 @@ export const Base: Story = {
   },
 };
 
-
 export const Touch: Story = {
   render: function Render() {
     return (
