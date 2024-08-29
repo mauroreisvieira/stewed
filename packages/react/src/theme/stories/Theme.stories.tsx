@@ -7,7 +7,6 @@ import {
   Box,
   Card,
   Theme,
-  useTheme,
   TextField,
   Button,
   Tabs,
@@ -19,6 +18,7 @@ import {
   Container,
   Table,
   Stack,
+  useTheme,
 } from "../../index";
 // Hooks
 import { useStateForm } from "@stewed/hooks";
@@ -535,6 +535,7 @@ function Elements(): React.ReactElement {
                       onChange={onFormChange}
                       skin={username.valid ? "neutral-faded" : "critical"}
                       placeholder="Enter your username"
+                      fullWidth
                     />
                   </FormField.Control>
                   <FormField.Description>
@@ -546,7 +547,12 @@ function Elements(): React.ReactElement {
                 <FormField>
                   <FormField.Label htmlFor="gender">Gender</FormField.Label>
                   <FormField.Control>
-                    <Select id="gender" value={gender.value} name="gender" onChange={onFormChange}>
+                    <Select
+                      id="gender"
+                      value={gender.value}
+                      name="gender"
+                      onChange={onFormChange}
+                      fullWidth>
                       <Select.Option value="Woman">Woman</Select.Option>
                       <Select.Option value="Man">Man</Select.Option>
                       <Select.Option value="Non-binary/non-conforming">
@@ -570,6 +576,7 @@ function Elements(): React.ReactElement {
                       onChange={onFormChange}
                       skin={email.valid ? "neutral-faded" : "critical"}
                       placeholder="Enter your email"
+                      fullWidth
                     />
                   </FormField.Control>
                   <FormField.Error hidden={email.valid}>{email.error}</FormField.Error>
@@ -586,6 +593,7 @@ function Elements(): React.ReactElement {
                       onChange={onFormChange}
                       skin={password.valid ? "neutral-faded" : "critical"}
                       placeholder="Enter your password"
+                      fullWidth
                     />
                   </FormField.Control>
                   <FormField.Description>

@@ -21,6 +21,11 @@ export interface SelectProps extends Omit<React.ComponentPropsWithRef<"select">,
   size?: "sm" | "md" | "lg" | "xl";
   /** Slot for icon to display before the select. */
   leftSlot?: React.ReactNode;
+  /**
+   * Sets the select to use the full width of its container.
+   * If true, the select will stretch to fill the container's width.
+   */
+  fullWidth?: boolean;
 }
 
 /**
@@ -43,6 +48,7 @@ export function Select({
   size = "md",
   leftSlot,
   disabled,
+  fullWidth,
   className,
   children,
   ...props
@@ -53,7 +59,7 @@ export function Select({
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({
-      modifiers: [disabled && "disabled", skin, size],
+      modifiers: [disabled && "disabled", fullWidth && "full-width", skin, size],
       extraClasses: className,
     }),
     left: getElement(["left"]),

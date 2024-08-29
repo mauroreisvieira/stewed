@@ -9,7 +9,6 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
   height: theme.get-var(height);
   overflow: hidden;
   border: 1px solid theme.get-var(border-color);
@@ -82,5 +81,9 @@
         )
       );
     }
+  }
+
+  &--full-width {
+    width: 100%;
   }
 }
