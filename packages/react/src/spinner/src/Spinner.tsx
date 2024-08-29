@@ -10,7 +10,7 @@ export interface SpinnerProps extends React.ComponentPropsWithRef<"div"> {
   /** Change the visual style of the spinner. */
   skin?: "default" | Extract<Color, "white" | "primary">;
   /** Changes the size of the spinner. */
-  size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl";
+  size?: "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl";
 }
 
 /**

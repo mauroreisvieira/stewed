@@ -4,6 +4,7 @@ $spinner-root: "spinner";
 
 /// Sizes
 $spinner-sizes: (
+  "xxs": theme.get-spacing("sm"),
   "xs": theme.get-spacing("md"),
   "sm": theme.get-spacing("lg"),
   "md": theme.get-spacing("xl"),
