@@ -23,6 +23,7 @@ export * from "./list";
 export * from "./list-box";
 export * from "./motion";
 export * from "./pagination";
+export * from "./popover";
 export * from "./progress";
 export * from "./radio";
 export * from "./scope";

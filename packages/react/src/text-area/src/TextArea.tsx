@@ -18,6 +18,12 @@ export interface TextAreaProps extends React.ComponentPropsWithRef<"textarea"> {
    */
   appearance?: "ghost" | "outline" | "soft";
   /**
+   * Sets the text area to use the full width of its container.
+   * If true, the text area will stretch to fill the container's width.
+   * @default true
+   */
+  fullWidth?: boolean;
+  /**
    * Automatically adjusts the height of the text area based on its content.
    * When set to `true`, the text area will expand or contract vertically as the user types.
    * @default false
@@ -45,6 +51,7 @@ export const TextArea = forwardRef(
       appearance = "outline",
       className,
       disabled,
+      fullWidth = true,
       autoHeight,
       children,
       ...props
@@ -57,7 +64,13 @@ export const TextArea = forwardRef(
     // Generating CSS classes based on component props and styles
     const cssClasses = {
       root: getBlock({
-        modifiers: [disabled && "disabled", autoHeight && "auto-height", skin, appearance],
+        modifiers: [
+          disabled && "disabled",
+          fullWidth && "full-width",
+          autoHeight && "auto-height",
+          skin,
+          appearance,
+        ],
         extraClasses: className,
       }),
     };

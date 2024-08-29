@@ -35,6 +35,7 @@ export interface TextFieldProps extends Omit<React.ComponentPropsWithRef<"input"
   /**
    * Sets the input to use the full width of its container.
    * If true, the input will stretch to fill the container's width.
+   * @default true
    */
   fullWidth?: boolean;
   /** Screen reader only, will hide the text. */
@@ -66,7 +67,7 @@ export const TextField = forwardRef(
       maxChars,
       className,
       disabled,
-      fullWidth,
+      fullWidth = true,
       srOnly,
       leftSlot,
       rightSlot,

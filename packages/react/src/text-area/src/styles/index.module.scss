@@ -9,7 +9,6 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
   padding: $textarea-spacings;
   touch-action: manipulation;
   border: 1px solid transparent;
@@ -54,5 +53,9 @@
 
   &--auto-height {
     field-sizing: content;
+  }
+
+  &--full-width {
+    width: 100%;
   }
 }

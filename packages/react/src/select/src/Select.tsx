@@ -24,6 +24,7 @@ export interface SelectProps extends Omit<React.ComponentPropsWithRef<"select">,
   /**
    * Sets the select to use the full width of its container.
    * If true, the select will stretch to fill the container's width.
+   * @default true
    */
   fullWidth?: boolean;
 }
@@ -34,9 +35,9 @@ export interface SelectProps extends Omit<React.ComponentPropsWithRef<"select">,
  * @example
  * ```tsx
  * <Select skin="default">
- *     <Select.Option value={1}>Option 1</Select.Option>
- *     <Select.Option value={2}>Option 2</Select.Option>
- *     <Select.Option value={3}>Option 3</Select.Option>
+ *    <Select.Option value={1}>Option 1</Select.Option>
+ *    <Select.Option value={2}>Option 2</Select.Option>
+ *    <Select.Option value={3}>Option 3</Select.Option>
  * </Select>
  * ```
  *
@@ -48,7 +49,7 @@ export function Select({
   size = "md",
   leftSlot,
   disabled,
-  fullWidth,
+  fullWidth = true,
   className,
   children,
   ...props
