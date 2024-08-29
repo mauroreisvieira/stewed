@@ -69,6 +69,18 @@ export const Indeterminate: Story = {
   },
 };
 
+export const Loading: Story = {
+  argTypes: {
+    onChange: { action: "change" },
+  },
+  args: {
+    loading: true,
+    size: "lg",
+    defaultChecked: true,
+    children: "Label",
+  },
+};
+
 export const Error: Story = {
   argTypes: {
     onChange: { action: "change" },

@@ -1,6 +1,8 @@
 import React, { forwardRef, useCallback, useEffect, useRef } from "react";
 // Compound Component
 import { CheckboxGroup } from "./CheckboxGroup";
+// Components
+import { Spinner } from "../../spinner";
 // Hooks
 import { useBem, useMergeRefs } from "@stewed/hooks";
 import { useCheckboxGroup } from "./CheckboxGroupContext";
@@ -26,6 +28,8 @@ export interface CheckboxProps extends Omit<React.ComponentPropsWithRef<"input">
    * @see [MDN Documentation]{@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#attr-indeterminate}
    */
   indeterminate?: boolean;
+  /** Displays a loading indicator on the checkbox. */
+  loading?: boolean;
   /** Content to be rendered within the checkbox, usually used for labels. */
   children?: React.ReactNode;
 }
@@ -51,6 +55,7 @@ const Root = forwardRef(
       className,
       disabled,
       indeterminate = false,
+      loading,
       value,
       checked,
       children,
@@ -74,13 +79,14 @@ const Root = forwardRef(
     // Generating CSS classes based on component props and styles
     const cssClasses = {
       root: getBlock({
-        modifiers: [disabled && "disabled", size, skin],
+        modifiers: [disabled && "disabled", loading && "loading", size, skin],
         extraClasses: className,
       }),
       svg: getElement(["svg"]),
       input: getElement(["input"]),
       control: getElement(["control"]),
       text: getElement(["text"]),
+      spinner: getElement(["spinner"]),
     };
 
     // Effect to handle the indeterminate state of the checkbox
@@ -133,22 +139,32 @@ const Root = forwardRef(
           {...props}
         />
         <span className={cssClasses.control}>
-          {indeterminate ? (
-            <svg
-              className={cssClasses.svg}
-              viewBox="0 0 24 24"
-              focusable="false"
-              aria-hidden="true">
-              <path d="M18 12.75H6c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h12c.41 0 .75.34.75.75s-.34.75-.75.75Z" />
-            </svg>
+          {loading ? (
+            <Spinner
+              className={cssClasses.spinner}
+              skin="default"
+              size={size === "sm" ? "xxs" : size === "md" ? "xs" : "sm"}
+            />
           ) : (
-            <svg
-              className={cssClasses.svg}
-              viewBox="0 0 20 20"
-              focusable="false"
-              aria-hidden="true">
-              <path d="M14.723 6.237a.94.94 0 0 1 .053 1.277l-5.366 6.193a.834.834 0 0 1-.611.293.83.83 0 0 1-.622-.264l-2.927-3.097a.94.94 0 0 1 0-1.278.82.82 0 0 1 1.207 0l2.297 2.43 4.763-5.498a.821.821 0 0 1 1.206-.056Z" />
-            </svg>
+            <>
+              {indeterminate ? (
+                <svg
+                  className={cssClasses.svg}
+                  viewBox="0 0 24 24"
+                  focusable="false"
+                  aria-hidden="true">
+                  <path d="M18 12.75H6c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h12c.41 0 .75.34.75.75s-.34.75-.75.75Z" />
+                </svg>
+              ) : (
+                <svg
+                  className={cssClasses.svg}
+                  viewBox="0 0 20 20"
+                  focusable="false"
+                  aria-hidden="true">
+                  <path d="M14.723 6.237a.94.94 0 0 1 .053 1.277l-5.366 6.193a.834.834 0 0 1-.611.293.83.83 0 0 1-.622-.264l-2.927-3.097a.94.94 0 0 1 0-1.278.82.82 0 0 1 1.207 0l2.297 2.43 4.763-5.498a.821.821 0 0 1 1.206-.056Z" />
+                </svg>
+              )}
+            </>
           )}
         </span>
         {children && <div className={cssClasses.text}>{children}</div>}
