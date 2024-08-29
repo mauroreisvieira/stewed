@@ -14,7 +14,10 @@ const defaultElement = "div";
 export interface StackProps<T>
   extends React.ComponentProps<typeof defaultElement>,
     UseResponsiveProps<{
-      /** The direction of the stack container. */
+      /**
+       * The direction of the stack container.
+       * @default row
+       */
       direction?: "row" | "column" | "row-reverse" | "column-reverse";
       /** The gap between stack children's. */
       gap?: Spacings;
@@ -33,6 +36,7 @@ export interface StackProps<T>
       /**
        * Allows the stack container to grow and fill the available space.
        * If true, the container will expand to occupy the remaining space in its parent.
+       * @default true
        */
       grow?: boolean;
     }> {
@@ -80,7 +84,7 @@ export const Stack = fixedForwardRef(
       items,
       wrap,
       inline,
-      grow,
+      grow = true,
       responsive,
       className,
       children,
