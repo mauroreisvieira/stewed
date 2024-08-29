@@ -98,6 +98,7 @@ function OTPInput({ onInputChange }) {
       alignment="center"
       value={currentValue}
       maxChars={1}
+      fullWidth={false}
       onKeyDown={(event) => {
         if (event.code === "Backspace") {
           setCurrentValue("");

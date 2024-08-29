@@ -23,6 +23,7 @@ export interface PopoverChildrenProps<T> {
   close: () => void;
   /** Indicates whether the Popover is currently open */
   isOpen: boolean;
+  /** Property that represents the `DOMRect` of the reference element. */
   reference?: DOMRect;
 }
 

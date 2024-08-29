@@ -68,6 +68,14 @@ export const defaultTokens: Tokens = {
       radius: "md",
       shadow: "2xl",
     },
+    [components.Dropdown]: {
+      radius: "sm",
+      shadow: "xl",
+    },
+    [components.Popover]: {
+      radius: "sm",
+      shadow: "xl",
+    },
     [components.Drawer]: {
       radius: "lg",
       shadow: "2xl",

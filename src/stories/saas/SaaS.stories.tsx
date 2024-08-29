@@ -447,6 +447,7 @@ export const Inventory = {
                 placeholder="Search inventory"
                 onChange={(event) => setSearch(event.target.value)}
                 value={search}
+                fullWidth={false}
               />
 
               <Dropdown<HTMLButtonElement>

@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useState } from "react";
 // UI Components
 import {
   Avatar,
@@ -17,16 +17,16 @@ import {
   Select,
   Separator,
   Snackbar,
+  Popover,
   Tabs,
   Text,
   TextField,
   Theme,
   useSnackbar,
   Box,
-  Scope,
 } from "@stewed/react";
 // Hooks
-import { useToggle, useFloating } from "@stewed/hooks";
+import { useToggle } from "@stewed/hooks";
 // Icons
 import { IoMdClose } from "react-icons/io";
 import { RiHistoryLine } from "react-icons/ri";
@@ -79,29 +79,14 @@ const meta = {
 export default meta;
 
 function Music(): React.ReactElement {
-  const inputRef = useRef<HTMLInputElement>(null);
   const [tabValue, setTabValue] = useState<"music" | "podcast">("music");
   const [drawerState, onHandleDrawer] = useToggle(false);
   const [musicDialogState, onHandleMusicDialog] = useToggle(false);
   const [podcastDialogState, onHandlePodcastDialog] = useToggle(false);
-  const [displayRecentSearch, onHandleDisplayRecentSearch] = useToggle(false);
 
   const { add } = useSnackbar();
 
   const idx = new Date().getTime().toString();
-
-  const {
-    floating,
-    x,
-    y,
-    isPositioned,
-    reference: { width },
-  } = useFloating<HTMLInputElement, HTMLDivElement>({
-    open: displayRecentSearch,
-    placement: "bottom",
-    reference: inputRef.current,
-    offset: 12,
-  });
 
   const onHandleClick = useCallback(
     (index: number) => {
@@ -136,46 +121,38 @@ function Music(): React.ReactElement {
         </Grid.Item>
 
         <Grid.Item hidden={true} responsive={{ sm: { hidden: false } }}>
-          <TextField
-            onFocus={onHandleDisplayRecentSearch}
-            onBlur={onHandleDisplayRecentSearch}
-            rootRef={inputRef}
-            list="recent-search"
-            skin="neutral"
-            appearance="soft"
-            leftSlot={<FiSearch />}
-            rightSlot={
-              <Stack gap="sm">
-                <Separator orientation="vertical" />
-                <Button
-                  leftSlot={<PiBrowsersFill />}
-                  size="sm"
-                  skin="neutral"
-                  appearance="ghost"
-                  iconOnly>
-                  Browse
-                </Button>
-              </Stack>
-            }
-            size="lg"
-            placeholder="What do you want to play?"
-            fullWidth
-          />
-
-          {displayRecentSearch && (
-            <Scope elevation="navigation">
-              <Card
-                ref={floating}
-                padding={{ block: "md", inline: "md" }}
-                style={{
-                  position: "absolute",
-                  visibility: isPositioned ? "visible" : "hidden",
-                  width: `${width}px`,
-                  left: `${x}px`,
-                  top: `${y}px`,
-                }}>
-                <Card.Body>
-                  <ListBox>
+          <Popover<HTMLDivElement>
+            renderAnchor={({ ref: inputSearchRef, open, close }) => (
+              <TextField
+                onFocus={() => open()}
+                onBlur={() => close()}
+                rootRef={inputSearchRef}
+                list="recent-search"
+                skin="neutral"
+                appearance="soft"
+                leftSlot={<FiSearch />}
+                rightSlot={
+                  <Stack gap="sm">
+                    <Separator orientation="vertical" />
+                    <Button
+                      leftSlot={<PiBrowsersFill />}
+                      size="sm"
+                      skin="neutral"
+                      appearance="ghost"
+                      iconOnly>
+                      Browse
+                    </Button>
+                  </Stack>
+                }
+                size="lg"
+                placeholder="What do you want to play?"
+                fullWidth
+              />
+            )}>
+            {({ reference }) => {
+              return (
+                <Box padding={{ block: "md", inline: "sm" }}>
+                  <ListBox style={{ width: `${reference?.width}px` }}>
                     <ListBox.Group title="Recent searches">
                       {Array.from({ length: 6 }).map((_, index) => (
                         <Hoverable key={index}>
@@ -201,10 +178,10 @@ function Music(): React.ReactElement {
                       ))}
                     </ListBox.Group>
                   </ListBox>
-                </Card.Body>
-              </Card>
-            </Scope>
-          )}
+                </Box>
+              );
+            }}
+          </Popover>
         </Grid.Item>
 
         <Grid.Item>

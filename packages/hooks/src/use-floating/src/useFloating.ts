@@ -58,10 +58,7 @@ interface UseFloating<T> extends FloatingOptions {
   /** The y-coordinate of the floating element. */
   y: number;
   /** Properties of the reference element. */
-  reference: {
-    /** The width of the reference element. */
-    width: number;
-  };
+  reference: DOMRect;
 }
 
 /**
@@ -84,7 +81,11 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
   open,
 }: UseFloatingProps<R>): UseFloating<F> {
   const floating = useRef<F>(null);
-  const [floatingPosition, setFloatingPosition] = useState({ x: 0, y: 0, reference: { width: 0 } });
+  const [floatingPosition, setFloatingPosition] = useState({
+    x: 0,
+    y: 0,
+    reference: {} as DOMRect,
+  });
 
   const [options, setOptions] = useReducer(
     (prev: FloatingOptions, next: FloatingOptions) => {
@@ -282,7 +283,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
     setOptions({ placement: newPlacement });
 
     // Update floating element position
-    setFloatingPosition({ x, y, reference: { width: referenceRect.width } });
+    setFloatingPosition({ x, y, reference: referenceRect });
   }, [offset, options.isPositioned, options.placement, reference]);
 
   useEffect(() => {

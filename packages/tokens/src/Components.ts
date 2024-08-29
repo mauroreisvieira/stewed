@@ -22,8 +22,9 @@ export const components = {
   Group: "group",
   List: "list",
   ListBox: "list-box",
-  Pagination: "pagination",
   Motion: "motion",
+  Pagination: "pagination",
+  Popover: "popover",
   Progress: "progress",
   Quantity: "quantity",
   Radio: "radio",
@@ -55,6 +56,8 @@ export type Components = {
   [components.Checkbox]?: { radius?: Radius };
   [components.Dialog]?: { radius?: Radius; shadow?: Shadow };
   [components.Drawer]?: { radius?: Radius; shadow?: Shadow };
+  [components.Dropdown]?: { radius?: Radius; shadow?: Shadow };
+  [components.Popover]?: { radius?: Radius; shadow?: Shadow };
   [components.Group]?: { radius?: Radius };
   [components.ListBox]?: { radius?: Radius };
   [components.Quantity]?: { radius?: Radius };

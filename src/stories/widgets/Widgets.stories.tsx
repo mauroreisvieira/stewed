@@ -130,13 +130,13 @@ export const Notification = {
           </Card.Header>
           <Card.Body>
             <Stack items="baseline" justify="between" gap="md">
-              <Stack direction="column">
+              <Stack direction="column" grow={false}>
                 <Text weight="semi-bold">Comments</Text>
                 <Text size="xs" skin="neutral">
                   Receive notifications when someone comments on your documents or mentions you.
                 </Text>
               </Stack>
-              <Stack gap="md" direction="column" items="baseline">
+              <Stack gap="md" direction="column" items="baseline" grow={false}>
                 <Switch size="sm">Push</Switch>
                 <Switch size="sm">Email</Switch>
                 <Switch size="sm">Slack</Switch>
@@ -150,7 +150,7 @@ export const Notification = {
                   Receive notifications when there is activity related to your favorite items.
                 </Text>
               </Stack>
-              <Stack gap="md" direction="column" items="baseline">
+              <Stack gap="md" direction="column" items="baseline" grow={false}>
                 <Switch size="sm">Push</Switch>
                 <Switch size="sm">Email</Switch>
                 <Switch size="sm">Slack</Switch>
@@ -164,7 +164,7 @@ export const Notification = {
                   Receive notifications whenever people on your team create new documents.
                 </Text>
               </Stack>
-              <Stack gap="md" direction="column" items="baseline">
+              <Stack gap="md" direction="column" items="baseline" grow={false}>
                 <Switch size="sm">Push</Switch>
                 <Switch size="sm">Email</Switch>
                 <Switch size="sm">Slack</Switch>
