@@ -34,6 +34,21 @@ const meta: Meta<typeof Popover> = {
 
 export default meta;
 
+const placements = [
+  "top",
+  "top-start",
+  "top-end",
+  "right",
+  "right-start",
+  "right-end",
+  "bottom",
+  "bottom-start",
+  "bottom-end",
+  "left",
+  "left-start",
+  "left-end",
+];
+
 export const Base: Story = {
   args: {
     placement: "bottom",
@@ -44,20 +59,7 @@ export const Base: Story = {
       control: false,
     },
     placement: {
-      options: [
-        "top",
-        "top-start",
-        "top-end",
-        "right",
-        "right-start",
-        "right-end",
-        "bottom",
-        "bottom-start",
-        "bottom-end",
-        "left",
-        "left-start",
-        "left-end",
-      ],
+      options: placements,
     },
   },
   render: (args) => {
@@ -65,7 +67,7 @@ export const Base: Story = {
       <Popover<HTMLButtonElement>
         {...args}
         renderAnchor={({ ref, isOpen, open, close }) => (
-          <Button ref={ref} onClick={isOpen ? close : open}>
+          <Button ref={ref} appearance="outline" skin="neutral" onClick={isOpen ? close : open}>
             Open popover
           </Button>
         )}>
@@ -110,6 +112,14 @@ export const Base: Story = {
   },
 };
 
+/**
+ * This story demonstrates the usage of the `Popover` component with a boundary element.
+ * The `boundary` prop is set to reference a `Stack` element, ensuring that the popover
+ * will be constrained within that boundary.
+ *
+ * Note: For this example to work correctly, it should be run outside of an iframe.
+ * Running it inside an iframe may cause clipping issues with the popover due to iframe boundaries.
+ */
 export const Boundary: Story = {
   args: {
     placement: "bottom",
@@ -120,41 +130,28 @@ export const Boundary: Story = {
       control: false,
     },
     placement: {
-      options: [
-        "top",
-        "top-start",
-        "top-end",
-        "right",
-        "right-start",
-        "right-end",
-        "bottom",
-        "bottom-start",
-        "bottom-end",
-        "left",
-        "left-start",
-        "left-end",
-      ],
+      options: placements,
     },
   },
   render: (args) => {
     const [ref, setRef] = useState<HTMLDivElement | null>(null);
 
     return (
-      <Box skin="neutral-faded" padding={{ inline: "9xl", block: "9xl" }} fullWidth>
+      <Box skin="primary-faded" padding={{ inline: "9xl", block: "9xl" }} fullWidth>
         <Stack ref={(el) => setRef(el)} style={{ height: 200 }}>
           <Popover<HTMLButtonElement>
             {...args}
             boundary={ref}
             renderAnchor={({ ref, isOpen, open, close }) => (
-              <Button ref={ref} onClick={isOpen ? close : open}>
+              <Button ref={ref} appearance="outline" skin="neutral" onClick={isOpen ? close : open}>
                 Open popover
               </Button>
             )}>
             {() => {
               return (
-                <Card shadow="none" skin="primary">
+                <Box skin="neutral">
                   <div style={{ width: 100, height: 100 }} />
-                </Card>
+                </Box>
               );
             }}
           </Popover>
