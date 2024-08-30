@@ -67,7 +67,7 @@ export const Base: Story = {
       <Popover<HTMLButtonElement>
         {...args}
         renderAnchor={({ ref, isOpen, open, close }) => (
-          <Button ref={ref} appearance="outline" skin="neutral" onClick={isOpen ? close : open}>
+          <Button ref={ref} onClick={isOpen ? close : open}>
             Open popover
           </Button>
         )}>
@@ -137,26 +137,28 @@ export const Boundary: Story = {
     const [ref, setRef] = useState<HTMLDivElement | null>(null);
 
     return (
-      <Box skin="primary-faded" padding={{ inline: "9xl", block: "9xl" }} fullWidth>
-        <Stack ref={(el) => setRef(el)} style={{ height: 200 }}>
-          <Popover<HTMLButtonElement>
-            {...args}
-            boundary={ref}
-            renderAnchor={({ ref, isOpen, open, close }) => (
-              <Button ref={ref} appearance="outline" skin="neutral" onClick={isOpen ? close : open}>
-                Open popover
-              </Button>
-            )}>
-            {() => {
-              return (
-                <Box skin="neutral">
-                  <div style={{ width: 100, height: 100 }} />
-                </Box>
-              );
-            }}
-          </Popover>
-        </Stack>
-      </Box>
+      <Card padding={{ inline: "9xl", block: "9xl" }}>
+        <Card.Body>
+          <Stack ref={(el) => setRef(el)} style={{ height: 200 }}>
+            <Popover<HTMLButtonElement>
+              {...args}
+              boundary={ref}
+              renderAnchor={({ ref, isOpen, open, close }) => (
+                <Button ref={ref} onClick={isOpen ? close : open}>
+                  Open popover
+                </Button>
+              )}>
+              {() => {
+                return (
+                  <Box skin="neutral">
+                    <div style={{ width: 100, height: 100 }} />
+                  </Box>
+                );
+              }}
+            </Popover>
+          </Stack>
+        </Card.Body>
+      </Card>
     );
   },
 };
