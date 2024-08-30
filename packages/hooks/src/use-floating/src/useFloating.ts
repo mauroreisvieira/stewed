@@ -59,7 +59,7 @@ interface UseFloatingProps<R extends HTMLElement> extends Pick<FloatingOptions, 
    * The boundary element that will be checked for overflow relative to.
    * @default window
    */
-  boundary?: HTMLElement;
+  boundary?: HTMLElement | null;
 }
 
 interface UseFloating<T> extends FloatingOptions {
