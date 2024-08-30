@@ -44,6 +44,13 @@ interface UseFloatingProps<R extends HTMLElement> extends Pick<FloatingOptions, 
    */
   open?: boolean;
   /**
+   * Determines whether the floating element should automatically adjust its position
+   * to remain within the viewport. When `true`, the component will attempt to reposition
+   * itself to avoid being clipped or moved out of view.
+   * @default true
+   */
+  flip?: boolean;
+  /**
    * Adds distance (margin or spacing) between the reference and floating element.
    * @default 0
    */
@@ -68,41 +75,47 @@ interface UseFloating<T> extends FloatingOptions {
  * @template F - The type of the floating element (extends HTMLElement).
  *
  * @param props - Configuration options for positioning the floating element.
- * @param props.reference - The reference element used for positioning the floating component.
- * @param props.placement - The preferred placement of the floating component relative to the reference element.
- * @param props.offset - The offset distance between the reference element and the floating element.
- * @param props.open - Whether the floating element is currently open and should be displayed.
  * @returns An object containing styles and references for the floating element.
  */
 export function useFloating<R extends HTMLElement, F extends HTMLElement>({
   reference,
   placement = "bottom",
   offset = 0,
+  flip = true,
   open,
 }: UseFloatingProps<R>): UseFloating<F> {
+  // Reference to the floating element, initially set to null
   const floating = useRef<F>(null);
+
+  // State to store the position of the floating element and the dimensions of the reference element
   const [floatingPosition, setFloatingPosition] = useState({
     x: 0,
     y: 0,
     reference: {} as DOMRect,
   });
 
+  // Reducer to update the options, merging the previous state with the new state
   const [options, setOptions] = useReducer(
     (prev: FloatingOptions, next: FloatingOptions) => {
       return { ...prev, ...next };
     },
-    { placement, isPositioned: open },
+    { placement, isPositioned: open }, // Initial state with placement and whether the element is positioned
   );
 
+  // Function to update the position of the floating element based on the reference element's position and size
   const updatePosition = useCallback(() => {
+    // Exit early if the element is not positioned, or if reference or floating element is not available
     if (!options.isPositioned || !reference || !floating?.current) return;
 
+    // Get the bounding rectangles of the reference and floating elements
     const referenceRect = reference.getBoundingClientRect();
     const floatingRect = floating.current.getBoundingClientRect();
 
+    // Initialize x and y position values
     let x = 0;
     let y = 0;
 
+    // Calculate the floating element's position based on the current placement option
     switch (options.placement) {
       case "top":
         y = referenceRect.top - floatingRect.height + window.scrollY - offset;
@@ -166,6 +179,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
 
     // Adjust position to keep the element within the viewport
     const { innerHeight: windowHeight, innerWidth: windowWidth } = window;
+
     // Get the current scroll position of the document
     const { scrollTop, scrollLeft } = document.documentElement;
 
@@ -174,22 +188,6 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
     const exceedsBottom = y + floatingRect.height > windowHeight + scrollTop;
     const exceedsLeft = x < scrollLeft;
     const exceedsTop = y < scrollTop;
-
-    // Define the opposite placements for each possible placement
-    const oppositePlacement: Record<FloatingPlacement, FloatingPlacement> = {
-      "top": "bottom",
-      "top-start": "bottom-start",
-      "top-end": "bottom-end",
-      "bottom": "top",
-      "bottom-start": "top-start",
-      "bottom-end": "top-end",
-      "right": "left",
-      "right-start": "left-end",
-      "right-end": "left-start",
-      "left": "right",
-      "left-start": "right-start",
-      "left-end": "right-end",
-    };
 
     // Check if a given placement fits within the viewport
     const doesPlacementFit = (placement: FloatingPlacement): boolean => {
@@ -206,6 +204,10 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
           return !exceedsTop && !exceedsRight;
         case "top-end":
           return !exceedsTop && !exceedsLeft;
+        case "bottom-start":
+          return !exceedsBottom && !exceedsRight;
+        case "bottom-end":
+          return !exceedsBottom && !exceedsLeft;
         case "right-start":
           return !exceedsRight && !exceedsBottom;
         case "right-end":
@@ -228,18 +230,18 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
 
       // Define alternative placements for cases where the initial placement does not fit
       const relatedPlacements = {
-        "top": ["top-start", "top-end"],
-        "bottom": ["bottom-start", "bottom-end"],
-        "left": ["left-start", "left-end"],
-        "right": ["right-start", "right-end"],
-        "top-start": ["top-end"],
-        "top-end": ["top-start"],
-        "bottom-start": ["bottom-end"],
-        "bottom-end": ["bottom-start"],
-        "left-start": ["left-end"],
-        "left-end": ["left-start"],
-        "right-start": ["right-end"],
-        "right-end": ["right-start"],
+        "top": ["top-start", "top-end", "bottom"],
+        "bottom": ["bottom-start", "bottom-end", "top"],
+        "left": ["left-start", "left-end", "right"],
+        "right": ["right-start", "right-end", "left"],
+        "top-start": ["top-end", "bottom-start"],
+        "top-end": ["top-start", "bottom-end"],
+        "bottom-start": ["bottom-end", "top-start"],
+        "bottom-end": ["bottom-start", "top-end"],
+        "left-start": ["left-end", "right-start"],
+        "left-end": ["left-start", "right-end"],
+        "right-start": ["right-end", "left-start"],
+        "right-end": ["right-start", "left-end"],
       } as const;
 
       // Try the related placements to see if they fit
@@ -249,45 +251,23 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
         }
       }
 
-      // Specific cases for right and left placements
-      if (initialPlacement === "right" || initialPlacement === "left") {
-        const startPlacement = `${initialPlacement}-start` as FloatingPlacement;
-        const endPlacement = `${initialPlacement}-end` as FloatingPlacement;
-
-        if (doesPlacementFit(startPlacement)) {
-          return startPlacement;
-        }
-        if (doesPlacementFit(endPlacement)) {
-          return endPlacement;
-        }
-      }
-
-      // If no related placement fits, try the opposite placement
-      const oppositePlacements = [
-        oppositePlacement[initialPlacement],
-        ...(relatedPlacements[oppositePlacement[initialPlacement]] || []),
-      ];
-
-      for (const placement of oppositePlacements) {
-        if (doesPlacementFit(placement)) {
-          return placement;
-        }
-      }
-
       // Fallback to the initial placement if nothing else fits
       return initialPlacement;
     };
 
-    // Adjust the placement and update the options
-    const newPlacement = adjustPlacement(options.placement);
-    setOptions({ placement: newPlacement });
+    // If fit is enabled, adjust the position to keep the element within the viewport
+    if (flip) {
+      // Adjust the placement and update the options
+      const newPlacement = adjustPlacement(options.placement);
+      setOptions({ placement: newPlacement });
+    }
 
-    // Update floating element position
+    // Update floating element position with calculated x and y coordinates
     setFloatingPosition({ x, y, reference: referenceRect });
-  }, [offset, options.isPositioned, options.placement, reference]);
+  }, [offset, options.isPositioned, options.placement, reference, flip]);
 
   useEffect(() => {
-    if (!options.isPositioned || !reference) return;
+    if (!options.isPositioned || !reference || !flip) return;
 
     // Function to recalculate position
     const handleResize = () => {
@@ -308,7 +288,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("scroll", handleResize, { capture: true });
     };
-  }, [options.isPositioned, reference, updatePosition]);
+  }, [options.isPositioned, reference, updatePosition, flip]);
 
   useEffect(() => {
     // Whenever placement changes, recalculate the position
