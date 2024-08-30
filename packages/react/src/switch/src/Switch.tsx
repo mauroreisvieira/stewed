@@ -76,7 +76,7 @@ export function Switch({
             size={size === "sm" ? "xxs" : size === "md" ? "xs" : "sm"}
           />
         )}
-        </span>
+      </span>
       {children && <span className={cssClasses.text}>{children}</span>}
     </label>
   );

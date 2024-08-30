@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // Components
-import { Button, Theme, Popover, Stack, Box, Text, FormField, TextField, Card, Separator } from "../../index";
+import {
+  Button,
+  Theme,
+  Popover,
+  Stack,
+  Box,
+  Text,
+  FormField,
+  TextField,
+  Card,
+  Separator,
+} from "../../index";
 
 type Story = StoryObj<typeof Popover>;
 
@@ -95,6 +106,60 @@ export const Base: Story = {
           );
         }}
       </Popover>
+    );
+  },
+};
+
+export const Boundary: Story = {
+  args: {
+    placement: "bottom",
+    offset: 10,
+  },
+  argTypes: {
+    renderAnchor: {
+      control: false,
+    },
+    placement: {
+      options: [
+        "top",
+        "top-start",
+        "top-end",
+        "right",
+        "right-start",
+        "right-end",
+        "bottom",
+        "bottom-start",
+        "bottom-end",
+        "left",
+        "left-start",
+        "left-end",
+      ],
+    },
+  },
+  render: (args) => {
+    const [ref, setRef] = useState<HTMLDivElement | null>(null);
+
+    return (
+      <Box skin="neutral-faded" padding={{ inline: "9xl", block: "9xl" }} fullWidth>
+        <Stack ref={(el) => setRef(el)} style={{ height: 200 }}>
+          <Popover<HTMLButtonElement>
+            {...args}
+            boundary={ref}
+            renderAnchor={({ ref, isOpen, open, close }) => (
+              <Button ref={ref} onClick={isOpen ? close : open}>
+                Open popover
+              </Button>
+            )}>
+            {() => {
+              return (
+                <Card shadow="none" skin="primary">
+                  <div style={{ width: 100, height: 100 }} />
+                </Card>
+              );
+            }}
+          </Popover>
+        </Stack>
+      </Box>
     );
   },
 };

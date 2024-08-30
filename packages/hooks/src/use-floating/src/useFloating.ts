@@ -55,6 +55,11 @@ interface UseFloatingProps<R extends HTMLElement> extends Pick<FloatingOptions, 
    * @default 0
    */
   offset?: number;
+  /**
+   * The boundary element that will be checked for overflow relative to.
+   * @default window
+   */
+  boundary?: HTMLElement;
 }
 
 interface UseFloating<T> extends FloatingOptions {
@@ -82,6 +87,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
   placement = "bottom",
   offset = 0,
   flip = true,
+  boundary,
   open,
 }: UseFloatingProps<R>): UseFloating<F> {
   // Reference to the floating element, initially set to null
@@ -177,25 +183,30 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
         break;
     }
 
-    // Adjust position to keep the element within the viewport
-    const { innerHeight: windowHeight, innerWidth: windowWidth } = window;
+    // Adjust position to keep the element within the viewport or boundary
+    const boundaryRect = boundary
+      ? boundary.getBoundingClientRect()
+      : { height: window.innerHeight, width: window.innerWidth, top: 0, left: 0 };
 
-    // Get the current scroll position of the document
-    const { scrollTop, scrollLeft } = document.documentElement;
+    // Get the current scroll position of the boundary or the window
+    const { scrollTop, scrollLeft } = boundary ? boundary : document.documentElement;
 
-    // Check if the floating element exceeds the viewport boundaries
-    const exceedsRight = x + floatingRect.width > windowWidth + scrollLeft;
-    const exceedsBottom = y + floatingRect.height > windowHeight + scrollTop;
-    const exceedsLeft = x < scrollLeft;
-    const exceedsTop = y < scrollTop;
+    // Check if the floating element exceeds the boundary or viewport
+    const exceedsRight =
+      x + floatingRect.width > boundaryRect.left + boundaryRect.width + scrollLeft;
+    const exceedsBottom =
+      y + floatingRect.height > boundaryRect.top + boundaryRect.height + scrollTop;
+
+    const exceedsLeft = x < boundaryRect.left + window.scrollX + scrollLeft;
+    const exceedsTop = y < boundaryRect.top + window.scrollY + scrollTop;
 
     // Check if a given placement fits within the viewport
     const doesPlacementFit = (placement: FloatingPlacement): boolean => {
       switch (placement) {
         case "top":
-          return !exceedsTop;
+          return !exceedsTop && !exceedsRight && !exceedsLeft;
         case "bottom":
-          return !exceedsBottom;
+          return !exceedsBottom && !exceedsRight && !exceedsLeft;
         case "right":
           return !exceedsRight && !exceedsTop && !exceedsBottom;
         case "left":
@@ -230,18 +241,18 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
 
       // Define alternative placements for cases where the initial placement does not fit
       const relatedPlacements = {
-        "top": ["top-start", "top-end", "bottom"],
-        "bottom": ["bottom-start", "bottom-end", "top"],
-        "left": ["left-start", "left-end", "right"],
-        "right": ["right-start", "right-end", "left"],
-        "top-start": ["top-end", "bottom-start"],
-        "top-end": ["top-start", "bottom-end"],
-        "bottom-start": ["bottom-end", "top-start"],
-        "bottom-end": ["bottom-start", "top-end"],
-        "left-start": ["left-end", "right-start"],
-        "left-end": ["left-start", "right-end"],
-        "right-start": ["right-end", "left-start"],
-        "right-end": ["right-start", "left-end"],
+        "top": ["top-start", "top-end", "bottom", "bottom-start", "bottom-end"],
+        "bottom": ["bottom-start", "bottom-end", "top", "top-start", "top-end"],
+        "left": ["left-start", "left-end", "right", "right-start", "right-end"],
+        "right": ["right-start", "right-end", "left", "left-start", "left-end"],
+        "top-start": ["top", "top-end", "bottom-start", "bottom", "bottom-end"],
+        "top-end": ["top", "top-start", "bottom-end", "bottom", "bottom-start"],
+        "bottom-start": ["bottom", "bottom-end", "top-start", "top", "top-end"],
+        "bottom-end": ["bottom", "bottom-start", "top-end", "top", "top-start"],
+        "left-start": ["left", "left-end", "right-start", "right", "right-end"],
+        "left-end": ["left", "left-start", "right-end", "right", "right-start"],
+        "right-start": ["right", "right-end", "left-start", "left", "left-end"],
+        "right-end": ["right", "right-start", "left-end", "left", "left-start"],
       } as const;
 
       // Try the related placements to see if they fit

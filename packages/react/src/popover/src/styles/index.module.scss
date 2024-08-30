@@ -3,6 +3,8 @@
 
 @include theme.scope($popover-root) {
   position: absolute;
+  /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+  min-width: max-content;
   background-color: theme.get-color("background-elevated");
   border: 1px solid theme.get-color("neutral", "300");
   border-radius: theme.get-var(radius);

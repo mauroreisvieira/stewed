@@ -44,6 +44,11 @@ export interface PopoverProps<T>
    * @default 4
    */
   offset?: number;
+  /**
+   * The boundary element that will be checked for overflow relative to.
+   * @default window
+   */
+  boundary?: HTMLElement | null;
   /** Callback function invoked when the dialog is clicked outside. */
   onClickOutside?: () => void;
   /**
@@ -82,6 +87,7 @@ export function Popover<T extends HTMLElement>({
   placement = "bottom",
   className,
   style,
+  boundary,
   offset = 8,
   allowClickOutside = false,
   onClickOutside,
@@ -106,6 +112,7 @@ export function Popover<T extends HTMLElement>({
 
   // Floating position calculation hook
   const { floating, x, y, isPositioned, reference } = useFloating<T, HTMLDivElement>({
+    boundary,
     open: isOpen,
     placement,
     reference: popoverRef.current,
@@ -163,8 +170,6 @@ export function Popover<T extends HTMLElement>({
       setOpen(false);
     };
   }, []);
-
-  console.log("reference", reference);
 
   return (
     <>
