@@ -28,10 +28,6 @@
     );
   }
 
-  &--reversed {
-    flex-direction: row-reverse;
-  }
-
   &__input {
     position: absolute;
     top: 0;
@@ -42,8 +38,15 @@
     outline: none;
     opacity: 0;
 
-    &:checked + .switch__control::after {
-      transform: translate(calc(theme.get-var(width) - calc(100% + 3px)), -50%);
+    &:checked + .switch__control {
+      &::after {
+        transform: translate(calc(theme.get-var(width) - calc(100% + 3px)), -50%);
+      }
+
+      .switch__spinner {
+        color: theme.get-var(background-color);
+        transform: translate(15px, 4px);
+      }
     }
   }
 
@@ -76,6 +79,22 @@
 
   &__text {
     @include text.typography(label);
+  }
+
+  &__spinner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    font-size: inherit;
+    transform: translate(4px, 4px);
+  }
+
+  &--reversed {
+    flex-direction: row-reverse;
+  }
+
+  &--loading {
+    pointer-events: none;
   }
 
   // Sizes

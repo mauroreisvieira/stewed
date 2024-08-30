@@ -29,6 +29,7 @@ export const Controlled: Story = {
   },
   args: {
     children: "Label",
+    defaultChecked: true,
   },
 };
 
@@ -47,6 +48,18 @@ export const Uncontrolled: Story = {
         Label
       </Switch>
     );
+  },
+};
+
+export const Loading: Story = {
+  argTypes: {
+    onChange: { action: "change" },
+  },
+  args: {
+    loading: true,
+    size: "lg",
+    defaultChecked: true,
+    children: "Label",
   },
 };
 

@@ -1,4 +1,6 @@
 import React from "react";
+// Components
+import { Spinner } from "../../spinner";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
@@ -19,6 +21,8 @@ export interface SwitchProps extends Omit<React.ComponentPropsWithRef<"input">, 
   size?: "sm" | "md" | "lg";
   /** Sets element's content before switch. */
   reversed?: boolean;
+  /** Displays a loading indicator on the switch. */
+  loading?: boolean;
   /** Content to be rendered within the switch, usually used for labels. */
   children?: React.ReactNode;
 }
@@ -40,6 +44,7 @@ export function Switch({
   skin = "primary",
   size = "md",
   reversed,
+  loading,
   disabled,
   children,
   className,
@@ -51,18 +56,27 @@ export function Switch({
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({
-      modifiers: [skin, size, disabled && "disabled", reversed && "reversed"],
+      modifiers: [skin, size, disabled && "disabled", loading && "loading", reversed && "reversed"],
       extraClasses: className,
     }),
     input: getElement(["input"]),
     control: getElement(["control"]),
     text: getElement(["text"]),
+    spinner: getElement(["spinner"]),
   };
 
   return (
     <label className={cssClasses.root}>
       <input type="checkbox" disabled={disabled} className={cssClasses.input} {...props} />
-      <span className={cssClasses.control} />
+      <span className={cssClasses.control}>
+        {loading && (
+          <Spinner
+            className={cssClasses.spinner}
+            skin="default"
+            size={size === "sm" ? "xxs" : size === "md" ? "xs" : "sm"}
+          />
+        )}
+        </span>
       {children && <span className={cssClasses.text}>{children}</span>}
     </label>
   );
