@@ -204,9 +204,9 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
     const doesPlacementFit = (placement: FloatingPlacement): boolean => {
       switch (placement) {
         case "top":
-          return !exceedsTop && !exceedsRight && !exceedsLeft;
+          return !exceedsTop;
         case "bottom":
-          return !exceedsBottom && !exceedsRight && !exceedsLeft;
+          return !exceedsBottom;
         case "right":
           return !exceedsRight && !exceedsTop && !exceedsBottom;
         case "left":
@@ -303,7 +303,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
 
   useEffect(() => {
     // Whenever placement changes, recalculate the position
-    updatePosition();
+    // updatePosition();
   }, [options.placement, updatePosition]);
 
   // Once `open` flips to `true`, `isPositioned` will switch to `true` asynchronously.
