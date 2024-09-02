@@ -157,11 +157,11 @@ export const RecentFeedback = {
                   <Table.Cell>
                     <Stack items="center" gap="md">
                       <Avatar skin="neutral" size="lg" name={name} />
-                      <Stack direction="column">
+                      <Stack direction="column" gap="xs">
                         <Text size="sm" weight="medium">
                           {name}
                         </Text>
-                        <Text as="a" href="" size="xs" skin="neutral" alignment="end">
+                        <Text as="a" href="" size="xs" skin="neutral">
                           {email}
                         </Text>
                       </Stack>

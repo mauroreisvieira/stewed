@@ -17,9 +17,10 @@ import {
   FormField,
   Select,
   Group,
-  Dropdown,
   ListBox,
 } from "@stewed/react";
+
+import { Dropdown } from "../../../packages/react/src/dropdown";
 // Hooks
 import { useDateTime, useToggle } from "@stewed/hooks";
 // Icons
@@ -95,11 +96,11 @@ export const Team = {
                 <Stack items="center" justify="between">
                   <Stack items="center" gap="md">
                     <Avatar name={name} />
-                    <Stack direction="column">
+                    <Stack direction="column" gap="xs">
                       <Text size="sm" weight="medium">
                         {name}
                       </Text>
-                      <Text as="a" href="" size="xs" skin="neutral" alignment="end">
+                      <Text as="a" href="" size="xs" skin="neutral">
                         {email}
                       </Text>
                     </Stack>
@@ -329,9 +330,9 @@ export const ShareSettings = {
       <Container screen="sm" alignment="center" padding={{ block: "7xl" }}>
         <Card>
           <Card.Header>
-            <Stack items="center" gap="lg">
+            <Stack items="center" gap="md">
               <Avatar name="Acme" size="xl" appearance="square" />
-              <Stack direction="column">
+              <Stack direction="column" gap="xxs">
                 <Text as="h5">Share Settings</Text>
                 <Text size="sm" skin="neutral">
                   Manage the authorization of this workspaces
@@ -398,11 +399,11 @@ export const ShareSettings = {
                 <Stack items="center" justify="between">
                   <Stack items="center" gap="md">
                     <Avatar name={name} />
-                    <Stack direction="column">
+                    <Stack direction="column" gap="xs">
                       <Text size="sm" weight="medium">
                         {name}
                       </Text>
-                      <Text as="a" href="" size="xs" skin="neutral" alignment="end">
+                      <Text as="a" href="" size="xs" skin="neutral">
                         {email}
                       </Text>
                     </Stack>

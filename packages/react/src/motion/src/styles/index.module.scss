@@ -12,10 +12,11 @@
     opacity: 1;
   }
 }
+
 @keyframes zoom-in-soft {
   0% {
     opacity: 0;
-    transform: scale3d(0.9, 0.9, 0.9);
+    transform: scale3d(0.96, 0.96, 0.96);
   }
 
   100% {
@@ -41,7 +42,7 @@
 
   100% {
     opacity: 0;
-    transform: scale3d(0.9, 0.9, 0.9);
+    transform: scale3d(0.96, 0.96, 0.96);
   }
 }
 

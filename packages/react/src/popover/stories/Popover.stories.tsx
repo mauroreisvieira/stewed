@@ -51,7 +51,7 @@ const placements = [
 
 export const Base: Story = {
   args: {
-    placement: "bottom",
+    placement: "right-end",
     offset: 10,
   },
   argTypes: {
