@@ -5,7 +5,6 @@
 @include theme.scope($badge-root) {
   @include theme.define-var(
     (
-      size: theme.get-spacing("lg"),
       padding-inline: 0,
       position: relative,
       transform: none,
@@ -17,10 +16,7 @@
   display: inline-flex;
 
   &__value {
-    @include text.typography(
-      base,
-      $overrides: (color: inherit, font-size: theme.get-font-size("xxs"))
-    );
+    @include text.typography(base, $overrides: (color: inherit, font-size: inherit));
 
     position: theme.get-var(position);
     inset: theme.get-var(inset);
@@ -31,6 +27,7 @@
     min-width: theme.get-var(size);
     height: theme.get-var(size);
     padding-inline: theme.get-var(padding-inline);
+    font-size: theme.get-var(font-size);
     color: theme.get-var(color);
     white-space: nowrap;
     background-color: theme.get-var(background-color);
@@ -72,6 +69,33 @@
     @include theme.define-var(
       (
         background-color: transparent,
+      )
+    );
+  }
+
+  &--sm {
+    @include theme.define-var(
+      (
+        font-size: theme.get-font-size("xxs"),
+        size: theme.get-spacing("md"),
+      )
+    );
+  }
+
+  &--md {
+    @include theme.define-var(
+      (
+        font-size: theme.get-font-size("xxs"),
+        size: theme.get-spacing("lg"),
+      )
+    );
+  }
+
+  &--lg {
+    @include theme.define-var(
+      (
+        font-size: theme.get-font-size("xs"),
+        size: theme.get-spacing("xl"),
       )
     );
   }

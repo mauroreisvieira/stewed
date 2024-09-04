@@ -34,6 +34,19 @@ export const Base: Story = {
   },
 };
 
+export const Size: Story = {
+  argTypes: {
+    children: {
+      control: false,
+    },
+  },
+  args: {
+    size: "lg",
+    skin: "info",
+    value: "9",
+  },
+};
+
 export const Outline: Story = {
   argTypes: {
     children: {
@@ -58,6 +71,7 @@ export const Children: Story = {
     position: "top-right",
     skin: "critical",
     value: "7",
+    size: "lg",
     children: (
       <Button skin="neutral" leftSlot={<IoIosNotificationsOutline />} iconOnly>
         Notifications
