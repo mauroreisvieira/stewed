@@ -1,0 +1,10 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+
+$segmented-root: "segmented";
+
+/// Sizes
+$segmented-sizes: (
+  "sm": 32px,
+  "md": 40px,
+  "lg": 48px,
+);
