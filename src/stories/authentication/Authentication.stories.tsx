@@ -92,6 +92,7 @@ export const Login = {
 
 function OTPInput({ onInputChange }) {
   const [currentValue, setCurrentValue] = useState("");
+  const [backspacePressCount, setBackspacePressCount] = useState(0);
 
   return (
     <TextField
@@ -101,8 +102,21 @@ function OTPInput({ onInputChange }) {
       fullWidth={false}
       onKeyDown={(event) => {
         if (event.code === "Backspace") {
+          if (currentValue.length === 0) {
+            onInputChange(-1);
+            return;
+          }
+
+          if (backspacePressCount === 1) {
+            setCurrentValue("");
+            onInputChange(-1);
+            setBackspacePressCount(0);
+            return;
+          }
+
+          setBackspacePressCount(1);
           setCurrentValue("");
-          onInputChange(-1);
+          return;
         }
       }}
       onChange={(event) => {
@@ -125,13 +139,14 @@ export const VerifyAccount = {
   render: function Render() {
     const { ref, onNavigate, setFocusedIndex } = useKeyboardNavigation<HTMLDivElement>({
       target: "input",
+      loop: false,
     });
 
     return (
       <Container screen="sm" alignment="center" padding={{ block: "7xl" }}>
         <Card>
           <Card.Body>
-            <Text size="xl" weight="medium" alignment="center">
+            <Text size="xl" weight="medium" alignment="center" space={{ y: "sm" }}>
               Verify your account
             </Text>
             <Text skin="neutral" alignment="center" space={{ y: "2xl" }}>
@@ -143,7 +158,7 @@ export const VerifyAccount = {
                 {Array.from({ length: 6 }).map((_, idx) => (
                   <OTPInput
                     key={idx}
-                    onInputChange={(direction) => {
+                    onInputChange={(direction: number) => {
                       setFocusedIndex(idx + direction);
                     }}
                   />

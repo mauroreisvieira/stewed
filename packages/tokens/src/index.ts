@@ -95,7 +95,7 @@ export const defaultTokens: Tokens = {
     [components.Switch]: {
       radius: "full",
     },
-    [components.Tabs]: {
+    [components.Segmented]: {
       radius: "md",
     },
     [components.Tag]: {

@@ -5,7 +5,7 @@ import {
   Card,
   Button,
   Stack,
-  Tabs,
+  Segmented,
   Text,
   Container,
   Accordion,
@@ -73,12 +73,12 @@ export const PricingPlans = {
           </Text>
 
           <Stack direction="column" gap="3xl">
-            <Tabs alignment="center" value={value} onValueChange={setValue}>
-              <Tabs.List>
-                <Tabs.Item value="monthly">Monthly billing</Tabs.Item>
-                <Tabs.Item value="annually">Yearly billing</Tabs.Item>
-              </Tabs.List>
-            </Tabs>
+            <Stack justify="center">
+              <Segmented value={value} onValueChange={setValue} size="lg">
+                <Segmented.Item value="monthly">Monthly billing</Segmented.Item>
+                <Segmented.Item value="annually">Yearly billing</Segmented.Item>
+              </Segmented>
+            </Stack>
 
             <Stack
               gap="2xl"

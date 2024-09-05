@@ -24,6 +24,7 @@ import {
   Progress,
   Badge,
   Dropdown,
+  Card,
 } from "@stewed/react";
 // Hooks
 import { useInput } from "@stewed/hooks";
@@ -32,6 +33,9 @@ import { FiFile, FiFilePlus, FiSearch, FiTrash, FiUsers, FiActivity } from "reac
 import { MdOutlineArrowUpward, MdOutlineArrowDownward } from "react-icons/md";
 import { HiArrowsUpDown } from "react-icons/hi2";
 import { LuFilter } from "react-icons/lu";
+import { IoAttach } from "react-icons/io5";
+
+import { IoChatbubbleOutline } from "react-icons/io5";
 
 const meta: Meta = {
   title: "Examples/SaaS",
@@ -551,6 +555,141 @@ export const Inventory = {
           </Stack>
         </Box>
       </Container>
+    );
+  },
+};
+
+export const Kanban = {
+  render: function Render() {
+    const projects = [
+      {
+        id: "new-benefits-plan",
+        title: "New Benefits Plan",
+        category: "Human Resources",
+        members: [
+          {
+            id: "mauro-vieira",
+            name: "Mauro Vieira",
+          },
+        ],
+        tasks: {
+          total: 6,
+          completed: 1,
+        },
+        messages: 3,
+      },
+
+      {
+        id: "onboarding-emails",
+        title: "Onboarding Emails",
+        category: "Customer Success",
+        members: [
+          {
+            id: "bruna-santos",
+            name: "Bruna Santos",
+          },
+          {
+            id: "lourenco-vieira",
+            name: "Lourenço Vieira",
+          },
+        ],
+        tasks: {
+          total: 10,
+          completed: 8,
+        },
+        messages: 10,
+      },
+      {
+        id: "api-integration",
+        title: "API Integration",
+        category: "Engineering",
+        members: [
+          {
+            id: "mauro-vieira",
+            name: "Mauro Vieira",
+          },
+          {
+            id: "bruna-santos",
+            name: "Bruna Santos",
+          },
+          {
+            id: "lourenco-vieira",
+            name: "Lourenço Vieira",
+          },
+        ],
+        tasks: {
+          total: 75,
+          completed: 43,
+        },
+        attach: 3,
+        messages: 63,
+      },
+    ];
+    return (
+      <Stack
+        wrap="wrap"
+        gap="2xl"
+        responsive={{
+          md: {
+            wrap: "nowrap",
+          },
+        }}>
+        {projects.map(({ id, title, members, tasks, messages, attach }) => (
+          <Stack key={id} gap="md" grow>
+            <Card padding={{ block: "md", inline: "md" }}>
+              <Card.Body>
+                <Box space={{ y: "lg" }}>
+                  <Stack direction="column" gap="sm">
+                    <Text weight="medium" size="lg" space={{ y: "lg" }}>
+                      {title}
+                    </Text>
+
+                    {tasks && (
+                      <>
+                        <Stack justify="between">
+                          <Text skin="neutral" size="xs">
+                            Tasks
+                          </Text>
+                          <Text skin="neutral" size="xs">
+                            {tasks.completed}/{tasks.total}
+                          </Text>
+                        </Stack>
+
+                        <Progress
+                          value={100 * (tasks.completed / tasks.total)}
+                          skin="success"
+                          size="xs"
+                        />
+                      </>
+                    )}
+                  </Stack>
+                </Box>
+                <Stack justify="between" items="center">
+                  <Stack gap="xs">
+                    <Button
+                      size="sm"
+                      skin="neutral"
+                      appearance="ghost"
+                      leftSlot={<IoChatbubbleOutline />}>
+                      {messages}
+                    </Button>
+                    {attach && (
+                      <Button size="sm" skin="neutral" appearance="ghost" leftSlot={<IoAttach />}>
+                        {attach}
+                      </Button>
+                    )}
+                  </Stack>
+                  <Avatar.Group>
+                    {members.map(({ id, name }) => (
+                      <Avatar key={id} size="xs" name={name} />
+                    ))}
+                  </Avatar.Group>
+                </Stack>
+              </Card.Body>
+            </Card>
+          </Stack>
+        ))}
+      </Stack>
     );
   },
 };

@@ -18,13 +18,13 @@ import {
   Separator,
   Snackbar,
   Popover,
-  Tabs,
+  Segmented,
   Text,
   TextField,
   Theme,
   useSnackbar,
   Box,
-} from "@stewed/react";
+} from "../../../packages/react/index";
 // Hooks
 import { useToggle } from "@stewed/hooks";
 // Icons
@@ -79,7 +79,7 @@ const meta = {
 export default meta;
 
 function Music(): React.ReactElement {
-  const [tabValue, setTabValue] = useState<"music" | "podcast">("music");
+  const [segmentedValue, setSegmentedValue] = useState<"music" | "podcast">("music");
   const [drawerState, onHandleDrawer] = useToggle(false);
   const [musicDialogState, onHandleMusicDialog] = useToggle(false);
   const [podcastDialogState, onHandlePodcastDialog] = useToggle(false);
@@ -212,16 +212,14 @@ function Music(): React.ReactElement {
       <Separator space={{ block: "md" }} />
 
       <Box space={{ y: "4xl" }}>
-        <Stack items="baseline">
-          <Tabs<"music" | "podcast"> value={tabValue} onValueChange={setTabValue}>
-            <Tabs.List>
-              <Tabs.Item value="music">Music</Tabs.Item>
-              <Tabs.Item value="podcast">Podcast</Tabs.Item>
-              <Tabs.Item value="live" disabled>
-                Live
-              </Tabs.Item>
-            </Tabs.List>
-          </Tabs>
+        <Stack items="baseline" justify="between">
+          <Segmented<"music" | "podcast"> value={segmentedValue} onValueChange={setSegmentedValue}>
+            <Segmented.Item value="music">Music</Segmented.Item>
+            <Segmented.Item value="podcast">Podcast</Segmented.Item>
+            <Segmented.Item value="live" disabled>
+              Live
+            </Segmented.Item>
+          </Segmented>
 
           <Button
             skin="neutral"
@@ -234,7 +232,7 @@ function Music(): React.ReactElement {
         </Stack>
       </Box>
 
-      {tabValue === "music" ? (
+      {segmentedValue === "music" ? (
         <>
           <Grid cols={1} responsive={{ sm: { cols: 2 }, md: { cols: 4 } }} gap="md">
             {Array.from({ length: 8 }).map((_, index) => (
@@ -364,7 +362,7 @@ function Music(): React.ReactElement {
                   <Text skin="neutral" size="sm">
                     You have not added any podcasts. Add one below.
                   </Text>
-                  <Button size="sm" skin="secondary" onClick={onHandlePodcastDialog}>
+                  <Button size="md" skin="secondary" onClick={onHandlePodcastDialog}>
                     Add Podcast
                   </Button>
                 </Stack>
