@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 
 interface UseKeyboardNavigationProps {
   /** The CSS selector string that identifies the elements to navigate. */
@@ -8,6 +8,8 @@ interface UseKeyboardNavigationProps {
    * Keys are the keyboard event key values, and values are the navigation direction (-1 for backward, 1 for forward).
    */
   keyboardKey?: Record<string, number>;
+  /** Determines whether navigation should wrap around when reaching the start or end of the list. */
+  loop?: boolean;
 }
 
 /**
@@ -61,6 +63,7 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
     ArrowDown: 1,
     ArrowRight: 1,
   },
+  loop = true,
 }: UseKeyboardNavigationProps): UseKeyboardNavigation<T> {
   // Create a reference to the list element, where `T` is a generic type representing the element type (e.g., HTMLUListElement, HTMLDivElement)
   const listRef = useRef<T>(null);
@@ -81,8 +84,16 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
       // Convert the NodeList of elements matching the 'target' selector into an array of HTMLElements.
       const items = Array.from<HTMLElement>(list.querySelectorAll(target));
 
-      // Calculate the next index to focus. Ensure it's within bounds, otherwise, default to 0.
-      const nextIndex = index >= 0 && index < items.length ? index : 0;
+      // Calculate the next index to focus.
+      let nextIndex = index >= 0 && index < items.length ? index : 0;
+
+      // If looping is enabled and we're at the end, wrap around to the start
+      if (loop) {
+        nextIndex = (index + items.length) % items.length;
+      } else {
+        // If looping is disabled, don't go beyond the bounds
+        nextIndex = index >= 0 && index < items.length ? index : currentIndex;
+      }
 
       // Update the current index state.
       setCurrentIndex(nextIndex);
@@ -90,7 +101,7 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
       // Focus the item at the next index, if it exists.
       items[nextIndex]?.focus();
     },
-    [target],
+    [target, loop, currentIndex],
   );
 
   const onHandleKeyDown: React.KeyboardEventHandler<T> = useCallback(
@@ -114,9 +125,16 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
 
       // If a valid focused item is found (index >= 0) and a direction is defined (not undefined):
       if (index >= 0 && direction !== undefined) {
-        // Calculate the next index by adding the direction to the current index and wrapping around
-        // using modulo to stay within bounds of the items array length.
-        const nextIndex = (index + direction + items.length) % items.length;
+        // Calculate the next index
+        let nextIndex: number;
+
+        if (loop) {
+          // If looping is enabled, wrap around using modulo operation
+          nextIndex = (index + direction + items.length) % items.length;
+        } else {
+          // If looping is disabled, stay within bounds
+          nextIndex = Math.max(0, Math.min(index + direction, items.length - 1));
+        }
 
         // Update the current index state.
         setFocusedIndex(nextIndex);
