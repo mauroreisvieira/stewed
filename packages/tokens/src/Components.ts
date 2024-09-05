@@ -29,6 +29,7 @@ export const components = {
   Quantity: "quantity",
   Radio: "radio",
   Scope: "scope",
+  Segmented: "segmented",
   Select: "select",
   Separator: "separator",
   Skeleton: "skeleton",
@@ -63,7 +64,7 @@ export type Components = {
   [components.Quantity]?: { radius?: Radius };
   [components.Select]?: { radius?: Radius };
   [components.Switch]?: { radius?: Radius };
-  [components.Tabs]?: { radius?: Radius };
+  [components.Segmented]?: { radius?: Radius };
   [components.Tag]?: { radius?: Radius };
   [components.TextArea]?: { radius?: Radius };
   [components.TextField]?: { radius?: Radius };
