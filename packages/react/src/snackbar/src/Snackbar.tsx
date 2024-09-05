@@ -129,7 +129,7 @@ export function Snackbar({
           <div className={cssClasses.content}>
             {notifications.map(({ id, message, leftSlot, rightSlot, size, skin, title }) => (
               <Motion animation={animation} key={id}>
-                <Alert shadow="xl" {...{ leftSlot, rightSlot, size, skin, title }}>
+                <Alert shadow="xl" className={cssClasses.notification} {...{ leftSlot, rightSlot, size, skin, title }}>
                   {message}
                 </Alert>
               </Motion>
