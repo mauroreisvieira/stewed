@@ -108,6 +108,92 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
     { placement, isPositioned: open }, // Initial state with placement and whether the element is positioned
   );
 
+  // Calculate the floating element's position
+  const calculateFloatingPosition = useCallback(
+    ({
+      position,
+      referenceRect,
+      floatingRect,
+    }: {
+      position: FloatingPlacement;
+      referenceRect: DOMRect;
+      floatingRect: DOMRect;
+    }) => {
+      // Initialize x and y position values
+      let x = 0;
+      let y = 0;
+
+      // Calculate the floating element's position based on the current placement option
+      switch (position) {
+        case "top":
+          y = referenceRect.top - floatingRect.height + window.scrollY - offset;
+          x =
+            referenceRect.left +
+            window.scrollX -
+            (floatingRect.width / 2 - referenceRect.width / 2);
+          break;
+        case "top-start":
+          y = referenceRect.top - floatingRect.height + window.scrollY - offset;
+          x = referenceRect.left + window.scrollX;
+          break;
+        case "top-end":
+          y = referenceRect.top - floatingRect.height + window.scrollY - offset;
+          x = referenceRect.right + window.scrollX - floatingRect.width;
+          break;
+        case "right":
+          y =
+            referenceRect.bottom +
+            window.scrollY -
+            (floatingRect.height / 2 + referenceRect.height / 2);
+          x = referenceRect.left + window.scrollX + referenceRect.width + offset;
+          break;
+        case "right-start":
+          y = referenceRect.top + window.scrollY;
+          x = referenceRect.left + window.scrollX + referenceRect.width + offset;
+          break;
+        case "right-end":
+          y = referenceRect.bottom + window.scrollY - floatingRect.height;
+          x = referenceRect.left + window.scrollX + referenceRect.width + offset;
+          break;
+        case "bottom":
+          y = referenceRect.bottom + window.scrollY + offset;
+          x =
+            referenceRect.left +
+            window.scrollX -
+            (floatingRect.width / 2 - referenceRect.width / 2);
+          break;
+        case "bottom-start":
+          y = referenceRect.bottom + window.scrollY + offset;
+          x = referenceRect.left + window.scrollX;
+          break;
+        case "bottom-end":
+          y = referenceRect.bottom + window.scrollY + offset;
+          x = referenceRect.right + window.scrollX - floatingRect.width;
+          break;
+        case "left":
+          y =
+            referenceRect.bottom +
+            window.scrollY -
+            (floatingRect.height / 2 + referenceRect.height / 2);
+          x = referenceRect.left + window.scrollX - floatingRect.width - offset;
+          break;
+        case "left-start":
+          y = referenceRect.top + window.scrollY;
+          x = referenceRect.left + window.scrollX - floatingRect.width - offset;
+          break;
+        case "left-end":
+          y = referenceRect.bottom + window.scrollY - floatingRect.height;
+          x = referenceRect.left + window.scrollX - floatingRect.width - offset;
+          break;
+        default:
+          break;
+      }
+
+      return { x, y };
+    },
+    [],
+  );
+
   // Function to update the position of the floating element based on the reference element's position and size
   const updatePosition = useCallback(() => {
     // Exit early if the element is not positioned, or if reference or floating element is not available
@@ -117,71 +203,12 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
     const referenceRect = reference.getBoundingClientRect();
     const floatingRect = floating.current.getBoundingClientRect();
 
-    // Initialize x and y position values
-    let x = 0;
-    let y = 0;
-
-    // Calculate the floating element's position based on the current placement option
-    switch (options.placement) {
-      case "top":
-        y = referenceRect.top - floatingRect.height + window.scrollY - offset;
-        x =
-          referenceRect.left + window.scrollX - (floatingRect.width / 2 - referenceRect.width / 2);
-        break;
-      case "top-start":
-        y = referenceRect.top - floatingRect.height + window.scrollY - offset;
-        x = referenceRect.left + window.scrollX;
-        break;
-      case "top-end":
-        y = referenceRect.top - floatingRect.height + window.scrollY - offset;
-        x = referenceRect.right + window.scrollX - floatingRect.width;
-        break;
-      case "right":
-        y =
-          referenceRect.bottom +
-          window.scrollY -
-          (floatingRect.height / 2 + referenceRect.height / 2);
-        x = referenceRect.left + window.scrollX + referenceRect.width + offset;
-        break;
-      case "right-start":
-        y = referenceRect.top + window.scrollY;
-        x = referenceRect.left + window.scrollX + referenceRect.width + offset;
-        break;
-      case "right-end":
-        y = referenceRect.bottom + window.scrollY - floatingRect.height;
-        x = referenceRect.left + window.scrollX + referenceRect.width + offset;
-        break;
-      case "bottom":
-        y = referenceRect.bottom + window.scrollY + offset;
-        x =
-          referenceRect.left + window.scrollX - (floatingRect.width / 2 - referenceRect.width / 2);
-        break;
-      case "bottom-start":
-        y = referenceRect.bottom + window.scrollY + offset;
-        x = referenceRect.left + window.scrollX;
-        break;
-      case "bottom-end":
-        y = referenceRect.bottom + window.scrollY + offset;
-        x = referenceRect.right + window.scrollX - floatingRect.width;
-        break;
-      case "left":
-        y =
-          referenceRect.bottom +
-          window.scrollY -
-          (floatingRect.height / 2 + referenceRect.height / 2);
-        x = referenceRect.left + window.scrollX - floatingRect.width - offset;
-        break;
-      case "left-start":
-        y = referenceRect.top + window.scrollY;
-        x = referenceRect.left + window.scrollX - floatingRect.width - offset;
-        break;
-      case "left-end":
-        y = referenceRect.bottom + window.scrollY - floatingRect.height;
-        x = referenceRect.left + window.scrollX - floatingRect.width - offset;
-        break;
-      default:
-        break;
-    }
+    // Get the initial x and y coordinates
+    let { x, y } = calculateFloatingPosition({
+      position: options.placement,
+      referenceRect,
+      floatingRect,
+    });
 
     // Adjust position to keep the element within the viewport or boundary
     const boundaryRect = boundary
@@ -268,14 +295,26 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
 
     // If fit is enabled, adjust the position to keep the element within the viewport
     if (flip) {
-      // Adjust the placement and update the options
-      const newPlacement = adjustPlacement(options.placement);
+      // Adjust the placement based on some criteria (e.g., screen boundaries or available space)
+      const newPlacement = adjustPlacement(placement);
+
+      // Update the options with the new placement
       setOptions({ placement: newPlacement });
+
+      // If the new placement differs from the original placement, recalculate the floating position
+      if (newPlacement !== placement) {
+        // Returned position object to directly assign new x and y coordinates
+        ({ x, y } = calculateFloatingPosition({
+          position: newPlacement,
+          referenceRect,
+          floatingRect,
+        }));
+      }
     }
 
     // Update floating element position with calculated x and y coordinates
     setFloatingPosition({ x, y, reference: referenceRect });
-  }, [offset, options.isPositioned, options.placement, reference, flip]);
+  }, [offset, options.isPositioned, placement, reference, flip]);
 
   useEffect(() => {
     if (!options.isPositioned || !reference || !flip) return;
@@ -303,7 +342,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
 
   useEffect(() => {
     // Whenever placement changes, recalculate the position
-    // updatePosition();
+    updatePosition();
   }, [options.placement, updatePosition]);
 
   // Once `open` flips to `true`, `isPositioned` will switch to `true` asynchronously.
