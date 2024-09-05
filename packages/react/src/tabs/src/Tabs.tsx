@@ -11,7 +11,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface TabsProps<T extends string>
+interface TabsDirectionRow<T extends string>
   extends React.ComponentPropsWithRef<"div">,
     TabsProviderProps<T> {
   /**
@@ -19,23 +19,36 @@ export interface TabsProps<T extends string>
    * @default start
    */
   alignment?: "start" | "center" | "end";
+
   /**
    * The direction of the tab container.
    * @default row
    */
-  direction?: "row" | "column";
-  /**
-   * Changes the size of the tabs, giving it more or less padding.
-   * @default md
-   */
-  size?: "sm" | "md" | "lg";
+  direction: "row"; // Made required and fixed the comment
 }
+
+interface TabsDirectionColumn<T extends string>
+  extends React.ComponentPropsWithRef<"div">,
+    TabsProviderProps<T> {
+  /**
+   * Allow possibility to change alignment of tabs.
+   * @default start
+   */
+  alignment?: "start" | "end";
+
+  /**
+   * The direction of the tab container.
+   * @default column
+   */
+  direction: "column"; // Made required and fixed the @default value
+}
+
+type TabsProps<T extends string> = TabsDirectionRow<T> | TabsDirectionColumn<T>;
 
 export function Tabs<T extends string>({
   value,
   alignment = "start",
   direction = "row",
-  size = "md",
   className,
   onValueChange,
   children,
@@ -49,7 +62,7 @@ export function Tabs<T extends string>({
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({
-      modifiers: [alignment, size, direction !== "row" && direction],
+      modifiers: [alignment, direction],
       extraClasses: className,
     }),
   };

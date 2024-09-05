@@ -5,72 +5,123 @@
 @include theme.scope($tabs-root) {
   @include theme.define-var(
     (
-      background-color: theme.get-color("neutral", "100"),
-      border-color: theme.get-color("neutral", "300"),
       flex-direction: row,
-      width: auto,
       justify-content: center,
-      item-background-color: transparent,
+      border-color: transparent,
+      height: 40px,
     )
   );
 
-  display: flex;
-  width: 100%;
+  box-sizing: border-box;
+  display: inline-flex;
+
+  &--start {
+    @include theme.define-var(
+      (
+        justify-content: start,
+        align-items: start,
+      )
+    );
+  }
+
+  &--center {
+    @include theme.define-var(
+      (
+        justify-content: center,
+        align-items: start,
+      )
+    );
+  }
+
+  &--end {
+    @include theme.define-var(
+      (
+        justify-content: end,
+        align-items: end,
+      )
+    );
+  }
+
+  &--row {
+    width: 100%;
+    border-bottom: 1px solid theme.get-color("neutral", "300");
+
+    .#{$tabs-root} {
+      &__list {
+        width: 100%;
+      }
+
+      &__item {
+        top: 1px;
+        border-bottom: 2px solid theme.get-var(border-color);
+      }
+    }
+  }
 
   &--column {
     @include theme.define-var(
       (
         flex-direction: column,
-        width: 100%,
-        justify-content: left,
       )
     );
-  }
 
-  &--start {
-    justify-content: left;
-  }
+    &.#{$tabs-root} {
+      &--start {
+        border-right: 1px solid theme.get-color("neutral", "300");
 
-  &--center {
-    justify-content: center;
-  }
+        .#{$tabs-root} {
+          &__item {
+            right: -1px;
+            border-right: 2px solid theme.get-var(border-color);
+          }
+        }
+      }
 
-  &--end {
-    justify-content: end;
+      &--end {
+        border-left: 1px solid theme.get-color("neutral", "300");
+
+        .#{$tabs-root} {
+          &__item {
+            left: -1px;
+            border-left: 2px solid theme.get-var(border-color);
+          }
+        }
+      }
+    }
   }
 
   &__list {
     box-sizing: border-box;
     display: inline-flex;
     flex-direction: theme.get-var(flex-direction);
-    gap: theme.get-spacing("sm");
-    align-items: center;
-    width: theme.get-var(width);
-    height: theme.get-var(height);
-    padding-inline: 2px;
+    gap: theme.get-spacing("xs");
+    align-items: theme.get-var(align-items);
+    justify-content: theme.get-var(justify-content);
     user-select: none;
-    background-color: theme.get-var(background-color);
-    border: 1px solid theme.get-var(border-color);
-    border-radius: theme.get-var(radius);
   }
 
   &__item {
     all: unset;
-    box-sizing: border-box;
+    position: relative;
     display: flex;
     gap: theme.get-spacing("sm");
     align-items: center;
-    justify-content: theme.get-var(justify-content);
-    width: theme.get-var(width);
-    height: calc(theme.get-var(height) - 8px);
-    padding-inline: theme.get-spacing("md");
+    height: theme.get-var(height);
+    padding-inline: theme.get-spacing("lg");
+    overflow: hidden;
     cursor: pointer;
-    background-color: theme.get-var(item-background-color);
-    border-radius: calc(theme.get-var(radius) - 4px);
 
     @include theme.focus-styles;
     @include theme.disabled-styles;
     @include text.typography(base, $overrides: (font-size: theme.get-font-size("sm")));
+
+    &:hover {
+      @include theme.define-var(
+        (
+          color: theme.get-color("primary", "500"),
+        )
+      );
+    }
 
     &__left,
     &__right {
@@ -80,21 +131,10 @@
     }
 
     &--selected {
-      box-shadow: theme.get-shadow("md");
       @include theme.define-var(
         (
-          item-background-color: theme.get-color("background-elevated"),
-        )
-      );
-    }
-  }
-
-  // Sizes
-  @each $key, $value in $tabs-sizes {
-    &--#{$key} {
-      @include theme.define-var(
-        (
-          height: $value,
+          color: theme.get-color("primary", "500"),
+          border-color: theme.get-color("primary", "500"),
         )
       );
     }
