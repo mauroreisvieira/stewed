@@ -66,4 +66,11 @@
       );
     }
   }
+
+  &--full-width {
+    width: 100%;
+    .#{$segmented-root}__item {
+      flex: 1;
+    }
+  }
 }

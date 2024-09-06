@@ -18,10 +18,13 @@ export interface SegmentedProps<T extends string>
    * @default md
    */
   size?: "sm" | "md" | "lg";
+  /** Sets the segmented control to use the full width of its container. */
+  fullWidth?: boolean;
 }
 
 export function Segmented<T extends string>({
   value,
+  fullWidth,
   size = "md",
   className,
   onValueChange,
@@ -35,7 +38,7 @@ export function Segmented<T extends string>({
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({
-      modifiers: [size],
+      modifiers: [size, fullWidth && "full-width"],
       extraClasses: className,
     }),
   };
