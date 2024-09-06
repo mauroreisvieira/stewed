@@ -13,7 +13,6 @@ import {
   Separator,
   Table,
   Tag,
-  Pagination,
   TextField,
   Checkbox,
   ListBox,
@@ -50,66 +49,236 @@ const meta: Meta = {
 
 export default meta;
 
-export const RecentFeedback = {
+export const Staff = {
   render: function Render() {
-    const [team, setTeam] = useState([
+    const [staff, setStaff] = useState([
       {
         id: "1",
         name: "Olivia Patel",
-        email: "olivia.patel@example.com",
-        content: "We're looking to include a new calendar component, is this very difficult for me",
-        sentiment: "Positive",
+        specialty: "Dentist",
+        contacts: {
+          email: "olivia.patel@example.com",
+          phone: "233 900-0122",
+        },
+        workdays: {
+          sun: true,
+          mon: true,
+          tue: false,
+          wed: true,
+          thu: false,
+          fri: true,
+          sat: true,
+        },
+        assignedTreatment: "Dental services",
+        type: "Part-time",
         selected: false,
       },
       {
         id: "2",
-        name: "Sophia Chang",
-        email: "sophia.chang@example.com",
-        content: "We're looking to include a new calendar component, is this very difficult for me",
-        sentiment: "Negative",
-        selected: true,
+        name: "Liam Nguyen",
+        specialty: "Cardiologist",
+        contacts: {
+          email: "liam.nguyen@example.com",
+          phone: "233 900-0155",
+        },
+        workdays: {
+          sun: false,
+          mon: true,
+          tue: true,
+          wed: false,
+          thu: true,
+          fri: false,
+          sat: true,
+        },
+        assignedTreatment: "Heart specialist",
+        type: "Full-time",
+        selected: false,
       },
       {
         id: "3",
-        name: "Benjamin Martinez",
-        email: "benjamin.martinez@example.com",
-        content: "We're looking to include a new calendar component, is this very difficult for me",
-        sentiment: "Positive",
+        name: "Emma Clark",
+        specialty: "Pediatrician",
+        contacts: {
+          email: "emma.clark@example.com",
+          phone: "233 900-0177",
+        },
+        workdays: {
+          sun: true,
+          mon: false,
+          tue: true,
+          wed: true,
+          thu: false,
+          fri: true,
+          sat: false,
+        },
+        assignedTreatment: "Child healthcare",
+        type: "Part-time",
         selected: false,
       },
       {
         id: "4",
-        name: "Noah Andersen",
-        email: "noah.andersen@example.com",
-        content: "We're looking to include a new calendar component, is this very difficult for me",
-        sentiment: "Positive",
+        name: "Noah Kim",
+        specialty: "Orthopedic Surgeon",
+        contacts: {
+          email: "noah.kim@example.com",
+          phone: "233 900-0199",
+        },
+        workdays: {
+          sun: false,
+          mon: true,
+          tue: false,
+          wed: true,
+          thu: true,
+          fri: true,
+          sat: false,
+        },
+        assignedTreatment: "Bone and joint surgery",
+        type: "Full-time",
         selected: false,
       },
       {
         id: "5",
-        name: "Liam O'Connor",
-        email: "liam.connor@example.com",
-        content: "We're looking to include a new calendar component, is this very difficult for me",
-        sentiment: "Neutral",
+        name: "Ava Lopez",
+        specialty: "Dermatologist",
+        contacts: {
+          email: "ava.lopez@example.com",
+          phone: "233 900-0211",
+        },
+        workdays: {
+          sun: true,
+          mon: true,
+          tue: false,
+          wed: false,
+          thu: true,
+          fri: true,
+          sat: true,
+        },
+        assignedTreatment: "Skin specialist",
+        type: "Part-time",
+        selected: false,
+      },
+      {
+        id: "6",
+        name: "William Rodriguez",
+        specialty: "Neurologist",
+        contacts: {
+          email: "william.rodriguez@example.com",
+          phone: "233 900-0233",
+        },
+        workdays: {
+          sun: false,
+          mon: true,
+          tue: true,
+          wed: false,
+          thu: true,
+          fri: true,
+          sat: false,
+        },
+        assignedTreatment: "Brain and nervous system",
+        type: "Full-time",
+        selected: false,
+      },
+      {
+        id: "7",
+        name: "Sophia Gonzalez",
+        specialty: "Ophthalmologist",
+        contacts: {
+          email: "sophia.gonzalez@example.com",
+          phone: "233 900-0255",
+        },
+        workdays: {
+          sun: true,
+          mon: false,
+          tue: true,
+          wed: true,
+          thu: false,
+          fri: true,
+          sat: true,
+        },
+        assignedTreatment: "Eye specialist",
+        type: "Part-time",
+        selected: false,
+      },
+      {
+        id: "8",
+        name: "James Martinez",
+        specialty: "Gastroenterologist",
+        contacts: {
+          email: "james.martinez@example.com",
+          phone: "233 900-0277",
+        },
+        workdays: {
+          sun: false,
+          mon: true,
+          tue: false,
+          wed: true,
+          thu: true,
+          fri: false,
+          sat: true,
+        },
+        assignedTreatment: "Digestive system",
+        type: "Full-time",
+        selected: false,
+      },
+      {
+        id: "9",
+        name: "Mia Davis",
+        specialty: "Psychiatrist",
+        contacts: {
+          email: "mia.davis@example.com",
+          phone: "233 900-0299",
+        },
+        workdays: {
+          sun: true,
+          mon: true,
+          tue: true,
+          wed: false,
+          thu: true,
+          fri: false,
+          sat: false,
+        },
+        assignedTreatment: "Mental health",
+        type: "Full-time",
+        selected: false,
+      },
+      {
+        id: "10",
+        name: "Lucas Brown",
+        specialty: "Oncologist",
+        contacts: {
+          email: "lucas.brown@example.com",
+          phone: "233 900-0311",
+        },
+        workdays: {
+          sun: false,
+          mon: true,
+          tue: false,
+          wed: true,
+          thu: true,
+          fri: true,
+          sat: false,
+        },
+        assignedTreatment: "Cancer treatment",
+        type: "Full-time",
         selected: false,
       },
     ]);
 
-    const isAllChecked = useMemo(() => team?.every(({ selected }) => selected), [team]);
-    const isIndeterminate = useMemo(() => team.some(({ selected }) => selected), [team]);
+    const isAllChecked = useMemo(() => staff?.every(({ selected }) => selected), [staff]);
+    const isIndeterminate = useMemo(() => staff.some(({ selected }) => selected), [staff]);
 
     return (
       <Container screen="2xl" alignment="center" padding={{ block: "7xl" }}>
         <Stack direction="column" grow>
           <Text as="h5" space={{ y: "xs" }}>
-            Recent feedback
+            Staff
           </Text>
 
           <Text size="sm" skin="neutral" space={{ y: "3xl" }}>
-            Find all of your customer feedback in one place.
+            Find all of your doctors in one place.
           </Text>
 
-          <Table appearance={"striped-rows"} hoverable>
+          <Table appearance={"border-rows"} hoverable>
             <Table.Head>
               <Table.Row>
                 <Table.Cell as="th">
@@ -117,7 +286,7 @@ export const RecentFeedback = {
                     indeterminate={isAllChecked ? undefined : isIndeterminate}
                     checked={isAllChecked}
                     onChange={() => {
-                      setTeam((prev) =>
+                      setStaff((prev) =>
                         prev.map((value) => ({
                           ...value,
                           selected: !isAllChecked,
@@ -127,98 +296,122 @@ export const RecentFeedback = {
                   />
                 </Table.Cell>
                 <Table.Cell as="th">Name</Table.Cell>
-                <Table.Cell as="th">Content</Table.Cell>
-                <Table.Cell as="th">Sentiment</Table.Cell>
+                <Table.Cell as="th">Contact</Table.Cell>
+                <Table.Cell as="th">Working days</Table.Cell>
+                <Table.Cell as="th">assignedTreatment</Table.Cell>
+                <Table.Cell as="th">Type</Table.Cell>
                 <Table.Cell as="th" />
               </Table.Row>
             </Table.Head>
             <Table.Body>
-              {team.map(({ id, name, email, content, sentiment, selected }) => (
-                <Table.Row
-                  key={id}
-                  selected={selected}
-                  onClick={() => {
-                    setTeam((prev) =>
-                      prev.map((value) => ({
-                        ...value,
-                        selected: value.id === id ? !value.selected : value.selected,
-                      })),
-                    );
-                  }}>
-                  <Table.Cell>
-                    <Checkbox
-                      checked={selected}
-                      onChange={() => {
-                        setTeam((prev) =>
-                          prev.map((value) => ({
-                            ...value,
-                            selected: value.id === id ? !value.selected : value.selected,
-                          })),
-                        );
-                      }}
-                    />
-                  </Table.Cell>
-                  <Table.Cell>
-                    <Stack items="center" gap="md">
-                      <Avatar skin="neutral" size="lg" name={name} />
+              {staff.map(
+                ({
+                  id,
+                  name,
+                  contacts,
+                  type,
+                  specialty,
+                  workdays,
+                  assignedTreatment,
+                  selected,
+                }) => (
+                  <Table.Row
+                    key={id}
+                    selected={selected}
+                    onClick={() => {
+                      setStaff((prev) =>
+                        prev.map((value) => ({
+                          ...value,
+                          selected: value.id === id ? !value.selected : value.selected,
+                        })),
+                      );
+                    }}>
+                    <Table.Cell>
+                      <Checkbox
+                        checked={selected}
+                        onChange={() => {
+                          setStaff((prev) =>
+                            prev.map((value) => ({
+                              ...value,
+                              selected: value.id === id ? !value.selected : value.selected,
+                            })),
+                          );
+                        }}
+                      />
+                    </Table.Cell>
+                    <Table.Cell>
+                      <Stack items="center" gap="md">
+                        <Avatar skin="neutral" size="md" name={name} />
+                        <Stack direction="column" gap="xs">
+                          <Text size="sm" weight="medium">
+                            {name}
+                          </Text>
+                          <Text as="a" href="" size="xs" skin="neutral">
+                            {specialty}
+                          </Text>
+                        </Stack>
+                      </Stack>
+                    </Table.Cell>
+                    <Table.Cell>
                       <Stack direction="column" gap="xs">
-                        <Text size="sm" weight="medium">
-                          {name}
-                        </Text>
-                        <Text as="a" href="" size="xs" skin="neutral">
-                          {email}
+                        <Text size="sm">{contacts.phone}</Text>
+                        <Text as="a" skin="neutral" size="xs">
+                          {contacts.email}
                         </Text>
                       </Stack>
-                    </Stack>
-                  </Table.Cell>
-                  <Table.Cell>
-                    <Text size="sm" weight="light" lineClamp={2}>
-                      {content}
-                    </Text>
-                  </Table.Cell>
-                  <Table.Cell>
-                    <Tag
-                      skin={
-                        sentiment === "Positive"
-                          ? "success"
-                          : sentiment === "Negative"
-                            ? "critical"
-                            : "neutral"
-                      }
-                      appearance="soft"
-                      size="sm">
-                      {sentiment}
-                    </Tag>
-                  </Table.Cell>
-                  <Table.Cell>
-                    <Button
-                      size="sm"
-                      skin="neutral"
-                      appearance="ghost"
-                      iconOnly
-                      leftSlot={
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth="2"
-                          stroke="currentColor">
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z"
-                          />
-                        </svg>
-                      }
-                      onClick={(event) => event.stopPropagation()}
-                    />
-                  </Table.Cell>
-                </Table.Row>
-              ))}
+                    </Table.Cell>
+                    <Table.Cell>
+                      <Stack gap="xs">
+                        <Badge size="lg" value="S" skin={workdays.sun ? "info" : "neutral"} />
+                        <Badge size="lg" value="M" skin={workdays.mon ? "info" : "neutral"} />
+                        <Badge size="lg" value="T" skin={workdays.thu ? "info" : "neutral"} />
+                        <Badge size="lg" value="W" skin={workdays.wed ? "info" : "neutral"} />
+                        <Badge size="lg" value="T" skin={workdays.thu ? "info" : "neutral"} />
+                        <Badge size="lg" value="F" skin={workdays.fri ? "info" : "neutral"} />
+                        <Badge size="lg" value="S" skin={workdays.sat ? "info" : "neutral"} />
+                      </Stack>
+                    </Table.Cell>
+                    <Table.Cell>
+                      <Text size="sm" weight="light">
+                        {assignedTreatment}
+                      </Text>
+                    </Table.Cell>
+                    <Table.Cell>
+                      <Tag
+                        skin={type === "Full-time" ? "success" : "warning"}
+                        appearance="soft"
+                        size="sm">
+                        {type.toUpperCase()}
+                      </Tag>
+                    </Table.Cell>
+                    <Table.Cell>
+                      <Button
+                        size="sm"
+                        skin="neutral"
+                        appearance="ghost"
+                        iconOnly
+                        leftSlot={
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="2"
+                            stroke="currentColor">
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z"
+                            />
+                          </svg>
+                        }
+                        onClick={(event) => event.stopPropagation()}
+                      />
+                    </Table.Cell>
+                  </Table.Row>
+                ),
+              )}
             </Table.Body>
           </Table>
-          <Separator space={{ block: "2xl" }} />
-          <Pagination total={18} siblings={2} currentPage={1} />
         </Stack>
       </Container>
     );

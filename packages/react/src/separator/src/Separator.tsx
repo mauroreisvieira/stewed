@@ -8,7 +8,7 @@ import { components, type Spacings } from "@stewed/tokens";
 import styles from "./styles/index.module.scss";
 
 interface SeparatorProps
-  extends React.ComponentPropsWithRef<"hr">,
+  extends React.ComponentPropsWithoutRef<"hr">,
     UseResponsiveProps<{
       /** Adds space between separators on the horizontal and vertical axes. */
       space?: {
@@ -54,7 +54,7 @@ interface SeparatorProps
  * <Separator skin="primary-faded" space={{ block: 'sm', inline: 'md' }} orientation="horizontal" />
  * ```
  *
- * @remarks This component props extended from React.ComponentPropsWithRef<"hr">.
+ * @remarks This component props extended from React.ComponentPropsWithoutRef<"hr">.
  *
  * @param {SeparatorProps} props - The props for the Separator component.
  * @returns {React.ReactElement} - The rendered Separator component.

@@ -8,7 +8,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface TabsItemProps extends React.ComponentPropsWithRef<"button"> {
+export interface TabsItemProps extends React.ComponentPropsWithoutRef<"button"> {
   /** Sets or retrieves the value of a tab list. */
   value: string;
   /** Slot to display before the item children. */
@@ -27,8 +27,10 @@ export function TabsItem({
   onClick,
   ...props
 }: TabsItemProps): React.ReactElement {
+  // Get tab context value and functions.
   const { onValueChange, value: selectedValue } = useTabs();
 
+  // Check the tab item selected
   const isSelected = value === selectedValue;
 
   // Importing useBem to handle BEM class names

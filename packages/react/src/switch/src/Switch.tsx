@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 // Components
 import { Spinner } from "../../spinner";
 // Hooks
@@ -40,44 +40,61 @@ export interface SwitchProps extends Omit<React.ComponentPropsWithRef<"input">, 
  * @param {SwitchProps} props - The props for the Switch component.
  * @returns {React.ReactElement} - The rendered Switch component.
  */
-export function Switch({
-  skin = "primary",
-  size = "md",
-  reversed,
-  loading,
-  disabled,
-  children,
-  className,
-  ...props
-}: SwitchProps): React.ReactElement {
-  // Importing useBem to handle BEM class names
-  const { getBlock, getElement } = useBem({ block: components.Switch, styles });
+export const Switch = forwardRef(
+  (
+    {
+      skin = "primary",
+      size = "md",
+      reversed,
+      loading,
+      disabled,
+      children,
+      className,
+      ...props
+    }: SwitchProps,
+    ref: React.Ref<HTMLInputElement>,
+  ): React.ReactElement => {
+    // Importing useBem to handle BEM class names
+    const { getBlock, getElement } = useBem({ block: components.Switch, styles });
 
-  // Generating CSS classes based on component props and styles
-  const cssClasses = {
-    root: getBlock({
-      modifiers: [skin, size, disabled && "disabled", loading && "loading", reversed && "reversed"],
-      extraClasses: className,
-    }),
-    input: getElement(["input"]),
-    control: getElement(["control"]),
-    text: getElement(["text"]),
-    spinner: getElement(["spinner"]),
-  };
+    // Generating CSS classes based on component props and styles
+    const cssClasses = {
+      root: getBlock({
+        modifiers: [
+          skin,
+          size,
+          disabled && "disabled",
+          loading && "loading",
+          reversed && "reversed",
+        ],
+        extraClasses: className,
+      }),
+      input: getElement(["input"]),
+      control: getElement(["control"]),
+      text: getElement(["text"]),
+      spinner: getElement(["spinner"]),
+    };
 
-  return (
-    <label className={cssClasses.root}>
-      <input type="checkbox" disabled={disabled} className={cssClasses.input} {...props} />
-      <span className={cssClasses.control}>
-        {loading && (
-          <Spinner
-            className={cssClasses.spinner}
-            skin="default"
-            size={size === "sm" ? "xxs" : size === "md" ? "xs" : "sm"}
-          />
-        )}
-      </span>
-      {children && <span className={cssClasses.text}>{children}</span>}
-    </label>
-  );
-}
+    return (
+      <label className={cssClasses.root}>
+        <input
+          ref={ref}
+          type="checkbox"
+          disabled={disabled}
+          className={cssClasses.input}
+          {...props}
+        />
+        <span className={cssClasses.control}>
+          {loading && (
+            <Spinner
+              className={cssClasses.spinner}
+              skin="default"
+              size={size === "sm" ? "xxs" : size === "md" ? "xs" : "sm"}
+            />
+          )}
+        </span>
+        {children && <span className={cssClasses.text}>{children}</span>}
+      </label>
+    );
+  },
+);

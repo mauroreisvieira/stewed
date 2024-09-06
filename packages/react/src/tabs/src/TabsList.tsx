@@ -6,7 +6,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export type TabsListProps = React.ComponentPropsWithRef<"div">;
+export type TabsListProps = React.ComponentPropsWithoutRef<"div">;
 
 export function TabsList({
   className,

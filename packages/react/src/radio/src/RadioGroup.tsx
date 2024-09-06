@@ -8,7 +8,7 @@ import { useBem } from "@stewed/hooks";
 import styles from "./styles/index.module.scss";
 
 export interface RadioGroupProps
-  extends React.ComponentPropsWithRef<"div">,
+  extends React.ComponentPropsWithoutRef<"div">,
     RadioGroupProviderProps {
   /**
    * Specifies the orientation of the radio group.

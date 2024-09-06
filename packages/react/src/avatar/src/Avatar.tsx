@@ -18,8 +18,7 @@ export interface AvatarProps<T> extends React.ComponentProps<typeof defaultEleme
    * @default div
    */
   as?: T;
-  /** The ref to attach to the `<img />` element. */
-  imageRef?: React.Ref<HTMLImageElement>;
+
   /**
    * Defines the skin color of the avatar.
    * @default primary
@@ -42,8 +41,11 @@ export interface AvatarProps<T> extends React.ComponentProps<typeof defaultEleme
   name?: string;
   /** Additional CSS class to apply to the avatar. */
   className?: string;
-  /** The URL of the image to be displayed as the avatar. */
-  src?: string;
+  /** The props to be added on image element. */
+  image?: React.ComponentPropsWithoutRef<"img"> & {
+    /** The ref to attach to the `<img />` element. */
+    ref?: React.Ref<HTMLImageElement>;
+  };
 }
 
 /**
@@ -65,12 +67,11 @@ export const Root = fixedForwardRef(
   <T extends React.ElementType>(
     {
       as,
-      imageRef,
       size = "md",
       skin = "primary",
       appearance = "circle",
       className,
-      src,
+      image,
       name,
       ...props
     }: AvatarProps<T> &
@@ -82,13 +83,14 @@ export const Root = fixedForwardRef(
   ): React.ReactElement => {
     // Component to render based on the 'as' prop
     const Comp = as || defaultElement;
+
     // Importing useBem to handle BEM class names
     const { getBlock, getElement } = useBem({ block: components.Avatar, styles });
 
     // Generating CSS classes based on component props and styles
     const cssClasses = {
       root: getBlock({ modifiers: [appearance, size, skin], extraClasses: className }),
-      img: getElement(["img"]),
+      img: getElement(["img"], image?.className),
     };
 
     // State to track if there is an error loading the image
@@ -98,18 +100,18 @@ export const Root = fixedForwardRef(
     const initials = name?.match(/[A-Z]/g)?.join("").slice(0, 2).toUpperCase();
 
     // Callback to handle image load errors, setting the error state
-    const onHandleError = useCallback<React.ReactEventHandler<HTMLImageElement>>(() => {
+    const onHandleError = useCallback<React.ReactEventHandler<HTMLImageElement>>((event) => {
       setImageError(true);
+      image?.onError?.(event);
     }, []);
 
     return (
       <Comp ref={ref} className={cssClasses.root} {...props}>
-        {!imageError && src ? (
+        {!imageError && image ? (
           <img
-            ref={imageRef}
+            {...image}
             className={cssClasses.img}
-            src={src}
-            alt={name}
+            alt={image?.alt || name}
             onError={onHandleError}
           />
         ) : (

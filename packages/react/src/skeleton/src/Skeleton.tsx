@@ -8,7 +8,7 @@ import styles from "./styles/index.module.scss";
 
 type Size = Spacings | "auto";
 
-interface SkeletonProps extends React.ComponentPropsWithRef<"div"> {
+interface SkeletonProps extends React.ComponentPropsWithoutRef<"div"> {
   /**
    * Defines the shape of the skeleton placeholder.
    *

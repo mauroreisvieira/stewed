@@ -6,7 +6,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface TableHeadProps extends React.ComponentPropsWithRef<"thead"> {
+export interface TableHeadProps extends React.ComponentPropsWithoutRef<"thead"> {
   /**
    * Change the visual style of the table head.
    * @default neutral-faded

@@ -7,7 +7,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface AccordionHeaderProps extends React.ComponentPropsWithRef<"div"> {
+export interface AccordionHeaderProps extends React.ComponentPropsWithoutRef<"div"> {
   /** The content for the left slot of the accordion header. */
   leftSlot?: React.ReactNode;
   /** The content for the right slot of the accordion header. */

@@ -8,7 +8,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface BackdropProps extends React.ComponentPropsWithRef<"div"> {
+export interface BackdropProps extends React.ComponentPropsWithoutRef<"div"> {
   /** Whether to apply a blur effect to the backdrop. */
   blur?: boolean;
 }
@@ -22,7 +22,7 @@ export interface BackdropProps extends React.ComponentPropsWithRef<"div"> {
  * ```
  *
  * @remarks
- * This component extends `React.ComponentPropsWithRef<"div">`.
+ * This component extends `React.ComponentPropsWithoutRef<"div">`.
  *
  * @param {BackdropProps} props - The props for the Backdrop component.
  * @returns {React.ReactElement} - The rendered Backdrop component.

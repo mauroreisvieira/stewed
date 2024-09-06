@@ -8,13 +8,13 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-// Delay configuration for tooltip opening and closing.
+// Delay configuration for Tooltip opening and closing.
 const SHOW_DELAY = 300;
 const HIDE_DELAY = 100;
 const HIDE_DURATION = 100;
 
 type State = {
-  // Possible states for the tooltip.
+  // Possible states for the Tooltip.
   stage: "hidden" | "might-show" | "showing" | "might-hide" | "hiding";
   // Timer ID for controlling delays.
   timeoutId?: NodeJS.Timeout;
@@ -28,7 +28,7 @@ type Action =
   | "hide-animation-completed";
 
 export interface TooltipChildrenProps<T> {
-  /** Ref to attach to the tooltip element */
+  /** Ref to attach to the Tooltip element */
   ref: React.Ref<T>;
   /** Event handler for focus */
   onFocus: React.FocusEventHandler<T>;
@@ -41,7 +41,7 @@ export interface TooltipChildrenProps<T> {
 }
 
 export interface TooltipProps<T>
-  extends Omit<React.ComponentPropsWithRef<"div">, "children" | "content"> {
+  extends Omit<React.ComponentPropsWithoutRef<"div">, "children" | "content"> {
   /**
    * Change the visual style of the `Tooltip`.
    * @default default
@@ -55,7 +55,7 @@ export interface TooltipProps<T>
   /** Determines if the `Tooltip` is open. */
   open?: boolean;
   /**
-   * Determines the delay in milliseconds ('ms') to displaying the tooltip after hovering.
+   * Determines the delay in milliseconds ('ms') to displaying the Tooltip after hovering.
    * @default 300
    */
   delay?: number;
@@ -82,7 +82,7 @@ export interface TooltipProps<T>
  * </Tooltip>
  * ```
  *
- * @remarks This component's props extend from React.ComponentPropsWithRef<"div">.
+ * @remarks This component's props extend from React.ComponentPropsWithoutRef<"div">.
  *
  * @param props - The props for the Tooltip component.
  * @returns The rendered Tooltip component.
@@ -108,7 +108,7 @@ export function Tooltip<T extends HTMLElement>({
     root: getBlock({ modifiers: [skin], extraClasses: className }),
   };
 
-  // Create a reference to manage the tooltip element
+  // Create a reference to manage the Tooltip element
   const tooltipRef = useRef<T>(null);
 
   const [currentState, dispatch] = useReducer(
@@ -208,7 +208,7 @@ export function Tooltip<T extends HTMLElement>({
           <Motion animation="fade-in">
             <div
               ref={floating}
-              role="tooltip"
+              role="Tooltip"
               className={cssClasses.root}
               style={{
                 ...style,

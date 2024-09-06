@@ -6,7 +6,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export type AvatarGroupProps = React.ComponentPropsWithRef<"div">;
+export type AvatarGroupProps = React.ComponentPropsWithoutRef<"div">;
 
 export function AvatarGroup({
   className,

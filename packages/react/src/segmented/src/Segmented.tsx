@@ -11,7 +11,7 @@ import { components } from "@stewed/tokens";
 import styles from "./styles/index.module.scss";
 
 export interface SegmentedProps<T extends string>
-  extends React.ComponentPropsWithRef<"div">,
+  extends React.ComponentPropsWithoutRef<"div">,
     SegmentedProviderProps<T> {
   /**
    * Changes the size of the segmented, giving it more or less padding.

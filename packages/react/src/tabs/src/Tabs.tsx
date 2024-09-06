@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 // Provider
 import { TabsProvider, type TabsProviderProps } from "./TabsProvider";
 // Compound Component
@@ -12,7 +12,7 @@ import { components } from "@stewed/tokens";
 import styles from "./styles/index.module.scss";
 
 interface TabsDirectionRow<T extends string>
-  extends React.ComponentPropsWithRef<"div">,
+  extends React.ComponentPropsWithoutRef<"div">,
     TabsProviderProps<T> {
   /**
    * Allow possibility to change alignment of tabs.
@@ -28,7 +28,7 @@ interface TabsDirectionRow<T extends string>
 }
 
 interface TabsDirectionColumn<T extends string>
-  extends React.ComponentPropsWithRef<"div">,
+  extends React.ComponentPropsWithoutRef<"div">,
     TabsProviderProps<T> {
   /**
    * Allow possibility to change alignment of tabs.
@@ -54,8 +54,6 @@ export function Tabs<T extends string>({
   children,
   ...props
 }: TabsProps<T>): React.ReactElement {
-  const ref = useRef<React.ElementRef<"div">>(null);
-
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: components.Tabs, styles });
 
@@ -68,7 +66,7 @@ export function Tabs<T extends string>({
   };
 
   return (
-    <div ref={ref} className={cssClasses.root} {...props}>
+    <div className={cssClasses.root} {...props}>
       <TabsProvider value={value} onValueChange={onValueChange}>
         {children}
       </TabsProvider>

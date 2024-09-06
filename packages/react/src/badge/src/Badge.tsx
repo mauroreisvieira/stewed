@@ -6,7 +6,7 @@ import { type Color, components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface BadgeProps extends React.ComponentPropsWithRef<"span"> {
+export interface BadgeProps extends React.ComponentPropsWithoutRef<"span"> {
   /**
    * Skin color of the badge.
    * @default primary

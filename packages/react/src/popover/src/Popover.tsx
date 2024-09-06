@@ -28,7 +28,7 @@ export interface PopoverRenderProps<T> {
 }
 
 export interface PopoverProps<T>
-  extends Omit<React.ComponentPropsWithRef<"div">, "children" | "content"> {
+  extends Omit<React.ComponentPropsWithoutRef<"div">, "children" | "content"> {
   /**
    * Specifies the preferred placement of the `Popover` relative to its trigger.
    * @example "top", "bottom", "left", "right"
@@ -80,7 +80,7 @@ export interface PopoverProps<T>
  * </Popover>
  * ```
  *
- * @remarks This component props extended from React.ComponentPropsWithRef<"div">.
+ * @remarks This component props extended from React.ComponentPropsWithoutRef<"div">.
  *
  * @param {PopoverProps} props - The props for the Popover component.
  * @returns {React.ReactElement} - The rendered Popover component.

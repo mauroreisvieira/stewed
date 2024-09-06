@@ -10,7 +10,7 @@ export function DrawerBody({
   className,
   children,
   ...props
-}: React.ComponentPropsWithRef<"div">): React.ReactElement {
+}: React.ComponentPropsWithoutRef<"div">): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: `${components.Drawer}__body`, styles });
 

@@ -8,7 +8,7 @@ import { useBem } from "@stewed/hooks";
 import styles from "./styles/index.module.scss";
 
 export interface CheckboxGroupProps
-  extends React.ComponentPropsWithRef<"div">,
+  extends React.ComponentPropsWithoutRef<"div">,
     CheckboxGroupProviderProps {
   /**
    * Specifies the orientation of the checkbox group.
@@ -18,7 +18,8 @@ export interface CheckboxGroupProps
 }
 
 /**
- * Use checkbox group to allow users to select multiple items from a list of individual items, or to mark one individual item as selected.
+ * Use checkbox group to allow users to select multiple items from a list of individual items,
+ * or to mark one individual item as selected.
  *
  * @example
  * ```tsx

@@ -45,7 +45,7 @@ type OutputTokens = Exclude<Tokens, "components"> & {
  *
  * @template T - A generic string type constraint that extends to theming properties specified in ThemeContextProps.
  */
-type RootProps<T extends string> = React.ComponentPropsWithRef<"div"> &
+type RootProps<T extends string> = React.ComponentPropsWithoutRef<"div"> &
   Omit<ThemeContextProps<T>, "setTheme" | "setTokens" | "theme" | "activeToken">;
 
 /**

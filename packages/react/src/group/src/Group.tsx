@@ -6,7 +6,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface GroupProps extends React.ComponentPropsWithRef<"div"> {}
+export interface GroupProps extends React.ComponentPropsWithoutRef<"div"> {}
 
 /**
  * Group component arranges its children components in a horizontal group,

@@ -9,7 +9,7 @@ import { Elevation, components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-interface ScopeProps extends React.ComponentPropsWithRef<"div"> {
+interface ScopeProps extends React.ComponentPropsWithoutRef<"div"> {
   /** Elevation level of the component. */
   elevation?: Elevation;
 }

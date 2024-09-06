@@ -28,7 +28,7 @@ export interface DropdownRenderProps<T> {
 }
 
 export interface DropdownProps<T>
-  extends Omit<React.ComponentPropsWithRef<"div">, "children" | "content"> {
+  extends Omit<React.ComponentPropsWithoutRef<"div">, "children" | "content"> {
   /**
    * Specifies the preferred placement of the `Dropdown` relative to its trigger.
    * @example "top", "bottom", "left", "right"
@@ -73,7 +73,7 @@ export interface DropdownProps<T>
  * </Dropdown>
  * ```
  *
- * @remarks This component props extended from React.ComponentPropsWithRef<"div">.
+ * @remarks This component props extended from React.ComponentPropsWithoutRef<"div">.
  *
  * @param {DropdownProps} props - The props for the Dropdown component.
  * @returns {React.ReactElement} - The rendered Dropdown component.

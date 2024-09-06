@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 // Compound Component
 import { SelectOption } from "./SelectOption";
 // Hooks
@@ -44,59 +44,66 @@ export interface SelectProps extends Omit<React.ComponentPropsWithRef<"select">,
  * @param {SelectProps} props - The props for the Select component.
  * @returns {React.ReactElement} - The rendered Select component.
  */
-export function Select({
-  skin = "default",
-  size = "md",
-  leftSlot,
-  disabled,
-  fullWidth = true,
-  className,
-  children,
-  ...props
-}: SelectProps): React.ReactElement {
-  // Importing useBem to handle BEM class names
-  const { getBlock, getElement } = useBem({ block: components.Select, styles });
+const Root = forwardRef(
+  (
+    {
+      skin = "default",
+      size = "md",
+      leftSlot,
+      disabled,
+      fullWidth = true,
+      className,
+      children,
+      ...props
+    }: SelectProps,
+    ref: React.Ref<HTMLSelectElement>,
+  ): React.ReactElement => {
+    // Importing useBem to handle BEM class names
+    const { getBlock, getElement } = useBem({ block: components.Select, styles });
 
-  // Generating CSS classes based on component props and styles
-  const cssClasses = {
-    root: getBlock({
-      modifiers: [disabled && "disabled", fullWidth && "full-width", skin, size],
-      extraClasses: className,
-    }),
-    left: getElement(["left"]),
-    input: getElement(["input"]),
-    icon: getElement(["icon"]),
-  };
+    // Generating CSS classes based on component props and styles
+    const cssClasses = {
+      root: getBlock({
+        modifiers: [disabled && "disabled", fullWidth && "full-width", skin, size],
+        extraClasses: className,
+      }),
+      left: getElement(["left"]),
+      input: getElement(["input"]),
+      icon: getElement(["icon"]),
+    };
 
-  return (
-    <div className={cssClasses.root}>
-      {leftSlot && <span className={cssClasses.left}>{leftSlot}</span>}
-      <select className={cssClasses.input} disabled={disabled} {...props}>
-        {children}
-      </select>
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className={cssClasses.icon}>
-        <path
-          d="M7 16L12 21L17 16"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M17 8L12 3L7 8"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    </div>
-  );
-}
+    return (
+      <div className={cssClasses.root}>
+        {leftSlot && <span className={cssClasses.left}>{leftSlot}</span>}
+        <select ref={ref} className={cssClasses.input} disabled={disabled} {...props}>
+          {children}
+        </select>
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className={cssClasses.icon}>
+          <path
+            d="M7 16L12 21L17 16"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M17 8L12 3L7 8"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </div>
+    );
+  },
+);
 
 // Compound component composition
-Select.Option = SelectOption;
+export const Select = Object.assign(Root, {
+  Option: SelectOption,
+});

@@ -6,7 +6,7 @@ import { type Color, components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface ProgressProps extends React.ComponentPropsWithRef<"progress"> {
+export interface ProgressProps extends React.ComponentPropsWithoutRef<"progress"> {
   /** Change the visual style of the progress bar. */
   skin?: Extract<
     Color,

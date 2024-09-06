@@ -4,6 +4,12 @@
 @include theme.scope($aspect-ratio-root) {
   position: relative;
 
+  @include theme.define-var(
+    (
+      border-radius: inherit,
+    )
+  );
+
   @each $key, $value in $aspect-ratio-sizes {
     &--#{$key} {
       @include theme.define-var(
@@ -14,8 +20,20 @@
     }
   }
 
+  // Radius
+  @each $size-name, $size-value in $aspect-ratio-radius {
+    &--radius-#{$size-name} {
+      @include theme.define-var(
+        (
+          border-radius: $size-value,
+        )
+      );
+    }
+  }
+
   &:not(:empty) > * {
     display: block;
     aspect-ratio: theme.get-var(aspect-ratio);
+    border-radius: theme.get-var(border-radius);
   }
 }

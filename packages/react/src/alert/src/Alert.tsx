@@ -6,7 +6,7 @@ import { type Color, type Shadow, components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface AlertProps extends React.ComponentPropsWithRef<"div"> {
+export interface AlertProps extends React.ComponentPropsWithoutRef<"div"> {
   /** Will render the bold text shown at the top of the alert. */
   title?: string;
   /**
@@ -46,7 +46,7 @@ export interface AlertProps extends React.ComponentPropsWithRef<"div"> {
  * </Alert>
  * ```
  *
- * @remarks This component props extended from React.ComponentPropsWithRef<"div">.
+ * @remarks This component props extended from React.ComponentPropsWithoutRef<"div">.
  *
  * @param {AlertProps} props - The props for the Alert component.
  * @returns {React.ReactElement} - The rendered Alert component.

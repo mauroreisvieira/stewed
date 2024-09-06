@@ -9,7 +9,7 @@ import { ThemeContext, type ThemeContextProps } from "./ThemeContext";
 import { objectKeys } from "@stewed/utilities";
 
 export interface ThemeProps<T extends string = "default">
-  extends React.ComponentPropsWithRef<"div"> {
+  extends React.ComponentPropsWithoutRef<"div"> {
   /**
    * Set the default theme to be used when no theme is set.
    * @remarks This prop is uncontrolled, meaning the component will manage its own internal state for the default theme.

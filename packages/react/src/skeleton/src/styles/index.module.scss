@@ -9,7 +9,7 @@
   }
 
   background-color: color-mix(in srgb, theme.get-color("neutral", "500"), transparent 90%);
-  border-radius: theme.get-var("rounded");
+  border-radius: theme.get-var("border-radius");
   animation: pulse 2s linear infinite;
 
   &--line,
@@ -32,7 +32,7 @@
 
     @include theme.define-var(
       (
-        rounded: theme.get-radius("full"),
+        border-radius: theme.get-radius("full"),
       )
     );
   }
@@ -60,7 +60,7 @@
     &--radius-#{$size-name} {
       @include theme.define-var(
         (
-          rounded: $size-value,
+          border-radius: $size-value,
         )
       );
     }

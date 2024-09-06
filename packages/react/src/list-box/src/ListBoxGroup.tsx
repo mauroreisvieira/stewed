@@ -6,7 +6,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface ListBoxGroupProps extends React.ComponentPropsWithRef<"div"> {
+export interface ListBoxGroupProps extends React.ComponentPropsWithoutRef<"div"> {
   /** The title of the group, typically displayed as a heading for the grouped items. */
   title?: string;
 }
