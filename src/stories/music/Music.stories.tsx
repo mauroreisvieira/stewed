@@ -48,8 +48,8 @@ import {
   MdLogout,
   MdHelpCenter,
   MdAccountCircle,
+  MdHome,
 } from "react-icons/md";
-import { Badge } from "@stewed/react";
 
 const meta = {
   title: "Examples/Music",
@@ -127,72 +127,77 @@ function Music(): React.ReactElement {
         </Grid.Item>
 
         <Grid.Item hidden={true} responsive={{ sm: { hidden: false } }}>
-          <Popover<HTMLDivElement>
-            renderAnchor={({ ref: inputSearchRef, open, close }) => (
-              <TextField
-                onFocus={() => open()}
-                onBlur={() => close()}
-                rootRef={inputSearchRef}
-                list="recent-search"
-                skin="neutral"
-                appearance="soft"
-                leftSlot={<FiSearch />}
-                rightSlot={
-                  <Stack gap="sm">
-                    <Separator orientation="vertical" />
-                    <Button
-                      leftSlot={<PiBrowsersFill />}
-                      size="sm"
-                      skin="neutral"
-                      appearance="ghost"
-                      iconOnly>
-                      Browse
-                    </Button>
-                  </Stack>
-                }
-                size="lg"
-                placeholder="What do you want to play?"
-                fullWidth
-              />
-            )}>
-            {({ reference }) => {
-              return (
-                <Box padding={{ block: "md", inline: "sm" }}>
-                  <ListBox style={{ width: `${reference?.width}px` }}>
-                    <ListBox.Group title="Recent searches">
-                      {Array.from({ length: 6 }).map((_, index) => (
-                        <Hoverable key={index}>
-                          {({ isHovering, isTouch }) => (
-                            <ListBox.Item
-                              leftSlot={<RiHistoryLine />}
-                              rightSlot={
-                                isHovering || isTouch ? (
-                                  <Button
-                                    size="xs"
-                                    skin="neutral"
-                                    appearance="ghost"
-                                    leftSlot={<IoMdClose />}
-                                    iconOnly>
-                                    Remove
-                                  </Button>
-                                ) : undefined
-                              }>
-                              Daily Mix 1
-                            </ListBox.Item>
-                          )}
-                        </Hoverable>
-                      ))}
-                    </ListBox.Group>
-                  </ListBox>
-                </Box>
-              );
-            }}
-          </Popover>
+          <Stack items="center" gap="md">
+            <Button appearance="ghost" skin="neutral" leftSlot={<MdHome />} iconOnly>
+              Home
+            </Button>
+            <Popover<HTMLDivElement>
+              renderAnchor={({ ref: inputSearchRef, open, close }) => (
+                <TextField
+                  onFocus={() => open()}
+                  onBlur={() => close()}
+                  rootRef={inputSearchRef}
+                  list="recent-search"
+                  skin="neutral"
+                  appearance="soft"
+                  leftSlot={<FiSearch />}
+                  rightSlot={
+                    <Stack gap="sm">
+                      <Separator orientation="vertical" />
+                      <Button
+                        leftSlot={<PiBrowsersFill />}
+                        size="sm"
+                        skin="neutral"
+                        appearance="ghost"
+                        iconOnly>
+                        Browse
+                      </Button>
+                    </Stack>
+                  }
+                  size="lg"
+                  placeholder="What do you want to play?"
+                  fullWidth
+                />
+              )}>
+              {({ reference }) => {
+                return (
+                  <Box padding={{ block: "md", inline: "sm" }}>
+                    <ListBox style={{ width: `${reference?.width}px` }}>
+                      <ListBox.Group title="Recent searches">
+                        {Array.from({ length: 6 }).map((_, index) => (
+                          <Hoverable key={index}>
+                            {({ isHovering, isTouch }) => (
+                              <ListBox.Item
+                                leftSlot={<RiHistoryLine />}
+                                rightSlot={
+                                  isHovering || isTouch ? (
+                                    <Button
+                                      size="xs"
+                                      skin="neutral"
+                                      appearance="ghost"
+                                      leftSlot={<IoMdClose />}
+                                      iconOnly>
+                                      Remove
+                                    </Button>
+                                  ) : undefined
+                                }>
+                                Daily Mix 1
+                              </ListBox.Item>
+                            )}
+                          </Hoverable>
+                        ))}
+                      </ListBox.Group>
+                    </ListBox>
+                  </Box>
+                );
+              }}
+            </Popover>
+          </Stack>
         </Grid.Item>
 
         <Grid.Item>
           <Stack justify="end">
-            <Button appearance="ghost" skin="secondary" leftSlot={<MdNotifications />} iconOnly>
+            <Button appearance="ghost" skin="neutral" leftSlot={<MdNotifications />} iconOnly>
               Notifications
             </Button>
             <Separator orientation="vertical" space={{ inline: "xl" }} />
@@ -204,7 +209,7 @@ function Music(): React.ReactElement {
               {() => (
                 <Box padding={{ block: "sm", inline: "sm" }}>
                   <Stack items="center" gap="md">
-                    <Avatar skin="neutral" size="md" name="Lucas" />
+                    <Avatar skin="neutral" size="md" name="Devon Lane" />
                     <Stack direction="column" gap="xs">
                       <Text weight="medium">Devon Lane</Text>
                       <Text as="a" href="" size="xs" skin="neutral">
@@ -317,14 +322,14 @@ function Music(): React.ReactElement {
                       style={{ width: "100%", height: "100%" }}
                     />
 
-                    <Stack direction="column">
+                    <div>
                       <Text size="sm" weight="medium">
                         React Rendezvous
                       </Text>
                       <Text size="sm" skin="neutral">
                         Ethan Byte
                       </Text>
-                    </Stack>
+                    </div>
                   </Stack>
                 </Card>
               ))}
