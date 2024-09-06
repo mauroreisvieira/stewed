@@ -14,9 +14,9 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface PopoverChildrenProps<T> {
+export interface PopoverRenderProps<T> {
   /** Ref to attach to the `Popover` element */
-  ref: React.Ref<T>;
+  ref: React.RefObject<T>;
   /** Callback to open the Popover */
   open: () => void;
   /** Callback to close Popover  */
@@ -39,6 +39,8 @@ export interface PopoverProps<T>
    * @default false
    */
   allowClickOutside?: boolean;
+  /** Callback function invoked when the escape key is pressed. */
+  onEscape?: () => void;
   /**
    * The distance in pixels from the anchor.
    * @default 4
@@ -56,12 +58,12 @@ export interface PopoverProps<T>
    * @param props - Render props for the `Popover` component, including the necessary event handlers.
    * @returns A React element that serves as the anchor for the `Popover`.
    */
-  renderAnchor: (props: PopoverChildrenProps<T>) => React.ReactElement;
+  renderAnchor: (props: PopoverRenderProps<T>) => React.ReactElement;
   /**
    * The content to be displayed in the Popover
    * or function that returns a React element with events to trigger `Popover` position and visibility.
    */
-  children: React.ReactNode | ((props: Omit<PopoverChildrenProps<T>, "ref">) => React.ReactElement);
+  children: React.ReactNode | ((props: Omit<PopoverRenderProps<T>, "ref">) => React.ReactElement);
 }
 
 /**
@@ -89,9 +91,10 @@ export function Popover<T extends HTMLElement>({
   style,
   boundary,
   offset = 8,
-  allowClickOutside = false,
-  onClickOutside,
   renderAnchor,
+  allowClickOutside = false,
+  onEscape,
+  onClickOutside,
   onKeyDown,
   children,
   ...props
@@ -146,11 +149,13 @@ export function Popover<T extends HTMLElement>({
         // Close the popover component.
         setOpen(false);
 
+        onEscape?.();
+
         // Stop the event from bubbling up to other elements.
         event.stopPropagation();
       }
     },
-    [onKeyDown, setOpen],
+    [onKeyDown, onEscape, setOpen],
   );
 
   // Opens the popover by set the state to true.

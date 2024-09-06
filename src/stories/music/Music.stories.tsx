@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from "react";
+import type { Meta } from "@storybook/react";
 // UI Components
 import {
   Avatar,
@@ -51,7 +52,7 @@ import {
   MdHome,
 } from "react-icons/md";
 
-const meta = {
+const meta: Meta = {
   title: "Examples/Music",
   decorators: [
     (Story) => (
@@ -204,7 +205,7 @@ function Music(): React.ReactElement {
             <Dropdown<HTMLDivElement>
               placement="bottom-end"
               renderAnchor={({ ref, open, close, isOpen }) => (
-                <Avatar rootRef={ref} onClick={isOpen ? close : open} name="Devon Lane" />
+                <Avatar ref={ref} onClick={isOpen ? close : open} name="Devon Lane" />
               )}>
               {() => (
                 <Box padding={{ block: "sm", inline: "sm" }}>

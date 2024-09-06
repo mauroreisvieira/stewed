@@ -16,9 +16,9 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface DropdownChildrenProps<T> {
+export interface DropdownRenderProps<T> {
   /** Ref to attach to the `Dropdown` element */
-  ref: React.Ref<T>;
+  ref: React.RefObject<T>;
   /** Callback to open the dropdown */
   open: () => void;
   /** Callback to close dropdown  */
@@ -48,14 +48,14 @@ export interface DropdownProps<T>
    * @param props - Render props for the `Dropdown` component, including the necessary event handlers.
    * @returns A React element that serves as the anchor for the `Dropdown`.
    */
-  renderAnchor: (props: DropdownChildrenProps<T>) => React.ReactElement;
+  renderAnchor: (props: DropdownRenderProps<T>) => React.ReactElement;
   /**
    * The content to be displayed in the dropdown
    * or function that returns a React element with events to trigger `Dropdown` position and visibility.
    */
   children:
     | React.ReactNode
-    | ((props: Omit<DropdownChildrenProps<T>, "ref">) => React.ReactElement);
+    | ((props: Omit<DropdownRenderProps<T>, "ref">) => React.ReactElement);
 }
 
 /**
@@ -82,8 +82,8 @@ export function Dropdown<T extends HTMLElement>({
   placement = "bottom-start",
   className,
   style,
-  allowClickOutside = false,
   renderAnchor,
+  allowClickOutside = false,
   onEscape,
   onClickOutside,
   onKeyDown,
@@ -160,7 +160,7 @@ export function Dropdown<T extends HTMLElement>({
         event.stopPropagation();
       }
     },
-    [onKeyDown, setOpen],
+    [onKeyDown, onEscape, setOpen],
   );
 
   // Opens the dropdown by set the state to true.
