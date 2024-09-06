@@ -39,6 +39,8 @@ export interface DropdownProps<T>
    * @default false
    */
   allowClickOutside?: boolean;
+  /** Callback function invoked when the escape key is pressed. */
+  onEscape?: () => void;
   /** Callback function invoked when the dialog is clicked outside. */
   onClickOutside?: () => void;
   /**
@@ -81,8 +83,9 @@ export function Dropdown<T extends HTMLElement>({
   className,
   style,
   allowClickOutside = false,
-  onClickOutside,
   renderAnchor,
+  onEscape,
+  onClickOutside,
   onKeyDown,
   children,
   ...props
@@ -131,7 +134,7 @@ export function Dropdown<T extends HTMLElement>({
     onNavigate,
     setFirstElementFocusable,
   } = useKeyboardNavigation<HTMLDivElement>({
-    target: '[role="option"]:not([aria-disabled])',
+    target: '[tabindex="0"]:not([aria-disabled]), [role="option"]:not([aria-disabled])',
   });
 
   // Merge the floating reference (likely for a floating UI element) with the navigation reference
@@ -140,7 +143,7 @@ export function Dropdown<T extends HTMLElement>({
   // Handles the `keydown` event on a specific HTML element.
   const onHandleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
     (event): void => {
-      // Call function to navigate between dropdown content childs
+      // Call function to navigate between dropdown content child's
       onNavigate(event);
 
       // Call the custom onKeyDown handler, if provided.
@@ -150,6 +153,8 @@ export function Dropdown<T extends HTMLElement>({
       if (event.key === "Escape") {
         // Close the dropdown component.
         setOpen(false);
+
+        onEscape?.();
 
         // Stop the event from bubbling up to other elements.
         event.stopPropagation();

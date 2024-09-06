@@ -128,7 +128,7 @@ export function Drawer({
   const onHandleKeydown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
     (event): void => {
       if (event.key === "Escape") {
-        if (onEscape) onEscape();
+        onEscape?.();
         event.stopPropagation();
       }
     },
