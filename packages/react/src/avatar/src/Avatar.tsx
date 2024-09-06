@@ -1,16 +1,25 @@
-import React, { forwardRef, useCallback, useState } from "react";
+import React, { useCallback, useState } from "react";
 // Compound Component
 import { AvatarGroup } from "./AvatarGroup";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
 import { type Color, components } from "@stewed/tokens";
+// Types
+import { type DistributiveOmit, fixedForwardRef } from "../../types";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface AvatarProps extends React.ComponentPropsWithRef<"div"> {
-  /** The ref to attach to the root `div` element. */
-  rootRef?: React.Ref<HTMLDivElement>;
+const defaultElement = "div";
+
+export interface AvatarProps<T> extends React.ComponentProps<typeof defaultElement> {
+  /**
+   * Specifies the type of element to use as the avatar.
+   * @default div
+   */
+  as?: T;
+  /** The ref to attach to the `<img />` element. */
+  imageRef?: React.Ref<HTMLImageElement>;
   /**
    * Defines the skin color of the avatar.
    * @default primary
@@ -46,13 +55,17 @@ export interface AvatarProps extends React.ComponentPropsWithRef<"div"> {
  * <Avatar appearance="square" name="Noah Andersen" size="3xl" skin="neutral" />
  * ```
  *
+ * @remarks This component is a polymorphic component can be rendered as a different element
+ * and support all native props from the element passed on `as` prop.
+ *
  * @param {AvatarProps} props - The props for the Avatar component.
  * @returns {React.ReactElement} - The rendered Avatar component.
  */
-const Root = forwardRef(
-  (
+export const Root = fixedForwardRef(
+  <T extends React.ElementType>(
     {
-      rootRef,
+      as,
+      imageRef,
       size = "md",
       skin = "primary",
       appearance = "circle",
@@ -60,9 +73,15 @@ const Root = forwardRef(
       src,
       name,
       ...props
-    }: AvatarProps,
-    ref: React.Ref<HTMLImageElement>,
+    }: AvatarProps<T> &
+      DistributiveOmit<
+        React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
+        "as"
+      >,
+    ref: React.ForwardedRef<unknown>,
   ): React.ReactElement => {
+    // Component to render based on the 'as' prop
+    const Comp = as || defaultElement;
     // Importing useBem to handle BEM class names
     const { getBlock, getElement } = useBem({ block: components.Avatar, styles });
 
@@ -84,13 +103,19 @@ const Root = forwardRef(
     }, []);
 
     return (
-      <div ref={rootRef} className={cssClasses.root} {...props}>
+      <Comp ref={ref} className={cssClasses.root} {...props}>
         {!imageError && src ? (
-          <img ref={ref} className={cssClasses.img} src={src} alt={name} onError={onHandleError} />
+          <img
+            ref={imageRef}
+            className={cssClasses.img}
+            src={src}
+            alt={name}
+            onError={onHandleError}
+          />
         ) : (
           initials
         )}
-      </div>
+      </Comp>
     );
   },
 );
