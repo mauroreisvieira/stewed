@@ -28,22 +28,28 @@ import {
 // Hooks
 import { useToggle } from "@stewed/hooks";
 // Icons
-import { IoMdClose } from "react-icons/io";
-import { RiHistoryLine } from "react-icons/ri";
-import { TbMenuDeep } from "react-icons/tb";
+import { IoMdClose, IoMdAdd } from "react-icons/io";
+import { RiHistoryLine, RiAlbumFill, RiPlayListFill } from "react-icons/ri";
+import { TbMenuDeep, TbMicrophone2 } from "react-icons/tb";
 import { FaPlayCircle } from "react-icons/fa";
-import { IoMdAdd } from "react-icons/io";
-import { MdOutlinePlayCircleOutline, MdOutlinePodcasts } from "react-icons/md";
-import { IoRadioOutline } from "react-icons/io5";
 import { RxGrid } from "react-icons/rx";
-import { RiPlayListFill } from "react-icons/ri";
-import { LuListMusic } from "react-icons/lu";
-import { LuMusic2 } from "react-icons/lu";
-import { TbMicrophone2 } from "react-icons/tb";
-import { RiAlbumFill } from "react-icons/ri";
-import { IoPersonCircleOutline } from "react-icons/io5";
+import { LuListMusic, LuMusic2 } from "react-icons/lu";
+import { IoPersonCircleOutline, IoRadioOutline } from "react-icons/io5";
 import { FiSearch } from "react-icons/fi";
 import { PiBrowsersFill } from "react-icons/pi";
+import {
+  MdNotifications,
+  MdOutlinePlayCircleOutline,
+  MdOutlinePodcasts,
+  MdLightMode,
+  MdDarkMode,
+  MdComputer,
+  MdSettings,
+  MdLogout,
+  MdHelpCenter,
+  MdAccountCircle,
+} from "react-icons/md";
+import { Badge } from "@stewed/react";
 
 const meta = {
   title: "Examples/Music",
@@ -186,23 +192,41 @@ function Music(): React.ReactElement {
 
         <Grid.Item>
           <Stack justify="end">
+            <Button appearance="ghost" skin="secondary" leftSlot={<MdNotifications />} iconOnly>
+              Notifications
+            </Button>
+            <Separator orientation="vertical" space={{ inline: "xl" }} />
             <Dropdown<HTMLDivElement>
               placement="bottom-end"
               renderAnchor={({ ref, open, close, isOpen }) => (
-                <Avatar
-                  rootRef={ref}
-                  onClick={isOpen ? close : open}
-                  src="https://placehold.co/100x100"
-                  name="Mauro Vieira"
-                />
+                <Avatar rootRef={ref} onClick={isOpen ? close : open} name="Devon Lane" />
               )}>
               {() => (
-                <ListBox>
-                  <ListBox.Item>Account</ListBox.Item>
-                  <ListBox.Item>Profile</ListBox.Item>
-                  <ListBox.Item>Settings</ListBox.Item>
-                  <ListBox.Item>Logout</ListBox.Item>
-                </ListBox>
+                <Box padding={{ block: "sm", inline: "sm" }}>
+                  <Stack items="center" gap="md">
+                    <Avatar skin="neutral" size="md" name="Lucas" />
+                    <Stack direction="column" gap="xs">
+                      <Text weight="medium">Devon Lane</Text>
+                      <Text as="a" href="" size="xs" skin="neutral">
+                        devon.lane@example.com
+                      </Text>
+                    </Stack>
+                  </Stack>
+                  <Separator space={{ block: "sm" }} />
+                  <Segmented value="light" fullWidth>
+                    <Segmented.Item value="light" leftSlot={<MdLightMode />} aria-label="Light" />
+                    <Segmented.Item value="dark" leftSlot={<MdDarkMode />} aria-label="Dark" />
+                    <Segmented.Item value="system" leftSlot={<MdComputer />} aria-label="System" />
+                  </Segmented>
+                  <Separator space={{ block: "sm" }} />
+                  <ListBox>
+                    <ListBox.Item leftSlot={<MdAccountCircle />}>Account</ListBox.Item>
+                    <ListBox.Item leftSlot={<MdSettings />}>Settings</ListBox.Item>
+                    <ListBox.Item leftSlot={<MdHelpCenter />}>Help Center</ListBox.Item>
+                    <Separator space={{ block: "sm" }} />
+                    <ListBox.Item leftSlot={<MdLogout />}>Log Out</ListBox.Item>
+                  </ListBox>
+                </Box>
               )}
             </Dropdown>
           </Stack>
@@ -372,7 +396,12 @@ function Music(): React.ReactElement {
         </>
       )}
 
-      <Drawer size="sm" onClose={onHandleDrawer} onClickOutside={onHandleDrawer} open={drawerState}>
+      <Drawer
+        size="sm"
+        onClose={onHandleDrawer}
+        onClickOutside={onHandleDrawer}
+        onEscape={onHandleDrawer}
+        open={drawerState}>
         <Drawer.Header>
           <Text size="lg" weight="semi-bold">
             Your Library
