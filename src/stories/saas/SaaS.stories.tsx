@@ -518,7 +518,7 @@ export const Inventory = {
         accessorKey: "name",
         bodyCell: ({ image, name }) => (
           <Stack items="center" gap="md">
-            <Avatar src={image} />
+            <Avatar image={{ src: image }} />
             {name}
           </Stack>
         ),

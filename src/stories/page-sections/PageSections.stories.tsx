@@ -186,7 +186,9 @@ export const Testimonials = {
                 <Avatar
                   skin="neutral"
                   size="xl"
-                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330"
+                  image={{
+                    src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
+                  }}
                 />
                 <Stack direction="column">
                   <Text weight="medium">Judith Black</Text>
@@ -225,7 +227,9 @@ export const Testimonials = {
                 <Avatar
                   skin="neutral"
                   size="xl"
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
+                  image={{
+                    src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
+                  }}
                 />
                 <Stack direction="column">
                   <Text weight="medium">Joseph Rodriguez</Text>
