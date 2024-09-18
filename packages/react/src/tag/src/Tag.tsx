@@ -35,7 +35,7 @@ export interface TagProps<T> extends React.ComponentProps<typeof defaultElement>
    * Changes the size of the tag, giving it more or less padding.
    * @default md
    */
-  size?: "sm" | "md" | "lg";
+  size?: "xs" | "sm" | "md" | "lg";
   /** Slot for icon to display before the tag text. */
   leftSlot?: React.ReactNode;
   /** Slot for icon to display after the tag text. */

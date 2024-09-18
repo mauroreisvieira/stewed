@@ -12,12 +12,12 @@
   );
 
   position: relative;
+  box-sizing: border-box;
   display: inline-flex;
   gap: theme.get-var(gap);
   align-items: center;
   justify-content: center;
   height: theme.get-var(height);
-  padding-block: theme.get-var(padding-block);
   padding-inline: theme.get-var(padding-inline);
   line-height: 1;
   text-decoration: none;
@@ -37,10 +37,20 @@
     font-size: inherit;
   }
 
+  &--xs {
+    @include theme.define-var(
+      (
+        height: 18px,
+        padding-inline: theme.get-spacing("xs"),
+        font-size: theme.get-font-size("xxs"),
+      )
+    );
+  }
+
   &--sm {
     @include theme.define-var(
       (
-        padding-block: theme.get-spacing("xs"),
+        height: 20px,
         padding-inline: theme.get-spacing("sm"),
         font-size: theme.get-font-size("xs"),
       )
@@ -50,9 +60,9 @@
   &--md {
     @include theme.define-var(
       (
-        padding-block: theme.get-spacing("xs"),
-        padding-inline: theme.get-spacing("sm"),
-        font-size: theme.get-font-size("sm"),
+        height: 22px,
+        padding-inline: theme.get-spacing("md"),
+        font-size: theme.get-font-size("xs"),
       )
     );
   }
@@ -60,8 +70,8 @@
   &--lg {
     @include theme.define-var(
       (
-        padding-block: theme.get-spacing("sm"),
-        padding-inline: theme.get-spacing("sm"),
+        height: 28px,
+        padding-inline: theme.get-spacing("lg"),
         font-size: theme.get-font-size("sm"),
       )
     );
