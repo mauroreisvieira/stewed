@@ -11,36 +11,40 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-interface TabsDirectionRow<T extends string>
+interface TabsBase<T extends string>
   extends React.ComponentPropsWithoutRef<"div">,
     TabsProviderProps<T> {
   /**
-   * Allow possibility to change alignment of tabs.
-   * @default start
+   * The direction of the tab container.
+   * @default row
    */
-  alignment?: "start" | "center" | "end";
+  direction?: "row" | "column";
+}
 
+interface TabsDirectionRow<T extends string> extends TabsBase<T> {
   /**
    * The direction of the tab container.
    * @default row
    */
   direction?: "row";
+  /**
+   * Alignment of the tabs for row direction.
+   * @default start
+   */
+  alignment?: "start" | "center" | "end";
 }
 
-interface TabsDirectionColumn<T extends string>
-  extends React.ComponentPropsWithoutRef<"div">,
-    TabsProviderProps<T> {
+interface TabsDirectionColumn<T extends string> extends TabsBase<T> {
   /**
-   * Allow possibility to change alignment of tabs.
+   * The direction of the tab container.
+   * @default row
+   */
+  direction: "column";
+  /**
+   * Alignment of the tabs for column direction.
    * @default start
    */
   alignment?: "start" | "end";
-
-  /**
-   * The direction of the tab container.
-   * @default column
-   */
-  direction?: "column";
 }
 
 type TabsProps<T extends string> = TabsDirectionRow<T> | TabsDirectionColumn<T>;
