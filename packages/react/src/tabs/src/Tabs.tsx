@@ -24,7 +24,7 @@ interface TabsDirectionRow<T extends string>
    * The direction of the tab container.
    * @default row
    */
-  direction: "row"; // Made required and fixed the comment
+  direction?: "row";
 }
 
 interface TabsDirectionColumn<T extends string>
@@ -40,7 +40,7 @@ interface TabsDirectionColumn<T extends string>
    * The direction of the tab container.
    * @default column
    */
-  direction: "column"; // Made required and fixed the @default value
+  direction?: "column";
 }
 
 type TabsProps<T extends string> = TabsDirectionRow<T> | TabsDirectionColumn<T>;

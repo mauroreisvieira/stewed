@@ -24,6 +24,7 @@ import {
   Badge,
   Dropdown,
   Card,
+  Tabs,
 } from "@stewed/react";
 // Hooks
 import { useInput } from "@stewed/hooks";
@@ -797,70 +798,130 @@ export const Kanban = {
       },
     ];
     return (
-      <Stack
-        wrap="wrap"
-        gap="2xl"
-        responsive={{
-          md: {
-            wrap: "nowrap",
-          },
-        }}>
-        {projects.map(({ id, title, members, tasks, messages, attach }) => (
-          <Stack key={id} gap="md" grow>
-            <Card padding={{ block: "md", inline: "md" }}>
-              <Card.Body>
-                <Box space={{ y: "lg" }}>
-                  <Stack direction="column" gap="sm">
-                    <Text weight="medium" size="lg" space={{ y: "lg" }}>
-                      {title}
-                    </Text>
+      <Container>
+        <Stack direction="column" gap="5xl">
+          <Tabs<"board" | "backlog" | "roadmap"> value="backlog">
+            <Tabs.List>
+              <Tabs.Item value="backlog">Backlog</Tabs.Item>
+              <Tabs.Item value="board">Status board</Tabs.Item>
+              <Tabs.Item value="roadmap">Roadmap</Tabs.Item>
+            </Tabs.List>
+          </Tabs>
 
-                    {tasks && (
-                      <>
-                        <Stack justify="between">
-                          <Text skin="neutral" size="xs">
-                            Tasks
-                          </Text>
-                          <Text skin="neutral" size="xs">
-                            {tasks.completed}/{tasks.total}
-                          </Text>
-                        </Stack>
-
-                        <Progress
-                          value={100 * (tasks.completed / tasks.total)}
-                          skin="success"
-                          size="xs"
-                        />
-                      </>
-                    )}
-                  </Stack>
-                </Box>
-                <Stack justify="between" items="center">
-                  <Stack gap="xs">
-                    <Button
-                      size="sm"
-                      skin="neutral"
-                      appearance="ghost"
-                      leftSlot={<IoChatbubbleOutline />}>
-                      {messages}
-                    </Button>
-                    {attach && (
-                      <Button size="sm" skin="neutral" appearance="ghost" leftSlot={<IoAttach />}>
-                        {attach}
-                      </Button>
-                    )}
-                  </Stack>
-                  <Avatar.Group>
-                    {members.map(({ id, name }) => (
-                      <Avatar key={id} size="xs" name={name} />
-                    ))}
-                  </Avatar.Group>
+          <Stack direction="column" gap="md">
+            <Stack>
+              <Stack
+                wrap="wrap"
+                gap="2xl"
+                responsive={{
+                  md: {
+                    wrap: "nowrap",
+                  },
+                }}>
+                <Stack size={4} gap="sm" direction="column">
+                  <Text weight="semi-bold">Backlog</Text>
+                  <Separator />
                 </Stack>
-              </Card.Body>
-            </Card>
+                <Stack size={4} gap="sm" direction="column">
+                  <Text weight="semi-bold">In Progress</Text>
+                  <Separator />
+                </Stack>
+                <Stack size={4} gap="sm" direction="column">
+                  <Text weight="semi-bold">Done</Text>
+                  <Separator />
+                </Stack>
+              </Stack>
+            </Stack>
+
+            <Stack
+              wrap="wrap"
+              gap="2xl"
+              responsive={{
+                md: {
+                  wrap: "nowrap",
+                },
+              }}>
+              <Stack size={4} gap="sm">
+                <Card skin="neutral-faded" padding={{ block: "sm", inline: "sm" }}>
+                  <Card.Body>
+                    <Stack direction="column">
+                      {projects.map(({ id, title, members, tasks, messages, attach }) => (
+                        <Stack key={id} gap="md" grow>
+                          <Card padding={{ block: "md", inline: "md" }}>
+                            <Card.Body>
+                              <Box space={{ y: "lg" }}>
+                                <Stack direction="column" gap="sm">
+                                  <Text weight="medium" size="lg" space={{ y: "lg" }}>
+                                    {title}
+                                  </Text>
+
+                                  {tasks && (
+                                    <>
+                                      <Stack justify="between">
+                                        <Text skin="neutral" size="xs">
+                                          Tasks
+                                        </Text>
+                                        <Text skin="neutral" size="xs">
+                                          {tasks.completed}/{tasks.total}
+                                        </Text>
+                                      </Stack>
+
+                                      <Progress
+                                        value={100 * (tasks.completed / tasks.total)}
+                                        skin="success"
+                                        size="xs"
+                                      />
+                                    </>
+                                  )}
+                                </Stack>
+                              </Box>
+                              <Stack justify="between" items="center">
+                                <Stack gap="xs">
+                                  <Button
+                                    size="sm"
+                                    skin="neutral"
+                                    appearance="ghost"
+                                    leftSlot={<IoChatbubbleOutline />}>
+                                    {messages}
+                                  </Button>
+                                  {attach && (
+                                    <Button
+                                      size="sm"
+                                      skin="neutral"
+                                      appearance="ghost"
+                                      leftSlot={<IoAttach />}>
+                                      {attach}
+                                    </Button>
+                                  )}
+                                </Stack>
+                                <Avatar.Group>
+                                  {members.map(({ id, name }) => (
+                                    <Avatar key={id} size="xs" name={name} />
+                                  ))}
+                                </Avatar.Group>
+                              </Stack>
+                            </Card.Body>
+                          </Card>
+                        </Stack>
+                      ))}
+                    </Stack>
+                  </Card.Body>
+                </Card>
+              </Stack>
+              <Stack size={4} gap="sm">
+                <Card skin="neutral-faded" padding={{ block: "sm", inline: "sm" }}>
+                  <Card.Body></Card.Body>
+                </Card>
+              </Stack>
+              <Stack size={4} gap="sm">
+                <Card skin="neutral-faded" padding={{ block: "sm", inline: "sm" }}>
+                  <Card.Body></Card.Body>
+                </Card>
+              </Stack>
+            </Stack>
           </Stack>
-        ))}
-      </Stack>
+        </Stack>
+      </Container>
     );
   },
 };
