@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "@stewed/react/src/theme/src/styles" as theme;
 @use "@stewed/react/src/typography/src/styles" as text;
 @use "./variables" as *;
@@ -14,9 +15,14 @@
 
   position: relative;
   display: inline-flex;
+  font-size: theme.get-var(font-size);
+  color: theme.get-var(color);
 
   &__value {
-    @include text.typography(base, $overrides: (color: inherit, font-size: inherit));
+    @include text.typography(
+      base,
+      $overrides: (color: inherit, font-size: inherit, line-height: theme.get-var(size))
+    );
 
     position: theme.get-var(position);
     inset: theme.get-var(inset);
@@ -27,8 +33,6 @@
     min-width: theme.get-var(size);
     height: theme.get-var(size);
     padding-inline: theme.get-var(padding-inline);
-    font-size: theme.get-var(font-size);
-    color: theme.get-var(color);
     white-space: nowrap;
     background-color: theme.get-var(background-color);
     border: 1px solid theme.get-var(border-color);
@@ -45,6 +49,7 @@
     }
   }
 
+  // Skins
   @each $key, $value in $badge-skins {
     &--#{$key} {
       @include theme.define-var(
@@ -57,6 +62,19 @@
     }
   }
 
+  // Sizes
+  @each $key, $value in $badge-sizes {
+    &--#{$key} {
+      @include theme.define-var(
+        (
+          font-size: map.get($value, "font-size"),
+          size: map.get($value, "size"),
+        )
+      );
+    }
+  }
+
+  // Appearance
   &--filled {
     @include theme.define-var(
       (
@@ -69,33 +87,6 @@
     @include theme.define-var(
       (
         background-color: transparent,
-      )
-    );
-  }
-
-  &--sm {
-    @include theme.define-var(
-      (
-        font-size: theme.get-font-size("xxs"),
-        size: theme.get-spacing("md"),
-      )
-    );
-  }
-
-  &--md {
-    @include theme.define-var(
-      (
-        font-size: theme.get-font-size("xxs"),
-        size: theme.get-spacing("lg"),
-      )
-    );
-  }
-
-  &--lg {
-    @include theme.define-var(
-      (
-        font-size: theme.get-font-size("xs"),
-        size: theme.get-spacing("xl"),
       )
     );
   }

@@ -43,7 +43,7 @@ export const Size: Story = {
   args: {
     size: "lg",
     skin: "info",
-    value: "9",
+    value: "7",
   },
 };
 

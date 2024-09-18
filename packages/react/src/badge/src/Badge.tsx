@@ -17,9 +17,9 @@ export interface BadgeProps extends React.ComponentPropsWithoutRef<"span"> {
   >;
   /**
    * Changes the size of the badge, giving it more or less padding.
-   * @default md
+   * @default sm
    */
-  size?: "sm" | "md" | "lg";
+  size?: "xs" | "sm" | "md" | "lg";
   /**
    * Change the visual appearance of the badge.
    * @default filled
@@ -50,7 +50,7 @@ export interface BadgeProps extends React.ComponentPropsWithoutRef<"span"> {
  */
 export function Badge({
   skin = "primary",
-  size = "md",
+  size = "sm",
   appearance = "filled",
   position = "top-right",
   value,

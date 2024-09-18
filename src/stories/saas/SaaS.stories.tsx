@@ -32,9 +32,7 @@ import { FiFile, FiFilePlus, FiSearch, FiTrash, FiUsers, FiActivity } from "reac
 import { MdOutlineArrowUpward, MdOutlineArrowDownward } from "react-icons/md";
 import { HiArrowsUpDown } from "react-icons/hi2";
 import { LuFilter } from "react-icons/lu";
-import { IoAttach } from "react-icons/io5";
-
-import { IoChatbubbleOutline } from "react-icons/io5";
+import { IoAttach, IoChatbubbleOutline } from "react-icons/io5";
 
 const meta: Meta = {
   title: "Examples/SaaS",
@@ -298,7 +296,7 @@ export const Staff = {
                 <Table.Cell as="th">Name</Table.Cell>
                 <Table.Cell as="th">Contact</Table.Cell>
                 <Table.Cell as="th">Working days</Table.Cell>
-                <Table.Cell as="th">assignedTreatment</Table.Cell>
+                <Table.Cell as="th">Assigned treatment</Table.Cell>
                 <Table.Cell as="th">Type</Table.Cell>
                 <Table.Cell as="th" />
               </Table.Row>

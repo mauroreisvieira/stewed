@@ -4,3 +4,23 @@ $badge-root: "badge";
 
 /// Skins
 $badge-skins: ("primary", "secondary", "neutral", "critical", "success", "info", "warning");
+
+/// Sizes
+$badge-sizes: (
+  "xs": (
+    "font-size": theme.get-font-size("xxs"),
+    "size": 12px,
+  ),
+  "sm": (
+    "font-size": theme.get-font-size("xxs"),
+    "size": 16px,
+  ),
+  "md": (
+    "font-size": theme.get-font-size("xs"),
+    "size": 20px,
+  ),
+  "lg": (
+    "font-size": theme.get-font-size("xs"),
+    "size": 24px,
+  ),
+);
