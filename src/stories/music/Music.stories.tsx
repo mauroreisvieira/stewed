@@ -25,7 +25,7 @@ import {
   Theme,
   useSnackbar,
   Box,
-} from "../../../packages/react/index";
+} from "@stewed/react";
 // Hooks
 import { useToggle } from "@stewed/hooks";
 // Icons

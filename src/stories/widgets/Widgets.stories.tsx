@@ -7,6 +7,7 @@ import {
   Box,
   Stack,
   Text,
+  Dropdown,
   Container,
   TextField,
   Avatar,
@@ -19,8 +20,6 @@ import {
   Group,
   ListBox,
 } from "@stewed/react";
-
-import { Dropdown } from "../../../packages/react/src/dropdown";
 // Hooks
 import { useDateTime, useToggle } from "@stewed/hooks";
 // Icons

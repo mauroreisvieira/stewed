@@ -30,7 +30,6 @@ import { useInput } from "@stewed/hooks";
 // Icons
 import { FiFile, FiFilePlus, FiSearch, FiTrash, FiUsers, FiActivity } from "react-icons/fi";
 import { MdOutlineArrowUpward, MdOutlineArrowDownward } from "react-icons/md";
-import { HiArrowsUpDown } from "react-icons/hi2";
 import { LuFilter } from "react-icons/lu";
 import { IoAttach, IoChatbubbleOutline } from "react-icons/io5";
 
@@ -522,7 +521,20 @@ export const Inventory = {
             {name}
           </Stack>
         ),
-        headCell: () => "Name",
+        headCell: ({ sortedColumn, sortDirection }) => (
+          <Stack gap="xs" items="center">
+            Name
+            {sortedColumn === "name" && (
+              <>
+                {sortDirection === "ASC" ? (
+                  <MdOutlineArrowUpward size={12} />
+                ) : (
+                  <MdOutlineArrowDownward size={12} />
+                )}
+              </>
+            )}
+          </Stack>
+        ),
       },
       {
         accessorKey: "category",
@@ -542,7 +554,20 @@ export const Inventory = {
       {
         accessorKey: "stock",
         bodyCell: ({ stock }) => stock,
-        headCell: () => "Stock",
+        headCell: ({ sortedColumn, sortDirection }) => (
+          <Stack gap="xs" items="center">
+            Stock
+            {sortedColumn === "stock" && (
+              <>
+                {sortDirection === "ASC" ? (
+                  <MdOutlineArrowUpward size={12} />
+                ) : (
+                  <MdOutlineArrowDownward size={12} />
+                )}
+              </>
+            )}
+          </Stack>
+        ),
       },
       {
         accessorKey: "status",
@@ -554,7 +579,7 @@ export const Inventory = {
           };
 
           return (
-            <Tag skin={skins[status] as TagProps<"span">["skin"]} appearance="ghost" size="sm">
+            <Tag skin={skins[status] as TagProps<"span">["skin"]} appearance="outline" size="sm">
               {status.replace("-", " ").toUpperCase()}
             </Tag>
           );
@@ -685,64 +710,19 @@ export const Inventory = {
             </Stack>
 
             <DataTable<TStock>
+              itemKeySelector={({ id }) => id}
+              appearance={["border-rows"]}
               data={stock}
               columns={columns}
-              sortableColumns={["name", "category", "sku", "vendor", "stock", "status"]}
+              sortableColumns={["name", "stock"]}
               hiddenColumns={hiddenColumns}
               defaultColumnDirection="ASC"
               defaultColumnSorted="name"
               onFilter={({ name, vendor }) =>
                 name.toLowerCase().includes(search.toLowerCase()) ||
                 vendor.toLowerCase().includes(search.toLowerCase())
-              }>
-              {({ headCells, bodyRows }) => (
-                <Table appearance={["striped-rows"]}>
-                  <Table.Head>
-                    <Table.Row>
-                      {headCells.map(
-                        ({
-                          columnKey,
-                          cellNode,
-                          isSortable,
-                          sortedColumn,
-                          sortDirection,
-                          onSort,
-                        }) => (
-                          <Table.Cell
-                            as="th"
-                            key={`head-${columnKey}`}
-                            onClick={isSortable ? onSort : undefined}>
-                            <Stack gap="xs">
-                              {cellNode}
-                              {sortedColumn === columnKey ? (
-                                <span>
-                                  {sortDirection === "ASC" ? (
-                                    <MdOutlineArrowUpward size={12} />
-                                  ) : (
-                                    <MdOutlineArrowDownward size={12} />
-                                  )}
-                                </span>
-                              ) : isSortable ? (
-                                <HiArrowsUpDown size={12} />
-                              ) : null}
-                            </Stack>
-                          </Table.Cell>
-                        ),
-                      )}
-                    </Table.Row>
-                  </Table.Head>
-                  <Table.Body>
-                    {bodyRows.map(({ bodyCells, data: { id } }) => (
-                      <Table.Row key={id}>
-                        {bodyCells.map(({ columnKey, cellNode }) => (
-                          <Table.Cell key={`${id}-${columnKey}`}>{cellNode}</Table.Cell>
-                        ))}
-                      </Table.Row>
-                    ))}
-                  </Table.Body>
-                </Table>
-              )}
-            </DataTable>
+              }
+            />
           </Stack>
         </Box>
       </Container>
