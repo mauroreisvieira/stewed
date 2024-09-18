@@ -1,97 +1,10 @@
-import React, { useMemo, useState } from "react";
-// Utilities
-import { sortData, TSortDirection } from "@stewed/utilities";
+import React from "react";
+// UI Components
+import { Table, type TableProps } from "../../";
+// Hooks
+import { useDataTable, type UseDataTableProps } from "./useDataTable";
 
-export interface ColumnsDef<T> {
-  /** Key to access the column value from the data object. */
-  accessorKey: keyof T;
-  /** Function or string to render the header cell. */
-  headCell?: () => React.ReactElement | string;
-  /** Function to render the body cell with data. */
-  bodyCell: (data: T) => React.ReactElement | string | number;
-  /** Function or string to render the footer cell. */
-  footCell?: () => React.ReactElement | string | number;
-}
-
-interface HeadCell<T> {
-  /** Key to access the cell value from the data object. */
-  columnKey: keyof T | undefined;
-  /** Indicates if the column is sortable. */
-  isSortable: boolean | undefined;
-  /** Direction of the sorting (e.g., 'ASC' or 'DESC'). */
-  sortDirection: TSortDirection;
-  /** Key of the currently sorted column. */
-  sortedColumn: keyof T | undefined;
-  /** Function to handle sorting. */
-  onSort: () => void;
-  /** The content to be rendered inside the header cell. */
-  cellNode: React.ReactNode;
-}
-
-interface BodyRows<T> {
-  /** The data item representing the row. */
-  data: T;
-  /** Array of body cells in the row. */
-  bodyCells: BodyCell<T>[];
-}
-
-interface BodyCell<T> {
-  /** Key to access the cell value from the data object. */
-  columnKey: keyof T | undefined;
-  /** The content to be rendered inside the body cell. */
-  cellNode: React.ReactNode;
-}
-
-interface FootCell<T> {
-  /** Key to access the cell value from the data object. */
-  columnKey: keyof T | undefined;
-  /** The content to be rendered inside the footer cell. */
-  cellNode: React.ReactNode;
-}
-
-interface ChildProps<T> {
-  /** Array of header cells. */
-  headCells: HeadCell<T>[];
-  /** Array of body rows. */
-  bodyRows: BodyRows<T>[];
-  /** Array of footer cells. */
-  footCells: FootCell<T>[];
-}
-
-export interface DataTableProps<T> {
-  /** Array of column definitions. */
-  columns: ColumnsDef<T>[];
-  /** Array of data items. */
-  data: T[];
-  /** Array of hidden column keys. */
-  hiddenColumns?: (keyof T)[];
-  /** Array of ordered column keys. */
-  orderColumns?: (keyof T)[];
-  /** Default sorting direction. */
-  defaultColumnDirection?: TSortDirection;
-  /** Array of sortable column keys. */
-  sortableColumns?: (keyof T)[];
-  /** Key of the default sorted column. */
-  defaultColumnSorted?: keyof T;
-  /**
-   * Function to filter items, will takes an item of type T and returns a boolean indicating
-   * whether the item should be included (true) or excluded (false) from the filtered results.
-   *
-   * @param data - The item of type T to be evaluated for inclusion in the filtered results.
-   * @returns A boolean indicating whether the item should be included (true) or excluded (false) from the filtered results.
-   */
-  onFilter?: (data: T) => boolean;
-  /**
-   * Function to handle sorting, will takes sorting properties and returns a sorted array of items of type T,
-   * or null if sorting is not applied.
-   *
-   * @param props - Sorting properties including the column to sort by, sorting direction, and items to sort.
-   * @returns A sorted array of items of type T, or null if sorting is not applied.
-   */
-  onSort?: (props: { column: keyof T; direction: TSortDirection; items: T[] }) => T[] | null;
-  /** Function to render the child components of the table. */
-  children: (props: ChildProps<T>) => React.ReactElement;
-}
+export interface DataTableProps<T> extends TableProps, UseDataTableProps<T> {}
 
 /**
  * The Data Table component is a powerful and flexible tool for displaying and managing tabular data.
@@ -136,134 +49,67 @@ export interface DataTableProps<T> {
 export function DataTable<T>({
   columns,
   data,
-  onFilter,
-  orderColumns,
-  hiddenColumns,
+  itemKeySelector,
   defaultColumnDirection,
-  sortableColumns,
   defaultColumnSorted,
+  hiddenColumns,
+  onFilter,
   onSort,
-  children,
+  orderColumns,
+  sortableColumns,
+  bodyRowProps,
+  ...props
 }: DataTableProps<T>): React.ReactElement {
-  // Initially set to the default sorting direction.
-  const [sortDirection, setSortDirection] = useState<TSortDirection>(
-    defaultColumnDirection || "ASC",
-  );
-
-  // Initially set to the default sorted column.
-  const [sortedColumn, setSortedColumn] = useState(defaultColumnSorted);
-
-  // Sort data based on the current sorted column and direction, if no sorting column is specified, the items remain unsorted.
-  const sortedItems = useMemo(() => {
-    // If no sorting column is specified, return the items as they are
-    if (!sortedColumn) {
-      return [...data];
-    }
-
-    // Invoke the user-defined sorting function if provided
-    const sorted = onSort?.({
-      column: sortedColumn,
-      direction: sortDirection === "ASC" ? "ASC" : "DESC",
-      items: data,
-    });
-
-    // If the user-defined sorting function returns a non-empty array, use it.
-    if (sorted?.length) {
-      return sorted;
-    }
-
-    // Sort the items based on the specified column and direction.
-    return sortData<T>({
-      items: data,
-      column: sortedColumn,
-      direction: sortDirection,
-    });
-  }, [data, sortedColumn, sortDirection, onSort]);
-
-  // The ordered columns based on the current order configurations.
-  const orderedColumns = useMemo(() => {
-    if (orderColumns?.length) {
-      // Create a Set from orderColumns for efficient lookup.
-      const orderedKeysSet = new Set(orderColumns);
-
-      // Map order columns to corresponding columns.
-      const mapOrderedColumns = orderColumns.map((key) =>
-        columns.find((column) => column.accessorKey === key),
-      );
-
-      // Filter out columns not present in order columns.
-      const remainingColumns = columns.filter((column) => !orderedKeysSet.has(column.accessorKey));
-
-      // Concatenate ordered columns with remaining columns.
-      return mapOrderedColumns.concat(remainingColumns);
-    }
-
-    return columns;
-  }, [orderColumns, columns]);
-
-  // The visible columns based on the visibility configurations.
-  const visibleColumns = useMemo(
-    () =>
-      orderedColumns?.filter(
-        (column) => column?.accessorKey && !hiddenColumns?.includes(column.accessorKey),
-      ),
-    [orderedColumns, hiddenColumns],
-  );
-
-  // Array to store head cells of the table.
-  const headCells = useMemo(
-    (): HeadCell<T>[] =>
-      // Map over the visibleColumns to create an array of HeadCell objects
-      (visibleColumns || [])?.map((column) => ({
-        columnKey: column?.accessorKey,
-        isSortable: sortableColumns && sortableColumns?.includes(column?.accessorKey as keyof T),
-        sortDirection,
-        sortedColumn,
-        onSort: () => {
-          setSortedColumn(column?.accessorKey);
-          setSortDirection((prev) => (prev === "ASC" ? "DESC" : "ASC"));
-        },
-        cellNode: column?.headCell?.(),
-      })),
-    [sortedItems, visibleColumns],
-  );
-
-  // Generate an array of body rows based on sorted items and ordered columns.
-  const bodyRows = useMemo(() => {
-    // Default to empty array if sortedItems is not defined
-    const items = sortedItems ?? [];
-
-    // Default to empty array if visibleColumns is not defined
-    const columns = visibleColumns ?? [];
-
-    return items.filter(onFilter ? (item: T) => onFilter(item) : () => true).map((item) => ({
-      data: item as T,
-      bodyCells: columns.map((column) => ({
-        columnKey: column?.accessorKey,
-        cellNode: column?.bodyCell?.(item),
-      })),
-    }));
-  }, [sortedItems, visibleColumns, onFilter]);
-
-  // Array to store foot cells of the table.
-  const footCells = useMemo(
-    (): FootCell<T>[] =>
-      (visibleColumns || [])?.map((column) => ({
-        columnKey: column?.accessorKey,
-        cellNode: column?.footCell?.(),
-      })),
-    [sortedItems, visibleColumns],
-  );
-
-  // Flag indicating whether there are any cell node present in the foot cells.
-  const displayFoot = useMemo(() => footCells.some(({ cellNode }) => cellNode), [footCells]);
-
-  // Flag indicating whether there are any children present in the head cells.
-  const displayHead = useMemo(() => headCells.some(({ cellNode }) => cellNode), [headCells]);
-
-  return children({
-    headCells: displayHead ? headCells : [],
-    bodyRows,
-    footCells: displayFoot ? footCells : [],
+  // Access to table head, body and footer props
+  const { bodyRows, footCells, headCells } = useDataTable({
+    columns,
+    data,
+    itemKeySelector,
+    defaultColumnDirection,
+    defaultColumnSorted,
+    hiddenColumns,
+    onFilter,
+    onSort,
+    orderColumns,
+    sortableColumns,
+    bodyRowProps,
   });
+
+  return (
+    <Table {...props}>
+      <Table.Head>
+        <Table.Row>
+          {headCells.map(({ columnKey, isSortable, onSort, cellNode}) => (
+            <Table.Cell
+              as="th"
+              key={`head-${columnKey?.toString()}`}
+              onClick={isSortable ? onSort : undefined}
+              >
+              {cellNode}
+            </Table.Cell>
+          ))}
+        </Table.Row>
+      </Table.Head>
+      <Table.Body>
+        {bodyRows.map(({ bodyCells, key, ...bodyRowProps }) => (
+          <Table.Row key={key} {...bodyRowProps}>
+            {bodyCells.map(({ columnKey, cellNode }) => (
+              <Table.Cell key={`${key}-${columnKey as string}`}>{cellNode}</Table.Cell>
+            ))}
+          </Table.Row>
+        ))}
+      </Table.Body>
+      {footCells.length > 0 && (
+        <Table.Foot>
+          <Table.Row>
+            {footCells.map(({ columnKey, cellNode, ...props }) => (
+              <Table.Cell key={`foot-${columnKey as string}`} {...props}>
+                {cellNode}
+              </Table.Cell>
+            ))}
+          </Table.Row>
+        </Table.Foot>
+      )}
+    </Table>
+  );
 }
