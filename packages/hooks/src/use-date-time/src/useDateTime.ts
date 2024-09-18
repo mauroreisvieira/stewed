@@ -100,7 +100,7 @@ export interface FormatDateTime extends FormatDateTimeReturnBoolean {
 }
 
 // Interface providing functions for creating and formatting date and time.
-export interface UseFormatDateTime {
+export interface UseDateTime {
   /**
    * Creates a formatted date object with manipulation functions.
    *
@@ -141,7 +141,7 @@ interface UseDateTimeProps {
  * constole.log(createDate("2024-06-01").isSameOrBefore(new Date()));
  * ```
  */
-export function useDateTime(options?: UseDateTimeProps): UseFormatDateTime {
+export function useDateTime(options?: UseDateTimeProps): UseDateTime {
   // Function to check if the current date is the same as the specified date
   const isSameDate = useCallback((date: Date, dateToCompare: Date | string) => {
     const toCompare = typeof dateToCompare === "string" ? new Date(dateToCompare) : dateToCompare;
@@ -165,7 +165,7 @@ export function useDateTime(options?: UseDateTimeProps): UseFormatDateTime {
   }, []);
 
   // Function to format a specified date as a string with optional date and time styles
-  const formatDate = useCallback<UseFormatDateTime["formatDate"]>(
+  const formatDate = useCallback<UseDateTime["formatDate"]>(
     (date = new Date(), dateTimeFormatOptions) => {
       return dateFormatter({
         date,
@@ -177,7 +177,7 @@ export function useDateTime(options?: UseDateTimeProps): UseFormatDateTime {
   );
 
   // Function to create a formatted date object with manipulation functions
-  const createDate = useCallback<UseFormatDateTime["createDate"]>(
+  const createDate = useCallback<UseDateTime["createDate"]>(
     function (date) {
       const originalDate = date || new Date();
 
