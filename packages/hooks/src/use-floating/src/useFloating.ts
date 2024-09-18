@@ -191,7 +191,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
 
       return { x, y };
     },
-    [],
+    [offset],
   );
 
   // Function to update the position of the floating element based on the reference element's position and size
