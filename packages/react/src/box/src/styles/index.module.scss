@@ -10,6 +10,7 @@
       border-color: transparent,
       border-width: inherit,
       border-radius: inherit,
+      box-shadow: none,
     )
   );
 
@@ -22,6 +23,7 @@
   border-style: theme.get-var(border-style);
   border-width: theme.get-var(border-width);
   border-radius: theme.get-var(border-radius);
+  box-shadow: theme.get-var(box-shadow);
 
   &--hidden {
     @include theme.define-var(
@@ -87,6 +89,17 @@
       @include theme.define-var(
         (
           border-color: $value,
+        )
+      );
+    }
+  }
+
+  // Shadow
+  @each $key, $value in $box-shadow {
+    &--shadow-#{$key} {
+      @include theme.define-var(
+        (
+          box-shadow: $value,
         )
       );
     }
