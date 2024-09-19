@@ -58,7 +58,6 @@ export const Loading: Story = {
   args: {
     loading: true,
     size: "lg",
-    defaultChecked: true,
     children: "Label",
   },
 };

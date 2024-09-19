@@ -71,6 +71,7 @@ export const Switch = forwardRef(
       }),
       input: getElement(["input"]),
       control: getElement(["control"]),
+      thumb: getElement(["thumb"]),
       text: getElement(["text"]),
       spinner: getElement(["spinner"]),
     };
@@ -85,13 +86,15 @@ export const Switch = forwardRef(
           {...props}
         />
         <span className={cssClasses.control}>
-          {loading && (
-            <Spinner
-              className={cssClasses.spinner}
-              skin="default"
-              size={size === "sm" ? "xxs" : size === "md" ? "xs" : "sm"}
-            />
-          )}
+          <span className={cssClasses.thumb}>
+            {loading && (
+              <Spinner
+                className={cssClasses.spinner}
+                skin="default"
+                size={size === "sm" ? "xxs" : size === "md" ? "xs" : "sm"}
+              />
+            )}
+          </span>
         </span>
         {children && <span className={cssClasses.text}>{children}</span>}
       </label>

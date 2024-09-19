@@ -39,13 +39,12 @@
     opacity: 0;
 
     &:checked + .switch__control {
-      &::after {
+      .#{$switch-root}__thumb {
         transform: translate(calc(theme.get-var(width) - calc(100% + 3px)), -50%);
       }
 
       .switch__spinner {
         color: theme.get-var(background-color);
-        transform: translate(15px, 4px);
       }
     }
   }
@@ -59,22 +58,25 @@
     border-radius: theme.get-var(radius);
 
     @include theme.transition((background-color, border));
+  }
 
-    &::after {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      width: calc(theme.get-var(height) - 4px);
-      height: calc(theme.get-var(height) - 4px);
-      margin: 0;
-      content: "";
-      background-color: white;
-      border-radius: theme.get-var(radius);
-      transform: translate(2px, -50%);
-      transform-origin: 0 0;
+  &__thumb {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(theme.get-var(height) - 4px);
+    height: calc(theme.get-var(height) - 4px);
+    margin: 0;
+    content: "";
+    background-color: white;
+    border-radius: theme.get-var(radius);
+    transform: translate(2px, -50%);
+    transform-origin: 0 0;
 
-      @include theme.transition(transform);
-    }
+    @include theme.transition(transform);
   }
 
   &__text {
@@ -86,7 +88,6 @@
     z-index: 1;
     display: flex;
     font-size: inherit;
-    transform: translate(4px, 4px);
   }
 
   &--reversed {
