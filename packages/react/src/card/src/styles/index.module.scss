@@ -99,14 +99,6 @@
     );
   }
 
-  &--selected {
-    outline: 2px solid theme.get-color("primary", "500");
-  }
-
-  &--hoverable {
-    cursor: pointer;
-  }
-
   // Skins
   @each $key, $value in $card-skins {
     &--#{$key} {
@@ -129,6 +121,7 @@
     }
   }
 
+  // Padding
   @each $key, $value in $card-padding {
     &--padding-inline-#{$key} {
       @include theme.define-var(

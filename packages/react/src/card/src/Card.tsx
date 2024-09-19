@@ -27,15 +27,11 @@ export interface CardProps extends React.ComponentPropsWithRef<"div"> {
     /** Adds padding in the inline direction (e.g., left and right for vertical orientation). */
     inline?: Spacings;
   };
-  /** Enable a hover state on table rows within. */
-  hoverable?: boolean;
   /**
    * The shadow of the card.
    * @default sm
    */
   shadow?: Shadow;
-  /** A boolean indicating whether the card is selected. */
-  selected?: boolean;
 }
 
 /**
@@ -66,8 +62,6 @@ const Root = forwardRef(
         block: "xl",
         inline: "xl",
       },
-      selected,
-      hoverable,
       className,
       children,
       ...props
@@ -86,15 +80,13 @@ const Root = forwardRef(
           padding?.block && `padding-block-${padding.block}`,
           padding?.inline && `padding-inline-${padding.inline}`,
           shadow && `shadow-${shadow}`,
-          hoverable && "hoverable",
-          selected && "selected",
         ],
         extraClasses: className,
       }),
     };
 
     return (
-      <div ref={ref} className={cssClasses.root} aria-selected={selected} {...props}>
+      <div ref={ref} className={cssClasses.root} {...props}>
         {children}
       </div>
     );
