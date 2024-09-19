@@ -29,14 +29,12 @@ export const Base: Story = {
     },
   },
   args: {
-    borderColor: "neutral-faded",
+    shadow: "sm",
     radius: "md",
     padding: {
-      block: "9xl",
-      inline: "9xl"
+      block: "2xl",
+      inline: "2xl",
     },
-    borderWidth: 2,
-    borderStyle: "dashed",
     children: <Text alignment="center">Box</Text>,
   },
 };

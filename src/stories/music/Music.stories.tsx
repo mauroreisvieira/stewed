@@ -380,8 +380,8 @@ function Music(): React.ReactElement {
 
             <Separator space={{ block: "lg" }} />
 
-            <Card>
-              <Box skin="neutral-faded" padding={{ block: "9xl", inline: "9xl" }}>
+
+              <Box skin="neutral-faded" padding={{ block: "9xl", inline: "9xl" }} radius="md" borderWidth={1} borderStyle="dashed" borderColor="neutral-faded">
                 <Stack direction="column" justify="center" items="center" gap="lg">
                   <Text size="6xl" skin="neutral">
                     <MdOutlinePodcasts />
@@ -397,7 +397,7 @@ function Music(): React.ReactElement {
                   </Button>
                 </Stack>
               </Box>
-            </Card>
+
           </Stack>
         </>
       )}

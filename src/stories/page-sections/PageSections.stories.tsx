@@ -10,6 +10,7 @@ import {
   Container,
   Accordion,
   Separator,
+  Box,
   Avatar,
 } from "@stewed/react";
 // Icons
@@ -92,34 +93,34 @@ export const PricingPlans = {
                 },
               }}>
               {plans.map(({ title, description, price }, index) => (
-                <Card
-                  key={index}
-                  selected={index === 1}
-                  padding={{
-                    block: index === 1 ? "2xl" : "xl",
-                    inline: "xl",
-                  }}
-                  shadow={index === 1 ? "2xl" : undefined}>
-                  <Card.Header>
-                    <Text as="h4">{title}</Text>
-                  </Card.Header>
-                  <Card.Body>
-                    <Stack direction="column" gap="2xl">
-                      <Text skin="neutral">{description}</Text>
-                      <Stack items="baseline" gap="sm">
-                        <Text size="4xl" weight="bold">
-                          {value === "monthly" ? price : price * 12 * 0.5}€
-                        </Text>
-                        <Text size="xs" weight="medium">
-                          {value === "monthly" ? "/month" : "/year"}
-                        </Text>
+                <Box key={index} borderColor={index === 1 ? "primary" : undefined} radius="md">
+                  <Card
+                    padding={{
+                      block: index === 1 ? "2xl" : "xl",
+                      inline: "xl",
+                    }}
+                    shadow={index === 1 ? "2xl" : undefined}>
+                    <Card.Header>
+                      <Text as="h4">{title}</Text>
+                    </Card.Header>
+                    <Card.Body>
+                      <Stack direction="column" gap="2xl">
+                        <Text skin="neutral">{description}</Text>
+                        <Stack items="baseline" gap="sm">
+                          <Text size="4xl" weight="bold">
+                            {value === "monthly" ? price : price * 12 * 0.5}€
+                          </Text>
+                          <Text size="xs" weight="medium">
+                            {value === "monthly" ? "/month" : "/year"}
+                          </Text>
+                        </Stack>
                       </Stack>
-                    </Stack>
-                  </Card.Body>
-                  <Card.Footer>
-                    <Button fullWidth>Subscribe</Button>
-                  </Card.Footer>
-                </Card>
+                    </Card.Body>
+                    <Card.Footer>
+                      <Button fullWidth>Subscribe</Button>
+                    </Card.Footer>
+                  </Card>
+                </Box>
               ))}
             </Stack>
           </Stack>

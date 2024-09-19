@@ -84,7 +84,7 @@ export const Stack = fixedForwardRef(
       items,
       wrap,
       inline,
-      grow = true,
+      grow,
       responsive,
       className,
       children,
