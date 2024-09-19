@@ -7,6 +7,9 @@
       display: block,
       screen: auto,
       background-color: transparent,
+      border-color: transparent,
+      border-width: inherit,
+      border-radius: inherit,
     )
   );
 
@@ -15,6 +18,10 @@
   display: block;
   height: theme.get-var(screen);
   background-color: theme.get-var(background-color);
+  border-color: theme.get-var(border-color);
+  border-style: theme.get-var(border-style);
+  border-width: theme.get-var(border-width);
+  border-radius: theme.get-var(border-radius);
 
   &--hidden {
     @include theme.define-var(
@@ -22,6 +29,17 @@
         display: none,
       )
     );
+  }
+
+  // Radius
+  @each $key, $value in $box-radius {
+    &--radius-#{$key} {
+      @include theme.define-var(
+        (
+          border-radius: $value,
+        )
+      );
+    }
   }
 
   // Skins
@@ -35,12 +53,40 @@
     }
   }
 
-  // Screen (Height)
-  @each $key, $value in $box-screen {
-    &--screen-#{$key} {
+  // Border Width
+  @for $i from 1 through 12 {
+    &--border-width-#{$i} {
       @include theme.define-var(
         (
-          screen: #{$value},
+          border-width: #{$i}px,
+        )
+      );
+    }
+  }
+
+  // Border Style
+  &--border-style-solid {
+    @include theme.define-var(
+      (
+        border-style: solid,
+      )
+    );
+  }
+
+  &--border-style-dashed {
+    @include theme.define-var(
+      (
+        border-style: dashed,
+      )
+    );
+  }
+
+  // Border Color
+  @each $key, $value in $box-border-color {
+    &--border-color-#{$key} {
+      @include theme.define-var(
+        (
+          border-color: $value,
         )
       );
     }

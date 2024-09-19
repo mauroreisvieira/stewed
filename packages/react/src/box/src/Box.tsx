@@ -1,6 +1,13 @@
 import React from "react";
 // Tokens
-import { type Spacings, type Viewport, type Screens, components } from "@stewed/tokens";
+import {
+  type Spacings,
+  type Viewport,
+  type Screens,
+  type Radius,
+  type Palette,
+  components,
+} from "@stewed/tokens";
 // Hooks
 import { useBem, useResponsive, type UseResponsiveProps } from "@stewed/hooks";
 import { useTheme } from "../../theme";
@@ -38,16 +45,34 @@ export interface BoxProps<T>
   as?: T;
   /**
    * Change the visual style of the Section.
-   * @default default
+   * Determines the color scheme of the component.
+   *
+   * @default "default"
    */
   skin?: "default" | "neutral" | "neutral-faded" | "primary" | "primary-faded";
   /**
-   * Identifies a styling option specifically for the screen size.
+   * Defines the border-radius of the aspect ratio children, controlling the rounding of corners.
    *
-   * @remarks This property can be used to set the height to fill the entire screen.
+   * @remarks
+   * Accepts values from the `Radius` token to apply consistent corner rounding.
    */
-  screen?: Extract<Viewport, "vh"> | Extract<Screens, "full">;
-  /** Sets the box to use the full width of its container. */
+  radius?: Radius;
+  /** Defines the border style of the component. */
+  borderStyle?: "solid" | "dashed";
+  /** Defines the thickness of the border, accepts values ranging from 1 to 10. */
+  borderWidth?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+  /** Defines the color of the border. */
+  borderColor?:
+    | "neutral-faded"
+    | Extract<
+        Palette,
+        "primary" | "neutral" | "secondary" | "critical" | "success" | "info" | "warning"
+      >;
+  /**
+   * Determines if the box should expand to use the full width of its container.
+   *
+   * @default false
+   */
   fullWidth?: boolean;
 }
 
@@ -70,11 +95,14 @@ export const Box = fixedForwardRef(
     {
       as,
       skin,
-      screen,
       padding,
       space,
       hidden,
       responsive,
+      radius,
+      borderColor,
+      borderWidth,
+      borderStyle = "solid",
       fullWidth,
       className,
       children,
@@ -110,7 +138,10 @@ export const Box = fixedForwardRef(
       root: getBlock({
         modifiers: [
           skin,
-          screen && `screen-${screen}`,
+          radius && `radius-${radius}`,
+          borderColor && `border-color-${borderColor}`,
+          borderWidth && `border-width-${borderWidth}`,
+          borderStyle && `border-style-${borderStyle}`,
           computedProps.padding?.block && `padding-block-${computedProps.padding.block}`,
           computedProps.padding?.inline && `padding-inline-${computedProps.padding.inline}`,
           computedProps.space?.x && `space-x-${computedProps.space.x}`,

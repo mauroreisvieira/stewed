@@ -21,11 +21,11 @@
   }
 
   // Radius
-  @each $size-name, $size-value in $aspect-ratio-radius {
-    &--radius-#{$size-name} {
+  @each $key, $value in $aspect-ratio-radius {
+    &--radius-#{$key} {
       @include theme.define-var(
         (
-          border-radius: $size-value,
+          border-radius: $value,
         )
       );
     }

@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // Components
-import { Theme, Text, Card, Box } from "../../index";
+import { Theme, Text, Box } from "../../index";
 
 type Story = StoryObj<typeof Box>;
 
@@ -29,14 +29,14 @@ export const Base: Story = {
     },
   },
   args: {
-    children: (
-      <>
-        <Card padding={{ block: "xl", inline: "xl" }}>
-          <Card.Body>
-            <Text>Box</Text>
-          </Card.Body>
-        </Card>
-      </>
-    ),
+    borderColor: "neutral-faded",
+    radius: "md",
+    padding: {
+      block: "9xl",
+      inline: "9xl"
+    },
+    borderWidth: 2,
+    borderStyle: "dashed",
+    children: <Text alignment="center">Box</Text>,
   },
 };
