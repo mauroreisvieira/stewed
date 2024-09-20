@@ -17,9 +17,6 @@ $box-skins: (
   "primary-faded": theme.get-color("primary", "100"),
 );
 
-/// Shadow
-$box-shadow: theme.get-shadow();
-
 /// Radius
 $box-radius: theme.get-radius();
 

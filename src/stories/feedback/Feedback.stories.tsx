@@ -18,11 +18,11 @@ export default meta;
 export const Page404 = {
   render: function Example() {
     return (
-      <Box as="main" skin="default" screen="vh">
+      <Box as="main" skin="default">
         <Stack direction="column" items="center" justify="center">
           <Container screen="md" alignment="center" padding={{ block: "7xl" }}>
             <Box>
-              <Text weight="medium" skin="warning" variation={"uppercase"}>
+              <Text weight="bolder" skin="neutral" variation={"uppercase"}>
                 404 Page
               </Text>
               <Text size="7xl" space={{ y: "sm" }}>

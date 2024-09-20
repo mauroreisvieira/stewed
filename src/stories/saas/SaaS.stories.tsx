@@ -845,7 +845,7 @@ export const Kanban = {
               <Stack size={4} gap="sm">
                 <Card skin="neutral-faded" padding={{ block: "sm", inline: "sm" }}>
                   <Card.Body>
-                    <Stack direction="column">
+                    <Stack gap="md" direction="column">
                       {projects.map(({ id, title, members, tasks, messages, attach }) => (
                         <Stack key={id} gap="md" grow>
                           <Card padding={{ block: "md", inline: "md" }}>

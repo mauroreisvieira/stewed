@@ -94,17 +94,6 @@
     }
   }
 
-  // Shadow
-  @each $key, $value in $box-shadow {
-    &--shadow-#{$key} {
-      @include theme.define-var(
-        (
-          box-shadow: $value,
-        )
-      );
-    }
-  }
-
   // Padding Block
   @each $key, $value in $box-padding {
     &--padding-block-#{$key} {

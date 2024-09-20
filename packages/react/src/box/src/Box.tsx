@@ -61,8 +61,6 @@ export interface BoxProps<T>
         Palette,
         "primary" | "neutral" | "secondary" | "critical" | "success" | "info" | "warning"
       >;
-  /** The shadow of the card. */
-  shadow?: Shadow;
   /**
    * Determines if the box should expand to use the full width of its container.
    *
@@ -97,7 +95,6 @@ export const Box = fixedForwardRef(
       radius,
       borderColor,
       borderWidth,
-      shadow,
       borderStyle = "solid",
       fullWidth,
       className,
@@ -135,7 +132,6 @@ export const Box = fixedForwardRef(
         modifiers: [
           skin,
           radius && `radius-${radius}`,
-          shadow && `shadow-${shadow}`,
           borderColor && `border-color-${borderColor}`,
           borderWidth && `border-width-${borderWidth}`,
           borderStyle && `border-style-${borderStyle}`,

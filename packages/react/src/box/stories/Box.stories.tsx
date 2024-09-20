@@ -29,7 +29,7 @@ export const Base: Story = {
     },
   },
   args: {
-    shadow: "sm",
+    borderColor: "neutral-faded",
     radius: "md",
     padding: {
       block: "2xl",

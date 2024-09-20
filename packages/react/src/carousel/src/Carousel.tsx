@@ -20,7 +20,10 @@ import styles from "./styles/index.module.scss";
 export interface CarouselProps
   extends React.ComponentPropsWithRef<"div">,
     UseResponsiveProps<{
-      /** The gap between box children's. */
+      /**
+       * The gap between box children's.
+       * @default md
+       */
       gap?: Spacings;
       /**
        * Touch drag enabled.

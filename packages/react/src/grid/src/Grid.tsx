@@ -24,7 +24,10 @@ export interface GridProps<T>
       flow?: "row" | "column" | "row-dense" | "column-dense";
       /** Specifies whether the grid container is a subgrid or not. */
       subgrid?: boolean;
-      /** The gap between children. */
+      /**
+       * The gap between children.
+       * @default none
+       */
       gap?: Spacings;
       /** Padding options for horizontal and vertical orientation. */
       padding?: {
@@ -70,7 +73,7 @@ const Root = fixedForwardRef(
       rows,
       subgrid,
       flow,
-      gap,
+      gap = "none",
       padding,
       space,
       responsive,

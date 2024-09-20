@@ -19,6 +19,11 @@ interface TabsBase<T extends string>
    * @default row
    */
   direction?: "row" | "column";
+  /**
+   * Change the visual appearance of the tabs.
+   * @default simple
+   */
+  appearance?: "underline";
 }
 
 interface TabsDirectionRow<T extends string> extends TabsBase<T> {
@@ -51,6 +56,7 @@ type TabsProps<T extends string> = TabsDirectionRow<T> | TabsDirectionColumn<T>;
 
 export function Tabs<T extends string>({
   value,
+  appearance = "underline",
   alignment = "start",
   direction = "row",
   className,
@@ -64,7 +70,7 @@ export function Tabs<T extends string>({
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({
-      modifiers: [alignment, direction],
+      modifiers: [appearance, alignment, direction],
       extraClasses: className,
     }),
   };

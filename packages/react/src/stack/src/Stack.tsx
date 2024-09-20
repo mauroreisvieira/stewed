@@ -19,7 +19,10 @@ export interface StackProps<T>
        * @default row
        */
       direction?: "row" | "column" | "row-reverse" | "column-reverse";
-      /** The gap between stack children's. */
+      /**
+       * The gap between stack children's.
+       * @default none
+       */
       gap?: Spacings;
       /** Specifies the size of the element. */
       size?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
@@ -77,7 +80,7 @@ export const Stack = fixedForwardRef(
     {
       as,
       direction = "row",
-      gap,
+      gap = "none",
       size,
       hidden,
       justify,
