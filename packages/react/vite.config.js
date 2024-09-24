@@ -8,11 +8,14 @@ import react from "@vitejs/plugin-react";
 import { libInjectCss } from "vite-plugin-lib-inject-css";
 
 export default defineConfig({
-  plugins: [
-    react(),
-    libInjectCss(),
-    dts(),
-  ],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: "modern-compiler", // or "modern", "legacy"
+      },
+    },
+  },
+  plugins: [react(), libInjectCss(), dts()],
   build: {
     copyPublicDir: false,
     lib: {
