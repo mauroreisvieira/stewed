@@ -1,3 +1,5 @@
+// eslint-disable-next-line eslint-comments/disable-enable-pair
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useCallback, useEffect, useRef, useState } from "react";
 // UI Components
 import { Motion, Scope } from "../..";

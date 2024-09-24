@@ -25,5 +25,5 @@ export function FormFieldControl({
     root: getBlock({ extraClasses: className }),
   };
 
-  return <div role="presentation" className={cssClasses.root} {...props} />;
+  return <div className={cssClasses.root} {...props} />;
 }

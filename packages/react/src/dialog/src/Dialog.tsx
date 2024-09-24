@@ -1,3 +1,5 @@
+// eslint-disable-next-line eslint-comments/disable-enable-pair
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState, useCallback, useEffect } from "react";
 // UI Components
 import { Backdrop, Motion, Scope, useTheme } from "../..";
@@ -168,6 +170,7 @@ export function Dialog({
                 <div
                   ref={setRootRef}
                   role="dialog"
+                  aria-modal="true"
                   onKeyDown={onHandleKeydown}
                   className={cssClasses.surface}>
                   {children}

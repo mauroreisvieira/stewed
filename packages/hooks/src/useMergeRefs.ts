@@ -35,5 +35,6 @@ export function useMergeRefs<T>(
         }
       });
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, refs);
 }

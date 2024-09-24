@@ -21,7 +21,7 @@ const meta: Meta<typeof useDateTime> = {
 export default meta;
 
 export const Format: Story = {
-  render: () => {
+  render: function Render() {
     const { createDate } = useDateTime();
 
     return (
@@ -31,7 +31,7 @@ export const Format: Story = {
 };
 
 export const Subtract: Story = {
-  render: () => {
+  render: function Render() {
     const { createDate } = useDateTime();
 
     const date = createDate().subtract(1, "years").add(2, "months").format({ dateStyle: "full" });
@@ -41,7 +41,7 @@ export const Subtract: Story = {
 };
 
 export const Diff: Story = {
-  render: () => {
+  render: function Render() {
     const { createDate } = useDateTime();
 
     const startDate = createDate("1990-06-01");

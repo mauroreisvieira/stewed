@@ -21,7 +21,7 @@ const meta: Meta<typeof useClickOutside> = {
 export default meta;
 
 export const Outside: Story = {
-  render: () => {
+  render: function Render() {
     const containerRef = useRef<HTMLDivElement>(null);
 
     const [clicks, setClicks] = useState(0);

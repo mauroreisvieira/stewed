@@ -48,16 +48,6 @@ export function useInput<T extends UseInputValue>(
   // State to track the validity of the current value
   const [isValid, setValid] = useState<boolean>(true);
 
-  // Handles input change events.
-  const onHandleChange = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      const newValue = event.target.value as T;
-      // Validated and update value
-      onUpdateValue(newValue);
-    },
-    [currentValue],
-  );
-
   // Function to set a new value for the input field.
   const onUpdateValue = useCallback(
     (newValue: T) => {
@@ -72,7 +62,17 @@ export function useInput<T extends UseInputValue>(
       // Update valid state
       setValid(!!valid);
     },
-    [validate],
+    [currentValue, validate],
+  );
+
+  // Handles input change events.
+  const onHandleChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const newValue = event.target.value as T;
+      // Validated and update value
+      onUpdateValue(newValue);
+    },
+    [onUpdateValue],
   );
 
   return {

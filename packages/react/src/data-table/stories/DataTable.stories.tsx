@@ -98,7 +98,7 @@ export const Base: Story = {
   argTypes: {
     hiddenColumns: { control: "check", options: ["id", "amount", "email", "status"] },
   },
-  render: (args): React.ReactElement => {
+  render: function Render(args): React.ReactElement {
     const columns: ColumnsDef<Payment>[] = [
       {
         accessorKey: "id",

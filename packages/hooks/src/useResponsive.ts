@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 // Tokens
 import { defaultTokens, type Breakpoints } from "@stewed/tokens";
 // Hooks
@@ -51,11 +51,24 @@ export function useResponsive<T>(
     }
   }, [memorized, props]);
 
+  const bpList: UseBreakpointData<T>[] = Object.entries(breakpoints || {})
+    .map(([name, value]) => {
+      const bpProps = (props.responsive || {})[name as Breakpoints] || {};
+      return {
+        mq: window.matchMedia(`(min-width: ${value})`),
+        bpValue: parseInt(value),
+        bpName: name as Breakpoints,
+        mqProps: bpProps,
+        onChange: onBreakpointChange,
+      };
+    })
+    .sort((a, b) => a.bpValue - b.bpValue);
+
   /**
-   * Handler for breakpoint changes.
-   * Updates the computedProps based on the current viewport.
+   * Handler for breakpoints changes.
+   * Updates the computedProps based on the current view-port.
    */
-  const onBreakpointChange = (): void => {
+  const onBreakpointChange = useCallback((): void => {
     if (!isMounted) return;
 
     let result: T = memorized;
@@ -71,20 +84,7 @@ export function useResponsive<T>(
     });
 
     setComputedProps(result);
-  };
-
-  const bpList: UseBreakpointData<T>[] = Object.entries(breakpoints || {})
-    .map(([name, value]) => {
-      const bpProps = (props.responsive || {})[name as Breakpoints] || {};
-      return {
-        mq: window.matchMedia(`(min-width: ${value})`),
-        bpValue: parseInt(value),
-        bpName: name as Breakpoints,
-        mqProps: bpProps,
-        onChange: onBreakpointChange,
-      };
-    })
-    .sort((a, b) => a.bpValue - b.bpValue);
+  }, [bpList, isMounted, memorized]);
 
   useEffect(() => {
     // callback required to be executed on mount, since window size will not be triggered.
@@ -99,7 +99,7 @@ export function useResponsive<T>(
         bp.mq.removeEventListener("change", bp.onChange);
       });
     };
-  }, [memorized]);
+  }, [bpList, onBreakpointChange]);
 
   return computedProps;
 }

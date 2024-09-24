@@ -100,7 +100,7 @@ function Music(): React.ReactElement {
       add({
         id: idx,
         title: "Unexpected error happened",
-        message: (
+        content: (
           <Text space={{ y: "none" }} size="sm">
             We have encountered an error when try to reproduce{" "}
             <strong>Daily Mix {index + 1}</strong> again later.
@@ -380,24 +380,28 @@ function Music(): React.ReactElement {
 
             <Separator space={{ block: "lg" }} />
 
-
-              <Box skin="neutral-faded" padding={{ block: "9xl", inline: "9xl" }} radius="md" borderWidth={1} borderStyle="dashed" borderColor="neutral-faded">
-                <Stack direction="column" justify="center" items="center" gap="lg">
-                  <Text size="6xl" skin="neutral">
-                    <MdOutlinePodcasts />
-                  </Text>
-                  <Text size="xl" weight="medium">
-                    No episodes added
-                  </Text>
-                  <Text skin="neutral" size="sm">
-                    You have not added any podcasts. Add one below.
-                  </Text>
-                  <Button size="md" skin="secondary" onClick={onHandlePodcastDialog}>
-                    Add Podcast
-                  </Button>
-                </Stack>
-              </Box>
-
+            <Box
+              skin="neutral-faded"
+              padding={{ block: "9xl", inline: "9xl" }}
+              radius="md"
+              borderWidth={1}
+              borderStyle="dashed"
+              borderColor="neutral-faded">
+              <Stack direction="column" justify="center" items="center" gap="lg">
+                <Text size="6xl" skin="neutral">
+                  <MdOutlinePodcasts />
+                </Text>
+                <Text size="xl" weight="medium">
+                  No episodes added
+                </Text>
+                <Text skin="neutral" size="sm">
+                  You have not added any podcasts. Add one below.
+                </Text>
+                <Button size="md" skin="secondary" onClick={onHandlePodcastDialog}>
+                  Add Podcast
+                </Button>
+              </Stack>
+            </Box>
           </Stack>
         </>
       )}

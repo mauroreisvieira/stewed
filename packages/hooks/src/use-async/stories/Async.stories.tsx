@@ -26,7 +26,7 @@ const fetchData = async (): Promise<string> => {
 };
 
 export const Async: Story = {
-  render: () => {
+  render: function Render() {
     const { execute, status, value, error } = useAsync(fetchData, false);
 
     return (

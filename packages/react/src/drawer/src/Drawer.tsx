@@ -1,3 +1,5 @@
+// eslint-disable-next-line eslint-comments/disable-enable-pair
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState, useCallback, useEffect } from "react";
 // UI Components
 import { Backdrop, Motion, Scope, useTheme } from "../..";
@@ -165,7 +167,11 @@ export function Drawer({
                 animation={open ? `slide-in-${placement}` : `slide-out-${placement}`}
                 duration={open ? "normal" : "quickly"}
                 onDone={onHandleAnimationEnd}>
-                <div onKeyDown={onHandleKeydown} ref={setRootRef} className={cssClasses.surface}>
+                <div
+                  ref={setRootRef}
+                  onKeyDown={onHandleKeydown}
+                  role="region"
+                  className={cssClasses.surface}>
                   {children}
                 </div>
               </Motion>

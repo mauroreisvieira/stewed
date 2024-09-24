@@ -53,6 +53,7 @@ export function Snackbar({
   max = 5,
   className,
   children,
+  ...props
 }: SnackbarProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock, getElement } = useBem({ block: components.Snackbar, styles });
@@ -125,12 +126,15 @@ export function Snackbar({
   return (
     <SnackbarProvider add={add} remove={remove} notifications={notifications}>
       {notifications.length > 0 && (
-        <Scope elevation="notification" className={cssClasses.root} role="presentation">
-          <div className={cssClasses.content}>
-            {notifications.map(({ id, message, leftSlot, rightSlot, size, skin, title }) => (
+        <Scope elevation="notification" className={cssClasses.root} role="region">
+          <div className={cssClasses.content} {...props}>
+            {notifications.map(({ id, content, leftSlot, rightSlot, size, skin, title }) => (
               <Motion animation={animation} key={id}>
-                <Alert shadow="xl" className={cssClasses.notification} {...{ leftSlot, rightSlot, size, skin, title }}>
-                  {message}
+                <Alert
+                  shadow="xl"
+                  className={cssClasses.notification}
+                  {...{ leftSlot, rightSlot, size, skin, title }}>
+                  {content}
                 </Alert>
               </Motion>
             ))}

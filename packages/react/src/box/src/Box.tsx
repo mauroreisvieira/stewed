@@ -1,6 +1,6 @@
 import React from "react";
 // Tokens
-import { type Spacings, type Radius, type Palette, type Shadow, components } from "@stewed/tokens";
+import { type Spacings, type Radius, type Palette, components } from "@stewed/tokens";
 // Hooks
 import { useBem, useResponsive, type UseResponsiveProps } from "@stewed/hooks";
 import { useTheme } from "../../theme";

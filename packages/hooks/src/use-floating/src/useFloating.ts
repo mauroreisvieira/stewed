@@ -314,7 +314,15 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
 
     // Update floating element position with calculated x and y coordinates
     setFloatingPosition({ x, y, reference: referenceRect });
-  }, [offset, options.isPositioned, placement, reference, flip]);
+  }, [
+    boundary,
+    calculateFloatingPosition,
+    flip,
+    options.isPositioned,
+    options.placement,
+    placement,
+    reference,
+  ]);
 
   useEffect(() => {
     if (!options.isPositioned || !reference || !flip) return;

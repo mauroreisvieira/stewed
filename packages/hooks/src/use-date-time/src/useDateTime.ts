@@ -173,7 +173,7 @@ export function useDateTime(options?: UseDateTimeProps): UseDateTime {
         options: dateTimeFormatOptions,
       });
     },
-    [],
+    [options?.locale],
   );
 
   // Function to create a formatted date object with manipulation functions

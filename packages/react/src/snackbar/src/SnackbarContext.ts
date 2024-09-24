@@ -13,9 +13,8 @@ export interface SnackbarNotification
    * @remark This ID is used to manage and remove the notification.
    */
   id: string;
-  /** The message content of the notification. */
-  message?: React.ReactNode;
-  hide?: boolean;
+  /** The content of the notification. */
+  content?: React.ReactNode;
   /**
    * Duration in milliseconds after which the notification will automatically dismiss itself.
    * @remark If not specified, the item will not auto-dismiss.

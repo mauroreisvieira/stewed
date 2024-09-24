@@ -57,7 +57,8 @@ export function Segmented<T extends string>({
   );
 
   return (
-    <div ref={ref} className={cssClasses.root} onKeyDown={onHandleKeyDown} {...props}>
+    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
+    <div ref={ref} role="group" className={cssClasses.root} onKeyDown={onHandleKeyDown} {...props}>
       <SegmentedProvider value={value} onValueChange={onValueChange}>
         {children}
       </SegmentedProvider>

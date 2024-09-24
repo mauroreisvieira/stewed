@@ -21,7 +21,7 @@ const meta: Meta<typeof useInput> = {
 export default meta;
 
 export const Base: Story = {
-  render: () => {
+  render: function Render() {
     // Use the custom hook with initial value and validation function
     const { value, onChange } = useInput<string>("", {
       validate: (newValue: string) => {

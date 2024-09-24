@@ -208,7 +208,7 @@ export function Tooltip<T extends HTMLElement>({
           <Motion animation="fade-in">
             <div
               ref={floating}
-              role="Tooltip"
+              role="tooltip"
               className={cssClasses.root}
               style={{
                 ...style,

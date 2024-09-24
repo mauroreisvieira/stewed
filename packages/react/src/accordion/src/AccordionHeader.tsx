@@ -20,6 +20,7 @@ export function AccordionHeader({
   className,
   children,
   onClick,
+  onKeyDown,
   ...props
 }: AccordionHeaderProps): React.ReactElement {
   // Importing useBem to handle BEM class names
@@ -51,8 +52,29 @@ export function AccordionHeader({
     [onClick, setOpen],
   );
 
+  /**
+   * Handles keyboard events on the accordion item.
+   * Toggles the open state of the accordion and calls the onKeyDown prop if provided.
+   *
+   * @param event - The keyboard event
+   */
+  const onHandleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
+    (event): void => {
+      event.stopPropagation();
+      setOpen((prev) => !prev);
+      onKeyDown?.(event);
+    },
+    [onKeyDown, setOpen],
+  );
+
   return (
-    <summary className={cssClasses.root} onClick={onHandleClick} aria-expanded={open} {...props}>
+    // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+    <summary
+      className={cssClasses.root}
+      onClick={onHandleClick}
+      onKeyDown={onHandleKeyDown}
+      aria-expanded={open}
+      {...props}>
       {leftSlot && <div className={cssClasses.left}>{leftSlot}</div>}
       <div className={cssClasses.text}>{children}</div>
       {rightSlot && <div className={cssClasses.right}>{rightSlot}</div>}

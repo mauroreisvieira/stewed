@@ -811,7 +811,7 @@ export const Kanban = {
           <Stack direction="column" gap="md">
             <Stack>
               <Stack
-              grow
+                grow
                 wrap="wrap"
                 gap="2xl"
                 responsive={{

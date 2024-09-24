@@ -224,7 +224,7 @@ export function useDataTable<T>({
           }),
         };
       }),
-    [sortedItems, visibleColumns],
+    [sortDirection, sortableColumns, sortedColumn, visibleColumns],
   );
 
   // Generate an array of body rows based on sorted items and ordered columns.
@@ -243,7 +243,7 @@ export function useDataTable<T>({
       })),
       ...bodyRowProps?.(item),
     })) as BodyRows<T>[];
-  }, [sortedItems, visibleColumns, itemKeySelector, onFilter]);
+  }, [sortedItems, visibleColumns, onFilter, itemKeySelector, bodyRowProps]);
 
   // Array to store foot cells of the table.
   const footCells = useMemo(
@@ -252,7 +252,7 @@ export function useDataTable<T>({
         columnKey: column?.accessorKey,
         cellNode: column?.footCell?.(),
       })),
-    [sortedItems, visibleColumns],
+    [visibleColumns],
   );
 
   // Flag indicating whether there are any cell node present in the foot cells.

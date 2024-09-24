@@ -45,10 +45,12 @@ export function useFetch<T>(url: RequestInfo, options: FetchOptions = {}): Fetch
   useEffect(() => {
     let isCanceled = false;
 
+    const abortController = controller.current;
+
     const fetchData = async () => {
       try {
         const response = await fetch(url, {
-          signal: controller.current.signal,
+          signal: abortController.signal,
           ...options,
         });
 
@@ -77,7 +79,7 @@ export function useFetch<T>(url: RequestInfo, options: FetchOptions = {}): Fetch
 
     return () => {
       isCanceled = true;
-      controller.current.abort();
+      abortController.abort();
       setStatus("unmounted");
     };
   }, [url, options]);

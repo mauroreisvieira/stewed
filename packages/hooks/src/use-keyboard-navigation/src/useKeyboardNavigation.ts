@@ -140,7 +140,7 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
         setFocusedIndex(nextIndex);
       }
     },
-    [target],
+    [keyboardKey, loop, setFocusedIndex, target],
   );
 
   // Sets the first element with `[aria-selected="true"]` as focusable, or the first item if none found.

@@ -1,3 +1,5 @@
+// eslint-disable-next-line eslint-comments/disable-enable-pair
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useCallback, useEffect, useRef, useState } from "react";
 // UI Components
 import { Motion, Scope } from "../..";
@@ -53,9 +55,7 @@ export interface DropdownProps<T>
    * The content to be displayed in the dropdown
    * or function that returns a React element with events to trigger `Dropdown` position and visibility.
    */
-  children:
-    | React.ReactNode
-    | ((props: Omit<DropdownRenderProps<T>, "ref">) => React.ReactElement);
+  children: React.ReactNode | ((props: Omit<DropdownRenderProps<T>, "ref">) => React.ReactElement);
 }
 
 /**
@@ -160,7 +160,7 @@ export function Dropdown<T extends HTMLElement>({
         event.stopPropagation();
       }
     },
-    [onKeyDown, onEscape, setOpen],
+    [onNavigate, onKeyDown, onEscape],
   );
 
   // Opens the dropdown by set the state to true.
@@ -178,7 +178,7 @@ export function Dropdown<T extends HTMLElement>({
     if (floating.current) {
       setFirstElementFocusable();
     }
-  }, [floating.current]);
+  }, [floating, setFirstElementFocusable]);
 
   useEffect(() => {
     // Cleanup function to run when the component unmounts or the effect is re-run

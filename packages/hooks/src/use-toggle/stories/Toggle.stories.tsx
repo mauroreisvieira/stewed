@@ -21,7 +21,7 @@ const meta: Meta<typeof useToggle> = {
 export default meta;
 
 export const Base: Story = {
-  render: () => {
+  render: function Render() {
     // Hook to handle clicks outside the floating element.
     const [isToggle, handleToggle] = useToggle(false);
 

@@ -21,7 +21,7 @@ const meta: Meta<typeof useKeyboardNavigation> = {
 export default meta;
 
 export const Base: Story = {
-  render: () => {
+  render: function Render() {
     const { ref, currentIndex, setFocusedIndex, onNavigate } =
       useKeyboardNavigation<HTMLDivElement>({
         target: "input",

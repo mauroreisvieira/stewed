@@ -163,24 +163,24 @@ export const Carousel = forwardRef(
       }
     }, [currentIndex, loopingEffect, show, slidesCount]);
 
+    /** Move to specific item */
+    const moveTo = useCallback((index: number) => {
+      setCurrentIndex(index);
+    }, []);
+
     /** Move backward to the previous item */
     const moveBackward = useCallback(() => {
       if (loopingEffect || currentIndex > 0) {
         moveTo(currentIndex - show);
       }
-    }, [currentIndex, loopingEffect, show]);
+    }, [currentIndex, loopingEffect, moveTo, show]);
 
     /** Move forward to the next item */
     const moveForward = useCallback(() => {
       if (loopingEffect || currentIndex < slidesCount - show) {
         moveTo(currentIndex + show);
       }
-    }, [currentIndex, loopingEffect, show, slidesCount]);
-
-    /** Move to specific item */
-    const moveTo = useCallback((index: number) => {
-      setCurrentIndex(index);
-    }, []);
+    }, [currentIndex, loopingEffect, moveTo, show, slidesCount]);
 
     /**
      * Handles the click event for moving backward.
@@ -302,7 +302,7 @@ export const Carousel = forwardRef(
         next: onHandleClickNext,
         goTo: moveTo,
       }),
-      [onHandleClickPrev, onHandleClickNext],
+      [onHandleClickPrev, onHandleClickNext, moveTo],
     );
 
     const computedStyles = {

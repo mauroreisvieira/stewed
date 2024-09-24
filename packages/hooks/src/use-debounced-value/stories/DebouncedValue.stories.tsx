@@ -21,7 +21,7 @@ const meta: Meta<typeof useDebouncedValue> = {
 export default meta;
 
 export const Base: Story = {
-  render: () => {
+  render: function Render() {
     const [inputValue, setInputValue] = useState("");
     const debouncedValue = useDebouncedValue(inputValue, setInputValue);
 

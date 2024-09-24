@@ -79,12 +79,11 @@ export function DataTable<T>({
     <Table {...props}>
       <Table.Head>
         <Table.Row>
-          {headCells.map(({ columnKey, isSortable, onSort, cellNode}) => (
+          {headCells.map(({ columnKey, isSortable, onSort, cellNode }) => (
             <Table.Cell
               as="th"
               key={`head-${columnKey?.toString()}`}
-              onClick={isSortable ? onSort : undefined}
-              >
+              onClick={isSortable ? onSort : undefined}>
               {cellNode}
             </Table.Cell>
           ))}

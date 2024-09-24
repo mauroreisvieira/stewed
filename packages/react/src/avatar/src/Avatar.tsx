@@ -100,10 +100,13 @@ export const Root = fixedForwardRef(
     const initials = name?.match(/[A-Z]/g)?.join("").slice(0, 2).toUpperCase();
 
     // Callback to handle image load errors, setting the error state
-    const onHandleError = useCallback<React.ReactEventHandler<HTMLImageElement>>((event) => {
-      setImageError(true);
-      image?.onError?.(event);
-    }, []);
+    const onHandleError = useCallback<React.ReactEventHandler<HTMLImageElement>>(
+      (event) => {
+        setImageError(true);
+        image?.onError?.(event);
+      },
+      [image],
+    );
 
     return (
       <Comp ref={ref} className={cssClasses.root} {...props}>

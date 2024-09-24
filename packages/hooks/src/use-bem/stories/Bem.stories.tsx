@@ -21,7 +21,7 @@ const meta: Meta<typeof useBem> = {
 export default meta;
 
 export const Block: Story = {
-  render: () => {
+  render: function Render() {
     const { getBlock } = useBem({ block: "card" });
 
     const cssClasses = {
@@ -33,7 +33,7 @@ export const Block: Story = {
 };
 
 export const Element: Story = {
-  render: () => {
+  render: function Render() {
     const { getElement } = useBem({ block: "card" });
 
     const cssClasses = {
@@ -46,7 +46,7 @@ export const Element: Story = {
 };
 
 export const Modifiers: Story = {
-  render: () => {
+  render: function Render() {
     const { getModifier } = useBem({ block: "card" });
 
     const cssClasses = {

@@ -134,7 +134,7 @@ export const Boundary: Story = {
       options: placements,
     },
   },
-  render: (args) => {
+  render: function Render(args) {
     const [ref, setRef] = useState<HTMLDivElement | null>(null);
 
     return (

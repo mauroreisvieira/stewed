@@ -29,7 +29,7 @@ function Example({ dismissDuration }: { dismissDuration?: number }) {
       id: idx,
       size: "md",
       title: "You're watching this issue",
-      message: "We'll notify you when there's activity on it.",
+      content: "We'll notify you when there's activity on it.",
       skin: "neutral",
       dismissDuration,
       rightSlot: dismissDuration ? undefined : (
@@ -38,7 +38,7 @@ function Example({ dismissDuration }: { dismissDuration?: number }) {
         </Button>
       ),
     });
-  }, [add]);
+  }, [add, dismissDuration, remove]);
 
   return (
     <Button skin="neutral" appearance="ghost" onClick={onHandleClick}>

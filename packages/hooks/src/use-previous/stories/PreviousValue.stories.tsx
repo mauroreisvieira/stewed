@@ -21,7 +21,7 @@ const meta: Meta<typeof usePrevious> = {
 export default meta;
 
 export const Base: Story = {
-  render: () => {
+  render: function Render() {
     const [count, setCount] = useState<number>(0);
     const previousCount = usePrevious(count);
 
