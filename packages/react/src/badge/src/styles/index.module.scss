@@ -4,6 +4,11 @@
 @use "./variables" as *;
 
 @include theme.scope($badge-root) {
+  position: relative;
+  display: inline-flex;
+  font-size: theme.get-var(font-size);
+  color: theme.get-var(color);
+
   @include theme.define-var(
     (
       padding-inline: 0,
@@ -13,17 +18,7 @@
     )
   );
 
-  position: relative;
-  display: inline-flex;
-  font-size: theme.get-var(font-size);
-  color: theme.get-var(color);
-
   &__value {
-    @include text.typography(
-      base,
-      $overrides: (color: inherit, font-size: inherit, line-height: theme.get-var(size))
-    );
-
     position: theme.get-var(position);
     inset: theme.get-var(inset);
     box-sizing: border-box;
@@ -38,6 +33,11 @@
     border: 1px solid theme.get-var(border-color);
     border-radius: theme.get-var(radius);
     transform: theme.get-var(transform);
+
+    @include text.typography(
+      base,
+      $overrides: (color: inherit, font-size: inherit, line-height: theme.get-var(size))
+    );
 
     &:empty {
       @include theme.define-var(

@@ -2,15 +2,15 @@
 @use "./variables" as *;
 
 @include theme.scope($stack-root) {
+  box-sizing: border-box;
+  display: theme.get-var(display);
+  gap: theme.get-var(gap);
+
   @include theme.define-var(
     (
       display: flex,
     )
   );
-
-  box-sizing: border-box;
-  display: theme.get-var(display);
-  gap: theme.get-var(gap);
 
   &--inline {
     @include theme.define-var(

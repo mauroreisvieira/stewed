@@ -4,14 +4,14 @@
 @use "./variables" as *;
 
 @include theme.scope($group-root) {
+  display: inline-flex;
+  align-items: center;
+
   @include theme.define-var(
     (
       border-radius: theme.get-var(radius),
     )
   );
-
-  display: inline-flex;
-  align-items: center;
 
   :not(:first-child) {
     margin-left: -1px;

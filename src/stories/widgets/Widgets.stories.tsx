@@ -120,7 +120,7 @@ export const Notification = {
   render: function Render() {
     return (
       <Container screen="sm" alignment="center" padding={{ block: "7xl" }}>
-        <Card>
+        <Card style={{ flexGrow: 1 }}>
           <Card.Header>
             <Stack direction="column">
               <Text as="h5">Notification</Text>
@@ -220,7 +220,7 @@ export const RecentActivity = {
                   </Text>
                 </Stack>
               </Stack>
-              <Text size="xs" skin="neutral">
+              <Text size="xs" skin="neutral" hidden responsive={{ md: { hidden: false } }}>
                 {createDate().format({
                   dateStyle: "medium",
                   timeStyle: "short",
@@ -242,7 +242,7 @@ export const RecentActivity = {
                   </Text>
                 </Stack>
               </Stack>
-              <Text size="xs" skin="neutral">
+              <Text size="xs" skin="neutral" hidden responsive={{ md: { hidden: false } }}>
                 {createDate().subtract(10, "days").format({
                   dateStyle: "medium",
                   timeStyle: "short",

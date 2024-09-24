@@ -3,12 +3,6 @@
 @use "./variables" as *;
 
 @include theme.scope($segmented-root) {
-  @include theme.define-var(
-    (
-      background-color: transparent,
-    )
-  );
-
   box-sizing: border-box;
   display: inline-flex;
   flex-direction: row;
@@ -21,6 +15,12 @@
   background-color: theme.get-color("neutral", "100");
   border: 1px solid theme.get-color("neutral", "300");
   border-radius: theme.get-var(radius);
+
+  @include theme.define-var(
+    (
+      background-color: transparent,
+    )
+  );
 
   &__item {
     all: unset;

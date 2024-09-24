@@ -115,6 +115,10 @@
     );
   }
 
+  &--hidden {
+    display: none;
+  }
+
   @each $key, $value in $typography-skins {
     &--#{$key} {
       @include theme.define-var(

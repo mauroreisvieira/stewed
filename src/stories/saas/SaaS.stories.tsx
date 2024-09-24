@@ -33,6 +33,7 @@ import { FiFile, FiFilePlus, FiSearch, FiTrash, FiUsers, FiActivity } from "reac
 import { MdOutlineArrowUpward, MdOutlineArrowDownward } from "react-icons/md";
 import { LuFilter } from "react-icons/lu";
 import { IoAttach, IoChatbubbleOutline } from "react-icons/io5";
+import { title } from "process";
 
 const meta: Meta = {
   title: "Examples/SaaS",
@@ -733,70 +734,157 @@ export const Inventory = {
 
 export const Kanban = {
   render: function Render() {
-    const projects = [
+    const board = [
       {
-        id: "new-benefits-plan",
-        title: "New Benefits Plan",
-        category: "Human Resources",
-        members: [
+        id: "backlog",
+        title: "Backlog",
+        tasks: [
           {
-            id: "mauro-vieira",
-            name: "Mauro Vieira",
+            id: "new-benefits-plan",
+            title: "New Benefits Plan",
+            category: "Human Resources",
+            members: [
+              {
+                id: "john-smith",
+                name: "John Smith",
+              },
+            ],
+            tasks: {
+              total: 6,
+              completed: 0,
+            },
+            messages: 3,
+          },
+          {
+            id: "onboarding-emails",
+            title: "Onboarding Emails",
+            category: "Customer Success",
+            members: [
+              {
+                id: "jane-doe",
+                name: "Jane Doe",
+              },
+              {
+                id: "michael-johnson",
+                name: "Michael Johnson",
+              },
+            ],
+            tasks: {
+              total: 10,
+              completed: 0,
+            },
+            messages: 10,
+          },
+          {
+            id: "api-integration",
+            title: "API Integration",
+            category: "Engineering",
+            members: [
+              {
+                id: "john-smith",
+                name: "John Smith",
+              },
+              {
+                id: "jane-doe",
+                name: "Jane Doe",
+              },
+              {
+                id: "michael-johnson",
+                name: "Michael Johnson",
+              },
+            ],
+            tasks: {
+              total: 12,
+              completed: 0,
+            },
+            attach: 3,
+            messages: 63,
           },
         ],
-        tasks: {
-          total: 6,
-          completed: 1,
-        },
-        messages: 3,
       },
-
       {
-        id: "onboarding-emails",
-        title: "Onboarding Emails",
-        category: "Customer Success",
-        members: [
+        id: "in-progress",
+        title: "In Progress",
+        tasks: [
           {
-            id: "bruna-santos",
-            name: "Bruna Santos",
+            id: "website-redesign",
+            title: "Website Redesign",
+            category: "Marketing",
+            members: [
+              {
+                id: "emily-williams",
+                name: "Emily Williams",
+              },
+            ],
+            tasks: {
+              total: 12,
+              completed: 7,
+            },
+            messages: 5,
           },
           {
-            id: "lourenco-vieira",
-            name: "Lourenço Vieira",
+            id: "mobile-app-development",
+            title: "Mobile App Development",
+            category: "Engineering",
+            members: [
+              {
+                id: "john-smith",
+                name: "John Smith",
+              },
+              {
+                id: "michael-johnson",
+                name: "Michael Johnson",
+              },
+            ],
+            tasks: {
+              total: 30,
+              completed: 15,
+            },
+            messages: 20,
+            attach: 2,
           },
         ],
-        tasks: {
-          total: 10,
-          completed: 8,
-        },
-        messages: 10,
       },
       {
-        id: "api-integration",
-        title: "API Integration",
-        category: "Engineering",
-        members: [
+        id: "done",
+        title: "Done",
+        tasks: [
           {
-            id: "mauro-vieira",
-            name: "Mauro Vieira",
+            id: "quarterly-financial-report",
+            title: "Quarterly Financial Report",
+            category: "Finance",
+            members: [
+              {
+                id: "susan-davis",
+                name: "Susan Davis",
+              },
+            ],
+            tasks: {
+              total: 5,
+              completed: 5,
+            },
+            messages: 2,
           },
           {
-            id: "bruna-santos",
-            name: "Bruna Santos",
-          },
-          {
-            id: "lourenco-vieira",
-            name: "Lourenço Vieira",
+            id: "social-media-strategy",
+            title: "Social Media Strategy",
+            category: "Marketing",
+            members: [
+              {
+                id: "emily-williams",
+                name: "Emily Williams",
+              },
+            ],
+            tasks: {
+              total: 8,
+              completed: 8,
+            },
+            messages: 4,
           },
         ],
-        tasks: {
-          total: 75,
-          completed: 43,
-        },
-        attach: 3,
-        messages: 63,
       },
     ];
+
     return (
       <Container>
         <Stack direction="column" gap="5xl">
@@ -809,31 +897,6 @@ export const Kanban = {
           </Tabs>
 
           <Stack direction="column" gap="md">
-            <Stack>
-              <Stack
-                grow
-                wrap="wrap"
-                gap="2xl"
-                responsive={{
-                  md: {
-                    wrap: "nowrap",
-                  },
-                }}>
-                <Stack size={4} gap="sm" direction="column">
-                  <Text weight="semi-bold">Backlog</Text>
-                  <Separator />
-                </Stack>
-                <Stack size={4} gap="sm" direction="column">
-                  <Text weight="semi-bold">In Progress</Text>
-                  <Separator />
-                </Stack>
-                <Stack size={4} gap="sm" direction="column">
-                  <Text weight="semi-bold">Done</Text>
-                  <Separator />
-                </Stack>
-              </Stack>
-            </Stack>
-
             <Stack
               wrap="wrap"
               gap="2xl"
@@ -842,83 +905,88 @@ export const Kanban = {
                   wrap: "nowrap",
                 },
               }}>
-              <Stack size={4} gap="sm">
-                <Card skin="neutral-faded" padding={{ block: "sm", inline: "sm" }}>
-                  <Card.Body>
-                    <Stack gap="md" direction="column">
-                      {projects.map(({ id, title, members, tasks, messages, attach }) => (
-                        <Stack key={id} gap="md" grow>
-                          <Card padding={{ block: "md", inline: "md" }}>
-                            <Card.Body>
-                              <Box space={{ y: "lg" }}>
-                                <Stack direction="column" gap="sm">
-                                  <Text weight="medium" size="lg" space={{ y: "lg" }}>
-                                    {title}
-                                  </Text>
+              {board.map(({ id, title, tasks }) => (
+                <Stack
+                  key={id}
+                  size={12}
+                  gap="md"
+                  direction="column"
+                  responsive={{
+                    md: {
+                      size: 4,
+                    },
+                  }}>
+                  <Box>
+                    <Text weight="semi-bold">{title}</Text>
+                    <Separator space={{ block: "sm" }} />
+                  </Box>
+                  <Card skin="neutral-faded" padding={{ block: "sm", inline: "sm" }}>
+                    <Card.Body>
+                      <Stack gap="md" direction="column">
+                        {tasks.map(({ id, title, members, tasks, messages, attach }) => (
+                          <Stack key={id} gap="md" grow>
+                            <Card padding={{ block: "md", inline: "md" }}>
+                              <Card.Body>
+                                <Box space={{ y: "lg" }}>
+                                  <Stack direction="column" gap="sm">
+                                    <Text weight="medium" size="lg" space={{ y: "lg" }}>
+                                      {title}
+                                    </Text>
 
-                                  {tasks && (
-                                    <>
-                                      <Stack justify="between">
-                                        <Text skin="neutral" size="xs">
-                                          Tasks
-                                        </Text>
-                                        <Text skin="neutral" size="xs">
-                                          {tasks.completed}/{tasks.total}
-                                        </Text>
-                                      </Stack>
+                                    {tasks && (
+                                      <>
+                                        <Stack justify="between">
+                                          <Text skin="neutral" size="xs">
+                                            Tasks
+                                          </Text>
+                                          <Text skin="neutral" size="xs">
+                                            {tasks.completed}/{tasks.total}
+                                          </Text>
+                                        </Stack>
 
-                                      <Progress
-                                        value={100 * (tasks.completed / tasks.total)}
-                                        skin="success"
-                                        size="xs"
-                                      />
-                                    </>
-                                  )}
-                                </Stack>
-                              </Box>
-                              <Stack justify="between" items="center">
-                                <Stack gap="xs">
-                                  <Button
-                                    size="sm"
-                                    skin="neutral"
-                                    appearance="ghost"
-                                    leftSlot={<IoChatbubbleOutline />}>
-                                    {messages}
-                                  </Button>
-                                  {attach && (
+                                        <Progress
+                                          value={100 * (tasks.completed / tasks.total)}
+                                          skin="success"
+                                          size="xs"
+                                        />
+                                      </>
+                                    )}
+                                  </Stack>
+                                </Box>
+                                <Stack justify="between" items="center">
+                                  <Stack gap="xs">
                                     <Button
                                       size="sm"
                                       skin="neutral"
                                       appearance="ghost"
-                                      leftSlot={<IoAttach />}>
-                                      {attach}
+                                      leftSlot={<IoChatbubbleOutline />}>
+                                      {messages}
                                     </Button>
-                                  )}
+                                    {attach && (
+                                      <Button
+                                        size="sm"
+                                        skin="neutral"
+                                        appearance="ghost"
+                                        leftSlot={<IoAttach />}>
+                                        {attach}
+                                      </Button>
+                                    )}
+                                  </Stack>
+                                  <Avatar.Group>
+                                    {members.map(({ id, name }) => (
+                                      <Avatar key={id} size="xs" name={name} />
+                                    ))}
+                                  </Avatar.Group>
                                 </Stack>
-                                <Avatar.Group>
-                                  {members.map(({ id, name }) => (
-                                    <Avatar key={id} size="xs" name={name} />
-                                  ))}
-                                </Avatar.Group>
-                              </Stack>
-                            </Card.Body>
-                          </Card>
-                        </Stack>
-                      ))}
-                    </Stack>
-                  </Card.Body>
-                </Card>
-              </Stack>
-              <Stack size={4} gap="sm">
-                <Card skin="neutral-faded" padding={{ block: "sm", inline: "sm" }}>
-                  <Card.Body></Card.Body>
-                </Card>
-              </Stack>
-              <Stack size={4} gap="sm">
-                <Card skin="neutral-faded" padding={{ block: "sm", inline: "sm" }}>
-                  <Card.Body></Card.Body>
-                </Card>
-              </Stack>
+                              </Card.Body>
+                            </Card>
+                          </Stack>
+                        ))}
+                      </Stack>
+                    </Card.Body>
+                  </Card>
+                </Stack>
+              ))}
             </Stack>
           </Stack>
         </Stack>

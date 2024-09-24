@@ -9,13 +9,6 @@
   width: 100%;
 
   &__item {
-    @include theme.define-var(
-      (
-        background-color: transparent,
-        color: inherit,
-      )
-    );
-
     position: relative;
     box-sizing: border-box;
     display: flex;
@@ -29,6 +22,13 @@
     cursor: pointer;
     background-color: theme.get-var(background-color);
     border-radius: theme.get-var(radius);
+
+    @include theme.define-var(
+      (
+        background-color: transparent,
+        color: inherit,
+      )
+    );
 
     &:not(:last-child) {
       margin-bottom: theme.get-spacing("xxs");
@@ -112,6 +112,8 @@
     padding-block: theme.get-spacing("xxs");
 
     &__title {
+      margin-bottom: 8px;
+
       @include text.typography(
         base,
         $overrides: (
@@ -120,8 +122,6 @@
           line-height: theme.get-line-height("sm")
         )
       );
-
-      margin-bottom: 8px;
     }
   }
 }

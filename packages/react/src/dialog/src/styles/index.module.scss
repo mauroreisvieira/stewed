@@ -2,6 +2,12 @@
 @use "./variables" as *;
 
 @include theme.scope($dialog-root) {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  height: theme.get-var(height);
+  padding-block: theme.get-var(padding-block);
+
   @include theme.define-var(
     (
       opacity: 0,
@@ -11,12 +17,6 @@
       padding-block: 0,
     )
   );
-
-  position: fixed;
-  display: flex;
-  width: 100%;
-  height: theme.get-var(height);
-  padding-block: theme.get-var(padding-block);
 
   &__surface {
     position: relative;

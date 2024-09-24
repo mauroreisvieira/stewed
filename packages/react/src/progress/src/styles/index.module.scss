@@ -3,16 +3,16 @@
 @use "./variables" as *;
 
 @include theme.scope($progress-root) {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
   @include theme.define-var(
     (
       radius: 0,
     )
   );
-
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
 
   &__control {
     position: relative;

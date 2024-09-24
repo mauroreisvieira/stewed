@@ -3,14 +3,6 @@
 @use "./variables" as *;
 
 @include theme.scope($tag-root) {
-  @include theme.define-var(
-    (
-      border-width: 1px,
-      border-color: transparent,
-      gap: theme.get-spacing("sm"),
-    )
-  );
-
   position: relative;
   box-sizing: border-box;
   display: inline-flex;
@@ -25,6 +17,14 @@
   background-color: theme.get-var(background-color);
   border: theme.get-var(border-width) solid theme.get-var(border-color);
   border-radius: theme.get-var(radius);
+
+  @include theme.define-var(
+    (
+      border-width: 1px,
+      border-color: transparent,
+      gap: theme.get-spacing("sm"),
+    )
+  );
 
   @include text.typography(
     "base",

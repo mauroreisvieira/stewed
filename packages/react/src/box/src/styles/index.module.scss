@@ -2,10 +2,19 @@
 @use "./variables" as *;
 
 @include theme.scope($box-root) {
+  position: relative;
+  box-sizing: border-box;
+  display: block;
+  background-color: theme.get-var(background-color);
+  border-color: theme.get-var(border-color);
+  border-style: theme.get-var(border-style);
+  border-width: theme.get-var(border-width);
+  border-radius: theme.get-var(border-radius);
+  box-shadow: theme.get-var(box-shadow);
+
   @include theme.define-var(
     (
       display: block,
-      screen: auto,
       background-color: transparent,
       border-color: transparent,
       border-width: inherit,
@@ -13,17 +22,6 @@
       box-shadow: none,
     )
   );
-
-  position: relative;
-  box-sizing: border-box;
-  display: block;
-  height: theme.get-var(screen);
-  background-color: theme.get-var(background-color);
-  border-color: theme.get-var(border-color);
-  border-style: theme.get-var(border-style);
-  border-width: theme.get-var(border-width);
-  border-radius: theme.get-var(border-radius);
-  box-shadow: theme.get-var(box-shadow);
 
   &--hidden {
     @include theme.define-var(

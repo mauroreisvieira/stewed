@@ -2,12 +2,6 @@
 @use "./variables" as *;
 
 @include theme.scope($card-root) {
-  @include theme.define-var(
-    (
-      padding: 0,
-    )
-  );
-
   position: relative;
   box-sizing: border-box;
   display: flex;
@@ -16,6 +10,12 @@
   background-color: theme.get-var(background-color);
   border-radius: theme.get-var(radius);
   box-shadow: theme.get-var(box-shadow);
+
+  @include theme.define-var(
+    (
+      padding: 0,
+    )
+  );
 
   &__body {
     flex: 1;

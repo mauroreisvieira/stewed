@@ -49,7 +49,9 @@
       $var-name: "--#{$prefix}-#{$var-name}";
     }
 
-    #{$var-name}: #{$value};
+    & {
+      #{$var-name}: #{$value};
+    }
   }
 }
 

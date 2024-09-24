@@ -3,6 +3,9 @@
 @use "./variables" as *;
 
 @include theme.scope($tabs-root) {
+  box-sizing: border-box;
+  display: inline-flex;
+
   @include theme.define-var(
     (
       flex-direction: row,
@@ -10,9 +13,6 @@
       border-color: transparent,
     )
   );
-
-  box-sizing: border-box;
-  display: inline-flex;
 
   &--start {
     @include theme.define-var(
