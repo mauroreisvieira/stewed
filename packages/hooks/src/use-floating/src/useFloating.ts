@@ -327,6 +327,8 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
   useEffect(() => {
     if (!options.isPositioned || !reference || !flip) return;
 
+    const controller = new AbortController();
+
     // Function to recalculate position
     const handleResize = () => {
       updatePosition();
@@ -337,14 +339,13 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
     resizeObserver.observe(reference);
 
     // Recalculate position on window resize or scroll
-    window.addEventListener("resize", handleResize);
-    window.addEventListener("scroll", handleResize, { capture: true });
+    window.addEventListener("resize", handleResize, { signal: controller.signal });
+    window.addEventListener("scroll", handleResize, { capture: true, signal: controller.signal });
 
     // Cleanup function
     return () => {
       resizeObserver.disconnect();
-      window.removeEventListener("resize", handleResize);
-      window.removeEventListener("scroll", handleResize, { capture: true });
+      controller.abort();
     };
   }, [options.isPositioned, reference, updatePosition, flip]);
 

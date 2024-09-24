@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 // Tokens
 import { defaultTokens, type Breakpoints } from "@stewed/tokens";
 // Hooks
@@ -40,29 +40,17 @@ export function useResponsive<T>(
   props: UseResponsiveProps<T>,
   breakpoints?: typeof defaultTokens.breakpoints,
 ): T {
+  // Track if the component is mounted, useful for cleanup in effects
   const isMounted = useMounted();
-  const [memorized, setMemorized] = useState(props);
+
+  // Use state to keep track of the original props or memorized values for comparison
+  const [memorized, setMemorized] = useState<T>(props);
+
+  // State to hold the computed props based on active breakpoints
   const [computedProps, setComputedProps] = useState<T>(props);
 
-  useEffect(() => {
-    // condition required to avoid calling the hook infinitely.
-    if (JSON.stringify(props) !== JSON.stringify(memorized)) {
-      setMemorized(props);
-    }
-  }, [memorized, props]);
-
-  const bpList: UseBreakpointData<T>[] = Object.entries(breakpoints || {})
-    .map(([name, value]) => {
-      const bpProps = (props.responsive || {})[name as Breakpoints] || {};
-      return {
-        mq: window.matchMedia(`(min-width: ${value})`),
-        bpValue: parseInt(value),
-        bpName: name as Breakpoints,
-        mqProps: bpProps,
-        onChange: onBreakpointChange,
-      };
-    })
-    .sort((a, b) => a.bpValue - b.bpValue);
+  // Ref to hold the list of breakpoints, allowing access before they're fully defined in the component lifecycle
+  const bpListRef = useRef<UseBreakpointData<T>[]>([]);
 
   /**
    * Handler for breakpoints changes.
@@ -73,7 +61,8 @@ export function useResponsive<T>(
 
     let result: T = memorized;
     const activeBps: Breakpoints[] = [];
-    bpList.forEach((bp) => {
+
+    bpListRef.current.forEach((bp) => {
       if (!bp.mq.matches) return;
 
       result = {
@@ -84,22 +73,44 @@ export function useResponsive<T>(
     });
 
     setComputedProps(result);
-  }, [bpList, isMounted, memorized]);
+  }, [isMounted, memorized]);
+
+  useEffect(() => {
+    // condition required to avoid calling the hook infinitely.
+    if (JSON.stringify(props) !== JSON.stringify(memorized)) {
+      setMemorized(props);
+    }
+  }, [memorized, props]);
+
+  useEffect(() => {
+    bpListRef.current = Object.entries(breakpoints || {})
+      .map(([name, value]) => {
+        const bpProps = (props.responsive || {})[name as Breakpoints] || {};
+        return {
+          mq: window.matchMedia(`(min-width: ${value})`),
+          bpValue: parseInt(value),
+          bpName: name as Breakpoints,
+          mqProps: bpProps,
+          onChange: onBreakpointChange,
+        };
+      })
+      .sort((a, b) => a.bpValue - b.bpValue);
+  }, [breakpoints, onBreakpointChange, props.responsive]);
 
   useEffect(() => {
     // callback required to be executed on mount, since window size will not be triggered.
     onBreakpointChange();
 
-    bpList.forEach((bp) => {
+    bpListRef.current.forEach((bp) => {
       bp.mq.addEventListener("change", bp.onChange);
     });
 
     return (): void => {
-      bpList.forEach((bp) => {
+      bpListRef.current.forEach((bp) => {
         bp.mq.removeEventListener("change", bp.onChange);
       });
     };
-  }, [bpList, onBreakpointChange]);
+  }, [onBreakpointChange]);
 
   return computedProps;
 }

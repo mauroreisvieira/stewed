@@ -1,5 +1,3 @@
-// eslint-disable-next-line eslint-comments/disable-enable-pair
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useCallback, useEffect, useRef, useState } from "react";
 // UI Components
 import { Motion, Scope } from "../..";
@@ -191,6 +189,7 @@ export function Popover<T extends HTMLElement>({
           <Motion animation="fade-in">
             <div
               ref={floating}
+              role="region"
               className={cssClasses.root}
               onKeyDown={onHandleKeyDown}
               style={{

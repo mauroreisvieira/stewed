@@ -23,9 +23,17 @@ module.exports = {
     "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended",
   ],
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
   parserOptions: {
     sourceType: "module",
     ecmaVersion: 2020,
+    ecmaFeatures: {
+      jsx: true,
+    },
   },
   rules: {
     "no-console": "error",
@@ -37,6 +45,7 @@ module.exports = {
     "react/self-closing-comp": "error",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
+    "jsx-a11y/no-noninteractive-element-interactions": "warn",
   },
   ignorePatterns: ["dist"],
 };
