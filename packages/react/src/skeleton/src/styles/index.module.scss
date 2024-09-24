@@ -1,13 +1,13 @@
 @use "@stewed/react/src/theme/src/styles" as theme;
 @use "./variables" as *;
 
-@include theme.scope($skeleton-root) {
-  @keyframes pulse {
-    50% {
-      opacity: 0.5;
-    }
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
   }
+}
 
+@include theme.scope($skeleton-root) {
   background-color: color-mix(in srgb, theme.get-color("neutral", "500"), transparent 90%);
   border-radius: theme.get-var("border-radius");
   animation: pulse 2s linear infinite;
