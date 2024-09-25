@@ -25,6 +25,7 @@ import {
   Dropdown,
   Card,
   Tabs,
+  Tooltip,
 } from "@stewed/react";
 // Hooks
 import { useInput } from "@stewed/hooks";
@@ -33,7 +34,6 @@ import { FiFile, FiFilePlus, FiSearch, FiTrash, FiUsers, FiActivity } from "reac
 import { MdOutlineArrowUpward, MdOutlineArrowDownward } from "react-icons/md";
 import { LuFilter } from "react-icons/lu";
 import { IoAttach, IoChatbubbleOutline } from "react-icons/io5";
-import { title } from "process";
 
 const meta: Meta = {
   title: "Examples/SaaS",
@@ -439,7 +439,7 @@ export const Inventory = {
         category: "Local Anesthesia",
         sku: "ZKS8124",
         vendor: "Barone LLC.",
-        stock: 124,
+        stock: 240,
         status: "in-stock",
       },
       {
@@ -479,7 +479,7 @@ export const Inventory = {
         category: "Analgesic",
         sku: "ZKS9823",
         vendor: "Acme Co.",
-        stock: 50,
+        stock: 350,
         status: "in-stock",
       },
       {
@@ -620,10 +620,10 @@ export const Inventory = {
               space={{ y: "2xl" }}
               padding={{ block: "md" }}>
               <Grid.Item>
-                <Text size="md" variation={"uppercase"} skin="neutral">
+                <Text size="2xl" weight="light" skin="neutral">
                   Total assets value
                 </Text>
-                <Text size="5xl" weight="semi-bold">
+                <Text size="5xl" weight="bold">
                   $10,100,323
                 </Text>
               </Grid.Item>
@@ -650,12 +650,12 @@ export const Inventory = {
                       </Text>
                     </Text>
 
-                    <Progress size="md" value={totalProducts} max={2000} skin="primary" />
+                    <Progress size="md" value={totalProducts} max={1500} skin="primary" />
 
                     <Text skin="neutral" size="sm">
                       <Badge skin="primary" /> Max of capacity:{" "}
                       <Text as="span" skin="text-base" size="sm">
-                        2000
+                        1500
                       </Text>
                     </Text>
                   </Stack>
@@ -664,51 +664,54 @@ export const Inventory = {
             </Grid>
 
             <Stack justify="between">
-              <TextField
-                leftSlot={<FiSearch />}
-                placeholder="Search inventory"
-                onChange={(event) => setSearch(event.target.value)}
-                value={search}
-                fullWidth={false}
-              />
-
-              <Dropdown<HTMLButtonElement>
-                placement="bottom-end"
-                renderAnchor={({ ref, open, close, isOpen }) => (
-                  <Button
-                    ref={ref}
-                    onClick={isOpen ? close : open}
-                    appearance="outline"
-                    skin={isOpen ? "primary" : "neutral"}
-                    leftSlot={<LuFilter />}>
-                    Filters
-                  </Button>
-                )}>
-                {() => (
-                  <ListBox>
-                    <ListBox.Group>
-                      {allColumns.map((column) => (
-                        <ListBox.Item
-                          key={column}
-                          onClick={() => onHandleChange(column)}
-                          leftSlot={
-                            <Checkbox
-                              checked={!hiddenColumns.includes(column)}
-                              onClick={(event) => {
-                                event.preventDefault();
-                                event.stopPropagation();
-                              }}
-                            />
-                          }>
-                          <Text size="sm" variation={"capitalize"}>
-                            {column}
-                          </Text>
-                        </ListBox.Item>
-                      ))}
-                    </ListBox.Group>
-                  </ListBox>
-                )}
-              </Dropdown>
+              <Stack size={4}>
+                <TextField
+                  leftSlot={<FiSearch />}
+                  placeholder="Search inventory"
+                  onChange={(event) => setSearch(event.target.value)}
+                  value={search}
+                  fullWidth
+                />
+              </Stack>
+              <Stack justify="end" grow>
+                <Dropdown<HTMLButtonElement>
+                  placement="bottom-end"
+                  renderAnchor={({ ref, open, close, isOpen }) => (
+                    <Button
+                      ref={ref}
+                      onClick={isOpen ? close : open}
+                      appearance="outline"
+                      skin={isOpen ? "primary" : "neutral"}
+                      leftSlot={<LuFilter />}>
+                      Filters
+                    </Button>
+                  )}>
+                  {() => (
+                    <ListBox>
+                      <ListBox.Group>
+                        {allColumns.map((column) => (
+                          <ListBox.Item
+                            key={column}
+                            onClick={() => onHandleChange(column)}
+                            leftSlot={
+                              <Checkbox
+                                checked={!hiddenColumns.includes(column)}
+                                onClick={(event) => {
+                                  event.preventDefault();
+                                  event.stopPropagation();
+                                }}
+                              />
+                            }>
+                            <Text size="sm" variation={"capitalize"}>
+                              {column}
+                            </Text>
+                          </ListBox.Item>
+                        ))}
+                      </ListBox.Group>
+                    </ListBox>
+                  )}
+                </Dropdown>
+              </Stack>
             </Stack>
 
             <DataTable<TStock>
@@ -974,7 +977,12 @@ export const Kanban = {
                                   </Stack>
                                   <Avatar.Group>
                                     {members.map(({ id, name }) => (
-                                      <Avatar key={id} size="xs" name={name} />
+                                      <Tooltip<HTMLDivElement>
+                                        renderAnchor={(props) => (
+                                          <Avatar key={id} size="xs" name={name} {...props} />
+                                        )}>
+                                        {name}
+                                      </Tooltip>
                                     ))}
                                   </Avatar.Group>
                                 </Stack>
