@@ -2,23 +2,27 @@ import React, { forwardRef } from "react";
 // Components
 import { Spinner } from "../../spinner";
 // Hooks
-import { useBem } from "@stewed/hooks";
+import { useBem, useResponsive, type UseResponsiveProps } from "@stewed/hooks";
+import { useTheme } from "../../theme";
 // Tokens
 import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface SwitchProps extends Omit<React.ComponentPropsWithRef<"input">, "size"> {
+export interface SwitchProps
+  extends Omit<React.ComponentPropsWithRef<"input">, "size">,
+    UseResponsiveProps<{
+      /**
+       * Specifies the size of the switch.
+       * @default md
+       */
+      size?: "sm" | "md" | "lg";
+    }> {
   /**
    * Specifies the visual style of the switch.
    * @default primary
    */
   skin?: "primary" | "critical";
-  /**
-   * Specifies the size of the switch.
-   * @default md
-   */
-  size?: "sm" | "md" | "lg";
   /** Sets element's content before switch. */
   reversed?: boolean;
   /** Displays a loading indicator on the switch. */
@@ -57,12 +61,23 @@ export const Switch = forwardRef(
     // Importing useBem to handle BEM class names
     const { getBlock, getElement } = useBem({ block: components.Switch, styles });
 
+    // Retrieve values from the current theme context
+    const { activeToken } = useTheme();
+
+    // Compute responsive props based on current theme and screen sizes
+    const computedProps = useResponsive(
+      {
+        size,
+      },
+      activeToken.breakpoints,
+    );
+
     // Generating CSS classes based on component props and styles
     const cssClasses = {
       root: getBlock({
         modifiers: [
           skin,
-          size,
+          computedProps.size,
           disabled && "disabled",
           loading && "loading",
           reversed && "reversed",
