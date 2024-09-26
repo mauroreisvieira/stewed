@@ -1,27 +1,32 @@
 import React, { forwardRef, useCallback, useEffect, useRef } from "react";
 // Compound Component
 import { CheckboxGroup } from "./CheckboxGroup";
+// Context
+import { useCheckboxGroup } from "./CheckboxGroupContext";
 // Components
 import { Spinner } from "../../spinner";
 // Hooks
-import { useBem, useMergeRefs } from "@stewed/hooks";
-import { useCheckboxGroup } from "./CheckboxGroupContext";
+import { useBem, useMergeRefs, useResponsive, type UseResponsiveProps } from "@stewed/hooks";
+import { useTheme } from "../../theme";
 // Tokens
 import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface CheckboxProps extends Omit<React.ComponentPropsWithRef<"input">, "size"> {
+export interface CheckboxProps
+  extends Omit<React.ComponentPropsWithRef<"input">, "size">,
+    UseResponsiveProps<{
+      /**
+       * Specifies the size of the checkbox.
+       * @default md
+       */
+      size?: "sm" | "md" | "lg";
+    }> {
   /**
    * Specifies the visual style of the checkbox.
    * @default primary
    */
   skin?: "primary" | "critical" | "success";
-  /**
-   * Specifies the size of the checkbox.
-   * @default md
-   */
-  size?: "sm" | "md" | "lg";
   /**
    * Sets the checkbox to an indeterminate state.
    * @default false
@@ -73,13 +78,24 @@ const Root = forwardRef(
     // Importing useBem to handle BEM class names
     const { getBlock, getElement } = useBem({ block: components.Checkbox, styles });
 
+    // Retrieve values from the current theme context
+    const { activeToken } = useTheme();
+
+    // Compute responsive props based on current theme and screen sizes
+    const computedProps = useResponsive(
+      {
+        size,
+      },
+      activeToken.breakpoints,
+    );
+
     // Use the custom hook useCheckboxGroup to access functions and state related to checkbox management
     const { onCheckedChange, checkedValues } = useCheckboxGroup();
 
     // Generating CSS classes based on component props and styles
     const cssClasses = {
       root: getBlock({
-        modifiers: [disabled && "disabled", loading && "loading", size, skin],
+        modifiers: [disabled && "disabled", loading && "loading", computedProps.size, skin],
         extraClasses: className,
       }),
       svg: getElement(["svg"]),
@@ -143,7 +159,7 @@ const Root = forwardRef(
             <Spinner
               className={cssClasses.spinner}
               skin="default"
-              size={size === "sm" ? "xxs" : size === "md" ? "xs" : "sm"}
+              size={computedProps.size === "sm" ? "xxs" : computedProps.size === "md" ? "xs" : "sm"}
             />
           ) : (
             <>
