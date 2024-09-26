@@ -1,0 +1,17 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+
+$alert-root: "alert";
+
+/// Skins
+$alert-skins: ("primary", "secondary", "neutral", "info", "success", "warning", "critical");
+
+/// Shadow
+$alert-shadow: theme.get-shadow();
+
+/// Sizes
+$alert-size: (
+  "xs": theme.get-spacing("sm"),
+  "sm": theme.get-spacing("md"),
+  "md": theme.get-spacing("lg"),
+  "lg": theme.get-spacing("xl"),
+);

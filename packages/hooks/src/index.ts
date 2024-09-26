@@ -1,5 +1,6 @@
 export * from "./use-async";
 export * from "./use-bem";
+export * from "./use-calendar";
 export * from "./use-click-outside";
 export * from "./use-date-time";
 export * from "./use-debounced-value";

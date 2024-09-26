@@ -7,6 +7,7 @@ export * from "./backdrop";
 export * from "./badge";
 export * from "./box";
 export * from "./button";
+export * from "./calendar";
 export * from "./card";
 export * from "./carousel";
 export * from "./checkbox";

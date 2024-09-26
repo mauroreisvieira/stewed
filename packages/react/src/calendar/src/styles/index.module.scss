@@ -1,0 +1,77 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+@use "@stewed/react/src/typography/src/styles" as text;
+@use "./variables" as *;
+
+@include theme.scope($alert-root) {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  gap: theme.get-spacing("lg");
+  padding: theme.get-var(padding);
+  background-color: theme.get-var(background-color);
+  border-radius: theme.get-var(radius);
+  box-shadow: theme.get-var(box-shadow);
+
+  &__title {
+    @include text.typography(
+      "display-6",
+      $overrides: (
+        color: inherit,
+        font-size: theme.get-font-size("md"),
+        font-weight: theme.get-font-weight("medium")
+      )
+    );
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    gap: theme.get-spacing("sm");
+  }
+
+  &__title,
+  &__left,
+  &__right {
+    color: theme.get-var(color);
+  }
+
+  &__body {
+    @include text.typography("base", $overrides: (font-size: theme.get-font-size("sm")));
+  }
+
+  /// Skins
+  @each $value in $alert-skins {
+    &--#{$value} {
+      @include theme.define-var(
+        (
+          background-color: theme.get-color($value, "100"),
+          color: theme.get-color($value, "900"),
+        )
+      );
+    }
+  }
+
+  /// Size
+  @each $key, $value in $alert-size {
+    &--#{$key} {
+      @include theme.define-var(
+        (
+          padding: $value,
+        )
+      );
+    }
+  }
+
+  // Shadow
+  @each $key, $value in $alert-shadow {
+    &--shadow-#{$key} {
+      @include theme.define-var(
+        (
+          box-shadow: $value,
+        )
+      );
+    }
+  }
+}
