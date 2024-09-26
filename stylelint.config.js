@@ -63,5 +63,11 @@ module.exports = {
       },
     ],
     "scss/map-keys-quotes": "always",
+    "selector-pseudo-element-no-unknown": [
+      true,
+      {
+        ignorePseudoElements: ["details-content"],
+      },
+    ],
   },
 };
