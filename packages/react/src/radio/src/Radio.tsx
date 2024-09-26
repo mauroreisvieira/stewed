@@ -1,25 +1,30 @@
 import React, { forwardRef, useCallback } from "react";
+// Context
+import { useRadioGroup } from "./RadioGroupContext";
 // Compound Component
 import { RadioGroup } from "./RadioGroup";
 // Hooks
-import { useBem } from "@stewed/hooks";
-import { useRadioGroup } from "./RadioGroupContext";
+import { useBem, useResponsive, type UseResponsiveProps } from "@stewed/hooks";
+import { useTheme } from "../../theme";
 // Tokens
 import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface RadioProps extends Omit<React.ComponentPropsWithRef<"input">, "size"> {
+export interface RadioProps
+  extends Omit<React.ComponentPropsWithRef<"input">, "size">,
+    UseResponsiveProps<{
+      /**
+       * Specifies the size of the radio.
+       * @default md
+       */
+      size?: "sm" | "md" | "lg";
+    }> {
   /**
    * Specifies the visual style of the radio.
    * @default primary
    */
   skin?: "primary" | "critical" | "success";
-  /**
-   * Specifies the size of the radio.
-   * @default md
-   */
-  size?: "sm" | "md" | "lg";
   /** Content to be rendered within the radio, usually used for labels. */
   children?: React.ReactNode;
 }
@@ -56,13 +61,24 @@ const Root = forwardRef(
     // Importing useBem to handle BEM class names
     const { getBlock, getElement } = useBem({ block: components.Radio, styles });
 
+    // Retrieve values from the current theme context
+    const { activeToken } = useTheme();
+
+    // Compute responsive props based on current theme and screen sizes
+    const computedProps = useResponsive(
+      {
+        size,
+      },
+      activeToken.breakpoints,
+    );
+
     // Use the custom hook useCheckboxGroup to access functions and state related to radio management
     const { onCheckedChange, checkedValue, name: groupName } = useRadioGroup();
 
     // Generating CSS classes based on component props and styles
     const cssClasses = {
       root: getBlock({
-        modifiers: [skin, size, disabled && "disabled"],
+        modifiers: [skin, computedProps.size, disabled && "disabled"],
         extraClasses: className,
       }),
       input: getElement(["input"]),
