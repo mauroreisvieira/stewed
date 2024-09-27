@@ -1,4 +1,3 @@
-import { IWeekdaysValues, ICalendar, IDayOptions, IWeek } from "./types";
 import {
   isToday,
   isDateAfter,
@@ -7,53 +6,149 @@ import {
   isDateInRange,
   isArray,
 } from "@stewed/utilities";
-import { DAYS_WEEK, WEEK_LENGTH, WEEKDAYS } from "./constant";
+
+export const DAYS_WEEK = {
+  SUNDAY: 0,
+  MONDAY: 1,
+  TUESDAY: 2,
+  WEDNESDAY: 3,
+  THURSDAY: 4,
+  FRIDAY: 5,
+  SATURDAY: 6,
+} as const;
+
+export type Weekdays = typeof DAYS_WEEK;
+
+// Represents the numeric values of days of the week.
+export type WeekdaysValues = Weekdays[keyof Weekdays];
+
+export const WEEKDAYS: WeekdaysValues[] = [0, 1, 2, 3, 4, 5, 6];
+
+// Represents either a single Date object or a range of two Date objects.
+export type DateOrArrayDates = (Date | [Date, Date])[];
+
+export interface HighlightedDates<T> {
+  // Explicitly typed 'days' property for individual dates or date ranges.
+  days: DateOrArrayDates;
+  // Other properties can be of type T.
+  data: T;
+}
+
+// Represents the configuration options for the calendar.
+export interface HelloWeekProps<T> {
+  // The default date to display on the calendar.
+  defaultDate: Date;
+  // The language/locale to use for date formatting.
+  lang?: Intl.LocalesArgument;
+  // The date format options for formatting dates.
+  formatDate?: Intl.DateTimeFormatOptions;
+  // The numeric value corresponding to the start day of the week (0 for Sunday, 1 for Monday, etc.).
+  weekStart?: WeekdaysValues;
+  // An array of selected dates for the calendar.
+  selectedDates?: DateOrArrayDates;
+  // An array of dates to highlight on the calendar.
+  highlightedDates?: HighlightedDates<T>[];
+  // An array of disabled dates on the calendar.
+  disabledDates?: DateOrArrayDates;
+  // Indicates if past dates are disabled on the calendar.
+  disabledPastDates?: boolean;
+  // An array of numeric values corresponding to days of the week to be disabled on the calendar.
+  disabledDaysOfWeek?: WeekdaysValues[];
+  // The minimum selectable date on the calendar.
+  minDate?: Date;
+  // The maximum selectable date on the calendar.
+  maxDate?: Date;
+  // Indicates if the calendar is locked and cannot be interacted with.
+  locked?: boolean;
+  // Indicates if today's date should be highlighted on the calendar.
+  highlightedToday?: boolean;
+}
+
+// Represents the options for each day in the calendar.
+export type DayOptions<T> = {
+  // The date object representing the day.
+  date: Date;
+  // The formatted string representation of the day's date.
+  dateFormatted: string;
+  // The date object containing individual parts of the day's date.
+  dateObject: {
+    day: string;
+    month: string;
+    year: string;
+    weekday: string;
+  };
+  // Additional details about the day.
+  attributes: {
+    // Indicates if the day falls on a weekend (Saturday or Sunday).
+    weekend: boolean;
+    // Indicates if the day is today's date.
+    today: boolean;
+    // Indicates if the day is selected.
+    selected: boolean;
+    // Indicates if the day is highlighted.
+    highlighted: boolean;
+    // Indicates if the day is the start of a selected range.
+    startRange: boolean;
+    // Indicates if the day is part of a selected range.
+    inRange: boolean;
+    // Indicates if the day is the end of a selected range.
+    endRange: boolean;
+    // Indicates if the day is locked and cannot be interacted with.
+    locked: boolean;
+    // Indicates if the day is disabled and cannot be selected or interacted with.
+    disabled: boolean;
+    siblingMonthDays: boolean;
+  };
+  // Highlighted details about the day.
+  details?: T;
+};
 
 /**
  * Represents a calendar with configurable options for language, date format, and week start day.
  */
-export class Calendar {
-  static defaultOptions: ICalendar = {
+export class HelloWeek<T> {
+  private options: HelloWeekProps<T> = {
     lang: "en-UK",
     defaultDate: new Date(),
-    formatDate: {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
-      weekday: "short",
-    },
-    weekStart: 0,
+    weekStart: DAYS_WEEK.SUNDAY,
     highlightedToday: true,
     disabledPastDates: false,
     locked: false,
   };
-  private options: ICalendar;
+  private highlightedDates: HighlightedDates<T>[];
   private date: Date;
   private today: Date;
-  private days: IDayOptions[] = [];
+  private days: DayOptions<T>[] = [];
 
   /**
    * Creates a new instance of the Calendar class.
    * @param options - The configuration options for the calendar.
    */
-  constructor(options?: ICalendar) {
-    const defaultOptions: ICalendar = {
-      ...Calendar.defaultOptions,
+  constructor(options?: HelloWeekProps<T>) {
+    const defaultOptions: HelloWeekProps<T> = {
+      ...this.options,
       ...options,
+      formatDate: {
+        ...options?.formatDate,
+        day: options?.formatDate?.day || "numeric",
+        month: options?.formatDate?.month || "2-digit",
+        year: options?.formatDate?.year || "numeric",
+        weekday: options?.formatDate?.weekday || "short",
+      },
     };
 
     // Configuration options for the calendar.
     this.options = defaultOptions;
+
+    this.highlightedDates = options?.highlightedDates || [];
     // The current date in the calendar.
-    this.date = new Date(defaultOptions.defaultDate || "");
+    this.date = defaultOptions.defaultDate;
     // Set the day of the current date to the first day of the month.
     this.date.setDate(1);
     // Today's date with time set to midnight (00:00:00).
     this.today = new Date(new Date().setHours(0, 0, 0, 0));
     // Create array with days of month.
     this.createMonth();
-
-    console.log("this.options", this.options);
   }
 
   /**
@@ -93,11 +188,11 @@ export class Calendar {
    *
    * @param options - The calendar options, or a callback function with previous options.
    */
-  public setOptions(options: ((prev: ICalendar) => ICalendar) | ICalendar) {
+  public setOptions(options: ((prev: HelloWeekProps<T>) => HelloWeekProps<T>) | HelloWeekProps<T>) {
     if (typeof options === "function") {
       this.options = options(this.options);
     } else {
-      this.options = { ...Calendar.defaultOptions, ...options };
+      this.options = { ...this.options, ...options };
     }
 
     // Create array with days of month.
@@ -169,12 +264,10 @@ export class Calendar {
       weekday: format?.weekday || "short",
     });
 
-    console.log("weekStart", weekStart);
-
     // Create an array of weekdays starting from the specified weekStart
     return Array.from({ length: weekLength }, (_, index) => {
       // Calculate the day index starting from weekStart
-      const dayIndex = ((weekStart || 0) + index) % weekLength;
+      const dayIndex = ((weekStart || DAYS_WEEK.SUNDAY) + index) % weekLength;
 
       // Create a valid reference date, setting the day directly (Sunday is day 0)
       const referenceDate = new Date(Date.UTC(1970, 0, 4 + dayIndex)); // January 4, 1970 is a Sunday in UTC
@@ -188,7 +281,7 @@ export class Calendar {
    * Gets the day options for the current month.
    * @returns An array of day options for the current month.
    */
-  public getDays(): IDayOptions[] {
+  public getDays(): DayOptions<T>[] {
     return this.days;
   }
 
@@ -228,15 +321,58 @@ export class Calendar {
     return this.date.toLocaleDateString(lang, { year: format });
   }
 
+  public getDaysHighlight(): HighlightedDates<T>[] {
+    return this.highlightedDates as HighlightedDates<T>[];
+  }
+
   private createMonth(): void {
-    // Initialize the `days` with empty array
     this.days = [];
+
+    // Save the current month and year.
     const currentMonth = this.date.getMonth();
+    const currentYear = this.date.getFullYear();
+
+    // Get the first day of the month.
+    const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
+    let firstWeekday = firstDayOfMonth.getDay(); // 0 = Sunday, 6 = Saturday
+
+    // Adjust for the configured start of the week.
+    firstWeekday = (firstWeekday - (this.options.weekStart || DAYS_WEEK.SUNDAY) + 7) % 7;
+
+    // Add previous month's days if the first day of the current month isn't the week start.
+    if (firstWeekday > 0) {
+      const prevMonth = new Date(currentYear, currentMonth, 0); // Last day of the previous month
+      const lastDatePrevMonth = prevMonth.getDate(); // Get last date of the previous month
+      for (let i = firstWeekday - 1; i >= 0; i--) {
+        const prevDate = new Date(currentYear, currentMonth - 1, lastDatePrevMonth - i);
+        this.createDay(prevDate); // Add previous month's day
+      }
+    }
+
+    // Iterate through all days of the current month.
     while (this.date.getMonth() === currentMonth) {
       this.createDay(this.date);
       this.date.setDate(this.date.getDate() + 1);
     }
-    this.date.setMonth(this.date.getMonth() - 1);
+
+    // Get the last day of the month and check if more days from the next month are needed.
+    const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0); // Last day of current month
+    let lastWeekday = lastDayOfMonth.getDay(); // 0 = Sunday, 6 = Saturday
+
+    // Adjust for the configured start of the week.
+    lastWeekday = (lastWeekday - (this.options.weekStart || DAYS_WEEK.SUNDAY) + 7) % 7;
+
+    // Add next month's days if the last day of the current month isn't the week end.
+    if (lastWeekday < 6) {
+      for (let i = 1; i <= 6 - lastWeekday; i++) {
+        const nextDate = new Date(currentYear, currentMonth + 1, i);
+        this.createDay(nextDate); // Add next month's day
+      }
+    }
+
+    // Reset the date back to the first of the current month.
+    this.date.setMonth(currentMonth);
+    this.date.setDate(1);
   }
 
   private createDay(date: Date): void {
@@ -253,9 +389,10 @@ export class Calendar {
       disabledPastDates,
       disabledDates,
     } = this.options;
-    const day = date.getDate();
-    const weekday = date.getDay() as IWeekdaysValues;
-    const dayOptions: IDayOptions = {
+
+    const weekday = date.getDay() as WeekdaysValues;
+
+    const dayOptions: DayOptions<T> = {
       date: new Date(date.setHours(0, 0, 0, 0)),
       dateObject: {
         day: date.toLocaleDateString(lang, { day: format?.day }),
@@ -270,61 +407,63 @@ export class Calendar {
         month: format?.month,
         year: format?.year,
       }),
-      is: {
+      attributes: {
         today: false,
         weekend: false,
         selected: false,
         highlighted: false,
-        range: false,
+        inRange: false,
         startRange: false,
         endRange: false,
         locked: false,
         disabled: false,
+        siblingMonthDays: date.getMonth() !== this.date.getMonth(), // Check if the day belongs to the previous or next month
       },
     };
 
     // Determining if the day is today.
     if (isToday(date) && highlightedToday) {
-      dayOptions.is.today = true;
+      dayOptions.attributes.today = true;
     }
 
     // Determining if the day is weekday.
     if (weekday === DAYS_WEEK.SUNDAY || weekday === DAYS_WEEK.SATURDAY) {
-      dayOptions.is.weekend = true;
+      dayOptions.attributes.weekend = true;
     }
 
     // Determining if the day is selected based on specific dates or a range of dates.
     if (
-      selectedDates &&
-      selectedDates.some((day) => {
+      selectedDates?.some((day) => {
         if (isArray(day)) {
           // For a range of dates, check if the day falls within the range.
-          const [startDate, endDate] = day;
-          // If the day is the same as the start date or after the start date, and the day is the same as the end date or before the end date, it's within the range.
-          const withinRange = isDateInRange(date, startDate, endDate);
+          const [start, end] = day;
+          // If the day is the same as the start date or after the start date,
+          // and the day is the same as the end date or before the end date, it's within the range.
+          const inRange = !!start && !!end && isDateInRange(date, start, end);
           // Update range-related properties.
-          dayOptions.is.range = withinRange;
-          dayOptions.is.startRange = isSameDay(date, startDate);
-          dayOptions.is.endRange = isSameDay(date, endDate);
-          return withinRange;
+          dayOptions.attributes.inRange = inRange;
+          dayOptions.attributes.startRange = !!start && isSameDay(date, start);
+          dayOptions.attributes.endRange = !!end && isSameDay(date, end);
+
+          return inRange;
         } else {
           // For specific dates, check if the day matches any of the selected dates.
           return isSameDay(day as Date, date);
         }
       })
     ) {
-      dayOptions.is.selected = true;
+      dayOptions.attributes.selected = true;
     }
 
     // Determine if the current day is highlighted based on specific dates or date ranges.
     if (
-      highlightedDates?.some(({ days, ...restProps }) => {
+      highlightedDates?.some(({ days, data }) => {
         const isHighlighted = days.some((day) => {
           if (isArray(day)) {
             // Handle date range: Extract start and end dates.
-            const [startDate, endDate] = day;
+            const [start, end] = day;
             // Check if the current date falls within the range.
-            return isDateInRange(date, startDate as Date, endDate as Date);
+            return !!start && !!end && isDateInRange(date, start, end);
           } else {
             // Handle specific dates: Check if the current date matches any of the highlighted dates.
             return isSameDay(day as Date, date);
@@ -332,34 +471,35 @@ export class Calendar {
         });
 
         if (isHighlighted) {
-          dayOptions.details = restProps; // Assign additional properties for highlighting.
-          return true; // Indicate that the day is highlighted.
+          // Assign additional properties for highlighting.
+          dayOptions.details = data;
+          // Indicate that the day is highlighted.
+          return true;
         }
 
         return false; // Indicate that the day is not highlighted.
       })
     ) {
-      dayOptions.is.highlighted = true;
+      dayOptions.attributes.highlighted = true;
     }
 
     // Determining if the day is disabled based on specific dates, weekdays, or past dates.
     if (
-      (disabledDates &&
-        disabledDates.some((day) => {
-          // Checking if the day is disabled based on a range of dates.
-          if (isArray(day)) {
-            const [startDate, endDate] = day;
-            // For each range of dates, check if the day falls within the range.
-            return isDateInRange(date, startDate, endDate);
-          } else {
-            return isSameDay(day as Date, date);
-          }
-        })) || // Checking if the day is disabled based on specific weekdays.
+      disabledDates?.some((day) => {
+        // Checking if the day is disabled based on a range of dates.
+        if (isArray(day)) {
+          const [start, end] = day;
+          // For each range of dates, check if the day falls within the range.
+          return !!start && !!end && isDateInRange(date, start, end);
+        } else {
+          return isSameDay(day as Date, date);
+        }
+      }) || // Checking if the day is disabled based on specific weekdays.
       (disabledDaysOfWeek && disabledDaysOfWeek.includes(weekday)) ||
       // Checking if the day is disabled based on past dates.
       (disabledPastDates && isDateBefore(date, this.today))
     ) {
-      dayOptions.is.disabled = true;
+      dayOptions.attributes.disabled = true;
     }
 
     // Determining if the day is locked.
@@ -368,9 +508,9 @@ export class Calendar {
       (minDate && isDateBefore(date, minDate)) || // If a `minDate` is specified and the date is before the `minDate`, the day should be considered locked.
       (maxDate && isDateAfter(date, maxDate)) // If a `maxDate`` is specified and the date is after the `maxDate`, the day should be considered locked.
     ) {
-      dayOptions.is.locked = true; // Set the locked property to true to indicate the day is locked.
+      dayOptions.attributes.locked = true; // Set the locked property to true to indicate the day is locked.
     }
 
-    this.days[day - 1] = dayOptions;
+    this.days.push(dayOptions);
   }
 }

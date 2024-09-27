@@ -1,36 +1,37 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 // Calendar
-import { Calendar, ICalendar, IDayOptions } from "./";
+import {
+  HelloWeek,
+  type HelloWeekProps,
+  type DayOptions,
+  type HighlightedDates,
+} from "./HelloWeek";
 
-export function useCalendar({
-  lang,
+export interface UseCalendarProps<T> extends HelloWeekProps<T> {}
+
+export function useCalendar<T>({
   defaultDate,
-  formatDate,
-  selectedDates,
-  highlightedDates,
+  disabledDates,
   disabledDaysOfWeek,
   disabledPastDates,
-  disabledDates,
-  minDate,
-  maxDate,
+  formatDate,
+  highlightedDates,
   highlightedToday,
-  locked,
+  lang,
+  maxDate,
+  minDate,
+  selectedDates,
   weekStart,
-}: ICalendar) {
-  const calendarRef = useRef<Calendar>();
-
+  locked,
+}: UseCalendarProps<T>) {
+  const calendarRef = useRef<HelloWeek<T>>();
   const [data, setData] = useState<{
     month: string;
     year: string;
-    days: IDayOptions[];
+    days: DayOptions<T>[];
     weekDays: string[];
+    highlightedDates: HighlightedDates<T>[];
   }>();
-
-  useEffect(() => {
-    calendarRef.current = new Calendar({
-      defaultDate: defaultDate || new Date(),
-    });
-  }, [defaultDate]);
 
   const updateCalendar = useCallback(() => {
     const calendar = calendarRef.current;
@@ -44,60 +45,71 @@ export function useCalendar({
       year: calendar.getYear(),
       days: calendar.getDays(),
       weekDays: calendar.getWeekDays(),
+      highlightedDates: calendar.getDaysHighlight(),
     });
   }, []);
 
   useEffect(() => {
-    const calendar = calendarRef.current;
-
-    calendar?.setOptions((prev) => ({
-      ...prev,
-      lang,
-      selectedDates,
-      highlightedDates,
+    calendarRef.current = new HelloWeek<T>({
+      defaultDate,
+      disabledDates,
       disabledDaysOfWeek,
       disabledPastDates,
-      disabledDates,
-      minDate,
-      maxDate,
+      formatDate,
+      highlightedDates,
       highlightedToday,
-      locked,
+      lang,
+      maxDate,
+      minDate,
+      selectedDates,
       weekStart,
-      formatDate: formatDate || {
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric",
-        weekday: "narrow",
-      },
-    }));
+      locked,
+    });
+
     updateCalendar();
   }, [
     defaultDate,
-    selectedDates,
-    lang,
-    updateCalendar,
-    highlightedDates,
     disabledDates,
-    disabledPastDates,
-    minDate,
-    maxDate,
     disabledDaysOfWeek,
-    highlightedToday,
-    weekStart,
+    disabledPastDates,
     formatDate,
+    highlightedDates,
+    highlightedToday,
+    lang,
     locked,
+    maxDate,
+    minDate,
+    selectedDates,
+    updateCalendar,
+    weekStart,
   ]);
 
-  const onPrevMonth = useCallback(() => {
-    const calendar = calendarRef.current;
+  const set = useCallback(
+    (ops: UseCalendarProps<T>) => {
+      calendarRef.current?.setOptions((prev) => ({
+        ...prev,
+        ...ops,
+        formatDate: {
+          ...ops?.formatDate,
+          day: ops?.formatDate?.day || "2-digit",
+          month: ops?.formatDate?.month || "2-digit",
+          year: ops?.formatDate?.year || "numeric",
+          weekday: ops?.formatDate?.weekday || "narrow",
+        },
+      }));
 
-    calendar?.prevMonth();
+      updateCalendar();
+    },
+    [updateCalendar],
+  );
+
+  const onPrevMonth = useCallback(() => {
+    calendarRef.current?.prevMonth();
     updateCalendar();
   }, [updateCalendar]);
 
   const onNextMonth = useCallback(() => {
-    const calendar = calendarRef.current;
-    calendar?.nextMonth();
+    calendarRef.current?.nextMonth();
     updateCalendar();
   }, [updateCalendar]);
 
@@ -105,5 +117,6 @@ export function useCalendar({
     data,
     onPrevMonth,
     onNextMonth,
+    set,
   };
 }

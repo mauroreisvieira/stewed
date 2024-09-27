@@ -1,6 +1,4 @@
-export * from "./calendar";
-
-export * from "./types";
-
 export * from "./useCalendar";
+
+export type { DayOptions, HighlightedDates, DateOrArrayDates } from "./HelloWeek";
 

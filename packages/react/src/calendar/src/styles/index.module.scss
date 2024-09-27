@@ -2,76 +2,59 @@
 @use "@stewed/react/src/typography/src/styles" as text;
 @use "./variables" as *;
 
-@include theme.scope($alert-root) {
-  position: relative;
-  box-sizing: border-box;
+@include theme.scope($calendar-root) {
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  gap: theme.get-spacing("lg");
-  padding: theme.get-var(padding);
-  background-color: theme.get-var(background-color);
-  border-radius: theme.get-var(radius);
-  box-shadow: theme.get-var(box-shadow);
+  flex-direction: column;
+  gap: 12px;
+  user-select: none;
 
-  &__title {
-    @include text.typography(
-      "display-6",
-      $overrides: (
-        color: inherit,
-        font-size: theme.get-font-size("md"),
-        font-weight: theme.get-font-weight("medium")
-      )
-    );
-  }
-
-  &__wrapper {
+  &__navigation {
     display: flex;
-    flex-grow: 1;
+    gap: 8px;
+    align-items: center;
+  }
+
+  &__prev,
+  &__next {
+    cursor: pointer;
+  }
+
+  &__period {
+    width: 100%;
+    text-align: center;
+  }
+
+  &__week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+    @include text.typography(
+      base,
+      $overrides: (color: theme.get-color("neutral", "500"), font-size: theme.get-font-size("sm"))
+    );
+
+    &--rtl {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__month {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: 1fr;
+    color: #000;
+
+    &--rtl {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__day {
+    position: relative;
+    display: flex;
     flex-direction: column;
-    gap: theme.get-spacing("sm");
-  }
-
-  &__title,
-  &__left,
-  &__right {
-    color: theme.get-var(color);
-  }
-
-  &__body {
-    @include text.typography("base", $overrides: (font-size: theme.get-font-size("sm")));
-  }
-
-  /// Skins
-  @each $value in $alert-skins {
-    &--#{$value} {
-      @include theme.define-var(
-        (
-          background-color: theme.get-color($value, "100"),
-          color: theme.get-color($value, "900"),
-        )
-      );
-    }
-  }
-
-  /// Size
-  @each $key, $value in $alert-size {
-    &--#{$key} {
-      @include theme.define-var(
-        (
-          padding: $value,
-        )
-      );
-    }
-  }
-
-  // Shadow
-  @each $key, $value in $alert-shadow {
-    &--shadow-#{$key} {
-      @include theme.define-var(
-        (
-          box-shadow: $value,
-        )
-      );
-    }
+    justify-content: center;
+    outline: 1px solid red;
   }
 }

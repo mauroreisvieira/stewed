@@ -1,31 +1,31 @@
 import React from "react";
-import { classNames } from "@stewed/utilities";
+// UI Components
+import { Button } from "../../index";
 
-interface DayProps {
+interface DayProps extends React.ComponentPropsWithoutRef<"div"> {
   className?: string;
   dayOfMonth: number;
   dayOfWeek: number;
+  fullScreen?: boolean;
   disabled?: boolean;
   highlighted?: boolean;
   locked?: boolean;
-  range?: boolean;
+  inRange?: boolean;
   startRange?: boolean;
   endRange?: boolean;
   selected?: boolean;
   today?: boolean;
   weekend?: boolean;
-  children?: React.ReactNode;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export const Day = ({
+export function Day({
   className,
   dayOfMonth,
   dayOfWeek,
   disabled,
   highlighted,
   locked,
-  range,
+  inRange,
   startRange,
   endRange,
   selected,
@@ -33,28 +33,15 @@ export const Day = ({
   weekend,
   children,
   onClick,
-}: DayProps): React.ReactElement => {
-  const computedClasses = classNames(
-    className,
-    disabled && "is-disabled",
-    highlighted && "is-highlighted",
-    locked && "is-locked",
-    range && "is-range",
-    startRange && "is-start-range",
-    endRange && "is-end-range",
-    selected && "is-selected",
-    today && "is-today",
-    weekend && "is-weekend",
-  );
-
+}: DayProps): React.ReactElement {
   return (
-    <button
-      className={computedClasses}
-      style={{
-        marginLeft: dayOfMonth === 1 ? `${dayOfWeek * (100 / 7)}%` : undefined,
-      }}
+    <div
+      tabIndex={0}
+      role="button"
+      className={className}
+      aria-disabled={disabled || locked}
       onClick={onClick}>
       {children}
-    </button>
+    </div>
   );
-};
+}
