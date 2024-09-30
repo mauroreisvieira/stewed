@@ -345,13 +345,13 @@ export class HelloWeek<T> {
       const lastDatePrevMonth = prevMonth.getDate(); // Get last date of the previous month
       for (let i = firstWeekday - 1; i >= 0; i--) {
         const prevDate = new Date(currentYear, currentMonth - 1, lastDatePrevMonth - i);
-        this.createDay(prevDate); // Add previous month's day
+        this.createDay(prevDate, currentMonth); // Add previous month's day
       }
     }
 
     // Iterate through all days of the current month.
     while (this.date.getMonth() === currentMonth) {
-      this.createDay(this.date);
+      this.createDay(this.date, currentMonth);
       this.date.setDate(this.date.getDate() + 1);
     }
 
@@ -366,7 +366,7 @@ export class HelloWeek<T> {
     if (lastWeekday < 6) {
       for (let i = 1; i <= 6 - lastWeekday; i++) {
         const nextDate = new Date(currentYear, currentMonth + 1, i);
-        this.createDay(nextDate); // Add next month's day
+        this.createDay(nextDate, currentMonth); // Add next month's day
       }
     }
 
@@ -375,7 +375,7 @@ export class HelloWeek<T> {
     this.date.setDate(1);
   }
 
-  private createDay(date: Date): void {
+  private createDay(date: Date, currentMonth: number): void {
     const {
       lang,
       formatDate: format,
@@ -417,7 +417,7 @@ export class HelloWeek<T> {
         endRange: false,
         locked: false,
         disabled: false,
-        siblingMonthDays: date.getMonth() !== this.date.getMonth(), // Check if the day belongs to the previous or next month
+        siblingMonthDays: date.getMonth() !== currentMonth,
       },
     };
 

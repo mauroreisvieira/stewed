@@ -1,15 +1,46 @@
+interface DateFormatterOptions {
+  /** The date to be formatted. It can be a Date object or a string representing a date. */
+  date: Date | string;
+  /** The locale to be used for date formatting. */
+  locale?: Intl.LocalesArgument;
+  /**
+   * The options for date formatting.
+   * These options conform to the Intl.DateTimeFormatOptions interface.
+   */
+  options?: Intl.DateTimeFormatOptions;
+}
+
+/**
+ * Formats a date according to the specified locale and options.
+ *
+ * @param params - An object containing the date to be formatted, optional locale, and formatting options.
+ * @returns A string representing the formatted date. If the date is null or undefined, returns an empty string.
+ *
+ * @example
+ * ```ts
+ * const formattedDate = dateFormatter({ date: new Date(), locale: 'en-GB', options: { year: 'numeric', month: 'long', day: 'numeric' } });
+ * console.log(formattedDate); // e.g., "20 June 2023"
+ * ```
+ */
+export function dateFormatter({ date, locale, options }: DateFormatterOptions): string {
+  const dt = typeof date === "string" ? new Date(date) : date;
+  const formatter = new Intl.DateTimeFormat(locale, options);
+
+  return formatter.format(dt);
+}
+
 /**
  * Checks if two dates represent the same day (day, month, and year).
  *
- * @param day1 - The first date to compare.
- * @param day2 - The second date to compare.
+ * @param date - The first date to compare.
+ * @param dateToCompare - The second date to compare.
  * @returns A boolean indicating whether the two dates represent the same day.
  */
-export function isSameDay(day1: Date, day2: Date): boolean {
+export function isSameDay(date: Date, dateToCompare: Date): boolean {
   return (
-    day1.getDate() === day2.getDate() &&
-    day1.getMonth() === day2.getMonth() &&
-    day1.getFullYear() === day2.getFullYear()
+    date.getDate() === dateToCompare.getDate() &&
+    date.getMonth() === dateToCompare.getMonth() &&
+    date.getFullYear() === dateToCompare.getFullYear()
   );
 }
 
@@ -20,11 +51,9 @@ export function isSameDay(day1: Date, day2: Date): boolean {
  * @param dateToCompare - The date to compare against.
  * @returns A boolean indicating whether the first date is after the second date.
  */
-export function isDateAfter(date: Date, dateToCompare: Date): boolean {
-  return (
-    new Date(date.setHours(0, 0, 0, 0)).getTime() >
-    new Date(dateToCompare.setHours(0, 0, 0, 0)).getTime()
-  );
+export function isDateAfter(date: Date, dateToCompare: Date | string): boolean {
+  const toCompare = typeof dateToCompare === "string" ? new Date(dateToCompare) : dateToCompare;
+  return date.getTime() > new Date(toCompare.setHours(0, 0, 0, 0)).getTime();
 }
 
 /**
@@ -34,40 +63,35 @@ export function isDateAfter(date: Date, dateToCompare: Date): boolean {
  * @param dateToCompare - The date to compare against.
  * @returns A boolean indicating whether the first date is before the second date.
  */
-export function isDateBefore(date: Date, dateToCompare: Date): boolean {
-  return (
-    new Date(date.setHours(0, 0, 0, 0)).getTime() <
-    new Date(dateToCompare.setHours(0, 0, 0, 0)).getTime()
-  );
+export function isDateBefore(date: Date, dateToCompare: Date | string): boolean {
+  const toCompare = typeof dateToCompare === "string" ? new Date(dateToCompare) : dateToCompare;
+  return date.getTime() < new Date(toCompare.setHours(0, 0, 0, 0)).getTime();
 }
 
 /**
  * Checks if two dates represent the same month and year.
  *
  * @param source - The first date to compare.
- * @param target - The second date to compare.
+ * @param dateToCompare - The second date to compare.
  * @returns A boolean indicating whether the two dates represent the same month and year.
  */
-export function isSameMonthAndYear(source: Date, target?: Date): boolean {
+export function isSameMonthAndYear(source: Date, dateToCompare?: Date): boolean {
   return (
-    !!target &&
-    source.getFullYear() === target.getFullYear() &&
-    source.getMonth() === target.getMonth()
+    source.getFullYear() === dateToCompare?.getFullYear() &&
+    source.getMonth() === dateToCompare?.getMonth()
   );
 }
 
 /**
  * Checks if two dates represent the same date (day, month, year).
  *
- * @param source - The first date to compare.
- * @param target - The second date to compare.
+ * @param date - The first date to compare.
+ * @param dateToCompare - The second date to compare.
  * @returns A boolean indicating whether the two dates represent the same date.
  */
-export function isSameDate(source: Date, target: Date): boolean {
-  return (
-    isSameMonthAndYear(source, target) &&
-    source.getDate() === target.getDate()
-  );
+export function isSameDate(date: Date, dateToCompare: Date | string): boolean {
+  const toCompare = typeof dateToCompare === "string" ? new Date(dateToCompare) : dateToCompare;
+  return isSameMonthAndYear(date, toCompare) && date.getDate() === toCompare.getDate();
 }
 
 /**
@@ -89,11 +113,7 @@ export function isToday(date: Date): boolean {
  * @param {Date} endDate - The end date of the range.
  * @returns A boolean indicating whether date is within the range.
  */
-export function isDateInRange(
-  date: Date,
-  startDate: Date,
-  endDate: Date
-): boolean {
+export function isDateInRange(date: Date, startDate: Date, endDate: Date): boolean {
   return (
     (isSameDay(date, startDate) || isDateAfter(date, startDate)) &&
     (isSameDay(date, endDate) || isDateBefore(date, endDate))

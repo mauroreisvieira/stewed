@@ -89,13 +89,6 @@ export function useCalendar<T>({
       calendarRef.current?.setOptions((prev) => ({
         ...prev,
         ...ops,
-        formatDate: {
-          ...ops?.formatDate,
-          day: ops?.formatDate?.day || "2-digit",
-          month: ops?.formatDate?.month || "2-digit",
-          year: ops?.formatDate?.year || "numeric",
-          weekday: ops?.formatDate?.weekday || "narrow",
-        },
       }));
 
       updateCalendar();

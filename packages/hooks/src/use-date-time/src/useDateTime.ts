@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 // Utilities
-import { dateFormatter } from "@stewed/utilities";
+import { dateFormatter, isDateAfter, isDateBefore, isSameDate } from "@stewed/utilities";
 
 interface FormatDateTimeReturnBoolean {
   /**
@@ -142,28 +142,6 @@ interface UseDateTimeProps {
  * ```
  */
 export function useDateTime(options?: UseDateTimeProps): UseDateTime {
-  // Function to check if the current date is the same as the specified date
-  const isSameDate = useCallback((date: Date, dateToCompare: Date | string) => {
-    const toCompare = typeof dateToCompare === "string" ? new Date(dateToCompare) : dateToCompare;
-    return (
-      date.getDate() === toCompare.getDate() &&
-      date.getMonth() === toCompare.getMonth() &&
-      date.getFullYear() === toCompare.getFullYear()
-    );
-  }, []);
-
-  // Function to check if the current date is before the specified date
-  const isDateBefore = useCallback((date: Date, dateToCompare: Date | string) => {
-    const toCompare = typeof dateToCompare === "string" ? new Date(dateToCompare) : dateToCompare;
-    return date.getTime() < new Date(toCompare.setHours(0, 0, 0, 0)).getTime();
-  }, []);
-
-  // Function to check if the current date is after the specified date
-  const isDateAfter = useCallback((date: Date, dateToCompare: Date | string) => {
-    const toCompare = typeof dateToCompare === "string" ? new Date(dateToCompare) : dateToCompare;
-    return date.getTime() > new Date(toCompare.setHours(0, 0, 0, 0)).getTime();
-  }, []);
-
   // Function to format a specified date as a string with optional date and time styles
   const formatDate = useCallback<UseDateTime["formatDate"]>(
     (date = new Date(), dateTimeFormatOptions) => {
@@ -272,7 +250,7 @@ export function useDateTime(options?: UseDateTimeProps): UseDateTime {
         },
       };
     },
-    [formatDate, isDateAfter, isDateBefore, isSameDate],
+    [formatDate],
   );
 
   // Return the formatted date and time functions

@@ -2,7 +2,6 @@ export * from "./classNames";
 export * from "./clickOutside";
 export * from "./clickOutsideManager";
 export * from "./date";
-export * from "./dateFormatter";
 export * from "./focusTrap";
 export * from "./objectUtils";
 export * from "./invertColor";
