@@ -3,26 +3,26 @@
 @use "./variables" as *;
 
 @include theme.scope($calendar-root) {
-  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 12px;
+  width: 100%;
   user-select: none;
 
   &__navigation {
     display: flex;
     gap: 8px;
     align-items: center;
-  }
 
-  &__prev,
-  &__next {
-    cursor: pointer;
-  }
+    &__prev,
+    &__next {
+      cursor: pointer;
+    }
 
-  &__period {
-    width: 100%;
-    text-align: center;
+    &__period {
+      width: 100%;
+      text-align: center;
+    }
   }
 
   &__week {
@@ -43,18 +43,65 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-auto-rows: 1fr;
+    gap: 2px;
     color: #000;
-
-    &--rtl {
-      flex-direction: row-reverse;
-    }
   }
 
+  &__week__day,
   &__day {
+    all: unset;
     position: relative;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
-    outline: 1px solid red;
+
+    @include text.typography(base, $overrides: (color: currentColor));
+
+    @include theme.focus-styles;
+    @include theme.disabled-styles;
+  }
+
+  &__day {
+    cursor: pointer;
+
+    &--today {
+      background-color: pink;
+    }
+
+    &--selected {
+      background-color: blue;
+    }
+
+    &--locked,
+    &--disabled {
+      cursor: not-allowed;
+    }
+
+    &--weekend:not(:empty) {
+      background-color: #ccc;
+    }
+
+    &--locked,
+    &--disabled,
+    &--sibling-month-day {
+      opacity: 0.5;
+    }
+
+    &--in-range {
+      background-color: #ddd;
+    }
+
+    &--start-range,
+    &--end-range {
+      background: green;
+    }
+  }
+
+  &--rtl {
+    .#{$calendar-root}__week,
+    .#{$calendar-root}__month {
+      direction: rtl;
+    }
   }
 }
