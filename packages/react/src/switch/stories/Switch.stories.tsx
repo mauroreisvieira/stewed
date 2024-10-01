@@ -29,6 +29,7 @@ export const Controlled: Story = {
   },
   args: {
     children: "Label",
+    disabled: false,
     defaultChecked: true,
   },
 };

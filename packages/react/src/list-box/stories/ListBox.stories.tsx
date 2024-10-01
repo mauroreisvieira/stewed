@@ -42,6 +42,7 @@ export const Base: Story = {
           <ListBox.Item leftSlot={<FiMap />}>Map</ListBox.Item>
           <ListBox.Item
             skin="critical"
+            disabled
             leftSlot={<FiTrash />}
             rightSlot={
               <Button leftSlot={<FiLock />} size="xs" appearance="ghost" skin="critical" iconOnly>

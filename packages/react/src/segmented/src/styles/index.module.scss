@@ -36,8 +36,11 @@
     border-radius: calc(theme.get-var(radius) - 4px);
 
     @include theme.focus-styles;
-    @include theme.disabled-styles;
     @include text.typography(base, $overrides: (font-size: theme.get-font-size("sm")));
+
+    &--disabled {
+      @include theme.disabled-styles;
+    }
 
     &__left,
     &__right {

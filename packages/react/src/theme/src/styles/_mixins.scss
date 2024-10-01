@@ -75,10 +75,8 @@
 }
 
 @mixin disabled-styles {
-  &--disabled {
-    pointer-events: none;
-    opacity: $disabled;
-  }
+  cursor: not-allowed;
+  opacity: $disabled;
 }
 
 // primary input mechanism is a mouse

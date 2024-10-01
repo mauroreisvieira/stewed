@@ -29,6 +29,7 @@ export default meta;
  */
 export const Controlled: Story = {
   args: {
+    disabled: false,
     children: "Label",
   },
 };

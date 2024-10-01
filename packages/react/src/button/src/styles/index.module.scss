@@ -17,6 +17,7 @@
   overflow: hidden;
   color: theme.get-var(color);
   text-overflow: ellipsis;
+  text-transform: inherit;
   white-space: nowrap;
   touch-action: manipulation;
   cursor: pointer;
@@ -33,7 +34,10 @@
   );
 
   @include theme.focus-styles;
-  @include theme.disabled-styles;
+
+  &--disabled {
+    @include theme.disabled-styles;
+  }
 
   &[href] {
     text-decoration: none;
@@ -53,7 +57,7 @@
           )
         );
 
-        &:hover {
+        &:hover:not([aria-disabled]) {
           @include theme.define-var(
             (
               background-color: theme.get-color($value, "600"),
@@ -79,7 +83,7 @@
           )
         );
 
-        &:hover {
+        &:hover:not([aria-disabled]) {
           @include theme.define-var(
             (
               background-color: color-mix(in srgb, theme.get-color($value, "500"), transparent 95%),
@@ -106,7 +110,7 @@
           )
         );
 
-        &:hover {
+        &:hover:not([aria-disabled]) {
           @include theme.define-var(
             (
               color: theme.get-color($value, "600"),

@@ -40,9 +40,12 @@
     );
 
     @include theme.focus-styles;
-    @include theme.disabled-styles;
 
-    &:hover {
+    &--disabled {
+      @include theme.disabled-styles;
+    }
+
+    &:hover:not([aria-disabled]) {
       @include theme.define-var(
         (
           background-color: theme.get-color("neutral", "100"),
@@ -79,7 +82,7 @@
           )
         );
 
-        &:hover {
+        &:hover:not([aria-disabled]) {
           @include theme.define-var(
             (
               background-color: theme.get-color($value, "100"),
@@ -104,8 +107,6 @@
         }
       }
     }
-
-    @include theme.disabled-styles;
   }
 
   &__group {

@@ -64,6 +64,9 @@ export const defaultTokens: Tokens = {
     [components.Checkbox]: {
       radius: "sm",
     },
+    [components.Calendar]: {
+      radius: "sm",
+    },
     [components.Dialog]: {
       radius: "md",
       shadow: "2xl",

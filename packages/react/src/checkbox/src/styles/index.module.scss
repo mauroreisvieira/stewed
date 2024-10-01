@@ -20,12 +20,14 @@
   @include theme.focus-styles($target: ":focus-within .#{$checkbox-root}__control");
   @include theme.disabled-styles;
 
-  @include theme.hover {
-    @include theme.define-var(
-      (
-        background-color: theme.get-color("neutral", "200"),
-      )
-    );
+  &:not(&--disabled) {
+    @include theme.hover {
+      @include theme.define-var(
+        (
+          background-color: theme.get-color("neutral", "200"),
+        )
+      );
+    }
   }
 
   &__input {

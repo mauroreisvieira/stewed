@@ -18,14 +18,19 @@
   );
 
   @include theme.focus-styles($target: ":focus-within .#{$radio-root}__control");
-  @include theme.disabled-styles;
 
-  @include theme.hover {
-    @include theme.define-var(
-      (
-        background-color: theme.get-color("neutral", "200"),
-      )
-    );
+  &--disabled {
+    @include theme.disabled-styles;
+  }
+
+  &:not(&--disabled) {
+    @include theme.hover {
+      @include theme.define-var(
+        (
+          background-color: theme.get-color("neutral", "200"),
+        )
+      );
+    }
   }
 
   &__input {

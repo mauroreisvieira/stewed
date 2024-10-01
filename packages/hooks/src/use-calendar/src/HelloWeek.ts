@@ -31,13 +31,13 @@ export interface HighlightedDates<T> {
   // Explicitly typed 'days' property for individual dates or date ranges.
   days: DateOrArrayDates;
   // Other properties can be of type T.
-  data: T;
+  data?: T;
 }
 
 // Represents the configuration options for the calendar.
 export interface HelloWeekProps<T> {
   // The default date to display on the calendar.
-  defaultDate: Date;
+  defaultDate?: Date;
   // The language/locale to use for date formatting.
   lang?: Intl.LocalesArgument;
   // The date format options for formatting dates.
@@ -109,7 +109,6 @@ export type DayOptions<T> = {
 export class HelloWeek<T> {
   private options: HelloWeekProps<T> = {
     lang: "en-UK",
-    defaultDate: new Date(),
     weekStart: DAYS_WEEK.SUNDAY,
     highlightedToday: true,
     disabledPastDates: false,
@@ -142,7 +141,7 @@ export class HelloWeek<T> {
 
     this.highlightedDates = options?.highlightedDates || [];
     // The current date in the calendar.
-    this.date = defaultOptions.defaultDate;
+    this.date = defaultOptions.defaultDate || new Date();
     // Set the day of the current date to the first day of the month.
     this.date.setDate(1);
     // Today's date with time set to midnight (00:00:00).

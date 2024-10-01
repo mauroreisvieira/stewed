@@ -32,6 +32,7 @@ export const Controlled: Story = {
     onChange: { action: "change" },
   },
   args: {
+    disabled: false,
     defaultChecked: true,
     children: "Label",
   },

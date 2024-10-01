@@ -119,10 +119,13 @@
     cursor: pointer;
 
     @include theme.focus-styles;
-    @include theme.disabled-styles;
     @include text.typography(base, $overrides: (font-size: theme.get-font-size("sm")));
 
-    &:hover {
+    &--disabled {
+      @include theme.disabled-styles;
+    }
+
+    &:hover:not([disabled]) {
       @include theme.define-var(
         (
           color: theme.get-color("primary", "500"),

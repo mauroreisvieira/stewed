@@ -17,6 +17,7 @@ export const components = {
   Dialog: "dialog",
   Drawer: "drawer",
   Dropdown: "dropdown",
+  DatePicker: "date-picker",
   FormField: "form-field",
   Grid: "grid",
   Group: "group",
@@ -55,6 +56,7 @@ export type Components = {
   [components.Button]?: { radius?: Radius };
   [components.Card]?: { radius?: Radius };
   [components.Checkbox]?: { radius?: Radius };
+  [components.Calendar]?: { radius?: Radius };
   [components.Dialog]?: { radius?: Radius; shadow?: Shadow };
   [components.Drawer]?: { radius?: Radius; shadow?: Shadow };
   [components.Dropdown]?: { radius?: Radius; shadow?: Shadow };

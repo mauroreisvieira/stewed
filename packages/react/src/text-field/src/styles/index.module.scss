@@ -17,7 +17,10 @@
 
   @include text.typography(base, $overrides: (font-size: theme.get-font-size("md")));
   @include theme.focus-styles($target: ":has(input:focus-visible)");
-  @include theme.disabled-styles;
+
+  &--disabled {
+    @include theme.disabled-styles;
+  }
 
   &__input {
     all: unset;
@@ -77,7 +80,7 @@
   &--outline {
     border: 1px solid theme.get-var(border-color);
 
-    &:hover {
+    &:hover:has(:not([disabled])) {
       border-color: theme.get-var(border-color-hover);
     }
   }
@@ -90,7 +93,7 @@
     background-color: color-mix(in srgb, theme.get-var(background-color), transparent 95%);
     border-color: transparent;
 
-    &:hover {
+    &:hover:has(:not([disabled])) {
       background-color: color-mix(in srgb, theme.get-var(background-color), transparent 90%);
     }
   }
