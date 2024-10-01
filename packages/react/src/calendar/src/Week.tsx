@@ -7,6 +7,10 @@ import { components } from "@stewed/tokens";
 import styles from "./styles/index.module.scss";
 
 interface WeekProps {
+  /**
+   * Array of weekday names. Each name should represent a day of the week (e.g., "Monday", "Tuesday").
+   * This property can be undefined if the days are not specified.
+   */
   weekDays: string[] | undefined;
 }
 

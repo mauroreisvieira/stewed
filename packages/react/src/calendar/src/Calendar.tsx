@@ -1,32 +1,55 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useMemo } from "react";
 // Internal Components
-import { Navigation } from "./Navigation";
+import { Navigation, type NavigationProps } from "./Navigation";
 import { Week } from "./Week";
 import { Month, type MonthProps } from "./Month";
 // Hooks
-import { useBem, useCalendar, type UseCalendarProps, type DateOrArrayDates } from "@stewed/hooks";
+import { useBem, useCalendar, type UseCalendarProps } from "@stewed/hooks";
 // Tokens
 import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-interface CalendarProps<T>
+export interface CalendarProps<T>
   extends UseCalendarProps<T>,
-    Omit<MonthProps<T>, "setSelectedDates" | "days"> {
+    Omit<MonthProps<T>, "days">,
+    Pick<NavigationProps, "prevMonthLabel" | "nextMonthLabel"> {
+  /** Additional class name for the calendar container.  */
   className?: string;
+  /**  Whether the calendar should render in right-to-left (RTL) mode. */
   rtl?: boolean;
+  /**  Callback fired when the month changes. */
   onMonthChange?: () => void;
 }
 
+/**
+ * Calendar component that supports multiple selection, date ranges, and custom date formatting.
+ *
+ * @template T The type of the data for each date.
+ *
+ * @param {CalendarProps<T>} props The properties for the calendar.
+ * @returns {React.ReactElement} The rendered calendar component.
+ *
+ * @example
+ * ```tsx
+ * const [selectedDates, setSelectedDates] = useState<DateOrArrayDates>([]);
+ *
+ * <Calendar
+ *   className="custom-calendar"
+ *   selectedDates={selectedDates}
+ *   setSelectedDates={setSelectedDates}
+ *   onMonthChange={() => console.log("Month changed")}
+ * />
+ * ```
+ */
 export function Calendar<T>({
   className,
   multipleSelect = false,
   range = false,
   rtl,
   siblingMonthDays = false,
-  onMonthChange,
-  onDaySelected,
-  selectedDates: initialDates,
+  selectedDates,
+  setSelectedDates,
   defaultDate,
   disabledDates,
   disabledDaysOfWeek,
@@ -36,21 +59,22 @@ export function Calendar<T>({
   highlightedToday,
   lang,
   locked,
+  readOnly,
   maxDate,
   minDate,
   weekStart,
+  onMonthChange,
+  onDaySelected,
 }: CalendarProps<T>): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock, getElement } = useBem({ block: components.Calendar, styles });
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ modifiers: [rtl && "rtl"], extraClasses: className }),
+    root: getBlock({ modifiers: [rtl && "rtl", locked && "locked"], extraClasses: className }),
     week: getElement(["week"]),
     month: getElement(["month"]),
   };
-
-  const [selectedDates, setSelectedDates] = useState<DateOrArrayDates | undefined>(initialDates);
 
   const today = useMemo(() => new Date(), []);
 
@@ -70,23 +94,28 @@ export function Calendar<T>({
     weekStart,
   });
 
-  console.log("selectedDates",selectedDates);
-
   const onHandlePrevMonth = useCallback(() => {
+    if (locked) {
+      return;
+    }
     onPrevMonth();
     onMonthChange?.();
-  }, [onMonthChange, onPrevMonth]);
+  }, [locked, onMonthChange, onPrevMonth]);
 
   const onHandleNextMonth = useCallback(() => {
+    if (locked) {
+      return;
+    }
     onNextMonth?.();
     onMonthChange?.();
-  }, [onMonthChange, onNextMonth]);
+  }, [locked, onMonthChange, onNextMonth]);
 
   return (
     <div className={cssClasses.root}>
       <Navigation
         onPrev={onHandlePrevMonth}
         onNext={onHandleNextMonth}
+        locked={locked}
         currentMonth={data?.month}
         currentYear={data?.year}
       />
@@ -94,6 +123,7 @@ export function Calendar<T>({
       <Week weekDays={data?.weekDays} />
 
       <Month
+        readOnly={readOnly}
         days={data?.days}
         multipleSelect={multipleSelect}
         range={range}
