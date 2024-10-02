@@ -76,9 +76,7 @@ export function Calendar<T>({
     month: getElement(["month"]),
   };
 
-  const defaultDate = useMemo(() => (initialDate instanceof Date ? initialDate : new Date()), []);
-
-  console.log("defaultDate", defaultDate instanceof Date);
+  const defaultDate = useMemo(() => (initialDate instanceof Date ? initialDate : new Date()), [initialDate]);
 
   const { data, prevMonth, nextMonth } = useCalendar({
     selectedDates,

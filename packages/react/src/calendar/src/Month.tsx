@@ -43,10 +43,9 @@ export interface MonthProps<T> {
    */
   range?: boolean;
   /** Function to set the selected dates, supporting single or multiple date selection. */
-  setSelectedDates: React.Dispatch<React.SetStateAction<DateOrArrayDates | undefined>>;
+  setSelectedDates?: React.Dispatch<React.SetStateAction<DateOrArrayDates | undefined>>;
   /**
    * Callback fired when a day is selected.
-   *
    * @param day The day option that was selected.
    */
   onDaySelected?: (day: DayOptions<T>) => void;
@@ -92,33 +91,33 @@ export function Month<T>({
             start: date,
             end: undefined,
           };
-          setSelectedDates([date]);
+          setSelectedDates?.([date]);
         } else if (rangeDates.current.end && isSameDay(date, rangeDates.current.end)) {
           // If the clicked date is the same as the end, set end to undefined
           rangeDates.current.end = undefined;
-          setSelectedDates([rangeDates.current.start]);
+          setSelectedDates?.([rangeDates.current.start]);
         } else if (isSameDay(date, rangeDates.current.start)) {
           // If the clicked date is the same as the start, set start to undefined
           rangeDates.current = {
             start: undefined,
             end: undefined,
           };
-          setSelectedDates([]);
+          setSelectedDates?.([]);
         } else if (isDateAfter(date, rangeDates.current.start)) {
           // If the current date is after the start date, set it as the end date
           rangeDates.current.end = date;
-          setSelectedDates([[rangeDates.current.start, date]]);
+          setSelectedDates?.([[rangeDates.current.start, date]]);
         } else if (isDateBefore(date, rangeDates.current.start)) {
           // If the current date is before the start date, set it as the new start date
           rangeDates.current = {
             start: date,
             end: undefined,
           };
-          setSelectedDates([date]);
+          setSelectedDates?.([date]);
         }
       } else {
         // If not range mode, handle multiple or single selection
-        setSelectedDates((prev) => {
+        setSelectedDates?.((prev) => {
           if (!prev) return [date];
 
           return multipleSelect

@@ -108,6 +108,7 @@
     &--today {
       @include theme.define-var(
         (
+          background-color: theme.get-color("primary", "100"),
           color: theme.get-color("primary", "500"),
         )
       );

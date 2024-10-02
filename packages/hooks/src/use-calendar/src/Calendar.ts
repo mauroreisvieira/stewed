@@ -61,7 +61,7 @@ export interface CalendarOptions<T> {
   highlightedToday?: boolean;
 }
 
-export type DayOptions<T> = {
+export interface DayOptions<T> {
   // The date object representing the day.
   date: Date;
   // The formatted string representation of the day's date.
@@ -98,7 +98,7 @@ export type DayOptions<T> = {
   };
   // Highlighted details about the day.
   details?: T;
-};
+}
 
 /**
  * Represents a calendar with configurable options for language, date format, and week start day.
@@ -135,6 +135,7 @@ export class Calendar<T> {
 
     // Configuration options for the calendar.
     this.options = defaultOptions;
+
     this.highlightedDates = options?.highlightedDates || [];
     // The current date in the calendar.
     this.date = defaultOptions.defaultDate || new Date();

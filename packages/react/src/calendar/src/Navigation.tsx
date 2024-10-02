@@ -82,7 +82,7 @@ export function Navigation({
             }
           />
         )}
-        placement="right"
+        placement="bottom"
         delay={3000}>
         {prevMonthLabel}
       </Tooltip>
@@ -117,7 +117,7 @@ export function Navigation({
             }
           />
         )}
-        placement="left"
+        placement="bottom"
         delay={3000}>
         {nextMonthLabel}
       </Tooltip>
