@@ -1,13 +1,23 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 // Calendar
-import {
-  HelloWeek,
-  type HelloWeekProps,
-  type DayOptions,
-  type HighlightedDates,
-} from "./HelloWeek";
+import { Calendar, type CalendarOptions, type DayOptions, type HighlightedDates } from "./Calendar";
 
-export interface UseCalendarProps<T> extends HelloWeekProps<T> {}
+export interface UseCalendarProps<T> extends CalendarOptions<T> {}
+
+export interface UseCalendar<T> {
+  data:
+    | {
+        month: string;
+        year: string;
+        days: DayOptions<T>[];
+        weekDays: string[];
+        highlightedDates: HighlightedDates<T>[];
+      }
+    | undefined;
+  prevMonth: () => void;
+  nextMonth: () => void;
+  set: (options: UseCalendarProps<T>) => void;
+}
 
 export function useCalendar<T>({
   defaultDate,
@@ -23,8 +33,8 @@ export function useCalendar<T>({
   selectedDates,
   weekStart,
   locked,
-}: UseCalendarProps<T>) {
-  const calendarRef = useRef<HelloWeek<T>>();
+}: UseCalendarProps<T>): UseCalendar<T> {
+  const calendarRef = useRef<Calendar<T>>();
   const [data, setData] = useState<{
     month: string;
     year: string;
@@ -50,7 +60,7 @@ export function useCalendar<T>({
   }, []);
 
   useEffect(() => {
-    calendarRef.current = new HelloWeek<T>({
+    calendarRef.current = new Calendar<T>({
       defaultDate,
       disabledDates,
       disabledDaysOfWeek,
@@ -96,20 +106,20 @@ export function useCalendar<T>({
     [updateCalendar],
   );
 
-  const onPrevMonth = useCallback(() => {
+  const prevMonth = useCallback(() => {
     calendarRef.current?.prevMonth();
     updateCalendar();
   }, [updateCalendar]);
 
-  const onNextMonth = useCallback(() => {
+  const nextMonth = useCallback(() => {
     calendarRef.current?.nextMonth();
     updateCalendar();
   }, [updateCalendar]);
 
   return {
     data,
-    onPrevMonth,
-    onNextMonth,
+    prevMonth,
+    nextMonth,
     set,
   };
 }

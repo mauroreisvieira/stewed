@@ -50,7 +50,7 @@ export function Calendar<T>({
   siblingMonthDays = false,
   selectedDates,
   setSelectedDates,
-  defaultDate,
+  defaultDate: initialDate,
   disabledDates,
   disabledDaysOfWeek,
   disabledPastDates,
@@ -76,11 +76,13 @@ export function Calendar<T>({
     month: getElement(["month"]),
   };
 
-  const today = useMemo(() => new Date(), []);
+  const defaultDate = useMemo(() => (initialDate instanceof Date ? initialDate : new Date()), []);
 
-  const { data, onPrevMonth, onNextMonth } = useCalendar({
+  console.log("defaultDate", defaultDate instanceof Date);
+
+  const { data, prevMonth, nextMonth } = useCalendar({
     selectedDates,
-    defaultDate: defaultDate || today,
+    defaultDate,
     disabledDates,
     disabledDaysOfWeek,
     disabledPastDates,
@@ -98,17 +100,17 @@ export function Calendar<T>({
     if (locked) {
       return;
     }
-    onPrevMonth();
+    prevMonth();
     onMonthChange?.();
-  }, [locked, onMonthChange, onPrevMonth]);
+  }, [locked, onMonthChange, prevMonth]);
 
   const onHandleNextMonth = useCallback(() => {
     if (locked) {
       return;
     }
-    onNextMonth?.();
+    nextMonth?.();
     onMonthChange?.();
-  }, [locked, onMonthChange, onNextMonth]);
+  }, [locked, onMonthChange, nextMonth]);
 
   return (
     <div className={cssClasses.root}>

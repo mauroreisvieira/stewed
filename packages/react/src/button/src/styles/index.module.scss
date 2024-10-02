@@ -57,7 +57,7 @@
           )
         );
 
-        &:hover:not([aria-disabled]) {
+        &:hover:not([aria-disabled="true"]) {
           @include theme.define-var(
             (
               background-color: theme.get-color($value, "600"),
@@ -83,7 +83,7 @@
           )
         );
 
-        &:hover:not([aria-disabled]) {
+        &:hover:not([aria-disabled="true"]) {
           @include theme.define-var(
             (
               background-color: color-mix(in srgb, theme.get-color($value, "500"), transparent 95%),
@@ -110,7 +110,7 @@
           )
         );
 
-        &:hover:not([aria-disabled]) {
+        &:hover:not([aria-disabled="true"]) {
           @include theme.define-var(
             (
               color: theme.get-color($value, "600"),

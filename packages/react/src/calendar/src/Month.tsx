@@ -138,18 +138,9 @@ export function Month<T>({
     <div className={cssClasses.root}>
       {days?.map((day) => (
         <Day
-          aria-label={`${day.dateObject.weekday}, ${day.dateObject.month} ${day.dateObject.day}`}
+          {...day.attributes}
           key={day.date.getTime()}
-          selected={day.attributes.selected}
-          today={day.attributes.today}
-          weekend={day.attributes.weekend}
-          siblingMonthDays={day.attributes.siblingMonthDays}
-          highlighted={day.attributes.highlighted}
-          disabled={day.attributes.disabled}
-          locked={day.attributes.locked}
-          startRange={day.attributes.startRange}
-          inRange={day.attributes.inRange}
-          endRange={day.attributes.endRange}
+          aria-label={`${day.dateObject.weekday}, ${day.dateObject.month} ${day.dateObject.day}`}
           onClick={() => onHandleDayClick(day)}>
           {(siblingMonthDays || (!siblingMonthDays && !day.attributes.siblingMonthDays)) && (
             <time dateTime={day.dateFormatted}>{day.dateObject.day}</time>

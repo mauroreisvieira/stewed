@@ -7,7 +7,7 @@ import {
   isArray,
 } from "@stewed/utilities";
 
-export const DAYS_WEEK = {
+const DAYS_WEEK = {
   SUNDAY: 0,
   MONDAY: 1,
   TUESDAY: 2,
@@ -17,12 +17,10 @@ export const DAYS_WEEK = {
   SATURDAY: 6,
 } as const;
 
-export type Weekdays = typeof DAYS_WEEK;
+type Weekdays = typeof DAYS_WEEK;
 
 // Represents the numeric values of days of the week.
-export type WeekdaysValues = Weekdays[keyof Weekdays];
-
-export const WEEKDAYS: WeekdaysValues[] = [0, 1, 2, 3, 4, 5, 6];
+type WeekdaysValues = Weekdays[keyof Weekdays];
 
 // Represents either a single Date object or a range of two Date objects.
 export type DateOrArrayDates = (Date | [Date, Date])[];
@@ -34,8 +32,7 @@ export interface HighlightedDates<T> {
   data?: T;
 }
 
-// Represents the configuration options for the calendar.
-export interface HelloWeekProps<T> {
+export interface CalendarOptions<T> {
   // The default date to display on the calendar.
   defaultDate?: Date;
   // The language/locale to use for date formatting.
@@ -64,7 +61,6 @@ export interface HelloWeekProps<T> {
   highlightedToday?: boolean;
 }
 
-// Represents the options for each day in the calendar.
 export type DayOptions<T> = {
   // The date object representing the day.
   date: Date;
@@ -97,6 +93,7 @@ export type DayOptions<T> = {
     locked: boolean;
     // Indicates if the day is disabled and cannot be selected or interacted with.
     disabled: boolean;
+    // Indicates if the day belongs to a sibling month (previous or next) in the current view.
     siblingMonthDays: boolean;
   };
   // Highlighted details about the day.
@@ -106,8 +103,8 @@ export type DayOptions<T> = {
 /**
  * Represents a calendar with configurable options for language, date format, and week start day.
  */
-export class HelloWeek<T> {
-  private options: HelloWeekProps<T> = {
+export class Calendar<T> {
+  private options: CalendarOptions<T> = {
     lang: "en-UK",
     weekStart: DAYS_WEEK.SUNDAY,
     highlightedToday: true,
@@ -123,14 +120,14 @@ export class HelloWeek<T> {
    * Creates a new instance of the Calendar class.
    * @param options - The configuration options for the calendar.
    */
-  constructor(options?: HelloWeekProps<T>) {
-    const defaultOptions: HelloWeekProps<T> = {
+  constructor(options?: CalendarOptions<T>) {
+    const defaultOptions: CalendarOptions<T> = {
       ...this.options,
       ...options,
       formatDate: {
         ...options?.formatDate,
         day: options?.formatDate?.day || "numeric",
-        month: options?.formatDate?.month || "2-digit",
+        month: options?.formatDate?.month || "long",
         year: options?.formatDate?.year || "numeric",
         weekday: options?.formatDate?.weekday || "short",
       },
@@ -138,7 +135,6 @@ export class HelloWeek<T> {
 
     // Configuration options for the calendar.
     this.options = defaultOptions;
-
     this.highlightedDates = options?.highlightedDates || [];
     // The current date in the calendar.
     this.date = defaultOptions.defaultDate || new Date();
@@ -155,7 +151,7 @@ export class HelloWeek<T> {
    * This method allows you to modify the calendar options either by providing a new options object or by using a callback function to modify the existing options.
    *
    * @remarks
-   * The `options` parameter can be either an options object of type {@link IOptions},
+   * The `options` parameter can be either an options object of type {@link CalendarOptions},
    * which will replace all current options with the provided ones,
    * or a callback function that takes the previous options as an argument and returns the updated options.
    * When using a callback, the function allows you to modify multiple options at once while preserving the previous options that are not explicitly modified.
@@ -187,7 +183,9 @@ export class HelloWeek<T> {
    *
    * @param options - The calendar options, or a callback function with previous options.
    */
-  public setOptions(options: ((prev: HelloWeekProps<T>) => HelloWeekProps<T>) | HelloWeekProps<T>) {
+  public setOptions(
+    options: ((prev: CalendarOptions<T>) => CalendarOptions<T>) | CalendarOptions<T>,
+  ) {
     if (typeof options === "function") {
       this.options = options(this.options);
     } else {
@@ -198,14 +196,18 @@ export class HelloWeek<T> {
     this.createMonth();
   }
 
+  public setMonth(month: number): void {
+    this.date.setMonth(month);
+    this.createMonth();
+  }
+
   /**
    * Move to the previous month.
    * This method updates the current date to the previous month.
    */
   public prevMonth(): void {
     const prevMonth = this.date.getMonth() - 1;
-    this.date.setMonth(prevMonth);
-    this.createMonth();
+    this.setMonth(prevMonth);
   }
 
   /**
@@ -214,7 +216,11 @@ export class HelloWeek<T> {
    */
   public nextMonth(): void {
     const nextMonth = this.date.getMonth() + 1;
-    this.date.setMonth(nextMonth);
+    this.setMonth(nextMonth);
+  }
+
+  public setYear(year: number): void {
+    this.date.setFullYear(year);
     this.createMonth();
   }
 
@@ -224,8 +230,7 @@ export class HelloWeek<T> {
    */
   public prevYear(): void {
     const prevYear = this.date.getFullYear() - 1;
-    this.date.setFullYear(prevYear);
-    this.createMonth();
+    this.setYear(prevYear);
   }
 
   /**
@@ -234,19 +239,19 @@ export class HelloWeek<T> {
    */
   public nextYear(): void {
     const nextYear = this.date.getFullYear() + 1;
-    this.date.setFullYear(nextYear);
-    this.createMonth();
+    this.setYear(nextYear);
   }
 
   /**
    * Sets the calendar to a specific date and updates the displayed month.
    * @param date - The target date to navigate to.
    */
-  public gotoDate(date: Date): void {
+  public setDate(date: Date): void {
     const year = date.getFullYear();
     const month = date.getMonth();
 
-    this.date.setFullYear(year, month); // Update year and month together
+    // Update year and month together
+    this.date.setFullYear(year, month);
     this.createMonth();
   }
 
@@ -255,21 +260,20 @@ export class HelloWeek<T> {
    * @returns An array of string with each day of week.
    */
   public getWeekDays(): string[] {
-    const { lang, formatDate: format, weekStart } = this.options;
     const weekLength = 7;
 
     // Define the formatter for the day names
-    const dayFormatter = new Intl.DateTimeFormat(lang as string, {
-      weekday: format?.weekday || "short",
+    const dayFormatter = new Intl.DateTimeFormat(this.options.lang, {
+      weekday: this.options.formatDate?.weekday || "short",
     });
 
     // Create an array of weekdays starting from the specified weekStart
     return Array.from({ length: weekLength }, (_, index) => {
       // Calculate the day index starting from weekStart
-      const dayIndex = ((weekStart || DAYS_WEEK.SUNDAY) + index) % weekLength;
+      const dayIndex = ((this.options.weekStart || DAYS_WEEK.SUNDAY) + index) % weekLength;
 
       // Create a valid reference date, setting the day directly (Sunday is day 0)
-      const referenceDate = new Date(Date.UTC(1970, 0, 4 + dayIndex)); // January 4, 1970 is a Sunday in UTC
+      const referenceDate = new Date(Date.UTC(1970, 0, 4 + dayIndex));
 
       // Format the weekday name using the DateTimeFormat instance
       return dayFormatter.format(referenceDate);
@@ -290,9 +294,8 @@ export class HelloWeek<T> {
    * @returns The today's date.
    */
   public getToday(options?: { format?: Intl.DateTimeFormatOptions }): string {
-    const { lang, formatDate } = this.options;
-    const format = options?.format || formatDate;
-    return this.today.toLocaleDateString(lang, {
+    const format = options?.format || this.options.formatDate;
+    return this.today.toLocaleDateString(this.options.lang, {
       ...format,
       weekday: undefined,
     });
@@ -304,9 +307,8 @@ export class HelloWeek<T> {
    * @returns The month string representation.
    */
   public getMonth(options?: { format?: Intl.DateTimeFormatOptions["month"] }): string {
-    const { lang, formatDate } = this.options;
-    const format = options?.format || formatDate?.month;
-    return this.date.toLocaleDateString(lang, { month: format });
+    const format = options?.format || this.options.formatDate?.month;
+    return this.date.toLocaleDateString(this.options.lang, { month: format });
   }
 
   /**
@@ -315,9 +317,8 @@ export class HelloWeek<T> {
    * @returns The year string representation.
    */
   public getYear(options?: { format?: Intl.DateTimeFormatOptions["year"] }): string {
-    const { lang, formatDate } = this.options;
-    const format = options?.format || formatDate?.year;
-    return this.date.toLocaleDateString(lang, { year: format });
+    const format = options?.format || this.options.formatDate?.year;
+    return this.date.toLocaleDateString(this.options.lang, { year: format });
   }
 
   public getDaysHighlight(): HighlightedDates<T>[] {
@@ -375,36 +376,24 @@ export class HelloWeek<T> {
   }
 
   private createDay(date: Date, currentMonth: number): void {
-    const {
-      lang,
-      formatDate: format,
-      selectedDates,
-      highlightedToday,
-      highlightedDates,
-      maxDate,
-      minDate,
-      locked,
-      disabledDaysOfWeek,
-      disabledPastDates,
-      disabledDates,
-    } = this.options;
-
     const weekday = date.getDay() as WeekdaysValues;
 
     const dayOptions: DayOptions<T> = {
       date: new Date(date.setHours(0, 0, 0, 0)),
       dateObject: {
-        day: date.toLocaleDateString(lang, { day: format?.day }),
-        month: date.toLocaleDateString(lang, { month: format?.month }),
-        year: date.toLocaleDateString(lang, { year: format?.year }),
-        weekday: date.toLocaleDateString(lang, {
-          weekday: format?.weekday,
+        day: date.toLocaleDateString(this.options.lang, { day: this.options.formatDate?.day }),
+        month: date.toLocaleDateString(this.options.lang, {
+          month: this.options.formatDate?.month,
+        }),
+        year: date.toLocaleDateString(this.options.lang, { year: this.options.formatDate?.year }),
+        weekday: date.toLocaleDateString(this.options.lang, {
+          weekday: this.options.formatDate?.weekday,
         }),
       },
-      dateFormatted: date.toLocaleDateString(lang, {
-        day: format?.day,
-        month: format?.month,
-        year: format?.year,
+      dateFormatted: date.toLocaleDateString(this.options.lang, {
+        day: this.options.formatDate?.day,
+        month: this.options.formatDate?.month,
+        year: this.options.formatDate?.year,
       }),
       attributes: {
         today: false,
@@ -421,7 +410,7 @@ export class HelloWeek<T> {
     };
 
     // Determining if the day is today.
-    if (isToday(date) && highlightedToday) {
+    if (isToday(date) && this.options.highlightedToday) {
       dayOptions.attributes.today = true;
     }
 
@@ -432,7 +421,7 @@ export class HelloWeek<T> {
 
     // Determining if the day is selected based on specific dates or a range of dates.
     if (
-      selectedDates?.some((day) => {
+      this.options.selectedDates?.some((day) => {
         if (isArray(day)) {
           // For a range of dates, check if the day falls within the range.
           const [start, end] = day;
@@ -456,7 +445,7 @@ export class HelloWeek<T> {
 
     // Determine if the current day is highlighted based on specific dates or date ranges.
     if (
-      highlightedDates?.some(({ days, data }) => {
+      this.options.highlightedDates?.some(({ days, data }) => {
         const isHighlighted = days.some((day) => {
           if (isArray(day)) {
             // Handle date range: Extract start and end dates.
@@ -484,7 +473,7 @@ export class HelloWeek<T> {
 
     // Determining if the day is disabled based on specific dates, weekdays, or past dates.
     if (
-      disabledDates?.some((day) => {
+      this.options.disabledDates?.some((day) => {
         // Checking if the day is disabled based on a range of dates.
         if (isArray(day)) {
           const [start, end] = day;
@@ -494,18 +483,18 @@ export class HelloWeek<T> {
           return isSameDay(day as Date, date);
         }
       }) || // Checking if the day is disabled based on specific weekdays.
-      (disabledDaysOfWeek && disabledDaysOfWeek.includes(weekday)) ||
+      (this.options.disabledDaysOfWeek && this.options.disabledDaysOfWeek.includes(weekday)) ||
       // Checking if the day is disabled based on past dates.
-      (disabledPastDates && isDateBefore(date, this.today))
+      (this.options.disabledPastDates && isDateBefore(date, this.today))
     ) {
       dayOptions.attributes.disabled = true;
     }
 
     // Determining if the day is locked.
     if (
-      locked || // If the entire calendar or a specific day is locked, it should be considered locked.
-      (minDate && isDateBefore(date, minDate)) || // If a `minDate` is specified and the date is before the `minDate`, the day should be considered locked.
-      (maxDate && isDateAfter(date, maxDate)) // If a `maxDate`` is specified and the date is after the `maxDate`, the day should be considered locked.
+      this.options.locked || // If the entire calendar or a specific day is locked, it should be considered locked.
+      (this.options.minDate && isDateBefore(date, this.options.minDate)) || // If a `minDate` is specified and the date is before the `minDate`, the day should be considered locked.
+      (this.options.maxDate && isDateAfter(date, this.options.maxDate)) // If a `maxDate`` is specified and the date is after the `maxDate`, the day should be considered locked.
     ) {
       dayOptions.attributes.locked = true; // Set the locked property to true to indicate the day is locked.
     }

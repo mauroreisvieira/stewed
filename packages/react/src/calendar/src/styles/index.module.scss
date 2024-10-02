@@ -16,13 +16,18 @@
 
     &__prev,
     &__next {
-      cursor: pointer;
+      display: flex;
     }
 
     &__period {
       width: 100%;
       text-align: center;
       text-transform: capitalize;
+
+      @include text.typography(
+        base,
+        $overrides: (color: theme.get-color("black"), font-size: theme.get-font-size("sm"))
+      );
     }
   }
 
@@ -45,7 +50,7 @@
     grid-template-columns: repeat(7, 1fr);
     grid-auto-rows: 1fr;
     row-gap: theme.get-spacing("xxs");
-    color: theme.get-color("neutral", "900");
+    color: theme.get-color("black");
   }
 
   &__week__day,

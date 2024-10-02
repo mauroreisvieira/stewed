@@ -74,6 +74,7 @@ const meta: Meta<typeof Calendar> = {
     },
   },
   args: {
+    defaultDate: now,
     multipleSelect: false,
     highlightedToday: false,
     readOnly: false,
@@ -85,6 +86,8 @@ const meta: Meta<typeof Calendar> = {
     weekStart: 0,
     disabledDaysOfWeek: undefined,
     lang: undefined,
+    nextMonthLabel: "Next month",
+    prevMonthLabel: "Prev month",
   },
 };
 
@@ -131,12 +134,6 @@ export const Range: Story = {
   args: {
     range: true,
     selectedDates: [
-      [
-        new Date(new Date().setDate(now.getDate() + 2)),
-        new Date(new Date().setDate(now.getDate() + 7)),
-      ],
-    ],
-    disabledDates: [
       [
         new Date(new Date().setDate(now.getDate() + 2)),
         new Date(new Date().setDate(now.getDate() + 7)),
