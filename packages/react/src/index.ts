@@ -13,6 +13,7 @@ export * from "./carousel";
 export * from "./checkbox";
 export * from "./container";
 export * from "./data-table";
+export * from "./date-picker";
 export * from "./dialog";
 export * from "./drawer";
 export * from "./dropdown";

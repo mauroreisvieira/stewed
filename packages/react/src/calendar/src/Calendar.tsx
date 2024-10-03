@@ -71,12 +71,18 @@ export function Calendar<T>({
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ modifiers: [rtl && "rtl", locked && "locked", range && "range"], extraClasses: className }),
+    root: getBlock({
+      modifiers: [rtl && "rtl", locked && "locked", range && "range"],
+      extraClasses: className,
+    }),
     week: getElement(["week"]),
     month: getElement(["month"]),
   };
 
-  const defaultDate = useMemo(() => (initialDate instanceof Date ? initialDate : new Date()), [initialDate]);
+  const defaultDate = useMemo(
+    () => (initialDate instanceof Date ? initialDate : new Date()),
+    [initialDate],
+  );
 
   const { data, prevMonth, nextMonth } = useCalendar({
     selectedDates,

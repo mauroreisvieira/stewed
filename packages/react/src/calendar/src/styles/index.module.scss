@@ -76,8 +76,8 @@
     text-transform: capitalize;
 
     @include text.typography(
-      label,
-      $overrides: (color: theme.get-color("neutral", "500"), font-size: theme.get-font-size("sm"))
+      base,
+      $overrides: (color: theme.get-color("neutral", "500"), font-size: theme.get-font-size("xs"))
     );
   }
 

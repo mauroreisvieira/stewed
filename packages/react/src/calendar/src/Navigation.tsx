@@ -88,7 +88,7 @@ export function Navigation({
       </Tooltip>
 
       <div className={cssClasses.period}>
-        {currentYear} {currentMonth}
+        {currentMonth} {currentYear}
       </div>
 
       <Tooltip<HTMLButtonElement>
