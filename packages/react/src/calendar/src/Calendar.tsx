@@ -71,7 +71,7 @@ export function Calendar<T>({
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ modifiers: [rtl && "rtl", locked && "locked"], extraClasses: className }),
+    root: getBlock({ modifiers: [rtl && "rtl", locked && "locked", range && "range"], extraClasses: className }),
     week: getElement(["week"]),
     month: getElement(["month"]),
   };
