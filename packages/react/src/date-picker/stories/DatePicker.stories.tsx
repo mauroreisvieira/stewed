@@ -2,18 +2,10 @@ import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // Components
 import { Theme, DatePicker } from "../../index";
+// Icons
+import { MdOutlineCalendarToday } from "react-icons/md";
 
 type Story = StoryObj<typeof DatePicker>;
-
-const DAYS_WEEK = {
-  SUNDAY: 0,
-  MONDAY: 1,
-  TUESDAY: 2,
-  WEDNESDAY: 3,
-  THURSDAY: 4,
-  FRIDAY: 5,
-  SATURDAY: 6,
-};
 
 const meta: Meta<typeof DatePicker> = {
   title: "Components/Date Picker",
@@ -49,8 +41,16 @@ const meta: Meta<typeof DatePicker> = {
       },
       options: ["en-EN", "pt-PT", "fr-FR", "es-ES", "de-DE", "it-IT"],
     },
+    leftSlot: {
+      control: false,
+    },
+    rightSlot: {
+      control: false,
+    },
   },
   args: {
+    leftSlot: <MdOutlineCalendarToday />,
+    placeholder: "Select a date",
     lang: undefined,
     disabledPastDates: false,
   },
