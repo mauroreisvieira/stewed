@@ -1,3 +1,3 @@
 export * from "./useCalendar";
 
-export type { DayOptions, HighlightedDates, DateOrArrayDates } from "./Calendar";
+export type { DayOptions, HighlightedDates, DateOrArrayDates, WeekdaysValues } from "./Calendar";

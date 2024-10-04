@@ -1,6 +1,6 @@
 import React from "react";
 // UI Components
-import { Button, Tooltip } from "../../";
+import { Button } from "../../";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
@@ -56,71 +56,55 @@ export function Navigation({
 
   return (
     <div className={cssClasses.root}>
-      <Tooltip<HTMLButtonElement>
-        renderAnchor={(props) => (
-          <Button
-            {...props}
-            skin="neutral"
-            appearance="ghost"
-            size="sm"
-            iconOnly
-            className={cssClasses.prev}
-            aria-label={prevMonthLabel}
-            disabled={locked}
-            onClick={onPrev}
-            leftSlot={
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round">
-                <polyline points="15 18 9 12 15 6" />
-              </svg>
-            }
-          />
-        )}
-        placement="bottom"
-        delay={3000}>
-        {prevMonthLabel}
-      </Tooltip>
+      <Button
+        skin="neutral"
+        appearance="ghost"
+        size="sm"
+        iconOnly
+        className={cssClasses.prev}
+        aria-label={prevMonthLabel}
+        disabled={locked}
+        onClick={onPrev}
+        leftSlot={
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        }
+      />
 
       <div className={cssClasses.period}>
         {currentMonth} {currentYear}
       </div>
 
-      <Tooltip<HTMLButtonElement>
-        renderAnchor={(props) => (
-          <Button
-            {...props}
-            skin="neutral"
-            appearance="ghost"
-            size="sm"
-            iconOnly
-            className={cssClasses.next}
-            onClick={onNext}
-            aria-label={nextMonthLabel}
-            disabled={locked}
-            leftSlot={
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round">
-                <polyline points="9 18 15 12 9 6" />
-              </svg>
-            }
-          />
-        )}
-        placement="bottom"
-        delay={3000}>
-        {nextMonthLabel}
-      </Tooltip>
+      <Button
+        skin="neutral"
+        appearance="ghost"
+        size="sm"
+        iconOnly
+        className={cssClasses.next}
+        onClick={onNext}
+        aria-label={nextMonthLabel}
+        disabled={locked}
+        leftSlot={
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        }
+      />
     </div>
   );
 }

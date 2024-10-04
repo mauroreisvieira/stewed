@@ -20,7 +20,7 @@ const DAYS_WEEK = {
 type Weekdays = typeof DAYS_WEEK;
 
 // Represents the numeric values of days of the week.
-type WeekdaysValues = Weekdays[keyof Weekdays];
+export type WeekdaysValues = Weekdays[keyof Weekdays];
 
 // Represents either a single Date object or a range of two Date objects.
 export type DateOrArrayDates = (Date | [Date, Date])[];
@@ -100,10 +100,12 @@ export interface DayOptions<T> {
   details?: T;
 }
 
-/**
- * Represents a calendar with configurable options for language, date format, and week start day.
- */
 export class Calendar<T> {
+  /**
+   * Configuration options for the calendar.
+   * These options control the calendar's language, starting day of the week, and various features
+   * like highlighting today's date, disabling past dates, and locking the calendar.
+   */
   private options: CalendarOptions<T> = {
     lang: "en-UK",
     weekStart: DAYS_WEEK.SUNDAY,
@@ -111,9 +113,30 @@ export class Calendar<T> {
     disabledPastDates: false,
     locked: false,
   };
+
+  /**
+   * An array of highlighted dates.
+   * Stores the dates that are highlighted in the calendar.
+   */
   private highlightedDates: HighlightedDates<T>[];
+
+  /**
+   * The current date object.
+   * Represents the currently selected or viewed date in the calendar.
+   */
   private date: Date;
+
+  /**
+   * Today's date object.
+   * Represents the current real-world date, used to highlight or display today's date.
+   */
   private today: Date;
+
+  /**
+   * An array of day options for the calendar.
+   * Each object in the array represents a day's options, such as its date, status, and any additional
+   * configurations.
+   */
   private days: DayOptions<T>[] = [];
 
   /**
@@ -136,13 +159,18 @@ export class Calendar<T> {
     // Configuration options for the calendar.
     this.options = defaultOptions;
 
+    // The array of highlighted dates.
     this.highlightedDates = options?.highlightedDates || [];
+
     // The current date in the calendar.
     this.date = defaultOptions.defaultDate || new Date();
+
     // Set the day of the current date to the first day of the month.
     this.date.setDate(1);
+
     // Today's date with time set to midnight (00:00:00).
     this.today = new Date(new Date().setHours(0, 0, 0, 0));
+
     // Create array with days of month.
     this.createMonth();
   }
@@ -197,8 +225,23 @@ export class Calendar<T> {
     this.createMonth();
   }
 
+  /**
+   * Set the month for the current date.
+   * This method updates the current date to the specified month and regenerates the month view.
+   * @param month - The month to set (0-based index, where 0 is January and 11 is December).
+   */
   public setMonth(month: number): void {
     this.date.setMonth(month);
+    this.createMonth();
+  }
+
+  /**
+   * Set the year for the current date.
+   * This method updates the current date to the specified year and regenerates the month view.
+   * @param year - The year to set.
+   */
+  public setYear(year: number): void {
+    this.date.setFullYear(year);
     this.createMonth();
   }
 
@@ -218,11 +261,6 @@ export class Calendar<T> {
   public nextMonth(): void {
     const nextMonth = this.date.getMonth() + 1;
     this.setMonth(nextMonth);
-  }
-
-  public setYear(year: number): void {
-    this.date.setFullYear(year);
-    this.createMonth();
   }
 
   /**
@@ -322,11 +360,17 @@ export class Calendar<T> {
     return this.date.toLocaleDateString(this.options.lang, { year: format });
   }
 
+  /**
+   * Retrieve the highlighted dates.
+   * This method returns the dates that have been marked as highlighted.
+   * @returns An array of highlighted dates.
+   */
   public getDaysHighlight(): HighlightedDates<T>[] {
     return this.highlightedDates as HighlightedDates<T>[];
   }
 
   private createMonth(): void {
+    // Initialize the days as empty array
     this.days = [];
 
     // Save the current month and year.
@@ -373,6 +417,7 @@ export class Calendar<T> {
 
     // Reset the date back to the first of the current month.
     this.date.setMonth(currentMonth);
+    this.date.setFullYear(currentYear);
     this.date.setDate(1);
   }
 
