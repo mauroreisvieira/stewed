@@ -17,7 +17,6 @@ export const components = {
   Dialog: "dialog",
   Drawer: "drawer",
   Dropdown: "dropdown",
-  DatePicker: "date-picker",
   FormField: "form-field",
   Grid: "grid",
   Group: "group",

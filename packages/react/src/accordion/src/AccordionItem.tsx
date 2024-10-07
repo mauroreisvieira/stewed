@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 // Context
-import { AccordionProvider } from "./AccordionProvider";
+import { AccordionContext } from "./AccordionContext";
 // Components
 import { Separator } from "../../separator";
 // Hooks
@@ -44,11 +44,11 @@ export function AccordionItem({
   }, [defaultOpen]);
 
   return (
-    <AccordionProvider open={open} setOpen={setOpen}>
+    <AccordionContext.Provider value={{ open, setOpen }}>
       <details className={cssClasses.root} open={defaultOpen} {...props}>
         {typeof children === "function" ? children({ open }) : children}
       </details>
       <Separator />
-    </AccordionProvider>
+    </AccordionContext.Provider>
   );
 }

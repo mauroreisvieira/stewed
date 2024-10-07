@@ -1,6 +1,6 @@
 import React from "react";
-// Provider
-import { TabsProvider, type TabsProviderProps } from "./TabsProvider";
+// Context
+import { TabsContext, type TabsContextProps } from "./TabsContext";
 // Compound Component
 import { TabsItem } from "./TabsItem";
 import { TabsList } from "./TabsList";
@@ -13,7 +13,7 @@ import styles from "./styles/index.module.scss";
 
 interface TabsBase<T extends string>
   extends React.ComponentPropsWithoutRef<"div">,
-    TabsProviderProps<T> {
+    TabsContextProps<T> {
   /**
    * The direction of the tab container.
    * @default row
@@ -77,9 +77,10 @@ export function Tabs<T extends string>({
 
   return (
     <div className={cssClasses.root} {...props}>
-      <TabsProvider value={value} onValueChange={onValueChange}>
+      <TabsContext.Provider
+        value={{ value, onValueChange: onValueChange as (value: unknown) => void }}>
         {children}
-      </TabsProvider>
+      </TabsContext.Provider>
     </div>
   );
 }

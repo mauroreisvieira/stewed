@@ -20,6 +20,8 @@ interface Range {
 }
 
 export interface MonthProps<T> {
+  /** Additional class name for the calendar container.  */
+  className?: string;
   /** Array of day options for the month. This defines the days to be rendered. */
   days: DayOptions<T>[] | undefined;
   /**
@@ -41,7 +43,7 @@ export interface MonthProps<T> {
    * If true, enables date range selection (start and end dates).
    * @default false
    */
-  range?: boolean;
+  allowRange?: boolean;
   /** Function to set the selected dates, supporting single or multiple date selection. */
   setSelectedDates?: React.Dispatch<React.SetStateAction<DateOrArrayDates | undefined>>;
   /**
@@ -55,17 +57,18 @@ export function Month<T>({
   days,
   siblingMonthDays,
   multipleSelect,
-  range,
+  allowRange,
   readOnly,
   setSelectedDates,
   onDaySelected,
+  className,
 }: MonthProps<T>): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: `${components.Calendar}__month`, styles });
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({}),
+    root: getBlock({ extraClasses: className }),
   };
 
   const rangeDates = useRef<Range>({
@@ -84,7 +87,7 @@ export function Month<T>({
         return;
       }
 
-      if (range) {
+      if (allowRange) {
         if (!rangeDates.current.start) {
           // If no start date exists, set the start to the current date
           rangeDates.current = {
@@ -130,7 +133,7 @@ export function Month<T>({
 
       onDaySelected?.(day);
     },
-    [multipleSelect, onDaySelected, range, readOnly, setSelectedDates],
+    [multipleSelect, onDaySelected, allowRange, readOnly, setSelectedDates],
   );
 
   return (

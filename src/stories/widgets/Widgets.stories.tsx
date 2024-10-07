@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // UI Components
 import {
   Theme,
@@ -16,15 +16,20 @@ import {
   Progress,
   Tooltip,
   FormField,
-  Select,
   Group,
   ListBox,
+  Calendar,
+  Popover,
 } from "@stewed/react";
 // Hooks
 import { useDateTime, useToggle } from "@stewed/hooks";
 // Icons
 import { TbPin, TbStar, TbPlus } from "react-icons/tb";
-import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
+import {
+  MdOutlineKeyboardArrowDown,
+  MdOutlineKeyboardArrowUp,
+  MdOutlineCalendarToday,
+} from "react-icons/md";
 import { FiCopy } from "react-icons/fi";
 import { FaPaypal, FaCreditCard, FaApple } from "react-icons/fa";
 
@@ -458,6 +463,8 @@ export const ShareSettings = {
 
 export const PaymentMethod = {
   render: function Render() {
+    const [expires, setExpires] = useState<Date>(new Date());
+
     return (
       <Container screen="sm" alignment="center" padding={{ block: "7xl" }}>
         <Card>
@@ -474,7 +481,7 @@ export const PaymentMethod = {
               <Stack gap="md">
                 <Box
                   radius="md"
-                  borderWidth={1}
+                  borderWidth={2}
                   borderColor="success"
                   padding={{ inline: "lg", block: "lg" }}
                   fullWidth>
@@ -519,7 +526,13 @@ export const PaymentMethod = {
               <FormField>
                 <FormField.Label>Name</FormField.Label>
                 <FormField.Control>
-                  <TextField id="name" type="name" placeholder="Card name" fullWidth />
+                  <TextField
+                    id="name"
+                    type="name"
+                    placeholder="Card name"
+                    defaultValue="Mr. Benjamin Martinez"
+                    fullWidth
+                  />
                 </FormField.Control>
               </FormField>
 
@@ -531,41 +544,71 @@ export const PaymentMethod = {
               </FormField>
 
               <Stack gap="xl">
-                <FormField>
-                  <FormField.Label>Expires</FormField.Label>
-                  <FormField.Control>
-                    <Select skin="default">
-                      <Select.Option value={1}>Jan</Select.Option>
-                      <Select.Option value={2}>Feb</Select.Option>
-                      <Select.Option value={3}>Mar</Select.Option>
-                      <Select.Option value={4}>Apr</Select.Option>
-                    </Select>
-                  </FormField.Control>
-                </FormField>
+                <Stack size={8}>
+                  <FormField>
+                    <FormField.Label>Expires</FormField.Label>
+                    <FormField.Control>
+                      <Popover<HTMLInputElement>
+                        renderAnchor={({ ref, open }) => (
+                          <TextField
+                            rootRef={ref}
+                            onFocus={open}
+                            value={
+                              expires
+                                ? new Intl.DateTimeFormat("en", {
+                                    day: "2-digit",
+                                    month: "2-digit",
+                                    year: "numeric",
+                                  }).format(expires)
+                                : ""
+                            }
+                            readOnly
+                            leftSlot={<MdOutlineCalendarToday />}
+                            placeholder="Select a date"
+                            fullWidth
+                          />
+                        )}
+                        offset={6}
+                        placement="bottom-start">
+                        {({ close }) => (
+                          <Box padding={{ block: "sm", inline: "sm" }}>
+                            <Calendar
+                              defaultDate={expires ? new Date(expires) : undefined}
+                              selectedDates={expires ? [expires] : undefined}
+                              siblingMonthDays={true}
+                              formatDate={{
+                                day: "numeric",
+                                month: "long",
+                                year: "numeric",
+                                weekday: "narrow",
+                              }}
+                              onDaySelected={(day) => {
+                                setExpires(day.date);
+                                close();
+                              }}
+                            />
+                          </Box>
+                        )}
+                      </Popover>
+                    </FormField.Control>
+                  </FormField>
+                </Stack>
 
-                <FormField>
-                  <FormField.Label>Year</FormField.Label>
-                  <FormField.Control>
-                    <Select skin="default">
-                      <Select.Option value={1}>2024</Select.Option>
-                      <Select.Option value={2}>2025</Select.Option>
-                      <Select.Option value={3}>2026</Select.Option>
-                      <Select.Option value={4}>2027</Select.Option>
-                    </Select>
-                  </FormField.Control>
-                </FormField>
-
-                <FormField>
-                  <FormField.Label>CVC</FormField.Label>
-                  <FormField.Control>
-                    <TextField id="cvc" type="text" />
-                  </FormField.Control>
-                </FormField>
+                <Stack size={4}>
+                  <FormField>
+                    <FormField.Label>CVC</FormField.Label>
+                    <FormField.Control>
+                      <TextField id="cvc" type="text" defaultValue={123} />
+                    </FormField.Control>
+                  </FormField>
+                </Stack>
               </Stack>
             </Stack>
           </Card.Body>
           <Card.Footer>
-            <Button fullWidth>Continue</Button>
+            <Button size="lg" fullWidth>
+              Continue
+            </Button>
           </Card.Footer>
         </Card>
       </Container>
