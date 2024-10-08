@@ -26,77 +26,77 @@ export type WeekdaysValues = Weekdays[keyof Weekdays];
 export type DateOrArrayDates = (Date | [Date, Date])[];
 
 export interface HighlightedDates<T> {
-  // Explicitly typed 'days' property for individual dates or date ranges.
+  /** Explicitly typed 'days' property for individual dates or date ranges. */
   days: DateOrArrayDates;
-  // Other properties can be of type T.
+  /** Other properties can be of type T. */
   data?: T;
 }
 
 export interface CalendarOptions<T> {
-  // The default date to display on the calendar.
+  /** The default date to display on the calendar. */
   defaultDate?: Date;
-  // The language/locale to use for date formatting.
+  /** The language/locale to use for date formatting. */
   lang?: Intl.LocalesArgument;
-  // The date format options for formatting dates.
+  /** The date format options for formatting dates. */
   formatDate?: Intl.DateTimeFormatOptions;
-  // The numeric value corresponding to the start day of the week (0 for Sunday, 1 for Monday, etc.).
+  /** The numeric value corresponding to the start day of the week (0 for Sunday, 1 for Monday, etc.). */
   weekStart?: WeekdaysValues;
-  // An array of selected dates for the calendar.
+  /** An array of selected dates for the calendar. */
   selectedDates?: DateOrArrayDates;
-  // An array of dates to highlight on the calendar.
+  /** An array of dates to highlight on the calendar. */
   highlightedDates?: HighlightedDates<T>[];
-  // An array of disabled dates on the calendar.
+  /** An array of disabled dates on the calendar. */
   disabledDates?: DateOrArrayDates;
-  // Indicates if past dates are disabled on the calendar.
+  /** Indicates if past dates are disabled on the calendar. */
   disabledPastDates?: boolean;
-  // An array of numeric values corresponding to days of the week to be disabled on the calendar.
+  /** An array of numeric values corresponding to days of the week to be disabled on the calendar. */
   disabledDaysOfWeek?: WeekdaysValues[];
-  // The minimum selectable date on the calendar.
+  /** The minimum selectable date on the calendar. */
   minDate?: Date;
-  // The maximum selectable date on the calendar.
+  /** The maximum selectable date on the calendar. */
   maxDate?: Date;
-  // Indicates if the calendar is locked and cannot be interacted with.
+  /** Indicates if the calendar is locked and cannot be interacted with. */
   locked?: boolean;
-  // Indicates if today's date should be highlighted on the calendar.
+  /** Indicates if today's date should be highlighted on the calendar. */
   highlightedToday?: boolean;
 }
 
 export interface DayOptions<T> {
-  // The date object representing the day.
+  /** The date object representing the day. */
   date: Date;
-  // The formatted string representation of the day's date.
+  /** The formatted string representation of the day's date. */
   dateFormatted: string;
-  // The date object containing individual parts of the day's date.
+  /** The date object containing individual parts of the day's date. */
   dateObject: {
     day: string;
     month: string;
     year: string;
     weekday: string;
   };
-  // Additional details about the day.
+  /** Additional details about the day. */
   attributes: {
-    // Indicates if the day falls on a weekend (Saturday or Sunday).
+    /** Indicates if the day falls on a weekend (Saturday or Sunday). */
     weekend: boolean;
-    // Indicates if the day is today's date.
+    /** Indicates if the day is today's date. */
     today: boolean;
-    // Indicates if the day is selected.
+    /** Indicates if the day is selected. */
     selected: boolean;
-    // Indicates if the day is highlighted.
+    /** Indicates if the day is highlighted. */
     highlighted: boolean;
-    // Indicates if the day is the start of a selected range.
+    /** Indicates if the day is the start of a selected range. */
     startRange: boolean;
-    // Indicates if the day is part of a selected range.
+    /** Indicates if the day is part of a selected range. */
     inRange: boolean;
-    // Indicates if the day is the end of a selected range.
+    /** Indicates if the day is the end of a selected range. */
     endRange: boolean;
-    // Indicates if the day is locked and cannot be interacted with.
+    /** Indicates if the day is locked and cannot be interacted with. */
     locked: boolean;
-    // Indicates if the day is disabled and cannot be selected or interacted with.
+    /** Indicates if the day is disabled and cannot be selected or interacted with. */
     disabled: boolean;
-    // Indicates if the day belongs to a sibling month (previous or next) in the current view.
+    /** Indicates if the day belongs to a sibling month (previous or next) in the current view. */
     siblingMonthDays: boolean;
   };
-  // Highlighted details about the day.
+  /** Highlighted details about the day. */
   details?: T;
 }
 
