@@ -1,26 +1,26 @@
 import React from "react";
 // Hooks
 import { useBem } from "@stewed/hooks";
+import { useCalendarContext } from "./CalendarContext";
 // Tokens
 import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
 interface WeekProps {
-  /**
-   * Array of weekday names. Each name should represent a day of the week (e.g., "Monday", "Tuesday").
-   * This property can be undefined if the days are not specified.
-   */
-  weekDays: string[] | undefined;
+  /**  Additional CSS class name for the root element of the week component. */
+  className?: string;
 }
 
-export function Week({ weekDays }: WeekProps): React.ReactElement {
+export function Week({ className }: WeekProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock, getElement } = useBem({ block: `${components.Calendar}__week`, styles });
 
+  const { weekDays } = useCalendarContext();
+
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({}),
+    root: getBlock({ extraClasses: className }),
     day: getElement(["day"]),
   };
 

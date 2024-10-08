@@ -3,12 +3,13 @@ import React, { useCallback, useRef } from "react";
 import { Day } from "./Day";
 // Hooks
 import { useBem } from "@stewed/hooks";
+import { useCalendarContext } from "./CalendarContext";
 // Tokens
 import { components } from "@stewed/tokens";
 // Utilities
 import { isSameDay, isDateAfter, isDateBefore } from "@stewed/utilities";
 // Types
-import type { DayOptions, DateOrArrayDates } from "@stewed/hooks";
+import type { DayOptions } from "@stewed/hooks";
 // Styles
 import styles from "./styles/index.module.scss";
 
@@ -19,52 +20,24 @@ interface Range {
   end: Date | undefined;
 }
 
-export interface MonthProps<T> {
-  /** Additional class name for the calendar container.  */
+export interface MonthProps {
+  /**  Additional CSS class name for the root element of the month component. */
   className?: string;
-  /** Array of day options for the month. This defines the days to be rendered. */
-  days: DayOptions<T>[] | undefined;
-  /**
-   * If true, the month is rendered in read-only mode and does not allow user interaction.
-   * @default false
-   */
-  readOnly?: boolean;
-  /**
-   * If true, allows the selection of multiple dates.
-   * @default false
-   */
-  multipleSelect?: boolean;
-  /**
-   * If true, shows the days of sibling months (previous or next month) in the current view.
-   * @default false
-   */
-  siblingMonthDays?: boolean;
-  /**
-   * If true, enables date range selection (start and end dates).
-   * @default false
-   */
-  allowRange?: boolean;
-  /** Function to set the selected dates, supporting single or multiple date selection. */
-  setSelectedDates?: React.Dispatch<React.SetStateAction<DateOrArrayDates | undefined>>;
-  /**
-   * Callback fired when a day is selected.
-   * @param day The day option that was selected.
-   */
-  onDaySelected?: (day: DayOptions<T>) => void;
 }
 
-export function Month<T>({
-  days,
-  siblingMonthDays,
-  multipleSelect,
-  allowRange,
-  readOnly,
-  setSelectedDates,
-  onDaySelected,
-  className,
-}: MonthProps<T>): React.ReactElement {
+export function Month({ className }: MonthProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: `${components.Calendar}__month`, styles });
+
+  const {
+    multipleSelect,
+    siblingMonthDays,
+    readOnly,
+    allowRange,
+    days,
+    setSelectedDates,
+    onDaySelected,
+  } = useCalendarContext();
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
@@ -77,7 +50,7 @@ export function Month<T>({
   });
 
   const onHandleDayClick = useCallback(
-    (day: DayOptions<T>) => {
+    (day: DayOptions<unknown>) => {
       const {
         attributes: { selected, disabled },
         date,

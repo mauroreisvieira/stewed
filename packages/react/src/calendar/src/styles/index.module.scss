@@ -20,22 +20,6 @@
     display: flex;
     gap: theme.get-spacing("md");
     align-items: center;
-
-    &__prev,
-    &__next {
-      display: flex;
-    }
-
-    &__period {
-      width: 100%;
-      text-align: center;
-      text-transform: capitalize;
-
-      @include text.typography(
-        base,
-        $overrides: (color: theme.get-color("black"), font-size: theme.get-font-size("sm"))
-      );
-    }
   }
 
   &__week {

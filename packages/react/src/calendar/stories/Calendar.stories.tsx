@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // Components
-import { Theme, Calendar, DateOrArrayDates } from "../../index";
+import { Theme, Calendar, DateOrArrayDates, Stack, Button, Text } from "../../index";
+// Icons
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
 type Story = StoryObj<typeof Calendar>;
 
@@ -79,15 +81,14 @@ const meta: Meta<typeof Calendar> = {
     highlightedToday: false,
     readOnly: false,
     locked: false,
-    range: false,
+    allowRange: false,
     rtl: false,
     disabledPastDates: false,
     siblingMonthDays: true,
     weekStart: 0,
     disabledDaysOfWeek: undefined,
     lang: undefined,
-    nextMonthLabel: "Next month",
-    prevMonthLabel: "Prev month",
+    onMonthChange: undefined,
   },
 };
 
@@ -96,7 +97,48 @@ export default meta;
 const Template = (args) => {
   const [selectedDates, setSelectedDates] = useState<DateOrArrayDates>(args.selectedDates);
 
-  return <Calendar {...args} selectedDates={selectedDates} setSelectedDates={setSelectedDates} />;
+  return (
+    <Calendar
+      {...args}
+      selectedDates={selectedDates}
+      setSelectedDates={setSelectedDates}>
+      <Calendar.Navigation>
+        {({ locked, month, year, onPrev, onNext }) => (
+          <>
+            <Button
+              skin="neutral"
+              appearance="ghost"
+              size="sm"
+              iconOnly
+              aria-label="Previous month"
+              disabled={locked}
+              onClick={onPrev}
+              leftSlot={<MdKeyboardArrowLeft />}
+            />
+
+            <Stack justify="center" grow>
+              <Text weight="medium">
+                {month} {year}
+              </Text>
+            </Stack>
+
+            <Button
+              skin="neutral"
+              appearance="ghost"
+              size="sm"
+              iconOnly
+              onClick={onNext}
+              aria-label="Next month"
+              disabled={locked}
+              leftSlot={<MdKeyboardArrowRight />}
+            />
+          </>
+        )}
+      </Calendar.Navigation>
+      <Calendar.Week />
+      <Calendar.Month />
+    </Calendar>
+  );
 };
 
 export const Base: Story = {
@@ -132,7 +174,7 @@ export const DisabledDates: Story = {
 export const Range: Story = {
   ...Base,
   args: {
-    range: true,
+    allowRange: true,
     selectedDates: [
       [
         new Date(new Date().setDate(now.getDate() + 2)),
