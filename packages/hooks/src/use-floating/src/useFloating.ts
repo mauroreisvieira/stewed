@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useReducer, useCallback, useRef } from "react";
 
-/**
- * Defines the possible placements for the floating element relative to the reference element.
- */
+/** Defines the possible placements for the floating element relative to the reference element. */
 export type FloatingPlacement =
   | "top"
   | "top-start"
@@ -197,11 +195,13 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
   // Function to update the position of the floating element based on the reference element's position and size
   const updatePosition = useCallback(() => {
     // Exit early if the element is not positioned, or if reference or floating element is not available
-    if (!options.isPositioned || !reference || !floating?.current) return;
+    if (!reference || !floating?.current) return;
 
     // Get the bounding rectangles of the reference and floating elements
     const referenceRect = reference.getBoundingClientRect();
     const floatingRect = floating.current.getBoundingClientRect();
+
+    // let previousPlacement = options.placement;
 
     // Get the initial x and y coordinates
     let { x, y } = calculateFloatingPosition({
@@ -298,11 +298,8 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
       // Adjust the placement based on some criteria (e.g., screen boundaries or available space)
       const newPlacement = adjustPlacement(placement);
 
-      // Update the options with the new placement
-      setOptions({ placement: newPlacement });
-
       // If the new placement differs from the original placement, recalculate the floating position
-      if (newPlacement !== placement) {
+      if (newPlacement !== options.placement) {
         // Returned position object to directly assign new x and y coordinates
         ({ x, y } = calculateFloatingPosition({
           position: newPlacement,
@@ -312,21 +309,19 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
       }
     }
 
+    // Update the options with the new placement
+    setOptions({ placement: options.placement, isPositioned: true });
+
     // Update floating element position with calculated x and y coordinates
     setFloatingPosition({ x, y, reference: referenceRect });
-  }, [
-    boundary,
-    calculateFloatingPosition,
-    flip,
-    options.isPositioned,
-    options.placement,
-    placement,
-    reference,
-  ]);
+  }, [boundary, calculateFloatingPosition, flip, options.placement, placement, reference]);
 
   useEffect(() => {
-    if (!options.isPositioned || !reference || !flip) return;
+    // Check if the options require positioning and if the reference element and flip behavior are defined.
+    // If any of these conditions are not met, exit early to avoid unnecessary processing.
+    if (!reference || !flip) return;
 
+    // Create a new AbortController to manage aborting ongoing operations if needed.
     const controller = new AbortController();
 
     // Function to recalculate position
@@ -347,18 +342,13 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
       resizeObserver.disconnect();
       controller.abort();
     };
-  }, [options.isPositioned, reference, updatePosition, flip]);
+  }, [reference, updatePosition, flip]);
 
   useEffect(() => {
-    // Whenever placement changes, recalculate the position
-    updatePosition();
-  }, [options.placement, updatePosition]);
-
-  // Once `open` flips to `true`, `isPositioned` will switch to `true` asynchronously.
-  // We can use an effect to determine when it has been positioned.
-  useEffect(() => {
-    requestAnimationFrame(() => setOptions({ isPositioned: open && !!reference, placement }));
-  }, [open, reference, placement]);
+    if (open) {
+      updatePosition();
+    }
+  }, [open, updatePosition]);
 
   return { floating, ...floatingPosition, ...options };
 }
