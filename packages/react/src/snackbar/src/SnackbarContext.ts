@@ -3,7 +3,7 @@ import { createContext, useContext } from "react";
 import type { AlertProps } from "../../../";
 
 const definitionError = (): null => {
-  throw new Error('Please make sure "SnackbarProvider" component is wrapping your component.');
+  throw new Error('Please make sure "<Snackbar>" component is wrapping your component.');
 };
 
 export interface SnackbarNotification

@@ -10,7 +10,7 @@ const definitionError = (): null => {
 };
 
 /**
- * Defines the properties expected in the context for client groups.
+ * Defines the properties expected in the context for tabs.
  *
  * @template T - The type representing tab value.
  */

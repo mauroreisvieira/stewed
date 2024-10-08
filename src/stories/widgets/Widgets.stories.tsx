@@ -22,13 +22,15 @@ import {
   Popover,
 } from "@stewed/react";
 // Hooks
-import { useDateTime, useToggle } from "@stewed/hooks";
+import { useDateTime, useSelect, useToggle } from "@stewed/hooks";
 // Icons
 import { TbPin, TbStar, TbPlus } from "react-icons/tb";
 import {
   MdOutlineKeyboardArrowDown,
   MdOutlineKeyboardArrowUp,
   MdOutlineCalendarToday,
+  MdKeyboardArrowLeft,
+  MdKeyboardArrowRight,
 } from "react-icons/md";
 import { FiCopy } from "react-icons/fi";
 import { FaPaypal, FaCreditCard, FaApple } from "react-icons/fa";
@@ -464,6 +466,24 @@ export const ShareSettings = {
 export const PaymentMethod = {
   render: function Render() {
     const [expires, setExpires] = useState<Date>(new Date());
+    // Example data
+    const items = [
+      {
+        name: "Card",
+        icon: <FaCreditCard />,
+      },
+      {
+        name: "Paypal",
+        icon: <FaPaypal />,
+      },
+      {
+        name: "Apple",
+        icon: <FaApple />,
+      },
+    ];
+
+    // Using the useSelect hook to manage selection
+    const { index, setIndex } = useSelect<{ name: string; icon: React.ReactNode }>(items, 0);
 
     return (
       <Container screen="sm" alignment="center" padding={{ block: "7xl" }}>
@@ -479,47 +499,23 @@ export const PaymentMethod = {
           <Card.Body>
             <Box space={{ y: "xl" }}>
               <Stack gap="md">
-                <Box
-                  radius="md"
-                  borderWidth={2}
-                  borderColor="success"
-                  padding={{ inline: "lg", block: "lg" }}
-                  fullWidth>
-                  <Text size="2xl" alignment="center">
-                    <FaCreditCard />
-                  </Text>
-                  <Text size="sm" alignment="center">
-                    Card
-                  </Text>
-                </Box>
-
-                <Box
-                  radius="md"
-                  borderWidth={1}
-                  borderColor="neutral-faded"
-                  padding={{ inline: "lg", block: "lg" }}
-                  fullWidth>
-                  <Text size="2xl" alignment="center">
-                    <FaPaypal />
-                  </Text>
-                  <Text size="sm" alignment="center">
-                    Paypal
-                  </Text>
-                </Box>
-
-                <Box
-                  radius="md"
-                  borderWidth={1}
-                  borderColor="neutral-faded"
-                  padding={{ inline: "lg", block: "lg" }}
-                  fullWidth>
-                  <Text size="2xl" alignment="center">
-                    <FaApple />
-                  </Text>
-                  <Text size="sm" alignment="center">
-                    Apple
-                  </Text>
-                </Box>
+                {items.map(({ name, icon }, idx) => (
+                  <Box
+                    key={name}
+                    radius="md"
+                    borderWidth={1}
+                    borderColor={idx === index ? "success" : "neutral-faded"}
+                    padding={{ inline: "lg", block: "lg" }}
+                    onClick={() => setIndex(idx)}
+                    fullWidth>
+                    <Text size="2xl" alignment="center">
+                      {icon}
+                    </Text>
+                    <Text size="sm" alignment="center">
+                      {name}
+                    </Text>
+                  </Box>
+                ))}
               </Stack>
             </Box>
             <Stack direction="column" gap="lg">
@@ -585,8 +581,43 @@ export const PaymentMethod = {
                               onDaySelected={(day) => {
                                 setExpires(day.date);
                                 close();
-                              }}
-                            />
+                              }}>
+                              <Calendar.Navigation>
+                                {({ locked, month, year, onPrev, onNext }) => (
+                                  <>
+                                    <Button
+                                      skin="neutral"
+                                      appearance="ghost"
+                                      size="sm"
+                                      iconOnly
+                                      aria-label="Previous month"
+                                      disabled={locked}
+                                      onClick={onPrev}
+                                      leftSlot={<MdKeyboardArrowLeft />}
+                                    />
+
+                                    <Stack justify="center" grow>
+                                      <Text weight="medium">
+                                        {month} {year}
+                                      </Text>
+                                    </Stack>
+
+                                    <Button
+                                      skin="neutral"
+                                      appearance="ghost"
+                                      size="sm"
+                                      iconOnly
+                                      onClick={onNext}
+                                      aria-label="Next month"
+                                      disabled={locked}
+                                      leftSlot={<MdKeyboardArrowRight />}
+                                    />
+                                  </>
+                                )}
+                              </Calendar.Navigation>
+                              <Calendar.Week />
+                              <Calendar.Month />
+                            </Calendar>
                           </Box>
                         )}
                       </Popover>

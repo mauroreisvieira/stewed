@@ -1,8 +1,8 @@
 import React, { useState, useCallback, useEffect } from "react";
 // UI Components
 import { Backdrop, Motion, Scope, useTheme } from "../..";
-// Provider
-import { type DialogProviderProps, DialogProvider } from "./DialogProvider";
+// Context
+import { DialogContext, type DialogContextProps } from "./DialogContext";
 // Compound Component
 import { DialogBody } from "./DialogBody";
 import { DialogHeader } from "./DialogHeader";
@@ -23,7 +23,7 @@ import styles from "./styles/index.module.scss";
 
 export interface DialogProps
   extends React.ComponentProps<"div">,
-    DialogProviderProps,
+    DialogContextProps,
     UseResponsiveProps<{
       /**
        * Specifies the margin around the dialog to ensure safe spacing from the viewport edges.
@@ -159,7 +159,7 @@ export function Dialog({
       {shouldRender && (
         <Scope elevation="navigation">
           <Backdrop blur />
-          <DialogProvider onClose={onClose}>
+          <DialogContext.Provider value={{ onClose }}>
             <div className={cssClasses.root} {...props}>
               <Motion
                 duration={open ? "normal" : "quickly"}
@@ -175,7 +175,7 @@ export function Dialog({
                 </div>
               </Motion>
             </div>
-          </DialogProvider>
+          </DialogContext.Provider>
         </Scope>
       )}
     </>

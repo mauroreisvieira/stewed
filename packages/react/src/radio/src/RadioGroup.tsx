@@ -1,5 +1,6 @@
 import React from "react";
-import { RadioGroupProvider, type RadioGroupProviderProps } from "./RadioGroupProvider";
+// Context
+import { RadioGroupContext, type RadioGroupContextProps } from "./RadioGroupContext";
 // Tokens
 import { components } from "@stewed/tokens";
 // Hooks
@@ -9,7 +10,7 @@ import styles from "./styles/index.module.scss";
 
 export interface RadioGroupProps
   extends React.ComponentPropsWithoutRef<"div">,
-    RadioGroupProviderProps {
+    RadioGroupContextProps {
   /**
    * Specifies the orientation of the radio group.
    * @default horizontal
@@ -55,9 +56,9 @@ export function RadioGroup({
 
   return (
     <div className={cssClasses.root} {...props}>
-      <RadioGroupProvider name={name} checkedValue={checkedValue} onCheckedChange={onCheckedChange}>
+      <RadioGroupContext.Provider value={{ name, checkedValue, onCheckedChange }}>
         {children}
-      </RadioGroupProvider>
+      </RadioGroupContext.Provider>
     </div>
   );
 }

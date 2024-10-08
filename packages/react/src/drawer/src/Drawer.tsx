@@ -1,8 +1,8 @@
 import React, { useState, useCallback, useEffect } from "react";
 // UI Components
 import { Backdrop, Motion, Scope, useTheme } from "../..";
-// Provider
-import { type DrawerProviderProps, DrawerProvider } from "./DrawerProvider";
+// Context
+import { DrawerContext, type DrawerContextProps } from "./DrawerContext";
 // Compound Component
 import { DrawerBody } from "./DrawerBody";
 import { DrawerHeader } from "./DrawerHeader";
@@ -23,7 +23,7 @@ import styles from "./styles/index.module.scss";
 
 export interface DrawerProps
   extends React.ComponentProps<"div">,
-    DrawerProviderProps,
+    DrawerContextProps,
     UseResponsiveProps<{
       /**
        * Specifies the margin around the drawer to ensure safe spacing from the viewport edges.
@@ -159,7 +159,7 @@ export function Drawer({
       {shouldRender && (
         <Scope elevation="navigation">
           <Backdrop blur />
-          <DrawerProvider onClose={onClose}>
+          <DrawerContext.Provider value={{ onClose }}>
             <div className={cssClasses.root} {...props}>
               <Motion
                 animation={open ? `slide-in-${placement}` : `slide-out-${placement}`}
@@ -174,7 +174,7 @@ export function Drawer({
                 </div>
               </Motion>
             </div>
-          </DrawerProvider>
+          </DrawerContext.Provider>
         </Scope>
       )}
     </>

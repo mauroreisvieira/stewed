@@ -1,7 +1,10 @@
 import React, { useCallback, useMemo, useRef, useState } from "react";
-// Context Provider
-import { type SnackbarContextProps, type SnackbarNotification } from "./SnackbarContext";
-import { SnackbarProvider } from "./SnackbarProvider";
+// Context
+import {
+  SnackbarContext,
+  type SnackbarContextProps,
+  type SnackbarNotification,
+} from "./SnackbarContext";
 // UI Components
 import { Scope, Alert, Motion } from "../..";
 // Hooks
@@ -124,7 +127,7 @@ export function Snackbar({
   }, [placement]);
 
   return (
-    <SnackbarProvider add={add} remove={remove} notifications={notifications}>
+    <SnackbarContext.Provider value={{ add, remove, notifications }}>
       {notifications.length > 0 && (
         <Scope elevation="notification" className={cssClasses.root} role="region">
           <div className={cssClasses.content} {...props}>
@@ -142,6 +145,6 @@ export function Snackbar({
         </Scope>
       )}
       {children}
-    </SnackbarProvider>
+    </SnackbarContext.Provider>
   );
 }

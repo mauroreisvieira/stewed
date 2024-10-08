@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
-// Provider
-import { SegmentedProvider, type SegmentedProviderProps } from "./SegmentedProvider";
+// Context
+import { SegmentedContext, type SegmentedContextProps } from "./SegmentedContext";
 // Compound Component
 import { SegmentedItem } from "./SegmentedItem";
 // Hooks
@@ -12,7 +12,7 @@ import styles from "./styles/index.module.scss";
 
 export interface SegmentedProps<T extends string>
   extends React.ComponentPropsWithoutRef<"div">,
-    SegmentedProviderProps<T> {
+    SegmentedContextProps<T> {
   /**
    * Changes the size of the segmented, giving it more or less padding.
    * @default md
@@ -57,11 +57,11 @@ export function Segmented<T extends string>({
   );
 
   return (
-    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <div ref={ref} role="group" className={cssClasses.root} onKeyDown={onHandleKeyDown} {...props}>
-      <SegmentedProvider value={value} onValueChange={onValueChange}>
+      <SegmentedContext.Provider
+        value={{ value, onValueChange: onValueChange as (value: unknown) => void }}>
         {children}
-      </SegmentedProvider>
+      </SegmentedContext.Provider>
     </div>
   );
 }

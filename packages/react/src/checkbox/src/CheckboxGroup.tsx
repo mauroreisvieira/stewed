@@ -1,5 +1,6 @@
 import React from "react";
-import { CheckboxGroupProvider, type CheckboxGroupProviderProps } from "./CheckboxGroupProvider";
+// Context
+import { CheckboxGroupContext, type CheckboxGroupContextProps } from "./CheckboxGroupContext";
 // Tokens
 import { components } from "@stewed/tokens";
 // Hooks
@@ -9,7 +10,7 @@ import styles from "./styles/index.module.scss";
 
 export interface CheckboxGroupProps
   extends React.ComponentPropsWithoutRef<"div">,
-    CheckboxGroupProviderProps {
+    CheckboxGroupContextProps {
   /**
    * Specifies the orientation of the checkbox group.
    * @default horizontal
@@ -55,9 +56,9 @@ export function CheckboxGroup({
 
   return (
     <div className={cssClasses.root} {...props}>
-      <CheckboxGroupProvider checkedValues={checkedValues} onCheckedChange={onCheckedChange}>
+      <CheckboxGroupContext.Provider value={{ checkedValues, onCheckedChange }}>
         {children}
-      </CheckboxGroupProvider>
+      </CheckboxGroupContext.Provider>
     </div>
   );
 }

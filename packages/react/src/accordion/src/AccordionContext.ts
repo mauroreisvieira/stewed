@@ -1,7 +1,7 @@
 import React, { createContext, useContext } from "react";
 
 const definitionError = (): null => {
-  throw new Error('Please make sure "AccordionProvider" component is wrapping your component.');
+  throw new Error('Please make sure "<Accordion>" component is wrapping your component.');
 };
 
 export interface AccordionContextProps {

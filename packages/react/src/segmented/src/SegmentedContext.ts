@@ -10,7 +10,7 @@ const definitionError = (): null => {
 };
 
 /**
- * Defines the properties expected in the context for client groups.
+ * Defines the properties expected in the context for segmented.
  *
  * @template T - The type representing segmented value.
  */
