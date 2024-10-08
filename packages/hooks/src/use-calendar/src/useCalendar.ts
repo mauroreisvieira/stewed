@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 // Calendar
-import { Calendar, type CalendarOptions, type DayOptions, type HighlightedDates } from "./Calendar";
+import { Calendar, type CalendarOptions, type DayOptions, type HighlightedDates } from "@hello-week/core";
 
 /** Props for configuring the `useCalendar` hook, extending the base `CalendarOptions`. */
 export interface UseCalendarProps<T> extends CalendarOptions<T> {}
