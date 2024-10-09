@@ -21,7 +21,8 @@
   "dependencies": {
     "@stewed/react": "workspace:*",
     "@stewed/hooks": "workspace:*",
-    "@stewed/utilities": "workspace:*"
+    "@stewed/utilities": "workspace:*",
+    "@hello-week/hooks": "^0.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

@@ -6,7 +6,8 @@ import { Navigation } from "./Navigation";
 import { Week } from "./Week";
 import { Month } from "./Month";
 // Hooks
-import { DayOptions, useBem, useCalendar } from "@stewed/hooks";
+import { useBem } from "@stewed/hooks";
+import { useCalendar, type DayOptions } from "@hello-week/hooks";
 // Tokens
 import { components } from "@stewed/tokens";
 // Styles

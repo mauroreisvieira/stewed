@@ -1,6 +1,6 @@
 import React, { useContext, createContext } from "react";
 // Types
-import type { DateOrArrayDates, DayOptions, UseCalendarProps } from "@stewed/hooks";
+import type { DateOrArrayDates, DayOptions, UseCalendarProps } from "@hello-week/hooks";
 
 /**
  * Dummy function to throw an error when calendar is not provided by a CalendarsProvider.

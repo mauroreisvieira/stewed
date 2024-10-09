@@ -103,7 +103,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
     (prev: FloatingOptions, next: FloatingOptions) => {
       return { ...prev, ...next };
     },
-    { placement, isPositioned: open }, // Initial state with placement and whether the element is positioned
+    { placement, isPositioned: false }, // Initial state with placement and whether the element is positioned
   );
 
   // Calculate the floating element's position
@@ -319,7 +319,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
   useEffect(() => {
     // Check if the options require positioning and if the reference element and flip behavior are defined.
     // If any of these conditions are not met, exit early to avoid unnecessary processing.
-    if (!reference || !flip) return;
+    if (!reference || !flip || !open) return;
 
     // Create a new AbortController to manage aborting ongoing operations if needed.
     const controller = new AbortController();
@@ -342,13 +342,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
       resizeObserver.disconnect();
       controller.abort();
     };
-  }, [reference, updatePosition, flip]);
-
-  useEffect(() => {
-    if (open) {
-      updatePosition();
-    }
-  }, [open, updatePosition]);
+  }, [reference, updatePosition, flip, open]);
 
   return { floating, ...floatingPosition, ...options };
 }

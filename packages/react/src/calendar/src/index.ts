@@ -1,3 +1,3 @@
 export * from "./Calendar";
 
-export type { DateOrArrayDates, WeekdaysValues } from "@stewed/hooks";
+export type { DateOrArrayDates, WeekdaysValues } from "@hello-week/hooks";

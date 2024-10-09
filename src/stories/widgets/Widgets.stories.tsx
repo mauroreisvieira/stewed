@@ -22,7 +22,8 @@ import {
   Popover,
 } from "@stewed/react";
 // Hooks
-import { useDateTime, useSelect, useToggle } from "@stewed/hooks";
+import { useSelect, useToggle } from "@stewed/hooks";
+import { useDateTime } from "@hello-week/hooks";
 // Icons
 import { TbPin, TbStar, TbPlus } from "react-icons/tb";
 import {
@@ -465,6 +466,8 @@ export const ShareSettings = {
 
 export const PaymentMethod = {
   render: function Render() {
+    const { formatDate } = useDateTime();
+
     const [expires, setExpires] = useState<Date>(new Date());
     // Example data
     const items = [
@@ -549,15 +552,7 @@ export const PaymentMethod = {
                           <TextField
                             rootRef={ref}
                             onFocus={open}
-                            value={
-                              expires
-                                ? new Intl.DateTimeFormat("en", {
-                                    day: "2-digit",
-                                    month: "2-digit",
-                                    year: "numeric",
-                                  }).format(expires)
-                                : ""
-                            }
+                            value={expires ? formatDate(expires) : ""}
                             readOnly
                             leftSlot={<MdOutlineCalendarToday />}
                             placeholder="Select a date"
@@ -579,6 +574,7 @@ export const PaymentMethod = {
                                 weekday: "narrow",
                               }}
                               onDaySelected={(day) => {
+                                console.log("day", day);
                                 setExpires(day.date);
                                 close();
                               }}>

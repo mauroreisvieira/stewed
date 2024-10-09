@@ -7,9 +7,9 @@ import { useCalendarContext } from "./CalendarContext";
 // Tokens
 import { components } from "@stewed/tokens";
 // Utilities
-import { isSameDay, isDateAfter, isDateBefore } from "@stewed/utilities";
+import { isSameDay, isDateAfter, isDateBefore } from "@hello-week/utilities";
 // Types
-import type { DayOptions } from "@stewed/hooks";
+import type { DayOptions } from "@hello-week/hooks";
 // Styles
 import styles from "./styles/index.module.scss";
 

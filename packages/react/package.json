@@ -17,7 +17,9 @@
   "dependencies": {
     "@stewed/hooks": "workspace:*",
     "@stewed/tokens": "workspace:*",
-    "@stewed/utilities": "workspace:*"
+    "@stewed/utilities": "workspace:*",
+    "@hello-week/utilities": "^0.2.0",
+    "@hello-week/hooks": "^0.2.0"
   },
   "devDependencies": {
     "@harmonix-hub/tsconfig": "^1.3.2",
