@@ -6,7 +6,7 @@ import { type Color, components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface BadgeProps extends React.ComponentPropsWithRef<"div"> {
+export interface BadgeProps extends React.ComponentPropsWithoutRef<"span"> {
   /**
    * Skin color of the badge.
    * @default primary
@@ -15,6 +15,16 @@ export interface BadgeProps extends React.ComponentPropsWithRef<"div"> {
     Color,
     "primary" | "secondary" | "neutral" | "critical" | "success" | "info" | "warning"
   >;
+  /**
+   * Changes the size of the badge, giving it more or less padding.
+   * @default sm
+   */
+  size?: "xs" | "sm" | "md" | "lg";
+  /**
+   * Change the visual appearance of the badge.
+   * @default filled
+   */
+  appearance?: "filled" | "outline";
   /**
    * Position of the badge.
    * @default top-right
@@ -40,6 +50,8 @@ export interface BadgeProps extends React.ComponentPropsWithRef<"div"> {
  */
 export function Badge({
   skin = "primary",
+  size = "sm",
+  appearance = "filled",
   position = "top-right",
   value,
   className,
@@ -51,16 +63,22 @@ export function Badge({
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({
-      modifiers: [skin, !!children && position, value && value.length > 2 && "padded"],
+      modifiers: [
+        skin,
+        size,
+        appearance,
+        !!children && position,
+        value && value.length > 2 && "padded",
+      ],
       extraClasses: className,
     }),
     value: getElement(["value"]),
   };
 
   return (
-    <div className={cssClasses.root}>
+    <span className={cssClasses.root}>
       {children}
       <span className={cssClasses.value}>{value}</span>
-    </div>
+    </span>
   );
 }

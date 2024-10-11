@@ -30,8 +30,9 @@ export function CarouselNavigation({
 
   return (
     <Button
-      skin="primary"
+      skin="neutral"
       appearance="ghost"
+      size="lg"
       iconOnly
       onClick={onClick}
       disabled={disabled}

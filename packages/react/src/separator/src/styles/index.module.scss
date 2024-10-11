@@ -13,11 +13,13 @@
 
   &--horizontal {
     width: 100%;
-    height: 1px;
+    min-height: 1px;
+    max-height: 1px;
   }
 
   &--vertical {
-    width: 1px;
+    min-width: 1px;
+    max-width: 1px;
   }
 
   // Skin
@@ -30,6 +32,7 @@
       );
     }
   }
+
   // Spacing
   @each $key, $value in $separator-spacing {
     &--space-inline-#{$key} {

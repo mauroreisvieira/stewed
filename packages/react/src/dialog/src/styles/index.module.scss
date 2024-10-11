@@ -2,32 +2,47 @@
 @use "./variables" as *;
 
 @include theme.scope($dialog-root) {
-  @include theme.define-var(
-    (
-      opacity: 0,
-      background: theme.get-color("background-elevated"),
-    )
-  );
-
   position: fixed;
   display: flex;
   width: 100%;
-  height: 100%;
+  height: theme.get-var(height);
+  padding-block: theme.get-var(padding-block);
+
+  @include theme.define-var(
+    (
+      opacity: 0,
+      background-color: theme.get-color("background-elevated"),
+      border-radius: theme.get-var(radius),
+      height: 100%,
+      padding-block: 0,
+    )
+  );
 
   &__surface {
     position: relative;
-    width: theme.get-var(width);
-    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - theme.get-var(safe-margin));
+    max-width: theme.get-var(width);
+    max-height: calc(100% - theme.get-var(safe-margin));
     margin: auto;
-    background-color: theme.get-var(background);
-    border-radius: theme.get-var(radius);
+    background-color: theme.get-var(background-color);
+    border-radius: theme.get-var(border-radius);
     box-shadow: theme.get-var(shadow);
   }
 
   &__header {
     display: flex;
-    justify-content: space-between;
     align-items: baseline;
+    justify-content: space-between;
+
+    &__content {
+      flex: 1;
+    }
+  }
+
+  &__body {
+    overflow-y: auto;
   }
 
   &__header,
@@ -44,6 +59,39 @@
     );
   }
 
+  &--scroll-in-viewport {
+    overflow-y: auto;
+
+    @include theme.define-var(
+      (
+        height: calc(100% - theme.get-var(safe-margin)),
+        padding-block: calc(theme.get-var(safe-margin) / 2),
+      )
+    );
+
+    .#{$dialog-root} {
+      &__surface {
+        max-height: unset;
+      }
+
+      &__body {
+        overflow-y: unset;
+      }
+    }
+  }
+
+  // Safe Margin
+  @each $key, $value in $dialog-space {
+    &--safe-margin-#{$key} {
+      @include theme.define-var(
+        (
+          safe-margin: $value,
+        )
+      );
+    }
+  }
+
+  // Sizes
   &--sm {
     @include theme.define-var(
       (

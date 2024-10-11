@@ -22,7 +22,22 @@ export default meta;
 export const Base: Story = {
   args: {
     placeholder: "Type your value...",
-    skin: "default",
+    rows: 5,
     disabled: false,
+  },
+};
+
+export const Appearance: Story = {
+  args: {
+    placeholder: "Type your value...",
+    skin: "neutral",
+    appearance: "soft",
+  },
+};
+
+export const Critical: Story = {
+  args: {
+    placeholder: "Type your value...",
+    skin: "critical",
   },
 };

@@ -1,4 +1,4 @@
-import { Canvas, Meta, ArgTypes } from "@storybook/blocks";
+import { Canvas, Meta, ArgTypes, Stories } from "@storybook/blocks";
 import * as ButtonStories from "./Button.stories";
 
 # Button
@@ -19,26 +19,7 @@ import { Button } from "@stewed/react";
 
 <Meta of={ButtonStories} />
 
-## Base
-
-<Canvas of={ButtonStories.Base} />
-
-### Left Slot
-
-<Canvas of={ButtonStories.LeftSlot} />
-
-
-### Icon Only
-
-<Canvas of={ButtonStories.IconOnly} />
-
-### Polymorphic
-
-<Canvas of={ButtonStories.Polymorphic} />
-
-### Loading
-
-<Canvas of={ButtonStories.Loading} />
+<Stories />
 
 ## Props
 

@@ -1,0 +1,191 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+@use "@stewed/react/src/typography/src/styles" as text;
+@use "./variables" as *;
+
+@include theme.scope($calendar-root) {
+  display: flex;
+  flex-direction: column;
+  gap: theme.get-spacing("lg");
+  width: 100%;
+  user-select: none;
+
+  @include theme.define-var(
+    (
+      row-gap: theme.get-spacing("xxs"),
+      column-gap: theme.get-spacing("xxs"),
+    )
+  );
+
+  &__navigation {
+    display: flex;
+    gap: theme.get-spacing("md");
+    align-items: center;
+  }
+
+  &__week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+    @include text.typography(
+      base,
+      $overrides: (color: theme.get-color("neutral", "500"), font-size: theme.get-font-size("sm"))
+    );
+
+    &--rtl {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__month {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: 1fr;
+    gap: theme.get-var(row-gap) theme.get-var(column-gap);
+    color: theme.get-color("black");
+  }
+
+  &__week__day,
+  &__day {
+    all: unset;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @include theme.focus-styles;
+  }
+
+  &__week__day {
+    text-transform: capitalize;
+
+    @include text.typography(
+      base,
+      $overrides: (color: theme.get-color("neutral", "500"), font-size: theme.get-font-size("xs"))
+    );
+  }
+
+  &__day {
+    min-width: 36px;
+    height: 36px;
+    color: theme.get-var(color);
+    cursor: pointer;
+    background-color: theme.get-var(background-color);
+
+    @include text.typography(
+      base,
+      $overrides: (color: theme.get-color("neutral", "900"), font-size: theme.get-font-size("sm"))
+    );
+
+    &:not(&--in-range) {
+      border-radius: theme.get-var(radius);
+    }
+
+    &:empty {
+      @include theme.define-var(
+        (
+          background-color: transparent,
+        )
+      );
+    }
+
+    &:hover:not(&--selected, &--locked, &--disabled, &--in-range) {
+      @include theme.define-var(
+        (
+          background-color: theme.get-color("neutral", "100"),
+        )
+      );
+    }
+
+    &--today {
+      @include theme.define-var(
+        (
+          background-color: theme.get-color("primary", "100"),
+          color: theme.get-color("primary", "500"),
+        )
+      );
+    }
+
+    &--weekend {
+      @include theme.define-var(
+        (
+          color: theme.get-color("neutral", "500"),
+        )
+      );
+    }
+
+    &--sibling-month-day {
+      @include theme.define-var(
+        (
+          color: theme.get-color("neutral", "400"),
+        )
+      );
+    }
+
+    &--highlighted {
+      @include theme.define-var(
+        (
+          color: theme.get-color("secondary", "500"),
+        )
+      );
+    }
+
+    &--in-range {
+      @include theme.define-var(
+        (
+          color: theme.get-color("neutral", "900"),
+          background-color: theme.get-color("neutral", "100"),
+        )
+      );
+    }
+
+    &--start-range,
+    &--end-range,
+    &--selected {
+      @include theme.define-var(
+        (
+          color: white,
+          background-color: theme.get-color("primary", "500"),
+        )
+      );
+    }
+
+    &--start-range {
+      border-top-left-radius: theme.get-var(radius);
+      border-bottom-left-radius: theme.get-var(radius);
+    }
+
+    &--end-range {
+      border-top-right-radius: theme.get-var(radius);
+      border-bottom-right-radius: theme.get-var(radius);
+    }
+
+    &--locked,
+    &--disabled {
+      @include theme.disabled-styles;
+    }
+  }
+
+  &--locked {
+    .#{$calendar-root}__navigation,
+    .#{$calendar-root}__month {
+      cursor: not-allowed;
+    }
+  }
+
+  &--rtl {
+    .#{$calendar-root}__week,
+    .#{$calendar-root}__month {
+      direction: rtl;
+    }
+  }
+
+  &--range {
+    @include theme.define-var(
+      (
+        row-gap: theme.get-spacing("xxs"),
+        column-gap: 0,
+      )
+    );
+  }
+}

@@ -26,7 +26,7 @@ const fetchData = async (): Promise<string> => {
 };
 
 export const Async: Story = {
-  render: () => {
+  render: function Render() {
     const { execute, status, value, error } = useAsync(fetchData, false);
 
     return (
@@ -42,7 +42,6 @@ export const Async: Story = {
         </button>
 
         {status === "success" && <pre>{JSON.stringify(value, null, 4)}</pre>}
-
       </div>
     );
   },

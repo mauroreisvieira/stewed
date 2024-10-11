@@ -3,77 +3,135 @@
 @use "./variables" as *;
 
 @include theme.scope($tabs-root) {
+  box-sizing: border-box;
+  display: inline-flex;
+
   @include theme.define-var(
     (
-      background-color: theme.get-color("neutral", "100"),
-      border-color: theme.get-color("neutral", "300"),
       flex-direction: row,
-      width: auto,
-      height: theme.get-spacing("6xl"),
       justify-content: center,
-      item-background-color: transparent,
+      border-color: transparent,
     )
   );
 
-  display: flex;
-  width: 100%;
+  &--start {
+    @include theme.define-var(
+      (
+        justify-content: start,
+        align-items: start,
+      )
+    );
+  }
+
+  &--center {
+    @include theme.define-var(
+      (
+        justify-content: center,
+        align-items: start,
+      )
+    );
+  }
+
+  &--end {
+    @include theme.define-var(
+      (
+        justify-content: end,
+        align-items: end,
+      )
+    );
+  }
+
+  &--row {
+    width: 100%;
+
+    .#{$tabs-root}__list {
+      position: relative;
+      width: 100%;
+
+      &::after {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        content: "";
+        border-bottom: 1px solid theme.get-color("neutral", "300");
+      }
+    }
+  }
 
   &--column {
     @include theme.define-var(
       (
         flex-direction: column,
-        width: 100%,
-        justify-content: left,
       )
     );
   }
 
-  &--start {
-    justify-content: left;
-  }
+  &--underline {
+    &:where(.#{$tabs-root}--row) {
+      .#{$tabs-root}__item {
+        top: 1px;
+        border-bottom: 2px solid theme.get-var(border-color);
+      }
+    }
 
-  &--center {
-    justify-content: center;
-  }
+    &:where(.#{$tabs-root}--column) {
+      &.#{$tabs-root} {
+        &--start {
+          border-left: 1px solid theme.get-color("neutral", "300");
 
-  &--end {
-    justify-content: end;
+          .#{$tabs-root}__item {
+            left: -1px;
+            border-left: 2px solid theme.get-var(border-color);
+          }
+        }
+
+        &--end {
+          border-right: 1px solid theme.get-color("neutral", "300");
+
+          .#{$tabs-root}__item {
+            right: -1px;
+            border-right: 2px solid theme.get-var(border-color);
+          }
+        }
+      }
+    }
   }
 
   &__list {
     box-sizing: border-box;
     display: inline-flex;
     flex-direction: theme.get-var(flex-direction);
-    gap: theme.get-spacing("sm");
-    align-items: center;
-    width: theme.get-var(width);
-    padding: theme.get-spacing("xxs");
+    gap: theme.get-spacing("xs");
+    align-items: theme.get-var(align-items);
+    justify-content: theme.get-var(justify-content);
     user-select: none;
-    background-color: theme.get-var(background-color);
-    border: 1px solid theme.get-var(border-color);
-    border-radius: calc(theme.get-var(radius) + theme.get-spacing("xxs"));
   }
 
   &__item {
     all: unset;
-    box-sizing: border-box;
+    position: relative;
     display: flex;
     gap: theme.get-spacing("sm");
     align-items: center;
-    justify-content: theme.get-var(justify-content);
-    width: theme.get-var(width);
-    height: calc(theme.get-var(height) - 6px);
-    padding-inline: theme.get-spacing("md");
+    height: 40px;
+    padding-inline: theme.get-spacing("lg");
+    overflow: hidden;
     cursor: pointer;
-    background-color: theme.get-var(item-background-color);
-    border-radius: theme.get-var(radius);
 
     @include theme.focus-styles;
-    @include theme.disabled-styles;
-    @include text.typography(
-      base,
-      $overrides: (font-size: theme.get-font-size("sm"))
-    );
+    @include text.typography(base, $overrides: (font-size: theme.get-font-size("sm")));
+
+    &--disabled {
+      @include theme.disabled-styles;
+    }
+
+    &:hover:not([disabled]) {
+      @include theme.define-var(
+        (
+          color: theme.get-color("primary", "500"),
+        )
+      );
+    }
 
     &__left,
     &__right {
@@ -83,9 +141,11 @@
     }
 
     &--selected {
+      z-index: 1;
       @include theme.define-var(
         (
-          item-background-color: theme.get-color("background-elevated"),
+          color: theme.get-color("primary", "500"),
+          border-color: theme.get-color("primary", "500"),
         )
       );
     }

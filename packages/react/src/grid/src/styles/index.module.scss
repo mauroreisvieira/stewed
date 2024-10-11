@@ -4,7 +4,7 @@
 @include theme.scope($grid-root) {
   display: grid;
 
-  &__column {
+  &__item {
     box-sizing: border-box;
 
     @for $i from 1 through 12 {
@@ -31,6 +31,10 @@
       &--col-end-#{$i} {
         grid-column-end: $i;
       }
+    }
+
+    &--hidden {
+      display: none;
     }
   }
 

@@ -2,56 +2,43 @@
 @use "./variables" as *;
 
 @include theme.scope($box-root) {
+  position: relative;
+  box-sizing: border-box;
+  display: block;
+  background-color: theme.get-var(background-color);
+  border-color: theme.get-var(border-color);
+  border-style: theme.get-var(border-style);
+  border-width: theme.get-var(border-width);
+  border-radius: theme.get-var(border-radius);
+  box-shadow: theme.get-var(box-shadow);
+
   @include theme.define-var(
     (
-      display: flex,
-      screen: auto,
+      display: block,
       background-color: transparent,
+      border-color: transparent,
+      border-width: inherit,
+      border-radius: inherit,
+      box-shadow: none,
     )
   );
 
-  display: theme.get-var(display);
-  box-sizing: border-box;
-  height: theme.get-var(screen);
-  background-color: theme.get-var(background-color);
-
-  &--inline {
+  &--hidden {
     @include theme.define-var(
       (
-        display: inline-flex,
+        display: none,
       )
     );
   }
 
-  &--block {
-    @include theme.define-var(
-      (
-        display: block,
-      )
-    );
-  }
-
-  &--full-width {
-    width: 100%;
-  }
-
-  // Direction
-  &--row-reverse {
-    flex-direction: row-reverse;
-  }
-
-  &--column {
-    flex-direction: column;
-  }
-
-  &--column-reverse {
-    flex-direction: column-reverse;
-  }
-
-  // Gap
-  @each $key, $value in $box-gap {
-    &--gap-#{$key} {
-      gap: #{$value};
+  // Radius
+  @each $key, $value in $box-radius {
+    &--radius-#{$key} {
+      @include theme.define-var(
+        (
+          border-radius: $value,
+        )
+      );
     }
   }
 
@@ -66,24 +53,53 @@
     }
   }
 
-  // Screen (Height)
-  @each $key, $value in $box-screen {
-    &--screen-#{$key} {
+  // Border Width
+  @for $i from 1 through 12 {
+    &--border-width-#{$i} {
       @include theme.define-var(
         (
-          screen: #{$value},
+          border-width: #{$i}px,
         )
       );
     }
   }
 
-  // Padding
+  // Border Style
+  &--border-style-solid {
+    @include theme.define-var(
+      (
+        border-style: solid,
+      )
+    );
+  }
+
+  &--border-style-dashed {
+    @include theme.define-var(
+      (
+        border-style: dashed,
+      )
+    );
+  }
+
+  // Border Color
+  @each $key, $value in $box-border-color {
+    &--border-color-#{$key} {
+      @include theme.define-var(
+        (
+          border-color: $value,
+        )
+      );
+    }
+  }
+
+  // Padding Block
   @each $key, $value in $box-padding {
     &--padding-block-#{$key} {
       padding-block: #{$value};
     }
   }
 
+  // Padding Inline
   @each $key, $value in $box-padding {
     &--padding-inline-#{$key} {
       padding-inline: #{$value};
@@ -91,7 +107,7 @@
   }
 
   // Space
-  @each $key, $value in $box-gap {
+  @each $key, $value in $box-space {
     &--space-x-#{$key} ~ :not([hidden]) {
       margin-left: #{$value};
     }
@@ -101,68 +117,7 @@
     }
   }
 
-  // Justify Content
-  &--justify-start {
-    justify-content: start;
-  }
-
-  &--justify-end {
-    justify-content: end;
-  }
-
-  &--justify-center {
-    justify-content: center;
-  }
-
-  &--justify-between {
-    justify-content: space-between;
-  }
-
-  &--justify-around {
-    justify-content: space-around;
-  }
-
-  &--justify-evenly {
-    justify-content: space-evenly;
-  }
-
-  // Align Items
-  &--items-start {
-    align-items: start;
-  }
-
-  &--items-end {
-    align-items: end;
-  }
-
-  &--items-center {
-    align-items: center;
-  }
-
-  &--items-baseline {
-    align-items: baseline;
-  }
-
-  &--items-stretch {
-    align-items: stretch;
-  }
-
-  // box Grow
-  &--grow {
-    flex-basis: 0;
-    flex-grow: 1;
-  }
-
-  // box Wrap
-  &--wrap {
-    flex-wrap: wrap;
-  }
-
-  &--wrap-reverse {
-    flex-wrap: wrap-reverse;
-  }
-
-  &--nowrap {
-    flex-wrap: nowrap;
+  &--full-width {
+    width: 100%;
   }
 }

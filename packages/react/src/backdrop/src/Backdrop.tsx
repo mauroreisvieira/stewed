@@ -1,4 +1,6 @@
 import React from "react";
+// UI Components
+import { Motion } from "../../motion";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
@@ -6,7 +8,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface BackdropProps extends React.ComponentPropsWithRef<"div"> {
+export interface BackdropProps extends React.ComponentPropsWithoutRef<"div"> {
   /** Whether to apply a blur effect to the backdrop. */
   blur?: boolean;
 }
@@ -20,7 +22,7 @@ export interface BackdropProps extends React.ComponentPropsWithRef<"div"> {
  * ```
  *
  * @remarks
- * This component extends `ReactDialogHTMLAttributes<HTMLDivElement>`.
+ * This component extends `React.ComponentPropsWithoutRef<"div">`.
  *
  * @param {BackdropProps} props - The props for the Backdrop component.
  * @returns {React.ReactElement} - The rendered Backdrop component.
@@ -37,5 +39,9 @@ export function Backdrop({ blur = false, className, ...props }: BackdropProps): 
     }),
   };
 
-  return <div className={cssClasses.root} {...props} />;
+  return (
+    <Motion animation="fade-in" duration="slowly">
+      <div className={cssClasses.root} {...props} />
+    </Motion>
+  );
 }

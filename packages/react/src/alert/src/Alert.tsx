@@ -2,11 +2,11 @@ import React from "react";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
-import { type Color, components } from "@stewed/tokens";
+import { type Color, type Shadow, components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface AlertProps extends React.ComponentPropsWithRef<"div"> {
+export interface AlertProps extends React.ComponentPropsWithoutRef<"div"> {
   /** Will render the bold text shown at the top of the alert. */
   title?: string;
   /**
@@ -17,8 +17,16 @@ export interface AlertProps extends React.ComponentPropsWithRef<"div"> {
     Color,
     "info" | "primary" | "secondary" | "neutral" | "critical" | "success" | "warning"
   >;
-  /** Determine whether the alert should be rendered as floating, allowing elevation effects. */
-  floating?: boolean;
+  /**
+   * Changes the size of the alert, giving it more or less padding.
+   * @default md
+   */
+  size?: "xs" | "sm" | "md" | "lg";
+  /**
+   * The shadow of the card.
+   * @default sm
+   */
+  shadow?: Shadow;
   /** Slot to display before the alert content. */
   leftSlot?: React.ReactNode;
   /** Slot to display after the alert content. */
@@ -38,7 +46,7 @@ export interface AlertProps extends React.ComponentPropsWithRef<"div"> {
  * </Alert>
  * ```
  *
- * @remarks This component props extended from React.ComponentPropsWithRef<"div">.
+ * @remarks This component props extended from React.ComponentPropsWithoutRef<"div">.
  *
  * @param {AlertProps} props - The props for the Alert component.
  * @returns {React.ReactElement} - The rendered Alert component.
@@ -46,7 +54,8 @@ export interface AlertProps extends React.ComponentPropsWithRef<"div"> {
 export function Alert({
   title,
   skin = "info",
-  floating,
+  size = "md",
+  shadow = "none",
   className,
   leftSlot,
   rightSlot,
@@ -58,7 +67,10 @@ export function Alert({
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ modifiers: [skin, floating && "floating"], extraClasses: className }),
+    root: getBlock({
+      modifiers: [skin, size, shadow && `shadow-${shadow}`],
+      extraClasses: className,
+    }),
     title: getElement(["title"]),
     body: getElement(["body"]),
     wrapper: getElement(["wrapper"]),
@@ -71,7 +83,7 @@ export function Alert({
       {leftSlot && <div className={cssClasses.left}>{leftSlot}</div>}
       <div className={cssClasses.wrapper}>
         {title && <div className={cssClasses.title}>{title}</div>}
-        <div className={cssClasses.body}>{children}</div>
+        {children && <div className={cssClasses.body}>{children}</div>}
       </div>
       {rightSlot && <div className={cssClasses.right}>{rightSlot}</div>}
     </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // Components
-import { Button, Theme, Text, Tooltip, Box } from "../../index";
+import { Button, Theme, Stack, Tooltip, Box } from "../../index";
 
 type Story = StoryObj<typeof Tooltip>;
 
@@ -11,8 +11,10 @@ const meta: Meta<typeof Tooltip> = {
   decorators: [
     (Story) => (
       <Theme>
-        <Box justify="center" items="center" padding={{ block: "7xl", inline: "7xl" }} grow>
-          <Story />
+        <Box padding={{ block: "7xl", inline: "7xl" }}>
+          <Stack justify="center" items="center">
+            <Story />
+          </Stack>
         </Box>
       </Theme>
     ),
@@ -27,9 +29,6 @@ export const Base: Story = {
     placement: "top",
   },
   argTypes: {
-    content: {
-      control: false,
-    },
     placement: {
       options: [
         "top",
@@ -51,14 +50,8 @@ export const Base: Story = {
     return (
       <Tooltip<HTMLButtonElement>
         {...args}
-        content={
-          <Text size="xs" skin="inherit">
-            This order has shipping labels
-          </Text>
-        }>
-        {(props) => {
-          return <Button {...props}>Order #1001</Button>;
-        }}
+        renderAnchor={(props) => <Button {...props}>Order #1001</Button>}>
+        This order has shipping labels
       </Tooltip>
     );
   },

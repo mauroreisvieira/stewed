@@ -7,7 +7,6 @@ import {
   Box,
   Card,
   Theme,
-  useTheme,
   TextField,
   Button,
   Tabs,
@@ -18,6 +17,8 @@ import {
   Select,
   Container,
   Table,
+  Stack,
+  useTheme,
 } from "../../index";
 // Hooks
 import { useStateForm } from "@stewed/hooks";
@@ -55,28 +56,31 @@ export const Palette: Story = {
       <Theme>
         {["primary", "secondary", "neutral", "critical", "success", "info", "warning"].map(
           (color) => (
-            <Box key={color} direction="column" gap="xs" space={{ y: "xl" }}>
-              <Text variation={"capitalize"} weight="medium">
-                {color}
-              </Text>
-              <Box items="baseline">
-                {[100, 200, 300, 400, 500, 600, 700, 800, 900].map((tone) => (
-                  <Box
-                    key={tone}
-                    padding={{ block: tone === 500 ? "5xl" : "3xl", inline: "2xl" }}
-                    justify="center"
-                    grow
-                    style={{
-                      backgroundColor:
-                        tone === 500 ? `var(--color-${color})` : `var(--color-${color}-${tone})`,
-                    }}>
-                    <Text size="xs" skin={tone > 400 ? "white" : "black"}>
-                      {tone}
-                    </Text>
-                  </Box>
-                ))}
+            <Stack key={color} direction="column" gap="xs">
+              <Box space={{ y: "xl" }}>
+                <Text variation={"capitalize"} weight="medium">
+                  {color}
+                </Text>
+                <Stack items="baseline">
+                  {[100, 200, 300, 400, 500, 600, 700, 800, 900].map((tone) => (
+                    <Stack
+                      key={tone}
+                      justify="center"
+                      grow
+                      style={{
+                        backgroundColor:
+                          tone === 500 ? `var(--color-${color})` : `var(--color-${color}-${tone})`,
+                      }}>
+                      <Box padding={{ block: tone === 500 ? "5xl" : "3xl", inline: "2xl" }}>
+                        <Text size="xs" skin={tone > 400 ? "white" : "black"}>
+                          {tone}
+                        </Text>
+                      </Box>
+                    </Stack>
+                  ))}
+                </Stack>
               </Box>
-            </Box>
+            </Stack>
           ),
         )}
       </Theme>
@@ -88,7 +92,7 @@ export const Colors: Story = {
   render: (): React.ReactElement => {
     return (
       <Theme>
-        <Table appearance={["border-rows", "border-columns", "striped"]}>
+        <Table appearance={["border-rows", "border-columns", "striped-rows"]}>
           <Table.Head>
             <Table.Row>
               <Table.Cell as="th">Name</Table.Cell>
@@ -113,7 +117,7 @@ export const Screens: Story = {
   render: (): React.ReactElement => {
     return (
       <Theme>
-        <Table appearance={["border-rows", "border-columns", "striped"]}>
+        <Table appearance={["border-rows", "border-columns", "striped-rows"]}>
           <Table.Head>
             <Table.Row>
               <Table.Cell as="th">Name</Table.Cell>
@@ -138,7 +142,7 @@ export const Viewport: Story = {
   render: (): React.ReactElement => {
     return (
       <Theme>
-        <Table appearance={["border-rows", "border-columns", "striped"]}>
+        <Table appearance={["border-rows", "border-columns", "striped-rows"]}>
           <Table.Head>
             <Table.Row>
               <Table.Cell as="th">Name</Table.Cell>
@@ -163,7 +167,7 @@ export const Breakpoints: Story = {
   render: (): React.ReactElement => {
     return (
       <Theme>
-        <Table appearance={["border-rows", "border-columns", "striped"]}>
+        <Table appearance={["border-rows", "border-columns", "striped-rows"]}>
           <Table.Head>
             <Table.Row>
               <Table.Cell as="th">Name</Table.Cell>
@@ -188,7 +192,7 @@ export const FontFamily: Story = {
   render: (): React.ReactElement => {
     return (
       <Theme>
-        <Table appearance={["border-rows", "border-columns", "striped"]}>
+        <Table appearance={["border-rows", "border-columns", "striped-rows"]}>
           <Table.Head>
             <Table.Row>
               <Table.Cell as="th">Name</Table.Cell>
@@ -213,7 +217,7 @@ export const FontSize: Story = {
   render: (): React.ReactElement => {
     return (
       <Theme>
-        <Table appearance={["border-rows", "border-columns", "striped"]}>
+        <Table appearance={["border-rows", "border-columns", "striped-rows"]}>
           <Table.Head>
             <Table.Row>
               <Table.Cell as="th">Name</Table.Cell>
@@ -238,7 +242,7 @@ export const FontWeight: Story = {
   render: (): React.ReactElement => {
     return (
       <Theme>
-        <Table appearance={["border-rows", "border-columns", "striped"]}>
+        <Table appearance={["border-rows", "border-columns", "striped-rows"]}>
           <Table.Head>
             <Table.Row>
               <Table.Cell as="th">Name</Table.Cell>
@@ -263,7 +267,7 @@ export const LineHeight: Story = {
   render: (): React.ReactElement => {
     return (
       <Theme>
-        <Table appearance={["border-rows", "border-columns", "striped"]}>
+        <Table appearance={["border-rows", "border-columns", "striped-rows"]}>
           <Table.Head>
             <Table.Row>
               <Table.Cell as="th">Name</Table.Cell>
@@ -288,7 +292,7 @@ export const Spacings: Story = {
   render: (): React.ReactElement => {
     return (
       <Theme>
-        <Table appearance={["border-rows", "border-columns", "striped"]}>
+        <Table appearance={["border-rows", "border-columns", "striped-rows"]}>
           <Table.Head>
             <Table.Row>
               <Table.Cell as="th">Name</Table.Cell>
@@ -313,7 +317,7 @@ export const Elevation: Story = {
   render: (): React.ReactElement => {
     return (
       <Theme>
-        <Table appearance={["border-rows", "border-columns", "striped"]}>
+        <Table appearance={["border-rows", "border-columns", "striped-rows"]}>
           <Table.Head>
             <Table.Row>
               <Table.Cell as="th">Level</Table.Cell>
@@ -338,7 +342,7 @@ export const Radius: Story = {
   render: (): React.ReactElement => {
     return (
       <Theme>
-        <Table appearance={["border-rows", "border-columns", "striped"]}>
+        <Table appearance={["border-rows", "border-columns", "striped-rows"]}>
           <Table.Head>
             <Table.Row>
               <Table.Cell as="th">Name</Table.Cell>
@@ -363,7 +367,7 @@ export const Shadows: Story = {
   render: (): React.ReactElement => {
     return (
       <Theme>
-        <Table appearance={["border-rows", "border-columns", "striped"]}>
+        <Table appearance={["border-rows", "border-columns", "striped-rows"]}>
           <Table.Head>
             <Table.Row>
               <Table.Cell as="th">Name</Table.Cell>
@@ -388,7 +392,7 @@ export const Spaces: Story = {
   render: (): React.ReactElement => {
     return (
       <Theme>
-        <Table appearance={["border-rows", "border-columns", "striped"]}>
+        <Table appearance={["border-rows", "border-columns", "striped-rows"]}>
           <Table.Head>
             <Table.Row>
               <Table.Cell as="th">Name</Table.Cell>
@@ -413,7 +417,7 @@ export const Duration: Story = {
   render: (): React.ReactElement => {
     return (
       <Theme>
-        <Table appearance={["border-rows", "border-columns", "striped"]}>
+        <Table appearance={["border-rows", "border-columns", "striped-rows"]}>
           <Table.Head>
             <Table.Row>
               <Table.Cell as="th">Name</Table.Cell>
@@ -438,7 +442,7 @@ export const Timing: Story = {
   render: (): React.ReactElement => {
     return (
       <Theme>
-        <Table appearance={["border-rows", "border-columns", "striped"]}>
+        <Table appearance={["border-rows", "border-columns", "striped-rows"]}>
           <Table.Head>
             <Table.Row>
               <Table.Cell as="th">Name</Table.Cell>
@@ -499,7 +503,7 @@ function Elements(): React.ReactElement {
 
   return (
     <>
-      <Box direction="column" gap="2xl" grow>
+      <Stack direction="column" gap="2xl" grow>
         <Tabs
           value={theme}
           alignment="center"
@@ -518,8 +522,8 @@ function Elements(): React.ReactElement {
           </Card.Header>
 
           <Card.Body>
-            <Box direction="column" gap="2xl">
-              <Box direction="column" gap="md">
+            <Stack direction="column" gap="2xl">
+              <Stack direction="column" gap="md">
                 <FormField>
                   <FormField.Label htmlFor="username">Username</FormField.Label>
                   <FormField.Control>
@@ -529,8 +533,9 @@ function Elements(): React.ReactElement {
                       name="username"
                       value={username.value}
                       onChange={onFormChange}
-                      skin={username.valid ? "default" : "critical"}
+                      skin={username.valid ? "neutral-faded" : "critical"}
                       placeholder="Enter your username"
+                      fullWidth
                     />
                   </FormField.Control>
                   <FormField.Description>
@@ -542,7 +547,12 @@ function Elements(): React.ReactElement {
                 <FormField>
                   <FormField.Label htmlFor="gender">Gender</FormField.Label>
                   <FormField.Control>
-                    <Select id="gender" value={gender.value} name="gender" onChange={onFormChange}>
+                    <Select
+                      id="gender"
+                      value={gender.value}
+                      name="gender"
+                      onChange={onFormChange}
+                      fullWidth>
                       <Select.Option value="Woman">Woman</Select.Option>
                       <Select.Option value="Man">Man</Select.Option>
                       <Select.Option value="Non-binary/non-conforming">
@@ -564,8 +574,9 @@ function Elements(): React.ReactElement {
                       name="email"
                       value={email.value}
                       onChange={onFormChange}
-                      skin={email.valid ? "default" : "critical"}
+                      skin={email.valid ? "neutral-faded" : "critical"}
                       placeholder="Enter your email"
+                      fullWidth
                     />
                   </FormField.Control>
                   <FormField.Error hidden={email.valid}>{email.error}</FormField.Error>
@@ -580,8 +591,9 @@ function Elements(): React.ReactElement {
                       name="password"
                       value={password.value}
                       onChange={onFormChange}
-                      skin={password.valid ? "default" : "critical"}
+                      skin={password.valid ? "neutral-faded" : "critical"}
                       placeholder="Enter your password"
+                      fullWidth
                     />
                   </FormField.Control>
                   <FormField.Description>
@@ -589,48 +601,48 @@ function Elements(): React.ReactElement {
                   </FormField.Description>
                   <FormField.Error hidden={password.valid}>{password.error}</FormField.Error>
                 </FormField>
-              </Box>
-            </Box>
+              </Stack>
+            </Stack>
             <Separator space={{ block: "xl" }} />
-            <Box items="start" justify="between">
-              <Box direction="column">
+            <Stack items="start" justify="between">
+              <Stack direction="column">
                 <Text weight="semi-bold">Favorites</Text>
                 <Text size="xs" skin="neutral">
                   Receive notifications when there is activity related to your favorite items.
                 </Text>
-              </Box>
-              <Box gap="md" direction="column" items="baseline">
+              </Stack>
+              <Stack gap="md" direction="column" items="baseline">
                 <Switch size="sm">Push</Switch>
                 <Switch size="sm">Email</Switch>
                 <Switch size="sm">Slack</Switch>
-              </Box>
-            </Box>
+              </Stack>
+            </Stack>
             <Separator space={{ block: "xl" }} />
-            <Box items="start" justify="between">
-              <Box direction="column">
+            <Stack items="start" justify="between">
+              <Stack direction="column">
                 <Text weight="semi-bold">New documents</Text>
                 <Text size="xs" skin="neutral">
                   Receive notifications whenever people on your team create new documents.
                 </Text>
-              </Box>
-              <Box gap="md" direction="column" items="baseline">
+              </Stack>
+              <Stack gap="md" direction="column" items="baseline">
                 <Switch size="sm">Push</Switch>
                 <Switch size="sm">Email</Switch>
                 <Switch size="sm">Slack</Switch>
-              </Box>
-            </Box>
+              </Stack>
+            </Stack>
           </Card.Body>
           <Separator />
           <Card.Footer>
-            <Box justify="end" gap="md">
+            <Stack justify="end" gap="md">
               <Button skin="neutral" appearance="outline" onClick={(): void => onFormReset()}>
                 Clean
               </Button>
               <Button onClick={(): void => setOpen(true)}>Create an account</Button>
-            </Box>
+            </Stack>
           </Card.Footer>
         </Card>
-      </Box>
+      </Stack>
       <Dialog open={isOpen} size="sm">
         <Dialog.Header>
           <Text as="h4">Are you ready to create your account?</Text>
@@ -642,7 +654,7 @@ function Elements(): React.ReactElement {
           </Text>
         </Dialog.Body>
         <Dialog.Footer>
-          <Box gap="md" justify="end">
+          <Stack gap="md" justify="end">
             <Button
               skin="neutral"
               appearance="outline"
@@ -653,7 +665,7 @@ function Elements(): React.ReactElement {
             <Button type="button" skin="success" onClick={(): void => setOpen(false)}>
               Create Account
             </Button>
-          </Box>
+          </Stack>
         </Dialog.Footer>
       </Dialog>
     </>

@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 // Context
-import { useTabs } from "./context/TabsContext";
+import { useTabs } from "./TabsContext";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
@@ -8,7 +8,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface TabsItemProps extends React.ComponentPropsWithRef<"button"> {
+export interface TabsItemProps extends React.ComponentPropsWithoutRef<"button"> {
   /** Sets or retrieves the value of a tab list. */
   value: string;
   /** Slot to display before the item children. */
@@ -23,13 +23,14 @@ export function TabsItem({
   leftSlot,
   rightSlot,
   className,
-  tabIndex,
   children,
   onClick,
   ...props
 }: TabsItemProps): React.ReactElement {
+  // Get tab context value and functions.
   const { onValueChange, value: selectedValue } = useTabs();
 
+  // Check the tab item selected
   const isSelected = value === selectedValue;
 
   // Importing useBem to handle BEM class names
@@ -61,7 +62,7 @@ export function TabsItem({
       disabled={disabled}
       aria-disabled={disabled}
       aria-selected={isSelected}
-      tabIndex={!isSelected || disabled ? -1 : tabIndex}
+      tabIndex={isSelected ? 0 : -1}
       className={cssClasses.root}
       onClick={onHandleClick}
       {...props}>

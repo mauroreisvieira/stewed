@@ -71,3 +71,26 @@ export const Skin: Story = {
     ),
   },
 };
+
+export const Direction: Story = {
+  argTypes: {
+    children: {
+      control: false,
+    },
+  },
+  args: {
+    direction: "row",
+    children: (
+      <>
+        <Card.Media src="https://placehold.co/100x100" />
+        <Card.Body>
+          <Text>
+            Pellentesque elementum diam sapien, nec ultrices risus convallis eget. Nam pharetra
+            dolor at dictum tempor. Quisque ut est a ligula hendrerit sodales. Curabitur ornare a
+            nulla in laoreet. Maecenas semper mi egestas, dignissim nisi et, elementum neque.
+          </Text>
+        </Card.Body>
+      </>
+    ),
+  },
+};

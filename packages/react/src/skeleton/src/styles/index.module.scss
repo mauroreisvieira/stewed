@@ -1,21 +1,16 @@
 @use "@stewed/react/src/theme/src/styles" as theme;
 @use "./variables" as *;
 
-@include theme.scope($skeleton-root) {
-  @keyframes pulse {
-    0%,
-    100% {
-      opacity: 1;
-    }
-
-    50% {
-      opacity: 0.5;
-    }
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
   }
+}
 
-  background-color: theme.get-color("neutral", "100");
-  border-radius: theme.get-var("rounded");
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+@include theme.scope($skeleton-root) {
+  background-color: color-mix(in srgb, theme.get-color("neutral", "500"), transparent 90%);
+  border-radius: theme.get-var("border-radius");
+  animation: pulse 2s linear infinite;
 
   &--line,
   &--rectangle {
@@ -33,11 +28,11 @@
   }
 
   &--circle {
-    width: theme.get-var("size");
+    min-width: theme.get-var("size");
 
     @include theme.define-var(
       (
-        rounded: theme.get-radius("full"),
+        border-radius: theme.get-radius("full"),
       )
     );
   }
@@ -52,12 +47,20 @@
     }
   }
 
+  &--auto {
+    @include theme.define-var(
+      (
+        size: auto,
+      )
+    );
+  }
+
   // Rounded
   @each $size-name, $size-value in $skeleton-radius {
     &--radius-#{$size-name} {
       @include theme.define-var(
         (
-          rounded: $size-value,
+          border-radius: $size-value,
         )
       );
     }

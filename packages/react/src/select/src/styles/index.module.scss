@@ -4,18 +4,11 @@
 @use "./variables" as *;
 
 @include theme.scope($select-root) {
-  @include theme.define-var(
-    (
-      height: 40px,
-    )
-  );
-
   position: relative;
   box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
   height: theme.get-var(height);
   overflow: hidden;
   border: 1px solid theme.get-var(border-color);
@@ -23,9 +16,12 @@
 
   @include text.typography(base, $overrides: (font-size: theme.get-font-size("md")));
   @include theme.focus-styles($target: ":focus-within");
-  @include theme.disabled-styles;
 
-  &:hover {
+  &--disabled {
+    @include theme.disabled-styles;
+  }
+
+  &:hover:not(&--disabled) {
     border-color: theme.get-var(border-color-hover);
   }
 
@@ -77,5 +73,20 @@
         )
       );
     }
+  }
+
+  // Sizes
+  @each $key, $value in $select-sizes {
+    &--#{$key} {
+      @include theme.define-var(
+        (
+          height: $value,
+        )
+      );
+    }
+  }
+
+  &--full-width {
+    width: 100%;
   }
 }

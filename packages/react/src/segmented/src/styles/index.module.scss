@@ -1,0 +1,79 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+@use "@stewed/react/src/typography/src/styles" as text;
+@use "./variables" as *;
+
+@include theme.scope($segmented-root) {
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-direction: row;
+  gap: theme.get-spacing("sm");
+  align-items: center;
+  width: theme.get-var(width);
+  height: theme.get-var(height);
+  padding-inline: 2px;
+  user-select: none;
+  background-color: theme.get-color("neutral", "100");
+  border: 1px solid theme.get-color("neutral", "300");
+  border-radius: theme.get-var(radius);
+
+  @include theme.define-var(
+    (
+      background-color: transparent,
+    )
+  );
+
+  &__item {
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    gap: theme.get-spacing("sm");
+    align-items: center;
+    justify-content: center;
+    height: calc(theme.get-var(height) - 8px);
+    padding-inline: theme.get-spacing("md");
+    cursor: pointer;
+    background-color: theme.get-var(background-color);
+    border-radius: calc(theme.get-var(radius) - 4px);
+
+    @include theme.focus-styles;
+    @include text.typography(base, $overrides: (font-size: theme.get-font-size("sm")));
+
+    &--disabled {
+      @include theme.disabled-styles;
+    }
+
+    &__left,
+    &__right {
+      position: relative;
+      display: flex;
+      flex-shrink: 0;
+    }
+
+    &--selected {
+      box-shadow: theme.get-shadow("md");
+      @include theme.define-var(
+        (
+          background-color: theme.get-color("background-elevated"),
+        )
+      );
+    }
+  }
+
+  // Sizes
+  @each $key, $value in $segmented-sizes {
+    &--#{$key} {
+      @include theme.define-var(
+        (
+          height: $value,
+        )
+      );
+    }
+  }
+
+  &--full-width {
+    width: 100%;
+    .#{$segmented-root}__item {
+      flex: 1;
+    }
+  }
+}

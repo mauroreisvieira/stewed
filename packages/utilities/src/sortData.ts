@@ -1,7 +1,7 @@
 // Define sorting directions as a constant object
 const SortDirection = {
-    ASC: "ASC",
-    DESC: "DESC",
+  ASC: "ASC",
+  DESC: "DESC",
 } as const;
 
 // Define a type alias for the sorting directions, allowing only 'asc' or 'desc'

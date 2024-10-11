@@ -20,12 +20,14 @@
   @include theme.focus-styles($target: ":focus-within .#{$checkbox-root}__control");
   @include theme.disabled-styles;
 
-  @include theme.hover {
-    @include theme.define-var(
-      (
-        background-color: theme.get-color("neutral", "200"),
-      )
-    );
+  &:not(&--disabled) {
+    @include theme.hover {
+      @include theme.define-var(
+        (
+          background-color: theme.get-color("neutral", "200"),
+        )
+      );
+    }
   }
 
   &__input {
@@ -40,8 +42,12 @@
 
     &:indeterminate,
     &:checked {
-      + .checkbox__control .checkbox__svg {
-        scale: 1;
+      + .checkbox__control {
+        color: #fff;
+
+        .checkbox__svg {
+          scale: 1;
+        }
       }
     }
   }
@@ -49,6 +55,10 @@
   &__control {
     position: relative;
     box-sizing: border-box;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
     width: theme.get-var(size);
     height: theme.get-var(size);
     background-color: theme.get-var(background-color);
@@ -87,27 +97,47 @@
     }
   }
 
+  &__group {
+    display: flex;
+    gap: theme.get-spacing("md");
+    align-items: start;
+
+    &--horizontal {
+      flex-direction: column;
+    }
+
+    &--vertical {
+      flex-direction: row;
+    }
+  }
+
+  &__spinner {
+    display: flex;
+    font-size: inherit;
+  }
+
+  &--loading {
+    pointer-events: none;
+  }
+
   // Skins
   @each $key, $value in $checkbox-skins {
     &--#{$key} {
-      .#{$checkbox-root}__input {
-        &:indeterminate,
-        &:checked {
-          + .checkbox__control {
+      .#{$checkbox-root}__input:is(:indeterminate, :checked) {
+        + .checkbox__control {
+          @include theme.define-var(
+            (
+              background-color: theme.get-color($value, "500"),
+              border-color: theme.get-color($value, "500"),
+            )
+          );
+
+          @include theme.hover {
             @include theme.define-var(
               (
-                background-color: theme.get-color($value, "500"),
-                border-color: theme.get-color($value, "500"),
+                background-color: theme.get-color($value, "600"),
               )
             );
-
-            @include theme.hover {
-              @include theme.define-var(
-                (
-                  background-color: theme.get-color($value, "600"),
-                )
-              );
-            }
           }
         }
       }

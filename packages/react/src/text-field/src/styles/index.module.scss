@@ -4,29 +4,22 @@
 @use "./variables" as *;
 
 @include theme.scope($input-root) {
-  @include theme.define-var(
-    (
-      height: 40px,
-    )
-  );
-
   position: relative;
   box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  height: theme.get-var(height);
   padding-inline: theme.get-spacing("md");
   overflow: hidden;
+  border: 1px solid transparent;
   border-radius: theme.get-var(radius);
-    height: theme.get-var(height);
 
   @include text.typography(base, $overrides: (font-size: theme.get-font-size("md")));
-  @include theme.focus-styles($target: ":focus-within");
-  @include theme.disabled-styles;
+  @include theme.focus-styles($target: ":has(input:focus-visible)");
 
-  &:hover {
-    border-color: theme.get-var(border-color-hover);
+  &--disabled {
+    @include theme.disabled-styles;
   }
 
   &__input {
@@ -61,22 +54,72 @@
     padding-inline-start: theme.get-spacing("md");
   }
 
-  &--outline {
-    border: 1px solid theme.get-var(border-color);
-  }
-
-  &--ghost {
-    border: none;
-  }
-
   @each $key, $value in $input-skins {
     &--#{$key} {
       @include theme.define-var(
         (
           border-color: map.get($value, "border"),
           border-color-hover: map.get($value, "border-hover"),
+          background-color: map.get($value, "background-color"),
         )
       );
     }
+  }
+
+  // Sizes
+  @each $key, $value in $input-sizes {
+    &--#{$key} {
+      @include theme.define-var(
+        (
+          height: $value,
+        )
+      );
+    }
+  }
+
+  &--outline {
+    border: 1px solid theme.get-var(border-color);
+
+    &:hover:has(:not([disabled])) {
+      border-color: theme.get-var(border-color-hover);
+    }
+  }
+
+  &--ghost {
+    border-color: transparent;
+  }
+
+  &--soft {
+    background-color: color-mix(in srgb, theme.get-var(background-color), transparent 95%);
+    border-color: transparent;
+
+    &:hover:has(:not([disabled])) {
+      background-color: color-mix(in srgb, theme.get-var(background-color), transparent 90%);
+    }
+  }
+
+  &--start {
+    text-align: start;
+  }
+
+  &--center {
+    text-align: center;
+  }
+
+  &--end {
+    text-align: end;
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+
+  &--sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
   }
 }

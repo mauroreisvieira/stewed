@@ -6,9 +6,14 @@ import { useBem } from "@stewed/hooks";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export type CardMediaProps = React.ComponentPropsWithRef<"img">;
+export type CardMediaProps = React.ComponentPropsWithoutRef<"img">;
 
-export function CardMedia({ className, children, ...props }: CardMediaProps): React.ReactElement {
+export function CardMedia({
+  className,
+  children,
+  alt,
+  ...props
+}: CardMediaProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock, getElement } = useBem({ block: `${components.Card}__media`, styles });
 
@@ -20,7 +25,7 @@ export function CardMedia({ className, children, ...props }: CardMediaProps): Re
   };
   return (
     <div className={cssClasses.root}>
-      <img className={cssClasses.img} {...props} />
+      <img className={cssClasses.img} alt={alt} {...props} />
       {children && <div className={cssClasses.slot}>{children}</div>}
     </div>
   );

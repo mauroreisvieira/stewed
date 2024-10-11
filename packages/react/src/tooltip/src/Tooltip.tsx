@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useReducer } from "react";
-import { Scope } from "../../scope";
+// UI Components
+import { Motion, Scope } from "../../";
 // Hooks
 import { useBem, useFloating, type FloatingPlacement } from "@stewed/hooks";
 // Tokens
@@ -7,13 +8,13 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-// Delay configuration for tooltip opening and closing.
+// Delay configuration for Tooltip opening and closing.
 const SHOW_DELAY = 300;
 const HIDE_DELAY = 100;
 const HIDE_DURATION = 100;
 
 type State = {
-  // Possible states for the tooltip.
+  // Possible states for the Tooltip.
   stage: "hidden" | "might-show" | "showing" | "might-hide" | "hiding";
   // Timer ID for controlling delays.
   timeoutId?: NodeJS.Timeout;
@@ -27,7 +28,7 @@ type Action =
   | "hide-animation-completed";
 
 export interface TooltipChildrenProps<T> {
-  /** Ref to attach to the tooltip element */
+  /** Ref to attach to the Tooltip element */
   ref: React.Ref<T>;
   /** Event handler for focus */
   onFocus: React.FocusEventHandler<T>;
@@ -40,7 +41,7 @@ export interface TooltipChildrenProps<T> {
 }
 
 export interface TooltipProps<T>
-  extends Omit<React.ComponentPropsWithRef<"div">, "children" | "content"> {
+  extends Omit<React.ComponentPropsWithoutRef<"div">, "children" | "content"> {
   /**
    * Change the visual style of the `Tooltip`.
    * @default default
@@ -48,18 +49,23 @@ export interface TooltipProps<T>
   skin?: "default" | "neutral" | "neutral-faded" | "primary" | "primary-faded";
   /**
    * Specifies the preferred placement of the `Tooltip` relative to its trigger.
-   * @example "top", "bottom", "left", "right"
+   * @default "top"
    */
-  placement?: FloatingPlacement;
+  placement?: Extract<FloatingPlacement, "top" | "bottom" | "left" | "right">;
   /** Determines if the `Tooltip` is open. */
   open?: boolean;
-  /** Content to be displayed inside the `Tooltip`. */
-  content: React.ReactNode;
+  /**
+   * Determines the delay in milliseconds ('ms') to displaying the Tooltip after hovering.
+   * @default 300
+   */
+  delay?: number;
   /**
    * Function that returns a React element with events to trigger `Tooltip` position and visibility.
    * @param props - Render props for `Tooltip` component.
    */
-  children: (props: TooltipChildrenProps<T>) => React.ReactElement;
+  renderAnchor: (props: TooltipChildrenProps<T>) => React.ReactElement;
+  /** Slot for Content to be displayed inside the `Tooltip`. */
+  children: React.ReactNode;
 }
 
 /**
@@ -67,26 +73,29 @@ export interface TooltipProps<T>
  *
  * @example
  * ```tsx
- * <Tooltip<HTMLButtonElement> placement="top" content="This order has shipping labels.">
- *   {(props) => (
+ * <Tooltip<HTMLButtonElement>
+ *   placement="top"
+ *   renderAnchor={(props) => (
  *     <button {...props}>Order #1001</button>
- *   )}
+ *   )}>
+ *   This order has shipping labels.
  * </Tooltip>
  * ```
  *
- * @remarks This component's props extend from React.ComponentPropsWithRef<"div">.
+ * @remarks This component's props extend from React.ComponentPropsWithoutRef<"div">.
  *
  * @param props - The props for the Tooltip component.
  * @returns The rendered Tooltip component.
  */
 export function Tooltip<T extends HTMLElement>({
   skin = "default",
-  placement = "bottom-start",
+  placement = "top",
   open,
+  delay = SHOW_DELAY,
   className,
   style,
   children,
-  content,
+  renderAnchor,
   onMouseEnter,
   onMouseLeave,
   ...props
@@ -99,7 +108,7 @@ export function Tooltip<T extends HTMLElement>({
     root: getBlock({ modifiers: [skin], extraClasses: className }),
   };
 
-  // Create a reference to manage the tooltip element
+  // Create a reference to manage the Tooltip element
   const tooltipRef = useRef<T>(null);
 
   const [currentState, dispatch] = useReducer(
@@ -108,7 +117,7 @@ export function Tooltip<T extends HTMLElement>({
         if (action === "hovered") {
           return {
             stage: "might-show",
-            timeoutId: setTimeout(() => dispatch("show-timer-elapsed"), SHOW_DELAY),
+            timeoutId: setTimeout(() => dispatch("show-timer-elapsed"), delay),
           };
         }
       }
@@ -187,7 +196,7 @@ export function Tooltip<T extends HTMLElement>({
 
   return (
     <>
-      {children?.({
+      {renderAnchor({
         ref: tooltipRef,
         onFocus: onHandleOpen,
         onBlur: onHandleClose,
@@ -196,27 +205,29 @@ export function Tooltip<T extends HTMLElement>({
       })}
       {isVisible && (
         <Scope elevation="hint">
-          <div
-            ref={floating}
-            role="tooltip"
-            className={cssClasses.root}
-            style={{
-              ...style,
-              visibility: isPositioned ? "visible" : "hidden",
-              left: `${x}px`,
-              top: `${y}px`,
-            }}
-            onMouseEnter={(event): void => {
-              onHandleOpen();
-              onMouseEnter?.(event);
-            }}
-            onMouseLeave={(event): void => {
-              onHandleClose();
-              onMouseLeave?.(event);
-            }}
-            {...props}>
-            {content}
-          </div>
+          <Motion animation="fade-in">
+            <div
+              ref={floating}
+              role="tooltip"
+              className={cssClasses.root}
+              style={{
+                ...style,
+                visibility: isPositioned ? "visible" : "hidden",
+                left: `${x}px`,
+                top: `${y}px`,
+              }}
+              onMouseEnter={(event): void => {
+                onHandleOpen();
+                onMouseEnter?.(event);
+              }}
+              onMouseLeave={(event): void => {
+                onHandleClose();
+                onMouseLeave?.(event);
+              }}
+              {...props}>
+              {children}
+            </div>
+          </Motion>
         </Scope>
       )}
     </>

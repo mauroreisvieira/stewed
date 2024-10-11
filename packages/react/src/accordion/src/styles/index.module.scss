@@ -8,6 +8,19 @@
 
   &__item {
     display: flex;
+
+    &::details-content {
+      height: 0;
+      opacity: 0;
+      transition-behavior: allow-discrete;
+      transition: content-visibility, opacity, height;
+      transition-duration: theme.get-transition-duration("normal");
+    }
+
+    &[open]::details-content {
+      height: calc-size(auto);
+      opacity: 1;
+    }
   }
 
   &__header,
@@ -17,10 +30,13 @@
 
   &__header {
     display: flex;
+    gap: theme.get-spacing("lg");
+    align-items: baseline;
     appearance: auto;
     cursor: pointer;
 
     @include theme.focus-styles;
+
     &::-webkit-details-marker {
       display: none;
     }
@@ -32,7 +48,6 @@
 
     &__text {
       flex-grow: 1;
-      white-space: nowrap;
     }
 
     &__left,

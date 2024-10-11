@@ -18,5 +18,13 @@ $select-skins: (
   ),
 );
 
-// Spacing's
+/// Spacing's
 $select-spacings: theme.get-spacing("md");
+
+/// Sizes
+$select-sizes: (
+  "sm": 32px,
+  "md": 40px,
+  "lg": 48px,
+  "xl": 56px,
+);

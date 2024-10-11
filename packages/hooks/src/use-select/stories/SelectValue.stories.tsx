@@ -21,7 +21,7 @@ const meta: Meta<typeof useSelect> = {
 export default meta;
 
 export const Base: Story = {
-  render: () => {
+  render: function Render() {
     // Example data
     const items = ["Apple", "Banana", "Cherry", "Date"];
     // Using the useSelect hook to manage selection

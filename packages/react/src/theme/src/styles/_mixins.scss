@@ -1,4 +1,5 @@
 @use "sass:map";
+@use "sass:meta";
 @use "./variables" as *;
 @use "./functions" as func;
 
@@ -14,9 +15,9 @@
   $width: 2px
 ) {
   &#{$target} {
+    z-index: 1;
     outline: $width solid $color;
     outline-offset: $offset;
-    z-index: 1;
 
     @content;
   }
@@ -48,7 +49,9 @@
       $var-name: "--#{$prefix}-#{$var-name}";
     }
 
-    #{$var-name}: #{$value};
+    & {
+      #{$var-name}: #{$value};
+    }
   }
 }
 
@@ -58,7 +61,7 @@
 /// @param {string} [$timing-function=ease-in-out] - Timing function of the transition.
 /// @param {string} [$delay=null] - Delay before the transition starts.
 @mixin transition($property, $duration: "quickly", $timing-function: "ease-in", $delay: null) {
-  @if type-of($property) == list {
+  @if meta.type-of($property) == list {
     transition: func.get-transition-duration($duration)
       func.get-transition-timing-function($timing-function)
       $delay;
@@ -72,8 +75,8 @@
 }
 
 @mixin disabled-styles {
-  &--disabled {
-    pointer-events: none;
+  & {
+    cursor: not-allowed;
     opacity: $disabled;
   }
 }

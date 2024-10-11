@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 // Context
-import { AccordionProvider } from "./context/AccordionProvider";
+import { AccordionContext } from "./AccordionContext";
 // Components
 import { Separator } from "../../separator";
 // Hooks
@@ -10,10 +10,10 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-interface AccordionItemProps extends Omit<React.ComponentPropsWithRef<"details">, "children"> {
+interface AccordionItemProps extends Omit<React.ComponentPropsWithoutRef<"details">, "children"> {
   /**
-   * The content to be displayed in the accordion item body.
-   * This can be a React node or a function receiving the open state and returning a React node.
+   * The content to be displayed in the accordion item body
+   * or a function receiving the open state and returning a React node.
    */
   children?: React.ReactNode | (({ open }: { open: boolean }) => React.ReactNode);
 }
@@ -44,11 +44,11 @@ export function AccordionItem({
   }, [defaultOpen]);
 
   return (
-    <AccordionProvider open={open} setOpen={setOpen}>
+    <AccordionContext.Provider value={{ open, setOpen }}>
       <details className={cssClasses.root} open={defaultOpen} {...props}>
         {typeof children === "function" ? children({ open }) : children}
       </details>
       <Separator />
-    </AccordionProvider>
+    </AccordionContext.Provider>
   );
 }

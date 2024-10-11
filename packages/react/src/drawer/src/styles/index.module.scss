@@ -2,6 +2,11 @@
 @use "./variables" as *;
 
 @include theme.scope($drawer-root) {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  height: 100%;
+
   @include theme.define-var(
     (
       opacity: 0,
@@ -9,34 +14,24 @@
     )
   );
 
-  position: fixed;
-  display: flex;
-  width: 100%;
-  height: 100%;
-
   &__surface {
     position: absolute;
-    right: 0;
-    width: theme.get-var(width);
-    max-width: 100%;
-    height: 100%;
-    margin: auto;
-    background-color: theme.get-var(background);
-    border-top-left-radius: theme.get-var(radius);
-    border-bottom-left-radius: theme.get-var(radius);
-    box-shadow: theme.get-var(shadow);
     display: flex;
     flex-direction: column;
+    margin: auto;
+    background-color: theme.get-var(background);
+    box-shadow: theme.get-var(shadow);
   }
 
   &__header {
     display: flex;
-    justify-content: space-between;
     align-items: baseline;
+    justify-content: space-between;
   }
 
   &__body {
     flex: 1;
+    overflow-y: auto;
   }
 
   &__header,
@@ -53,10 +48,69 @@
     );
   }
 
+  // Placement
+
+  &--right,
+  &--left {
+    .#{$drawer-root}__surface {
+      width: calc(100% - theme.get-var(safe-margin));
+      max-width: theme.get-var(width);
+      height: 100%;
+    }
+  }
+
+  &--right {
+    .#{$drawer-root}__surface {
+      right: 0;
+      border-top-left-radius: theme.get-var(radius);
+      border-bottom-left-radius: theme.get-var(radius);
+    }
+  }
+
+  &--left {
+    .#{$drawer-root}__surface {
+      left: 0;
+      border-top-right-radius: theme.get-var(radius);
+      border-bottom-right-radius: theme.get-var(radius);
+    }
+  }
+
+  &--bottom {
+    .#{$drawer-root}__surface {
+      bottom: 0;
+      width: 100%;
+      height: calc(100% - theme.get-var(safe-margin));
+      max-height: theme.get-var(height);
+      border-top-left-radius: theme.get-var(radius);
+      border-top-right-radius: theme.get-var(radius);
+    }
+  }
+
+  // Safe Margin
+  @each $key, $value in $drawer-space {
+    &--safe-margin-#{$key} {
+      @include theme.define-var(
+        (
+          safe-margin: $value,
+        )
+      );
+    }
+  }
+
+  &--safe-margin-none {
+    @include theme.define-var(
+      (
+        border-radius: 0,
+      )
+    );
+  }
+
+  // Sizes
   &--sm {
     @include theme.define-var(
       (
         width: 320px,
+        height: 320px,
       )
     );
   }
@@ -65,6 +119,7 @@
     @include theme.define-var(
       (
         width: 640px,
+        height: 640px,
       )
     );
   }

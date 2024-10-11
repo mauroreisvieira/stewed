@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // UI Components
-import { Theme, Toggle } from "@stewed/react";
+import { Theme, Button } from "@stewed/react";
 // Hooks
 import { useToggle } from "../index";
 
@@ -21,15 +21,15 @@ const meta: Meta<typeof useToggle> = {
 export default meta;
 
 export const Base: Story = {
-  render: () => {
+  render: function Render() {
     // Hook to handle clicks outside the floating element.
     const [isToggle, handleToggle] = useToggle(false);
 
     return (
       <>
-        <Toggle skin="primary" onClick={handleToggle} selected={isToggle}>
-          Toggle: {isToggle ? "On" : "Off"}
-        </Toggle>
+        <Button skin="primary" appearance={isToggle ? "filled" : "outline"} onClick={handleToggle}>
+          Button: {isToggle ? "On" : "Off"}
+        </Button>
       </>
     );
   },

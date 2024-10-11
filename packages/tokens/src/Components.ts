@@ -19,17 +19,23 @@ export const components = {
   Dropdown: "dropdown",
   FormField: "form-field",
   Grid: "grid",
+  Group: "group",
   List: "list",
   ListBox: "list-box",
+  Motion: "motion",
   Pagination: "pagination",
+  Popover: "popover",
   Progress: "progress",
   Quantity: "quantity",
   Radio: "radio",
   Scope: "scope",
+  Segmented: "segmented",
   Select: "select",
   Separator: "separator",
   Skeleton: "skeleton",
+  Snackbar: "snackbar",
   Spinner: "spinner",
+  Stack: "stack",
   Switch: "switch",
   Table: "table",
   Tabs: "tabs",
@@ -49,13 +55,17 @@ export type Components = {
   [components.Button]?: { radius?: Radius };
   [components.Card]?: { radius?: Radius };
   [components.Checkbox]?: { radius?: Radius };
+  [components.Calendar]?: { radius?: Radius };
   [components.Dialog]?: { radius?: Radius; shadow?: Shadow };
   [components.Drawer]?: { radius?: Radius; shadow?: Shadow };
+  [components.Dropdown]?: { radius?: Radius; shadow?: Shadow };
+  [components.Popover]?: { radius?: Radius; shadow?: Shadow };
+  [components.Group]?: { radius?: Radius };
   [components.ListBox]?: { radius?: Radius };
   [components.Quantity]?: { radius?: Radius };
   [components.Select]?: { radius?: Radius };
   [components.Switch]?: { radius?: Radius };
-  [components.Tabs]?: { radius?: Radius };
+  [components.Segmented]?: { radius?: Radius };
   [components.Tag]?: { radius?: Radius };
   [components.TextArea]?: { radius?: Radius };
   [components.TextField]?: { radius?: Radius };

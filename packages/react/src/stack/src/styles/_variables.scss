@@ -1,0 +1,6 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+
+$stack-root: "stack";
+
+/// Gap
+$stack-gap: theme.get-spacing();

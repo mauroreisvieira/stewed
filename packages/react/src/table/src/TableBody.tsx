@@ -6,7 +6,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export type TableBodyProps = React.ComponentPropsWithRef<"tbody">;
+export type TableBodyProps = React.ComponentPropsWithoutRef<"tbody">;
 
 export function TableBody({ className, children, ...props }: TableBodyProps): React.ReactElement {
   // Importing useBem to handle BEM class names

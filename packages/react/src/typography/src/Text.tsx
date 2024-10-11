@@ -43,7 +43,7 @@ type TextVariation =
   | "underline";
 
 export interface TextProps<T>
-  extends React.ComponentProps<typeof defaultElement>,
+  extends Omit<React.ComponentProps<typeof defaultElement>, "hidden">,
     UseResponsiveProps<{
       /**
        * Changes the size of the text, giving it more or less font size.
@@ -67,6 +67,8 @@ export interface TextProps<T>
         /** Adds space on the vertical axis (e.g., margin-top) affecting adjacent elements. */
         y?: Spacings;
       };
+      /** Boolean indicating whether the element should be hidden. */
+      hidden?: boolean;
     }> {
   /**
    * Specifies the type of element to be used.
@@ -115,6 +117,7 @@ export const Text = fixedForwardRef(
     {
       as,
       size,
+      hidden,
       family,
       weight,
       skin = "text-base",
@@ -143,6 +146,7 @@ export const Text = fixedForwardRef(
     // Compute responsive props based on current theme and screen sizes
     const computedProps = useResponsive(
       {
+        hidden,
         size,
         weight,
         alignment,
@@ -177,6 +181,7 @@ export const Text = fixedForwardRef(
           skin,
           computedProps.size,
           computedProps.weight,
+          computedProps.hidden && "hidden",
           computedProps.lineClamp && `line-clamp-${computedProps.lineClamp}`,
           computedProps.alignment && `alignment-${computedProps.alignment}`,
           computedProps.whiteSpace && `white-space-${computedProps.whiteSpace}`,

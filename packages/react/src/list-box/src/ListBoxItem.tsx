@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
@@ -22,16 +22,19 @@ export interface ListBoxItemProps extends React.ComponentPropsWithRef<"div"> {
   disabled?: boolean;
 }
 
-export function ListBoxItem({
-  skin = "primary",
-  leftSlot,
-  rightSlot,
-  selected,
-  disabled,
-  className,
-  children,
-  ...props
-}: ListBoxItemProps): React.ReactElement {
+export const ListBoxItem = forwardRef(function Root(
+  {
+    skin = "primary",
+    leftSlot,
+    rightSlot,
+    selected,
+    disabled,
+    className,
+    children,
+    ...props
+  }: ListBoxItemProps,
+  ref: React.Ref<HTMLDivElement>,
+): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock, getElement } = useBem({ block: `${components.ListBox}__item`, styles });
 
@@ -48,9 +51,10 @@ export function ListBoxItem({
 
   return (
     <div
+      ref={ref}
       className={cssClasses.root}
       role="option"
-      tabIndex={disabled ? -1 : 0}
+      tabIndex={selected ? 0 : -1}
       aria-selected={selected}
       aria-disabled={disabled}
       {...props}>
@@ -59,4 +63,4 @@ export function ListBoxItem({
       {rightSlot && <div className={cssClasses.right}>{rightSlot}</div>}
     </div>
   );
-}
+});

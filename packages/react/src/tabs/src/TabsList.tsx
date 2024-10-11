@@ -6,7 +6,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export type TabsListProps = React.ComponentPropsWithRef<"div">;
+export type TabsListProps = React.ComponentPropsWithoutRef<"div">;
 
 export function TabsList({
   className,
@@ -29,7 +29,7 @@ export function TabsList({
 
   const onHandleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
     (event) => {
-      onNavigate?.(event);
+      onNavigate(event);
       onKeyDown?.(event);
     },
     [onKeyDown, onNavigate],
@@ -40,6 +40,7 @@ export function TabsList({
       ref={ref}
       className={cssClasses.root}
       role="tablist"
+      tabIndex={0}
       onKeyDown={onHandleKeyDown}
       {...props}>
       {children}

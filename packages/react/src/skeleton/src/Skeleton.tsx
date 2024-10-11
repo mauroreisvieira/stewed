@@ -2,35 +2,52 @@ import React from "react";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
-import { type Radius, components } from "@stewed/tokens";
+import { type Radius, type Spacings, components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-type Size = "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "auto";
+type Size = Spacings | "auto";
 
-interface SkeletonProps extends React.ComponentPropsWithRef<"div"> {
-  /** Skeleton shape. */
+interface SkeletonProps extends React.ComponentPropsWithoutRef<"div"> {
+  /**
+   * Defines the shape of the skeleton placeholder.
+   *
+   * @default "line"
+   */
   shape?: "line" | "circle";
-  /** Skeleton size for `line` & `circle` shape. */
+  /**
+   * Defines the size of the skeleton placeholder.
+   *
+   * @remarks Can be any value from `Spacings` tokens, also allow the `auto` to automatically adjust its size based on its container.
+   * @default "md"
+   */
   size?: Size;
-  /** Skeleton border radius. */
+  /**
+   * Defines the border-radius of the skeleton placeholder, controlling its corner rounding.
+   *
+   * @remarks Accepts values from `Radius` token.
+   * @default "sm"
+   */
   radius?: Radius;
 }
 
 /**
- * Skeleton is a animated placeholder, should be used to render content placeholders
- * before the real data is available.
+ * This component displays an skeleton component.
+ * Animated placeholder component used to render content placeholders before the actual data or content is available.
+ * It helps improve the user experience by indicating that content is loading.
  *
  * @example
  * ```tsx
- * <Skeleton shape="line" rounded="l" />
+ * <Skeleton shape="line" radius="md" />
  * ```
  *
+ * @param {SkeletonProps} props - The properties used to configure the `Skeleton` component.
+ * @returns {React.ReactElement} A React element representing the skeleton placeholder.
  */
 export function Skeleton({
   shape = "line",
-  size = "sm",
-  radius = "md",
+  size = "md",
+  radius = "sm",
   className,
   ...nativeProps
 }: SkeletonProps): React.ReactElement {

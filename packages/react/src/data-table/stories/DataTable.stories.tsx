@@ -3,20 +3,20 @@ import type { Meta, StoryObj } from "@storybook/react";
 // Components
 import {
   Theme,
-  Box,
   DataTable,
-  ColumnsDef,
-  Table,
   Tag,
   Text,
   Select,
   Separator,
   Grid,
   type TagProps,
+  type ColumnsDef,
+  Stack,
 } from "../../index";
+// Hooks
+import { useSelect } from "@stewed/hooks";
 // Icons
 import { MdOutlineArrowUpward, MdOutlineArrowDownward } from "react-icons/md";
-import { useSelect } from "@stewed/hooks";
 
 type Story = StoryObj<typeof DataTable>;
 
@@ -96,12 +96,9 @@ const data: Payment[] = [
 
 export const Base: Story = {
   argTypes: {
-    children: {
-      control: false,
-    },
     hiddenColumns: { control: "check", options: ["id", "amount", "email", "status"] },
   },
-  render: (args): React.ReactElement => {
+  render: function Render(args): React.ReactElement {
     const columns: ColumnsDef<Payment>[] = [
       {
         accessorKey: "id",
@@ -135,7 +132,16 @@ export const Base: Story = {
       {
         accessorKey: "amount",
         bodyCell: ({ amount }) => `${amount.value}${amount.currency}`,
-        headCell: () => "Amount",
+        headCell: ({ isSortable, sortDirection }) => (
+          <Stack gap="xs" items="center">
+            Amount
+            {isSortable && sortDirection === "ASC" ? (
+              <MdOutlineArrowUpward size={12} />
+            ) : (
+              <MdOutlineArrowDownward size={12} />
+            )}
+          </Stack>
+        ),
         footCell: () => `${data.reduce((acc, curr) => (acc = acc + curr.amount.value), 0)}€`,
       },
     ];
@@ -165,11 +171,14 @@ export const Base: Story = {
         <Separator space={{ block: "lg" }} />
         <DataTable<Payment>
           {...args}
+          appearance={["border", "border-columns", "striped-rows", "border-rows"]}
           data={data}
           columns={columns}
           sortableColumns={["amount"]}
           defaultColumnDirection="ASC"
           defaultColumnSorted="amount"
+          itemKeySelector={({ id }) => id}
+          bodyRowProps={({ status }) => (status === "failed" ? { skin: "critical" } : undefined)}
           onFilter={({ status }) => {
             return selectedOption && selectedOption !== "all"
               ? selectedOption.includes(status)
@@ -184,57 +193,8 @@ export const Base: Story = {
               });
             }
             return null;
-          }}>
-          {({ headCells, bodyRows, footCells }) => (
-            <Table appearance={["border", "border-columns", "striped", "border-rows"]}>
-              <Table.Head>
-                <Table.Row>
-                  {headCells.map(
-                    ({ columnKey, cellNode, isSortable, sortedColumn, sortDirection, onSort }) => (
-                      <Table.Cell
-                        as="th"
-                        key={`head-${columnKey}`}
-                        onClick={isSortable ? onSort : undefined}>
-                        <Box gap="xs">
-                          {cellNode}
-                          {sortedColumn === columnKey && (
-                            <span>
-                              {sortDirection === "ASC" ? (
-                                <MdOutlineArrowUpward size={12} />
-                              ) : (
-                                <MdOutlineArrowDownward size={12} />
-                              )}
-                            </span>
-                          )}
-                        </Box>
-                      </Table.Cell>
-                    ),
-                  )}
-                </Table.Row>
-              </Table.Head>
-              <Table.Body>
-                {bodyRows.map(({ bodyCells, data: { id, status } }) => (
-                  <Table.Row key={id} skin={status === "failed" ? "critical" : "default"}>
-                    {bodyCells.map(({ columnKey, cellNode }) => (
-                      <Table.Cell key={`${id}-${columnKey}`}>{cellNode}</Table.Cell>
-                    ))}
-                  </Table.Row>
-                ))}
-              </Table.Body>
-              {footCells.length > 0 && (
-                <Table.Foot>
-                  <Table.Row>
-                    {footCells.map(({ columnKey, cellNode, ...props }) => (
-                      <Table.Cell key={`foot-${columnKey}`} {...props}>
-                        {cellNode}
-                      </Table.Cell>
-                    ))}
-                  </Table.Row>
-                </Table.Foot>
-              )}
-            </Table>
-          )}
-        </DataTable>
+          }}
+        />
       </>
     );
   },

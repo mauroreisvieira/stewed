@@ -64,13 +64,27 @@ export const defaultTokens: Tokens = {
     [components.Checkbox]: {
       radius: "sm",
     },
+    [components.Calendar]: {
+      radius: "sm",
+    },
     [components.Dialog]: {
       radius: "md",
       shadow: "2xl",
     },
+    [components.Dropdown]: {
+      radius: "md",
+      shadow: "xl",
+    },
+    [components.Popover]: {
+      radius: "md",
+      shadow: "xl",
+    },
     [components.Drawer]: {
       radius: "lg",
       shadow: "2xl",
+    },
+    [components.Group]: {
+      radius: "sm",
     },
     [components.ListBox]: {
       radius: "sm",
@@ -84,7 +98,7 @@ export const defaultTokens: Tokens = {
     [components.Switch]: {
       radius: "full",
     },
-    [components.Tabs]: {
+    [components.Segmented]: {
       radius: "md",
     },
     [components.Tag]: {

@@ -1,0 +1,124 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+@use "./variables" as *;
+
+@include theme.scope($stack-root) {
+  box-sizing: border-box;
+  display: theme.get-var(display);
+  gap: theme.get-var(gap);
+
+  @include theme.define-var(
+    (
+      display: flex,
+    )
+  );
+
+  &--inline {
+    @include theme.define-var(
+      (
+        display: inline-flex,
+      )
+    );
+  }
+
+  // Direction
+  &--row {
+    flex-direction: row;
+  }
+
+  &--row-reverse {
+    flex-direction: row-reverse;
+  }
+
+  &--column {
+    flex-direction: column;
+  }
+
+  &--column-reverse {
+    flex-direction: column-reverse;
+  }
+
+  // Justify Content
+  &--justify-start {
+    justify-content: start;
+  }
+
+  &--justify-end {
+    justify-content: end;
+  }
+
+  &--justify-center {
+    justify-content: center;
+  }
+
+  &--justify-between {
+    justify-content: space-between;
+  }
+
+  &--justify-around {
+    justify-content: space-around;
+  }
+
+  &--justify-evenly {
+    justify-content: space-evenly;
+  }
+
+  // Align Items
+  &--items-start {
+    align-items: start;
+  }
+
+  &--items-end {
+    align-items: end;
+  }
+
+  &--items-center {
+    align-items: center;
+  }
+
+  &--items-baseline {
+    align-items: baseline;
+  }
+
+  &--items-stretch {
+    align-items: stretch;
+  }
+
+  &--grow {
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+
+  &--wrap {
+    flex-wrap: wrap;
+  }
+
+  &--wrap-reverse {
+    flex-wrap: wrap-reverse;
+  }
+
+  &--nowrap {
+    flex-wrap: nowrap;
+  }
+
+  // Gap
+  @each $key, $value in $stack-gap {
+    &--gap-#{$key} {
+      @include theme.define-var(
+        (
+          gap: $value,
+        )
+      );
+    }
+  }
+
+  // Size
+  @for $i from 1 through 12 {
+    &--size-#{$i} {
+      width: calc((100% / 12 * $i));
+    }
+  }
+
+  &--hidden {
+    display: none;
+  }
+}

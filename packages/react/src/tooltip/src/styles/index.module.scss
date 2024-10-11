@@ -1,16 +1,22 @@
 @use "sass:map";
 @use "@stewed/react/src/theme/src/styles" as theme;
+@use "@stewed/react/src/typography/src/styles" as text;
 @use "./variables" as *;
 
 @include theme.scope($tooltip-root) {
   position: absolute;
   max-width: 240px;
-  padding-inline: theme.get-spacing("sm");
   padding-block: theme.get-spacing("xs");
-  background-color: theme.get-var(background-color);
+  padding-inline: theme.get-spacing("sm");
   color: theme.get-var(color);
+  background-color: theme.get-var(background-color);
   border-radius: theme.get-radius("sm");
   box-shadow: theme.get-shadow("md");
+
+  @include text.typography(
+    base,
+    $overrides: (font-size: theme.get-font-size("xs"), color: inherit)
+  );
 
   @each $key, $value in $tooltip-skins {
     &--#{$key} {

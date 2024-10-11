@@ -24,14 +24,18 @@ export default meta;
 
 export const Base: Story = {
   args: {
+    children: "Base",
+  },
+};
+export const Outline: Story = {
+  args: {
     skin: "primary",
-    size: "md",
-    appearance: "filled",
+    appearance: "outline",
     children: "Premium",
   },
 };
 
-export const Slots: Story = {
+export const LeftSlot: Story = {
   argTypes: {
     leftSlot: {
       control: false,
@@ -39,8 +43,8 @@ export const Slots: Story = {
   },
   args: {
     skin: "primary",
-    size: "md",
-    appearance: "outline",
+    size: "lg",
+    appearance: "soft",
     children: "Premium",
     leftSlot: <FiStar />,
   },

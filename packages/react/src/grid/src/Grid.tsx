@@ -24,7 +24,10 @@ export interface GridProps<T>
       flow?: "row" | "column" | "row-dense" | "column-dense";
       /** Specifies whether the grid container is a subgrid or not. */
       subgrid?: boolean;
-      /** The gap between children. */
+      /**
+       * The gap between children.
+       * @default none
+       */
       gap?: Spacings;
       /** Padding options for horizontal and vertical orientation. */
       padding?: {
@@ -62,7 +65,7 @@ export interface GridProps<T>
  * @param {GridProps} props - The props for the Grid component.
  * @returns {React.ReactElement} - The rendered Grid component.
  */
-export const Root = fixedForwardRef(
+const Root = fixedForwardRef(
   <T extends React.ElementType>(
     {
       as,
@@ -70,7 +73,7 @@ export const Root = fixedForwardRef(
       rows,
       subgrid,
       flow,
-      gap,
+      gap = "none",
       padding,
       space,
       responsive,

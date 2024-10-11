@@ -12,9 +12,9 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-type TableAppearance = "border" | "border-rows" | "border-columns" | "striped";
+type TableAppearance = "border" | "border-rows" | "border-columns" | "striped-rows";
 
-export interface TableProps extends React.ComponentPropsWithRef<"table"> {
+export interface TableProps extends React.ComponentPropsWithoutRef<"table"> {
   /**
    * Change the visual appearance of the table.
    * @default border

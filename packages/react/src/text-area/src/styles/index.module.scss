@@ -9,18 +9,16 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
   padding: $textarea-spacings;
   touch-action: manipulation;
-  border: 1px solid theme.get-var(border-color);
+  border: 1px solid transparent;
   border-radius: theme.get-var(radius);
 
   @include text.typography(base, $overrides: (font-size: theme.get-font-size("md")));
   @include theme.focus-styles;
-  @include theme.disabled-styles;
 
-  &:hover {
-    border-color: theme.get-var(border-color-hover);
+  &--disabled {
+    @include theme.disabled-styles;
   }
 
   @each $key, $value in $textarea-skins {
@@ -29,8 +27,38 @@
         (
           border-color: map.get($value, "border"),
           border-color-hover: map.get($value, "border-hover"),
+          background-color: map.get($value, "background-color"),
         )
       );
     }
+  }
+
+  &--outline {
+    border: 1px solid theme.get-var(border-color);
+
+    &:hover:has(:not([disabled])) {
+      border-color: theme.get-var(border-color-hover);
+    }
+  }
+
+  &--ghost {
+    border-color: transparent;
+  }
+
+  &--soft {
+    background-color: color-mix(in srgb, theme.get-var(background-color), transparent 95%);
+    border-color: transparent;
+
+    &:hover:has(:not([disabled])) {
+      background-color: color-mix(in srgb, theme.get-var(background-color), transparent 90%);
+    }
+  }
+
+  &--auto-height {
+    field-sizing: content;
+  }
+
+  &--full-width {
+    width: 100%;
   }
 }

@@ -8,10 +8,10 @@
   display: flex;
   flex-direction: row;
   gap: theme.get-spacing("lg");
-  width: 100%;
-  padding: theme.get-spacing("xl");
+  padding: theme.get-var(padding);
   background-color: theme.get-var(background-color);
   border-radius: theme.get-var(radius);
+  box-shadow: theme.get-var(box-shadow);
 
   &__title {
     @include text.typography(
@@ -19,15 +19,15 @@
       $overrides: (
         color: inherit,
         font-size: theme.get-font-size("md"),
-        font-weight: theme.get-font-weight("semi-bold")
+        font-weight: theme.get-font-weight("medium")
       )
     );
   }
 
   &__wrapper {
     display: flex;
-    flex-direction: column;
     flex-grow: 1;
+    flex-direction: column;
     gap: theme.get-spacing("sm");
   }
 
@@ -41,6 +41,7 @@
     @include text.typography("base", $overrides: (font-size: theme.get-font-size("sm")));
   }
 
+  /// Skins
   @each $value in $alert-skins {
     &--#{$value} {
       @include theme.define-var(
@@ -52,7 +53,25 @@
     }
   }
 
-  &--floating {
-    box-shadow: theme.get-var(shadow);
+  /// Size
+  @each $key, $value in $alert-size {
+    &--#{$key} {
+      @include theme.define-var(
+        (
+          padding: $value,
+        )
+      );
+    }
+  }
+
+  // Shadow
+  @each $key, $value in $alert-shadow {
+    &--shadow-#{$key} {
+      @include theme.define-var(
+        (
+          box-shadow: $value,
+        )
+      );
+    }
   }
 }

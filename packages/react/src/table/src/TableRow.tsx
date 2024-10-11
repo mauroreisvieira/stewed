@@ -6,7 +6,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface TableRowProps extends React.ComponentPropsWithRef<"tr"> {
+export interface TableRowProps extends React.ComponentPropsWithoutRef<"tr"> {
   /**
    * Specifies the visual style of the table row.
    * @default default

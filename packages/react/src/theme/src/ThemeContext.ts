@@ -11,7 +11,7 @@ const definitionError = (): null => {
 };
 
 /**
- * Defines the properties expected in the context for client groups.
+ * Defines the properties expected in the context for theme.
  *
  * @template T - The type representing theme names.
  */

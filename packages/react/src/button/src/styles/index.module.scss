@@ -4,18 +4,11 @@
 @use "./variables" as *;
 
 @include theme.scope($button-root) {
-  @include theme.define-var(
-    (
-      border-width: 1px,
-      border-color: transparent,
-      gap: theme.get-spacing("sm"),
-    )
-  );
-
   position: relative;
   box-sizing: border-box;
   display: inline-flex;
-  gap: theme.get-var(gap);
+  flex-shrink: 0;
+  gap: calc(theme.get-var(padding-inline) / 2);
   align-items: center;
   justify-content: center;
   min-width: theme.get-var(size);
@@ -24,6 +17,7 @@
   overflow: hidden;
   color: theme.get-var(color);
   text-overflow: ellipsis;
+  text-transform: inherit;
   white-space: nowrap;
   touch-action: manipulation;
   cursor: pointer;
@@ -32,8 +26,18 @@
   border: theme.get-var(border-width) solid theme.get-var(border-color);
   border-radius: theme.get-var(radius);
 
+  @include theme.define-var(
+    (
+      border-width: 1px,
+      border-color: transparent,
+    )
+  );
+
   @include theme.focus-styles;
-  @include theme.disabled-styles;
+
+  &--disabled {
+    @include theme.disabled-styles;
+  }
 
   &[href] {
     text-decoration: none;
@@ -53,7 +57,7 @@
           )
         );
 
-        &:hover {
+        &:hover:not([aria-disabled="true"]) {
           @include theme.define-var(
             (
               background-color: theme.get-color($value, "600"),
@@ -79,7 +83,7 @@
           )
         );
 
-        &:hover {
+        &:hover:not([aria-disabled="true"]) {
           @include theme.define-var(
             (
               background-color: color-mix(in srgb, theme.get-color($value, "500"), transparent 95%),
@@ -106,7 +110,7 @@
           )
         );
 
-        &:hover {
+        &:hover:not([aria-disabled="true"]) {
           @include theme.define-var(
             (
               color: theme.get-color($value, "600"),
@@ -175,7 +179,7 @@
         size: map.get($button-sizes, "xs"),
         padding-inline: theme.get-spacing("xs"),
         text-line-height: theme.get-line-height("xs"),
-        text-font-size: theme.get-font-size("xs"),
+        text-font-size: theme.get-font-size("xxs"),
       )
     );
   }
@@ -186,7 +190,7 @@
         size: map.get($button-sizes, "sm"),
         padding-inline: theme.get-spacing("md"),
         text-line-height: theme.get-line-height("sm"),
-        text-font-size: theme.get-font-size("sm"),
+        text-font-size: theme.get-font-size("xs"),
       )
     );
   }
@@ -206,7 +210,7 @@
     @include theme.define-var(
       (
         size: map.get($button-sizes, "lg"),
-        padding-inline: theme.get-spacing("lg"),
+        padding-inline: theme.get-spacing("xl"),
         text-line-height: theme.get-line-height("md"),
         text-font-size: theme.get-font-size("md"),
       )
@@ -217,14 +221,15 @@
     @include theme.define-var(
       (
         size: map.get($button-sizes, "xl"),
-        padding-inline: theme.get-spacing("xl"),
+        padding-inline: theme.get-spacing("2xl"),
         text-line-height: theme.get-line-height("md"),
-        text-font-size: theme.get-font-size("md"),
+        text-font-size: theme.get-font-size("lg"),
       )
     );
   }
 
   &--full-width {
+    flex-shrink: 1;
     width: 100%;
   }
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
@@ -8,9 +8,9 @@ import styles from "./styles/index.module.scss";
 
 export interface SpinnerProps extends React.ComponentPropsWithRef<"div"> {
   /** Change the visual style of the spinner. */
-  skin?: "default" | Extract<Color, "white" | "primary">;
+  skin?: "default" | Extract<Color, "white" | "primary" | "secondary" | "neutral">;
   /** Changes the size of the spinner. */
-  size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl";
+  size?: "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl";
 }
 
 /**
@@ -25,12 +25,10 @@ export interface SpinnerProps extends React.ComponentPropsWithRef<"div"> {
  * @param {SpinnerProps} props - The props for the Spinner component.
  * @returns {React.ReactElement} - The rendered Spinner component.
  */
-export function Spinner({
-  skin = "primary",
-  size = "2xl",
-  className,
-  ...props
-}: SpinnerProps): React.ReactElement {
+export const Spinner = forwardRef(function Root(
+  { skin = "primary", size = "2xl", className, ...props }: SpinnerProps,
+  ref: React.Ref<HTMLDivElement>,
+): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock, getElement } = useBem({ block: components.Spinner, styles });
 
@@ -41,7 +39,7 @@ export function Spinner({
   };
 
   return (
-    <div className={cssClasses.root} {...props}>
+    <div ref={ref} className={cssClasses.root} {...props}>
       <svg className={cssClasses.svg} viewBox="0 0 48 48">
         <circle cx="24" cy="4" r="4" />
         <circle cx="12.19" cy="7.86" r="3.7" />
@@ -56,4 +54,4 @@ export function Spinner({
       </svg>
     </div>
   );
-}
+});

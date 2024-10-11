@@ -1,7 +1,7 @@
 import { createContext, useContext } from "react";
 
 const definitionError = (): null => {
-  throw new Error('Please make sure "DrawerProvider" component is wrapping your component.');
+  throw new Error('Please make sure "<Drawer>" component is wrapping your component.');
 };
 
 export interface DrawerContextProps {

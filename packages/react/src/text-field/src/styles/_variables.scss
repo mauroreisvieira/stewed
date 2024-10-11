@@ -4,16 +4,32 @@ $input-root: "text-field";
 
 /// Skins
 $input-skins: (
-  "default": (
+  "neutral-faded": (
     "border": theme.get-color("neutral", "300"),
     "border-hover": theme.get-color("neutral", "400"),
+    "background-color": theme.get-color("neutral", "300"),
+  ),
+  "neutral": (
+    "border": theme.get-color("neutral", "500"),
+    "border-hover": theme.get-color("neutral", "600"),
+    "background-color": theme.get-color("neutral", "500"),
   ),
   "success": (
     "border": theme.get-color("success", "500"),
     "border-hover": theme.get-color("success", "600"),
+    "background-color": theme.get-color("success", "500"),
   ),
   "critical": (
     "border": theme.get-color("critical", "500"),
     "border-hover": theme.get-color("critical", "600"),
+    "background-color": theme.get-color("critical", "500"),
   ),
+);
+
+/// Sizes
+$input-sizes: (
+  "sm": 32px,
+  "md": 40px,
+  "lg": 48px,
+  "xl": 56px,
 );

@@ -4,6 +4,7 @@
 
 @include theme.scope($avatar-root) {
   display: inline-flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
   width: theme.get-var(size);

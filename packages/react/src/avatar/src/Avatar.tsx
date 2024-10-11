@@ -1,14 +1,24 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 // Compound Component
 import { AvatarGroup } from "./AvatarGroup";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
 import { type Color, components } from "@stewed/tokens";
+// Types
+import { type DistributiveOmit, fixedForwardRef } from "../../types";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface AvatarProps {
+const defaultElement = "div";
+
+export interface AvatarProps<T> extends React.ComponentProps<typeof defaultElement> {
+  /**
+   * Specifies the type of element to use as the avatar.
+   * @default div
+   */
+  as?: T;
+
   /**
    * Defines the skin color of the avatar.
    * @default primary
@@ -31,8 +41,11 @@ export interface AvatarProps {
   name?: string;
   /** Additional CSS class to apply to the avatar. */
   className?: string;
-  /** The URL of the image to be displayed as the avatar. */
-  src?: string;
+  /** The props to be added on image element. */
+  image?: React.ComponentPropsWithoutRef<"img"> & {
+    /** The ref to attach to the `<img />` element. */
+    ref?: React.Ref<HTMLImageElement>;
+  };
 }
 
 /**
@@ -44,34 +57,75 @@ export interface AvatarProps {
  * <Avatar appearance="square" name="Noah Andersen" size="3xl" skin="neutral" />
  * ```
  *
+ * @remarks This component is a polymorphic component can be rendered as a different element
+ * and support all native props from the element passed on `as` prop.
+ *
  * @param {AvatarProps} props - The props for the Avatar component.
  * @returns {React.ReactElement} - The rendered Avatar component.
  */
-export function Avatar({
-  size = "sm",
-  skin = "primary",
-  appearance = "circle",
-  className,
-  src,
-  name,
-}: AvatarProps): React.ReactElement {
-  // Importing useBem to handle BEM class names
-  const { getBlock, getElement } = useBem({ block: components.Avatar, styles });
+export const Root = fixedForwardRef(
+  <T extends React.ElementType>(
+    {
+      as,
+      size = "md",
+      skin = "primary",
+      appearance = "circle",
+      className,
+      image,
+      name,
+      ...props
+    }: AvatarProps<T> &
+      DistributiveOmit<
+        React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
+        "as"
+      >,
+    ref: React.ForwardedRef<unknown>,
+  ): React.ReactElement => {
+    // Component to render based on the 'as' prop
+    const Comp = as || defaultElement;
 
-  // Generating CSS classes based on component props and styles
-  const cssClasses = {
-    root: getBlock({ modifiers: [appearance, size, skin], extraClasses: className }),
-    img: getElement(["img"]),
-  };
+    // Importing useBem to handle BEM class names
+    const { getBlock, getElement } = useBem({ block: components.Avatar, styles });
 
-  const initials = name?.match(/[A-Z]/g)?.join("").slice(0, 2).toUpperCase();
+    // Generating CSS classes based on component props and styles
+    const cssClasses = {
+      root: getBlock({ modifiers: [appearance, size, skin], extraClasses: className }),
+      img: getElement(["img"], image?.className),
+    };
 
-  return (
-    <div className={cssClasses.root}>
-      {src ? <img className={cssClasses.img} src={src} alt={name} /> : initials}
-    </div>
-  );
-}
+    // State to track if there is an error loading the image
+    const [imageError, setImageError] = useState(false);
+
+    // Extract initials from the given name, using only the first two uppercase letters
+    const initials = name?.match(/[A-Z]/g)?.join("").slice(0, 2).toUpperCase();
+
+    // Callback to handle image load errors, setting the error state
+    const onHandleError = useCallback<React.ReactEventHandler<HTMLImageElement>>(
+      (event) => {
+        setImageError(true);
+        image?.onError?.(event);
+      },
+      [image],
+    );
+
+    return (
+      <Comp ref={ref} className={cssClasses.root} {...props}>
+        {!imageError && image ? (
+          <img
+            {...image}
+            className={cssClasses.img}
+            alt={image?.alt || name}
+            onError={onHandleError}
+          />
+        ) : (
+          initials
+        )}
+      </Comp>
+    );
+  },
+);
 
 // Compound component composition
-Avatar.Group = AvatarGroup;
+export const Avatar = Object.assign(Root, {
+  Group: AvatarGroup,
+});

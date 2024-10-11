@@ -2,16 +2,22 @@ import React from "react";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
-import { components } from "@stewed/tokens";
+import { type Radius, components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface AspectRatioProps extends React.ComponentPropsWithRef<"div"> {
+export interface AspectRatioProps extends React.ComponentPropsWithoutRef<"div"> {
   /**
    * Specify the aspect ratio as a string in the format "width:height"
    * @default 1:1
    */
   ratio?: "1:1" | "2:3" | "3:2" | "4:3" | "16:9";
+  /**
+   * Defines the border-radius of the aspect ratio children, controlling its corner rounding.
+   *
+   * @remarks Accepts values from `Radius` token.
+   */
+  radius?: Radius;
 }
 
 /**
@@ -24,7 +30,7 @@ export interface AspectRatioProps extends React.ComponentPropsWithRef<"div"> {
  * </AspectRatio>
  * ```
  *
- * @remarks This component props extended from React.ComponentPropsWithRef<"div">.
+ * @remarks This component props extended from React.ComponentPropsWithoutRef<"div">.
  *
  * @param {AspectRatioProps} props - The props for the AspectRatio component.
  * @returns {React.ReactElement} - The rendered AspectRatio component.
@@ -32,6 +38,7 @@ export interface AspectRatioProps extends React.ComponentPropsWithRef<"div"> {
 export function AspectRatio({
   ratio = "1:1",
   className,
+  radius,
   children,
   ...props
 }: AspectRatioProps): React.ReactElement {
@@ -40,7 +47,10 @@ export function AspectRatio({
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ modifiers: [ratio.replace(":", "-")], extraClasses: className }),
+    root: getBlock({
+      modifiers: [ratio.replace(":", "-"), radius && `radius-${radius}`],
+      extraClasses: className,
+    }),
   };
 
   return (

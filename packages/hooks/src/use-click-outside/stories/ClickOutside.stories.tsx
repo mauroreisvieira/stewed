@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // UI Components
-import { Theme, Text, Box } from "@stewed/react";
+import { Theme, Text, Stack, Box } from "@stewed/react";
 // Hooks
 import { useClickOutside } from "../index";
 
@@ -21,7 +21,7 @@ const meta: Meta<typeof useClickOutside> = {
 export default meta;
 
 export const Outside: Story = {
-  render: () => {
+  render: function Render() {
     const containerRef = useRef<HTMLDivElement>(null);
 
     const [clicks, setClicks] = useState(0);
@@ -37,16 +37,11 @@ export const Outside: Story = {
 
     return (
       <>
-        <Box
-          ref={containerRef}
-          padding={{ block: "3xl", inline: "3xl" }}
-          items="center"
-          justify="center"
-          skin="neutral-faded">
-          <Text size="md">
-            Number of outside clicks: {clicks}
-          </Text>
-        </Box>
+        <Stack items="center" justify="center">
+          <Box ref={containerRef} padding={{ block: "3xl", inline: "3xl" }} skin="neutral-faded">
+            <Text size="md">Number of outside clicks: {clicks}</Text>
+          </Box>
+        </Stack>
       </>
     );
   },

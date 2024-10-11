@@ -1,12 +1,34 @@
 import React from "react";
 // Hooks
-import { useBem } from "@stewed/hooks";
+import { useBem, useResponsive, type UseResponsiveProps } from "@stewed/hooks";
+import { useTheme } from "../../theme";
 // Tokens
 import { components, type Spacings } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-interface SeparatorProps extends React.ComponentPropsWithRef<"hr"> {
+interface SeparatorProps
+  extends React.ComponentPropsWithoutRef<"hr">,
+    UseResponsiveProps<{
+      /** Adds space between separators on the horizontal and vertical axes. */
+      space?: {
+        /**
+         * Adds space between separators on the block axis (e.g., top and bottom margins).
+         * @default none
+         */
+        block?: Spacings;
+        /**
+         * Adds space between separators on the inline axis (e.g., left and right margins).
+         * @default none
+         */
+        inline?: Spacings;
+      };
+      /**
+       * Specifies the orientation of the separator.
+       * @default horizontal
+       */
+      orientation?: "vertical" | "horizontal";
+    }> {
   /**
    * Change the visual color of the separator.
    * @default neutral-faded
@@ -21,24 +43,6 @@ interface SeparatorProps extends React.ComponentPropsWithRef<"hr"> {
     | "secondary-faded"
     | "critical"
     | "critical-faded";
-  /** Adds space between separators on the horizontal and vertical axes. */
-  space?: {
-    /**
-     * Adds space between separators on the block axis (e.g., top and bottom margins).
-     * @default none
-     */
-    block?: Spacings;
-    /**
-     * Adds space between separators on the inline axis (e.g., left and right margins).
-     * @default none
-     */
-    inline?: Spacings;
-  };
-  /**
-   * Specifies the orientation of the separator.
-   * @default horizontal
-   */
-  orientation?: "vertical" | "horizontal";
 }
 
 /**
@@ -50,7 +54,7 @@ interface SeparatorProps extends React.ComponentPropsWithRef<"hr"> {
  * <Separator skin="primary-faded" space={{ block: 'sm', inline: 'md' }} orientation="horizontal" />
  * ```
  *
- * @remarks This component props extended from React.ComponentPropsWithRef<"hr">.
+ * @remarks This component props extended from React.ComponentPropsWithoutRef<"hr">.
  *
  * @param {SeparatorProps} props - The props for the Separator component.
  * @returns {React.ReactElement} - The rendered Separator component.
@@ -59,9 +63,23 @@ export function Separator({
   skin = "neutral-faded",
   space = { block: "none", inline: "none" },
   orientation = "horizontal",
+  responsive,
   className,
   ...props
 }: SeparatorProps): React.ReactElement {
+  // Retrieve values from the current theme context
+  const { activeToken } = useTheme();
+
+  // Compute responsive props based on current theme and screen sizes
+  const computedProps = useResponsive(
+    {
+      space,
+      orientation,
+      responsive,
+    },
+    activeToken.breakpoints,
+  );
+
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: components.Separator, styles });
 
@@ -70,9 +88,9 @@ export function Separator({
     root: getBlock({
       modifiers: [
         skin,
-        orientation,
-        space?.block && `space-block-${space.block}`,
-        space?.inline && `space-inline-${space.inline}`,
+        computedProps.orientation,
+        computedProps.space?.block && `space-block-${computedProps.space.block}`,
+        computedProps.space?.inline && `space-inline-${computedProps.space.inline}`,
       ],
       extraClasses: className,
     }),

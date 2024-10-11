@@ -21,7 +21,7 @@ const meta: Meta<typeof useFetch> = {
 export default meta;
 
 export const Fetch: Story = {
-  render: () => {
+  render: function Render() {
     const { data, status } = useFetch("https://620fb775ec8b2ee2834a8359.mockapi.io/product");
 
     return (

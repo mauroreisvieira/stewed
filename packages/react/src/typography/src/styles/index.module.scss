@@ -115,6 +115,10 @@
     );
   }
 
+  &--hidden {
+    display: none;
+  }
+
   @each $key, $value in $typography-skins {
     &--#{$key} {
       @include theme.define-var(
@@ -128,9 +132,9 @@
   @each $value in (1, 2, 3, 4, 5, 6, 7) {
     &--line-clamp-#{$value} {
       display: -webkit-box;
-      -webkit-line-clamp: $value;
       -webkit-box-orient: vertical;
       overflow: hidden;
+      line-clamp: $value;
     }
   }
 

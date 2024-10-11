@@ -1,11 +1,16 @@
+@use "sass:map";
 @use "@stewed/react/src/theme/src/styles" as theme;
 @use "@stewed/react/src/typography/src/styles" as text;
 @use "./variables" as *;
 
 @include theme.scope($badge-root) {
+  position: relative;
+  display: inline-flex;
+  font-size: theme.get-var(font-size);
+  color: theme.get-var(color);
+
   @include theme.define-var(
     (
-      size: theme.get-spacing("lg"),
       padding-inline: 0,
       position: relative,
       transform: none,
@@ -13,17 +18,10 @@
     )
   );
 
-  position: relative;
-  display: inline-flex;
-
   &__value {
-    @include text.typography(
-      base,
-      $overrides: (color: theme.get-color("white"), font-size: theme.get-font-size("xxs"))
-    );
-
     position: theme.get-var(position);
     inset: theme.get-var(inset);
+    box-sizing: border-box;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -32,8 +30,14 @@
     padding-inline: theme.get-var(padding-inline);
     white-space: nowrap;
     background-color: theme.get-var(background-color);
+    border: 1px solid theme.get-var(border-color);
     border-radius: theme.get-var(radius);
     transform: theme.get-var(transform);
+
+    @include text.typography(
+      base,
+      $overrides: (color: inherit, font-size: inherit, line-height: theme.get-var(size))
+    );
 
     &:empty {
       @include theme.define-var(
@@ -45,14 +49,46 @@
     }
   }
 
+  // Skins
   @each $key, $value in $badge-skins {
     &--#{$key} {
       @include theme.define-var(
         (
           background-color: theme.get-color($key, "500"),
+          border-color: theme.get-color($key, "500"),
+          color: theme.get-color($key, "500"),
         )
       );
     }
+  }
+
+  // Sizes
+  @each $key, $value in $badge-sizes {
+    &--#{$key} {
+      @include theme.define-var(
+        (
+          font-size: map.get($value, "font-size"),
+          size: map.get($value, "size"),
+        )
+      );
+    }
+  }
+
+  // Appearance
+  &--filled {
+    @include theme.define-var(
+      (
+        color: white,
+      )
+    );
+  }
+
+  &--outline {
+    @include theme.define-var(
+      (
+        background-color: transparent,
+      )
+    );
   }
 
   &--padded {

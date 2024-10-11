@@ -1,7 +1,9 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // Components
-import { Button, Theme, Dropdown, Box, ListBox, Separator } from "../../index";
+import { Button, Theme, Dropdown, Stack, Box, ListBox, Separator, Text } from "../../index";
+// Icons
+import { GoChevronRight } from "react-icons/go";
 
 type Story = StoryObj<typeof Dropdown>;
 
@@ -11,8 +13,10 @@ const meta: Meta<typeof Dropdown> = {
   decorators: [
     (Story) => (
       <Theme>
-        <Box justify="center" items="center" padding={{ block: "7xl", inline: "7xl" }} grow>
-          <Story />
+        <Box padding={{ block: "7xl", inline: "7xl" }}>
+          <Stack justify="center" items="center">
+            <Story />
+          </Stack>
         </Box>
       </Theme>
     ),
@@ -26,7 +30,7 @@ export const Base: Story = {
     placement: "bottom-start",
   },
   argTypes: {
-    content: {
+    renderAnchor: {
       control: false,
     },
     placement: {
@@ -50,17 +54,72 @@ export const Base: Story = {
     return (
       <Dropdown<HTMLButtonElement>
         {...args}
-        content={
-          <ListBox>
-            <ListBox.Item rightSlot="⌘C">Copy</ListBox.Item>
-            <ListBox.Item rightSlot="⌘V">Past</ListBox.Item>
-            <Separator space={{ block: "xs" }} />
-            <ListBox.Item rightSlot="⌘Z">Undo</ListBox.Item>
-            <ListBox.Item rightSlot="⌘Y">Redo</ListBox.Item>
-          </ListBox>
-        }>
-        {(props) => {
-          return <Button {...props}>Edit</Button>;
+        renderAnchor={({ ref, isOpen, open, close }) => (
+          <Button ref={ref} onClick={isOpen ? close : open}>
+            Edit
+          </Button>
+        )}>
+        {() => {
+          return (
+            <ListBox>
+              <ListBox.Item
+                rightSlot={
+                  <Text size="xs" skin="neutral">
+                    ⌘+T
+                  </Text>
+                }>
+                New Tab
+              </ListBox.Item>
+              <ListBox.Item
+                rightSlot={
+                  <Text size="xs" skin="neutral">
+                    ⌘+N
+                  </Text>
+                }>
+                New Window
+              </ListBox.Item>
+              <Dropdown<HTMLDivElement>
+                placement="right-start"
+                renderAnchor={({
+                  ref: listRef,
+                  open: openMoreTools,
+                  close: closeMoreTools,
+                  isOpen: isOpenMoreTools,
+                }) => (
+                  <ListBox.Item
+                    ref={listRef}
+                    rightSlot={
+                      <Text skin="neutral">
+                        <GoChevronRight />
+                      </Text>
+                    }
+                    onClick={() => (isOpenMoreTools ? closeMoreTools() : openMoreTools())}>
+                    More Tools
+                  </ListBox.Item>
+                )}>
+                <ListBox>
+                  <ListBox.Item
+                    rightSlot={
+                      <Text size="xs" skin="neutral">
+                        ⌘+S
+                      </Text>
+                    }>
+                    Save Page As
+                  </ListBox.Item>
+                </ListBox>
+              </Dropdown>
+              <Separator space={{ block: "xs" }} />
+              <ListBox.Item
+                rightSlot={
+                  <Text size="xs" skin="neutral">
+                    ⌘+B
+                  </Text>
+                }>
+                Show Bookmarks
+              </ListBox.Item>
+              <ListBox.Item>Show Full URLs</ListBox.Item>
+            </ListBox>
+          );
         }}
       </Dropdown>
     );

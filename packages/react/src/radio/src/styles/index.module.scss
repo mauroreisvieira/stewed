@@ -18,14 +18,19 @@
   );
 
   @include theme.focus-styles($target: ":focus-within .#{$radio-root}__control");
-  @include theme.disabled-styles;
 
-  @include theme.hover {
-    @include theme.define-var(
-      (
-        background-color: theme.get-color("neutral", "200"),
-      )
-    );
+  &--disabled {
+    @include theme.disabled-styles;
+  }
+
+  &:not(&--disabled) {
+    @include theme.hover {
+      @include theme.define-var(
+        (
+          background-color: theme.get-color("neutral", "200"),
+        )
+      );
+    }
   }
 
   &__input {
@@ -46,6 +51,7 @@
   &__control {
     position: relative;
     box-sizing: border-box;
+    flex-shrink: 0;
     width: theme.get-var(size);
     height: theme.get-var(size);
     background-color: theme.get-var(background-color);
@@ -73,6 +79,20 @@
 
   &__text {
     @include text.typography(label);
+  }
+
+  &__group {
+    display: flex;
+    gap: theme.get-spacing("md");
+    align-items: start;
+
+    &--horizontal {
+      flex-direction: column;
+    }
+
+    &--vertical {
+      flex-direction: row;
+    }
   }
 
   // Sizes

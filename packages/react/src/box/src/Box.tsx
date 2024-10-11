@@ -1,6 +1,6 @@
 import React from "react";
 // Tokens
-import { type Spacings, type Viewport, type Screens, components } from "@stewed/tokens";
+import { type Spacings, type Radius, type Palette, components } from "@stewed/tokens";
 // Hooks
 import { useBem, useResponsive, type UseResponsiveProps } from "@stewed/hooks";
 import { useTheme } from "../../theme";
@@ -12,12 +12,8 @@ import styles from "./styles/index.module.scss";
 const defaultElement = "div";
 
 export interface BoxProps<T>
-  extends React.ComponentProps<typeof defaultElement>,
+  extends Omit<React.ComponentProps<typeof defaultElement>, "hidden">,
     UseResponsiveProps<{
-      /** The direction of the box container. */
-      direction?: "row" | "column" | "row-reverse" | "column-reverse";
-      /** The gap between box children's. */
-      gap?: Spacings;
       /** Padding options for horizontal and vertical orientation. */
       padding?: {
         /** Adds padding in the block direction (e.g., top and bottom for vertical orientation). */
@@ -25,12 +21,6 @@ export interface BoxProps<T>
         /** Adds padding in the inline direction (e.g., left and right for vertical orientation). */
         inline?: Spacings;
       };
-      /** Aligns box items along the main axis. */
-      justify?: "start" | "end" | "center" | "between" | "around" | "evenly";
-      /** Aligns box items along the cross axis. */
-      items?: "start" | "end" | "center" | "baseline" | "stretch";
-      /** Determines whether box items should wrap to the next line if they exceed the container's width. */
-      wrap?: "wrap" | "wrap-reverse" | "nowrap";
       /** Adds space between box or elements, affecting adjacent elements. */
       space?: {
         /** Adds space on the horizontal axis (e.g., margin-right) affecting adjacent elements. */
@@ -38,20 +28,8 @@ export interface BoxProps<T>
         /** Adds space on the vertical axis (e.g., margin-top) affecting adjacent elements. */
         y?: Spacings;
       };
-      /** Renders the box container as an inline element. */
-      inline?: boolean;
-      /** Renders the box container as an block element. */
-      block?: boolean;
-      /**
-       * Allows the box container to grow and fill the available space.
-       * If true, the container will expand to occupy the remaining space in its parent.
-       */
-      grow?: boolean;
-      /**
-       * Sets the box to use the full width of its container.
-       * If true, the box will stretch to fill the container's width.
-       */
-      fullWidth?: boolean;
+      /** Boolean indicating whether the element should be hidden. */
+      hidden?: boolean;
     }> {
   /**
    * Specifies the type of element to use as the box.
@@ -60,23 +38,43 @@ export interface BoxProps<T>
   as?: T;
   /**
    * Change the visual style of the Section.
-   * @default default
+   * Determines the color scheme of the component.
+   *
+   * @default "default"
    */
   skin?: "default" | "neutral" | "neutral-faded" | "primary" | "primary-faded";
   /**
-   * Identifies a styling option specifically for the screen size.
+   * Defines the border-radius of the aspect ratio children, controlling the rounding of corners.
    *
-   * @remarks This property can be used to set the height to fill the entire screen.
+   * @remarks
+   * Accepts values from the `Radius` token to apply consistent corner rounding.
    */
-  screen?: Extract<Viewport, "vh"> | Extract<Screens, "full">;
+  radius?: Radius;
+  /** Defines the border style of the component. */
+  borderStyle?: "solid" | "dashed";
+  /** Defines the thickness of the border, accepts values ranging from 1 to 10. */
+  borderWidth?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+  /** Defines the color of the border. */
+  borderColor?:
+    | "neutral-faded"
+    | Extract<
+        Palette,
+        "primary" | "neutral" | "secondary" | "critical" | "success" | "info" | "warning"
+      >;
+  /**
+   * Determines if the box should expand to use the full width of its container.
+   *
+   * @default false
+   */
+  fullWidth?: boolean;
 }
 
 /**
- * Component that implements the CSS flex box.
+ * Box is the most primitive layout component.
  *
  * @example
  * ```tsx
- * <Box direction="column" gap="sm"></Box>
+ * <Box gap="sm"></Box>
  * ```
  *
  * @remarks This component is a polymorphic component can be rendered as a different element
@@ -90,19 +88,15 @@ export const Box = fixedForwardRef(
     {
       as,
       skin,
-      screen,
-      direction = "row",
-      gap,
       padding,
-      justify,
-      items,
-      wrap,
       space,
-      inline,
-      block,
-      grow,
-      fullWidth,
+      hidden,
       responsive,
+      radius,
+      borderColor,
+      borderWidth,
+      borderStyle = "solid",
+      fullWidth,
       className,
       children,
       ...props
@@ -122,17 +116,8 @@ export const Box = fixedForwardRef(
     // Compute responsive props based on current theme and screen sizes
     const computedProps = useResponsive(
       {
-        direction,
-        gap,
         padding,
-        justify,
-        items,
-        wrap,
         space,
-        inline,
-        block,
-        grow,
-        fullWidth,
         responsive,
       },
       activeToken.breakpoints,
@@ -146,19 +131,15 @@ export const Box = fixedForwardRef(
       root: getBlock({
         modifiers: [
           skin,
-          screen && `screen-${screen}`,
-          computedProps.direction !== "row" && computedProps.direction,
-          computedProps.gap && `gap-${computedProps.gap}`,
-          computedProps.justify && `justify-${computedProps.justify}`,
-          computedProps.items && `items-${computedProps.items}`,
+          radius && `radius-${radius}`,
+          borderColor && `border-color-${borderColor}`,
+          borderWidth && `border-width-${borderWidth}`,
+          borderStyle && `border-style-${borderStyle}`,
           computedProps.padding?.block && `padding-block-${computedProps.padding.block}`,
           computedProps.padding?.inline && `padding-inline-${computedProps.padding.inline}`,
           computedProps.space?.x && `space-x-${computedProps.space.x}`,
           computedProps.space?.y && `space-y-${computedProps.space.y}`,
-          computedProps.wrap,
-          computedProps.inline && "inline",
-          computedProps.block && "block",
-          computedProps.grow && "grow",
+          hidden && "hidden",
           fullWidth && "full-width",
         ],
         extraClasses: className,

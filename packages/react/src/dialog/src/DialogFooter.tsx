@@ -6,11 +6,13 @@ import { useBem } from "@stewed/hooks";
 // Styles
 import styles from "./styles/index.module.scss";
 
+interface DialogFooterProps extends React.ComponentPropsWithoutRef<"div"> {}
+
 export function DialogFooter({
   className,
   children,
   ...props
-}: React.ComponentPropsWithRef<"div">): React.ReactElement {
+}: DialogFooterProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: `${components.Dialog}__footer`, styles });
 

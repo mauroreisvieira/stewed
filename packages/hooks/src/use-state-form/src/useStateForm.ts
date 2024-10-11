@@ -10,7 +10,7 @@ type FormValidators<T> = {
   /** Defines a validator for a specific form field. */
   [key in keyof T]?: {
     /** Description of the condition criteria. */
-    description: string;
+    description?: string;
     /** A function defining the condition for the validator. */
     condition?: () => boolean;
   };
@@ -88,10 +88,12 @@ export function useStateForm<T>({
   // Handle form input change
   const onHandleChange = (event: NativeChangeEvents) => {
     const { name, value, checked } = event.target;
+
     if (["checkbox", "radio"].includes(event.target.type)) {
       setFormData({ ...formData, [name]: checked });
       return;
     }
+
     setFormData({ ...formData, [name]: value });
     onChange?.(event);
   };

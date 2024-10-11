@@ -10,7 +10,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-interface AccordionProps extends React.ComponentPropsWithRef<"div"> {}
+interface AccordionProps extends React.ComponentPropsWithoutRef<"div"> {}
 
 /**
  * The Accordion component lets users show and hide sections of related content on a page.
@@ -18,7 +18,7 @@ interface AccordionProps extends React.ComponentPropsWithRef<"div"> {}
  * @param {AccordionProps} props - The props for the Accordion component.
  * @returns {React.ReactElement} - The rendered Accordion component.
  *
- * @remarks This component props extended from React.ComponentPropsWithRef<"div">.
+ * @remarks This component props extended from React.ComponentPropsWithoutRef<"div">.
  *
  * @example
  * ```tsx

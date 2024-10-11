@@ -35,6 +35,14 @@ export const Picture: Story = {
   },
 };
 
+export const Error: Story = {
+  args: {
+    skin: "critical",
+    src: "/example.jpeg",
+    name: "Error Image",
+  },
+};
+
 export const Square: Story = {
   args: {
     skin: "primary",

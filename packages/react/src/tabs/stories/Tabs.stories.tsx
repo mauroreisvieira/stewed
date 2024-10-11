@@ -26,10 +26,54 @@ export const Base: Story = {
     children: {
       control: false,
     },
+    direction: {
+      control: false,
+    },
+    alignment: {
+      control: "select",
+      options: ["start", "center", "end"],
+    },
   },
   args: {
-    alignment: "start",
-    direction: "row",
+    value: "2",
+    alignment: "center",
+    children: (
+      <>
+        <Tabs.List>
+          <Tabs.Item leftSlot={<FiPackage />} value="1">
+            Orders
+          </Tabs.Item>
+          <Tabs.Item leftSlot={<FiBell />} value="2">
+            Notifications
+          </Tabs.Item>
+          <Tabs.Item leftSlot={<FiBell />} value="3" disabled>
+            Team
+          </Tabs.Item>
+          <Tabs.Item leftSlot={<FiCalendar />} value="4">
+            Calendar
+          </Tabs.Item>
+        </Tabs.List>
+      </>
+    ),
+  },
+};
+
+export const Direction: Story = {
+  argTypes: {
+    children: {
+      control: false,
+    },
+    direction: {
+      control: false,
+    },
+    alignment: {
+      control: "select",
+      options: ["start", "end"],
+    },
+  },
+  args: {
+    alignment: "end",
+    direction: "column",
     value: "2",
     children: (
       <>
@@ -40,7 +84,7 @@ export const Base: Story = {
           <Tabs.Item leftSlot={<FiBell />} value="2">
             Notifications
           </Tabs.Item>
-          <Tabs.Item leftSlot={<FiBell />} value="3">
+          <Tabs.Item leftSlot={<FiBell />} value="3" disabled>
             Team
           </Tabs.Item>
           <Tabs.Item leftSlot={<FiCalendar />} value="4">

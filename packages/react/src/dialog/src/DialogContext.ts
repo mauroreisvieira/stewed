@@ -1,7 +1,7 @@
 import { createContext, useContext } from "react";
 
 const definitionError = (): null => {
-  throw new Error('Please make sure "DialogProvider" component is wrapping your component.');
+  throw new Error('Please make sure "<Dialog>" component is wrapping your component.');
 };
 
 export interface DialogContextProps {

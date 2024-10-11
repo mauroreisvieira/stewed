@@ -2,15 +2,15 @@
 @use "./variables" as *;
 
 @include theme.scope($container-root) {
+  display: block;
+  width: 100%;
+  max-width: theme.get-var(max-width);
+
   @include theme.define-var(
     (
       max-width: "auto",
     )
   );
-
-  display: block;
-  width: 100%;
-  max-width: theme.get-var(max-width);
 
   &--center {
     margin: 0 auto;
