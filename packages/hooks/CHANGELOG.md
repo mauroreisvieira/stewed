@@ -1,5 +1,17 @@
 # @stewed/hooks
 
+## 1.0.0
+
+### Major Changes
+
+- d5c33d6: first release
+
+### Patch Changes
+
+- Updated dependencies [d5c33d6]
+  - @stewed/utilities@1.0.0
+  - @stewed/tokens@1.0.0
+
 ## 0.3.0
 
 ### Minor Changes
