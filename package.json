@@ -12,11 +12,13 @@
     "test": "turbo run test",
     "clean": "turbo clean && rm -rf node_modules",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
+    "storybook:build": "storybook build",
     "changelog": "changeset-conventional",
-    "status:packages": "changeset status --verbose",
-    "publish:packages": "changeset publish",
-    "version:packages": "changeset version"
+    "changelog:prepare": "changeset",
+    "changelog:generate": "changeset-conventional && changeset version",
+    "packages:status": "changeset status --verbose",
+    "packages:publish": "changeset publish",
+    "packages:version": "changeset version"
   },
   "dependencies": {
     "@stewed/react": "workspace:*",
