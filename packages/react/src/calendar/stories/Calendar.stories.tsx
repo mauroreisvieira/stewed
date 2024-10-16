@@ -98,10 +98,7 @@ const Template = (args) => {
   const [selectedDates, setSelectedDates] = useState<DateOrArrayDates>(args.selectedDates);
 
   return (
-    <Calendar
-      {...args}
-      selectedDates={selectedDates}
-      setSelectedDates={setSelectedDates}>
+    <Calendar {...args} selectedDates={selectedDates} setSelectedDates={setSelectedDates}>
       <Calendar.Navigation>
         {({ locked, month, year, onPrev, onNext }) => (
           <>

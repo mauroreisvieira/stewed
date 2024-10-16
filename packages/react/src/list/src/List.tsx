@@ -4,33 +4,29 @@ import { ListItem } from "./ListItem";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
-import { type Spacings, components } from "@stewed/tokens";
+import { components, type Spacings } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface ListProps {
+export interface ListProps extends React.ComponentPropsWithoutRef<"ul"> {
   /**
    * Type of list to display.
-   * @default bullet
+   * @default none
    */
-  type?: "bullet" | "decimal";
+  type?: "bullet" | "decimal" | "none";
   /**
    * The gap between items.
    * @default xs
    */
   gap?: Spacings;
-  /** Additional class name(s) for the list. */
-  className?: string;
-  /** The children nodes to render within the list. */
-  children?: React.ReactNode;
 }
 
 /**
- * List display a set of related text-only content. Each list item begins with a bullet or a decimal.
+ * List display a set of related text-only content.
  *
  * @example
  * ```tsx
- * <List>
+ * <List type="bullet">
  *   <List.Item>Item 1<List.Item>
  *   <List.Item>Item 2<List.Item>
  * </List>
@@ -40,14 +36,12 @@ export interface ListProps {
  * @returns {React.ReactElement} - The rendered List component.
  */
 export function List({
-  type = "bullet",
+  type = "none",
   gap = "xs",
   className,
   children,
+  ...props
 }: ListProps): React.ReactElement {
-  // Determine the component type based on 'type' prop.
-  const Comp = type === "bullet" ? "ul" : "ol";
-
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: components.List, styles });
 
@@ -59,7 +53,11 @@ export function List({
     }),
   };
 
-  return <Comp className={cssClasses.root}>{children}</Comp>;
+  return (
+    <ul className={cssClasses.root} {...props}>
+      {children}
+    </ul>
+  );
 }
 
 // Compound component composition
