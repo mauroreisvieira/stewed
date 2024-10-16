@@ -42,7 +42,7 @@ export interface BoxProps<T>
    *
    * @default "default"
    */
-  skin?: "default" | "neutral" | "neutral-faded" | "primary" | "primary-faded";
+  skin?: "default" | "neutral" | "neutral-faded" | "primary" | "primary-faded" | "white";
   /**
    * Defines the border-radius of the aspect ratio children, controlling the rounding of corners.
    *

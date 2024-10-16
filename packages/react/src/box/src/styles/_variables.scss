@@ -15,6 +15,7 @@ $box-skins: (
   "neutral-faded": theme.get-color("neutral", "100"),
   "primary": theme.get-color("primary", "500"),
   "primary-faded": theme.get-color("primary", "100"),
+  "white": theme.get-color("white"),
 );
 
 /// Radius
