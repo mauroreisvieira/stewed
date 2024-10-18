@@ -51,21 +51,19 @@ export function Theme<T extends string>({
     if (!activeTheme) return;
 
     // If `activeTheme` is present, then the `setTheme` function is called with `activeTheme`.
-    setTheme(activeTheme); //
+    setTheme(activeTheme);
   }, [activeTheme]);
 
   // Merge default tokens with theme-specific tokens
-  const activeToken = useMemo(
-    () =>
-      objectKeys(defaultTokens).reduce((acc, key) => {
-        acc[key] = {
-          ...defaultTokens[key],
-          ...(tokens?.[theme as T]?.[key] ?? {}),
-        };
-        return acc;
-      }, {} as Tokens),
-    [theme, tokens],
-  );
+  const activeToken = useMemo(() => {
+    return objectKeys(defaultTokens).reduce((acc, key) => {
+      acc[key] = {
+        ...defaultTokens[key],
+        ...(tokens?.[theme as T]?.[key] ?? {}),
+      };
+      return acc;
+    }, {} as Tokens);
+  }, [theme, tokens]);
 
   return (
     <ThemeContext.Provider

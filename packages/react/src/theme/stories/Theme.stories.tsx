@@ -19,12 +19,14 @@ import {
   Table,
   Stack,
   useTheme,
+  Grid,
 } from "../../index";
 // Hooks
 import { useStateForm } from "@stewed/hooks";
 // Tokens
 import {
   color,
+  palette,
   breakpoints,
   screens,
   elevation,
@@ -54,35 +56,18 @@ export const Palette: Story = {
   render: (): React.ReactElement => {
     return (
       <Theme>
-        {["primary", "secondary", "neutral", "critical", "success", "info", "warning"].map(
-          (color) => (
-            <Stack key={color} direction="column" gap="xs">
-              <Box space={{ y: "xl" }}>
-                <Text variation={"capitalize"} weight="medium">
-                  {color}
-                </Text>
-                <Stack items="baseline">
-                  {[100, 200, 300, 400, 500, 600, 700, 800, 900].map((tone) => (
-                    <Stack
-                      key={tone}
-                      justify="center"
-                      grow
-                      style={{
-                        backgroundColor:
-                          tone === 500 ? `var(--color-${color})` : `var(--color-${color}-${tone})`,
-                      }}>
-                      <Box padding={{ block: tone === 500 ? "5xl" : "3xl", inline: "2xl" }}>
-                        <Text size="xs" skin={tone > 400 ? "white" : "black"}>
-                          {tone}
-                        </Text>
-                      </Box>
-                    </Stack>
-                  ))}
-                </Stack>
-              </Box>
-            </Stack>
-          ),
-        )}
+        <Grid cols={9}>
+          {Object.keys(palette).map((color, index) => (
+            <Box
+              key={color}
+              padding={{ block: "2xl" }}
+              style={{
+                backgroundColor: `var(--color-${color})`,
+              }}>
+              <Text size="xs" alignment="center" skin={index % 9 >= 4 ? "white" : "black"}>{color}</Text>
+            </Box>
+          ))}
+        </Grid>
       </Theme>
     );
   },
@@ -679,7 +664,8 @@ export const CustomTokens: Story = {
         tokens={{
           metro: {
             color: {
-              primary: "#3f51b5",
+              primary: "teal-600",
+              "background-primary": "teal-600",
             },
             fontFamily: {
               base: "'Roboto Serif', serif",
@@ -701,9 +687,6 @@ export const CustomTokens: Story = {
                 radius: "none",
                 shadow: "xl",
               },
-              "tabs": {
-                radius: "none",
-              },
               "button": {
                 radius: "none",
               },
@@ -722,9 +705,6 @@ export const CustomTokens: Story = {
             components: {
               "button": {
                 radius: "full",
-              },
-              "tabs": {
-                radius: "xl",
               },
               "text-field": {
                 radius: "2xl",

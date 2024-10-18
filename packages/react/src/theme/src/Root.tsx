@@ -1,43 +1,24 @@
 import React, { useEffect, useMemo, useRef } from "react";
 // Tokens
-import {
-  defaultTokens,
-  type Tokens,
-  type Components,
-  type Radius,
-  type Shadow,
-  type Blur,
-} from "@stewed/tokens";
+import { type Tokens, type Components } from "@stewed/tokens";
 // Utilities
-import { objectKeys } from "@stewed/utilities";
+import { objectEntries } from "@stewed/utilities";
 // Hooks
 import { type ThemeContextProps, useTheme } from "./ThemeContext";
 
-/**
- * Converts properties of a given type to optional string properties.
- * @template T - Generic type for the object whose properties are to be converted to strings.
- */
-type StringifyProperties<T> = {
-  [K in keyof T]?: string;
-};
+type TokensOnly = Exclude<Tokens, "components">;
 
-/** Represents overrides that can be applied to components */
-interface ComponentOverrides {
-  /** Optional override for the radius property of a component. */
-  radius?: Radius;
-  /** Optional override for the shadow property of a component. */
-  shadow?: Shadow;
-  /** Override for the blur property of a component. */
-  blur?: Blur;
-}
+type TransformedComponents = {
+  [K in keyof Components]: {
+    [P in keyof TokensOnly]?: string;
+  };
+};
 
 /**
  * Represents the structure for tokens specifically for output purposes, combining general token properties
  * with override capabilities for component-specific properties.
  */
-type OutputTokens = Exclude<Tokens, "components"> & {
-  [K in keyof Components]?: StringifyProperties<ComponentOverrides>;
-};
+type OutputTokens = TokensOnly & TransformedComponents;
 
 /**
  * Type definition for the root properties of a component derived from standard div properties and theme context properties.
@@ -58,76 +39,57 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
   const themeRef = useRef<HTMLDivElement>(null);
 
   // Theme and tokens from the context
-  const { theme, tokens, activeToken } = useTheme();
+  const { theme, activeToken } = useTheme();
 
   // Determine the current theme, defaulting to 'default' if not otherwise specified.
   const currentTheme = theme || "default";
 
-  // Memoize the outputObject to prevent unnecessary recalculations
-  const outputObject = useMemo(() => {
-    // If the current theme has components defined, proceed to merge them
-    if (tokens?.[currentTheme]?.components) {
-      // Merge default and theme-specific components
-      activeToken.components = objectKeys(defaultTokens.components || {}).reduce(
-        (acc: Components, component) => {
-          // Merge each component from the default with the theme-specific one, if exists
-          acc[component] = {
-            ...((defaultTokens.components || {})[component] as Record<
-              keyof Components,
-              Components[keyof Components]
-            >),
-            ...(tokens[currentTheme]?.components?.[component] || {}),
-          };
-          return acc;
-        },
-        {},
-      );
+  const transformedTokens: OutputTokens = useMemo(() => {
+    const { components, color, ...otherTokens } = activeToken;
+
+    if (!components) {
+      return otherTokens;
     }
 
-    // Return the modified activeToken, applying any component-specific overrides specified in 'activeToken'
-    return objectKeys(activeToken).reduce((acc: OutputTokens, key) => {
-      if (key === "components") {
-        // Process each component specified in activeToken
-        objectKeys(activeToken.components || {}).forEach((component) => {
-          const componentObj: ComponentOverrides | undefined = activeToken.components?.[component];
-          if (componentObj) {
-            // Merge component-level overrides such as radius, shadow, and blur values
-            acc[component] = {
-              ...componentObj,
-              ...(componentObj.radius && {
-                radius: activeToken.radius?.[componentObj.radius] || componentObj.radius,
-              }),
-              ...(componentObj.shadow && {
-                shadow: activeToken.shadow?.[componentObj.shadow] || componentObj.shadow,
-              }),
-              ...(componentObj.blur && {
-                blur: activeToken.blur?.[componentObj.blur] || componentObj.blur,
-              }),
-            };
-          }
-        });
-      } else {
-        // For keys other than 'components', simply copy the values
-        acc[key] = {
-          ...activeToken[key],
-        };
-      }
-
+    const overrideColors = objectEntries(color).reduce((acc, [key, value]) => {
+      acc[key] = color?.[value] || value;
       return acc;
-    }, {}) as OutputTokens;
-  }, [currentTheme, activeToken, tokens]);
+    }, {});
+
+    const transformedComponents = objectEntries(components).reduce((acc, [name, props]) => {
+      acc[name] = objectEntries(props).reduce(
+        (prop, [propName, tokenKey]) => {
+          // Cache the token group to avoid repeated lookups
+          const tokenGroup = otherTokens?.[propName];
+
+          // Safely retrieve the token value, defaulting to tokenKey if not found
+          const tokenValue = tokenGroup?.[tokenKey] ?? tokenKey;
+          prop[propName] = tokenValue;
+          return prop;
+        },
+        {} as Record<string, string>,
+      );
+      return acc;
+    }, {} as TransformedComponents);
+
+    return {
+      color: overrideColors,
+      ...otherTokens,
+      ...transformedComponents,
+    };
+  }, [activeToken]);
 
   // Convert merged tokens to CSS custom properties
   const cssProperties = useMemo(() => {
     return Object.fromEntries(
-      Object.entries(outputObject).flatMap(([context, data]) =>
+      Object.entries(transformedTokens).flatMap(([context, data]) =>
         Object.entries(data).map(([key, value]) => [
           `--${context}-${key}`.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase(),
           value,
         ]),
       ),
     );
-  }, [outputObject]);
+  }, [transformedTokens]);
 
   const computedStyles = useMemo(
     () =>
