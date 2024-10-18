@@ -1,4 +1,6 @@
-import type { Shadow, Radius, Blur } from "./tokens/index";
+import type { Blur } from "./tokens/Blur";
+import type { Radius } from "./tokens/Radius";
+import type { Shadow } from "./tokens/Shadow";
 
 export const components = {
   Accordion: "accordion",
