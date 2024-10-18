@@ -59,7 +59,6 @@
       @include theme.define-var(
         (
           border-color: map.get($value, "border"),
-          border-color-hover: map.get($value, "border-hover"),
           background-color: map.get($value, "background-color"),
         )
       );
@@ -79,10 +78,6 @@
 
   &--outline {
     border: 1px solid theme.get-var(border-color);
-
-    &:hover:has(:not([disabled])) {
-      border-color: theme.get-var(border-color-hover);
-    }
   }
 
   &--ghost {
@@ -92,10 +87,6 @@
   &--soft {
     background-color: color-mix(in srgb, theme.get-var(background-color), transparent 95%);
     border-color: transparent;
-
-    &:hover:has(:not([disabled])) {
-      background-color: color-mix(in srgb, theme.get-var(background-color), transparent 90%);
-    }
   }
 
   &--start {

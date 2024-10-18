@@ -2,16 +2,18 @@ import React from "react";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
-import { type Color, components } from "@stewed/tokens";
+import { components, type Skin } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
 export interface ProgressProps extends React.ComponentPropsWithoutRef<"progress"> {
   /** Change the visual style of the progress bar. */
-  skin?: Extract<
-    Color,
-    "white" | "primary" | "secondary" | "neutral" | "critical" | "success" | "info" | "warning"
-  >;
+  skin?:
+    | "white"
+    | Extract<
+        Skin,
+        "primary" | "secondary" | "neutral" | "critical" | "success" | "info" | "warning"
+      >;
   /** Changes the size of the progress bar, giving it more or less padding. */
   size?: "xs" | "sm" | "md" | "lg" | "xl";
   /** Allows the progress bar to have rounded corners. */

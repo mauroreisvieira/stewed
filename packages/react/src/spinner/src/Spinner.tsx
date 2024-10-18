@@ -2,13 +2,13 @@ import React, { forwardRef } from "react";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
-import { type Color, components } from "@stewed/tokens";
+import { components, type Skin } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
 export interface SpinnerProps extends React.ComponentPropsWithRef<"div"> {
   /** Change the visual style of the spinner. */
-  skin?: "default" | Extract<Color, "white" | "primary" | "secondary" | "neutral">;
+  skin?: "default" | "white" | Extract<Skin, "primary" | "secondary" | "neutral">;
   /** Changes the size of the spinner. */
   size?: "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl";
 }

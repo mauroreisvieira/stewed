@@ -4,7 +4,7 @@ import { SelectOption } from "./SelectOption";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
-import { type Color, components } from "@stewed/tokens";
+import { components, type Skin } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
@@ -13,7 +13,7 @@ export interface SelectProps extends Omit<React.ComponentPropsWithRef<"select">,
    * Change the visual style of the select.
    * @default default
    */
-  skin?: "default" | Extract<Color, "critical">;
+  skin?: "default" | Extract<Skin, "critical" | "success">;
   /**
    * Changes the size of the select, giving it more or less padding.
    * @default md

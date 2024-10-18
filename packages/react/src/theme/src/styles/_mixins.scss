@@ -49,6 +49,9 @@
       $var-name: "--#{$prefix}-#{$var-name}";
     }
 
+      @debug $var-name;
+      @debug $value;
+
     & {
       #{$var-name}: #{$value};
     }

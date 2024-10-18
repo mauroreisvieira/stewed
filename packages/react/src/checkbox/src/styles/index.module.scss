@@ -12,8 +12,8 @@
 
   @include theme.define-var(
     (
-      background-color: theme.get-color("neutral", "100"),
-      border-color: theme.get-color("neutral", "300"),
+      background-color: theme.get-color("neutral", "background-faded"),
+      border-color: theme.get-color("neutral", "border-faded"),
     )
   );
 
@@ -24,7 +24,7 @@
     @include theme.hover {
       @include theme.define-var(
         (
-          background-color: theme.get-color("neutral", "200"),
+          background-color: theme.get-color("neutral", "background-faded"),
         )
       );
     }
@@ -127,15 +127,15 @@
         + .checkbox__control {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "500"),
-              border-color: theme.get-color($value, "500"),
+              background-color: theme.get-color($value, "background"),
+              border-color: theme.get-color($value, "border"),
             )
           );
 
           @include theme.hover {
             @include theme.define-var(
               (
-                background-color: theme.get-color($value, "600"),
+                background-color: theme.get-color($value, "background"),
               )
             );
           }

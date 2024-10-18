@@ -5,14 +5,14 @@ $separator-root: "separator";
 /// Skins
 $separator-skins: (
   "white": theme.get-color("white"),
-  "neutral": theme.get-color("neutral", "500"),
-  "neutral-faded": theme.get-color("neutral", "300"),
-  "primary": theme.get-color("primary", "500"),
-  "primary-faded": theme.get-color("primary", "300"),
-  "secondary": theme.get-color("secondary", "500"),
-  "secondary-faded": theme.get-color("secondary", "300"),
-  "critical": theme.get-color("critical", "500"),
-  "critical-border": theme.get-color("critical", "300"),
+  "neutral": theme.get-color("neutral", "border"),
+  "neutral-faded": theme.get-color("neutral", "border-faded"),
+  "primary": theme.get-color("primary", "border"),
+  "primary-faded": theme.get-color("primary", "border-faded"),
+  "secondary": theme.get-color("secondary", "border"),
+  "secondary-faded": theme.get-color("secondary", "border-faded"),
+  "critical": theme.get-color("critical", "border"),
+  "critical-border": theme.get-color("critical", "border-faded"),
 );
 
 /// Space

@@ -9,7 +9,7 @@ import {
   type FontSize,
   type FontWeight,
   type FontFamily,
-  type Color,
+  type Skin,
   components,
 } from "@stewed/tokens";
 // Styles
@@ -83,18 +83,12 @@ export interface TextProps<T>
    */
   skin?:
     | "inherit"
+    | "foreground-default"
+    | "white"
+    | "black"
     | Extract<
-        Color,
-        | "text-base"
-        | "white"
-        | "black"
-        | "primary"
-        | "secondary"
-        | "neutral"
-        | "critical"
-        | "success"
-        | "info"
-        | "warning"
+        Skin,
+        "primary" | "secondary" | "neutral" | "critical" | "success" | "info" | "warning"
       >;
 }
 
@@ -120,7 +114,7 @@ export const Text = fixedForwardRef(
       hidden,
       family,
       weight,
-      skin = "text-base",
+      skin = "foreground-default",
       variation,
       lineClamp,
       alignment,

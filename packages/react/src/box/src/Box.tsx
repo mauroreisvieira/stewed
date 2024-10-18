@@ -1,6 +1,6 @@
 import React from "react";
 // Tokens
-import { type Spacings, type Radius, type Palette, components } from "@stewed/tokens";
+import { type Spacings, type Radius, type Skin, components } from "@stewed/tokens";
 // Hooks
 import { useBem, useResponsive, type UseResponsiveProps } from "@stewed/hooks";
 import { useTheme } from "../../theme";
@@ -58,7 +58,7 @@ export interface BoxProps<T>
   borderColor?:
     | "neutral-faded"
     | Extract<
-        Palette,
+        Skin,
         "primary" | "neutral" | "secondary" | "critical" | "success" | "info" | "warning"
       >;
   /**

@@ -56,7 +56,7 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          background-color: theme.get-color($key, "500"),
+          background-color: theme.get-color($key, "background"),
         )
       );
     }

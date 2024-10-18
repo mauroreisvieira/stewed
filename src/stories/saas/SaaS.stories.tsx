@@ -654,7 +654,7 @@ export const Inventory = {
 
                     <Text skin="neutral" size="sm">
                       <Badge skin="primary" /> Max of capacity:{" "}
-                      <Text as="span" skin="text-base" size="sm">
+                      <Text as="span" skin="foreground-default" size="sm">
                         1500
                       </Text>
                     </Text>

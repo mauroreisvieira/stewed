@@ -5,16 +5,13 @@ $select-root: "select";
 // Appearance
 $select-skins: (
   "default": (
-    "border": theme.get-color("neutral", "300"),
-    "border-hover": theme.get-color("neutral", "400"),
+    "border": theme.get-color("neutral", "border"),
   ),
   "success": (
-    "border": theme.get-color("success", "500"),
-    "border-hover": theme.get-color("success", "600"),
+    "border": theme.get-color("success", "border"),
   ),
   "critical": (
-    "border": theme.get-color("critical", "500"),
-    "border-hover": theme.get-color("critical", "600"),
+    "border": theme.get-color("critical", "border"),
   ),
 );
 

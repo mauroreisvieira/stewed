@@ -64,7 +64,9 @@ export const Palette: Story = {
               style={{
                 backgroundColor: `var(--color-${color})`,
               }}>
-              <Text size="xs" alignment="center" skin={index % 9 >= 4 ? "white" : "black"}>{color}</Text>
+              <Text size="xs" alignment="center" skin={index % 9 >= 4 ? "white" : "black"}>
+                {color}
+              </Text>
             </Box>
           ))}
         </Grid>
@@ -664,8 +666,7 @@ export const CustomTokens: Story = {
         tokens={{
           metro: {
             color: {
-              primary: "teal-600",
-              "background-primary": "teal-600",
+              "primary-background": "teal-600",
             },
             fontFamily: {
               base: "'Roboto Serif', serif",
@@ -698,9 +699,7 @@ export const CustomTokens: Story = {
             },
             color: {
               "background-backdrop": "rgb(200 200 200 / 70%)",
-              "primary": "#e91e63",
-              "critical": "#ef4444",
-              "success": "#14784a",
+              "primary-background": "#e91e63",
             },
             components: {
               "button": {

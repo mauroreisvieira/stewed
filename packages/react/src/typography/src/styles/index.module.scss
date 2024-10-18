@@ -107,10 +107,10 @@
     );
   }
 
-  &--text-base {
+  &--foreground-default {
     @include theme.define-var(
       (
-        color: theme.get-color("text-base"),
+        color: theme.get-color("foreground-default"),
       )
     );
   }
@@ -123,7 +123,7 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          color: theme.get-color($key, "500"),
+          color: theme.get-color($key, "foreground"),
         )
       );
     }

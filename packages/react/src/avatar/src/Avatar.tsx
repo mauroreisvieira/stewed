@@ -4,7 +4,7 @@ import { AvatarGroup } from "./AvatarGroup";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
-import { type Color, components } from "@stewed/tokens";
+import { components, type Skin } from "@stewed/tokens";
 // Types
 import { type DistributiveOmit, fixedForwardRef } from "../../types";
 // Styles
@@ -24,7 +24,7 @@ export interface AvatarProps<T> extends React.ComponentProps<typeof defaultEleme
    * @default primary
    */
   skin?: Extract<
-    Color,
+    Skin,
     "primary" | "secondary" | "neutral" | "critical" | "success" | "info" | "warning"
   >;
   /**

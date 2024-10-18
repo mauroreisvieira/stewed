@@ -28,7 +28,10 @@
 
     @include text.typography(
       base,
-      $overrides: (color: theme.get-color("neutral", "500"), font-size: theme.get-font-size("sm"))
+      $overrides: (
+        color: theme.get-color("neutral", "foreground"),
+        font-size: theme.get-font-size("sm")
+      )
     );
 
     &--rtl {
@@ -41,7 +44,7 @@
     grid-template-columns: repeat(7, 1fr);
     grid-auto-rows: 1fr;
     gap: theme.get-var(row-gap) theme.get-var(column-gap);
-    color: theme.get-color("black");
+    color: theme.get-color("foreground-default");
   }
 
   &__week__day,
@@ -61,7 +64,10 @@
 
     @include text.typography(
       base,
-      $overrides: (color: theme.get-color("neutral", "500"), font-size: theme.get-font-size("xs"))
+      $overrides: (
+        color: theme.get-color("neutral", "foreground"),
+        font-size: theme.get-font-size("xs")
+      )
     );
   }
 
@@ -74,7 +80,10 @@
 
     @include text.typography(
       base,
-      $overrides: (color: theme.get-color("neutral", "900"), font-size: theme.get-font-size("sm"))
+      $overrides: (
+        color: theme.get-color("foreground-default"),
+        font-size: theme.get-font-size("sm")
+      )
     );
 
     &:not(&--in-range) {
@@ -92,7 +101,7 @@
     &:hover:not(&--selected, &--locked, &--disabled, &--in-range) {
       @include theme.define-var(
         (
-          background-color: theme.get-color("neutral", "100"),
+          background-color: theme.get-color("neutral", "background-faded"),
         )
       );
     }
@@ -100,8 +109,8 @@
     &--today {
       @include theme.define-var(
         (
-          background-color: theme.get-color("primary", "100"),
-          color: theme.get-color("primary", "500"),
+          background-color: theme.get-color("primary", "background-faded"),
+          color: theme.get-color("primary", "foreground"),
         )
       );
     }
@@ -109,7 +118,7 @@
     &--weekend {
       @include theme.define-var(
         (
-          color: theme.get-color("neutral", "500"),
+          color: theme.get-color("neutral", "foreground"),
         )
       );
     }
@@ -117,7 +126,7 @@
     &--sibling-month-day {
       @include theme.define-var(
         (
-          color: theme.get-color("neutral", "400"),
+          color: theme.get-color("neutral", "foreground-faded"),
         )
       );
     }
@@ -125,7 +134,7 @@
     &--highlighted {
       @include theme.define-var(
         (
-          color: theme.get-color("secondary", "500"),
+          color: theme.get-color("secondary", "foreground"),
         )
       );
     }
@@ -133,8 +142,8 @@
     &--in-range {
       @include theme.define-var(
         (
-          color: theme.get-color("neutral", "900"),
-          background-color: theme.get-color("neutral", "100"),
+          color: theme.get-color("foreground-default"),
+          background-color: theme.get-color("neutral", "background-faded"),
         )
       );
     }
@@ -145,7 +154,7 @@
       @include theme.define-var(
         (
           color: white,
-          background-color: theme.get-color("primary", "500"),
+          background-color: theme.get-color("primary", "background"),
         )
       );
     }

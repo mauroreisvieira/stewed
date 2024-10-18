@@ -21,10 +21,6 @@
     @include theme.disabled-styles;
   }
 
-  &:hover:not(&--disabled) {
-    border-color: theme.get-var(border-color-hover);
-  }
-
   &__left,
   &__right {
     position: relative;
@@ -69,7 +65,6 @@
       @include theme.define-var(
         (
           border-color: map.get($value, "border"),
-          border-color-hover: map.get($value, "border-hover"),
         )
       );
     }

@@ -3,7 +3,7 @@ import React from "react";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
-import { Color, components } from "@stewed/tokens";
+import { components, type Skin } from "@stewed/tokens";
 // Types
 import { type DistributiveOmit, fixedForwardRef } from "../../types";
 // Styles
@@ -23,7 +23,7 @@ export interface TagProps<T> extends React.ComponentProps<typeof defaultElement>
    * @default primary
    */
   skin?: Extract<
-    Color,
+    Skin,
     "primary" | "secondary" | "neutral" | "critical" | "success" | "info" | "warning"
   >;
   /**

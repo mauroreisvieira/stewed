@@ -4,7 +4,7 @@ import { Spinner } from "../../spinner";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
-import { type Color, components } from "@stewed/tokens";
+import { components, type Skin } from "@stewed/tokens";
 // Types
 import { type DistributiveOmit, fixedForwardRef } from "../../types";
 // Styles
@@ -23,7 +23,7 @@ export interface ButtonProps<T> extends React.ComponentProps<typeof defaultEleme
    * Change the visual style of the button.
    * @default primary
    */
-  skin?: Extract<Color, "primary" | "secondary" | "neutral" | "critical" | "success">;
+  skin?: Extract<Skin, "primary" | "secondary" | "neutral" | "critical" | "success">;
   /**
    * Change the visual appearance of the button.
    * @default filled

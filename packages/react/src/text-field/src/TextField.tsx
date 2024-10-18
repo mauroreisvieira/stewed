@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
-import { type Color, components } from "@stewed/tokens";
+import { components, type Skin } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
@@ -18,7 +18,7 @@ export interface TextFieldProps extends Omit<React.ComponentPropsWithRef<"input"
    * Change the visual style of the input.
    * @default "neutral-faded"
    */
-  skin?: "neutral-faded" | Extract<Color, "neutral" | "critical" | "success">;
+  skin?: "neutral-faded" | Extract<Skin, "neutral" | "critical" | "success">;
   /**
    * Changes the size of the input, giving it more or less padding.
    * @default md

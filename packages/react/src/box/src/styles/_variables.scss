@@ -10,11 +10,11 @@ $box-space: theme.get-spacing();
 
 /// Skins
 $box-skins: (
-  "default": theme.get-color("background-base"),
-  "neutral": theme.get-color("neutral", "500"),
-  "neutral-faded": theme.get-color("neutral", "100"),
-  "primary": theme.get-color("primary", "500"),
-  "primary-faded": theme.get-color("primary", "100"),
+  "default": theme.get-color("background-default"),
+  "neutral": theme.get-color("neutral", "background"),
+  "neutral-faded": theme.get-color("neutral", "background-faded"),
+  "primary": theme.get-color("primary", "background"),
+  "primary-faded": theme.get-color("primary", "background-faded"),
   "white": theme.get-color("white"),
 );
 
@@ -23,12 +23,12 @@ $box-radius: theme.get-radius();
 
 /// Border Colors
 $box-border-color: (
-  "neutral": theme.get-color("neutral", "500"),
-  "neutral-faded": theme.get-color("neutral", "300"),
-  "primary": theme.get-color("primary", "500"),
-  "secondary": theme.get-color("secondary", "500"),
-  "critical": theme.get-color("critical", "500"),
-  "success": theme.get-color("success", "500"),
-  "info": theme.get-color("info", "500"),
-  "warning": theme.get-color("warning", "500"),
+  "neutral": theme.get-color("neutral", "border"),
+  "neutral-faded": theme.get-color("neutral", "border-faded"),
+  "primary": theme.get-color("primary", "border"),
+  "secondary": theme.get-color("secondary", "border"),
+  "critical": theme.get-color("critical", "border"),
+  "success": theme.get-color("success", "border"),
+  "info": theme.get-color("info", "border"),
+  "warning": theme.get-color("warning", "border"),
 );
