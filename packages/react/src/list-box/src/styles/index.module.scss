@@ -78,7 +78,7 @@
         @include theme.define-var(
           (
             background-color: transparent,
-            color: theme.get-color($value, "default"),
+            color: theme.get-color($value, "foreground"),
           )
         );
 

@@ -2,7 +2,7 @@ import React from "react";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
-import { components, type Skin } from "@stewed/tokens";
+import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
@@ -11,10 +11,7 @@ export interface BadgeProps extends React.ComponentPropsWithoutRef<"span"> {
    * Skin color of the badge.
    * @default primary
    */
-  skin?: Extract<
-    Skin,
-    "primary" | "secondary" | "neutral" | "critical" | "success" | "info" | "warning"
-  >;
+  skin?: "primary" | "secondary" | "neutral" | "critical" | "success" | "info" | "warning";
   /**
    * Changes the size of the badge, giving it more or less padding.
    * @default sm

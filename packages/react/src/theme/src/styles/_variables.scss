@@ -120,7 +120,6 @@ $config: (
   ),
   "colors": (
     "primary": (
-      "default": var(--color-primary),
       "background": var(--color-primary-background),
       "background-faded": var(--color-primary-background-faded),
       "border": var(--color-primary-border),
@@ -129,7 +128,6 @@ $config: (
       "foreground-faded": var(--color-primary-foreground-faded),
     ),
     "secondary": (
-      "default": var(--color-secondary),
       "background": var(--color-secondary-background),
       "background-faded": var(--color-secondary-background-faded),
       "border": var(--color-secondary-border),
@@ -138,7 +136,6 @@ $config: (
       "foreground-faded": var(--color-secondary-foreground-faded),
     ),
     "neutral": (
-      "default": var(--color-neutral),
       "background": var(--color-neutral-background),
       "background-faded": var(--color-neutral-background-faded),
       "border": var(--color-neutral-border),
@@ -147,7 +144,6 @@ $config: (
       "foreground-faded": var(--color-neutral-foreground-faded),
     ),
     "info": (
-      "default": var(--color-info),
       "background": var(--color-info-background),
       "background-faded": var(--color-info-background-faded),
       "border": var(--color-info-border),
@@ -156,7 +152,6 @@ $config: (
       "foreground-faded": var(--color-info-foreground-faded),
     ),
     "success": (
-      "default": var(--color-success),
       "background": var(--color-success-background),
       "background-faded": var(--color-success-background-faded),
       "border": var(--color-success-border),
@@ -165,7 +160,6 @@ $config: (
       "foreground-faded": var(--color-success-foreground-faded),
     ),
     "warning": (
-      "default": var(--color-warning),
       "background": var(--color-warning-background),
       "background-faded": var(--color-warning-background-faded),
       "border": var(--color-warning-border),
@@ -174,7 +168,6 @@ $config: (
       "foreground-faded": var(--color-warning-foreground-faded),
     ),
     "critical": (
-      "default": var(--color-critical),
       "background": var(--color-critical-background),
       "background-faded": var(--color-critical-background-faded),
       "border": var(--color-critical-border),

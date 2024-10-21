@@ -29,7 +29,6 @@ export const Base: Story = {
   },
   args: {
     disabled: false,
-    skin: "default",
     children: (
       <>
         <Select.Option value={1}>Option 1</Select.Option>
@@ -52,7 +51,6 @@ export const LeftSlot: Story = {
   },
   args: {
     disabled: false,
-    skin: "default",
     leftSlot: <FiSearch />,
     children: (
       <>

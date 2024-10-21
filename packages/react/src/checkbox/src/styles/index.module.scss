@@ -18,7 +18,10 @@
   );
 
   @include theme.focus-styles($target: ":focus-within .#{$checkbox-root}__control");
-  @include theme.disabled-styles;
+
+  &--disabled {
+    @include theme.disabled-styles;
+  }
 
   &:not(&--disabled) {
     @include theme.hover {

@@ -9,7 +9,6 @@ import {
   type FontSize,
   type FontWeight,
   type FontFamily,
-  type Skin,
   components,
 } from "@stewed/tokens";
 // Styles
@@ -86,10 +85,13 @@ export interface TextProps<T>
     | "foreground-default"
     | "white"
     | "black"
-    | Extract<
-        Skin,
-        "primary" | "secondary" | "neutral" | "critical" | "success" | "info" | "warning"
-      >;
+    | "primary"
+    | "secondary"
+    | "neutral"
+    | "critical"
+    | "success"
+    | "info"
+    | "warning";
 }
 
 /**

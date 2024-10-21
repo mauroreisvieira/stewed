@@ -1,6 +1,6 @@
 import React from "react";
 // Tokens
-import { type Spacings, type Radius, type Skin, components } from "@stewed/tokens";
+import { type Spacings, type Radius, components } from "@stewed/tokens";
 // Hooks
 import { useBem, useResponsive, type UseResponsiveProps } from "@stewed/hooks";
 import { useTheme } from "../../theme";
@@ -57,10 +57,13 @@ export interface BoxProps<T>
   /** Defines the color of the border. */
   borderColor?:
     | "neutral-faded"
-    | Extract<
-        Skin,
-        "primary" | "neutral" | "secondary" | "critical" | "success" | "info" | "warning"
-      >;
+    | "primary"
+    | "neutral"
+    | "secondary"
+    | "critical"
+    | "success"
+    | "info"
+    | "warning";
   /**
    * Determines if the box should expand to use the full width of its container.
    *

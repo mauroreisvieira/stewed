@@ -61,8 +61,9 @@ const meta: Meta = {
         tokens={{
           default: {
             color: {
-              primary: "#1DB954",
-              secondary: "#333",
+              "primary-background": "#1DB954",
+              "secondary-background": "#000",
+              "secondary-foreground": "#000",
             },
             components: {
               "button": {

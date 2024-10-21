@@ -4,7 +4,10 @@ $select-root: "select";
 
 // Appearance
 $select-skins: (
-  "default": (
+  "neutral-faded": (
+    "border": theme.get-color("neutral", "border-faded"),
+  ),
+  "neutral": (
     "border": theme.get-color("neutral", "border"),
   ),
   "success": (

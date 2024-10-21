@@ -55,7 +55,7 @@
       @include theme.define-var(
         (
           background-color: theme.get-color($key, "background"),
-          border-color: theme.get-color($key, "border"),
+          border-color: theme.get-color($key, "background"),
           color: theme.get-color($key, "foreground"),
         )
       );

@@ -5,11 +5,11 @@ $input-root: "text-field";
 /// Skins
 $input-skins: (
   "neutral-faded": (
-    "border": theme.get-color("neutral", "border"),
+    "border": theme.get-color("neutral", "border-faded"),
     "background-color": theme.get-color("neutral", "background-faded"),
   ),
   "neutral": (
-    "border": theme.get-color("neutral", "background"),
+    "border": theme.get-color("neutral", "border"),
     "background-color": theme.get-color("neutral", "background"),
   ),
   "success": (

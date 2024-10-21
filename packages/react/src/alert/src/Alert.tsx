@@ -2,7 +2,7 @@ import React from "react";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
-import { components, type Skin, type Shadow } from "@stewed/tokens";
+import { components, type Shadow } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
@@ -13,10 +13,7 @@ export interface AlertProps extends React.ComponentPropsWithoutRef<"div"> {
    * Change the visual style of the alert.
    * @default primary
    */
-  skin?: Extract<
-    Skin,
-    "info" | "primary" | "secondary" | "neutral" | "critical" | "success" | "warning"
-  >;
+  skin?: "info" | "primary" | "secondary" | "neutral" | "critical" | "success" | "warning";
   /**
    * Changes the size of the alert, giving it more or less padding.
    * @default md

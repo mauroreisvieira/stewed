@@ -4,16 +4,16 @@ import { SelectOption } from "./SelectOption";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
-import { components, type Skin } from "@stewed/tokens";
+import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
 export interface SelectProps extends Omit<React.ComponentPropsWithRef<"select">, "size"> {
   /**
    * Change the visual style of the select.
-   * @default default
+   * @default "neutral-faded"
    */
-  skin?: "default" | Extract<Skin, "critical" | "success">;
+  skin?: "neutral-faded" | "neutral" | "critical" | "success";
   /**
    * Changes the size of the select, giving it more or less padding.
    * @default md
@@ -47,7 +47,7 @@ export interface SelectProps extends Omit<React.ComponentPropsWithRef<"select">,
 const Root = forwardRef(
   (
     {
-      skin = "default",
+      skin = "neutral-faded",
       size = "md",
       leftSlot,
       disabled,
