@@ -22,7 +22,7 @@ export const Page404 = {
         <Stack direction="column" items="center" justify="center">
           <Container screen="md" alignment="center" padding={{ block: "7xl" }}>
             <Box>
-              <Text weight="bolder" skin="neutral" variation={"uppercase"}>
+              <Text size="2xl" weight="bolder" skin="neutral-faded" variation={"uppercase"}>
                 404 Page
               </Text>
               <Text size="7xl" space={{ y: "sm" }}>

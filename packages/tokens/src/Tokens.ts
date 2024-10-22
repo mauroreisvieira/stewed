@@ -1,7 +1,7 @@
 // Tokens
 import { blur } from "./tokens/Blur";
 import { breakpoints } from "./tokens/Breakpoints";
-import { color, skin, type Skin } from "./tokens/Color";
+import { color, skin, type Color, type Skin } from "./tokens/Color";
 import { components, type Components } from "./Components";
 import { duration, timing } from "./tokens/Transition";
 import { elevation } from "./tokens/Elevation";
@@ -16,12 +16,27 @@ import { shadow } from "./tokens/Shadow";
 import { spacings } from "./tokens/Spacings";
 import { viewport } from "./tokens/Viewport";
 
+/**
+ * LooseAutoComplete is a utility type that allows either a specific set of
+ * string values (`T`), or any other string value except those in `T`.
+ *
+ * @template T - A specific set of string values that are allowed in addition
+ * to any other string.
+ */
 type LooseAutoComplete<T extends string> = T | Omit<string, T>;
 
-type Colors = Partial<typeof palette> &
-  Partial<typeof color> & {
-    [key in Skin]?: LooseAutoComplete<Palette>;
-  };
+/**
+ * Colors type extends `Partial<typeof palette>`, which allows partial updates
+ * to the `palette` object. Additionally, it allows dynamically adding keys
+ * that come from either `Skin` or `Color` types.
+ *
+ * Each key can optionally map to a `LooseAutoComplete<Palette>`, meaning it
+ * can accept specific values from the `Palette` type or other strings not
+ * already part of the `Palette`.
+ */
+type Colors = Partial<typeof palette> & {
+  [key in Skin | Color]?: LooseAutoComplete<Palette>;
+};
 
 // Define Tokens type that represents design tokens
 export type Tokens = {

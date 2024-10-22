@@ -79,4 +79,18 @@ $typography-weights: theme.get-font-weight();
 $typography-space: theme.get-spacing();
 
 /// Skins
-$typography-skins: ("primary", "secondary", "neutral", "critical", "success", "info", "warning");
+$typography-skins: (
+  "inherit": inherit,
+  "white": theme.get-color("white"),
+  "black": theme.get-color("black"),
+  "default": theme.get-color("foreground-default"),
+  "inverted": theme.get-color("foreground-inverted"),
+  "primary": theme.get-color("primary", "foreground"),
+  "secondary": theme.get-color("secondary", "foreground"),
+  "neutral": theme.get-color("neutral", "foreground"),
+  "neutral-faded": theme.get-color("neutral", "foreground-faded"),
+  "critical": theme.get-color("critical", "foreground"),
+  "success": theme.get-color("success", "foreground"),
+  "info": theme.get-color("info", "foreground"),
+  "warning": theme.get-color("warning", "foreground"),
+);

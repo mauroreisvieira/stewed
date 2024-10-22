@@ -61,18 +61,14 @@ const meta: Meta = {
         tokens={{
           default: {
             color: {
-              "primary-background": "#1DB954",
-              "secondary-background": "#000",
-              "secondary-foreground": "#000",
+              "primary-background": "pink-500",
+              "primary-background-faded": "pink-100",
+              "primary-background-hovered": "pink-600",
+              "primary-background-pressed": "pink-700",
+              "focus": "pink-500",
             },
             components: {
-              "button": {
-                radius: "full",
-              },
-              "text-field": {
-                radius: "full",
-              },
-              "select": {
+              button: {
                 radius: "full",
               },
             },
@@ -111,7 +107,7 @@ function Music(): React.ReactElement {
         dismissDuration: 5000,
       });
     },
-    [add],
+    [add, idx],
   );
 
   return (
@@ -120,7 +116,7 @@ function Music(): React.ReactElement {
         <Grid.Item>
           <Button
             leftSlot={<TbMenuDeep />}
-            skin="secondary"
+            skin="neutral"
             appearance="ghost"
             onClick={onHandleDrawer}
             iconOnly>
@@ -274,7 +270,11 @@ function Music(): React.ReactElement {
                       <Box skin="neutral-faded">
                         <Stack direction="row" items="center" justify="between" grow>
                           <Stack items="center" gap="md">
-                            <img src="https://placehold.co/80x80" style={{ height: "100%" }} />
+                            <img
+                              src="https://placehold.co/80x80"
+                              alt="Cover Album"
+                              style={{ height: "100%" }}
+                            />
                             <Text weight="medium">Daily Mix {index + 1}</Text>
                           </Stack>
                           {(isHovering || isTouch) && (
@@ -321,6 +321,7 @@ function Music(): React.ReactElement {
                   <Stack direction="column" gap="md">
                     <img
                       src="https://placehold.co/900x1200"
+                      alt="Cover Album"
                       style={{ width: "100%", height: "100%" }}
                     />
 
@@ -352,6 +353,7 @@ function Music(): React.ReactElement {
                   <Stack direction="column" gap="md">
                     <img
                       src="https://placehold.co/200x200"
+                      alt="Cover Album"
                       style={{ width: "100%", height: "100%" }}
                     />
 
@@ -398,7 +400,7 @@ function Music(): React.ReactElement {
                 <Text skin="neutral" size="sm">
                   You have not added any podcasts. Add one below.
                 </Text>
-                <Button size="md" skin="secondary" onClick={onHandlePodcastDialog}>
+                <Button size="md" skin="neutral" onClick={onHandlePodcastDialog}>
                   Add Podcast
                 </Button>
               </Stack>

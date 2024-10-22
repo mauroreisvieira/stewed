@@ -60,7 +60,7 @@
         &:hover:not([aria-disabled="true"]) {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "background"),
+              background-color: theme.get-color($value, "background-hovered"),
             )
           );
         }
@@ -69,7 +69,7 @@
         &:active {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "background"),
+              background-color: theme.get-color($value, "background-pressed"),
             )
           );
         }
@@ -115,7 +115,7 @@
         &:hover:not([aria-disabled="true"]) {
           @include theme.define-var(
             (
-              color: theme.get-color($value, "foreground"),
+              color: theme.get-color($value, "foreground-hovered"),
             )
           );
         }

@@ -82,48 +82,16 @@
     white-space: normal;
   }
 
-  // Skins
-  &--inherit {
-    @include theme.define-var(
-      (
-        color: inherit,
-      )
-    );
-  }
-
-  &--white {
-    @include theme.define-var(
-      (
-        color: theme.get-color("white"),
-      )
-    );
-  }
-
-  &--black {
-    @include theme.define-var(
-      (
-        color: theme.get-color("black"),
-      )
-    );
-  }
-
-  &--foreground-default {
-    @include theme.define-var(
-      (
-        color: theme.get-color("foreground-default"),
-      )
-    );
-  }
-
   &--hidden {
     display: none;
   }
 
+  // Skins
   @each $key, $value in $typography-skins {
     &--#{$key} {
       @include theme.define-var(
         (
-          color: theme.get-color($key, "foreground"),
+          color: $value,
         )
       );
     }

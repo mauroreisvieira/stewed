@@ -46,7 +46,7 @@ export interface TextProps<T>
     UseResponsiveProps<{
       /**
        * Changes the size of the text, giving it more or less font size.
-       * @default text
+       * @default inherit
        */
       size?: FontSize;
       /** Changes the weight of the text, giving it more or less weight. */
@@ -82,12 +82,14 @@ export interface TextProps<T>
    */
   skin?:
     | "inherit"
-    | "foreground-default"
     | "white"
     | "black"
+    | "default"
+    | "inverted"
     | "primary"
     | "secondary"
     | "neutral"
+    | "neutral-faded"
     | "critical"
     | "success"
     | "info"
@@ -116,7 +118,7 @@ export const Text = fixedForwardRef(
       hidden,
       family,
       weight,
-      skin = "foreground-default",
+      skin = "inherit",
       variation,
       lineClamp,
       alignment,
