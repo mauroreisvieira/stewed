@@ -201,8 +201,6 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
     const referenceRect = reference.getBoundingClientRect();
     const floatingRect = floating.current.getBoundingClientRect();
 
-    // let previousPlacement = options.placement;
-
     // Get the initial x and y coordinates
     let { x, y } = calculateFloatingPosition({
       position: options.placement,
@@ -343,6 +341,13 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
       controller.abort();
     };
   }, [reference, updatePosition, flip, open]);
+
+  // Make sure to call updatePosition when the floating element is ready, for cases when the width of the floating element change
+  useEffect(() => {
+    if (options.isPositioned) {
+      updatePosition();
+    }
+  }, [options.isPositioned, updatePosition]);
 
   return { floating, ...floatingPosition, ...options };
 }
