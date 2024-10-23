@@ -38,7 +38,10 @@
   }
 
   &__body {
-    @include text.typography("base", $overrides: (font-size: theme.get-font-size("sm")));
+    @include text.typography(
+      "base",
+      $overrides: (color: theme.get-color("black"), font-size: theme.get-font-size("sm"))
+    );
   }
 
   /// Skins
