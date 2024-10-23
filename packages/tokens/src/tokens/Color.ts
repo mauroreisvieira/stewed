@@ -83,7 +83,7 @@ export const color = {
   // Inverted background color used for the application (ex: Tooltip)
   "background-inverted": "#000",
   // Background color for UI components (ex: Card)
-  "background-surface": "#fff",
+  "background-surface": palette["gray-100"],
   // Background color for elevated UI components. (ex: Dialog)
   "background-elevated": "#fff",
   // Colors used for backdrop effects and backdrops

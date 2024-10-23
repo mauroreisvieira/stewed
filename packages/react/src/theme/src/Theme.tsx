@@ -59,6 +59,7 @@ export function Theme<T extends string>({
     return objectKeys(defaultTokens).reduce((acc, key) => {
       acc[key] = {
         ...defaultTokens[key],
+        ...(tokens?.["default" as T]?.[key] ?? {}),
         ...(tokens?.[theme as T]?.[key] ?? {}),
       };
       return acc;
