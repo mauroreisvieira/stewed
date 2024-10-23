@@ -87,7 +87,11 @@
           @include theme.define-var(
             (
               background-color:
-                color-mix(in srgb, theme.get-color($value, "background"), transparent 95%),
+                color-mix(
+                  in srgb,
+                  theme.get-color($value, "background"),
+                  theme.get-color("background-default") 95%
+                ),
             )
           );
         }
@@ -97,7 +101,11 @@
           @include theme.define-var(
             (
               background-color:
-                color-mix(in srgb, theme.get-color($value, "background"), transparent 90%),
+                color-mix(
+                  in srgb,
+                  theme.get-color($value, "background"),
+                  theme.get-color("background-default") 90%
+                ),
             )
           );
         }
