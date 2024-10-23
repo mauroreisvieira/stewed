@@ -64,12 +64,10 @@ export interface BoxProps<T>
     | "success"
     | "info"
     | "warning";
-  /**
-   * Determines if the box should expand to use the full width of its container.
-   *
-   * @default false
-   */
+  /** Determines if should expand to use the full width. */
   fullWidth?: boolean;
+  /** Determines if should expand to use the full width and height. */
+  fullScreen?: boolean;
 }
 
 /**
@@ -100,6 +98,7 @@ export const Box = fixedForwardRef(
       borderWidth,
       borderStyle = "solid",
       fullWidth,
+      fullScreen,
       className,
       children,
       ...props
@@ -144,6 +143,7 @@ export const Box = fixedForwardRef(
           computedProps.space?.y && `space-y-${computedProps.space.y}`,
           hidden && "hidden",
           fullWidth && "full-width",
+          fullScreen && "full-screen",
         ],
         extraClasses: className,
       }),

@@ -120,4 +120,8 @@
   &--full-width {
     width: 100%;
   }
+
+  &--full-screen {
+    min-height: 100vh;
+  }
 }
