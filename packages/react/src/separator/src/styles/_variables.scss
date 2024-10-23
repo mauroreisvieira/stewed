@@ -5,6 +5,7 @@ $separator-root: "separator";
 /// Skins
 $separator-skins: (
   "white": theme.get-color("white"),
+  "black": theme.get-color("black"),
   "neutral": theme.get-color("neutral", "border"),
   "neutral-faded": theme.get-color("neutral", "border-faded"),
   "primary": theme.get-color("primary", "border"),

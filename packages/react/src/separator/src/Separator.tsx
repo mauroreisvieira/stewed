@@ -35,6 +35,7 @@ interface SeparatorProps
    */
   skin?:
     | "white"
+    | "black"
     | "neutral"
     | "neutral-faded"
     | "primary"
