@@ -16,6 +16,10 @@ const defaultElement = "div";
 export interface GridProps<T>
   extends React.ComponentProps<typeof defaultElement>,
     UseResponsiveProps<{
+      /** Aligns stack items along the main axis. */
+      justify?: "start" | "end" | "center" | "between" | "around" | "evenly";
+      /** Aligns stack items along the cross axis. */
+      items?: "start" | "end" | "center" | "baseline" | "stretch";
       /** The number of rows in the grid container. */
       rows?: Size;
       /** The number of columns in the grid container. */
@@ -70,6 +74,8 @@ const Root = fixedForwardRef(
     {
       as,
       cols,
+      justify,
+      items,
       rows,
       subgrid,
       flow,
@@ -97,6 +103,8 @@ const Root = fixedForwardRef(
     const computedProps = useResponsive(
       {
         cols,
+        justify,
+        items,
         rows,
         subgrid,
         flow,
@@ -116,6 +124,8 @@ const Root = fixedForwardRef(
       root: getBlock({
         modifiers: [
           computedProps.subgrid && "subgrid",
+          computedProps.justify && `justify-${computedProps.justify}`,
+          computedProps.items && `items-${computedProps.items}`,
           computedProps.flow && `flow-${computedProps.flow}`,
           computedProps.cols && `cols-${computedProps.cols}`,
           computedProps.rows && `rows-${computedProps.rows}`,
