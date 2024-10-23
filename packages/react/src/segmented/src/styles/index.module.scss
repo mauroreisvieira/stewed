@@ -50,7 +50,7 @@
     }
 
     &--selected {
-      box-shadow: theme.get-shadow("md");
+      box-shadow: theme.get-shadow("sm");
       @include theme.define-var(
         (
           background-color: theme.get-color("background-elevated"),
