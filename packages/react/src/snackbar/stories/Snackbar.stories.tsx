@@ -40,11 +40,7 @@ function Example({ dismissDuration }: { dismissDuration?: number }) {
     });
   }, [add, dismissDuration, remove]);
 
-  return (
-    <Button onClick={onHandleClick}>
-      Show Snackbar
-    </Button>
-  );
+  return <Button onClick={onHandleClick}>Show Snackbar</Button>;
 }
 
 export const Base: Story = {
