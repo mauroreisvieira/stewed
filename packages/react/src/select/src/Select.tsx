@@ -10,6 +10,11 @@ import styles from "./styles/index.module.scss";
 
 export interface SelectProps extends Omit<React.ComponentPropsWithRef<"select">, "size"> {
   /**
+   * Change the visual appearance of the select.
+   * @default outline
+   */
+  appearance?: "ghost" | "outline" | "soft";
+  /**
    * Change the visual style of the select.
    * @default "neutral-faded"
    */
@@ -48,6 +53,7 @@ const Root = forwardRef(
   (
     {
       skin = "neutral-faded",
+      appearance = "outline",
       size = "md",
       leftSlot,
       disabled,
@@ -64,7 +70,7 @@ const Root = forwardRef(
     // Generating CSS classes based on component props and styles
     const cssClasses = {
       root: getBlock({
-        modifiers: [disabled && "disabled", fullWidth && "full-width", skin, size],
+        modifiers: [disabled && "disabled", fullWidth && "full-width", skin, appearance, size],
         extraClasses: className,
       }),
       left: getElement(["left"]),
