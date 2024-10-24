@@ -126,7 +126,7 @@
     &--sibling-month-day {
       @include theme.define-var(
         (
-          color: theme.get-color("neutral", "foreground-faded"),
+          color: theme.get-color("neutral", "foreground"),
         )
       );
     }

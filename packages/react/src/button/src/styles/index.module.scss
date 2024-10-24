@@ -53,7 +53,7 @@
         @include theme.define-var(
           (
             background-color: theme.get-color($value, "background"),
-            color: #fff,
+            color: theme.get-color($value, "foreground-on-background"),
           )
         );
 
@@ -116,14 +116,14 @@
           (
             background-color: transparent,
             border-color: currentColor,
-            color: theme.get-color($value, "foreground"),
+            color: theme.get-color($value, "border"),
           )
         );
 
         &:hover:not([aria-disabled="true"]) {
           @include theme.define-var(
             (
-              color: theme.get-color($value, "foreground-hovered"),
+              color: theme.get-color($value, "border-hovered"),
             )
           );
         }

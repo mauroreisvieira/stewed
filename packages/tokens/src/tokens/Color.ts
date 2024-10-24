@@ -8,9 +8,9 @@ export const skin = {
   "primary-background-pressed": palette["indigo-700"],
   "primary-border": palette["indigo-500"],
   "primary-border-faded": palette["indigo-300"],
+  "primary-border-hovered": palette["indigo-600"],
   "primary-foreground": palette["indigo-500"],
-  "primary-foreground-hovered": palette["indigo-600"],
-  "primary-foreground-faded": palette["indigo-400"],
+  "primary-foreground-on-background": "#fff",
   // Secondary -----------------------------------------------------------------
   "secondary-background": palette["teal-500"],
   "secondary-background-faded": palette["teal-100"],
@@ -18,9 +18,9 @@ export const skin = {
   "secondary-background-pressed": palette["teal-700"],
   "secondary-border": palette["teal-500"],
   "secondary-border-faded": palette["teal-300"],
+  "secondary-border-hovered": palette["teal-600"],
   "secondary-foreground": palette["teal-500"],
-  "secondary-foreground-hovered": palette["teal-600"],
-  "secondary-foreground-faded": palette["teal-400"],
+  "secondary-foreground-on-background": "#fff",
   // Neutral -------------------------------------------------------------------
   "neutral-background": palette["gray-500"],
   "neutral-background-faded": palette["gray-100"],
@@ -29,8 +29,8 @@ export const skin = {
   "neutral-border": palette["gray-500"],
   "neutral-border-faded": palette["gray-300"],
   "neutral-foreground": palette["gray-500"],
-  "neutral-foreground-hovered": palette["gray-600"],
   "neutral-foreground-faded": palette["gray-400"],
+  "neutral-foreground-on-background": "#fff",
   // Critical ------------------------------------------------------------------
   "critical-background": palette["red-500"],
   "critical-background-faded": palette["red-100"],
@@ -38,9 +38,9 @@ export const skin = {
   "critical-background-pressed": palette["red-700"],
   "critical-border": palette["red-500"],
   "critical-border-faded": palette["red-300"],
+  "critical-border-hovered": palette["red-600"],
   "critical-foreground": palette["red-500"],
-  "critical-foreground-hovered": palette["red-600"],
-  "critical-foreground-faded": palette["red-400"],
+  "critical-foreground-on-background": "#fff",
   // Success -------------------------------------------------------------------
   "success-background": palette["green-500"],
   "success-background-faded": palette["green-100"],
@@ -48,9 +48,9 @@ export const skin = {
   "success-background-pressed": palette["green-700"],
   "success-border": palette["green-500"],
   "success-border-faded": palette["green-300"],
+  "success-border-hovered": palette["green-600"],
   "success-foreground": palette["green-500"],
-  "success-foreground-hovered": palette["green-600"],
-  "success-foreground-faded": palette["green-400"],
+  "success-foreground-on-background": "#fff",
   // Info ----------------------------------------------------------------------
   "info-background": palette["blue-500"],
   "info-background-faded": palette["blue-100"],
@@ -58,9 +58,9 @@ export const skin = {
   "info-background-pressed": palette["blue-700"],
   "info-border": palette["blue-500"],
   "info-border-faded": palette["blue-300"],
+  "info-border-hovered": palette["blue-600"],
   "info-foreground": palette["blue-500"],
-  "info-foreground-hovered": palette["blue-600"],
-  "info-foreground-faded": palette["blue-400"],
+  "info-foreground-on-background": "#fff",
   // Warning -------------------------------------------------------------------
   "warning-background": palette["yellow-500"],
   "warning-background-faded": palette["yellow-100"],
@@ -68,9 +68,9 @@ export const skin = {
   "warning-background-pressed": palette["yellow-700"],
   "warning-border": palette["yellow-500"],
   "warning-border-faded": palette["yellow-300"],
+  "warning-border-hovered": palette["yellow-600"],
   "warning-foreground": palette["yellow-500"],
-  "warning-foreground-hovered": palette["yellow-600"],
-  "warning-foreground-faded": palette["yellow-400"],
+  "warning-foreground-on-background": "#fff",
 };
 
 export const color = {
@@ -83,7 +83,7 @@ export const color = {
   // Inverted background color used for the application (ex: Tooltip)
   "background-inverted": "#000",
   // Background color for UI components (ex: Card)
-  "background-surface": palette["gray-100"],
+  "background-surface": "#fff",
   // Background color for elevated UI components. (ex: Dialog)
   "background-elevated": "#fff",
   // Colors used for backdrop effects and backdrops

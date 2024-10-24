@@ -13,7 +13,7 @@
 
   @include theme.define-var(
     (
-      background-color: theme.get-color("neutral", "background"),
+      background-color: color-mix(in srgb, theme.get-color("neutral", "background") 20%, white),
     )
   );
 
@@ -27,7 +27,7 @@
     @include theme.hover {
       @include theme.define-var(
         (
-          background-color: theme.get-color("neutral", "background"),
+          background-color: color-mix(in srgb, theme.get-color("neutral", "background") 30%, white),
         )
       );
     }
@@ -128,7 +128,7 @@
         @include theme.hover {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "background"),
+              background-color: color-mix(in srgb, theme.get-color($value, "background") 90%, black),
             )
           );
         }

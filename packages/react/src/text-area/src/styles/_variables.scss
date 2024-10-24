@@ -7,20 +7,21 @@ $textarea-skins: (
   "neutral-faded": (
     "border": theme.get-color("neutral", "border-faded"),
     "background-color": theme.get-color("neutral", "background-faded"),
+    "background-color-faded": theme.get-color("neutral", "background-faded"),
   ),
   "neutral": (
     "border": theme.get-color("neutral", "border"),
     "background-color": theme.get-color("neutral", "background"),
+    "background-color-faded": theme.get-color("neutral", "background-faded"),
   ),
   "success": (
     "border": theme.get-color("success", "border"),
     "background-color": theme.get-color("success", "background"),
+    "background-color-faded": theme.get-color("success", "background-faded"),
   ),
   "critical": (
     "border": theme.get-color("critical", "border"),
     "background-color": theme.get-color("critical", "background"),
+    "background-color-faded": theme.get-color("critical", "background-faded"),
   ),
 );
-
-// Spacing's
-$textarea-spacings: theme.get-spacing("md");

@@ -61,11 +61,14 @@
     width: theme.get-font-size("md");
   }
 
+  // Skins
   @each $key, $value in $select-skins {
     &--#{$key} {
       @include theme.define-var(
         (
           border-color: map.get($value, "border"),
+          background-color: map.get($value, "background-color"),
+          background-color-faded: map.get($value, "background-color-faded"),
         )
       );
     }
@@ -80,6 +83,23 @@
         )
       );
     }
+  }
+
+  &--outline {
+    border: 1px solid theme.get-var(border-color);
+  }
+
+  &--ghost {
+    border-color: transparent;
+  }
+
+  &--soft {
+    background-color: color-mix(
+      in srgb,
+      theme.get-var(background-color),
+      theme.get-var(background-color-faded) 90%
+    );
+    border-color: transparent;
   }
 
   &--full-width {

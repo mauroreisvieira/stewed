@@ -35,6 +35,7 @@
     &:-webkit-autofill:focus,
     &:-webkit-autofill:active {
       background-clip: text;
+      -webkit-text-fill-color: theme.get-color("foreground-default");
     }
   }
 
@@ -54,6 +55,7 @@
     padding-inline-start: theme.get-spacing("md");
   }
 
+  // Skins
   @each $key, $value in $input-skins {
     &--#{$key} {
       @include theme.define-var(

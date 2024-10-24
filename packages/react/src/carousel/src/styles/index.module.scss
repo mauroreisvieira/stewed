@@ -19,6 +19,7 @@
       &__next {
         position: absolute;
         top: 50%;
+        box-shadow: theme.get-shadow("md");
         transform: translateY(-50%);
       }
     }

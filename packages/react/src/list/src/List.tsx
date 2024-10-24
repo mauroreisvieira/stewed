@@ -11,7 +11,7 @@ import styles from "./styles/index.module.scss";
 export interface ListProps extends React.ComponentPropsWithoutRef<"ul"> {
   /**
    * Type of list to display.
-   * @default none
+   * @default bullet
    */
   type?: "bullet" | "decimal" | "none";
   /**
@@ -36,7 +36,7 @@ export interface ListProps extends React.ComponentPropsWithoutRef<"ul"> {
  * @returns {React.ReactElement} - The rendered List component.
  */
 export function List({
-  type = "none",
+  type = "bullet",
   gap = "xs",
   className,
   children,

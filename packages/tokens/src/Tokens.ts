@@ -104,7 +104,7 @@ export const defaultTokens: Tokens = {
     },
     [components.Dialog]: {
       radius: "md",
-      shadow: "2xl",
+      shadow: "3xl",
     },
     [components.Dropdown]: {
       radius: "md",
@@ -116,7 +116,7 @@ export const defaultTokens: Tokens = {
     },
     [components.Drawer]: {
       radius: "lg",
-      shadow: "2xl",
+      shadow: "3xl",
     },
     [components.Group]: {
       radius: "sm",

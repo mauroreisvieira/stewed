@@ -5,11 +5,8 @@
 @include theme.scope($list-root) {
   display: flex;
   flex-direction: column;
+  padding: 0;
   margin-block: 0;
-
-  &:not(&--none) {
-    padding-left: theme.get-spacing("xl");
-  }
 
   &__item {
     @include text.typography(base);
@@ -17,10 +14,12 @@
 
   // Type
   &--bullet {
+    padding-left: theme.get-spacing("xl");
     list-style: disc none outside;
   }
 
   &--decimal {
+    padding-left: theme.get-spacing("xl");
     list-style: decimal none outside;
   }
 

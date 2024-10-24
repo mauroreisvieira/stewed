@@ -9,7 +9,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: $textarea-spacings;
+  padding: theme.get-spacing("md");
   touch-action: manipulation;
   border: 1px solid transparent;
   border-radius: theme.get-var(radius);
@@ -21,12 +21,14 @@
     @include theme.disabled-styles;
   }
 
+  // Skins
   @each $key, $value in $textarea-skins {
     &--#{$key} {
       @include theme.define-var(
         (
           border-color: map.get($value, "border"),
           background-color: map.get($value, "background-color"),
+          background-color-faded: map.get($value, "background-color-faded"),
         )
       );
     }
@@ -41,7 +43,11 @@
   }
 
   &--soft {
-    background-color: color-mix(in srgb, theme.get-var(background-color), transparent 95%);
+    background-color: color-mix(
+      in srgb,
+      theme.get-var(background-color),
+      theme.get-var(background-color-faded) 90%
+    );
     border-color: transparent;
   }
 

@@ -53,7 +53,7 @@
       box-shadow: theme.get-shadow("sm");
       @include theme.define-var(
         (
-          background-color: theme.get-color("background-elevated"),
+          background-color: theme.get-color("background-default"),
         )
       );
     }

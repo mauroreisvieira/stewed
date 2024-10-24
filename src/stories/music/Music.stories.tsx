@@ -26,6 +26,7 @@ import {
   useSnackbar,
   Box,
   useTheme,
+  TextArea,
 } from "@stewed/react";
 // Hooks
 import { useToggle, useFetch } from "@stewed/hooks";
@@ -73,10 +74,11 @@ const meta: Meta = {
               "primary-foreground": "#1db954",
               "secondary-background": "#121212",
               "secondary-background-hovered": "#101010",
+              "secondary-background-pressed": "#101010",
               "secondary-foreground": "#121212",
             },
             components: {
-              button: {
+              "button": {
                 radius: "full",
               },
             },
@@ -401,7 +403,7 @@ function Music(): React.ReactElement {
                   {images?.results?.map((image, index) => (
                     <Card key={index} shadow="none" padding={{ block: "lg", inline: "md" }}>
                       <Card.Media
-                        src={`${image.urls.raw}&w=300&h=400&fit=crop`}
+                        src={`${image.urls.raw}&w=300&h=500&fit=crop`}
                         alt={image.alt_description}
                         style={{ width: "100%", height: "100%" }}
                       />
@@ -556,6 +558,8 @@ function Music(): React.ReactElement {
                   <TextField
                     id="name"
                     type="text"
+                    skin="neutral-faded"
+                    appearance="soft"
                     placeholder="Enter music name"
                     size="lg"
                     fullWidth
@@ -564,9 +568,23 @@ function Music(): React.ReactElement {
               </FormField>
 
               <FormField>
+                <FormField.Label htmlFor="description">Description</FormField.Label>
+                <FormField.Control>
+                  <TextArea
+                    id="description"
+                    skin="neutral-faded"
+                    appearance="soft"
+                    placeholder="An options description"
+                    rows={4}
+                    fullWidth
+                  />
+                </FormField.Control>
+              </FormField>
+
+              <FormField>
                 <FormField.Label htmlFor="name">Playlists</FormField.Label>
                 <FormField.Control>
-                  <Select size="lg">
+                  <Select size="lg" skin="neutral-faded" appearance="soft">
                     <Select.Option>Daily Mix 1</Select.Option>
                     <Select.Option>Daily Mix 2</Select.Option>
                     <Select.Option>Daily Mix 3</Select.Option>
@@ -603,9 +621,10 @@ function Music(): React.ReactElement {
                 <FormField.Control>
                   <TextField
                     id="url"
-                    type="text"
-                    placeholder="https://example.com/feed.xml"
+                    skin="neutral-faded"
+                    appearance="soft"
                     size="lg"
+                    placeholder="https://example.com/feed.xml"
                     fullWidth
                   />
                 </FormField.Control>
