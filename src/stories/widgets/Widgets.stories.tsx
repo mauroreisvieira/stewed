@@ -574,7 +574,6 @@ export const PaymentMethod = {
                                 weekday: "narrow",
                               }}
                               onDaySelected={(day) => {
-                                console.log("day", day);
                                 setExpires(day.date);
                                 close();
                               }}>

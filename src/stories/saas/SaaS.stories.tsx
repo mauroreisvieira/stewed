@@ -26,14 +26,26 @@ import {
   Card,
   Tabs,
   Tooltip,
-} from "@stewed/react";
+  Calendar,
+  Popover,
+} from "../../../packages/react/index";
 // Hooks
 import { useInput } from "@stewed/hooks";
 // Icons
+import {
+  MdOutlineArrowUpward,
+  MdOutlineArrowDownward,
+  MdOutlineCalendarToday,
+  MdKeyboardArrowLeft,
+  MdKeyboardArrowRight,
+} from "react-icons/md";
+import { VscKebabVertical } from "react-icons/vsc";
+import { GoKebabHorizontal } from "react-icons/go";
+import { IoMdAdd } from "react-icons/io";
 import { FiFile, FiFilePlus, FiSearch, FiTrash, FiUsers, FiActivity } from "react-icons/fi";
-import { MdOutlineArrowUpward, MdOutlineArrowDownward } from "react-icons/md";
 import { LuFilter } from "react-icons/lu";
 import { IoAttach, IoChatbubbleOutline } from "react-icons/io5";
+import { useDateTime } from "@hello-week/hooks";
 
 const meta: Meta = {
   title: "Examples/SaaS",
@@ -389,20 +401,7 @@ export const Staff = {
                         skin="neutral"
                         appearance="ghost"
                         iconOnly
-                        leftSlot={
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth="2"
-                            stroke="currentColor">
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z"
-                            />
-                          </svg>
-                        }
+                        leftSlot={<VscKebabVertical />}
                         onClick={(event) => event.stopPropagation()}
                       />
                     </Table.Cell>
@@ -737,6 +736,10 @@ export const Inventory = {
 
 export const Kanban = {
   render: function Render() {
+    const { formatDate } = useDateTime();
+
+    const [expires, setExpires] = useState<Date>(new Date());
+
     const board = [
       {
         id: "backlog",
@@ -899,6 +902,81 @@ export const Kanban = {
             </Tabs.List>
           </Tabs>
 
+          <Stack justify="between" items="center">
+            <Text size="2xl" weight="medium">
+              Acme Project - SaaS
+            </Text>
+            <Popover<HTMLButtonElement>
+              renderAnchor={({ ref, open, isOpen }) => (
+                <Button
+                  skin="neutral"
+                  appearance="outline"
+                  pressed={isOpen}
+                  ref={ref}
+                  onClick={open}
+                  leftSlot={<MdOutlineCalendarToday />}>
+                  {formatDate(expires, { year: "numeric", month: "long", day: "2-digit" })}
+                </Button>
+              )}
+              offset={6}
+              placement="bottom-end">
+              {({ close }) => (
+                <Box padding={{ block: "sm", inline: "sm" }}>
+                  <Calendar
+                    defaultDate={expires ? new Date(expires) : undefined}
+                    selectedDates={expires ? [expires] : undefined}
+                    siblingMonthDays={true}
+                    formatDate={{
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                      weekday: "narrow",
+                    }}
+                    onDaySelected={(day) => {
+                      setExpires(day.date);
+                      close();
+                    }}>
+                    <Calendar.Navigation>
+                      {({ locked, month, year, onPrev, onNext }) => (
+                        <>
+                          <Button
+                            skin="neutral"
+                            appearance="ghost"
+                            size="sm"
+                            iconOnly
+                            aria-label="Previous month"
+                            disabled={locked}
+                            onClick={onPrev}
+                            leftSlot={<MdKeyboardArrowLeft />}
+                          />
+
+                          <Stack justify="center" grow>
+                            <Text weight="medium">
+                              {month} {year}
+                            </Text>
+                          </Stack>
+
+                          <Button
+                            skin="neutral"
+                            appearance="ghost"
+                            size="sm"
+                            iconOnly
+                            onClick={onNext}
+                            aria-label="Next month"
+                            disabled={locked}
+                            leftSlot={<MdKeyboardArrowRight />}
+                          />
+                        </>
+                      )}
+                    </Calendar.Navigation>
+                    <Calendar.Week />
+                    <Calendar.Month />
+                  </Calendar>
+                </Box>
+              )}
+            </Popover>
+          </Stack>
+
           <Stack direction="column" gap="md">
             <Stack
               wrap="wrap"
@@ -919,10 +997,31 @@ export const Kanban = {
                       size: 4,
                     },
                   }}>
-                  <Box>
-                    <Text weight="semi-bold">{title}</Text>
-                    <Separator space={{ block: "sm" }} />
-                  </Box>
+                  <Card shadow="sm" padding={{ block: "sm", inline: "md" }}>
+                    <Card.Body>
+                      <Stack items="center" justify="between">
+                        <Text weight="semi-bold">{title}</Text>
+                        <div>
+                          <Button
+                            size="sm"
+                            skin="neutral"
+                            appearance="ghost"
+                            leftSlot={<IoMdAdd />}
+                            iconOnly>
+                            Add
+                          </Button>
+                          <Button
+                            size="sm"
+                            skin="neutral"
+                            appearance="ghost"
+                            leftSlot={<GoKebabHorizontal />}
+                            iconOnly>
+                            Add
+                          </Button>
+                        </div>
+                      </Stack>
+                    </Card.Body>
+                  </Card>
                   <Card skin="neutral-faded" padding={{ block: "sm", inline: "sm" }}>
                     <Card.Body>
                       <Stack gap="md" direction="column">
@@ -978,6 +1077,7 @@ export const Kanban = {
                                   <Avatar.Group>
                                     {members.map(({ id, name }) => (
                                       <Tooltip<HTMLDivElement>
+                                        key={id}
                                         renderAnchor={(props) => (
                                           <Avatar key={id} size="xs" name={name} {...props} />
                                         )}>
