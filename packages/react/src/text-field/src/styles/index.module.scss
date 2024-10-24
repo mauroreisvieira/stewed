@@ -60,7 +60,7 @@
         (
           border-color: map.get($value, "border"),
           background-color: map.get($value, "background-color"),
-          mix-background: map.get($value, "mix-background"),
+          background-color-faded: map.get($value, "background-color-faded"),
         )
       );
     }
@@ -89,7 +89,7 @@
     background-color: color-mix(
       in srgb,
       theme.get-var(background-color),
-      theme.get-var(mix-background) 98%
+      theme.get-var(background-color-faded) 90%
     );
     border-color: transparent;
   }

@@ -7,22 +7,22 @@ $input-skins: (
   "neutral-faded": (
     "border": theme.get-color("neutral", "border-faded"),
     "background-color": theme.get-color("neutral", "background-faded"),
-    "mix-background": theme.get-color("neutral", "background-faded"),
+    "background-color-faded": theme.get-color("neutral", "background-faded"),
   ),
   "neutral": (
     "border": theme.get-color("neutral", "border"),
     "background-color": theme.get-color("neutral", "background"),
-    "mix-background": theme.get-color("neutral", "background-faded"),
+    "background-color-faded": theme.get-color("neutral", "background-faded"),
   ),
   "success": (
     "border": theme.get-color("success", "border"),
     "background-color": theme.get-color("success", "background"),
-    "mix-background": theme.get-color("success", "background-faded"),
+    "background-color-faded": theme.get-color("success", "background-faded"),
   ),
   "critical": (
     "border": theme.get-color("critical", "border"),
     "background-color": theme.get-color("critical", "background"),
-    "mix-background": theme.get-color("critical", "background-faded"),
+    "background-color-faded": theme.get-color("critical", "background-faded"),
   ),
 );
 
