@@ -13,6 +13,22 @@ const config: StorybookConfig = {
     "@storybook/addon-onboarding",
     "@storybook/addon-interactions",
   ],
+  typescript: {
+    reactDocgen: "react-docgen-typescript",
+    reactDocgenTypescriptOptions: {
+      // Speeds up Storybook build time
+      compilerOptions: {
+        allowSyntheticDefaultImports: false,
+        esModuleInterop: false,
+      },
+      // Makes union prop types like variant and size appear as select controls
+      shouldExtractLiteralValuesFromEnum: true,
+      // Makes string and boolean types that can be undefined appear as inputs and switches
+      shouldRemoveUndefinedFromOptional: true,
+      // Prop filter, which excludes props from node_modules
+      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+    },
+  },
   core: {
     builder: "@storybook/builder-vite",
   },
