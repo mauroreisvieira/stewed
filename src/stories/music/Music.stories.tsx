@@ -25,9 +25,10 @@ import {
   Theme,
   useSnackbar,
   Box,
+  useTheme,
 } from "@stewed/react";
 // Hooks
-import { useToggle } from "@stewed/hooks";
+import { useToggle, useFetch } from "@stewed/hooks";
 // Icons
 import { IoMdClose, IoMdAdd } from "react-icons/io";
 import { RiHistoryLine, RiAlbumFill, RiPlayListFill } from "react-icons/ri";
@@ -59,34 +60,42 @@ const meta: Meta = {
   },
   decorators: [
     (Story) => (
-      <Theme
+      <Theme<"default" | "dark">
         theme="default"
         tokens={{
           default: {
             color: {
-              "neutral-border-faded": "gray-700",
-              "neutral-foreground": "gray-100",
-              "neutral-background": "gray-500",
-              "neutral-background-faded": "gray-800",
-              "background-default": "gray-900",
-              "background-elevated": "gray-900",
-              "background-surface": "gray-800",
-              "foreground-default": "#fff",
-              "shadow": "#0f162a33",
-              "gray-100": "#f8fafc",
-              "gray-200": "#e2e8f0",
-              "gray-300": "#cbd5e1",
-              "gray-400": "#94a3b8",
-              "gray-500": "#64748b",
-              "gray-600": "#475569",
-              "gray-700": "#334155",
-              "gray-800": "#1e293b",
-              "gray-900": "#020617",
+              "primary-background": "#1db954",
+              "primary-background-hovered": "#1aa64b",
+              "primary-background-pressed": "#179443",
+              "primary-border": "#1db954",
+              "primary-border-faded": "teal-200",
+              "primary-foreground": "#1db954",
+              "secondary-background": "#121212",
+              "secondary-background-hovered": "#101010",
+              "secondary-foreground": "#121212",
             },
             components: {
               button: {
                 radius: "full",
               },
+            },
+          },
+          dark: {
+            color: {
+              "background-backdrop": "#aaaaaaa8",
+              "background-default": "#0f162a",
+              "background-elevated": "#0f162a",
+              "background-surface": "#0f162a",
+              "foreground-default": "#fff",
+              "neutral-background": "gray-500",
+              "neutral-background-faded": "gray-800",
+              "neutral-border-faded": "gray-700",
+              "neutral-foreground": "gray-100",
+              "secondary-background": "#fff",
+              "secondary-background-hovered": "#FCFCFC",
+              "secondary-foreground": "#fff",
+              "secondary-foreground-on-background": "#121212",
             },
           },
         }}>
@@ -99,15 +108,41 @@ const meta: Meta = {
 export default meta;
 
 function Music(): React.ReactElement {
+  // State to manage the value of the segmented control between "music" and "podcast"
   const [segmentedValue, setSegmentedValue] = useState<"music" | "podcast">("music");
+
+  // State to manage the visibility of a drawer (a toggle state)
   const [drawerState, onHandleDrawer] = useToggle(false);
+
+  // State to manage the visibility of the music dialog (a toggle state)
   const [musicDialogState, onHandleMusicDialog] = useToggle(false);
+
+  // State to manage the visibility of the podcast dialog (a toggle state)
   const [podcastDialogState, onHandlePodcastDialog] = useToggle(false);
 
+  // Snackbar hook to display notifications
   const { add } = useSnackbar();
 
+  // Theme management hook to set and retrieve the current theme
+  const { setTheme, theme } = useTheme();
+
+  // Unique identifier generated using the current timestamp
   const idx = new Date().getTime().toString();
 
+  // API key for accessing Unsplash API
+  const accessKey = "5c037b46041a86b80e941bc0ff3eb418c572d7bcb5def98f309e77c1ef6d576b";
+
+  // Fetching images from Unsplash API with a search query for "music", limited to 8 results
+  const { data: images } = useFetch<{
+    results: {
+      alt_description: string;
+      urls: {
+        raw: string;
+      };
+    }[];
+  }>(`https://api.unsplash.com/search/photos?query="music"&client_id=${accessKey}&per_page=8`);
+
+  // Callback function triggered when an item is clicked, showing an error message in the Snackbar
   const onHandleClick = useCallback(
     (index: number) => {
       add({
@@ -115,8 +150,8 @@ function Music(): React.ReactElement {
         title: "Unexpected error happened",
         content: (
           <>
-            We have encountered an error when try to reproduce{" "}
-            <strong>Daily Mix {index + 1}</strong> again later.
+            We have encountered an error when trying to reproduce{" "}
+            <strong>Daily Mix {index + 1}</strong>. Please try again later.
           </>
         ),
         skin: "critical",
@@ -127,14 +162,14 @@ function Music(): React.ReactElement {
   );
 
   return (
-    <Container screen="full">
-      <Box skin="default" fullScreen>
-        <Box as="header" padding={{ inline: "xl", block: "lg" }}>
-          <Grid cols={2} responsive={{ sm: { cols: 3 } }} items="center">
+    <Box skin="default" fullScreen>
+      <Container as="header" screen="full">
+        <Box padding={{ inline: "xl", block: "sm" }}>
+          <Grid cols={2} responsive={{ sm: { cols: 6 }, lg: { cols: 3 } }} items="center">
             <Grid.Item>
               <Button
                 leftSlot={<TbMenuDeep />}
-                skin="neutral"
+                skin="secondary"
                 appearance="ghost"
                 onClick={onHandleDrawer}
                 iconOnly>
@@ -142,9 +177,11 @@ function Music(): React.ReactElement {
               </Button>
             </Grid.Item>
 
-            <Grid.Item hidden={true} responsive={{ sm: { hidden: false } }}>
+            <Grid.Item
+              hidden={true}
+              responsive={{ sm: { hidden: false, colSpan: 4 }, lg: { colSpan: undefined } }}>
               <Stack items="center" gap="md">
-                <Button appearance="ghost" skin="neutral" leftSlot={<MdHome />} iconOnly>
+                <Button appearance="ghost" skin="secondary" leftSlot={<MdHome />} iconOnly>
                   Home
                 </Button>
                 <Popover<HTMLDivElement>
@@ -155,7 +192,7 @@ function Music(): React.ReactElement {
                       rootRef={inputSearchRef}
                       list="recent-search"
                       appearance="soft"
-                      skin="neutral"
+                      skin="neutral-faded"
                       leftSlot={<FiSearch />}
                       rightSlot={
                         <Stack gap="sm">
@@ -163,14 +200,14 @@ function Music(): React.ReactElement {
                           <Button
                             leftSlot={<PiBrowsersFill />}
                             size="sm"
-                            skin="neutral"
+                            skin="secondary"
                             appearance="ghost"
                             iconOnly>
                             Browse
                           </Button>
                         </Stack>
                       }
-                      size="lg"
+                      size="xl"
                       placeholder="What do you want to play?"
                       fullWidth
                     />
@@ -189,7 +226,7 @@ function Music(): React.ReactElement {
                                       isHovering || isTouch ? (
                                         <Button
                                           size="xs"
-                                          skin="neutral"
+                                          skin="secondary"
                                           appearance="ghost"
                                           leftSlot={<IoMdClose />}
                                           iconOnly>
@@ -213,7 +250,7 @@ function Music(): React.ReactElement {
 
             <Grid.Item>
               <Stack justify="end">
-                <Button appearance="ghost" skin="neutral" leftSlot={<MdNotifications />} iconOnly>
+                <Button appearance="ghost" skin="secondary" leftSlot={<MdNotifications />} iconOnly>
                   Notifications
                 </Button>
                 <Separator orientation="vertical" space={{ inline: "xl" }} />
@@ -222,29 +259,42 @@ function Music(): React.ReactElement {
                   renderAnchor={({ ref, open, close, isOpen }) => (
                     <Avatar ref={ref} onClick={isOpen ? close : open} name="Devon Lane" />
                   )}>
-                  {() => (
+                  {({ close }) => (
                     <Box padding={{ block: "sm", inline: "sm" }}>
                       <Stack items="center" gap="md">
-                        <Avatar skin="neutral" size="md" name="Devon Lane" />
+                        <Avatar skin="primary" size="md" name="Devon Lane" />
                         <Stack direction="column" gap="xs">
                           <Text weight="medium">Devon Lane</Text>
-                          <Text as="a" href="" size="xs" skin="neutral">
+                          <Text as="a" href="" size="xs" skin="secondary">
                             devon.lane@example.com
                           </Text>
                         </Stack>
                       </Stack>
                       <Separator space={{ block: "sm" }} />
-                      <Segmented value="light" fullWidth>
+                      <Segmented value={theme} fullWidth>
                         <Segmented.Item
-                          value="light"
+                          value="default"
                           leftSlot={<MdLightMode />}
                           aria-label="Light"
+                          onClick={() => {
+                            close();
+                            setTheme("default");
+                          }}
                         />
-                        <Segmented.Item value="dark" leftSlot={<MdDarkMode />} aria-label="Dark" />
+                        <Segmented.Item
+                          value="dark"
+                          leftSlot={<MdDarkMode />}
+                          aria-label="Dark"
+                          onClick={() => {
+                            close();
+                            setTheme("dark");
+                          }}
+                        />
                         <Segmented.Item
                           value="system"
                           leftSlot={<MdComputer />}
                           aria-label="System"
+                          disabled
                         />
                       </Segmented>
                       <Separator space={{ block: "sm" }} />
@@ -262,10 +312,12 @@ function Music(): React.ReactElement {
             </Grid.Item>
           </Grid>
         </Box>
+      </Container>
 
-        <Separator />
+      <Separator />
 
-        <Box as="main" padding={{ inline: "2xl", block: "lg" }}>
+      <Container as="main" screen="2xl" alignment="center">
+        <Box padding={{ inline: "2xl", block: "lg" }}>
           <Box space={{ y: "4xl" }}>
             <Stack items="baseline" justify="between">
               <Segmented<"music" | "podcast">
@@ -279,7 +331,7 @@ function Music(): React.ReactElement {
               </Segmented>
 
               <Button
-                skin="neutral"
+                skin="secondary"
                 onClick={onHandleMusicDialog}
                 size="lg"
                 leftSlot={<IoMdAdd />}
@@ -292,17 +344,17 @@ function Music(): React.ReactElement {
           {segmentedValue === "music" ? (
             <>
               <Grid cols={1} responsive={{ sm: { cols: 2 }, md: { cols: 4 } }} gap="md">
-                {Array.from({ length: 8 }).map((_, index) => (
+                {images?.results?.map((image, index) => (
                   <Grid.Item key={index}>
                     <Hoverable>
                       {({ isHovering, isTouch }) => (
-                        <Card shadow="none">
+                        <Card skin="neutral-faded" shadow="none">
                           <Box>
                             <Stack direction="row" items="center" justify="between" grow>
                               <Stack items="center" gap="md">
                                 <img
-                                  src="https://placehold.co/80x80"
-                                  alt="Cover Album"
+                                  src={`${image.urls.raw}&w=80&h=80&fit=crop`}
+                                  alt={image.alt_description}
                                   style={{ height: "100%" }}
                                 />
                                 <Text weight="medium">Daily Mix {index + 1}</Text>
@@ -343,14 +395,14 @@ function Music(): React.ReactElement {
                     xs: {
                       perView: 2,
                     },
-                    md: { perView: 5 },
+                    md: { perView: 4 },
                   }}
                   loop={false}>
-                  {Array.from({ length: 10 }).map((_, index) => (
-                    <Card key={index} shadow="none" padding={{ block: "md", inline: "md" }}>
+                  {images?.results?.map((image, index) => (
+                    <Card key={index} shadow="none" padding={{ block: "lg", inline: "md" }}>
                       <Card.Media
-                        src="https://placehold.co/900x1200"
-                        alt="Cover Album"
+                        src={`${image.urls.raw}&w=300&h=400&fit=crop`}
+                        alt={image.alt_description}
                         style={{ width: "100%", height: "100%" }}
                       />
                       <Card.Body>
@@ -375,11 +427,11 @@ function Music(): React.ReactElement {
                 </Text>
                 <Separator space={{ block: "lg" }} />
                 <Grid cols={2} responsive={{ sm: { cols: 4 }, md: { cols: 8 } }} gap="md">
-                  {Array.from({ length: 8 }).map((_, index) => (
-                    <Card key={index} shadow="none" padding={{ block: "md", inline: "md" }}>
+                  {images?.results?.map((image, index) => (
+                    <Card skin="neutral-faded" key={index} padding={{ block: "lg", inline: "md" }}>
                       <Card.Media
-                        src="https://placehold.co/200x200"
-                        alt="Cover Album"
+                        src={`${image.urls.raw}&w=200&h=200&fit=crop`}
+                        alt={image.alt_description}
                         style={{ width: "100%", height: "100%" }}
                       />
 
@@ -424,7 +476,7 @@ function Music(): React.ReactElement {
                     <Text skin="neutral" size="sm">
                       You have not added any podcasts. Add one below.
                     </Text>
-                    <Button size="md" skin="neutral" onClick={onHandlePodcastDialog}>
+                    <Button size="md" skin="secondary" onClick={onHandlePodcastDialog}>
                       Add Podcast
                     </Button>
                   </Stack>
@@ -486,13 +538,13 @@ function Music(): React.ReactElement {
         </Drawer>
 
         <Dialog
-          size="sm"
+          size="md"
           onClose={onHandleMusicDialog}
           onClickOutside={onHandleMusicDialog}
           open={musicDialogState}>
           <Dialog.Header>
             <Text as="h5">Add music</Text>
-            <Text size="sm" skin="neutral">
+            <Text size="sm" skin="secondary">
               Upload a music directly to a playlist
             </Text>
           </Dialog.Header>
@@ -534,13 +586,13 @@ function Music(): React.ReactElement {
         </Dialog>
 
         <Dialog
-          size="sm"
+          size="md"
           onClose={onHandlePodcastDialog}
           onClickOutside={onHandlePodcastDialog}
           open={podcastDialogState}>
           <Dialog.Header>
             <Text as="h5">Add Podcast</Text>
-            <Text size="sm" skin="neutral">
+            <Text size="sm" skin="secondary">
               Copy and paste the podcast feed URL to import.
             </Text>
           </Dialog.Header>
@@ -566,8 +618,8 @@ function Music(): React.ReactElement {
             </Stack>
           </Dialog.Footer>
         </Dialog>
-      </Box>
-    </Container>
+      </Container>
+    </Box>
   );
 }
 
