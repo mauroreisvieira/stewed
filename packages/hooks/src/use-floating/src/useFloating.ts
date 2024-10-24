@@ -337,10 +337,11 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
 
     // Cleanup function
     return () => {
+      setOptions({ placement: placement, isPositioned: false });
       resizeObserver.disconnect();
       controller.abort();
     };
-  }, [reference, updatePosition, flip, open]);
+  }, [reference, updatePosition, flip, open, placement]);
 
   // Make sure to call updatePosition when the floating element is ready, for cases when the width of the floating element change
   useEffect(() => {
