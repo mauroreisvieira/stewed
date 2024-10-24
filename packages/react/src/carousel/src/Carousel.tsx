@@ -17,6 +17,15 @@ import { useTheme } from "../../theme";
 // Style
 import styles from "./styles/index.module.scss";
 
+interface RenderNavigationCallbackProps {
+  /** Function to handle the click event for the navigation button. */
+  onClick: () => void;
+  /** The class name to be applied to the navigation button for styling purposes. */
+  className: string;
+  /** Whether the navigation button is disabled. If true, the button will be non-interactive and typically styled as disabled. */
+  disabled: boolean;
+}
+
 export interface CarouselProps
   extends React.ComponentPropsWithRef<"div">,
     UseResponsiveProps<{
@@ -36,10 +45,24 @@ export interface CarouselProps
        */
       loop?: boolean;
       /**
-       * Will show/hide prev and next button
+       * Controls the visibility of the previous and next navigation buttons.
        * @default true
        */
       showNavigation?: boolean;
+      /** An object that allows custom rendering of the previous and next navigation buttons. */
+      navigation?: {
+        /**
+         * A callback function for rendering the previous button.
+         * @param props - The properties for rendering, including `onClick` and `disabled`.
+         */
+        renderPrev: (props: RenderNavigationCallbackProps) => React.ReactNode;
+        /**
+         * A callback function for rendering the next button.
+         * @param props - The properties for rendering, including `onClick` and `disabled`.
+         */
+        renderNext: (props: RenderNavigationCallbackProps) => React.ReactNode;
+      };
+
       /**
        * Number of slides to display
        * @default 1
@@ -88,6 +111,7 @@ export const Carousel = forwardRef(
       children,
       onSlideChange,
       responsive,
+      navigation,
       ...props
     }: CarouselProps,
     ref: React.Ref<CarouselRef>,
@@ -107,6 +131,7 @@ export const Carousel = forwardRef(
         loop,
         showNavigation,
         responsive,
+        navigation,
       },
       activeToken.breakpoints,
     );
@@ -126,6 +151,8 @@ export const Carousel = forwardRef(
       item: getElement(["item"]),
       slide: getElement(["slide"]),
       bottom: getElement(["bottom"]),
+      prev: getElement(["prev"], className),
+      next: getElement(["next"], className),
     };
 
     // Total Slides
@@ -295,6 +322,15 @@ export const Carousel = forwardRef(
       [children],
     );
 
+    const isPrevDisabled = !loopingEffect && currentIndex === 0;
+    const isNextDisabled = !loopingEffect && currentIndex === slidesCount - show;
+
+    const computedStyles = {
+      "--carousel-slides": show,
+      "transform": `translateX(-${currentIndex * (100 / show)}%)`,
+      "transition": !transitionEnabled ? "none" : undefined,
+    };
+
     useImperativeHandle(
       ref,
       () => ({
@@ -304,12 +340,6 @@ export const Carousel = forwardRef(
       }),
       [onHandleClickPrev, onHandleClickNext, moveTo],
     );
-
-    const computedStyles = {
-      "--carousel-slides": show,
-      "transform": `translateX(-${currentIndex * (100 / show)}%)`,
-      "transition": !transitionEnabled ? "none" : undefined,
-    };
 
     return (
       <div className={cssClasses.root} {...props}>
@@ -329,16 +359,37 @@ export const Carousel = forwardRef(
           </div>
           {computedProps.showNavigation && (
             <>
-              <CarouselNavigation
-                direction="prev"
-                onClick={onHandleClickPrev}
-                disabled={!loopingEffect && currentIndex === 0}
-              />
-              <CarouselNavigation
-                direction="next"
-                onClick={onHandleClickNext}
-                disabled={!loopingEffect && currentIndex === slidesCount - show}
-              />
+              {/** Prev button */}
+              {computedProps.navigation?.renderPrev ? (
+                computedProps.navigation.renderPrev({
+                  className: cssClasses.prev,
+                  onClick: onHandleClickPrev,
+                  disabled: isPrevDisabled,
+                })
+              ) : (
+                <CarouselNavigation
+                  direction="prev"
+                  className={cssClasses.prev}
+                  onClick={onHandleClickPrev}
+                  disabled={isPrevDisabled}
+                />
+              )}
+
+              {/** Next button */}
+              {computedProps.navigation?.renderNext ? (
+                computedProps.navigation.renderNext({
+                  className: cssClasses.next,
+                  onClick: onHandleClickNext,
+                  disabled: isNextDisabled,
+                })
+              ) : (
+                <CarouselNavigation
+                  direction="next"
+                  className={cssClasses.next}
+                  onClick={onHandleClickNext}
+                  disabled={isNextDisabled}
+                />
+              )}
             </>
           )}
         </div>

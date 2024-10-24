@@ -83,7 +83,7 @@
         @include theme.define-var(
           (
             background-color: theme.get-color($value, "background"),
-            color: theme.get-color("white"),
+            color: theme.get-color($value, "foreground-on-background"),
           )
         );
 

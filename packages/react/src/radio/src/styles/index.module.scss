@@ -12,7 +12,7 @@
 
   @include theme.define-var(
     (
-      background-color: theme.get-color("neutral", "background-faded"),
+      background-color: transparent,
       border-color: theme.get-color("neutral", "border-faded"),
     )
   );

@@ -1,12 +1,6 @@
 import React from "react";
 // UI Components
 import { Button } from "../../index";
-// Hooks
-import { useBem } from "@stewed/hooks";
-// Tokens
-import { components } from "@stewed/tokens";
-// Style
-import styles from "./styles/index.module.scss";
 
 interface CarouselNavigationProps extends React.ComponentProps<"button"> {
   /** The direction of navigation, either 'next' or 'prev'. */
@@ -19,22 +13,15 @@ export function CarouselNavigation({
   disabled,
   onClick,
 }: CarouselNavigationProps): React.ReactElement {
-  // Importing useBem to handle BEM class names
-  const { getElement } = useBem({ block: components.Carousel, styles });
-
-  // Generating CSS classes based on component props and styles
-  const cssClasses = {
-    prev: getElement(["prev"], className),
-    next: getElement(["next"], className),
-  };
-
   return (
     <Button
-      skin="secondary"
+      skin="neutral"
+      appearance="ghost"
       iconOnly
       onClick={onClick}
       disabled={disabled}
       aria-label={direction === "next" ? "Next Slide" : "Previous Slide"}
+      className={className}
       leftSlot={
         direction === "prev" ? (
           <svg
@@ -66,7 +53,6 @@ export function CarouselNavigation({
           </svg>
         )
       }
-      className={direction === "prev" ? cssClasses.prev : cssClasses.next}
     />
   );
 }

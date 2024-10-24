@@ -41,7 +41,7 @@ function Example({ dismissDuration }: { dismissDuration?: number }) {
   }, [add, dismissDuration, remove]);
 
   return (
-    <Button skin="neutral" appearance="ghost" onClick={onHandleClick}>
+    <Button onClick={onHandleClick}>
       Show Snackbar
     </Button>
   );

@@ -50,15 +50,26 @@
   }
 
   // Skins
-  @each $key, $value in $badge-skins {
-    &--#{$key} {
-      @include theme.define-var(
-        (
-          background-color: theme.get-color($key, "background"),
-          border-color: theme.get-color($key, "background"),
-          color: theme.get-color($key, "foreground"),
-        )
-      );
+  @each $value in $badge-skins {
+    &--#{$value} {
+      &-filled {
+        @include theme.define-var(
+          (
+            background-color: theme.get-color($value, "background"),
+            color: theme.get-color($value, "foreground-on-background"),
+          )
+        );
+      }
+
+      &-outline {
+        @include theme.define-var(
+          (
+            background-color: transparent,
+            border-color: currentColor,
+            color: theme.get-color($value, "foreground"),
+          )
+        );
+      }
     }
   }
 

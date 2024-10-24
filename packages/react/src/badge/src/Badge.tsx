@@ -61,9 +61,8 @@ export function Badge({
   const cssClasses = {
     root: getBlock({
       modifiers: [
-        skin,
+        `${skin}-${appearance}`,
         size,
-        appearance,
         !!children && position,
         value && value.length > 2 && "padded",
       ],

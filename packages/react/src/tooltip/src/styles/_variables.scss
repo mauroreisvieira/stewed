@@ -10,7 +10,7 @@ $tooltip-skins: (
   ),
   "neutral": (
     "background-color": theme.get-color("neutral", "background"),
-    "color": theme.get-color("white"),
+    "color": theme.get-color("neutral", "foreground-on-background"),
   ),
   "neutral-faded": (
     "background-color": theme.get-color("neutral", "background-faded"),
@@ -18,7 +18,7 @@ $tooltip-skins: (
   ),
   "primary": (
     "background-color": theme.get-color("primary", "background"),
-    "color": theme.get-color("white"),
+    "color": theme.get-color("primary", "foreground-on-background"),
   ),
   "primary-faded": (
     "background-color": theme.get-color("primary", "background-faded"),

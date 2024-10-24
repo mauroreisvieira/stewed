@@ -12,7 +12,7 @@
 
   @include theme.define-var(
     (
-      background-color: theme.get-color("neutral", "background-faded"),
+      background-color: transparent,
       border-color: theme.get-color("neutral", "border-faded"),
     )
   );
@@ -138,7 +138,8 @@
           @include theme.hover {
             @include theme.define-var(
               (
-                background-color: theme.get-color($value, "background"),
+                background-color:
+                  color-mix(in srgb, theme.get-color($value, "background") 90%, black),
               )
             );
           }

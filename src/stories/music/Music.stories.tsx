@@ -38,7 +38,7 @@ import { FaPlayCircle } from "react-icons/fa";
 import { RxGrid } from "react-icons/rx";
 import { LuListMusic, LuMusic2 } from "react-icons/lu";
 import { IoPersonCircleOutline, IoRadioOutline } from "react-icons/io5";
-import { FiSearch } from "react-icons/fi";
+import { FiSearch, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { PiBrowsersFill } from "react-icons/pi";
 import {
   MdNotifications,
@@ -78,7 +78,7 @@ const meta: Meta = {
               "secondary-foreground": "#121212",
             },
             components: {
-              "button": {
+              button: {
                 radius: "full",
               },
             },
@@ -398,6 +398,18 @@ function Music(): React.ReactElement {
                       perView: 2,
                     },
                     md: { perView: 4 },
+                  }}
+                  navigation={{
+                    renderPrev: (props) => (
+                      <Button skin="secondary" leftSlot={<FiChevronLeft />} {...props} iconOnly>
+                        Prev
+                      </Button>
+                    ),
+                    renderNext: (props) => (
+                      <Button skin="secondary" leftSlot={<FiChevronRight />} {...props} iconOnly>
+                        Next
+                      </Button>
+                    ),
                   }}
                   loop={false}>
                   {images?.results?.map((image, index) => (
