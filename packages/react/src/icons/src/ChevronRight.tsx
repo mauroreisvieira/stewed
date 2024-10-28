@@ -1,6 +1,6 @@
 import React from "react";
 // Types
-import type { IconProps } from "../../types";
+import type { IconProps } from "./types";
 
 export const ChevronRight: React.FC<IconProps> = ({
   size = "20",

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // Components
-import { Theme, Calendar, DateOrArrayDates, Stack, Button, Text } from "../../index";
+import { Theme, Calendar, DateOrArrayDates, Stack, Button, Text,Icon } from "../../index";
 // Icons
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
@@ -110,7 +110,7 @@ const Template = (args) => {
               aria-label="Previous month"
               disabled={locked}
               onClick={onPrev}
-              leftSlot={<MdKeyboardArrowLeft />}
+              leftSlot={<Icon.ChevronLeft size={16} />}
             />
 
             <Stack justify="center" grow>
@@ -127,7 +127,7 @@ const Template = (args) => {
               onClick={onNext}
               aria-label="Next month"
               disabled={locked}
-              leftSlot={<MdKeyboardArrowRight />}
+              leftSlot={<Icon.ChevronRight size={16} />}
             />
           </>
         )}

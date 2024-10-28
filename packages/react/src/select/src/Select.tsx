@@ -5,6 +5,8 @@ import { SelectOption } from "./SelectOption";
 import { useBem } from "@stewed/hooks";
 // Tokens
 import { components } from "@stewed/tokens";
+// UI Components
+import { Icon } from "../../index";
 // Styles
 import styles from "./styles/index.module.scss";
 
@@ -84,26 +86,7 @@ const Root = forwardRef(
         <select ref={ref} className={cssClasses.input} disabled={disabled} {...props}>
           {children}
         </select>
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className={cssClasses.icon}>
-          <path
-            d="M7 16L12 21L17 16"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <path
-            d="M17 8L12 3L7 8"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+        <Icon.ChevronUpDown className={cssClasses.icon} />
       </div>
     );
   },

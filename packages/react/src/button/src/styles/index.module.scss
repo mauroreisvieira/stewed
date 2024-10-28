@@ -151,15 +151,6 @@
     );
   }
 
-  &__left,
-  &__right {
-    /* stylelint-disable-next-line selector-max-type */
-    svg {
-      width: theme.get-var(text-line-height);
-      height: theme.get-var(text-line-height);
-    }
-  }
-
   &__spinner,
   &__left,
   &__right {

@@ -28,6 +28,7 @@ export * from "./popover";
 export * from "./progress";
 export * from "./radio";
 export * from "./scope";
+export * from "./icons";
 export * from "./segmented";
 export * from "./select";
 export * from "./separator";
