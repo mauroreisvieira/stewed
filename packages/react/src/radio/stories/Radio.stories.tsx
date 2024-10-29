@@ -69,13 +69,17 @@ export const Error: Story = {
  */
 export const Group: Story = {
   render: function Render() {
-    const [checkedValue, setCheckedValues] = useState<string>("");
+    const [checkedValue, setCheckedValues] = useState<string>("Red");
 
     return (
       <>
-        <Radio.Group name="colors" checkedValue={checkedValue} onCheckedChange={setCheckedValues}>
+        <Radio.Group
+          name="colors"
+          appearance="bordered"
+          checkedValue={checkedValue}
+          onCheckedChange={setCheckedValues}>
           {["Red", "Blue", "Green", "Orange", "Pink"].map((color) => (
-            <Radio key={color} value={color}>
+            <Radio key={color} value={color} size="sm">
               {color}
             </Radio>
           ))}

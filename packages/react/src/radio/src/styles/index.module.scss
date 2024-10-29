@@ -23,14 +23,11 @@
     @include theme.disabled-styles;
   }
 
-  &:not(&--disabled) {
-    @include theme.hover {
-      @include theme.define-var(
-        (
-          background-color: theme.get-color("neutral", "background-faded"),
-        )
-      );
-    }
+  &--bordered {
+    padding-block: theme.get-spacing("sm");
+    padding-inline: theme.get-spacing("md");
+    border: 1px solid theme.get-var(border-color);
+    border-radius: theme.get-radius("sm");
   }
 
   &__input {
@@ -83,15 +80,27 @@
 
   &__group {
     display: flex;
+    flex-wrap: wrap;
     gap: theme.get-spacing("md");
     align-items: start;
 
     &--horizontal {
-      flex-direction: column;
+      flex-direction: row;
     }
 
     &--vertical {
-      flex-direction: row;
+      flex-direction: column;
+    }
+
+    &--full-width {
+      width: 100%;
+
+      .#{$radio-root} {
+        box-sizing: border-box;
+        flex: 1;
+        justify-content: start;
+        width: 100%;
+      }
     }
   }
 
@@ -109,7 +118,7 @@
   // Skins
   @each $key, $value in $radio-skins {
     &--#{$key} {
-      .#{$radio-root}__input:checked + .radio__control {
+      &:has(input:checked) {
         @include theme.define-var(
           (
             background-color: theme.get-color($value, "background"),

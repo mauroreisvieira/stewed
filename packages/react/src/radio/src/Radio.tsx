@@ -73,12 +73,12 @@ const Root = forwardRef(
     );
 
     // Use the custom hook useCheckboxGroup to access functions and state related to radio management
-    const { onCheckedChange, checkedValue, name: groupName } = useRadioGroup();
+    const { onCheckedChange, checkedValue, name: groupName, appearance } = useRadioGroup();
 
     // Generating CSS classes based on component props and styles
     const cssClasses = {
       root: getBlock({
-        modifiers: [skin, computedProps.size, disabled && "disabled"],
+        modifiers: [skin, appearance === "bordered" && appearance, computedProps.size, disabled && "disabled"],
         extraClasses: className,
       }),
       input: getElement(["input"]),

@@ -16,6 +16,8 @@ export interface RadioGroupProps
    * @default horizontal
    */
   orientation?: "vertical" | "horizontal";
+  /** Sets the radio group to use the full width of its container. */
+  fullWidth?: boolean;
 }
 
 /**
@@ -36,9 +38,11 @@ export interface RadioGroupProps
  */
 export function RadioGroup({
   name,
+  appearance,
   checkedValue,
   onCheckedChange,
   orientation = "horizontal",
+  fullWidth,
   className,
   children,
   ...props
@@ -49,14 +53,14 @@ export function RadioGroup({
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({
-      modifiers: [orientation],
+      modifiers: [orientation, fullWidth && "full-width"],
       extraClasses: className,
     }),
   };
 
   return (
     <div className={cssClasses.root} {...props}>
-      <RadioGroupContext.Provider value={{ name, checkedValue, onCheckedChange }}>
+      <RadioGroupContext.Provider value={{ name, checkedValue, appearance, onCheckedChange }}>
         {children}
       </RadioGroupContext.Provider>
     </div>
