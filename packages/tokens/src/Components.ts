@@ -38,6 +38,7 @@ export const components = {
   Snackbar: "snackbar",
   Spinner: "spinner",
   Stack: "stack",
+  Stepper: "stepper",
   Switch: "switch",
   Table: "table",
   Tabs: "tabs",
@@ -55,19 +56,20 @@ export type Components = {
   [components.Backdrop]?: { blur?: Blur };
   [components.Badge]?: { radius?: Radius };
   [components.Button]?: { radius?: Radius };
+  [components.Calendar]?: { radius?: Radius };
   [components.Card]?: { radius?: Radius };
   [components.Checkbox]?: { radius?: Radius };
-  [components.Calendar]?: { radius?: Radius };
   [components.Dialog]?: { radius?: Radius; shadow?: Shadow };
   [components.Drawer]?: { radius?: Radius; shadow?: Shadow };
   [components.Dropdown]?: { radius?: Radius; shadow?: Shadow };
-  [components.Popover]?: { radius?: Radius; shadow?: Shadow };
   [components.Group]?: { radius?: Radius };
   [components.ListBox]?: { radius?: Radius };
+  [components.Popover]?: { radius?: Radius; shadow?: Shadow };
   [components.Quantity]?: { radius?: Radius };
+  [components.Radio]?: { radius?: Radius };
+  [components.Segmented]?: { radius?: Radius };
   [components.Select]?: { radius?: Radius };
   [components.Switch]?: { radius?: Radius };
-  [components.Segmented]?: { radius?: Radius };
   [components.Tag]?: { radius?: Radius };
   [components.TextArea]?: { radius?: Radius };
   [components.TextField]?: { radius?: Radius };

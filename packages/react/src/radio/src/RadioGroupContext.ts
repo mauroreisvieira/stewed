@@ -1,7 +1,7 @@
 import { useContext, createContext } from "react";
 
 /**
- * Dummy function to throw an error when radio is not provided by a RadioGroupProvider.
+ * Dummy function to throw an error when radio is not provided by a RadioGroup.
  *
  * @returns Always throws an error.
  */

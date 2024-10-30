@@ -1,7 +1,7 @@
 import { useContext, createContext } from "react";
 
 /**
- * Dummy function to throw an error when checkbox is not provided by a CheckboxGroupProvider.
+ * Dummy function to throw an error when checkbox is not provided by a CheckboxGroup.
  *
  * @returns Always throws an error.
  */

@@ -127,6 +127,9 @@ export const defaultTokens: Tokens = {
     [components.Quantity]: {
       radius: "sm",
     },
+    [components.Radio]: {
+      radius: "sm",
+    },
     [components.Select]: {
       radius: "sm",
     },

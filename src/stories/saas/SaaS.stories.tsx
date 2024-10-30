@@ -27,10 +27,12 @@ import {
   Tabs,
   Tooltip,
   Calendar,
+  Stepper,
   Popover,
-} from "../../../packages/react/index";
+} from "@stewed/react";
 // Hooks
 import { useInput } from "@stewed/hooks";
+import { useDateTime } from "@hello-week/hooks";
 // Icons
 import {
   MdOutlineArrowUpward,
@@ -38,14 +40,18 @@ import {
   MdOutlineCalendarToday,
   MdKeyboardArrowLeft,
   MdKeyboardArrowRight,
+  MdOutlineTimerOff,
+  MdOutlineTimer,
 } from "react-icons/md";
+import { FaUserEdit } from "react-icons/fa";
 import { VscKebabVertical } from "react-icons/vsc";
 import { GoKebabHorizontal } from "react-icons/go";
 import { IoMdAdd } from "react-icons/io";
 import { FiFile, FiFilePlus, FiSearch, FiTrash, FiUsers, FiActivity } from "react-icons/fi";
 import { LuFilter } from "react-icons/lu";
 import { IoAttach, IoChatbubbleOutline } from "react-icons/io5";
-import { useDateTime } from "@hello-week/hooks";
+import { FormField, Radio, Select, TextArea } from "@stewed/react";
+import { FaUserDoctor } from "react-icons/fa6";
 
 const meta: Meta = {
   title: "Examples/SaaS",
@@ -1161,6 +1167,146 @@ export const SidePanel = {
             </Stack>
           </Drawer.Body>
         </Drawer>
+      </Container>
+    );
+  },
+};
+
+export const AddStaff = {
+  render: function Render() {
+    return (
+      <Container screen="sm" alignment="center" padding={{ block: "7xl" }}>
+        <Text as="h5">Add new doctor</Text>
+        <Text size="sm" skin="neutral" space={{ y: "lg" }}>
+          Add new doctor to your staff.
+        </Text>
+
+        <Separator space={{ block: "lg" }} />
+
+        <Box space={{ y: "4xl" }}>
+          <Stepper selectedValue="1">
+            <Stepper.Item value="1" icon={<FaUserEdit size={20} />}>
+              <Text size="xs" weight="medium" skin="neutral-faded" variation={"uppercase"}>
+                Step 1
+              </Text>
+              <Text size="sm" weight="medium">
+                Staff Info
+              </Text>
+            </Stepper.Item>
+            <Stepper.Item value="2" icon={<FaUserDoctor size={20} />}>
+              <Text size="xs" weight="medium" skin="neutral-faded" variation={"uppercase"}>
+                Step 2
+              </Text>
+              <Text size="sm" weight="medium">
+                Assigned Services
+              </Text>
+            </Stepper.Item>
+            <Stepper.Item value="3" icon={<MdOutlineTimer size={20} />}>
+              <Text size="xs" weight="medium" skin="neutral-faded" variation={"uppercase"}>
+                Step 3
+              </Text>
+              <Text size="sm" weight="medium">
+                Working Hours
+              </Text>
+            </Stepper.Item>
+            <Stepper.Item value="4" icon={<MdOutlineTimerOff size={20} />}>
+              <Text size="xs" weight="medium" skin="neutral-faded" variation={"uppercase"}>
+                Step 4
+              </Text>
+              <Text size="sm" weight="medium">
+                Days Off
+              </Text>
+            </Stepper.Item>
+          </Stepper>
+        </Box>
+
+        <Box space={{ y: "2xl" }}>
+          <Stack gap="2xl" items="center">
+            <Stack>
+              <Avatar
+                image={{
+                  src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
+                }}
+                size="5xl"
+                name="Kevin White"
+              />
+            </Stack>
+            <Stack gap="md" grow direction="column">
+              <Stack>
+                <Text skin="primary">Upload photo</Text>
+                <Separator orientation="vertical" space={{ inline: "md" }} />
+                <Text skin="critical">Delete</Text>
+              </Stack>
+              <Text skin="neutral-faded" size="sm">
+                An image of the person should have the same length and height
+              </Text>
+            </Stack>
+          </Stack>
+        </Box>
+        <Box space={{ y: "lg" }}>
+          <Stack direction="column" gap="xl">
+            <FormField>
+              <FormField.Label>Type</FormField.Label>
+              <FormField.Control>
+                <Radio.Group name="type" orientation="horizontal" fullWidth>
+                  <Radio appearance="bordered" value="full-time" defaultChecked>
+                    Full time
+                  </Radio>
+                  <Radio appearance="bordered" value="part-time">
+                    Part time
+                  </Radio>
+                </Radio.Group>
+              </FormField.Control>
+            </FormField>
+
+            <FormField>
+              <FormField.Label htmlFor="name">Name</FormField.Label>
+              <FormField.Control>
+                <TextField id="name" defaultValue="Kevin White" />
+              </FormField.Control>
+            </FormField>
+
+            <FormField>
+              <FormField.Label htmlFor="specialist">Specialist</FormField.Label>
+              <FormField.Control>
+                <Select id="specialist">
+                  <Select.Option value="Cardiologist">Cardiologist</Select.Option>
+                  <Select.Option value="Dental services">Dental services</Select.Option>
+                  <Select.Option value="Heart specialist">Heart specialist</Select.Option>
+                  <Select.Option value="Pediatrician">Pediatrician</Select.Option>
+                </Select>
+              </FormField.Control>
+            </FormField>
+
+            <FormField>
+              <FormField.Label htmlFor="phone">Phone Number</FormField.Label>
+              <FormField.Control>
+                <TextField id="phone" defaultValue="808 555 222" />
+              </FormField.Control>
+            </FormField>
+
+            <FormField>
+              <FormField.Label htmlFor="email">Email Address</FormField.Label>
+              <FormField.Control>
+                <TextField id="email" defaultValue="kevin-white@mail.com" />
+              </FormField.Control>
+            </FormField>
+
+            <FormField>
+              <FormField.Label htmlFor="address">Address</FormField.Label>
+              <FormField.Control>
+                <TextArea id="address" defaultValue="North Arizona 47 22TH" />
+              </FormField.Control>
+              <FormField.Description>Maximum of 200 characters</FormField.Description>
+            </FormField>
+          </Stack>
+        </Box>
+        <Stack justify="end" gap="md">
+          <Button skin="neutral" appearance="ghost">
+            Cancel
+          </Button>
+          <Button>Next Step</Button>
+        </Stack>
       </Container>
     );
   },

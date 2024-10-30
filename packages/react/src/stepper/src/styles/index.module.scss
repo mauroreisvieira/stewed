@@ -1,0 +1,101 @@
+@use "sass:map";
+@use "@stewed/react/src/theme/src/styles" as theme;
+@use "@stewed/react/src/typography/src/styles" as text;
+@use "./variables" as *;
+
+@include theme.scope($stepper-root) {
+  display: flex;
+  gap: theme.get-spacing("md");
+
+  @include theme.define-var(
+    (
+      size: 40px,
+      background-color: transparent,
+      border-color: theme.get-color("neutral", "border-faded"),
+      foreground: theme.get-color("neutral", "foreground"),
+    )
+  );
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: theme.get-spacing("md");
+    align-items: center;
+
+    &--selected {
+      @include theme.define-var(
+        (
+          background-color: theme.get-color("primary", "background"),
+          border-color: theme.get-color("primary", "border"),
+          foreground: theme.get-color("primary", "foreground-on-background"),
+        )
+      );
+
+      .#{$stepper-root}__item__step {
+        &::after {
+          position: absolute;
+          display: block;
+          width: 100%;
+          height: 100%;
+          padding: theme.get-spacing("xs");
+          content: "";
+          border: 1px dashed theme.get-var("border-color");
+          border-radius: theme.get-radius("full");
+        }
+      }
+    }
+
+    &--completed {
+      @include theme.define-var(
+        (
+          background-color: theme.get-color("success", "background"),
+          border-color: theme.get-color("success", "border"),
+          foreground: theme.get-color("success", "foreground-on-background"),
+        )
+      );
+
+      & + .#{$stepper-root}__connecter {
+        background-color: theme.get-color("success", "background");
+      }
+    }
+
+    &__step {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: theme.get-var(size);
+      height: theme.get-var(size);
+      background-color: theme.get-var("background-color");
+      border: 1px solid theme.get-var("border-color");
+      border-radius: theme.get-radius("full");
+
+      @include text.typography(
+        label,
+        $overrides: (color: theme.get-var("foreground"), font-size: theme.get-font-size("sm"))
+      );
+    }
+
+    &__title {
+      margin: 0;
+
+      @include text.typography(base, $overrides: ("font-weight": theme.get-font-weight("medium")));
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      gap: theme.get-spacing("xs");
+      align-items: center;
+    }
+  }
+
+  &__connecter {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    height: 1px;
+    background: theme.get-color("neutral", "border-faded");
+    transform: translateY(calc(theme.get-var(size) / 2));
+  }
+}
