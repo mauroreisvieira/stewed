@@ -16,6 +16,8 @@ export interface CheckboxGroupProps
    * @default horizontal
    */
   orientation?: "vertical" | "horizontal";
+  /** Sets the checkbox group to use the full width of its container. */
+  fullWidth?: boolean;
 }
 
 /**
@@ -39,6 +41,7 @@ export function CheckboxGroup({
   checkedValues,
   onCheckedChange,
   orientation = "horizontal",
+  fullWidth,
   className,
   children,
   ...props
@@ -49,7 +52,7 @@ export function CheckboxGroup({
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({
-      modifiers: [orientation],
+      modifiers: [orientation, fullWidth && "full-width"],
       extraClasses: className,
     }),
   };

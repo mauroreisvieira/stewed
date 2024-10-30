@@ -14,6 +14,23 @@ export interface StepperProps
   extends React.ComponentPropsWithoutRef<"div">,
     Omit<StepperContextProps, "steps"> {}
 
+/**
+ * Stepper is used to indicate the user's progress through a multi-step process.
+ *
+ * @example
+ * ```tsx
+ * <Stepper selectedValue={"3"}>
+ *   <Stepper.Item value="1" title="Step 1" completed />
+ *   <Stepper.Item value="2" title="Step 2" />
+ *   <Stepper.Item value="3" title="Step 3" />
+ * </Stepper>
+ * ```
+ *
+ * @remarks This component props extended from React.ComponentPropsWithRef<"div">.
+ *
+ * @param {CardProps} props - The props for the Stepper component.
+ * @returns {React.ReactElement} - The rendered Stepper component.
+ */
 export function Stepper({
   selectedValue,
   className,
@@ -31,6 +48,8 @@ export function Stepper({
     connecter: getElement(["connecter"]),
   };
 
+  // Array of valid child components to optimize performance.
+  // Filters out any non-element children and ensures each child is a valid React element of type StepperItemProps.
   const childArray = useMemo(
     () =>
       React.Children.toArray(children).filter((child) =>
@@ -39,6 +58,8 @@ export function Stepper({
     [children],
   );
 
+  // Array of step values derived from each valid child component's 'value' prop.
+  // This creates an array of steps with a consistent structure, optimizing re-renders.
   const steps = useMemo(() => childArray.map(({ props: { value } }) => ({ value })), [childArray]);
 
   return (

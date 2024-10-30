@@ -10,14 +10,14 @@
   justify-content: center;
   cursor: pointer;
 
+  @include theme.focus-styles($target: ":focus-within .#{$checkbox-root}__control");
+
   @include theme.define-var(
     (
       background-color: transparent,
       border-color: theme.get-color("neutral", "border-faded"),
     )
   );
-
-  @include theme.focus-styles($target: ":focus-within .#{$checkbox-root}__control");
 
   &--disabled {
     @include theme.disabled-styles;
@@ -33,6 +33,14 @@
     }
   }
 
+  &--bordered {
+    box-sizing: border-box;
+    height: calc(theme.get-var(size) * 2);
+    padding-inline: theme.get-spacing("md");
+    border: 1px solid theme.get-var(border-color);
+    border-radius: theme.get-var(radius);
+  }
+
   &__input {
     position: absolute;
     top: 0;
@@ -45,12 +53,8 @@
 
     &:indeterminate,
     &:checked {
-      + .checkbox__control {
-        color: #fff;
-
-        .checkbox__svg {
-          scale: 1;
-        }
+      + .checkbox__control .checkbox__svg {
+        scale: 1;
       }
     }
   }
@@ -106,11 +110,22 @@
     align-items: start;
 
     &--horizontal {
-      flex-direction: column;
+      flex-direction: row;
     }
 
     &--vertical {
-      flex-direction: row;
+      flex-direction: column;
+    }
+
+    &--full-width {
+      width: 100%;
+
+      .#{$checkbox-root} {
+        box-sizing: border-box;
+        flex: 1;
+        justify-content: start;
+        width: 100%;
+      }
     }
   }
 
@@ -126,23 +141,21 @@
   // Skins
   @each $key, $value in $checkbox-skins {
     &--#{$key} {
-      .#{$checkbox-root}__input:is(:indeterminate, :checked) {
-        + .checkbox__control {
+      &:has(input:indeterminate, input:checked) {
+        @include theme.define-var(
+          (
+            background-color: theme.get-color($value, "background"),
+            border-color: theme.get-color($value, "border"),
+          )
+        );
+
+        @include theme.hover {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "background"),
-              border-color: theme.get-color($value, "border"),
+              background-color: color-mix(in srgb, theme.get-color($value, "background") 90%, black),
+              border-color: color-mix(in srgb, theme.get-color($value, "border") 90%, black),
             )
           );
-
-          @include theme.hover {
-            @include theme.define-var(
-              (
-                background-color:
-                  color-mix(in srgb, theme.get-color($value, "background") 90%, black),
-              )
-            );
-          }
         }
       }
     }

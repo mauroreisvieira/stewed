@@ -28,6 +28,11 @@ export interface CheckboxProps
    */
   skin?: "primary" | "critical" | "success";
   /**
+   * Change the visual appearance of the checkbox input.
+   * @default default
+   */
+  appearance?: "default" | "bordered";
+  /**
    * Sets the checkbox to an indeterminate state.
    * @default false
    * @see [MDN Documentation]{@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#attr-indeterminate}
@@ -57,6 +62,7 @@ const Root = forwardRef(
     {
       skin = "primary",
       size = "md",
+      appearance = "default",
       className,
       disabled,
       indeterminate = false,
@@ -95,7 +101,13 @@ const Root = forwardRef(
     // Generating CSS classes based on component props and styles
     const cssClasses = {
       root: getBlock({
-        modifiers: [disabled && "disabled", loading && "loading", computedProps.size, skin],
+        modifiers: [
+          disabled && "disabled",
+          loading && "loading",
+          computedProps.size,
+          skin,
+          appearance !== "default" && appearance,
+        ],
         extraClasses: className,
       }),
       svg: getElement(["svg"]),
@@ -158,7 +170,7 @@ const Root = forwardRef(
           {loading ? (
             <Spinner
               className={cssClasses.spinner}
-              skin="default"
+              skin="white"
               size={computedProps.size === "sm" ? "xxs" : computedProps.size === "md" ? "xs" : "sm"}
             />
           ) : (

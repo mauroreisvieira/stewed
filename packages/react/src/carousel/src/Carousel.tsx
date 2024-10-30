@@ -62,7 +62,6 @@ export interface CarouselProps
          */
         renderNext: (props: RenderNavigationCallbackProps) => React.ReactNode;
       };
-
       /**
        * Number of slides to display
        * @default 1

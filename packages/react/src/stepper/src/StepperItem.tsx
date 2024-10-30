@@ -48,6 +48,9 @@ export function StepperItem({
     content: getElement(["content"]),
   };
 
+  // The index of the step that matches the provided 'value'.
+  // Searches through the steps array for the step with a 'value' property equal to 'value'.
+  // If no match is found, defaults to index 0 to ensure a valid index is always returned.
   const stepIndex = useMemo(
     () => steps?.findIndex((step) => step.value === value) ?? 0,
     [steps, value],
@@ -59,7 +62,7 @@ export function StepperItem({
         {completed ? <Icon.Check size={24} /> : icon || stepIndex + 1}
       </span>
       {title && <p className={cssClasses.title}>{title}</p>}
-      {children && <span className={cssClasses.content}>{children}</span>}
+      {children && <div className={cssClasses.content}>{children}</div>}
     </div>
   );
 }

@@ -26,7 +26,7 @@ export interface RadioProps
    */
   skin?: "primary" | "critical" | "success";
   /**
-   * Change the visual appearance of the radio group buttons.
+   * Change the visual appearance of the radio input.
    * @default default
    */
   appearance?: "default" | "bordered";

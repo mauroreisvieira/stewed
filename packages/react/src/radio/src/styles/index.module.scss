@@ -23,6 +23,16 @@
     @include theme.disabled-styles;
   }
 
+  &:not(&--disabled) {
+    @include theme.hover {
+      @include theme.define-var(
+        (
+          background-color: theme.get-color("neutral", "background-faded"),
+        )
+      );
+    }
+  }
+
   &--bordered {
     box-sizing: border-box;
     height: calc(theme.get-var(size) * 2);
@@ -126,6 +136,15 @@
             border-color: theme.get-color($value, "border"),
           )
         );
+
+        @include theme.hover {
+          @include theme.define-var(
+            (
+              background-color: theme.get-color($value, "background"),
+              border-color: theme.get-color($value, "border"),
+            )
+          );
+        }
       }
     }
   }

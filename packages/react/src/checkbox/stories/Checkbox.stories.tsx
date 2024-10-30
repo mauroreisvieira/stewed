@@ -122,9 +122,9 @@ export const Group: Story = {
 
     return (
       <>
-        <Checkbox.Group checkedValues={checkedValues} onCheckedChange={setCheckedValues}>
+        <Checkbox.Group checkedValues={checkedValues} onCheckedChange={setCheckedValues} fullWidth>
           {["Red", "Blue", "Green", "Orange", "Pink"].map((color) => (
-            <Checkbox key={color} value={color}>
+            <Checkbox key={color} appearance="bordered" value={color}>
               {color}
             </Checkbox>
           ))}
