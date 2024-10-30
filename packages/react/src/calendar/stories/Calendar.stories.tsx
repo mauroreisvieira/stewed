@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // Components
-import { Theme, Calendar, DateOrArrayDates, Stack, Button, Text,Icon } from "../../index";
-// Icons
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import { Theme, Calendar, DateOrArrayDates, Stack, Button, Text, Icon } from "../../index";
 
 type Story = StoryObj<typeof Calendar>;
 

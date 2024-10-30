@@ -73,7 +73,11 @@ export const Group: Story = {
 
     return (
       <>
-        <Radio.Group name="colors" checkedValue={checkedValue} onCheckedChange={setCheckedValues} fullWidth>
+        <Radio.Group
+          name="colors"
+          checkedValue={checkedValue}
+          onCheckedChange={setCheckedValues}
+          fullWidth>
           {["Red", "Blue", "Green"].map((color) => (
             <Radio key={color} appearance="bordered" value={color} size="lg">
               {color}
