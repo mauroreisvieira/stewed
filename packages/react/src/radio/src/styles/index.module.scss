@@ -24,10 +24,11 @@
   }
 
   &--bordered {
-    padding-block: theme.get-spacing("sm");
+    box-sizing: border-box;
+    height: calc(theme.get-var(size) * 2);
     padding-inline: theme.get-spacing("md");
     border: 1px solid theme.get-var(border-color);
-    border-radius: theme.get-radius("sm");
+    border-radius: theme.get-var(radius);
   }
 
   &__input {

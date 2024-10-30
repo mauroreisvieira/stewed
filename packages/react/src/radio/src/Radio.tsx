@@ -25,6 +25,11 @@ export interface RadioProps
    * @default primary
    */
   skin?: "primary" | "critical" | "success";
+  /**
+   * Change the visual appearance of the radio group buttons.
+   * @default default
+   */
+  appearance?: "default" | "bordered";
   /** Content to be rendered within the radio, usually used for labels. */
   children?: React.ReactNode;
 }
@@ -47,6 +52,7 @@ const Root = forwardRef(
     {
       skin = "primary",
       size = "md",
+      appearance = "default",
       className,
       disabled,
       name,
@@ -73,12 +79,17 @@ const Root = forwardRef(
     );
 
     // Use the custom hook useCheckboxGroup to access functions and state related to radio management
-    const { onCheckedChange, checkedValue, name: groupName, appearance } = useRadioGroup();
+    const { onCheckedChange, checkedValue, name: groupName } = useRadioGroup();
 
     // Generating CSS classes based on component props and styles
     const cssClasses = {
       root: getBlock({
-        modifiers: [skin, appearance === "bordered" && appearance, computedProps.size, disabled && "disabled"],
+        modifiers: [
+          skin,
+          appearance !== "default" && appearance,
+          computedProps.size,
+          disabled && "disabled",
+        ],
         extraClasses: className,
       }),
       input: getElement(["input"]),

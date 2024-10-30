@@ -20,11 +20,6 @@ export interface RadioGroupContextProps {
    */
   checkedValue?: string;
   /**
-   * Change the visual appearance of the radio group buttons.
-   * @default default
-   */
-  appearance?: "default" | "bordered";
-  /**
    * Callback fired when the checked state changes.
    *
    * @param value The new array of selected radio values.
@@ -43,7 +38,6 @@ export interface RadioGroupContextProps {
 function createRadioGroupContext() {
   return createContext<RadioGroupContextProps>({
     name: "",
-    appearance: "default",
     checkedValue: undefined,
     onCheckedChange: definitionError,
   });

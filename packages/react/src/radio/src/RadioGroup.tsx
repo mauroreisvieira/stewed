@@ -38,7 +38,6 @@ export interface RadioGroupProps
  */
 export function RadioGroup({
   name,
-  appearance,
   checkedValue,
   onCheckedChange,
   orientation = "horizontal",
@@ -60,7 +59,7 @@ export function RadioGroup({
 
   return (
     <div className={cssClasses.root} {...props}>
-      <RadioGroupContext.Provider value={{ name, checkedValue, appearance, onCheckedChange }}>
+      <RadioGroupContext.Provider value={{ name, checkedValue, onCheckedChange }}>
         {children}
       </RadioGroupContext.Provider>
     </div>

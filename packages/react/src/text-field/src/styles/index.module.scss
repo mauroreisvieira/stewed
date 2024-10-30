@@ -27,7 +27,7 @@
     box-sizing: border-box;
     flex-grow: 1;
     width: 100%;
-    padding-block: theme.get-spacing("md");
+    height: 100%;
     touch-action: manipulation;
 
     &:-internal-autofill-selected,

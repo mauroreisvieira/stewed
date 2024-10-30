@@ -78,8 +78,8 @@ export const Group: Story = {
           appearance="bordered"
           checkedValue={checkedValue}
           onCheckedChange={setCheckedValues}>
-          {["Red", "Blue", "Green", "Orange", "Pink"].map((color) => (
-            <Radio key={color} value={color} size="sm">
+          {["Red", "Blue", "Green"].map((color) => (
+            <Radio key={color} value={color} size="lg">
               {color}
             </Radio>
           ))}
