@@ -91,12 +91,18 @@
 
   &__group {
     display: flex;
-    flex-wrap: wrap;
     gap: theme.get-spacing("md");
     align-items: start;
 
     &--horizontal {
+      flex-flow: wrap;
       flex-direction: row;
+
+      &.#{$radio-root}__group--full-width {
+        .#{$radio-root} {
+          flex: 1;
+        }
+      }
     }
 
     &--vertical {
@@ -108,7 +114,6 @@
 
       .#{$radio-root} {
         box-sizing: border-box;
-        flex: 1;
         justify-content: start;
         width: 100%;
       }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // UI Components
-import { Theme, Radio, Separator, Text } from "../../index";
+import { Theme, Radio, Separator, Text, type RadioGroupProps } from "../../index";
 // Hooks
 import { useToggle } from "@stewed/hooks";
 
@@ -67,17 +67,23 @@ export const Error: Story = {
  * If `checkedValues` is undefined, this component will act as an uncontrolled input.
  * To avoid this, ensure `checkedValues` is either consistently controlled (always defined) or managed properly to handle potential undefined cases.
  */
-export const Group: Story = {
-  render: function Render() {
+export const Group: StoryObj<RadioGroupProps> = {
+  argTypes: {
+    orientation: {
+      control: "select",
+      options: ["vertical", "horizontal"],
+    },
+  },
+  args: {
+    orientation: "vertical",
+    fullWidth: true,
+  },
+  render: function Render({ ...args }) {
     const [checkedValue, setCheckedValues] = useState<string>("Red");
 
     return (
       <>
-        <Radio.Group
-          name="colors"
-          checkedValue={checkedValue}
-          onCheckedChange={setCheckedValues}
-          fullWidth>
+        <Radio.Group checkedValue={checkedValue} onCheckedChange={setCheckedValues} {...args}>
           {["Red", "Blue", "Green"].map((color) => (
             <Radio key={color} appearance="bordered" value={color} size="lg">
               {color}
