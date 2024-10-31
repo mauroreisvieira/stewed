@@ -3,6 +3,7 @@
 @use "./variables" as *;
 
 @include theme.scope($avatar-root) {
+  position: relative;
   display: inline-flex;
   flex-shrink: 0;
   align-items: center;
@@ -40,6 +41,15 @@
     height: 100%;
     object-fit: cover;
     border-radius: inherit;
+  }
+
+  &__loading {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: theme.get-var(background-color);
   }
 
   @each $key, $value in $avatar-sizes {

@@ -22,24 +22,29 @@ export default meta;
 export const Base: Story = {
   args: {
     skin: "primary",
-    name: "Lourenço Vieira",
+    name: "Emma Clark",
   },
 };
 
 export const Picture: Story = {
   args: {
     skin: "primary",
-    size: "xl",
-    src: "https://placehold.co/120x120",
-    name: "Lourenço Vieira",
+    size: "md",
+    image: {
+      src: "https://images.unsplash.com/photo-1633332755192-727a05c4013d",
+    },
+    name: "Emma Clark",
   },
 };
 
 export const Error: Story = {
   args: {
     skin: "critical",
-    src: "/example.jpeg",
-    name: "Error Image",
+    size: "lg",
+    image: {
+      src: "/example.jpeg",
+    },
+    name: "Mia Davis",
   },
 };
 
