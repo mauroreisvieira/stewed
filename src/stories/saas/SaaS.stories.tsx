@@ -32,8 +32,6 @@ import {
   Accordion,
   Switch,
 } from "@stewed/react";
-// Hooks
-import { useInput } from "@stewed/hooks";
 // Icons
 import {
   MdOutlineArrowUpward,
@@ -447,6 +445,7 @@ type TStock = {
 export const Inventory = {
   render: function Render() {
     const [search, setSearch] = useState("");
+
     const stock: TStock[] = [
       {
         id: "001",
@@ -1049,8 +1048,6 @@ export const Kanban = {
 
 export const SidePanel = {
   render: function Render() {
-    const searchInput = useInput("");
-
     return (
       <Container screen="sm" alignment="center" padding={{ block: "7xl" }}>
         <Drawer size="sm" open>
@@ -1073,7 +1070,6 @@ export const SidePanel = {
           <Drawer.Body>
             <Stack gap="2xl" direction="column">
               <TextField
-                {...searchInput}
                 placeholder="Quick search"
                 leftSlot={<FiSearch />}
                 rightSlot={
@@ -1143,7 +1139,7 @@ export const AddStaff = {
         <Box space={{ y: "4xl" }}>
           <Stepper selectedValue={selectedStep}>
             {steps.map(({ step, completed, icon, title }) => (
-              <Stepper.Item value={step} icon={icon} completed={completed}>
+              <Stepper.Item key={step} value={step} icon={icon} completed={completed}>
                 <Text size="xs" weight="medium" skin="neutral-faded" variation={"uppercase"}>
                   Step {step}
                 </Text>
@@ -1306,7 +1302,7 @@ export const AddStaff = {
             {["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].map(
               (day) => (
                 <React.Fragment key={day}>
-                  <Stack>
+                  <Stack gap="md" wrap="wrap">
                     <Stack size={3}>
                       <Switch defaultChecked>{day}</Switch>
                     </Stack>
