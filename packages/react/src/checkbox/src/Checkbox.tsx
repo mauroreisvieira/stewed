@@ -31,7 +31,7 @@ export interface CheckboxProps
    * Change the visual appearance of the checkbox input.
    * @default default
    */
-  appearance?: "default" | "bordered";
+  appearance?: "default" | "border";
   /**
    * Sets the checkbox to an indeterminate state.
    * @default false

@@ -29,7 +29,7 @@ export interface RadioProps
    * Change the visual appearance of the radio input.
    * @default default
    */
-  appearance?: "default" | "bordered";
+  appearance?: "default" | "border";
   /** Content to be rendered within the radio, usually used for labels. */
   children?: React.ReactNode;
 }

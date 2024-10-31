@@ -17,7 +17,7 @@ type TableAppearance = "border" | "border-rows" | "border-columns" | "striped-ro
 export interface TableProps extends React.ComponentPropsWithoutRef<"table"> {
   /**
    * Change the visual appearance of the table.
-   * @default border
+   * @default default
    */
   appearance?: "default" | TableAppearance | TableAppearance[];
   /** Enable a hover state on table rows within */

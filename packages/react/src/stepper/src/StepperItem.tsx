@@ -11,7 +11,11 @@ import styles from "./styles/index.module.scss";
 
 export interface StepperItemProps extends React.ComponentPropsWithoutRef<"div"> {
   /** Unique identifier or label for the stepper item. */
-  value: string;
+  value: string | number;
+  /**
+   * The text content to display in bold.
+   * If provided, this will render prominently as the title of the step.
+   */
   title?: string;
   /** Optional icon to display alongside the step's label. */
   icon?: React.ReactNode;

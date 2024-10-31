@@ -188,7 +188,7 @@ export const Testimonials = {
                   skin="neutral"
                   size="xl"
                   image={{
-                    src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
+                    src: "https://images.unsplash.com/photo-1701615004837-40d8573b6652",
                   }}
                 />
                 <Stack direction="column">
@@ -229,7 +229,7 @@ export const Testimonials = {
                   skin="neutral"
                   size="xl"
                   image={{
-                    src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
+                    src: "https://images.unsplash.com/photo-1633332755192-727a05c4013d",
                   }}
                 />
                 <Stack direction="column">

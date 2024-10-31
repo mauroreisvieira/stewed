@@ -2,14 +2,14 @@ import { useContext, createContext } from "react";
 
 interface Steps {
   /** The unique identifier or label for the step. */
-  value: string;
+  value: string | number;
 }
 
 export interface StepperContextProps {
   /** An optional array of steps, each containing a unique value. */
   steps?: Steps[];
   /** Specifies the currently selected step's value. */
-  selectedValue?: string;
+  selectedValue?: string | number;
 }
 
 /**

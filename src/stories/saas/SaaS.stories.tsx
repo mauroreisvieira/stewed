@@ -29,6 +29,8 @@ import {
   Calendar,
   Stepper,
   Popover,
+  Accordion,
+  Switch,
 } from "@stewed/react";
 // Hooks
 import { useInput } from "@stewed/hooks";
@@ -42,16 +44,26 @@ import {
   MdKeyboardArrowRight,
   MdOutlineTimerOff,
   MdOutlineTimer,
+  MdOutlineEventRepeat,
 } from "react-icons/md";
 import { FaUserEdit } from "react-icons/fa";
 import { VscKebabVertical } from "react-icons/vsc";
 import { GoKebabHorizontal } from "react-icons/go";
 import { IoMdAdd } from "react-icons/io";
-import { FiFile, FiFilePlus, FiSearch, FiTrash, FiUsers, FiActivity } from "react-icons/fi";
+import {
+  FiFile,
+  FiFilePlus,
+  FiSearch,
+  FiTrash,
+  FiUsers,
+  FiActivity,
+  FiMinus,
+  FiPlus,
+} from "react-icons/fi";
 import { LuFilter } from "react-icons/lu";
 import { IoAttach, IoChatbubbleOutline } from "react-icons/io5";
 import { FormField, Radio, Select, TextArea } from "@stewed/react";
-import { FaUserDoctor } from "react-icons/fa6";
+import { FaUserDoctor, FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 
 const meta: Meta = {
   title: "Examples/SaaS",
@@ -1174,6 +1186,25 @@ export const SidePanel = {
 
 export const AddStaff = {
   render: function Render() {
+    const [selectedStep, setSelectedStep] = useState("3");
+
+    const prevStep = useCallback(() => {
+      const step = Number(selectedStep) - 1;
+      setSelectedStep(step.toString());
+    }, [selectedStep]);
+
+    const nextStep = useCallback(() => {
+      const step = Number(selectedStep) + 1;
+      setSelectedStep(step.toString());
+    }, [selectedStep]);
+
+    const steps = [
+      { step: "1", completed: true, title: "Staff Info", icon: <FaUserEdit size={20} /> },
+      { step: "2", completed: true, title: "Assigned Services", icon: <FaUserDoctor size={20} /> },
+      { step: "3", completed: false, title: "Working Hours", icon: <MdOutlineTimer size={20} /> },
+      { step: "4", completed: false, title: "Days Off", icon: <MdOutlineTimerOff size={20} /> },
+    ];
+
     return (
       <Container screen="sm" alignment="center" padding={{ block: "7xl" }}>
         <Text as="h5">Add new doctor</Text>
@@ -1184,128 +1215,406 @@ export const AddStaff = {
         <Separator space={{ block: "lg" }} />
 
         <Box space={{ y: "4xl" }}>
-          <Stepper selectedValue="1">
-            <Stepper.Item value="1" icon={<FaUserEdit size={20} />}>
-              <Text size="xs" weight="medium" skin="neutral-faded" variation={"uppercase"}>
-                Step 1
-              </Text>
-              <Text size="sm" weight="medium">
-                Staff Info
-              </Text>
-            </Stepper.Item>
-            <Stepper.Item value="2" icon={<FaUserDoctor size={20} />}>
-              <Text size="xs" weight="medium" skin="neutral-faded" variation={"uppercase"}>
-                Step 2
-              </Text>
-              <Text size="sm" weight="medium">
-                Assigned Services
-              </Text>
-            </Stepper.Item>
-            <Stepper.Item value="3" icon={<MdOutlineTimer size={20} />}>
-              <Text size="xs" weight="medium" skin="neutral-faded" variation={"uppercase"}>
-                Step 3
-              </Text>
-              <Text size="sm" weight="medium">
-                Working Hours
-              </Text>
-            </Stepper.Item>
-            <Stepper.Item value="4" icon={<MdOutlineTimerOff size={20} />}>
-              <Text size="xs" weight="medium" skin="neutral-faded" variation={"uppercase"}>
-                Step 4
-              </Text>
-              <Text size="sm" weight="medium">
-                Days Off
-              </Text>
-            </Stepper.Item>
+          <Stepper selectedValue={selectedStep}>
+            {steps.map(({ step, completed, icon, title }) => (
+              <Stepper.Item value={step} icon={icon} completed={completed}>
+                <Text size="xs" weight="medium" skin="neutral-faded" variation={"uppercase"}>
+                  Step {step}
+                </Text>
+                <Text size="sm" weight="medium">
+                  {title}
+                </Text>
+              </Stepper.Item>
+            ))}
           </Stepper>
         </Box>
 
-        <Box space={{ y: "2xl" }}>
-          <Stack gap="2xl" items="center">
-            <Stack>
-              <Avatar
-                image={{
-                  src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
-                }}
-                size="5xl"
-                name="Kevin White"
-              />
-            </Stack>
-            <Stack gap="md" grow direction="column">
-              <Stack>
-                <Text skin="primary">Upload photo</Text>
-                <Separator orientation="vertical" space={{ inline: "md" }} />
-                <Text skin="critical">Delete</Text>
+        {selectedStep === "1" && (
+          <>
+            <Box space={{ y: "2xl" }}>
+              <Stack gap="2xl" items="center">
+                <Stack>
+                  <Avatar
+                    image={{
+                      src: "https://images.unsplash.com/photo-1633332755192-727a05c4013d",
+                    }}
+                    size="5xl"
+                    name="Kevin White"
+                  />
+                </Stack>
+                <Stack gap="md" grow direction="column">
+                  <Stack>
+                    <Button skin="primary" appearance="outline">
+                      Upload photo
+                    </Button>
+                    <Separator orientation="vertical" space={{ inline: "md" }} />
+                    <Button skin="critical" appearance="ghost">
+                      Delete
+                    </Button>
+                  </Stack>
+                  <Text skin="neutral-faded" size="sm">
+                    An image of the person should have the same length and height
+                  </Text>
+                </Stack>
               </Stack>
-              <Text skin="neutral-faded" size="sm">
-                An image of the person should have the same length and height
-              </Text>
+            </Box>
+            <Box space={{ y: "lg" }}>
+              <Stack direction="column" gap="xl">
+                <FormField>
+                  <FormField.Label>Type</FormField.Label>
+                  <FormField.Control>
+                    <Radio.Group name="type" orientation="horizontal" fullWidth>
+                      <Radio appearance="border" value="full-time" defaultChecked>
+                        Full time
+                      </Radio>
+                      <Radio appearance="border" value="part-time">
+                        Part time
+                      </Radio>
+                    </Radio.Group>
+                  </FormField.Control>
+                </FormField>
+
+                <FormField>
+                  <FormField.Label htmlFor="name">Name</FormField.Label>
+                  <FormField.Control>
+                    <TextField id="name" defaultValue="Kevin White" />
+                  </FormField.Control>
+                </FormField>
+
+                <FormField>
+                  <FormField.Label htmlFor="specialist">Specialist</FormField.Label>
+                  <FormField.Control>
+                    <Select id="specialist">
+                      <Select.Option value="Cardiologist">Cardiologist</Select.Option>
+                      <Select.Option value="Dental services">Dental services</Select.Option>
+                      <Select.Option value="Heart specialist">Heart specialist</Select.Option>
+                      <Select.Option value="Pediatrician">Pediatrician</Select.Option>
+                    </Select>
+                  </FormField.Control>
+                </FormField>
+
+                <FormField>
+                  <FormField.Label htmlFor="phone">Phone Number</FormField.Label>
+                  <FormField.Control>
+                    <TextField id="phone" defaultValue="808 555 222" />
+                  </FormField.Control>
+                </FormField>
+
+                <FormField>
+                  <FormField.Label htmlFor="email">Email Address</FormField.Label>
+                  <FormField.Control>
+                    <TextField id="email" defaultValue="kevin-white@mail.com" />
+                  </FormField.Control>
+                </FormField>
+
+                <FormField>
+                  <FormField.Label htmlFor="address">Address</FormField.Label>
+                  <FormField.Control>
+                    <TextArea id="address" defaultValue="North Arizona 47 22TH" />
+                  </FormField.Control>
+                  <FormField.Description>Maximum of 200 characters</FormField.Description>
+                </FormField>
+              </Stack>
+            </Box>
+          </>
+        )}
+
+        {selectedStep === "2" && (
+          <Box space={{ y: "2xl" }}>
+            <Stack direction="column" gap="md">
+              <Accordion appearance="border">
+                <Accordion.Item open>
+                  {({ open }) => (
+                    <>
+                      <Accordion.Header rightSlot={open ? <FiMinus /> : <FiPlus />}>
+                        Cosmetic services
+                      </Accordion.Header>
+                      <Accordion.Body>
+                        <Checkbox.Group orientation="vertical" fullWidth>
+                          {[
+                            "Teeth Whitening",
+                            "Dental Veneers",
+                            "Dental Bonding",
+                            "Inlays and Onlays",
+                            "Dental implants",
+                          ].map((value) => (
+                            <Checkbox key={value} defaultChecked={true} appearance="border">
+                              {value}
+                            </Checkbox>
+                          ))}
+                        </Checkbox.Group>
+                      </Accordion.Body>
+                    </>
+                  )}
+                </Accordion.Item>
+              </Accordion>
+
+              <Accordion appearance="border">
+                <Accordion.Item open>
+                  {({ open }) => (
+                    <>
+                      <Accordion.Header rightSlot={open ? <FiMinus /> : <FiPlus />}>
+                        Treatment service
+                      </Accordion.Header>
+                      <Accordion.Body>
+                        <Checkbox.Group orientation="vertical" fullWidth>
+                          {["Bridges", "Crowns", "Fillings", "Root canal treatment"].map(
+                            (value) => (
+                              <Checkbox key={value} appearance="border">
+                                {value}
+                              </Checkbox>
+                            ),
+                          )}
+                        </Checkbox.Group>
+                      </Accordion.Body>
+                    </>
+                  )}
+                </Accordion.Item>
+              </Accordion>
             </Stack>
-          </Stack>
-        </Box>
-        <Box space={{ y: "lg" }}>
-          <Stack direction="column" gap="xl">
-            <FormField>
-              <FormField.Label>Type</FormField.Label>
-              <FormField.Control>
-                <Radio.Group name="type" orientation="horizontal" fullWidth>
-                  <Radio appearance="bordered" value="full-time" defaultChecked>
-                    Full time
-                  </Radio>
-                  <Radio appearance="bordered" value="part-time">
-                    Part time
-                  </Radio>
-                </Radio.Group>
-              </FormField.Control>
-            </FormField>
+          </Box>
+        )}
 
-            <FormField>
-              <FormField.Label htmlFor="name">Name</FormField.Label>
-              <FormField.Control>
-                <TextField id="name" defaultValue="Kevin White" />
-              </FormField.Control>
-            </FormField>
+        {selectedStep === "3" && (
+          <Box space={{ y: "2xl" }}>
+            {["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].map(
+              (day) => (
+                <React.Fragment key={day}>
+                  <Stack>
+                    <Stack size={3}>
+                      <Switch defaultChecked>{day}</Switch>
+                    </Stack>
+                    <Stack gap="md" items="center" grow>
+                      <Select leftSlot={<MdOutlineTimer size={18} />}>
+                        <Select.Option>09:00 am</Select.Option>
+                      </Select>
+                      <Text skin="neutral-faded" weight="medium">
+                        to
+                      </Text>
+                      <Select leftSlot={<MdOutlineTimer size={18} />}>
+                        <Select.Option>03:00 pm</Select.Option>
+                      </Select>
+                    </Stack>
+                  </Stack>
+                  <Separator space={{ block: "lg" }} />
+                </React.Fragment>
+              ),
+            )}
+          </Box>
+        )}
 
-            <FormField>
-              <FormField.Label htmlFor="specialist">Specialist</FormField.Label>
-              <FormField.Control>
-                <Select id="specialist">
-                  <Select.Option value="Cardiologist">Cardiologist</Select.Option>
-                  <Select.Option value="Dental services">Dental services</Select.Option>
-                  <Select.Option value="Heart specialist">Heart specialist</Select.Option>
-                  <Select.Option value="Pediatrician">Pediatrician</Select.Option>
-                </Select>
-              </FormField.Control>
-            </FormField>
+        {selectedStep === "4" && (
+          <>
+            <Box space={{ y: "2xl" }}>
+              <Card padding={{ block: "md", inline: "md" }}>
+                <Card.Body>
+                  <Stack direction="column" gap="xl">
+                    <FormField>
+                      <FormField.Label htmlFor="title">Title</FormField.Label>
+                      <FormField.Control>
+                        <TextField id="title" />
+                      </FormField.Control>
+                    </FormField>
 
-            <FormField>
-              <FormField.Label htmlFor="phone">Phone Number</FormField.Label>
-              <FormField.Control>
-                <TextField id="phone" defaultValue="808 555 222" />
-              </FormField.Control>
-            </FormField>
+                    <FormField>
+                      <FormField.Label htmlFor="date">Date</FormField.Label>
+                      <FormField.Control>
+                        <Stack gap="md" items="center" grow>
+                          <Popover<HTMLInputElement>
+                            renderAnchor={({ ref, open }) => (
+                              <TextField
+                                rootRef={ref}
+                                onFocus={open}
+                                readOnly
+                                leftSlot={<MdOutlineCalendarToday />}
+                                placeholder="Start at"
+                                fullWidth
+                              />
+                            )}
+                            offset={6}
+                            placement="bottom-start">
+                            {({ close }) => (
+                              <Box padding={{ block: "sm", inline: "sm" }}>
+                                <Calendar
+                                  siblingMonthDays={true}
+                                  formatDate={{
+                                    day: "numeric",
+                                    month: "long",
+                                    year: "numeric",
+                                    weekday: "narrow",
+                                  }}
+                                  onDaySelected={() => {
+                                    close();
+                                  }}>
+                                  <Calendar.Navigation>
+                                    {({ locked, month, year, onPrev, onNext }) => (
+                                      <>
+                                        <Button
+                                          skin="neutral"
+                                          appearance="ghost"
+                                          size="sm"
+                                          iconOnly
+                                          aria-label="Previous month"
+                                          disabled={locked}
+                                          onClick={onPrev}
+                                          leftSlot={<MdKeyboardArrowLeft />}
+                                        />
 
-            <FormField>
-              <FormField.Label htmlFor="email">Email Address</FormField.Label>
-              <FormField.Control>
-                <TextField id="email" defaultValue="kevin-white@mail.com" />
-              </FormField.Control>
-            </FormField>
+                                        <Stack justify="center" grow>
+                                          <Text weight="medium">
+                                            {month} {year}
+                                          </Text>
+                                        </Stack>
 
-            <FormField>
-              <FormField.Label htmlFor="address">Address</FormField.Label>
-              <FormField.Control>
-                <TextArea id="address" defaultValue="North Arizona 47 22TH" />
-              </FormField.Control>
-              <FormField.Description>Maximum of 200 characters</FormField.Description>
-            </FormField>
-          </Stack>
-        </Box>
+                                        <Button
+                                          skin="neutral"
+                                          appearance="ghost"
+                                          size="sm"
+                                          iconOnly
+                                          onClick={onNext}
+                                          aria-label="Next month"
+                                          disabled={locked}
+                                          leftSlot={<MdKeyboardArrowRight />}
+                                        />
+                                      </>
+                                    )}
+                                  </Calendar.Navigation>
+                                  <Calendar.Week />
+                                  <Calendar.Month />
+                                </Calendar>
+                              </Box>
+                            )}
+                          </Popover>
+                          <Text>to</Text>
+                          <Popover<HTMLInputElement>
+                            renderAnchor={({ ref, open }) => (
+                              <TextField
+                                rootRef={ref}
+                                onFocus={open}
+                                readOnly
+                                leftSlot={<MdOutlineCalendarToday />}
+                                placeholder="End at"
+                                fullWidth
+                              />
+                            )}
+                            offset={6}
+                            placement="bottom-start">
+                            {({ close }) => (
+                              <Box padding={{ block: "sm", inline: "sm" }}>
+                                <Calendar
+                                  siblingMonthDays={true}
+                                  formatDate={{
+                                    day: "numeric",
+                                    month: "long",
+                                    year: "numeric",
+                                    weekday: "narrow",
+                                  }}
+                                  onDaySelected={() => {
+                                    close();
+                                  }}>
+                                  <Calendar.Navigation>
+                                    {({ locked, month, year, onPrev, onNext }) => (
+                                      <>
+                                        <Button
+                                          skin="neutral"
+                                          appearance="ghost"
+                                          size="sm"
+                                          iconOnly
+                                          aria-label="Previous month"
+                                          disabled={locked}
+                                          onClick={onPrev}
+                                          leftSlot={<MdKeyboardArrowLeft />}
+                                        />
+
+                                        <Stack justify="center" grow>
+                                          <Text weight="medium">
+                                            {month} {year}
+                                          </Text>
+                                        </Stack>
+
+                                        <Button
+                                          skin="neutral"
+                                          appearance="ghost"
+                                          size="sm"
+                                          iconOnly
+                                          onClick={onNext}
+                                          aria-label="Next month"
+                                          disabled={locked}
+                                          leftSlot={<MdKeyboardArrowRight />}
+                                        />
+                                      </>
+                                    )}
+                                  </Calendar.Navigation>
+                                  <Calendar.Week />
+                                  <Calendar.Month />
+                                </Calendar>
+                              </Box>
+                            )}
+                          </Popover>
+                        </Stack>
+                      </FormField.Control>
+                    </FormField>
+
+                    <FormField>
+                      <FormField.Control>
+                        <Checkbox>Repeat this day off yearly</Checkbox>
+                      </FormField.Control>
+                    </FormField>
+                  </Stack>
+                </Card.Body>
+                <Separator />
+                <Card.Footer>
+                  <Stack justify="end" gap="md">
+                    <Button skin="neutral" appearance="ghost">
+                      Cancel
+                    </Button>
+                    <Button>Add</Button>
+                  </Stack>
+                </Card.Footer>
+              </Card>
+            </Box>
+
+            <Box space={{ y: "lg" }}>
+              <Stack direction="column">
+                <Stack grow justify="between" items="center">
+                  <Stack gap="sm" direction="column">
+                    <Text weight="medium">Maternity leave</Text>
+                    <Text skin="neutral-faded" size="sm">
+                      23 Jun 20204 - 22 Nov 2024
+                    </Text>
+                  </Stack>
+                  <Stack gap="sm" items="center">
+                    <Text size="sm" weight="medium">
+                      <MdOutlineEventRepeat size={16} />
+                    </Text>
+                    <Text size="sm" weight="medium">
+                      Repeat yearly
+                    </Text>
+                  </Stack>
+                </Stack>
+                <Separator space={{ block: "md" }} />
+              </Stack>
+            </Box>
+          </>
+        )}
+
         <Stack justify="end" gap="md">
           <Button skin="neutral" appearance="ghost">
             Cancel
           </Button>
-          <Button>Next Step</Button>
+          {Number(selectedStep) > 1 && (
+            <Button leftSlot={<FaArrowLeft />} appearance="outline" onClick={prevStep}>
+              Prev Step
+            </Button>
+          )}
+
+          {Number(selectedStep) < steps.length ? (
+            <Button rightSlot={<FaArrowRight />} onClick={nextStep}>
+              Next Step
+            </Button>
+          ) : (
+            <Button>Save</Button>
+          )}
         </Stack>
       </Container>
     );
