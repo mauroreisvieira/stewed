@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 // Context
 import { AccordionContext } from "./AccordionContext";
-// Components
-import { Separator } from "../../separator";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
@@ -48,7 +46,6 @@ export function AccordionItem({
       <details className={cssClasses.root} open={defaultOpen} {...props}>
         {typeof children === "function" ? children({ open }) : children}
       </details>
-      <Separator />
     </AccordionContext.Provider>
   );
 }

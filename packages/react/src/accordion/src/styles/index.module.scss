@@ -25,7 +25,7 @@
 
   &__header,
   &__body {
-    padding-block: theme.get-spacing("lg");
+    padding-block: theme.get-spacing("md");
   }
 
   &__header {
@@ -41,10 +41,7 @@
       display: none;
     }
 
-    @include text.typography(
-      "display-6",
-      $overrides: (font-weight: theme.get-font-weight("medium"))
-    );
+    @include text.typography("base", $overrides: (font-weight: theme.get-font-weight("medium")));
 
     &__text {
       flex-grow: 1;
@@ -56,6 +53,31 @@
       display: flex;
       flex-shrink: 0;
       align-items: center;
+    }
+  }
+
+  &--default {
+    .#{$accordion-root} {
+      &__header,
+      &__body {
+        padding-block: theme.get-spacing("md");
+      }
+    }
+  }
+
+  &--border {
+    border: 1px solid theme.get-color("neutral", "border-faded");
+    border-radius: theme.get-radius(md);
+
+    .#{$accordion-root} {
+      &__body {
+        border-top: 1px solid theme.get-color("neutral", "border-faded");
+      }
+
+      &__header,
+      &__body {
+        padding-inline: theme.get-spacing("md");
+      }
     }
   }
 }

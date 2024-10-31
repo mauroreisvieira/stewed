@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // UI Components
-import { Theme, Accordion, Text } from "../../index";
+import { Theme, Accordion, Text, Separator } from "../../index";
 // Icons
 import { FiPlus, FiMinus } from "react-icons/fi";
 
@@ -42,6 +42,7 @@ export const Base: Story = {
             </>
           )}
         </Accordion.Item>
+        <Separator />
         <Accordion.Item>
           {({ open }) => (
             <>
