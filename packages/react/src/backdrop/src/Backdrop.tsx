@@ -1,6 +1,4 @@
 import React from "react";
-// UI Components
-import { Motion } from "../../motion";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
@@ -39,9 +37,5 @@ export function Backdrop({ blur = false, className, ...props }: BackdropProps): 
     }),
   };
 
-  return (
-    <Motion animation="fade-in" duration="slowly">
-      <div className={cssClasses.root} {...props} />
-    </Motion>
-  );
+  return <div className={cssClasses.root} {...props} />;
 }

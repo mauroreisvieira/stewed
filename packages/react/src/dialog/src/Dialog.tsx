@@ -157,8 +157,10 @@ export function Dialog({
   return (
     <>
       {shouldRender && (
-        <Scope elevation="navigation">
-          <Backdrop blur />
+        <Scope elevation="popup">
+          <Motion animation={open ? "fade-in" : "fade-out"}>
+            <Backdrop blur />
+          </Motion>
           <DialogContext.Provider value={{ onClose }}>
             <div className={cssClasses.root} {...props}>
               <Motion

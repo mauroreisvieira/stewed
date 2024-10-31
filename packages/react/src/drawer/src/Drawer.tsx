@@ -158,7 +158,9 @@ export function Drawer({
     <>
       {shouldRender && (
         <Scope elevation="navigation">
-          <Backdrop blur />
+          <Motion animation={open ? "fade-in" : "fade-out"}>
+            <Backdrop blur />
+          </Motion>
           <DrawerContext.Provider value={{ onClose }}>
             <div className={cssClasses.root} {...props}>
               <Motion

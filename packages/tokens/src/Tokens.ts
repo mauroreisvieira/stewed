@@ -116,7 +116,7 @@ export const defaultTokens: Tokens = {
     },
     [components.Drawer]: {
       radius: "lg",
-      shadow: "3xl",
+      shadow: "2xl",
     },
     [components.Group]: {
       radius: "sm",
