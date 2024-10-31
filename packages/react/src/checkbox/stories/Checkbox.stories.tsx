@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // UI Components
-import { Theme, Checkbox, Text, Separator } from "../../index";
+import { Theme, Checkbox, Text, Separator, type CheckboxGroupProps } from "../../index";
 // Hooks
 import { useToggle } from "@stewed/hooks";
 
@@ -116,13 +116,23 @@ export const Custom: Story = {
  * If `checkedValues` is undefined, this component will act as an uncontrolled input.
  * To avoid this, ensure `checkedValues` is either consistently controlled (always defined) or managed properly to handle potential undefined cases.
  */
-export const Group: Story = {
-  render: function Render() {
+export const Group: StoryObj<CheckboxGroupProps> = {
+  argTypes: {
+    orientation: {
+      control: "select",
+      options: ["vertical", "horizontal"],
+    },
+  },
+  args: {
+    orientation: "vertical",
+    fullWidth: true,
+  },
+  render: function Render({ ...args }) {
     const [checkedValues, setCheckedValues] = useState<string[]>();
 
     return (
       <>
-        <Checkbox.Group checkedValues={checkedValues} onCheckedChange={setCheckedValues} fullWidth>
+        <Checkbox.Group checkedValues={checkedValues} onCheckedChange={setCheckedValues} {...args}>
           {["Red", "Blue", "Green", "Orange", "Pink"].map((color) => (
             <Checkbox key={color} appearance="bordered" value={color}>
               {color}

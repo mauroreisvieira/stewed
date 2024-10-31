@@ -110,7 +110,14 @@
     align-items: start;
 
     &--horizontal {
+      flex-flow: wrap;
       flex-direction: row;
+
+      &.#{$checkbox-root}__group--full-width {
+        .#{$checkbox-root} {
+          flex: 1;
+        }
+      }
     }
 
     &--vertical {
@@ -122,7 +129,6 @@
 
       .#{$checkbox-root} {
         box-sizing: border-box;
-        flex: 1;
         justify-content: start;
         width: 100%;
       }
