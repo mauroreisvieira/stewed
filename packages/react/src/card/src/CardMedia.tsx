@@ -6,7 +6,7 @@ import { useBem } from "@stewed/hooks";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export type CardMediaProps = React.ComponentPropsWithoutRef<"img">;
+export interface CardMediaProps extends React.ComponentPropsWithoutRef<"img"> {}
 
 export function CardMedia({
   className,

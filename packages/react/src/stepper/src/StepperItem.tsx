@@ -63,7 +63,7 @@ export function StepperItem({
   return (
     <div className={cssClasses.root} {...props}>
       <span className={cssClasses.step}>
-        {completed ? <Icon.Check size={24} /> : icon || stepIndex + 1}
+        {!(value === selectedValue) && completed ? <Icon.Check size={24} /> : icon || stepIndex + 1}
       </span>
       {title && <p className={cssClasses.title}>{title}</p>}
       {children && <div className={cssClasses.content}>{children}</div>}

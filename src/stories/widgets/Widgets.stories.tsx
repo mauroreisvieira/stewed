@@ -139,7 +139,7 @@ export const Notification = {
           </Card.Header>
           <Card.Body>
             <Stack items="baseline" justify="between" gap="md">
-              <Stack direction="column" grow={false}>
+              <Stack direction="column" grow={false} gap="sm">
                 <Text weight="semi-bold">Comments</Text>
                 <Text size="xs" skin="neutral">
                   Receive notifications when someone comments on your documents or mentions you.
@@ -153,7 +153,7 @@ export const Notification = {
             </Stack>
             <Separator space={{ block: "xl" }} />
             <Stack items="start" justify="between">
-              <Stack direction="column">
+              <Stack direction="column" gap="sm">
                 <Text weight="semi-bold">Favorites</Text>
                 <Text size="xs" skin="neutral">
                   Receive notifications when there is activity related to your favorite items.
@@ -167,7 +167,7 @@ export const Notification = {
             </Stack>
             <Separator space={{ block: "xl" }} />
             <Stack items="start" justify="between">
-              <Stack direction="column">
+              <Stack direction="column" gap="sm">
                 <Text weight="semi-bold">New documents</Text>
                 <Text size="xs" skin="neutral">
                   Receive notifications whenever people on your team create new documents.
@@ -181,7 +181,7 @@ export const Notification = {
             </Stack>
           </Card.Body>
           <Card.Footer>
-            <Button appearance="outline" fullWidth>
+            <Button fullWidth>
               Save preferences
             </Button>
           </Card.Footer>
@@ -469,7 +469,7 @@ export const PaymentMethod = {
     const { formatDate } = useDateTime();
 
     const [expires, setExpires] = useState<Date>(new Date());
-    // Example data
+
     const items = [
       {
         name: "Card",
@@ -632,7 +632,7 @@ export const PaymentMethod = {
             </Stack>
           </Card.Body>
           <Card.Footer>
-            <Button size="lg" fullWidth>
+            <Button fullWidth>
               Continue
             </Button>
           </Card.Footer>

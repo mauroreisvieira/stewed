@@ -160,7 +160,7 @@
           (
             color: theme.get-color($value, "foreground"),
             background-color:
-              color-mix(in srgb, theme.get-color($value, "background"), transparent 95%),
+              color-mix(in srgb, theme.get-color($value, "background-faded"), transparent 20%),
           )
         );
 

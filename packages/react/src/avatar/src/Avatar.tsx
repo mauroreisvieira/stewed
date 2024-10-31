@@ -65,7 +65,7 @@ export const Root = fixedForwardRef(
   <T extends React.ElementType>(
     {
       as,
-      size = "xs",
+      size = "md",
       skin = "primary",
       appearance = "circle",
       className,
@@ -92,15 +92,18 @@ export const Root = fixedForwardRef(
       img: getElement(["img"], image?.className),
     };
 
+    // State to track if the image is still loading
     const [isLoading, setLoading] = useState(true);
 
-    // State to track if there is an error loading the image
+    // State to track if there was an error while loading the image
     const [imageError, setImageError] = useState(false);
 
-    // Extract initials from the given name, using only the first two uppercase letters
+    // Extract initials from the provided name, capturing the first two uppercase letters
+    // and converting to uppercase, e.g., "John Doe" => "JD"
     const initials = name?.match(/[A-Z]/g)?.join("").slice(0, 2).toUpperCase();
 
-    // Callback to handle image load errors, setting the error state
+    // Callback to handle image load errors
+    // Sets the error state to true and triggers any optional `onError` event handler passed in `image`
     const onHandleError = useCallback<React.ReactEventHandler<HTMLImageElement>>(
       (event) => {
         setImageError(true);
@@ -109,6 +112,8 @@ export const Root = fixedForwardRef(
       [image],
     );
 
+    // Callback to handle successful image load
+    // Sets `isLoading` to false and triggers any optional `onLoad` event handler passed in `image`
     const onHandleLoad = useCallback<React.ReactEventHandler<HTMLImageElement>>(
       (event) => {
         setLoading(false);

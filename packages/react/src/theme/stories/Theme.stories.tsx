@@ -592,7 +592,7 @@ function Elements(): React.ReactElement {
             </Stack>
             <Separator space={{ block: "xl" }} />
             <Stack items="start" justify="between">
-              <Stack direction="column">
+              <Stack direction="column" gap="sm">
                 <Text weight="semi-bold">Favorites</Text>
                 <Text size="xs" skin="neutral">
                   Receive notifications when there is activity related to your favorite items.
@@ -606,7 +606,7 @@ function Elements(): React.ReactElement {
             </Stack>
             <Separator space={{ block: "xl" }} />
             <Stack items="start" justify="between">
-              <Stack direction="column">
+              <Stack direction="column" gap="sm">
                 <Text weight="semi-bold">New documents</Text>
                 <Text size="xs" skin="neutral">
                   Receive notifications whenever people on your team create new documents.
@@ -659,7 +659,7 @@ function Elements(): React.ReactElement {
   );
 }
 
-export const CustomTokens: Story = {
+export const ThemeTokens: Story = {
   render: (): React.ReactElement => {
     return (
       <Theme<"metro" | "elegant">
@@ -667,6 +667,8 @@ export const CustomTokens: Story = {
           metro: {
             color: {
               "primary-background": "teal-600",
+              "primary-background-hovered": "teal-700",
+              "primary-background-pressed": "teal-800",
             },
             fontFamily: {
               base: "'Roboto Serif', serif",
@@ -700,6 +702,10 @@ export const CustomTokens: Story = {
             color: {
               "background-backdrop": "rgb(200 200 200 / 70%)",
               "primary-background": "#e91e63",
+              "primary-background-hovered":
+                "color-mix(in oklab, var(--color-primary-background) 90%, black)",
+              "primary-background-pressed":
+                "color-mix(in oklab, var(--color-primary-background) 80%, black)",
             },
             components: {
               "button": {

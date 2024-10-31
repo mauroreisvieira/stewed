@@ -8,7 +8,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-interface AccordionItemProps extends Omit<React.ComponentPropsWithoutRef<"details">, "children"> {
+export interface AccordionItemProps extends Omit<React.ComponentPropsWithoutRef<"details">, "children"> {
   /**
    * The content to be displayed in the accordion item body
    * or a function receiving the open state and returning a React node.

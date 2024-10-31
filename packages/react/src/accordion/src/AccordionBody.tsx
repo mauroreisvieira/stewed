@@ -6,11 +6,13 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+export interface AccordionBodyProps extends React.ComponentPropsWithoutRef<"div"> {}
+
 export function AccordionBody({
   className,
   children,
   ...props
-}: React.ComponentPropsWithoutRef<"div">): React.ReactElement {
+}: AccordionBodyProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: `${components.Accordion}__body`, styles });
 

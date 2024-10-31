@@ -6,7 +6,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-interface DayProps extends React.ComponentPropsWithoutRef<"button"> {
+export interface DayProps extends React.ComponentPropsWithoutRef<"button"> {
   /** Indicates whether this day is today. */
   today?: boolean;
   /** Indicates whether this day is selected. */

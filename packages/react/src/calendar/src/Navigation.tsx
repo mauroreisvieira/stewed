@@ -7,7 +7,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-interface NavigationChildrenProps {
+export interface NavigationChildrenProps {
   /**
    * Callback function to handle the previous action, such as navigating to the previous month.
    * @returns void

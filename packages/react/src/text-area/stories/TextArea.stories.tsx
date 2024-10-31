@@ -30,7 +30,7 @@ export const Base: Story = {
 export const Appearance: Story = {
   args: {
     placeholder: "Type your value...",
-    skin: "neutral",
+    skin: "neutral-faded",
     appearance: "soft",
   },
 };

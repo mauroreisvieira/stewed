@@ -30,6 +30,7 @@ export const Base: Story = {
         <Stepper.Item value="2" title="Step 2" completed />
         <Stepper.Item value="3" title="Step 3" />
         <Stepper.Item value="4" title="Step 4" />
+        <Stepper.Item value="5" title="Step 5" />
       </Stepper>
     );
   },

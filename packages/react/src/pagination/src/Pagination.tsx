@@ -136,7 +136,7 @@ export function Pagination({
         skin="neutral"
         appearance="ghost"
         disabled={disabled || selectedPage === 1}
-        leftSlot={<Icon.ChevronLeft size={12} />}
+        leftSlot={<Icon.ChevronLeft size={14} />}
         onClick={() => onPageChange?.(selectedPage - 1)}
         iconOnly>
         {previousLabel}
@@ -165,7 +165,7 @@ export function Pagination({
         skin="neutral"
         appearance="ghost"
         disabled={disabled || selectedPage === total}
-        leftSlot={<Icon.ChevronRight size={12} />}
+        leftSlot={<Icon.ChevronRight size={14} />}
         onClick={() => onPageChange?.(selectedPage + 1)}
         iconOnly>
         {nextLabel}

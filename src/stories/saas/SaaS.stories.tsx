@@ -34,7 +34,6 @@ import {
 } from "@stewed/react";
 // Hooks
 import { useInput } from "@stewed/hooks";
-import { useDateTime } from "@hello-week/hooks";
 // Icons
 import {
   MdOutlineArrowUpward,
@@ -614,7 +613,7 @@ export const Inventory = {
     const [hiddenColumns, setHiddenColumns] = useState<(keyof TStock)[]>(["sku"]);
 
     const onHandleChange = useCallback(
-      (value) => {
+      (value: keyof TStock) => {
         const hidden = hiddenColumns.includes(value)
           ? hiddenColumns.filter((v) => v !== value)
           : [...hiddenColumns, value];
@@ -754,10 +753,6 @@ export const Inventory = {
 
 export const Kanban = {
   render: function Render() {
-    const { formatDate } = useDateTime();
-
-    const [expires, setExpires] = useState<Date>(new Date());
-
     const board = [
       {
         id: "backlog",
@@ -924,75 +919,6 @@ export const Kanban = {
             <Text size="2xl" weight="medium">
               Acme Project - SaaS
             </Text>
-            <Popover<HTMLButtonElement>
-              renderAnchor={({ ref, open, isOpen }) => (
-                <Button
-                  skin="neutral"
-                  appearance="outline"
-                  pressed={isOpen}
-                  ref={ref}
-                  onClick={open}
-                  leftSlot={<MdOutlineCalendarToday />}>
-                  {formatDate(expires, { year: "numeric", month: "long", day: "2-digit" })}
-                </Button>
-              )}
-              offset={6}
-              placement="bottom-end">
-              {({ close }) => (
-                <Box padding={{ block: "sm", inline: "sm" }}>
-                  <Calendar
-                    defaultDate={expires ? new Date(expires) : undefined}
-                    selectedDates={expires ? [expires] : undefined}
-                    siblingMonthDays={true}
-                    formatDate={{
-                      day: "numeric",
-                      month: "long",
-                      year: "numeric",
-                      weekday: "narrow",
-                    }}
-                    onDaySelected={(day) => {
-                      setExpires(day.date);
-                      close();
-                    }}>
-                    <Calendar.Navigation>
-                      {({ locked, month, year, onPrev, onNext }) => (
-                        <>
-                          <Button
-                            skin="neutral"
-                            appearance="ghost"
-                            size="sm"
-                            iconOnly
-                            aria-label="Previous month"
-                            disabled={locked}
-                            onClick={onPrev}
-                            leftSlot={<MdKeyboardArrowLeft />}
-                          />
-
-                          <Stack justify="center" grow>
-                            <Text weight="medium">
-                              {month} {year}
-                            </Text>
-                          </Stack>
-
-                          <Button
-                            skin="neutral"
-                            appearance="ghost"
-                            size="sm"
-                            iconOnly
-                            onClick={onNext}
-                            aria-label="Next month"
-                            disabled={locked}
-                            leftSlot={<MdKeyboardArrowRight />}
-                          />
-                        </>
-                      )}
-                    </Calendar.Navigation>
-                    <Calendar.Week />
-                    <Calendar.Month />
-                  </Calendar>
-                </Box>
-              )}
-            </Popover>
           </Stack>
 
           <Stack direction="column" gap="md">
@@ -1186,7 +1112,7 @@ export const SidePanel = {
 
 export const AddStaff = {
   render: function Render() {
-    const [selectedStep, setSelectedStep] = useState("3");
+    const [selectedStep, setSelectedStep] = useState("4");
 
     const prevStep = useCallback(() => {
       const step = Number(selectedStep) - 1;
@@ -1201,7 +1127,7 @@ export const AddStaff = {
     const steps = [
       { step: "1", completed: true, title: "Staff Info", icon: <FaUserEdit size={20} /> },
       { step: "2", completed: true, title: "Assigned Services", icon: <FaUserDoctor size={20} /> },
-      { step: "3", completed: false, title: "Working Hours", icon: <MdOutlineTimer size={20} /> },
+      { step: "3", completed: true, title: "Working Hours", icon: <MdOutlineTimer size={20} /> },
       { step: "4", completed: false, title: "Days Off", icon: <MdOutlineTimerOff size={20} /> },
     ];
 
@@ -1424,7 +1350,7 @@ export const AddStaff = {
                             renderAnchor={({ ref, open }) => (
                               <TextField
                                 rootRef={ref}
-                                onFocus={open}
+                                onClick={open}
                                 readOnly
                                 leftSlot={<MdOutlineCalendarToday />}
                                 placeholder="Start at"
@@ -1490,7 +1416,7 @@ export const AddStaff = {
                             renderAnchor={({ ref, open }) => (
                               <TextField
                                 rootRef={ref}
-                                onFocus={open}
+                                onClick={open}
                                 readOnly
                                 leftSlot={<MdOutlineCalendarToday />}
                                 placeholder="End at"

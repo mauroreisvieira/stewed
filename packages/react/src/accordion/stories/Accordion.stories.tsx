@@ -28,6 +28,7 @@ export const Base: Story = {
     },
   },
   args: {
+    appearance: "border",
     children: (
       <>
         <Accordion.Item>
