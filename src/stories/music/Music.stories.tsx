@@ -34,7 +34,7 @@ import { useToggle, useFetch } from "@stewed/hooks";
 import { IoMdClose, IoMdAdd } from "react-icons/io";
 import { RiHistoryLine, RiAlbumFill, RiPlayListFill } from "react-icons/ri";
 import { TbMenuDeep, TbMicrophone2 } from "react-icons/tb";
-import { FaPlayCircle } from "react-icons/fa";
+import { FaPlay } from "react-icons/fa";
 import { RxGrid } from "react-icons/rx";
 import { LuListMusic, LuMusic2 } from "react-icons/lu";
 import { IoPersonCircleOutline, IoRadioOutline } from "react-icons/io5";
@@ -365,7 +365,7 @@ function Music(): React.ReactElement {
                                 <Box padding={{ inline: "md" }}>
                                   <Stack items="center">
                                     <Button
-                                      leftSlot={<FaPlayCircle />}
+                                      leftSlot={<FaPlay />}
                                       onClick={() => onHandleClick(index)}
                                       iconOnly>
                                       Play
@@ -570,8 +570,6 @@ function Music(): React.ReactElement {
                   <TextField
                     id="name"
                     type="text"
-                    skin="neutral-faded"
-                    appearance="soft"
                     placeholder="Enter music name"
                     size="lg"
                     fullWidth
@@ -584,8 +582,6 @@ function Music(): React.ReactElement {
                 <FormField.Control>
                   <TextArea
                     id="description"
-                    skin="neutral-faded"
-                    appearance="soft"
                     placeholder="An options description"
                     rows={4}
                     fullWidth
@@ -596,7 +592,7 @@ function Music(): React.ReactElement {
               <FormField>
                 <FormField.Label htmlFor="name">Playlists</FormField.Label>
                 <FormField.Control>
-                  <Select size="lg" skin="neutral-faded" appearance="soft">
+                  <Select size="lg">
                     <Select.Option>Daily Mix 1</Select.Option>
                     <Select.Option>Daily Mix 2</Select.Option>
                     <Select.Option>Daily Mix 3</Select.Option>
@@ -633,8 +629,6 @@ function Music(): React.ReactElement {
                 <FormField.Control>
                   <TextField
                     id="url"
-                    skin="neutral-faded"
-                    appearance="soft"
                     size="lg"
                     placeholder="https://example.com/feed.xml"
                     fullWidth

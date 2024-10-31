@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // Components
-import { Theme, Alert } from "../../index";
+import { Theme, Alert, Text } from "../../index";
 // Icons
 import { TiWarning } from "react-icons/ti";
 
@@ -46,17 +46,9 @@ export const LeftSlot: Story = {
 
 export const Small: Story = {
   args: {
-    size: "sm",
+    size: "xs",
     skin: "success",
-    title: "Here is a gentle confirmation that your action was successful.",
+    children: <Text size="sm">Here is a gentle confirmation that your action was successful.</Text>,
   },
 };
 
-export const Shadow: Story = {
-  args: {
-    skin: "critical",
-    title: "Unexpected error happened",
-    children: "We have encountered an error while making a request. Please try again later.",
-    shadow: "xl",
-  },
-};

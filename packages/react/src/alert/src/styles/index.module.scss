@@ -18,6 +18,7 @@
     @include text.typography(
       "base",
       $overrides: (
+        color: theme.get-color("black"),
         font-size: theme.get-font-size("md"),
         font-weight: theme.get-font-weight("medium")
       )

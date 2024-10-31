@@ -93,7 +93,11 @@ export const PricingPlans = {
                 },
               }}>
               {plans.map(({ title, description, price }, index) => (
-                <Box key={index} borderColor={index === 1 ? "primary" : undefined} radius="md" fullWidth>
+                <Box
+                  key={index}
+                  borderColor={index === 1 ? "primary" : undefined}
+                  radius="md"
+                  fullWidth>
                   <Card
                     padding={{
                       block: index === 1 ? "2xl" : "xl",

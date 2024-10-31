@@ -8,6 +8,9 @@ type Story = StoryObj<typeof Avatar>;
 const meta: Meta = {
   title: "Components/Avatar",
   component: Avatar,
+  subcomponents: {
+    "Avatar.Group": Avatar.Group as React.FC<unknown>,
+  },
   decorators: [
     (Story) => (
       <Theme>

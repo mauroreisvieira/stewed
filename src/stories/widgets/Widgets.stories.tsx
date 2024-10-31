@@ -181,9 +181,7 @@ export const Notification = {
             </Stack>
           </Card.Body>
           <Card.Footer>
-            <Button fullWidth>
-              Save preferences
-            </Button>
+            <Button fullWidth>Save preferences</Button>
           </Card.Footer>
         </Card>
       </Container>
@@ -632,9 +630,7 @@ export const PaymentMethod = {
             </Stack>
           </Card.Body>
           <Card.Footer>
-            <Button fullWidth>
-              Continue
-            </Button>
+            <Button fullWidth>Continue</Button>
           </Card.Footer>
         </Card>
       </Container>

@@ -10,6 +10,11 @@ type Story = StoryObj<typeof Accordion>;
 const meta: Meta<typeof Accordion> = {
   title: "Components/Accordion",
   component: Accordion,
+  subcomponents: {
+    "Accordion.Item": Accordion.Item as React.FC<unknown>,
+    "Accordion.Header": Accordion.Header as React.FC<unknown>,
+    "Accordion.Body": Accordion.Body as React.FC<unknown>,
+  },
   decorators: [
     (Story) => (
       <Theme>
