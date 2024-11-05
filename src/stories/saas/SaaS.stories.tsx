@@ -31,6 +31,8 @@ import {
   Popover,
   Accordion,
   Switch,
+  Dialog,
+  Group,
 } from "@stewed/react";
 // Icons
 import {
@@ -56,11 +58,13 @@ import {
   FiActivity,
   FiMinus,
   FiPlus,
+  FiEdit,
 } from "react-icons/fi";
 import { LuFilter } from "react-icons/lu";
 import { IoAttach, IoChatbubbleOutline } from "react-icons/io5";
 import { FormField, Radio, Select, TextArea } from "@stewed/react";
 import { FaUserDoctor, FaArrowLeft, FaArrowRight } from "react-icons/fa6";
+import { useInput } from "@stewed/hooks";
 
 const meta: Meta = {
   title: "Examples/SaaS",
@@ -444,6 +448,7 @@ type TStock = {
 
 export const Inventory = {
   render: function Render() {
+    const [dialogOpen, setDialogOpen] = useState(false);
     const [search, setSearch] = useState("");
 
     const stock: TStock[] = [
@@ -603,6 +608,21 @@ export const Inventory = {
         },
         headCell: () => "Status",
       },
+      {
+        accessorKey: "options",
+        headCell: () => "Options",
+        bodyCell: () => (
+          <Button
+            leftSlot={<FiEdit size={14} />}
+            skin="neutral"
+            size="sm"
+            appearance="ghost"
+            iconOnly
+            onClick={() => setDialogOpen(true)}>
+            Edit
+          </Button>
+        ),
+      },
     ];
 
     const totalProducts = stock.reduce((acc, curr) => (acc = acc + curr.stock), 0);
@@ -621,131 +641,199 @@ export const Inventory = {
       [hiddenColumns],
     );
 
+    const { value, setValue, onChange } = useInput<number>(100, {
+      validate: (newValue) => {
+        return newValue >= 0 && newValue <= 1000;
+      },
+    });
+
     return (
-      <Container screen="2xl" alignment="center" padding={{ block: "7xl" }}>
-        <Box space={{ y: "xl" }}>
-          <Stack direction="column">
-            <Text as="h3">Stock</Text>
+      <>
+        <Container screen="2xl" alignment="center" padding={{ block: "7xl" }}>
+          <Box space={{ y: "xl" }}>
+            <Stack direction="column">
+              <Text as="h3">Stock</Text>
 
-            <Separator space={{ block: "xl" }} />
+              <Separator space={{ block: "xl" }} />
 
-            <Grid
-              responsive={{ sm: { cols: 2 } }}
-              cols={1}
-              space={{ y: "2xl" }}
-              padding={{ block: "md" }}>
-              <Grid.Item>
-                <Text size="2xl" weight="light" skin="neutral">
-                  Total assets value
-                </Text>
-                <Text size="5xl" weight="bold">
-                  $10,100,323
-                </Text>
-              </Grid.Item>
+              <Grid
+                responsive={{ sm: { cols: 2 } }}
+                cols={1}
+                space={{ y: "2xl" }}
+                padding={{ block: "md" }}>
+                <Grid.Item>
+                  <Text size="2xl" weight="light" skin="neutral">
+                    Total assets value
+                  </Text>
+                  <Text size="5xl" weight="bold">
+                    $10,100,323
+                  </Text>
+                </Grid.Item>
 
-              <Grid.Item>
-                <Stack
-                  direction="column"
-                  responsive={{
-                    sm: {
-                      direction: "row",
-                    },
-                  }}
-                  grow>
-                  <Separator
-                    orientation="horizontal"
-                    space={{ block: "md" }}
-                    responsive={{ sm: { orientation: "vertical", space: { inline: "xl" } } }}
-                  />
-                  <Stack direction="column" gap="lg" grow>
-                    <Text size="3xl" weight="semi-bold">
-                      {totalProducts}{" "}
-                      <Text as="sup" skin="neutral">
-                        products
+                <Grid.Item>
+                  <Stack
+                    direction="column"
+                    responsive={{
+                      sm: {
+                        direction: "row",
+                      },
+                    }}
+                    grow>
+                    <Separator
+                      orientation="horizontal"
+                      space={{ block: "md" }}
+                      responsive={{ sm: { orientation: "vertical", space: { inline: "xl" } } }}
+                    />
+                    <Stack direction="column" gap="lg" grow>
+                      <Text size="3xl" weight="semi-bold">
+                        {totalProducts}{" "}
+                        <Text as="sup" skin="neutral">
+                          products
+                        </Text>
                       </Text>
-                    </Text>
 
-                    <Progress size="md" value={totalProducts} max={1500} skin="primary" />
+                      <Progress size="md" value={totalProducts} max={1500} skin="primary" />
 
-                    <Text skin="neutral" size="sm">
-                      <Badge skin="primary" /> Max of capacity:{" "}
-                      <Text as="span" size="sm">
-                        1500
+                      <Text skin="neutral" size="sm">
+                        <Badge skin="primary" /> Max of capacity:{" "}
+                        <Text as="span" size="sm">
+                          1500
+                        </Text>
                       </Text>
-                    </Text>
+                    </Stack>
                   </Stack>
-                </Stack>
-              </Grid.Item>
-            </Grid>
+                </Grid.Item>
+              </Grid>
 
-            <Stack justify="between">
-              <Stack size={4}>
+              <Stack justify="between">
+                <Stack size={4}>
+                  <TextField
+                    leftSlot={<FiSearch />}
+                    placeholder="Search inventory"
+                    onChange={(event) => setSearch(event.target.value)}
+                    value={search}
+                    fullWidth
+                  />
+                </Stack>
+                <Stack justify="end" grow>
+                  <Dropdown<HTMLButtonElement>
+                    placement="bottom-end"
+                    renderAnchor={({ ref, open, close, isOpen }) => (
+                      <Button
+                        ref={ref}
+                        onClick={isOpen ? close : open}
+                        appearance="outline"
+                        skin={isOpen ? "primary" : "neutral"}
+                        leftSlot={<LuFilter />}>
+                        Filters
+                      </Button>
+                    )}>
+                    {() => (
+                      <ListBox>
+                        <ListBox.Group>
+                          {allColumns.map((column) => (
+                            <ListBox.Item
+                              key={column}
+                              onClick={() => onHandleChange(column)}
+                              leftSlot={
+                                <Checkbox
+                                  checked={!hiddenColumns.includes(column)}
+                                  onClick={(event) => {
+                                    event.preventDefault();
+                                    event.stopPropagation();
+                                  }}
+                                />
+                              }>
+                              <Text size="sm" variation={"capitalize"}>
+                                {column}
+                              </Text>
+                            </ListBox.Item>
+                          ))}
+                        </ListBox.Group>
+                      </ListBox>
+                    )}
+                  </Dropdown>
+                </Stack>
+              </Stack>
+
+              <DataTable<TStock>
+                itemKeySelector={({ id }) => id}
+                appearance={["border-rows"]}
+                data={stock}
+                columns={columns}
+                sortableColumns={["name", "stock"]}
+                hiddenColumns={hiddenColumns}
+                defaultColumnDirection="ASC"
+                defaultColumnSorted="name"
+                onFilter={({ name, vendor }) =>
+                  name.toLowerCase().includes(search.toLowerCase()) ||
+                  vendor.toLowerCase().includes(search.toLowerCase())
+                }
+              />
+            </Stack>
+          </Box>
+        </Container>
+        <Dialog
+          open={dialogOpen}
+          onEscape={() => setDialogOpen(false)}
+          onClickOutside={() => setDialogOpen(false)}>
+          <Dialog.Header>
+            <Text size="2xl" space={{ y: "sm" }}>
+              Add Stock
+            </Text>
+            <Text skin="neutral" size="sm">
+              Enter the amount to add to your stock
+            </Text>
+          </Dialog.Header>
+          <Dialog.Body>
+            <Stack direction="column" gap="2xl">
+              <Group fullWidth>
+                <Button
+                  onClick={() => setValue(Number(value) - 1)}
+                  size="lg"
+                  appearance="outline"
+                  skin="neutral"
+                  leftSlot={<FiMinus size={24} />}
+                  iconOnly>
+                  Remove
+                </Button>
                 <TextField
-                  leftSlot={<FiSearch />}
-                  placeholder="Search inventory"
-                  onChange={(event) => setSearch(event.target.value)}
-                  value={search}
+                  value={value}
+                  onChange={onChange}
+                  alignment="center"
+                  size="lg"
+                  skin="neutral"
                   fullWidth
                 />
-              </Stack>
-              <Stack justify="end" grow>
-                <Dropdown<HTMLButtonElement>
-                  placement="bottom-end"
-                  renderAnchor={({ ref, open, close, isOpen }) => (
-                    <Button
-                      ref={ref}
-                      onClick={isOpen ? close : open}
-                      appearance="outline"
-                      skin={isOpen ? "primary" : "neutral"}
-                      leftSlot={<LuFilter />}>
-                      Filters
-                    </Button>
-                  )}>
-                  {() => (
-                    <ListBox>
-                      <ListBox.Group>
-                        {allColumns.map((column) => (
-                          <ListBox.Item
-                            key={column}
-                            onClick={() => onHandleChange(column)}
-                            leftSlot={
-                              <Checkbox
-                                checked={!hiddenColumns.includes(column)}
-                                onClick={(event) => {
-                                  event.preventDefault();
-                                  event.stopPropagation();
-                                }}
-                              />
-                            }>
-                            <Text size="sm" variation={"capitalize"}>
-                              {column}
-                            </Text>
-                          </ListBox.Item>
-                        ))}
-                      </ListBox.Group>
-                    </ListBox>
-                  )}
-                </Dropdown>
-              </Stack>
+                <Button
+                  onClick={() => setValue(Number(value) + 1)}
+                  size="lg"
+                  appearance="outline"
+                  skin="neutral"
+                  leftSlot={<FiPlus size={24} />}
+                  iconOnly>
+                  Add
+                </Button>
+              </Group>
+              <Text skin="neutral" size="sm">
+                Add funds from your connected accounts directly to your available balance. Please
+                ensure sufficient funds in the linked account for a successful
+              </Text>
             </Stack>
-
-            <DataTable<TStock>
-              itemKeySelector={({ id }) => id}
-              appearance={["border-rows"]}
-              data={stock}
-              columns={columns}
-              sortableColumns={["name", "stock"]}
-              hiddenColumns={hiddenColumns}
-              defaultColumnDirection="ASC"
-              defaultColumnSorted="name"
-              onFilter={({ name, vendor }) =>
-                name.toLowerCase().includes(search.toLowerCase()) ||
-                vendor.toLowerCase().includes(search.toLowerCase())
-              }
-            />
-          </Stack>
-        </Box>
-      </Container>
+          </Dialog.Body>
+          <Separator />
+          <Dialog.Footer>
+            <Stack direction="row" gap="md">
+              <Button skin="neutral" appearance="outline" size="lg" fullWidth>
+                Cancel
+              </Button>
+              <Button skin="success" size="lg" fullWidth>
+                Add Stock
+              </Button>
+            </Stack>
+          </Dialog.Footer>
+        </Dialog>
+      </>
     );
   },
 };

@@ -32,9 +32,9 @@ export const Base: Story = {
 export const Picture: Story = {
   args: {
     skin: "primary",
-    size: "md",
+    size: "5xl",
     image: {
-      src: "https://images.unsplash.com/photo-1633332755192-727a05c4013d",
+      src: "https://images.unsplash.com/photo-1469334031218-e382a71b716b",
     },
     name: "Emma Clark",
   },

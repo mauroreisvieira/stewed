@@ -51,4 +51,3 @@ export const Small: Story = {
     children: <Text size="sm">Here is a gentle confirmation that your action was successful.</Text>,
   },
 };
-

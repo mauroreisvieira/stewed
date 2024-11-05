@@ -13,6 +13,10 @@
     )
   );
 
+  &--full-width {
+    width: 100%;
+  }
+
   :not(:first-child) {
     margin-left: -1px;
     border-radius: 0;

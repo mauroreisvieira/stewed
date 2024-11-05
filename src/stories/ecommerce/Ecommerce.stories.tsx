@@ -106,7 +106,7 @@ export const QuickViews = {
                       appearance="outline"
                       leftSlot={<HiOutlinePlusSm />}
                       onClick={() => setValue(Number(value) + 1)}
-                      disabled={value === 100}
+                      disabled={value === 10}
                       iconOnly>
                       Increase
                     </Button>

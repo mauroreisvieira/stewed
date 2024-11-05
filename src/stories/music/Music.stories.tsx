@@ -259,12 +259,26 @@ function Music(): React.ReactElement {
                 <Dropdown<HTMLDivElement>
                   placement="bottom-end"
                   renderAnchor={({ ref, open, close, isOpen }) => (
-                    <Avatar ref={ref} onClick={isOpen ? close : open} name="Devon Lane" />
+                    <Avatar
+                      ref={ref}
+                      onClick={isOpen ? close : open}
+                      name="Devon Lane"
+                      image={{
+                        src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde",
+                      }}
+                    />
                   )}>
                   {({ close }) => (
                     <Box padding={{ block: "sm", inline: "sm" }}>
                       <Stack items="center" gap="md">
-                        <Avatar skin="primary" size="md" name="Devon Lane" />
+                        <Avatar
+                          skin="primary"
+                          size="md"
+                          name="Devon Lane"
+                          image={{
+                            src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde",
+                          }}
+                        />
                         <Stack direction="column" gap="xs">
                           <Text weight="medium">Devon Lane</Text>
                           <Text as="a" href="" size="xs" skin="secondary">

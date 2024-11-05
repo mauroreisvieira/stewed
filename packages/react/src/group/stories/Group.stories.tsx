@@ -54,3 +54,19 @@ export const TextFields: Story = {
     ),
   },
 };
+
+export const Mixed: Story = {
+  args: {
+    children: (
+      <>
+        <Button skin="neutral" size="xs" appearance="outline">
+          Button
+        </Button>
+        <TextField appearance="outline" defaultValue={"Input field..."} />
+        <Button skin="neutral" size="xs" appearance="outline">
+          Button
+        </Button>
+      </>
+    ),
+  },
+};
