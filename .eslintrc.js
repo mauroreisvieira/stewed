@@ -47,5 +47,5 @@ module.exports = {
     "react-hooks/exhaustive-deps": "error",
     "jsx-a11y/no-noninteractive-element-interactions": "warn",
   },
-  ignorePatterns: ["dist"],
+  ignorePatterns: ["dist", "coverage"],
 };

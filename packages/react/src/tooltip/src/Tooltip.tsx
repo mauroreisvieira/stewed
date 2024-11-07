@@ -164,11 +164,13 @@ export function Tooltip<T extends HTMLElement>({
   );
 
   useEffect(() => {
-    if (currentState.timeoutId) {
-      const id = currentState.timeoutId;
-      delete currentState.timeoutId;
-      return () => clearTimeout(id);
+    if (!currentState.timeoutId) {
+      return;
     }
+    const id = currentState.timeoutId;
+    delete currentState.timeoutId;
+
+    return () => clearTimeout(id);
   }, [currentState]);
 
   // Tooltip visible if is in the process of showing, is about to hide or is currently hiding.
