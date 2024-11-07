@@ -25,7 +25,7 @@ export const Base: Story = {
   args: {
     disabled: false,
     size: "md",
-    skin: "primary",
+    skin: "neutral",
     appearance: "filled",
     children: "Button",
   },

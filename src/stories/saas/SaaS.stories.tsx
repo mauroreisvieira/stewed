@@ -794,14 +794,14 @@ export const Inventory = {
               Enter the amount to add to your stock
             </Text>
           </Dialog.Header>
+          <Separator />
           <Dialog.Body>
             <Stack direction="column" gap="2xl">
-              <Group fullWidth>
+              <Stack direction="row" gap="2xl">
                 <Button
                   onClick={() => setValue(Number(value) - 1)}
                   size="lg"
                   appearance="outline"
-                  skin="neutral"
                   leftSlot={<FiMinus size={24} />}
                   iconOnly
                 >
@@ -812,30 +812,28 @@ export const Inventory = {
                   onChange={onChange}
                   alignment="center"
                   size="lg"
-                  skin="neutral"
                   fullWidth
                 />
                 <Button
                   onClick={() => setValue(Number(value) + 1)}
                   size="lg"
-                  appearance="outline"
                   skin="neutral"
                   leftSlot={<FiPlus size={24} />}
                   iconOnly
                 >
                   Add
                 </Button>
-              </Group>
-              <Text skin="neutral" size="sm">
-                Add funds from your connected accounts directly to your available balance. Please
-                ensure sufficient funds in the linked account for a successful
+              </Stack>
+
+              <Text skin="neutral-faded" size="sm">
+                Add stock from your connected accounts directly to your available balance. Please
+                ensure sufficient stock in the linked account for a successful
               </Text>
             </Stack>
           </Dialog.Body>
-          <Separator />
           <Dialog.Footer>
             <Stack direction="row" gap="md">
-              <Button skin="neutral" appearance="outline" size="lg" fullWidth>
+              <Button skin="neutral" appearance="ghost" size="lg" fullWidth>
                 Cancel
               </Button>
               <Button skin="success" size="lg" fullWidth>
