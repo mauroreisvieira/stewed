@@ -3,6 +3,6 @@
   "compilerOptions": {
     "outDir": "./dist",
   },
-  "include": ["index.ts", "./src/**/*", "./src/index.ts"],
+  "include": ["custom.d.ts", "index.ts", "./src/**/*", "./src/index.ts"],
   "exclude": ["dist", "src/**/stories", "node_modules"]
 }

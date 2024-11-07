@@ -14,7 +14,8 @@ export const DotsScale: React.FC<IconProps> = ({
       fill={color}
       height={size}
       width={size}
-      {...attributes}>
+      {...attributes}
+    >
       <circle cx="24" cy="4" r="4" />
       <circle cx="12.19" cy="7.86" r="3.7" />
       <circle cx="5.02" cy="17.68" r="3.4" />

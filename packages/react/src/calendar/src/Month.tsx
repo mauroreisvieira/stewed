@@ -116,7 +116,8 @@ export function Month({ className }: MonthProps): React.ReactElement {
           {...day.attributes}
           key={day.date.getTime()}
           aria-label={`${day.dateObject.weekday}, ${day.dateObject.month} ${day.dateObject.day}`}
-          onClick={() => onHandleDayClick(day)}>
+          onClick={() => onHandleDayClick(day)}
+        >
           {(siblingMonthDays || (!siblingMonthDays && !day.attributes.siblingMonthDays)) && (
             <time dateTime={day.dateFormatted}>{day.dateObject.day}</time>
           )}

@@ -166,13 +166,15 @@ export function Dialog({
               <Motion
                 duration={open ? "normal" : "quickly"}
                 animation={open ? "zoom-in-soft" : "zoom-out-soft"}
-                onDone={onHandleAnimationEnd}>
+                onDone={onHandleAnimationEnd}
+              >
                 <div
                   ref={setRootRef}
                   role="dialog"
                   aria-modal="true"
                   onKeyDown={onHandleKeydown}
-                  className={cssClasses.surface}>
+                  className={cssClasses.surface}
+                >
                   {children}
                 </div>
               </Motion>

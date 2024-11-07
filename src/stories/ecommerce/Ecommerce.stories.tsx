@@ -71,7 +71,8 @@ export const QuickViews = {
                         skin={value === selectedSize ? "primary" : "neutral"}
                         disabled={value === "XXL" ? true : false}
                         appearance={value === selectedSize ? "filled" : "outline"}
-                        onClick={() => setSelectedSize(value)}>
+                        onClick={() => setSelectedSize(value)}
+                      >
                         {value}
                       </Button>
                     ))}
@@ -89,7 +90,8 @@ export const QuickViews = {
                       leftSlot={<HiMinusSm />}
                       onClick={() => setValue(Number(value) - 1)}
                       disabled={value === 0}
-                      iconOnly>
+                      iconOnly
+                    >
                       Decrease
                     </Button>
                     <TextField
@@ -107,7 +109,8 @@ export const QuickViews = {
                       leftSlot={<HiOutlinePlusSm />}
                       onClick={() => setValue(Number(value) + 1)}
                       disabled={value === 10}
-                      iconOnly>
+                      iconOnly
+                    >
                       Increase
                     </Button>
                   </Group>

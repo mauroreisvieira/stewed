@@ -78,7 +78,8 @@ export function Tabs<T extends string>({
   return (
     <div className={cssClasses.root} {...props}>
       <TabsContext.Provider
-        value={{ value, onValueChange: onValueChange as (value: unknown) => void }}>
+        value={{ value, onValueChange: onValueChange as (value: unknown) => void }}
+      >
         {children}
       </TabsContext.Provider>
     </div>

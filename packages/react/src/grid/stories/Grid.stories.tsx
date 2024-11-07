@@ -127,7 +127,8 @@ export const RowSpan: Story = {
           <Card
             skin="primary-faded"
             style={{ height: "100%" }}
-            padding={{ block: "xl", inline: "xl" }}>
+            padding={{ block: "xl", inline: "xl" }}
+          >
             <Card.Body>
               <Text>Column 1</Text>
             </Card.Body>
@@ -144,7 +145,8 @@ export const RowSpan: Story = {
           <Card
             skin="primary-faded"
             style={{ height: "100%" }}
-            padding={{ block: "xl", inline: "xl" }}>
+            padding={{ block: "xl", inline: "xl" }}
+          >
             <Card.Body>
               <Text>Column 3</Text>
             </Card.Body>

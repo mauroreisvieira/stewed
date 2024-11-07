@@ -60,7 +60,8 @@ export const PricingPlans = {
             alignment="center"
             weight="bold"
             skin="primary"
-            space={{ y: "xs" }}>
+            space={{ y: "xs" }}
+          >
             Teams for all sizes
           </Text>
 
@@ -91,19 +92,22 @@ export const PricingPlans = {
                 md: {
                   wrap: "nowrap",
                 },
-              }}>
+              }}
+            >
               {plans.map(({ title, description, price }, index) => (
                 <Box
                   key={index}
                   borderColor={index === 1 ? "primary" : undefined}
                   radius="md"
-                  fullWidth>
+                  fullWidth
+                >
                   <Card
                     padding={{
                       block: index === 1 ? "2xl" : "xl",
                       inline: "xl",
                     }}
-                    shadow={index === 1 ? "2xl" : undefined}>
+                    shadow={index === 1 ? "2xl" : undefined}
+                  >
                     <Card.Header>
                       <Text as="h4">{title}</Text>
                     </Card.Header>
@@ -174,7 +178,8 @@ export const Testimonials = {
               md: {
                 direction: "row",
               },
-            }}>
+            }}
+          >
             <Stack direction="column" gap="2xl" grow>
               <Text size="xl" weight="light" space={{ y: "2xl" }}>
                 <Text size="3xl" skin="primary" as="span">

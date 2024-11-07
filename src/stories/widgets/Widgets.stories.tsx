@@ -205,7 +205,8 @@ export const RecentActivity = {
                   <Button size="sm" leftSlot={<TbPin />} appearance="ghost" iconOnly {...props}>
                     Bookmark
                   </Button>
-                )}>
+                )}
+              >
                 <Text size="xs" skin="inherit">
                   Pin this widget to your dashboard for quick access.
                 </Text>
@@ -288,7 +289,8 @@ export const Suggested = {
                   skin="neutral"
                   appearance={liked ? "filled" : "outline"}
                   leftSlot={<TbStar />}
-                  onClick={handleToggle}>
+                  onClick={handleToggle}
+                >
                   Start
                 </Button>
                 <Dropdown<HTMLButtonElement>
@@ -303,10 +305,12 @@ export const Suggested = {
                       leftSlot={
                         isOpen ? <MdOutlineKeyboardArrowUp /> : <MdOutlineKeyboardArrowDown />
                       }
-                      iconOnly>
+                      iconOnly
+                    >
                       Start
                     </Button>
-                  )}>
+                  )}
+                >
                   {() => (
                     <ListBox>
                       <ListBox.Group title="Suggested list">
@@ -379,10 +383,12 @@ export const ShareSettings = {
                             appearance="ghost"
                             rightSlot={
                               isOpen ? <MdOutlineKeyboardArrowUp /> : <MdOutlineKeyboardArrowDown />
-                            }>
+                            }
+                          >
                             Can view
                           </Button>
-                        )}>
+                        )}
+                      >
                         {({ close }) => (
                           <ListBox>
                             <ListBox.Item onClick={close}>Can view</ListBox.Item>
@@ -425,10 +431,12 @@ export const ShareSettings = {
                         appearance="ghost"
                         rightSlot={
                           isOpen ? <MdOutlineKeyboardArrowUp /> : <MdOutlineKeyboardArrowDown />
-                        }>
+                        }
+                      >
                         Can view
                       </Button>
-                    )}>
+                    )}
+                  >
                     {({ close }) => (
                       <ListBox>
                         <ListBox.Item onClick={close}>Can view</ListBox.Item>
@@ -508,7 +516,8 @@ export const PaymentMethod = {
                     borderColor={idx === index ? "success" : "neutral-faded"}
                     padding={{ inline: "lg", block: "lg" }}
                     onClick={() => setIndex(idx)}
-                    fullWidth>
+                    fullWidth
+                  >
                     <Text size="2xl" alignment="center">
                       {icon}
                     </Text>
@@ -558,7 +567,8 @@ export const PaymentMethod = {
                           />
                         )}
                         offset={6}
-                        placement="bottom-start">
+                        placement="bottom-start"
+                      >
                         {({ close }) => (
                           <Box padding={{ block: "sm", inline: "sm" }}>
                             <Calendar
@@ -574,7 +584,8 @@ export const PaymentMethod = {
                               onDaySelected={(day) => {
                                 setExpires(day.date);
                                 close();
-                              }}>
+                              }}
+                            >
                               <Calendar.Navigation>
                                 {({ locked, month, year, onPrev, onNext }) => (
                                   <>

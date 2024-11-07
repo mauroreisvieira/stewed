@@ -16,7 +16,8 @@ export const HorizontalRule: React.FC<IconProps> = ({
       xmlns="http://www.w3.org/2000/svg"
       height={size}
       width={size}
-      {...attributes}>
+      {...attributes}
+    >
       <path fill="none" d="M0 0h24v24H0z" />
       <path fillRule="evenodd" d="M4 11h16v2H4z" />
     </svg>

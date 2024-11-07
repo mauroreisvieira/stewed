@@ -113,7 +113,11 @@ exports[`Button renders loading spinner when loading prop is true 1`] = `
     >
       <svg
         class="spinner__svg"
+        fill="currentColor"
+        height="20"
         viewBox="0 0 48 48"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <circle
           cx="24"

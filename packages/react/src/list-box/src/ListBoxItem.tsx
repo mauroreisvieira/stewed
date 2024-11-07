@@ -57,7 +57,8 @@ export const ListBoxItem = forwardRef(function Root(
       tabIndex={selected ? 0 : -1}
       aria-selected={selected}
       aria-disabled={disabled}
-      {...props}>
+      {...props}
+    >
       {leftSlot && <div className={cssClasses.left}>{leftSlot}</div>}
       {children && <div className={cssClasses.text}>{children}</div>}
       {rightSlot && <div className={cssClasses.right}>{rightSlot}</div>}

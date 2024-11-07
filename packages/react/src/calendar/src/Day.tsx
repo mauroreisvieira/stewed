@@ -70,7 +70,8 @@ export function Day({
       aria-disabled={disabled || locked}
       disabled={disabled || locked}
       tabIndex={-1}
-      {...props}>
+      {...props}
+    >
       {children}
     </button>
   );

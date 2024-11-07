@@ -44,7 +44,8 @@ export const Base: Story = {
           {...args}
           onClose={toggleOpen}
           onEscape={toggleOpen}
-          onClickOutside={toggleOpen}>
+          onClickOutside={toggleOpen}
+        >
           <Dialog.Header>
             <Text as="h4">Dialog Header</Text>
           </Dialog.Header>
@@ -78,7 +79,8 @@ export const HugeContent: Story = {
           {...args}
           onClose={toggleOpen}
           onEscape={toggleOpen}
-          onClickOutside={toggleOpen}>
+          onClickOutside={toggleOpen}
+        >
           <Dialog.Header>
             <Text as="h4">Dialog Header</Text>
           </Dialog.Header>

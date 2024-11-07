@@ -56,7 +56,8 @@ export const Floating: Story = {
                 width: `${width}px`,
                 left: `${x}px`,
                 top: `${y}px`,
-              }}>
+              }}
+            >
               <Stack items="center" justify="center">
                 <Text size="md">Text Floating...</Text>
               </Stack>

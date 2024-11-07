@@ -197,7 +197,8 @@ export function Popover<T extends HTMLElement>({
                 visibility: isPositioned ? "visible" : "hidden",
                 transform: `translate(${x}px, ${y}px)`,
               }}
-              {...props}>
+              {...props}
+            >
               {typeof children === "function"
                 ? children({
                     open: onHandleOpen,

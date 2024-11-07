@@ -63,7 +63,8 @@ export const Palette: Story = {
               padding={{ block: "2xl" }}
               style={{
                 backgroundColor: `var(--color-${color})`,
-              }}>
+              }}
+            >
               <Text size="xs" alignment="center" skin={index % 9 >= 4 ? "white" : "black"}>
                 {color}
               </Text>
@@ -496,7 +497,8 @@ function Elements(): React.ReactElement {
           alignment="center"
           onValueChange={(value) => {
             setTheme(value as "metro" | "elegant");
-          }}>
+          }}
+        >
           <Tabs.List>
             <Tabs.Item value="default">Default</Tabs.Item>
             <Tabs.Item value="metro">Metro</Tabs.Item>
@@ -539,7 +541,8 @@ function Elements(): React.ReactElement {
                       value={gender.value}
                       name="gender"
                       onChange={onFormChange}
-                      fullWidth>
+                      fullWidth
+                    >
                       <Select.Option value="Woman">Woman</Select.Option>
                       <Select.Option value="Man">Man</Select.Option>
                       <Select.Option value="Non-binary/non-conforming">
@@ -646,7 +649,8 @@ function Elements(): React.ReactElement {
               skin="neutral"
               appearance="outline"
               type="button"
-              onClick={(): void => setOpen(false)}>
+              onClick={(): void => setOpen(false)}
+            >
               Cancel
             </Button>
             <Button type="button" skin="success" onClick={(): void => setOpen(false)}>
@@ -723,7 +727,8 @@ export const ThemeTokens: Story = {
             },
           },
         }}
-        theme="metro">
+        theme="metro"
+      >
         <Container screen="lg" alignment="center">
           <Elements />
         </Container>

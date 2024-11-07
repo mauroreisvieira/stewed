@@ -33,7 +33,8 @@ export const Zoom: Story = {
             animation={animation}
             onDone={() => {
               setAnimation(undefined);
-            }}>
+            }}
+          >
             <Box
               padding={{ block: "9xl", inline: "9xl" }}
               skin="primary"
@@ -67,7 +68,8 @@ export const Fade: Story = {
             animation={animation}
             onDone={() => {
               setAnimation(undefined);
-            }}>
+            }}
+          >
             <Box
               padding={{ block: "9xl", inline: "9xl" }}
               skin="primary"
@@ -110,7 +112,8 @@ export const Slide: Story = {
             animation={animation}
             onDone={() => {
               setAnimation(undefined);
-            }}>
+            }}
+          >
             <Box
               padding={{ block: "9xl", inline: "9xl" }}
               skin="primary"

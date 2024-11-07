@@ -58,7 +58,8 @@ export const Base: Story = {
           <Button ref={ref} onClick={isOpen ? close : open}>
             Edit
           </Button>
-        )}>
+        )}
+      >
         {() => {
           return (
             <ListBox>
@@ -67,7 +68,8 @@ export const Base: Story = {
                   <Text size="xs" skin="neutral">
                     ⌘+T
                   </Text>
-                }>
+                }
+              >
                 New Tab
               </ListBox.Item>
               <ListBox.Item
@@ -75,7 +77,8 @@ export const Base: Story = {
                   <Text size="xs" skin="neutral">
                     ⌘+N
                   </Text>
-                }>
+                }
+              >
                 New Window
               </ListBox.Item>
               <Dropdown<HTMLDivElement>
@@ -93,17 +96,20 @@ export const Base: Story = {
                         <GoChevronRight />
                       </Text>
                     }
-                    onClick={() => (isOpenMoreTools ? closeMoreTools() : openMoreTools())}>
+                    onClick={() => (isOpenMoreTools ? closeMoreTools() : openMoreTools())}
+                  >
                     More Tools
                   </ListBox.Item>
-                )}>
+                )}
+              >
                 <ListBox>
                   <ListBox.Item
                     rightSlot={
                       <Text size="xs" skin="neutral">
                         ⌘+S
                       </Text>
-                    }>
+                    }
+                  >
                     Save Page As
                   </ListBox.Item>
                 </ListBox>
@@ -114,7 +120,8 @@ export const Base: Story = {
                   <Text size="xs" skin="neutral">
                     ⌘+B
                   </Text>
-                }>
+                }
+              >
                 Show Bookmarks
               </ListBox.Item>
               <ListBox.Item>Show Full URLs</ListBox.Item>

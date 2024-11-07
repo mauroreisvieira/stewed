@@ -71,7 +71,8 @@ export const Base: Story = {
           <Button ref={ref} onClick={isOpen ? close : open}>
             Open popover
           </Button>
-        )}>
+        )}
+      >
         {() => {
           return (
             <Card shadow="none">
@@ -148,7 +149,8 @@ export const Boundary: Story = {
                 <Button ref={ref} onClick={isOpen ? close : open}>
                   Open popover
                 </Button>
-              )}>
+              )}
+            >
               {() => {
                 return (
                   <Box skin="neutral">

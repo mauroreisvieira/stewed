@@ -8,19 +8,6 @@
 
   &__item {
     display: flex;
-
-    &::details-content {
-      height: 0;
-      opacity: 0;
-      transition-behavior: allow-discrete;
-      transition: content-visibility, opacity, height;
-      transition-duration: theme.get-transition-duration("normal");
-    }
-
-    &[open]::details-content {
-      height: calc-size(auto);
-      opacity: 1;
-    }
   }
 
   &__header,

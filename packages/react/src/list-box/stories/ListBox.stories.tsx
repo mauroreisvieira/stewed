@@ -48,7 +48,8 @@ export const Base: Story = {
               <Button leftSlot={<FiLock />} size="xs" appearance="ghost" skin="critical" iconOnly>
                 Remove
               </Button>
-            }>
+            }
+          >
             Trash
           </ListBox.Item>
         </ListBox.Group>
@@ -58,7 +59,8 @@ export const Base: Story = {
               <Button leftSlot={<FaMapPin />} size="xs" appearance="ghost" skin="neutral" iconOnly>
                 Remove
               </Button>
-            }>
+            }
+          >
             Lee Evans new tour
           </ListBox.Item>
           <ListBox.Item>Individual errors coast</ListBox.Item>

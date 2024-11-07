@@ -4,11 +4,10 @@ import { resolve } from "path";
 // Plugins
 import dts from "vite-plugin-dts";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
-import react from "@vitejs/plugin-react";
+// import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [
-    react(),
     dts({
       rollupTypes: true,
     }),

@@ -69,7 +69,8 @@ export const Login = {
                       onClick={() =>
                         setInputType((prev) => (prev === "text" ? "password" : "text"))
                       }
-                      iconOnly>
+                      iconOnly
+                    >
                       Show password
                     </Button>
                   }

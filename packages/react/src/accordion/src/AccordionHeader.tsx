@@ -74,7 +74,8 @@ export function AccordionHeader({
       onClick={onHandleClick}
       onKeyDown={onHandleKeyDown}
       aria-expanded={open}
-      {...props}>
+      {...props}
+    >
       {leftSlot && <div className={cssClasses.left}>{leftSlot}</div>}
       <div className={cssClasses.text}>{children}</div>
       {rightSlot && <div className={cssClasses.right}>{rightSlot}</div>}

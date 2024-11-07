@@ -138,7 +138,8 @@ export function Pagination({
         disabled={disabled || selectedPage === 1}
         leftSlot={<Icon.ChevronLeft size={14} />}
         onClick={() => onPageChange?.(selectedPage - 1)}
-        iconOnly>
+        iconOnly
+      >
         {previousLabel}
       </Button>
       {totalPages.map((page, index) => {
@@ -155,7 +156,8 @@ export function Pagination({
             aria-current={isEllipsis ? undefined : selected}
             aria-selected={isEllipsis ? undefined : selected}
             aria-label={isEllipsis ? undefined : pageLabel?.({ page: current })}
-            onClick={isEllipsis ? undefined : () => onPageChange?.(current)}>
+            onClick={isEllipsis ? undefined : () => onPageChange?.(current)}
+          >
             {page}
           </Button>
         );
@@ -167,7 +169,8 @@ export function Pagination({
         disabled={disabled || selectedPage === total}
         leftSlot={<Icon.ChevronRight size={14} />}
         onClick={() => onPageChange?.(selectedPage + 1)}
-        iconOnly>
+        iconOnly
+      >
         {nextLabel}
       </Button>
     </nav>

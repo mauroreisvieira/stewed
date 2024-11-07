@@ -226,7 +226,8 @@ export function Tooltip<T extends HTMLElement>({
                 onHandleClose();
                 onMouseLeave?.(event);
               }}
-              {...props}>
+              {...props}
+            >
               {children}
             </div>
           </Motion>

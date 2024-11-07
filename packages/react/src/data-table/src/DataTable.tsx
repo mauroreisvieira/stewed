@@ -83,7 +83,8 @@ export function DataTable<T>({
             <Table.Cell
               as="th"
               key={`head-${columnKey?.toString()}`}
-              onClick={isSortable ? onSort : undefined}>
+              onClick={isSortable ? onSort : undefined}
+            >
               {cellNode}
             </Table.Cell>
           ))}

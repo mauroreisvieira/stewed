@@ -66,7 +66,8 @@ export function Hoverable({
       onMouseLeave={onHandleLeave}
       onTouchStart={enabledTouch ? onHandleHover : undefined}
       onTouchEnd={enabledTouch ? onHandleLeave : undefined}
-      onTouchCancel={enabledTouch ? onHandleLeave : undefined}>
+      onTouchCancel={enabledTouch ? onHandleLeave : undefined}
+    >
       {children({ isHovering, isTouch: touchDevice })}
     </div>
   );

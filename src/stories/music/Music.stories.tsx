@@ -100,7 +100,8 @@ const meta: Meta = {
               "secondary-foreground-on-background": "#121212",
             },
           },
-        }}>
+        }}
+      >
         <Story />
       </Theme>
     ),
@@ -174,14 +175,16 @@ function Music(): React.ReactElement {
                 skin="secondary"
                 appearance="ghost"
                 onClick={onHandleDrawer}
-                iconOnly>
+                iconOnly
+              >
                 Menu
               </Button>
             </Grid.Item>
 
             <Grid.Item
               hidden={true}
-              responsive={{ sm: { hidden: false, colSpan: 4 }, lg: { colSpan: undefined } }}>
+              responsive={{ sm: { hidden: false, colSpan: 4 }, lg: { colSpan: undefined } }}
+            >
               <Stack items="center" gap="md">
                 <Button appearance="ghost" skin="secondary" leftSlot={<MdHome />} iconOnly>
                   Home
@@ -204,7 +207,8 @@ function Music(): React.ReactElement {
                             size="sm"
                             skin="secondary"
                             appearance="ghost"
-                            iconOnly>
+                            iconOnly
+                          >
                             Browse
                           </Button>
                         </Stack>
@@ -213,7 +217,8 @@ function Music(): React.ReactElement {
                       placeholder="What do you want to play?"
                       fullWidth
                     />
-                  )}>
+                  )}
+                >
                   {({ reference }) => {
                     return (
                       <Box padding={{ block: "md", inline: "sm" }}>
@@ -231,11 +236,13 @@ function Music(): React.ReactElement {
                                           skin="secondary"
                                           appearance="ghost"
                                           leftSlot={<IoMdClose />}
-                                          iconOnly>
+                                          iconOnly
+                                        >
                                           Remove
                                         </Button>
                                       ) : undefined
-                                    }>
+                                    }
+                                  >
                                     Daily Mix 1
                                   </ListBox.Item>
                                 )}
@@ -267,7 +274,8 @@ function Music(): React.ReactElement {
                         src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde",
                       }}
                     />
-                  )}>
+                  )}
+                >
                   {({ close }) => (
                     <Box padding={{ block: "sm", inline: "sm" }}>
                       <Stack items="center" gap="md">
@@ -338,7 +346,8 @@ function Music(): React.ReactElement {
             <Stack items="baseline" justify="between">
               <Segmented<"music" | "podcast">
                 value={segmentedValue}
-                onValueChange={setSegmentedValue}>
+                onValueChange={setSegmentedValue}
+              >
                 <Segmented.Item value="music">Music</Segmented.Item>
                 <Segmented.Item value="podcast">Podcast</Segmented.Item>
                 <Segmented.Item value="live" disabled>
@@ -351,7 +360,8 @@ function Music(): React.ReactElement {
                 onClick={onHandleMusicDialog}
                 size="lg"
                 leftSlot={<IoMdAdd />}
-                iconOnly>
+                iconOnly
+              >
                 Add Music
               </Button>
             </Stack>
@@ -381,7 +391,8 @@ function Music(): React.ReactElement {
                                     <Button
                                       leftSlot={<FaPlay />}
                                       onClick={() => onHandleClick(index)}
-                                      iconOnly>
+                                      iconOnly
+                                    >
                                       Play
                                     </Button>
                                   </Stack>
@@ -425,7 +436,8 @@ function Music(): React.ReactElement {
                       </Button>
                     ),
                   }}
-                  loop={false}>
+                  loop={false}
+                >
                   {images?.results?.map((image, index) => (
                     <Card key={index} shadow="none" padding={{ block: "lg", inline: "md" }}>
                       <Card.Media
@@ -493,7 +505,8 @@ function Music(): React.ReactElement {
                   radius="md"
                   borderWidth={1}
                   borderStyle="dashed"
-                  borderColor="neutral-faded">
+                  borderColor="neutral-faded"
+                >
                   <Stack direction="column" justify="center" items="center" gap="lg">
                     <Text size="6xl" skin="neutral">
                       <MdOutlinePodcasts />
@@ -519,7 +532,8 @@ function Music(): React.ReactElement {
           onClose={onHandleDrawer}
           onClickOutside={onHandleDrawer}
           onEscape={onHandleDrawer}
-          open={drawerState}>
+          open={drawerState}
+        >
           <Drawer.Header>
             <Text size="lg" weight="semi-bold">
               Your Library
@@ -569,7 +583,8 @@ function Music(): React.ReactElement {
           size="md"
           onClose={onHandleMusicDialog}
           onClickOutside={onHandleMusicDialog}
-          open={musicDialogState}>
+          open={musicDialogState}
+        >
           <Dialog.Header>
             <Text as="h5">Add music</Text>
             <Text size="sm" skin="secondary">
@@ -629,7 +644,8 @@ function Music(): React.ReactElement {
           size="md"
           onClose={onHandlePodcastDialog}
           onClickOutside={onHandlePodcastDialog}
-          open={podcastDialogState}>
+          open={podcastDialogState}
+        >
           <Dialog.Header>
             <Text as="h5">Add Podcast</Text>
             <Text size="sm" skin="secondary">

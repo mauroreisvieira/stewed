@@ -16,7 +16,8 @@ export const ChevronUpDown: React.FC<IconProps> = ({
       height={size}
       width={size}
       stroke={color}
-      {...attributes}>
+      {...attributes}
+    >
       <path
         strokeLinecap="round"
         strokeLinejoin="round"

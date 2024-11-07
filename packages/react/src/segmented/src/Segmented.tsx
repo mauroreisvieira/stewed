@@ -59,7 +59,8 @@ export function Segmented<T extends string>({
   return (
     <div ref={ref} role="group" className={cssClasses.root} onKeyDown={onHandleKeyDown} {...props}>
       <SegmentedContext.Provider
-        value={{ value, onValueChange: onValueChange as (value: unknown) => void }}>
+        value={{ value, onValueChange: onValueChange as (value: unknown) => void }}
+      >
         {children}
       </SegmentedContext.Provider>
     </div>

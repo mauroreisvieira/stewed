@@ -50,7 +50,8 @@ export const Base: Story = {
     return (
       <Tooltip<HTMLButtonElement>
         {...args}
-        renderAnchor={(props) => <Button {...props}>Order #1001</Button>}>
+        renderAnchor={(props) => <Button {...props}>Order #1001</Button>}
+      >
         This order has shipping labels
       </Tooltip>
     );

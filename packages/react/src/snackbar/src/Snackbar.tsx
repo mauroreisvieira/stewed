@@ -136,7 +136,8 @@ export function Snackbar({
                 <Alert
                   shadow="xl"
                   className={cssClasses.notification}
-                  {...{ leftSlot, rightSlot, size, skin, title }}>
+                  {...{ leftSlot, rightSlot, size, skin, title }}
+                >
                   {content}
                 </Alert>
               </Motion>

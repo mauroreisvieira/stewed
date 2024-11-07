@@ -174,7 +174,8 @@ export function Calendar<T>({
           days: data?.days,
           onPrev: onHandlePrevMonth,
           onNext: onHandleNextMonth,
-        }}>
+        }}
+      >
         {children}
       </CalendarContext.Provider>
     </div>

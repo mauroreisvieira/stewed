@@ -355,7 +355,8 @@ export const Staff = {
                           selected: value.id === id ? !value.selected : value.selected,
                         })),
                       );
-                    }}>
+                    }}
+                  >
                     <Table.Cell>
                       <Checkbox
                         checked={selected}
@@ -410,7 +411,8 @@ export const Staff = {
                       <Tag
                         skin={type === "Full-time" ? "success" : "warning"}
                         appearance="soft"
-                        size="sm">
+                        size="sm"
+                      >
                         {type.toUpperCase()}
                       </Tag>
                     </Table.Cell>
@@ -618,7 +620,8 @@ export const Inventory = {
             size="sm"
             appearance="ghost"
             iconOnly
-            onClick={() => setDialogOpen(true)}>
+            onClick={() => setDialogOpen(true)}
+          >
             Edit
           </Button>
         ),
@@ -660,7 +663,8 @@ export const Inventory = {
                 responsive={{ sm: { cols: 2 } }}
                 cols={1}
                 space={{ y: "2xl" }}
-                padding={{ block: "md" }}>
+                padding={{ block: "md" }}
+              >
                 <Grid.Item>
                   <Text size="2xl" weight="light" skin="neutral">
                     Total assets value
@@ -678,7 +682,8 @@ export const Inventory = {
                         direction: "row",
                       },
                     }}
-                    grow>
+                    grow
+                  >
                     <Separator
                       orientation="horizontal"
                       space={{ block: "md" }}
@@ -724,10 +729,12 @@ export const Inventory = {
                         onClick={isOpen ? close : open}
                         appearance="outline"
                         skin={isOpen ? "primary" : "neutral"}
-                        leftSlot={<LuFilter />}>
+                        leftSlot={<LuFilter />}
+                      >
                         Filters
                       </Button>
-                    )}>
+                    )}
+                  >
                     {() => (
                       <ListBox>
                         <ListBox.Group>
@@ -743,7 +750,8 @@ export const Inventory = {
                                     event.stopPropagation();
                                   }}
                                 />
-                              }>
+                              }
+                            >
                               <Text size="sm" variation={"capitalize"}>
                                 {column}
                               </Text>
@@ -776,7 +784,8 @@ export const Inventory = {
         <Dialog
           open={dialogOpen}
           onEscape={() => setDialogOpen(false)}
-          onClickOutside={() => setDialogOpen(false)}>
+          onClickOutside={() => setDialogOpen(false)}
+        >
           <Dialog.Header>
             <Text size="2xl" space={{ y: "sm" }}>
               Add Stock
@@ -794,7 +803,8 @@ export const Inventory = {
                   appearance="outline"
                   skin="neutral"
                   leftSlot={<FiMinus size={24} />}
-                  iconOnly>
+                  iconOnly
+                >
                   Remove
                 </Button>
                 <TextField
@@ -811,7 +821,8 @@ export const Inventory = {
                   appearance="outline"
                   skin="neutral"
                   leftSlot={<FiPlus size={24} />}
-                  iconOnly>
+                  iconOnly
+                >
                   Add
                 </Button>
               </Group>
@@ -1016,7 +1027,8 @@ export const Kanban = {
                 md: {
                   wrap: "nowrap",
                 },
-              }}>
+              }}
+            >
               {board.map(({ id, title, tasks }) => (
                 <Stack
                   key={id}
@@ -1027,7 +1039,8 @@ export const Kanban = {
                     md: {
                       size: 4,
                     },
-                  }}>
+                  }}
+                >
                   <Card shadow="sm" padding={{ block: "sm", inline: "md" }}>
                     <Card.Body>
                       <Stack items="center" justify="between">
@@ -1038,7 +1051,8 @@ export const Kanban = {
                             skin="neutral"
                             appearance="ghost"
                             leftSlot={<IoMdAdd />}
-                            iconOnly>
+                            iconOnly
+                          >
                             Add
                           </Button>
                           <Button
@@ -1046,7 +1060,8 @@ export const Kanban = {
                             skin="neutral"
                             appearance="ghost"
                             leftSlot={<GoKebabHorizontal />}
-                            iconOnly>
+                            iconOnly
+                          >
                             Add
                           </Button>
                         </div>
@@ -1092,7 +1107,8 @@ export const Kanban = {
                                       size="sm"
                                       skin="neutral"
                                       appearance="ghost"
-                                      leftSlot={<IoChatbubbleOutline />}>
+                                      leftSlot={<IoChatbubbleOutline />}
+                                    >
                                       {messages}
                                     </Button>
                                     {attach && (
@@ -1100,7 +1116,8 @@ export const Kanban = {
                                         size="sm"
                                         skin="neutral"
                                         appearance="ghost"
-                                        leftSlot={<IoAttach />}>
+                                        leftSlot={<IoAttach />}
+                                      >
                                         {attach}
                                       </Button>
                                     )}
@@ -1111,7 +1128,8 @@ export const Kanban = {
                                         key={id}
                                         renderAnchor={(props) => (
                                           <Avatar key={id} size="xs" name={name} {...props} />
-                                        )}>
+                                        )}
+                                      >
                                         {name}
                                       </Tooltip>
                                     ))}
@@ -1147,7 +1165,8 @@ export const SidePanel = {
                 size="2xl"
                 weight="light"
                 variation="uppercase"
-                whiteSpace="nowrap">
+                whiteSpace="nowrap"
+              >
                 Stewed Board
               </Text>
             </Stack>
@@ -1442,7 +1461,8 @@ export const AddStaff = {
                               />
                             )}
                             offset={6}
-                            placement="bottom-start">
+                            placement="bottom-start"
+                          >
                             {({ close }) => (
                               <Box padding={{ block: "sm", inline: "sm" }}>
                                 <Calendar
@@ -1455,7 +1475,8 @@ export const AddStaff = {
                                   }}
                                   onDaySelected={() => {
                                     close();
-                                  }}>
+                                  }}
+                                >
                                   <Calendar.Navigation>
                                     {({ locked, month, year, onPrev, onNext }) => (
                                       <>
@@ -1508,7 +1529,8 @@ export const AddStaff = {
                               />
                             )}
                             offset={6}
-                            placement="bottom-start">
+                            placement="bottom-start"
+                          >
                             {({ close }) => (
                               <Box padding={{ block: "sm", inline: "sm" }}>
                                 <Calendar
@@ -1521,7 +1543,8 @@ export const AddStaff = {
                                   }}
                                   onDaySelected={() => {
                                     close();
-                                  }}>
+                                  }}
+                                >
                                   <Calendar.Navigation>
                                     {({ locked, month, year, onPrev, onNext }) => (
                                       <>

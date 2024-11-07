@@ -166,12 +166,14 @@ export function Drawer({
               <Motion
                 animation={open ? `slide-in-${placement}` : `slide-out-${placement}`}
                 duration={open ? "normal" : "quickly"}
-                onDone={onHandleAnimationEnd}>
+                onDone={onHandleAnimationEnd}
+              >
                 <div
                   ref={setRootRef}
                   onKeyDown={onHandleKeydown}
                   role="region"
-                  className={cssClasses.surface}>
+                  className={cssClasses.surface}
+                >
                   {children}
                 </div>
               </Motion>

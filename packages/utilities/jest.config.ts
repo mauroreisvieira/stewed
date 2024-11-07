@@ -1,5 +1,1 @@
-import { Jest } from "@harmonix-hub/testing";
-
-module.exports = {
-  ...Jest.jestConfig(),
-};
+export { jestConfig as default } from "@harmonix-hub/testing";

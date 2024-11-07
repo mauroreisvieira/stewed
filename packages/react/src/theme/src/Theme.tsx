@@ -75,7 +75,8 @@ export function Theme<T extends string>({
         setTheme,
         tokens,
         setTokens,
-      }}>
+      }}
+    >
       {/* Root component to which the themed styles are applied */}
       <Root {...props} />
     </ThemeContext.Provider>

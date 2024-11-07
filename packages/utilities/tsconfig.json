@@ -1,6 +1,7 @@
 {
   "extends": "@harmonix-hub/tsconfig/library.json",
   "compilerOptions": {
+    "module": "ES2020",
     "outDir": "./dist",
   },
   "include": ["index.ts", "./src/**/*", "./src/index.ts*"],

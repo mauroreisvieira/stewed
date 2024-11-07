@@ -66,7 +66,8 @@ export function SegmentedItem({
       tabIndex={isSelected ? 0 : -1}
       className={cssClasses.root}
       onClick={onHandleClick}
-      {...props}>
+      {...props}
+    >
       {leftSlot && <div className={cssClasses.left}>{leftSlot}</div>}
       {children}
       {rightSlot && <div className={cssClasses.right}>{rightSlot}</div>}

@@ -16,7 +16,8 @@ export const ChevronRight: React.FC<IconProps> = ({
       height={size}
       width={size}
       stroke={color}
-      {...attributes}>
+      {...attributes}
+    >
       <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
     </svg>
   );
