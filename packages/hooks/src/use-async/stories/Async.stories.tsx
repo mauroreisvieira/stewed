@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // UI Components
-import { Theme } from "@stewed/react";
+import { Theme, Box, Text, Button, Stack } from "@stewed/react";
 // Hooks
 import { useAsync } from "../index";
 
@@ -30,19 +30,27 @@ export const Async: Story = {
     const { execute, status, value, error } = useAsync(fetchData, false);
 
     return (
-      <div>
-        <h1>Async Data Fetcher</h1>
+      <Stack direction="column" gap="md">
+        <Text as="h1" space={{ y: "lg" }}>
+          Async Data Fetcher
+        </Text>
 
-        {status === "idle" && <p>Start fetching data...</p>}
-        {status === "pending" && <p>Loading...</p>}
-        {status === "error" && <p>Error: {error?.message}</p>}
+        <Box>
+          <Button onClick={execute} disabled={status === "success" || status === "pending"}>
+            Fetch Data
+          </Button>
+        </Box>
 
-        <button onClick={execute} disabled={status === "pending"}>
-          Fetch Data
-        </button>
+        {status === "idle" && <Text skin="neutral-faded">Start fetching data...</Text>}
+        {status === "pending" && <Text skin="primary">Loading...</Text>}
+        {status === "error" && <Text skin="critical">Error: {error?.message}</Text>}
 
-        {status === "success" && <pre>{JSON.stringify(value, null, 4)}</pre>}
-      </div>
+        {status === "success" && (
+          <Text as="pre" skin="neutral-faded">
+            {JSON.stringify(value, null, 4)}
+          </Text>
+        )}
+      </Stack>
     );
   },
 };

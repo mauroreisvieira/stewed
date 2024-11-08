@@ -32,7 +32,6 @@ import {
   Accordion,
   Switch,
   Dialog,
-  Group,
 } from "@stewed/react";
 // Icons
 import {
@@ -794,15 +793,15 @@ export const Inventory = {
               Enter the amount to add to your stock
             </Text>
           </Dialog.Header>
-          <Separator />
+
           <Dialog.Body>
-            <Stack direction="column" gap="2xl">
-              <Stack direction="row" gap="2xl">
+            <Stack direction="column" gap="4xl">
+              <Stack direction="row" gap="md">
                 <Button
                   onClick={() => setValue(Number(value) - 1)}
                   size="lg"
                   appearance="outline"
-                  leftSlot={<FiMinus size={24} />}
+                  leftSlot={<FiMinus size={20} />}
                   iconOnly
                 >
                   Remove
@@ -817,17 +816,16 @@ export const Inventory = {
                 <Button
                   onClick={() => setValue(Number(value) + 1)}
                   size="lg"
-                  skin="neutral"
-                  leftSlot={<FiPlus size={24} />}
+                  appearance="outline"
+                  leftSlot={<FiPlus size={20} />}
                   iconOnly
                 >
                   Add
                 </Button>
               </Stack>
 
-              <Text skin="neutral-faded" size="sm">
-                Add stock from your connected accounts directly to your available balance. Please
-                ensure sufficient stock in the linked account for a successful
+              <Text size="sm">
+                Add stock from your connected accounts directly to your available balance.
               </Text>
             </Stack>
           </Dialog.Body>

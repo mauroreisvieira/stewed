@@ -1,0 +1,25 @@
+import { Canvas, Meta, Stories, ArgTypes } from "@storybook/blocks";
+import * as ResizeObserverStories from './ResizeObserver.stories';
+
+# useResizeObserver
+
+Hook that observes changes in the size of an element and triggers a callback whenever the size changes.
+
+It uses the `ResizeObserver` API to monitor changes to the observed element's dimensions.
+
+### Installation
+
+```bash
+npm install --save @stewed/hooks
+```
+
+### Import
+
+```js
+import { useResizeObserver } from "@stewed/hooks";
+```
+
+<Meta of={ResizeObserverStories} />
+
+<Stories />
+

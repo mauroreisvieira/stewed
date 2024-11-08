@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // UI Components
-import { Theme } from "@stewed/react";
+import { Box, Theme, Text } from "@stewed/react";
 // Hooks
 import { useFetch } from "../index";
 
@@ -25,12 +25,12 @@ export const Fetch: Story = {
     const { data, status } = useFetch("https://620fb775ec8b2ee2834a8359.mockapi.io/product");
 
     return (
-      <div>
-        <h1>Fetch Data</h1>
-        {status && <p>Status: {status}</p>}
+      <Box>
+        <Text as="h1" space={{ y: "lg" }}>Fetch Data</Text>
+        {status && <Text skin="neutral" space={{ y: "md" }}>Status: {status}</Text>}
 
-        <pre>{JSON.stringify(data, null, 4)}</pre>
-      </div>
+        <Text as="pre" skin="neutral-faded">{JSON.stringify(data, null, 4)}</Text>
+      </Box>
     );
   },
 };
