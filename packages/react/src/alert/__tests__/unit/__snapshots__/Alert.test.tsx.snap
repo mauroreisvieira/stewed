@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Alert applies correct size classes 1`] = `
-<DocumentFragment>
+exports[`Alert Snapshots should applies correct size classes 1`] = `
+<div>
   <div
     class="alert alert--primary alert--md alert--shadow-none"
     role="alert"
@@ -16,11 +16,11 @@ exports[`Alert applies correct size classes 1`] = `
       </div>
     </div>
   </div>
-</DocumentFragment>
+</div>
 `;
 
-exports[`Alert should applies critical skin 1`] = `
-<DocumentFragment>
+exports[`Alert Snapshots should applies critical skin 1`] = `
+<div>
   <div
     class="alert alert--critical alert--md alert--shadow-none"
     role="alert"
@@ -35,11 +35,11 @@ exports[`Alert should applies critical skin 1`] = `
       </div>
     </div>
   </div>
-</DocumentFragment>
+</div>
 `;
 
-exports[`Alert should render additional classes 1`] = `
-<DocumentFragment>
+exports[`Alert Snapshots should render additional classes 1`] = `
+<div>
   <div
     class="alert alert--primary alert--md alert--shadow-none other-class"
     role="alert"
@@ -54,11 +54,11 @@ exports[`Alert should render additional classes 1`] = `
       </div>
     </div>
   </div>
-</DocumentFragment>
+</div>
 `;
 
-exports[`Alert should render left slot content 1`] = `
-<DocumentFragment>
+exports[`Alert Snapshots should render left slot content 1`] = `
+<div>
   <div
     class="alert alert--primary alert--md alert--shadow-none"
     role="alert"
@@ -78,11 +78,11 @@ exports[`Alert should render left slot content 1`] = `
       </div>
     </div>
   </div>
-</DocumentFragment>
+</div>
 `;
 
-exports[`Alert should render right slot content 1`] = `
-<DocumentFragment>
+exports[`Alert Snapshots should render right slot content 1`] = `
+<div>
   <div
     class="alert alert--primary alert--md alert--shadow-none"
     role="alert"
@@ -102,11 +102,11 @@ exports[`Alert should render right slot content 1`] = `
       Right slot
     </div>
   </div>
-</DocumentFragment>
+</div>
 `;
 
-exports[`Alert should render shadow classes 1`] = `
-<DocumentFragment>
+exports[`Alert Snapshots should render shadow classes 1`] = `
+<div>
   <div
     class="alert alert--primary alert--md alert--shadow-3xl"
     role="alert"
@@ -121,11 +121,11 @@ exports[`Alert should render shadow classes 1`] = `
       </div>
     </div>
   </div>
-</DocumentFragment>
+</div>
 `;
 
-exports[`Alert should renders default component 1`] = `
-<DocumentFragment>
+exports[`Alert Snapshots should renders default component 1`] = `
+<div>
   <div
     class="alert alert--primary alert--md alert--shadow-none"
     role="alert"
@@ -140,11 +140,11 @@ exports[`Alert should renders default component 1`] = `
       </div>
     </div>
   </div>
-</DocumentFragment>
+</div>
 `;
 
-exports[`Alert should renders title 1`] = `
-<DocumentFragment>
+exports[`Alert Snapshots should renders title 1`] = `
+<div>
   <div
     class="alert alert--primary alert--md alert--shadow-none"
     role="alert"
@@ -164,5 +164,5 @@ exports[`Alert should renders title 1`] = `
       </div>
     </div>
   </div>
-</DocumentFragment>
+</div>
 `;

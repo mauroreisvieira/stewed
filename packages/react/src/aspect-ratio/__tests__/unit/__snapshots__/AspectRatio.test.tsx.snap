@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Aspect Ratio Snapshots should render additional classes 1`] = `
+<div>
+  <div
+    class="aspect-ratio aspect-ratio--1-1 other-class"
+  >
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Aspect Ratio Snapshots should render radius classes 1`] = `
+<div>
+  <div
+    class="aspect-ratio aspect-ratio--1-1 aspect-ratio--radius-2xl"
+  >
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Aspect Ratio Snapshots should render ratio classes 1`] = `
+<div>
+  <div
+    class="aspect-ratio aspect-ratio--16-9"
+  >
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Aspect Ratio Snapshots should renders default component 1`] = `
+<div>
+  <div
+    class="aspect-ratio aspect-ratio--1-1"
+  >
+    <div />
+  </div>
+</div>
+`;

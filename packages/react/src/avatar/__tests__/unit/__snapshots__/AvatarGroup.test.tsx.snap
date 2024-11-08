@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Avatar Group should render additional classes 1`] = `
-<DocumentFragment>
+<div>
   <div
     class="avatar-group other-class"
   >
@@ -11,11 +11,11 @@ exports[`Avatar Group should render additional classes 1`] = `
       EC
     </div>
   </div>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Avatar Group should renders default component 1`] = `
-<DocumentFragment>
+<div>
   <div
     class="avatar-group"
   >
@@ -25,5 +25,5 @@ exports[`Avatar Group should renders default component 1`] = `
       EC
     </div>
   </div>
-</DocumentFragment>
+</div>
 `;

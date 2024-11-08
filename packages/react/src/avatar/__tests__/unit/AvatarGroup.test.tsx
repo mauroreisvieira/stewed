@@ -6,22 +6,22 @@ import { render } from "@testing-library/react";
 
 describe("Avatar Group", () => {
   it("should renders default component", () => {
-    const { asFragment } = render(
+    const { container } = render(
       <Avatar.Group>
         <Avatar name="Emma Clark" />
       </Avatar.Group>,
     );
 
-    expect(asFragment()).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("should render additional classes", () => {
-    const { asFragment } = render(
+    const { container } = render(
       <Avatar.Group className="other-class">
         <Avatar name="Emma Clark" />
       </Avatar.Group>,
     );
 
-    expect(asFragment()).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

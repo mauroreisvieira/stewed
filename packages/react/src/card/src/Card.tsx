@@ -12,7 +12,10 @@ import { useBem } from "@stewed/hooks";
 import styles from "./styles/index.module.scss";
 
 export interface CardProps extends React.ComponentPropsWithRef<"div"> {
-  /** The direction of the card. */
+  /**
+   * The direction of the card.
+   * @default column
+   */
   direction?: "row" | "column";
   /**
    * Change the visual style of the card.

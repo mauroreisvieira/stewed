@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Accordion Snapshots should render additional classes 1`] = `
+<div>
+  <div
+    class="accordion other-class"
+  >
+    <details
+      class="accordion__item other-item-class"
+    >
+      <summary
+        aria-expanded="false"
+        class="accordion__header other-header-class"
+      >
+        <div
+          class="accordion__header__text"
+        >
+          Header
+        </div>
+      </summary>
+      <div
+        class="accordion__body other-body-class"
+      >
+        Body
+      </div>
+    </details>
+  </div>
+</div>
+`;
+
+exports[`Accordion Snapshots should render left slot content 1`] = `
+<div>
+  <div
+    class="accordion"
+  >
+    <details
+      class="accordion__item"
+    >
+      <summary
+        aria-expanded="false"
+        class="accordion__header"
+      >
+        <div
+          class="accordion__header__left"
+        >
+          Left slot
+        </div>
+        <div
+          class="accordion__header__text"
+        >
+          Header
+        </div>
+      </summary>
+      <div
+        class="accordion__body"
+      >
+        Body
+      </div>
+    </details>
+  </div>
+</div>
+`;
+
+exports[`Accordion Snapshots should render right slot content 1`] = `
+<div>
+  <div
+    class="accordion"
+  >
+    <details
+      class="accordion__item"
+    >
+      <summary
+        aria-expanded="false"
+        class="accordion__header"
+      >
+        <div
+          class="accordion__header__text"
+        >
+          Header
+        </div>
+        <div
+          class="accordion__header__right"
+        >
+          Right slot
+        </div>
+      </summary>
+      <div
+        class="accordion__body"
+      >
+        Body
+      </div>
+    </details>
+  </div>
+</div>
+`;
+
+exports[`Accordion Snapshots should renders default component 1`] = `
+<div>
+  <div
+    class="accordion"
+  >
+    <details
+      class="accordion__item"
+    >
+      <summary
+        aria-expanded="false"
+        class="accordion__header"
+      >
+        <div
+          class="accordion__header__text"
+        >
+          Header
+        </div>
+      </summary>
+      <div
+        class="accordion__body"
+      >
+        Body
+      </div>
+    </details>
+  </div>
+</div>
+`;

@@ -5,51 +5,53 @@ import { Alert } from "../../index";
 import { render } from "@testing-library/react";
 
 describe("Alert", () => {
-  it("should renders default component", () => {
-    const { asFragment } = render(<Alert>Alert</Alert>);
+  describe("Snapshots", () => {
+    it("should renders default component", () => {
+      const { container } = render(<Alert>Alert</Alert>);
 
-    expect(asFragment()).toMatchSnapshot();
-  });
+      expect(container).toMatchSnapshot();
+    });
 
-  it("should renders title", () => {
-    const { asFragment } = render(<Alert title="Title">Alert</Alert>);
+    it("should renders title", () => {
+      const { container } = render(<Alert title="Title">Alert</Alert>);
 
-    expect(asFragment()).toMatchSnapshot();
-  });
+      expect(container).toMatchSnapshot();
+    });
 
-  it("should render additional classes", () => {
-    const { asFragment } = render(<Alert className="other-class">Alert</Alert>);
+    it("should render additional classes", () => {
+      const { container } = render(<Alert className="other-class">Alert</Alert>);
 
-    expect(asFragment()).toMatchSnapshot();
-  });
+      expect(container).toMatchSnapshot();
+    });
 
-  it("should render shadow classes", () => {
-    const { asFragment } = render(<Alert shadow="3xl">Alert</Alert>);
+    it("should render shadow classes", () => {
+      const { container } = render(<Alert shadow="3xl">Alert</Alert>);
 
-    expect(asFragment()).toMatchSnapshot();
-  });
+      expect(container).toMatchSnapshot();
+    });
 
-  it("should applies critical skin", () => {
-    const { asFragment } = render(<Alert skin="critical">Alert</Alert>);
+    it("should applies critical skin", () => {
+      const { container } = render(<Alert skin="critical">Alert</Alert>);
 
-    expect(asFragment()).toMatchSnapshot();
-  });
+      expect(container).toMatchSnapshot();
+    });
 
-  it("should render left slot content", () => {
-    const { asFragment } = render(<Alert leftSlot="Left slot">Alert</Alert>);
+    it("should render left slot content", () => {
+      const { container } = render(<Alert leftSlot="Left slot">Alert</Alert>);
 
-    expect(asFragment()).toMatchSnapshot();
-  });
+      expect(container).toMatchSnapshot();
+    });
 
-  it("should render right slot content", () => {
-    const { asFragment } = render(<Alert rightSlot="Right slot">Alert</Alert>);
+    it("should render right slot content", () => {
+      const { container } = render(<Alert rightSlot="Right slot">Alert</Alert>);
 
-    expect(asFragment()).toMatchSnapshot();
-  });
+      expect(container).toMatchSnapshot();
+    });
 
-  it("applies correct size classes", () => {
-    const { asFragment } = render(<Alert size="md">Alert</Alert>);
+    it("should applies correct size classes", () => {
+      const { container } = render(<Alert size="md">Alert</Alert>);
 
-    expect(asFragment()).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
+    });
   });
 });

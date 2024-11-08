@@ -1,0 +1,150 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dialog Snapshots should applies correct size classes 1`] = `
+<div
+  class="dialog dialog--xl dialog--open dialog--safe-margin-xl"
+>
+  <div
+    aria-modal="true"
+    class="dialog__surface motion motion--zoom-in-soft motion--ease-in motion--normal"
+    role="dialog"
+    tabindex="0"
+  >
+    <div
+      class="dialog__header other-header-class"
+    >
+      <div
+        class="dialog__header__content"
+      >
+        Header
+      </div>
+    </div>
+    <div
+      class="dialog__body other-body-class"
+    >
+      Body
+    </div>
+    <div
+      class="dialog__footer other-footer-class"
+    >
+      Footer
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Dialog Snapshots should render additional classes 1`] = `
+<div
+  class="dialog dialog--md dialog--open dialog--safe-margin-xl other-class"
+>
+  <div
+    aria-modal="true"
+    class="dialog__surface motion motion--zoom-in-soft motion--ease-in motion--normal"
+    role="dialog"
+    tabindex="0"
+  >
+    <div
+      class="dialog__header other-header-class"
+    >
+      <div
+        class="dialog__header__content"
+      >
+        Header
+      </div>
+    </div>
+    <div
+      class="dialog__body other-body-class"
+    >
+      Body
+    </div>
+    <div
+      class="dialog__footer other-footer-class"
+    >
+      Footer
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Dialog Snapshots should renders close button component 1`] = `
+<div
+  class="dialog dialog--md dialog--open dialog--safe-margin-xl"
+>
+  <div
+    aria-modal="true"
+    class="dialog__surface motion motion--zoom-in-soft motion--ease-in motion--normal"
+    role="dialog"
+  >
+    <div
+      class="dialog__header"
+    >
+      <div
+        class="dialog__header__content"
+      >
+        Header
+      </div>
+      <button
+        class="button button--neutral-ghost button--sm button--icon-only"
+      >
+        <span
+          class="button__left"
+        >
+          <svg
+            fill="none"
+            height="18"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6 18 18 6M6 6l12 12"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+    <div
+      class="dialog__body"
+    >
+      Body
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Dialog Snapshots should renders default component 1`] = `
+<div
+  class="dialog dialog--md dialog--open dialog--safe-margin-xl"
+>
+  <div
+    aria-modal="true"
+    class="dialog__surface motion motion--zoom-in-soft motion--ease-in motion--normal"
+    role="dialog"
+    tabindex="0"
+  >
+    <div
+      class="dialog__header"
+    >
+      <div
+        class="dialog__header__content"
+      >
+        Header
+      </div>
+    </div>
+    <div
+      class="dialog__body"
+    >
+      Body
+    </div>
+    <div
+      class="dialog__footer"
+    >
+      Footer
+    </div>
+  </div>
+</div>
+`;

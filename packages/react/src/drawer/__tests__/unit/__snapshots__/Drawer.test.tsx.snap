@@ -1,0 +1,158 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Drawer Snapshots should applies correct placement classes 1`] = `
+<div
+  class="drawer drawer--md drawer--bottom drawer--open drawer--safe-margin-xl"
+>
+  <div
+    class="drawer__surface motion motion--slide-in-bottom motion--ease-in motion--normal"
+    role="region"
+    tabindex="0"
+  >
+    <div
+      class="drawer__header other-header-class"
+    >
+      Header
+    </div>
+    <div
+      class="drawer__body other-body-class"
+    >
+      Body
+    </div>
+    <div
+      class="drawer__footer other-footer-class"
+    >
+      Footer
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Drawer Snapshots should applies correct size classes 1`] = `
+<div
+  class="drawer drawer--sm drawer--left drawer--open drawer--safe-margin-xl"
+>
+  <div
+    class="drawer__surface motion motion--slide-in-left motion--ease-in motion--normal"
+    role="region"
+    tabindex="0"
+  >
+    <div
+      class="drawer__header other-header-class"
+    >
+      Header
+    </div>
+    <div
+      class="drawer__body other-body-class"
+    >
+      Body
+    </div>
+    <div
+      class="drawer__footer other-footer-class"
+    >
+      Footer
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Drawer Snapshots should render additional classes 1`] = `
+<div
+  class="drawer drawer--md drawer--left drawer--open drawer--safe-margin-xl other-class"
+>
+  <div
+    class="drawer__surface motion motion--slide-in-left motion--ease-in motion--normal"
+    role="region"
+    tabindex="0"
+  >
+    <div
+      class="drawer__header other-header-class"
+    >
+      Header
+    </div>
+    <div
+      class="drawer__body other-body-class"
+    >
+      Body
+    </div>
+    <div
+      class="drawer__footer other-footer-class"
+    >
+      Footer
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Drawer Snapshots should renders close button component 1`] = `
+<div
+  class="drawer drawer--md drawer--left drawer--open drawer--safe-margin-xl"
+>
+  <div
+    class="drawer__surface motion motion--slide-in-left motion--ease-in motion--normal"
+    role="region"
+  >
+    <div
+      class="drawer__header"
+    >
+      Header
+      <button
+        class="button button--neutral-ghost button--sm button--icon-only"
+      >
+        <span
+          class="button__left"
+        >
+          <svg
+            fill="none"
+            height="18"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6 18 18 6M6 6l12 12"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+    <div
+      class="drawer__body"
+    >
+      Body
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Drawer Snapshots should renders default component 1`] = `
+<div
+  class="drawer drawer--md drawer--left drawer--open drawer--safe-margin-xl"
+>
+  <div
+    class="drawer__surface motion motion--slide-in-left motion--ease-in motion--normal"
+    role="region"
+    tabindex="0"
+  >
+    <div
+      class="drawer__header"
+    >
+      Header
+    </div>
+    <div
+      class="drawer__body"
+    >
+      Body
+    </div>
+    <div
+      class="drawer__footer"
+    >
+      Footer
+    </div>
+  </div>
+</div>
+`;

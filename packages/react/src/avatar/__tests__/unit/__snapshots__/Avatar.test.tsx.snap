@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Avatar should applies correct size classes 1`] = `
+exports[`Avatar Snapshots should applies correct size classes 1`] = `
 <DocumentFragment>
   <div
     class="avatar avatar--circle avatar--lg avatar--primary"
@@ -10,7 +10,7 @@ exports[`Avatar should applies correct size classes 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Avatar should applies correct skin classes 1`] = `
+exports[`Avatar Snapshots should applies correct skin classes 1`] = `
 <DocumentFragment>
   <div
     class="avatar avatar--circle avatar--md avatar--primary"
@@ -20,7 +20,7 @@ exports[`Avatar should applies correct skin classes 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Avatar should applies square appearance classes 1`] = `
+exports[`Avatar Snapshots should applies square appearance classes 1`] = `
 <DocumentFragment>
   <div
     class="avatar avatar--square avatar--md avatar--primary"
@@ -30,7 +30,7 @@ exports[`Avatar should applies square appearance classes 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Avatar should render additional classes 1`] = `
+exports[`Avatar Snapshots should render additional classes 1`] = `
 <DocumentFragment>
   <div
     class="avatar avatar--circle avatar--md avatar--primary other-class"
@@ -40,7 +40,7 @@ exports[`Avatar should render additional classes 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Avatar should render image 1`] = `
+exports[`Avatar Snapshots should render image 1`] = `
 <DocumentFragment>
   <div
     class="avatar avatar--circle avatar--md avatar--primary"
@@ -121,7 +121,7 @@ exports[`Avatar should render image 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Avatar should renders component as anchor 1`] = `
+exports[`Avatar Snapshots should renders component as anchor 1`] = `
 <DocumentFragment>
   <a
     class="avatar avatar--circle avatar--md avatar--primary"
@@ -132,7 +132,7 @@ exports[`Avatar should renders component as anchor 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Avatar should renders default component 1`] = `
+exports[`Avatar Snapshots should renders default component 1`] = `
 <DocumentFragment>
   <div
     class="avatar avatar--circle avatar--md avatar--primary"
