@@ -14,7 +14,8 @@ import styles from "./styles/index.module.scss";
 
 const defaultElement = "div";
 
-export interface AvatarProps<T> extends React.ComponentProps<typeof defaultElement> {
+export interface AvatarProps<T>
+  extends Omit<React.ComponentProps<typeof defaultElement>, "children"> {
   /**
    * Specifies the type of element to use as the avatar.
    * @default div
@@ -61,92 +62,90 @@ export interface AvatarProps<T> extends React.ComponentProps<typeof defaultEleme
  * @param {AvatarProps} props - The props for the Avatar component.
  * @returns {React.ReactElement} - The rendered Avatar component.
  */
-export const Root = fixedForwardRef(
-  <T extends React.ElementType>(
-    {
-      as,
-      size = "md",
-      skin = "primary",
-      appearance = "circle",
-      className,
-      image,
-      name,
-      ...props
-    }: AvatarProps<T> &
-      DistributiveOmit<
-        React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
-        "as"
-      >,
-    ref: React.ForwardedRef<unknown>,
-  ): React.ReactElement => {
-    // Component to render based on the 'as' prop
-    const Comp = as || defaultElement;
+export const Root = fixedForwardRef(function Avatar<T extends React.ElementType>(
+  {
+    as,
+    size = "md",
+    skin = "primary",
+    appearance = "circle",
+    className,
+    image,
+    name,
+    ...props
+  }: AvatarProps<T> &
+    DistributiveOmit<
+      React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
+      "as"
+    >,
+  ref: React.ForwardedRef<unknown>,
+): React.ReactElement {
+  // Component to render based on the 'as' prop
+  const Comp = as || defaultElement;
 
-    // Importing useBem to handle BEM class names
-    const { getBlock, getElement } = useBem({ block: components.Avatar, styles });
+  // Importing useBem to handle BEM class names
+  const { getBlock, getElement } = useBem({ block: components.Avatar, styles });
 
-    // Generating CSS classes based on component props and styles
-    const cssClasses = {
-      root: getBlock({ modifiers: [appearance, size, skin], extraClasses: className }),
-      loading: getElement(["loading"]),
-      img: getElement(["img"], image?.className),
-    };
+  // Generating CSS classes based on component props and styles
+  const cssClasses = {
+    root: getBlock({ modifiers: [appearance, size, skin], extraClasses: className }),
+    loading: getElement(["loading"]),
+    img: getElement(["img"], image?.className),
+  };
 
-    // State to track if the image is still loading
-    const [isLoading, setLoading] = useState(true);
+  // State to track if the image is still loading
+  const [isLoading, setLoading] = useState(true);
 
-    // State to track if there was an error while loading the image
-    const [imageError, setImageError] = useState(false);
+  // State to track if there was an error while loading the image
+  const [imageError, setImageError] = useState(false);
 
-    // Extract initials from the provided name, capturing the first two uppercase letters
-    // and converting to uppercase, e.g., "John Doe" => "JD"
-    const initials = name?.match(/[A-Z]/g)?.join("").slice(0, 2).toUpperCase();
+  // Extract initials from the provided name, capturing the first two uppercase letters
+  // and converting to uppercase, e.g., "John Doe" => "JD"
+  const initials = name?.match(/[A-Z]/g)?.join("").slice(0, 2).toUpperCase();
 
-    // Callback to handle image load errors
-    // Sets the error state to true and triggers any optional `onError` event handler passed in `image`
-    const onHandleError = useCallback<React.ReactEventHandler<HTMLImageElement>>(
-      (event) => {
-        setImageError(true);
-        image?.onError?.(event);
-      },
-      [image],
-    );
+  // Callback to handle image load errors
+  // Sets the error state to true and triggers any optional `onError` event handler passed in `image`
+  const onHandleError = useCallback<React.ReactEventHandler<HTMLImageElement>>(
+    (event) => {
+      setImageError(true);
+      image?.onError?.(event);
+    },
+    [image],
+  );
 
-    // Callback to handle successful image load
-    // Sets `isLoading` to false and triggers any optional `onLoad` event handler passed in `image`
-    const onHandleLoad = useCallback<React.ReactEventHandler<HTMLImageElement>>(
-      (event) => {
-        setLoading(false);
-        image?.onLoad?.(event);
-      },
-      [image],
-    );
+  // Callback to handle successful image load
+  // Sets `isLoading` to false and triggers any optional `onLoad` event handler passed in `image`
+  const onHandleLoad = useCallback<React.ReactEventHandler<HTMLImageElement>>(
+    (event) => {
+      setLoading(false);
+      image?.onLoad?.(event);
+    },
+    [image],
+  );
 
-    return (
-      <Comp ref={ref} className={cssClasses.root} {...props}>
-        {image && !imageError ? (
-          <>
-            {isLoading && (
-              <span className={cssClasses.loading}>
-                <Spinner skin="white" size="md" />
-              </span>
-            )}
+  return (
+    <Comp ref={ref} className={cssClasses.root} {...props}>
+      {image && !imageError ? (
+        <>
+          {isLoading && (
+            <span className={cssClasses.loading}>
+              <Spinner skin="white" size="md" />
+            </span>
+          )}
 
-            <img
-              {...image}
-              className={cssClasses.img}
-              alt={image?.alt || name}
-              onError={onHandleError}
-              onLoad={onHandleLoad}
-            />
-          </>
-        ) : (
-          initials
-        )}
-      </Comp>
-    );
-  },
-);
+          <img
+            {...image}
+            className={cssClasses.img}
+            alt={image?.alt || name}
+            onError={onHandleError}
+            onLoad={onHandleLoad}
+          />
+        </>
+      ) : (
+        initials
+      )}
+    </Comp>
+  );
+});
 
 // Compound component composition
 export const Avatar = Object.assign(Root, {

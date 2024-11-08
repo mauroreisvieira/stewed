@@ -110,91 +110,89 @@ export interface TextProps<T>
  * @param {TextProps} props - The props for the Text component.
  * @returns {React.ReactElement} - The rendered Text component.
  */
-export const Text = fixedForwardRef(
-  <T extends React.ElementType>(
+export const Text = fixedForwardRef(function Typography<T extends React.ElementType>(
+  {
+    as,
+    size,
+    hidden,
+    family,
+    weight,
+    skin = "default",
+    variation,
+    lineClamp,
+    alignment,
+    whiteSpace,
+    space,
+    responsive,
+    className,
+    children,
+    ...props
+  }: TextProps<T> &
+    DistributiveOmit<
+      React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
+      "as"
+    >,
+  ref: React.ForwardedRef<unknown>,
+): React.ReactElement {
+  // Determine the component type based on 'as' prop or use the default element
+  const Comp = as || defaultElement;
+
+  // Retrieve values from the current theme context
+  const { activeToken } = useTheme();
+
+  // Compute responsive props based on current theme and screen sizes
+  const computedProps = useResponsive(
     {
-      as,
-      size,
       hidden,
-      family,
+      size,
       weight,
-      skin = "default",
-      variation,
-      lineClamp,
       alignment,
-      whiteSpace,
+      lineClamp,
       space,
+      variation,
+      whiteSpace,
       responsive,
-      className,
-      children,
-      ...props
-    }: TextProps<T> &
-      DistributiveOmit<
-        React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
-        "as"
-      >,
-    ref: React.ForwardedRef<unknown>,
-  ): React.ReactElement => {
-    // Determine the component type based on 'as' prop or use the default element
-    const Comp = as || defaultElement;
+    },
+    activeToken.breakpoints,
+  );
 
-    // Retrieve values from the current theme context
-    const { activeToken } = useTheme();
+  // Ensure variation is an array
+  const computedVariation = Array.isArray(computedProps.variation)
+    ? computedProps.variation
+    : [computedProps.variation];
 
-    // Compute responsive props based on current theme and screen sizes
-    const computedProps = useResponsive(
-      {
-        hidden,
-        size,
-        weight,
-        alignment,
-        lineClamp,
-        space,
-        variation,
-        whiteSpace,
-        responsive,
-      },
-      activeToken.breakpoints,
-    );
+  // Determine the size based on the provided 'as' prop or use the default element
+  const computedSize = ((Object.keys(SizeMap) as Array<keyof typeof SizeMap>).find(
+    (key) => SizeMap[key] === (as || defaultElement),
+  ) ?? "base") as keyof typeof SizeMap;
 
-    // Ensure variation is an array
-    const computedVariation = Array.isArray(computedProps.variation)
-      ? computedProps.variation
-      : [computedProps.variation];
+  // Importing useBem to handle BEM class names
+  const { getBlock } = useBem({ block: components.Typography, styles });
 
-    // Determine the size based on the provided 'as' prop or use the default element
-    const computedSize = ((Object.keys(SizeMap) as Array<keyof typeof SizeMap>).find(
-      (key) => SizeMap[key] === (as || defaultElement),
-    ) ?? "base") as keyof typeof SizeMap;
+  // Generating CSS classes based on component props and styles
+  const cssClasses = {
+    root: getBlock({
+      modifiers: [
+        computedSize,
+        family,
+        skin,
+        computedProps.size,
+        computedProps.weight,
+        computedProps.hidden && "hidden",
+        computedProps.lineClamp && `line-clamp-${computedProps.lineClamp}`,
+        computedProps.alignment && `alignment-${computedProps.alignment}`,
+        computedProps.whiteSpace && `white-space-${computedProps.whiteSpace}`,
+        computedProps.space?.x && `space-x-${computedProps.space.x}`,
+        computedProps.space?.y && `space-y-${computedProps.space.y}`,
+        ...computedVariation.map((i) => i),
+      ],
+      extraClasses: className,
+    }),
+  };
 
-    // Importing useBem to handle BEM class names
-    const { getBlock } = useBem({ block: components.Typography, styles });
-
-    // Generating CSS classes based on component props and styles
-    const cssClasses = {
-      root: getBlock({
-        modifiers: [
-          computedSize,
-          family,
-          skin,
-          computedProps.size,
-          computedProps.weight,
-          computedProps.hidden && "hidden",
-          computedProps.lineClamp && `line-clamp-${computedProps.lineClamp}`,
-          computedProps.alignment && `alignment-${computedProps.alignment}`,
-          computedProps.whiteSpace && `white-space-${computedProps.whiteSpace}`,
-          computedProps.space?.x && `space-x-${computedProps.space.x}`,
-          computedProps.space?.y && `space-y-${computedProps.space.y}`,
-          ...computedVariation.map((i) => i),
-        ],
-        extraClasses: className,
-      }),
-    };
-
-    return (
-      <Comp ref={ref} className={cssClasses.root} {...props}>
-        {children}
-      </Comp>
-    );
-  },
-);
+  return (
+    <Comp ref={ref} className={cssClasses.root} {...props}>
+      {children}
+    </Comp>
+  );
+});

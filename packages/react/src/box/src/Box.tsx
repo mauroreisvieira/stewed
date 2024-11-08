@@ -84,75 +84,73 @@ export interface BoxProps<T>
  * @param {BoxProps} props - The props for the Box component.
  * @returns {React.ReactElement} - The rendered Box component.
  */
-export const Box = fixedForwardRef(
-  <T extends React.ElementType>(
+export const Box = fixedForwardRef(function Box<T extends React.ElementType>(
+  {
+    as,
+    skin,
+    padding,
+    space,
+    hidden,
+    responsive,
+    radius,
+    borderColor,
+    borderWidth,
+    borderStyle = "solid",
+    fullWidth,
+    fullScreen,
+    className,
+    children,
+    ...props
+  }: BoxProps<T> &
+    DistributiveOmit<
+      React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
+      "as"
+    >,
+  ref: React.ForwardedRef<unknown>,
+): React.ReactElement {
+  // Component to render based on the 'as' prop
+  const Comp = as || defaultElement;
+
+  // Retrieve values from the current theme context
+  const { activeToken } = useTheme();
+
+  // Compute responsive props based on current theme and screen sizes
+  const computedProps = useResponsive(
     {
-      as,
-      skin,
       padding,
       space,
-      hidden,
       responsive,
-      radius,
-      borderColor,
-      borderWidth,
-      borderStyle = "solid",
-      fullWidth,
-      fullScreen,
-      className,
-      children,
-      ...props
-    }: BoxProps<T> &
-      DistributiveOmit<
-        React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
-        "as"
-      >,
-    ref: React.ForwardedRef<unknown>,
-  ): React.ReactElement => {
-    // Component to render based on the 'as' prop
-    const Comp = as || defaultElement;
+    },
+    activeToken.breakpoints,
+  );
 
-    // Retrieve values from the current theme context
-    const { activeToken } = useTheme();
+  // Importing useBem to handle BEM class names
+  const { getBlock } = useBem({ block: components.Box, styles });
 
-    // Compute responsive props based on current theme and screen sizes
-    const computedProps = useResponsive(
-      {
-        padding,
-        space,
-        responsive,
-      },
-      activeToken.breakpoints,
-    );
+  // Generating CSS classes based on component props and styles
+  const cssClasses = {
+    root: getBlock({
+      modifiers: [
+        skin,
+        radius && `radius-${radius}`,
+        borderColor && `border-color-${borderColor}`,
+        borderWidth && `border-width-${borderWidth}`,
+        borderStyle && `border-style-${borderStyle}`,
+        computedProps.padding?.block && `padding-block-${computedProps.padding.block}`,
+        computedProps.padding?.inline && `padding-inline-${computedProps.padding.inline}`,
+        computedProps.space?.x && `space-x-${computedProps.space.x}`,
+        computedProps.space?.y && `space-y-${computedProps.space.y}`,
+        hidden && "hidden",
+        fullWidth && "full-width",
+        fullScreen && "full-screen",
+      ],
+      extraClasses: className,
+    }),
+  };
 
-    // Importing useBem to handle BEM class names
-    const { getBlock } = useBem({ block: components.Box, styles });
-
-    // Generating CSS classes based on component props and styles
-    const cssClasses = {
-      root: getBlock({
-        modifiers: [
-          skin,
-          radius && `radius-${radius}`,
-          borderColor && `border-color-${borderColor}`,
-          borderWidth && `border-width-${borderWidth}`,
-          borderStyle && `border-style-${borderStyle}`,
-          computedProps.padding?.block && `padding-block-${computedProps.padding.block}`,
-          computedProps.padding?.inline && `padding-inline-${computedProps.padding.inline}`,
-          computedProps.space?.x && `space-x-${computedProps.space.x}`,
-          computedProps.space?.y && `space-y-${computedProps.space.y}`,
-          hidden && "hidden",
-          fullWidth && "full-width",
-          fullScreen && "full-screen",
-        ],
-        extraClasses: className,
-      }),
-    };
-
-    return (
-      <Comp ref={ref} className={cssClasses.root} {...props}>
-        {children}
-      </Comp>
-    );
-  },
-);
+  return (
+    <Comp ref={ref} className={cssClasses.root} {...props}>
+      {children}
+    </Comp>
+  );
+});

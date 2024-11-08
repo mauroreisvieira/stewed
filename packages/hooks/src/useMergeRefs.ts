@@ -8,7 +8,7 @@ import { useMemo } from "react";
  * @returns {React.RefCallback<T> | null} A callback ref that sets all the passed refs, or null if no refs are provided.
  *
  * @example
- * ```tsx
+ * ```ts
  *   const ref1 = useRef<HTMLDivElement>(null);
  *   const ref2 = useRef<HTMLDivElement>(null);
  *

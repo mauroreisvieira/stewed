@@ -38,10 +38,36 @@ export interface GridProps<T>
   as?: T;
 }
 
-export const GridItem = fixedForwardRef(
-  <T extends React.ElementType>(
+export const GridItem = fixedForwardRef(function GridItem<T extends React.ElementType>(
+  {
+    as,
+    colSpan,
+    colStart,
+    colEnd,
+    rowSpan,
+    rowStart,
+    rowEnd,
+    hidden,
+    responsive,
+    className,
+    children,
+    ...props
+  }: GridProps<T> &
+    DistributiveOmit<
+      React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
+      "as"
+    >,
+  ref: React.ForwardedRef<unknown>,
+): React.ReactElement {
+  // Component to render based on the 'as' prop
+  const Comp = as || defaultElement;
+
+  // Retrieve values from the current theme context
+  const { activeToken } = useTheme();
+
+  // Compute responsive props based on current theme and screen sizes
+  const computedProps = useResponsive(
     {
-      as,
       colSpan,
       colStart,
       colEnd,
@@ -50,60 +76,32 @@ export const GridItem = fixedForwardRef(
       rowEnd,
       hidden,
       responsive,
-      className,
-      children,
-      ...props
-    }: GridProps<T> &
-      DistributiveOmit<
-        React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
-        "as"
-      >,
-    ref: React.ForwardedRef<unknown>,
-  ): React.ReactElement => {
-    // Component to render based on the 'as' prop
-    const Comp = as || defaultElement;
+    },
+    activeToken.breakpoints,
+  );
 
-    // Retrieve values from the current theme context
-    const { activeToken } = useTheme();
+  // Importing useBem to handle BEM class names
+  const { getBlock } = useBem({ block: `${components.Grid}__item`, styles });
 
-    // Compute responsive props based on current theme and screen sizes
-    const computedProps = useResponsive(
-      {
-        colSpan,
-        colStart,
-        colEnd,
-        rowSpan,
-        rowStart,
-        rowEnd,
-        hidden,
-        responsive,
-      },
-      activeToken.breakpoints,
-    );
+  // Generating CSS classes based on component props and styles
+  const cssClasses = {
+    root: getBlock({
+      modifiers: [
+        computedProps.colSpan && `col-span-${computedProps.colSpan}`,
+        computedProps.colStart && `col-start-${computedProps.colStart}`,
+        computedProps.colEnd && `col-end-${computedProps.colEnd}`,
+        computedProps.rowSpan && `row-span-${computedProps.rowSpan}`,
+        computedProps.rowStart && `row-start-${computedProps.rowStart}`,
+        computedProps.rowStart && `row-end-${computedProps.rowStart}`,
+        computedProps.hidden && "hidden",
+      ],
+      extraClasses: className,
+    }),
+  };
 
-    // Importing useBem to handle BEM class names
-    const { getBlock } = useBem({ block: `${components.Grid}__item`, styles });
-
-    // Generating CSS classes based on component props and styles
-    const cssClasses = {
-      root: getBlock({
-        modifiers: [
-          computedProps.colSpan && `col-span-${computedProps.colSpan}`,
-          computedProps.colStart && `col-start-${computedProps.colStart}`,
-          computedProps.colEnd && `col-end-${computedProps.colEnd}`,
-          computedProps.rowSpan && `row-span-${computedProps.rowSpan}`,
-          computedProps.rowStart && `row-start-${computedProps.rowStart}`,
-          computedProps.rowStart && `row-end-${computedProps.rowStart}`,
-          computedProps.hidden && "hidden",
-        ],
-        extraClasses: className,
-      }),
-    };
-
-    return (
-      <Comp ref={ref} className={cssClasses.root} {...props}>
-        {children}
-      </Comp>
-    );
-  },
-);
+  return (
+    <Comp ref={ref} className={cssClasses.root} {...props}>
+      {children}
+    </Comp>
+  );
+});

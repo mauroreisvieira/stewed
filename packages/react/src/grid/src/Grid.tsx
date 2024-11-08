@@ -69,83 +69,81 @@ export interface GridProps<T>
  * @param {GridProps} props - The props for the Grid component.
  * @returns {React.ReactElement} - The rendered Grid component.
  */
-const Root = fixedForwardRef(
-  <T extends React.ElementType>(
+const Root = fixedForwardRef(function Grid<T extends React.ElementType>(
+  {
+    as,
+    cols,
+    justify,
+    items,
+    rows,
+    subgrid,
+    flow,
+    gap = "none",
+    padding,
+    space,
+    responsive,
+    className,
+    children,
+    ...props
+  }: GridProps<T> &
+    DistributiveOmit<
+      React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
+      "as"
+    >,
+  ref: React.ForwardedRef<unknown>,
+): React.ReactElement {
+  // Component to render based on the 'as' prop
+  const Comp = as || defaultElement;
+
+  // Retrieve values from the current theme context
+  const { activeToken } = useTheme();
+
+  // Compute responsive props based on current theme and screen sizes
+  const computedProps = useResponsive(
     {
-      as,
       cols,
       justify,
       items,
       rows,
       subgrid,
       flow,
-      gap = "none",
+      gap,
       padding,
       space,
       responsive,
-      className,
-      children,
-      ...props
-    }: GridProps<T> &
-      DistributiveOmit<
-        React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
-        "as"
-      >,
-    ref: React.ForwardedRef<unknown>,
-  ): React.ReactElement => {
-    // Component to render based on the 'as' prop
-    const Comp = as || defaultElement;
+    },
+    activeToken.breakpoints,
+  );
 
-    // Retrieve values from the current theme context
-    const { activeToken } = useTheme();
+  // Importing useBem to handle BEM class names
+  const { getBlock } = useBem({ block: components.Grid, styles });
 
-    // Compute responsive props based on current theme and screen sizes
-    const computedProps = useResponsive(
-      {
-        cols,
-        justify,
-        items,
-        rows,
-        subgrid,
-        flow,
-        gap,
-        padding,
-        space,
-        responsive,
-      },
-      activeToken.breakpoints,
-    );
+  // Generating CSS classes based on component props and styles
+  const cssClasses = {
+    root: getBlock({
+      modifiers: [
+        computedProps.subgrid && "subgrid",
+        computedProps.justify && `justify-${computedProps.justify}`,
+        computedProps.items && `items-${computedProps.items}`,
+        computedProps.flow && `flow-${computedProps.flow}`,
+        computedProps.cols && `cols-${computedProps.cols}`,
+        computedProps.rows && `rows-${computedProps.rows}`,
+        computedProps.gap && `gap-${computedProps.gap}`,
+        computedProps.padding?.block && `padding-block-${computedProps.padding.block}`,
+        computedProps.padding?.inline && `padding-inline-${computedProps.padding.inline}`,
+        computedProps.space?.x && `space-x-${computedProps.space.x}`,
+        computedProps.space?.y && `space-y-${computedProps.space.y}`,
+      ],
+      extraClasses: className,
+    }),
+  };
 
-    // Importing useBem to handle BEM class names
-    const { getBlock } = useBem({ block: components.Grid, styles });
-
-    // Generating CSS classes based on component props and styles
-    const cssClasses = {
-      root: getBlock({
-        modifiers: [
-          computedProps.subgrid && "subgrid",
-          computedProps.justify && `justify-${computedProps.justify}`,
-          computedProps.items && `items-${computedProps.items}`,
-          computedProps.flow && `flow-${computedProps.flow}`,
-          computedProps.cols && `cols-${computedProps.cols}`,
-          computedProps.rows && `rows-${computedProps.rows}`,
-          computedProps.gap && `gap-${computedProps.gap}`,
-          computedProps.padding?.block && `padding-block-${computedProps.padding.block}`,
-          computedProps.padding?.inline && `padding-inline-${computedProps.padding.inline}`,
-          computedProps.space?.x && `space-x-${computedProps.space.x}`,
-          computedProps.space?.y && `space-y-${computedProps.space.y}`,
-        ],
-        extraClasses: className,
-      }),
-    };
-
-    return (
-      <Comp ref={ref} className={cssClasses.root} {...props}>
-        {children}
-      </Comp>
-    );
-  },
-);
+  return (
+    <Comp ref={ref} className={cssClasses.root} {...props}>
+      {children}
+    </Comp>
+  );
+});
 
 // Compound component composition
 export const Grid = Object.assign(Root, {

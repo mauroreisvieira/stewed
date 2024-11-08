@@ -25,8 +25,7 @@ const config: StorybookConfig = {
       shouldExtractLiteralValuesFromEnum: true,
       // Makes string and boolean types that can be undefined appear as inputs and switches
       shouldRemoveUndefinedFromOptional: true,
-      // Prop filter, which excludes props from node_modules
-      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+      propFilter: () => true,
     },
   },
   core: {

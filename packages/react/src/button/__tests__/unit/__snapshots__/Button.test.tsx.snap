@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button applies correct size class 1`] = `
+exports[`Button applies correct appearance classes 1`] = `
 <DocumentFragment>
   <button
     class="button button--primary-filled button--md"
@@ -8,13 +8,13 @@ exports[`Button applies correct size class 1`] = `
     <span
       class="button__text"
     >
-      Medium Button
+      Button
     </span>
   </button>
 </DocumentFragment>
 `;
 
-exports[`Button applies correct skin and appearance classes 1`] = `
+exports[`Button applies correct size classes 1`] = `
 <DocumentFragment>
   <button
     class="button button--primary-filled button--md"
@@ -22,13 +22,27 @@ exports[`Button applies correct skin and appearance classes 1`] = `
     <span
       class="button__text"
     >
-      Primary Filled
+      Button
     </span>
   </button>
 </DocumentFragment>
 `;
 
-exports[`Button applies disabled class when disabled prop is true 1`] = `
+exports[`Button applies correct skin classes 1`] = `
+<DocumentFragment>
+  <button
+    class="button button--primary-filled button--md"
+  >
+    <span
+      class="button__text"
+    >
+      Button
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button applies disabled classes 1`] = `
 <DocumentFragment>
   <button
     aria-disabled="true"
@@ -38,13 +52,13 @@ exports[`Button applies disabled class when disabled prop is true 1`] = `
     <span
       class="button__text"
     >
-      Disabled Button
+      Button
     </span>
   </button>
 </DocumentFragment>
 `;
 
-exports[`Button applies fullWidth class when fullWidth prop is true 1`] = `
+exports[`Button applies fullWidth classes 1`] = `
 <DocumentFragment>
   <button
     class="button button--primary-filled button--md button--full-width"
@@ -52,19 +66,31 @@ exports[`Button applies fullWidth class when fullWidth prop is true 1`] = `
     <span
       class="button__text"
     >
-      Full Width Button
+      Button
     </span>
   </button>
 </DocumentFragment>
 `;
 
-exports[`Button applies icon-only class when iconOnly prop is true 1`] = `
+exports[`Button applies icon-only classes 1`] = `
 <DocumentFragment>
   <button
     class="button button--primary-filled button--md button--icon-only"
   >
     <span
+      class="button__left"
+    >
+      <i
+        class="fas fa-star"
+      />
+    </span>
+    <span
       class="button__text"
+    >
+      Button
+    </span>
+    <span
+      class="button__right"
     >
       <i
         class="fas fa-star"
@@ -74,7 +100,7 @@ exports[`Button applies icon-only class when iconOnly prop is true 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Button applies pressed class when pressed prop is true 1`] = `
+exports[`Button applies pressed classes 1`] = `
 <DocumentFragment>
   <button
     aria-pressed="true"
@@ -83,27 +109,13 @@ exports[`Button applies pressed class when pressed prop is true 1`] = `
     <span
       class="button__text"
     >
-      Pressed Button
+      Button
     </span>
   </button>
 </DocumentFragment>
 `;
 
-exports[`Button renders children correctly 1`] = `
-<DocumentFragment>
-  <button
-    class="button button--primary-filled button--md"
-  >
-    <span
-      class="button__text"
-    >
-      Click me
-    </span>
-  </button>
-</DocumentFragment>
-`;
-
-exports[`Button renders loading spinner when loading prop is true 1`] = `
+exports[`Button renders spinner when loading 1`] = `
 <DocumentFragment>
   <button
     class="button button--primary-filled button--md button--loading"
@@ -174,7 +186,73 @@ exports[`Button renders loading spinner when loading prop is true 1`] = `
     <span
       class="button__text"
     >
-      Loading...
+      Button
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button should render additional classes 1`] = `
+<DocumentFragment>
+  <button
+    class="button button--primary-filled button--md other-class"
+  >
+    <span
+      class="button__text"
+    >
+      Button
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button should render left slot content 1`] = `
+<DocumentFragment>
+  <button
+    class="button button--primary-filled button--md"
+  >
+    <span
+      class="button__left"
+    >
+      Left slot
+    </span>
+    <span
+      class="button__text"
+    >
+      Button
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button should render right slot content 1`] = `
+<DocumentFragment>
+  <button
+    class="button button--primary-filled button--md"
+  >
+    <span
+      class="button__text"
+    >
+      Button
+    </span>
+    <span
+      class="button__right"
+    >
+      Right slot
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button should renders default component 1`] = `
+<DocumentFragment>
+  <button
+    class="button button--primary-filled button--md"
+  >
+    <span
+      class="button__text"
+    >
+      Button
     </span>
   </button>
 </DocumentFragment>

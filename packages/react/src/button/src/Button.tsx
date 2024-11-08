@@ -70,68 +70,66 @@ export interface ButtonProps<T> extends React.ComponentProps<typeof defaultEleme
  * @param {ButtonProps} props - The props for the Button component.
  * @returns {React.ReactElement} - The rendered Button component.
  */
-export const Button = fixedForwardRef(
-  <T extends React.ElementType>(
-    {
-      as,
-      skin = "primary",
-      appearance = "filled",
-      size = "md",
-      leftSlot,
-      rightSlot,
-      pressed,
-      fullWidth,
-      iconOnly,
-      loading,
-      className,
-      children,
-      ...props
-    }: ButtonProps<T> &
-      DistributiveOmit<
-        React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
-        "as"
-      >,
-    ref: React.ForwardedRef<unknown>,
-  ): React.ReactElement => {
-    // Determine the component type based on 'as' prop or use the default element
-    const Comp = as || defaultElement;
+export const Button = fixedForwardRef(function Button<T extends React.ElementType>(
+  {
+    as,
+    skin = "primary",
+    appearance = "filled",
+    size = "md",
+    leftSlot,
+    rightSlot,
+    pressed,
+    fullWidth,
+    iconOnly,
+    loading,
+    className,
+    children,
+    ...props
+  }: ButtonProps<T> &
+    DistributiveOmit<
+      React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
+      "as"
+    >,
+  ref: React.ForwardedRef<unknown>,
+): React.ReactElement {
+  // Determine the component type based on 'as' prop or use the default element
+  const Comp = as || defaultElement;
 
-    // Importing useBem to handle BEM class names
-    const { getBlock, getElement } = useBem({ block: components.Button, styles });
+  // Importing useBem to handle BEM class names
+  const { getBlock, getElement } = useBem({ block: components.Button, styles });
 
-    // Generating CSS classes based on component props and styles
-    const cssClasses = {
-      root: getBlock({
-        modifiers: [
-          `${skin}-${appearance}`,
-          size,
-          pressed && "pressed",
-          iconOnly && "icon-only",
-          fullWidth && "full-width",
-          loading && "loading",
-          props.disabled && "disabled",
-        ],
-        extraClasses: className,
-      }),
-      spinner: getElement(["spinner"]),
-      left: getElement(["left"]),
-      text: getElement(["text"]),
-      right: getElement(["right"]),
-    };
+  // Generating CSS classes based on component props and styles
+  const cssClasses = {
+    root: getBlock({
+      modifiers: [
+        `${skin}-${appearance}`,
+        size,
+        pressed && "pressed",
+        iconOnly && "icon-only",
+        fullWidth && "full-width",
+        loading && "loading",
+        props.disabled && "disabled",
+      ],
+      extraClasses: className,
+    }),
+    spinner: getElement(["spinner"]),
+    left: getElement(["left"]),
+    text: getElement(["text"]),
+    right: getElement(["right"]),
+  };
 
-    return (
-      <Comp
-        ref={ref}
-        className={cssClasses.root}
-        aria-pressed={pressed}
-        aria-disabled={props.disabled}
-        {...props}
-      >
-        {loading && <Spinner className={cssClasses.spinner} skin="default" size={size} />}
-        {leftSlot && <span className={cssClasses.left}>{leftSlot}</span>}
-        {children && <span className={cssClasses.text}>{children}</span>}
-        {rightSlot && <span className={cssClasses.right}>{rightSlot}</span>}
-      </Comp>
-    );
-  },
-);
+  return (
+    <Comp
+      ref={ref}
+      className={cssClasses.root}
+      aria-pressed={pressed}
+      aria-disabled={props.disabled}
+      {...props}
+    >
+      {loading && <Spinner className={cssClasses.spinner} skin="default" size={size} />}
+      {leftSlot && <span className={cssClasses.left}>{leftSlot}</span>}
+      {children && <span className={cssClasses.text}>{children}</span>}
+      {rightSlot && <span className={cssClasses.right}>{rightSlot}</span>}
+    </Comp>
+  );
+});

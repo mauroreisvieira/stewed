@@ -5,58 +5,82 @@ import { Button } from "../../index";
 import { render } from "@testing-library/react";
 
 describe("Button", () => {
-  it("renders children correctly", () => {
-    const { asFragment } = render(<Button>Click me</Button>);
+  it("should renders default component", () => {
+    const { asFragment } = render(<Button>Button</Button>);
 
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it("applies correct skin and appearance classes", () => {
+  it("should render additional classes", () => {
+    const { asFragment } = render(<Button className="other-class">Button</Button>);
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it("applies correct skin classes", () => {
+    const { asFragment } = render(<Button skin="primary">Button</Button>);
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it("applies correct appearance classes", () => {
+    const { asFragment } = render(<Button appearance="filled">Button</Button>);
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it("should render left slot content", () => {
+    const { asFragment } = render(<Button leftSlot="Left slot">Button</Button>);
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it("should render right slot content", () => {
+    const { asFragment } = render(<Button rightSlot="Right slot">Button</Button>);
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it("applies correct size classes", () => {
+    const { asFragment } = render(<Button size="md">Button</Button>);
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it("renders spinner when loading", () => {
+    const { asFragment } = render(<Button loading>Button</Button>);
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it("applies disabled classes", () => {
+    const { asFragment } = render(<Button disabled>Button</Button>);
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it("applies icon-only classes", () => {
     const { asFragment } = render(
-      <Button skin="primary" appearance="filled">
-        Primary Filled
+      <Button
+        leftSlot={<i className="fas fa-star" />}
+        rightSlot={<i className="fas fa-star" />}
+        iconOnly
+      >
+        Button
       </Button>,
     );
 
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it("applies correct size class", () => {
-    const { asFragment } = render(<Button size="md">Medium Button</Button>);
+  it("applies fullWidth classes", () => {
+    const { asFragment } = render(<Button fullWidth>Button</Button>);
 
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it("renders loading spinner when loading prop is true", () => {
-    const { asFragment } = render(<Button loading>Loading...</Button>);
-
-    expect(asFragment()).toMatchSnapshot();
-  });
-
-  it("applies disabled class when disabled prop is true", () => {
-    const { asFragment } = render(<Button disabled>Disabled Button</Button>);
-
-    expect(asFragment()).toMatchSnapshot();
-  });
-
-  it("applies icon-only class when iconOnly prop is true", () => {
-    const { asFragment } = render(
-      <Button iconOnly>
-        <i className="fas fa-star" />
-      </Button>,
-    );
-
-    expect(asFragment()).toMatchSnapshot();
-  });
-
-  it("applies fullWidth class when fullWidth prop is true", () => {
-    const { asFragment } = render(<Button fullWidth>Full Width Button</Button>);
-
-    expect(asFragment()).toMatchSnapshot();
-  });
-
-  it("applies pressed class when pressed prop is true", () => {
-    const { asFragment } = render(<Button pressed>Pressed Button</Button>);
+  it("applies pressed classes", () => {
+    const { asFragment } = render(<Button pressed>Button</Button>);
 
     expect(asFragment()).toMatchSnapshot();
   });

@@ -21,39 +21,37 @@ export interface TableCellProps<T> extends React.ComponentProps<typeof defaultEl
   alignment?: "start" | "center" | "end";
 }
 
-export const TableCell = fixedForwardRef(
-  <T extends "td" | "th">(
-    {
-      as,
-      alignment = "start",
-      className,
-      children,
-      ...props
-    }: TableCellProps<T> &
-      DistributiveOmit<
-        React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
-        "as"
-      >,
-    ref: React.ForwardedRef<unknown>,
-  ): React.ReactElement => {
-    // Determine the component type based on 'as' prop or use the default element
-    const Comp = as || defaultElement;
+export const TableCell = fixedForwardRef(function TableCell<T extends "td" | "th">(
+  {
+    as,
+    alignment = "start",
+    className,
+    children,
+    ...props
+  }: TableCellProps<T> &
+    DistributiveOmit<
+      React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
+      "as"
+    >,
+  ref: React.ForwardedRef<unknown>,
+): React.ReactElement {
+  // Determine the component type based on 'as' prop or use the default element
+  const Comp = as || defaultElement;
 
-    // Importing useBem to handle BEM class names
-    const { getBlock } = useBem({ block: `${components.Table}__cell`, styles });
+  // Importing useBem to handle BEM class names
+  const { getBlock } = useBem({ block: `${components.Table}__cell`, styles });
 
-    // Generating CSS classes based on component props and styles
-    const cssClasses = {
-      root: getBlock({
-        modifiers: [alignment, props?.onClick && "sortable"],
-        extraClasses: className,
-      }),
-    };
+  // Generating CSS classes based on component props and styles
+  const cssClasses = {
+    root: getBlock({
+      modifiers: [alignment, props?.onClick && "sortable"],
+      extraClasses: className,
+    }),
+  };
 
-    return (
-      <Comp ref={ref} className={cssClasses.root} {...props}>
-        {children}
-      </Comp>
-    );
-  },
-);
+  return (
+    <Comp ref={ref} className={cssClasses.root} {...props}>
+      {children}
+    </Comp>
+  );
+});

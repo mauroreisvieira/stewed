@@ -75,12 +75,40 @@ export interface StackProps<T>
  * @param {StackProps} props - The props for the Stack component.
  * @returns {React.ReactElement} - The rendered Stack component.
  */
-export const Stack = fixedForwardRef(
-  <T extends React.ElementType>(
+export const Stack = fixedForwardRef(function Stack<T extends React.ElementType>(
+  {
+    as,
+    direction = "row",
+    gap = "none",
+    size,
+    hidden,
+    justify,
+    items,
+    wrap,
+    inline,
+    grow,
+    responsive,
+    className,
+    children,
+    ...props
+  }: StackProps<T> &
+    DistributiveOmit<
+      React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
+      "as"
+    >,
+  ref: React.ForwardedRef<unknown>,
+): React.ReactElement {
+  // Component to render based on the 'as' prop
+  const Comp = as || defaultElement;
+
+  // Retrieve values from the current theme context
+  const { activeToken } = useTheme();
+
+  // Compute responsive props based on current theme and screen sizes
+  const computedProps = useResponsive(
     {
-      as,
-      direction = "row",
-      gap = "none",
+      direction,
+      gap,
       size,
       hidden,
       justify,
@@ -89,64 +117,34 @@ export const Stack = fixedForwardRef(
       inline,
       grow,
       responsive,
-      className,
-      children,
-      ...props
-    }: StackProps<T> &
-      DistributiveOmit<
-        React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
-        "as"
-      >,
-    ref: React.ForwardedRef<unknown>,
-  ): React.ReactElement => {
-    // Component to render based on the 'as' prop
-    const Comp = as || defaultElement;
+    },
+    activeToken.breakpoints,
+  );
 
-    // Retrieve values from the current theme context
-    const { activeToken } = useTheme();
+  // Importing useBem to handle BEM class names
+  const { getBlock } = useBem({ block: components.Stack, styles });
 
-    // Compute responsive props based on current theme and screen sizes
-    const computedProps = useResponsive(
-      {
-        direction,
-        gap,
-        size,
-        hidden,
-        justify,
-        items,
-        wrap,
-        inline,
-        grow,
-        responsive,
-      },
-      activeToken.breakpoints,
-    );
+  // Generating CSS classes based on component props and styles
+  const cssClasses = {
+    root: getBlock({
+      modifiers: [
+        computedProps.direction !== "row" && computedProps.direction,
+        computedProps.gap && `gap-${computedProps.gap}`,
+        computedProps.size && `size-${computedProps.size}`,
+        computedProps.justify && `justify-${computedProps.justify}`,
+        computedProps.items && `items-${computedProps.items}`,
+        computedProps.wrap,
+        computedProps.inline && "inline",
+        computedProps.hidden && "hidden",
+        computedProps.grow && "grow",
+      ],
+      extraClasses: className,
+    }),
+  };
 
-    // Importing useBem to handle BEM class names
-    const { getBlock } = useBem({ block: components.Stack, styles });
-
-    // Generating CSS classes based on component props and styles
-    const cssClasses = {
-      root: getBlock({
-        modifiers: [
-          computedProps.direction !== "row" && computedProps.direction,
-          computedProps.gap && `gap-${computedProps.gap}`,
-          computedProps.size && `size-${computedProps.size}`,
-          computedProps.justify && `justify-${computedProps.justify}`,
-          computedProps.items && `items-${computedProps.items}`,
-          computedProps.wrap,
-          computedProps.inline && "inline",
-          computedProps.hidden && "hidden",
-          computedProps.grow && "grow",
-        ],
-        extraClasses: className,
-      }),
-    };
-
-    return (
-      <Comp ref={ref} className={cssClasses.root} {...props}>
-        {children}
-      </Comp>
-    );
-  },
-);
+  return (
+    <Comp ref={ref} className={cssClasses.root} {...props}>
+      {children}
+    </Comp>
+  );
+});

@@ -1,0 +1,168 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert applies correct size classes 1`] = `
+<DocumentFragment>
+  <div
+    class="alert alert--primary alert--md alert--shadow-none"
+    role="alert"
+  >
+    <div
+      class="alert__wrapper"
+    >
+      <div
+        class="alert__body"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Alert should applies critical skin 1`] = `
+<DocumentFragment>
+  <div
+    class="alert alert--critical alert--md alert--shadow-none"
+    role="alert"
+  >
+    <div
+      class="alert__wrapper"
+    >
+      <div
+        class="alert__body"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Alert should render additional classes 1`] = `
+<DocumentFragment>
+  <div
+    class="alert alert--primary alert--md alert--shadow-none other-class"
+    role="alert"
+  >
+    <div
+      class="alert__wrapper"
+    >
+      <div
+        class="alert__body"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Alert should render left slot content 1`] = `
+<DocumentFragment>
+  <div
+    class="alert alert--primary alert--md alert--shadow-none"
+    role="alert"
+  >
+    <div
+      class="alert__left"
+    >
+      Left slot
+    </div>
+    <div
+      class="alert__wrapper"
+    >
+      <div
+        class="alert__body"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Alert should render right slot content 1`] = `
+<DocumentFragment>
+  <div
+    class="alert alert--primary alert--md alert--shadow-none"
+    role="alert"
+  >
+    <div
+      class="alert__wrapper"
+    >
+      <div
+        class="alert__body"
+      >
+        Alert
+      </div>
+    </div>
+    <div
+      class="alert__right"
+    >
+      Right slot
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Alert should render shadow classes 1`] = `
+<DocumentFragment>
+  <div
+    class="alert alert--primary alert--md alert--shadow-3xl"
+    role="alert"
+  >
+    <div
+      class="alert__wrapper"
+    >
+      <div
+        class="alert__body"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Alert should renders default component 1`] = `
+<DocumentFragment>
+  <div
+    class="alert alert--primary alert--md alert--shadow-none"
+    role="alert"
+  >
+    <div
+      class="alert__wrapper"
+    >
+      <div
+        class="alert__body"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Alert should renders title 1`] = `
+<DocumentFragment>
+  <div
+    class="alert alert--primary alert--md alert--shadow-none"
+    role="alert"
+  >
+    <div
+      class="alert__wrapper"
+    >
+      <div
+        class="alert__title"
+      >
+        Title
+      </div>
+      <div
+        class="alert__body"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
