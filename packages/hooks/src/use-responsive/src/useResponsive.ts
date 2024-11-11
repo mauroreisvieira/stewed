@@ -2,7 +2,8 @@ import { useCallback, useEffect, useRef, useState } from "react";
 // Tokens
 import { defaultTokens, type Breakpoints } from "@stewed/tokens";
 // Hooks
-import { useMounted } from "./useMounted";
+import { useMounted } from "./use-mounted";
+
 
 /**
  * Represents the props for the useResponsive hook.

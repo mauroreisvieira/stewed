@@ -77,48 +77,6 @@ exports[`Button Snapshots renders spinner when loading 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Button Snapshots should applies correct appearance classes 1`] = `
-<DocumentFragment>
-  <button
-    class="button button--primary-filled button--md"
-  >
-    <span
-      class="button__text"
-    >
-      Button
-    </span>
-  </button>
-</DocumentFragment>
-`;
-
-exports[`Button Snapshots should applies correct size classes 1`] = `
-<DocumentFragment>
-  <button
-    class="button button--primary-filled button--md"
-  >
-    <span
-      class="button__text"
-    >
-      Button
-    </span>
-  </button>
-</DocumentFragment>
-`;
-
-exports[`Button Snapshots should applies correct skin classes 1`] = `
-<DocumentFragment>
-  <button
-    class="button button--primary-filled button--md"
-  >
-    <span
-      class="button__text"
-    >
-      Button
-    </span>
-  </button>
-</DocumentFragment>
-`;
-
 exports[`Button Snapshots should applies disabled classes 1`] = `
 <DocumentFragment>
   <button
@@ -182,6 +140,188 @@ exports[`Button Snapshots should applies pressed classes 1`] = `
   <button
     aria-pressed="true"
     class="button button--primary-filled button--md button--pressed"
+  >
+    <span
+      class="button__text"
+    >
+      Button
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button Snapshots should apply 'critical' skin classes 1`] = `
+<DocumentFragment>
+  <button
+    class="button button--critical-filled button--md"
+  >
+    <span
+      class="button__text"
+    >
+      Button
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button Snapshots should apply 'filled' appearance classes 1`] = `
+<DocumentFragment>
+  <button
+    class="button button--primary-filled button--md"
+  >
+    <span
+      class="button__text"
+    >
+      Button
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button Snapshots should apply 'ghost' appearance classes 1`] = `
+<DocumentFragment>
+  <button
+    class="button button--primary-ghost button--md"
+  >
+    <span
+      class="button__text"
+    >
+      Button
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button Snapshots should apply 'lg' size classes 1`] = `
+<DocumentFragment>
+  <button
+    class="button button--primary-filled button--lg"
+  >
+    <span
+      class="button__text"
+    >
+      Button
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button Snapshots should apply 'md' size classes 1`] = `
+<DocumentFragment>
+  <button
+    class="button button--primary-filled button--md"
+  >
+    <span
+      class="button__text"
+    >
+      Button
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button Snapshots should apply 'neutral' skin classes 1`] = `
+<DocumentFragment>
+  <button
+    class="button button--neutral-filled button--md"
+  >
+    <span
+      class="button__text"
+    >
+      Button
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button Snapshots should apply 'outline' appearance classes 1`] = `
+<DocumentFragment>
+  <button
+    class="button button--primary-outline button--md"
+  >
+    <span
+      class="button__text"
+    >
+      Button
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button Snapshots should apply 'primary' skin classes 1`] = `
+<DocumentFragment>
+  <button
+    class="button button--primary-filled button--md"
+  >
+    <span
+      class="button__text"
+    >
+      Button
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button Snapshots should apply 'secondary' skin classes 1`] = `
+<DocumentFragment>
+  <button
+    class="button button--secondary-filled button--md"
+  >
+    <span
+      class="button__text"
+    >
+      Button
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button Snapshots should apply 'sm' size classes 1`] = `
+<DocumentFragment>
+  <button
+    class="button button--primary-filled button--sm"
+  >
+    <span
+      class="button__text"
+    >
+      Button
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button Snapshots should apply 'success' skin classes 1`] = `
+<DocumentFragment>
+  <button
+    class="button button--success-filled button--md"
+  >
+    <span
+      class="button__text"
+    >
+      Button
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button Snapshots should apply 'xl' size classes 1`] = `
+<DocumentFragment>
+  <button
+    class="button button--primary-filled button--xl"
+  >
+    <span
+      class="button__text"
+    >
+      Button
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button Snapshots should apply 'xs' size classes 1`] = `
+<DocumentFragment>
+  <button
+    class="button button--primary-filled button--xs"
   >
     <span
       class="button__text"

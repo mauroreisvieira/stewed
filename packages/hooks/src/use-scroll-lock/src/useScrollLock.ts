@@ -1,8 +1,11 @@
 import { useEffect } from "react";
 
 interface UseScrollLockProps {
-  /** A boolean indicating whether the scroll lock should be active. */
-  enabled: boolean;
+  /**
+   * A boolean indicating whether the scroll lock should be active.
+   * @default true
+   */
+  enabled?: boolean;
 }
 
 /**
@@ -10,7 +13,7 @@ interface UseScrollLockProps {
  *
  * @param {UseScrollLockProps} props - The props object containing configuration for scroll lock.
  */
-export function useScrollLock({ enabled }: UseScrollLockProps) {
+export function useScrollLock({ enabled = true }: UseScrollLockProps) {
   // Adds class name to document body when an overlay is active
   useEffect(() => {
     // Save the original overflow style of the document body.

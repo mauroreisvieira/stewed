@@ -21,9 +21,12 @@ type KeysAllowed =
   | "PageUp"
   | "PageDown";
 
-interface UseKeyProps {
-  /** A boolean to enable or disable the hook. */
-  enabled: boolean;
+export interface UseKeyProps {
+  /**
+   * A boolean to enable or disable the hook.
+   * @default true
+   */
+  enabled?: boolean;
   /** An array of keys that the hook should listen to. */
   keys: KeysAllowed[];
   /**
@@ -40,7 +43,7 @@ interface UseKeyProps {
  * @param enabled - A boolean to enable or disable the hook.
  * @param callback - A callback function that gets called when one of the specified keys is pressed.
  */
-export function useKey({ keys, enabled, callback }: UseKeyProps): void {
+export function useKey({ keys, enabled = true, callback }: UseKeyProps): void {
   // State to manage whether the key listener is enabled
   const [isEnabled, setIsEnabled] = useState(enabled);
 

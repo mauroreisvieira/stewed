@@ -1,4 +1,5 @@
 import { useBem } from "../../index";
+// Utilities
 import { renderHook } from "@testing-library/react";
 
 // Mock classNames utility
