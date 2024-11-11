@@ -4,5 +4,5 @@
     "outDir": "./dist",
   },
   "include": ["custom.d.ts", "index.ts", "./src/**/*", "./src/index.ts"],
-  "exclude": ["dist", "src/**/stories", "node_modules"]
+  "exclude": ["dist", "src/**/stories", "src/**/__tests__", "node_modules"]
 }

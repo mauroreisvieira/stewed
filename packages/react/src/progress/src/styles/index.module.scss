@@ -8,12 +8,6 @@
   flex-direction: column;
   width: 100%;
 
-  @include theme.define-var(
-    (
-      radius: 0,
-    )
-  );
-
   &__control {
     position: relative;
     width: 100%;
@@ -88,6 +82,14 @@
         )
       );
     }
+  }
+
+  &--squared {
+    @include theme.define-var(
+      (
+        radius: 0,
+      )
+    );
   }
 
   &--rounded {

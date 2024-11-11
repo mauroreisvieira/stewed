@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Stack Snapshots should render additional classes 1`] = `
+<div>
+  <div
+    class="stack stack--gap-none other-class"
+  >
+    Stack
+  </div>
+</div>
+`;
+
+exports[`Stack Snapshots should render direction classes 1`] = `
+<div>
+  <div
+    class="stack stack--column-reverse stack--gap-none"
+  >
+    Stack
+  </div>
+</div>
+`;
+
+exports[`Stack Snapshots should render gap classes 1`] = `
+<div>
+  <div
+    class="stack stack--gap-2xl"
+  >
+    Stack
+  </div>
+</div>
+`;
+
+exports[`Stack Snapshots should render items classes 1`] = `
+<div>
+  <div
+    class="stack stack--gap-none stack--items-baseline"
+  >
+    Stack
+  </div>
+</div>
+`;
+
+exports[`Stack Snapshots should render justify classes 1`] = `
+<div>
+  <div
+    class="stack stack--gap-none stack--justify-around"
+  >
+    Stack
+  </div>
+</div>
+`;
+
+exports[`Stack Snapshots should render size classes 1`] = `
+<div>
+  <div
+    class="stack stack--gap-none stack--size-4"
+  >
+    Stack
+  </div>
+</div>
+`;
+
+exports[`Stack Snapshots should renders component as main 1`] = `
+<div>
+  <main
+    class="stack stack--gap-none"
+  >
+    Stack
+  </main>
+</div>
+`;
+
+exports[`Stack Snapshots should renders default component 1`] = `
+<div>
+  <div
+    class="stack stack--gap-none"
+  >
+    Stack
+  </div>
+</div>
+`;

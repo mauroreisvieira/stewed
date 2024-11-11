@@ -1,142 +1,142 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Text Snapshots should applies correct alignment classes 1`] = `
-<DocumentFragment>
+<div>
   <p
     class="typography typography--base typography--default typography--alignment-center"
   >
     Text
   </p>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Text Snapshots should applies correct font family classes 1`] = `
-<DocumentFragment>
+<div>
   <p
     class="typography typography--base typography--mono typography--default"
   >
     Text
   </p>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Text Snapshots should applies correct hidden classes 1`] = `
-<DocumentFragment>
+<div>
   <p
     class="typography typography--base typography--default typography--hidden"
   >
     Text
   </p>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Text Snapshots should applies correct line clamp classes 1`] = `
-<DocumentFragment>
+<div>
   <p
     class="typography typography--base typography--default typography--line-clamp-2"
   >
     Text
   </p>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Text Snapshots should applies correct size classes 1`] = `
-<DocumentFragment>
+<div>
   <p
     class="typography typography--base typography--default typography--md"
   >
     Text
   </p>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Text Snapshots should applies correct skin classes 1`] = `
-<DocumentFragment>
+<div>
   <p
     class="typography typography--base typography--primary"
   >
     Text
   </p>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Text Snapshots should applies correct space classes 1`] = `
-<DocumentFragment>
+<div>
   <p
     class="typography typography--base typography--default typography--space-x-md typography--space-y-xl"
   >
     Text
   </p>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Text Snapshots should applies correct variation classes 1`] = `
-<DocumentFragment>
+<div>
   <p
     class="typography typography--base typography--default typography--italic typography--uppercase"
   >
     Text
   </p>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Text Snapshots should applies correct weight classes 1`] = `
-<DocumentFragment>
+<div>
   <p
     class="typography typography--base typography--default typography--extra-bold"
   >
     Text
   </p>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Text Snapshots should applies correct white space classes 1`] = `
-<DocumentFragment>
+<div>
   <p
     class="typography typography--base typography--default typography--white-space-nowrap"
   >
     Text
   </p>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Text Snapshots should render additional classes 1`] = `
-<DocumentFragment>
+<div>
   <p
     class="typography typography--base typography--default other-class"
   >
     Text
   </p>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Text Snapshots should renders component as anchor 1`] = `
-<DocumentFragment>
+<div>
   <a
     class="typography typography--link typography--default"
     href="#"
   >
     Text
   </a>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Text Snapshots should renders component as heading 1`] = `
-<DocumentFragment>
+<div>
   <h1
     class="typography typography--display-1 typography--default"
   >
     Text
   </h1>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Text Snapshots should renders default component 1`] = `
-<DocumentFragment>
+<div>
   <p
     class="typography typography--base typography--default"
   >
     Text
   </p>
-</DocumentFragment>
+</div>
 `;

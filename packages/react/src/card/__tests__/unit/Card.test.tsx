@@ -30,6 +30,17 @@ describe("Card", () => {
       expect(container).toMatchSnapshot();
     });
 
+    it("should render media", () => {
+      const img = new Image();
+      const { container } = render(
+        <Card direction="row">
+          <Card.Media src={img.src} />
+        </Card>,
+      );
+
+      expect(container).toMatchSnapshot();
+    });
+
     it("should render direction classes", () => {
       const { container } = render(
         <Card direction="row">

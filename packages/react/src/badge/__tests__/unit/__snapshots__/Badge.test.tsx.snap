@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Badge Snapshots should applies appearance classes 1`] = `
+<div>
+  <span
+    class="badge badge--primary-outline badge--sm badge--top-right"
+  >
+    Badge
+    <span
+      class="badge__value"
+    />
+  </span>
+</div>
+`;
+
+exports[`Badge Snapshots should applies correct position classes 1`] = `
+<div>
+  <span
+    class="badge badge--primary-filled badge--sm badge--bottom-right"
+  >
+    Badge
+    <span
+      class="badge__value"
+    />
+  </span>
+</div>
+`;
+
+exports[`Badge Snapshots should applies correct size classes 1`] = `
+<div>
+  <span
+    class="badge badge--primary-filled badge--md badge--top-right"
+  >
+    Badge
+    <span
+      class="badge__value"
+    />
+  </span>
+</div>
+`;
+
+exports[`Badge Snapshots should applies critical skin 1`] = `
+<div>
+  <span
+    class="badge badge--critical-filled badge--sm badge--top-right"
+  >
+    Badge
+    <span
+      class="badge__value"
+    />
+  </span>
+</div>
+`;
+
+exports[`Badge Snapshots should render additional classes 1`] = `
+<div>
+  <span
+    class="badge badge--primary-filled badge--sm badge--top-right other-class"
+  >
+    Badge
+    <span
+      class="badge__value"
+    />
+  </span>
+</div>
+`;
+
+exports[`Badge Snapshots should renders default component 1`] = `
+<div>
+  <span
+    class="badge badge--primary-filled badge--sm badge--top-right"
+  >
+    Badge
+    <span
+      class="badge__value"
+    />
+  </span>
+</div>
+`;
+
+exports[`Badge Snapshots should renders value 1`] = `
+<div>
+  <span
+    class="badge badge--primary-filled badge--sm badge--top-right"
+  >
+    Badge
+    <span
+      class="badge__value"
+    >
+      1
+    </span>
+  </span>
+</div>
+`;

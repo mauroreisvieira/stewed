@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button Snapshots renders spinner when loading 1`] = `
-<DocumentFragment>
+<div>
   <button
     class="button button--primary-filled button--md button--loading"
   >
@@ -74,11 +74,11 @@ exports[`Button Snapshots renders spinner when loading 1`] = `
       Button
     </span>
   </button>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Button Snapshots should applies disabled classes 1`] = `
-<DocumentFragment>
+<div>
   <button
     aria-disabled="true"
     class="button button--primary-filled button--md button--disabled"
@@ -90,11 +90,11 @@ exports[`Button Snapshots should applies disabled classes 1`] = `
       Button
     </span>
   </button>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Button Snapshots should applies fullWidth classes 1`] = `
-<DocumentFragment>
+<div>
   <button
     class="button button--primary-filled button--md button--full-width"
   >
@@ -104,11 +104,11 @@ exports[`Button Snapshots should applies fullWidth classes 1`] = `
       Button
     </span>
   </button>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Button Snapshots should applies icon-only classes 1`] = `
-<DocumentFragment>
+<div>
   <button
     class="button button--primary-filled button--md button--icon-only"
   >
@@ -132,11 +132,11 @@ exports[`Button Snapshots should applies icon-only classes 1`] = `
       />
     </span>
   </button>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Button Snapshots should applies pressed classes 1`] = `
-<DocumentFragment>
+<div>
   <button
     aria-pressed="true"
     class="button button--primary-filled button--md button--pressed"
@@ -147,11 +147,11 @@ exports[`Button Snapshots should applies pressed classes 1`] = `
       Button
     </span>
   </button>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Button Snapshots should apply 'critical' skin classes 1`] = `
-<DocumentFragment>
+<div>
   <button
     class="button button--critical-filled button--md"
   >
@@ -161,11 +161,11 @@ exports[`Button Snapshots should apply 'critical' skin classes 1`] = `
       Button
     </span>
   </button>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Button Snapshots should apply 'filled' appearance classes 1`] = `
-<DocumentFragment>
+<div>
   <button
     class="button button--primary-filled button--md"
   >
@@ -175,11 +175,11 @@ exports[`Button Snapshots should apply 'filled' appearance classes 1`] = `
       Button
     </span>
   </button>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Button Snapshots should apply 'ghost' appearance classes 1`] = `
-<DocumentFragment>
+<div>
   <button
     class="button button--primary-ghost button--md"
   >
@@ -189,11 +189,11 @@ exports[`Button Snapshots should apply 'ghost' appearance classes 1`] = `
       Button
     </span>
   </button>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Button Snapshots should apply 'lg' size classes 1`] = `
-<DocumentFragment>
+<div>
   <button
     class="button button--primary-filled button--lg"
   >
@@ -203,11 +203,11 @@ exports[`Button Snapshots should apply 'lg' size classes 1`] = `
       Button
     </span>
   </button>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Button Snapshots should apply 'md' size classes 1`] = `
-<DocumentFragment>
+<div>
   <button
     class="button button--primary-filled button--md"
   >
@@ -217,11 +217,11 @@ exports[`Button Snapshots should apply 'md' size classes 1`] = `
       Button
     </span>
   </button>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Button Snapshots should apply 'neutral' skin classes 1`] = `
-<DocumentFragment>
+<div>
   <button
     class="button button--neutral-filled button--md"
   >
@@ -231,11 +231,11 @@ exports[`Button Snapshots should apply 'neutral' skin classes 1`] = `
       Button
     </span>
   </button>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Button Snapshots should apply 'outline' appearance classes 1`] = `
-<DocumentFragment>
+<div>
   <button
     class="button button--primary-outline button--md"
   >
@@ -245,11 +245,11 @@ exports[`Button Snapshots should apply 'outline' appearance classes 1`] = `
       Button
     </span>
   </button>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Button Snapshots should apply 'primary' skin classes 1`] = `
-<DocumentFragment>
+<div>
   <button
     class="button button--primary-filled button--md"
   >
@@ -259,11 +259,11 @@ exports[`Button Snapshots should apply 'primary' skin classes 1`] = `
       Button
     </span>
   </button>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Button Snapshots should apply 'secondary' skin classes 1`] = `
-<DocumentFragment>
+<div>
   <button
     class="button button--secondary-filled button--md"
   >
@@ -273,11 +273,11 @@ exports[`Button Snapshots should apply 'secondary' skin classes 1`] = `
       Button
     </span>
   </button>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Button Snapshots should apply 'sm' size classes 1`] = `
-<DocumentFragment>
+<div>
   <button
     class="button button--primary-filled button--sm"
   >
@@ -287,11 +287,11 @@ exports[`Button Snapshots should apply 'sm' size classes 1`] = `
       Button
     </span>
   </button>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Button Snapshots should apply 'success' skin classes 1`] = `
-<DocumentFragment>
+<div>
   <button
     class="button button--success-filled button--md"
   >
@@ -301,11 +301,11 @@ exports[`Button Snapshots should apply 'success' skin classes 1`] = `
       Button
     </span>
   </button>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Button Snapshots should apply 'xl' size classes 1`] = `
-<DocumentFragment>
+<div>
   <button
     class="button button--primary-filled button--xl"
   >
@@ -315,11 +315,11 @@ exports[`Button Snapshots should apply 'xl' size classes 1`] = `
       Button
     </span>
   </button>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Button Snapshots should apply 'xs' size classes 1`] = `
-<DocumentFragment>
+<div>
   <button
     class="button button--primary-filled button--xs"
   >
@@ -329,11 +329,11 @@ exports[`Button Snapshots should apply 'xs' size classes 1`] = `
       Button
     </span>
   </button>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Button Snapshots should render additional classes 1`] = `
-<DocumentFragment>
+<div>
   <button
     class="button button--primary-filled button--md other-class"
   >
@@ -343,11 +343,11 @@ exports[`Button Snapshots should render additional classes 1`] = `
       Button
     </span>
   </button>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Button Snapshots should render left slot content 1`] = `
-<DocumentFragment>
+<div>
   <button
     class="button button--primary-filled button--md"
   >
@@ -362,11 +362,11 @@ exports[`Button Snapshots should render left slot content 1`] = `
       Button
     </span>
   </button>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Button Snapshots should render right slot content 1`] = `
-<DocumentFragment>
+<div>
   <button
     class="button button--primary-filled button--md"
   >
@@ -381,11 +381,11 @@ exports[`Button Snapshots should render right slot content 1`] = `
       Right slot
     </span>
   </button>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Button Snapshots should renders component as anchor 1`] = `
-<DocumentFragment>
+<div>
   <a
     class="button button--primary-filled button--md"
     href="#"
@@ -396,11 +396,11 @@ exports[`Button Snapshots should renders component as anchor 1`] = `
       Button
     </span>
   </a>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Button Snapshots should renders default component 1`] = `
-<DocumentFragment>
+<div>
   <button
     class="button button--primary-filled button--md"
   >
@@ -410,5 +410,5 @@ exports[`Button Snapshots should renders default component 1`] = `
       Button
     </span>
   </button>
-</DocumentFragment>
+</div>
 `;

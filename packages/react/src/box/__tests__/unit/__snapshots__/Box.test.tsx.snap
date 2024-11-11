@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Box Snapshots should applies border-color classes 1`] = `
+<div>
+  <div
+    class="box box--border-color-secondary box--border-style-solid"
+  >
+    Box
+  </div>
+</div>
+`;
+
+exports[`Box Snapshots should applies border-style classes 1`] = `
+<div>
+  <div
+    class="box box--border-style-dashed"
+  >
+    Box
+  </div>
+</div>
+`;
+
+exports[`Box Snapshots should applies border-width classes 1`] = `
+<div>
+  <div
+    class="box box--border-width-2 box--border-style-solid"
+  >
+    Box
+  </div>
+</div>
+`;
+
+exports[`Box Snapshots should applies full-screen classes 1`] = `
+<div>
+  <div
+    class="box box--border-style-solid box--full-screen"
+  >
+    Box
+  </div>
+</div>
+`;
+
+exports[`Box Snapshots should applies full-width classes 1`] = `
+<div>
+  <div
+    class="box box--border-style-solid box--full-width"
+  >
+    Box
+  </div>
+</div>
+`;
+
+exports[`Box Snapshots should applies primary skin 1`] = `
+<div>
+  <div
+    class="box box--primary box--border-style-solid"
+  >
+    Box
+  </div>
+</div>
+`;
+
+exports[`Box Snapshots should applies radius classes 1`] = `
+<div>
+  <div
+    class="box box--radius-2xl box--border-style-solid"
+  >
+    Box
+  </div>
+</div>
+`;
+
+exports[`Box Snapshots should render additional classes 1`] = `
+<div>
+  <div
+    class="box box--border-style-solid other-class"
+  >
+    Box
+  </div>
+</div>
+`;
+
+exports[`Box Snapshots should renders component as main 1`] = `
+<div>
+  <main
+    class="box box--border-style-solid"
+  >
+    Box
+  </main>
+</div>
+`;
+
+exports[`Box Snapshots should renders default component 1`] = `
+<div>
+  <div
+    class="box box--border-style-solid"
+  >
+    Box
+  </div>
+</div>
+`;

@@ -50,7 +50,10 @@ export interface BoxProps<T>
    * Accepts values from the `Radius` token to apply consistent corner rounding.
    */
   radius?: Radius;
-  /** Defines the border style of the component. */
+  /**
+   * Defines the border style of the component.
+   * @default solid
+   */
   borderStyle?: "solid" | "dashed";
   /** Defines the thickness of the border, accepts values ranging from 1 to 10. */
   borderWidth?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;

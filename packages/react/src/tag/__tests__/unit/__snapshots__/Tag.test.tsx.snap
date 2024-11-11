@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tag Snapshots should applies appearance classes 1`] = `
+<div>
+  <span
+    class="tag tag--primary-outline tag--md"
+  >
+    Tag
+  </span>
+</div>
+`;
+
+exports[`Tag Snapshots should applies correct size classes 1`] = `
+<div>
+  <span
+    class="tag tag--primary-filled tag--md"
+  >
+    Tag
+  </span>
+</div>
+`;
+
+exports[`Tag Snapshots should applies critical skin 1`] = `
+<div>
+  <span
+    class="tag tag--critical-filled tag--md"
+  >
+    Tag
+  </span>
+</div>
+`;
+
+exports[`Tag Snapshots should render additional classes 1`] = `
+<div>
+  <span
+    class="tag tag--primary-filled tag--md other-class"
+  >
+    Tag
+  </span>
+</div>
+`;
+
+exports[`Tag Snapshots should render left slot content 1`] = `
+<div>
+  <span
+    class="tag tag--primary-filled tag--md"
+  >
+    <span
+      class="tag__left"
+    >
+      Left slot
+    </span>
+    Tag
+  </span>
+</div>
+`;
+
+exports[`Tag Snapshots should render right slot content 1`] = `
+<div>
+  <span
+    class="tag tag--primary-filled tag--md"
+  >
+    Tag
+    <span
+      class="tag__right"
+    >
+      Right slot
+    </span>
+  </span>
+</div>
+`;
+
+exports[`Tag Snapshots should renders component as anchor 1`] = `
+<DocumentFragment>
+  <a
+    class="tag tag--primary-filled tag--md"
+    href="#"
+  >
+    Tag
+  </a>
+</DocumentFragment>
+`;
+
+exports[`Tag Snapshots should renders default component 1`] = `
+<div>
+  <span
+    class="tag tag--primary-filled tag--md"
+  >
+    Tag
+  </span>
+</div>
+`;

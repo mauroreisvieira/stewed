@@ -48,6 +48,23 @@ exports[`Card Snapshots should render direction classes 1`] = `
 </div>
 `;
 
+exports[`Card Snapshots should render media 1`] = `
+<div>
+  <div
+    class="card card--default card--row card--padding-block-xl card--padding-inline-xl card--shadow-sm"
+  >
+    <div
+      class="card__media"
+    >
+      <img
+        class="card__media__img"
+        src=""
+      />
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Card Snapshots should render padding classes 1`] = `
 <div>
   <div

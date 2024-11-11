@@ -1,6 +1,6 @@
 import React from "react";
 // Tokens
-import { type Spacings, type Viewport, type Screens, components } from "@stewed/tokens";
+import { components, type Spacings } from "@stewed/tokens";
 // Hooks
 import { useBem, useResponsive, type UseResponsiveProps } from "@stewed/hooks";
 import { useTheme } from "../../theme";
@@ -48,17 +48,6 @@ export interface StackProps<T>
    * @default div
    */
   as?: T;
-  /**
-   * Change the visual style of the Section.
-   * @default default
-   */
-  skin?: "default" | "neutral" | "neutral-faded" | "primary" | "primary-faded";
-  /**
-   * Identifies a styling option specifically for the screen size.
-   *
-   * @remarks This property can be used to set the height to fill the entire screen.
-   */
-  screen?: Extract<Viewport, "vh"> | Extract<Screens, "full">;
 }
 
 /**

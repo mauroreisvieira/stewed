@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListBox Snapshots should render additional classes 1`] = `
+<div>
+  <div
+    class="list-box other-class"
+    role="listbox"
+  >
+    <div
+      class="list-box__group other-group-class"
+      role="group"
+    >
+      <div
+        class="list-box__item other-item-class"
+        role="option"
+        tabindex="-1"
+      >
+        <div
+          class="list-box__item__text"
+        >
+          Item
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ListBox Snapshots should render left slot content 1`] = `
+<div>
+  <div
+    class="list-box"
+    role="listbox"
+  >
+    <div
+      class="list-box__item"
+      role="option"
+      tabindex="-1"
+    >
+      <div
+        class="list-box__item__left"
+      >
+        Left slot
+      </div>
+      <div
+        class="list-box__item__text"
+      >
+        Item
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ListBox Snapshots should render right slot content 1`] = `
+<div>
+  <div
+    class="list-box"
+    role="listbox"
+  >
+    <div
+      class="list-box__item"
+      role="option"
+      tabindex="-1"
+    >
+      <div
+        class="list-box__item__text"
+      >
+        Item
+      </div>
+      <div
+        class="list-box__item__right"
+      >
+        Right slot
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ListBox Snapshots should renders default component 1`] = `
+<div>
+  <div
+    class="list-box"
+    role="listbox"
+  >
+    <div
+      class="list-box__item"
+      role="option"
+      tabindex="-1"
+    >
+      <div
+        class="list-box__item__text"
+      >
+        Item
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ListBox Snapshots should renders group component 1`] = `
+<div>
+  <div
+    class="list-box"
+    role="listbox"
+  >
+    <div
+      class="list-box__group"
+      role="group"
+    >
+      <div
+        class="list-box__group__title"
+      >
+        Group
+      </div>
+      <div
+        class="list-box__item"
+        role="option"
+        tabindex="-1"
+      >
+        <div
+          class="list-box__item__text"
+        >
+          Item
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
