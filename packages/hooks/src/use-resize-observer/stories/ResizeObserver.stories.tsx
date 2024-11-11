@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // UI Components
-import { Box, List, Stack, Text, Theme } from "@stewed/react";
+import { Box, Stack, Text, Theme } from "@stewed/react";
 // Hooks
 import { useResizeObserver } from "../index";
 

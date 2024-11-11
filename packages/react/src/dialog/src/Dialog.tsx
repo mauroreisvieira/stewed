@@ -164,6 +164,7 @@ export function Dialog({
           <DialogContext.Provider value={{ onClose }}>
             <div className={cssClasses.root} {...props}>
               <Motion
+                timing="ease-out-back"
                 duration={open ? "normal" : "quickly"}
                 animation={open ? "zoom-in-soft" : "zoom-out-soft"}
                 onDone={onHandleAnimationEnd}
