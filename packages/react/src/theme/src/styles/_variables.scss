@@ -118,6 +118,96 @@ $config: (
     "notification": var(--elevation-notification),
     "hint": var(--elevation-hint),
   ),
+  "palette": (
+    "indigo": (
+      "100": var(--color-indigo-100),
+      "200": var(--color-indigo-200),
+      "300": var(--color-indigo-300),
+      "400": var(--color-indigo-400),
+      "500": var(--color-indigo-500),
+      "600": var(--color-indigo-600),
+      "700": var(--color-indigo-700),
+      "800": var(--color-indigo-800),
+      "900": var(--color-indigo-900),
+    ),
+    "pink": (
+      "100": var(--color-pink-100),
+      "200": var(--color-pink-200),
+      "300": var(--color-pink-300),
+      "400": var(--color-pink-400),
+      "500": var(--color-pink-500),
+      "600": var(--color-pink-600),
+      "700": var(--color-pink-700),
+      "800": var(--color-pink-800),
+      "900": var(--color-pink-900),
+    ),
+    "gray": (
+      "100": var(--color-gray-100),
+      "200": var(--color-gray-200),
+      "300": var(--color-gray-300),
+      "400": var(--color-gray-400),
+      "500": var(--color-gray-500),
+      "600": var(--color-gray-600),
+      "700": var(--color-gray-700),
+      "800": var(--color-gray-800),
+      "900": var(--color-gray-900),
+    ),
+    "red": (
+      "100": var(--color-red-100),
+      "200": var(--color-red-200),
+      "300": var(--color-red-300),
+      "400": var(--color-red-400),
+      "500": var(--color-red-500),
+      "600": var(--color-red-600),
+      "700": var(--color-red-700),
+      "800": var(--color-red-800),
+      "900": var(--color-red-900),
+    ),
+    "green": (
+      "100": var(--color-green-100),
+      "200": var(--color-green-200),
+      "300": var(--color-green-300),
+      "400": var(--color-green-400),
+      "500": var(--color-green-500),
+      "600": var(--color-green-600),
+      "700": var(--color-green-700),
+      "800": var(--color-green-800),
+      "900": var(--color-green-900),
+    ),
+    "blue": (
+      "100": var(--color-blue-100),
+      "200": var(--color-blue-200),
+      "300": var(--color-blue-300),
+      "400": var(--color-blue-400),
+      "500": var(--color-blue-500),
+      "600": var(--color-blue-600),
+      "700": var(--color-blue-700),
+      "800": var(--color-blue-800),
+      "900": var(--color-blue-900),
+    ),
+    "yellow": (
+      "100": var(--color-yellow-100),
+      "200": var(--color-yellow-200),
+      "300": var(--color-yellow-300),
+      "400": var(--color-yellow-400),
+      "500": var(--color-yellow-500),
+      "600": var(--color-yellow-600),
+      "700": var(--color-yellow-700),
+      "800": var(--color-yellow-800),
+      "900": var(--color-yellow-900),
+    ),
+    "teal": (
+      "100": var(--color-teal-100),
+      "200": var(--color-teal-200),
+      "300": var(--color-teal-300),
+      "400": var(--color-teal-400),
+      "500": var(--color-teal-500),
+      "600": var(--color-teal-600),
+      "700": var(--color-teal-700),
+      "800": var(--color-teal-800),
+      "900": var(--color-teal-900),
+    ),
+  ),
   "colors": (
     "primary": (
       "background": var(--color-primary-background),
@@ -245,7 +335,10 @@ $spacings: map.get($config, spacings);
 /// Specifies border radius values for elements (sm, md, lg, xl, none, rounded).
 $radius: map.get($config, radius);
 
-/// Defines color palettes for primary, neutral, critical, success, info and warning
+/// Defines color palettes
+$palette: map.get($config, palette);
+
+/// Defines color primary, neutral, critical, success, info and warning
 $colors: map.get($config, colors);
 
 /// Defines responsive breakpoints (sm, md, lg, xl).

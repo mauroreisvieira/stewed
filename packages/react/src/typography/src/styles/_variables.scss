@@ -80,6 +80,7 @@ $typography-space: theme.get-spacing();
 
 /// Skins
 $typography-skins: (
+  "transparent": transparent,
   "inherit": inherit,
   "white": theme.get-color("white"),
   "black": theme.get-color("black"),

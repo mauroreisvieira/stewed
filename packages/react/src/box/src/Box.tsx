@@ -50,10 +50,7 @@ export interface BoxProps<T>
    * Accepts values from the `Radius` token to apply consistent corner rounding.
    */
   radius?: Radius;
-  /**
-   * Defines the border style of the component.
-   * @default solid
-   */
+  /** Defines the border style of the component. */
   borderStyle?: "solid" | "dashed";
   /** Defines the thickness of the border, accepts values ranging from 1 to 10. */
   borderWidth?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
@@ -98,7 +95,7 @@ export const Box = fixedForwardRef(function Box<T extends React.ElementType>(
     radius,
     borderColor,
     borderWidth,
-    borderStyle = "solid",
+    borderStyle,
     fullWidth,
     fullScreen,
     className,

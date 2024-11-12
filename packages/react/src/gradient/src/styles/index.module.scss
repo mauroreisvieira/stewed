@@ -1,0 +1,34 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+@use "./variables" as *;
+
+@include theme.scope($gradient-root) {
+  background-image: linear-gradient(to right, theme.get-var(from), theme.get-var(to));
+
+  &--clip-text {
+    background-clip: text;
+  }
+
+  // From
+  @each $color, $shades in $gradient-palette {
+    @each $shade, $value in $shades {
+      &--from-#{$color}-#{$shade} {
+        @include theme.define-var(
+          (
+            from: $value,
+          )
+        );
+      }
+    }
+
+    // To
+    @each $shade, $value in $shades {
+      &--to-#{$color}-#{$shade} {
+        @include theme.define-var(
+          (
+            to: $value,
+          )
+        );
+      }
+    }
+  }
+}

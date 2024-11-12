@@ -5,6 +5,7 @@ import { useTheme } from "../../theme";
 // Types
 import { type DistributiveOmit, fixedForwardRef } from "../../types";
 import {
+  type Palette,
   type Spacings,
   type FontSize,
   type FontWeight,
@@ -81,6 +82,7 @@ export interface TextProps<T>
    * @default text
    */
   skin?:
+    | "transparent"
     | "inherit"
     | "white"
     | "black"

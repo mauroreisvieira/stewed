@@ -17,6 +17,7 @@ export * from "./dialog";
 export * from "./drawer";
 export * from "./dropdown";
 export * from "./form-field";
+export * from "./gradient";
 export * from "./grid";
 export * from "./group";
 export * from "./hoverable";

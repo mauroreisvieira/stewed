@@ -3,9 +3,10 @@ import React from "react";
 import { useBem } from "@stewed/hooks";
 // Tokens
 import { components, Duration, Timing } from "@stewed/tokens";
+// Utilities
+import { classNames } from "@stewed/utilities";
 // Styles
 import styles from "./styles/index.module.scss";
-import { classNames } from "@stewed/utilities";
 
 const animations = {
   zoom: ["zoom-in", "zoom-out", "zoom-in-soft", "zoom-out-soft"],
