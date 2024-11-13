@@ -37,6 +37,10 @@
     font-size: inherit;
   }
 
+  &--disabled {
+    @include theme.disabled-styles;
+  }
+
   &--xs {
     @include theme.define-var(
       (
@@ -87,7 +91,7 @@
           )
         );
 
-        &[href]:hover {
+        &[href]:hover:not([aria-disabled="true"]) {
           @include theme.define-var(
             (
               background-color: theme.get-color($value, "background"),
@@ -95,7 +99,7 @@
           );
         }
 
-        &[href]:active {
+        &[href]:not([aria-disabled="true"]):active {
           @include theme.define-var(
             (
               background-color: theme.get-color($value, "background"),
@@ -112,7 +116,7 @@
           )
         );
 
-        &[href]:hover {
+        &[href]:hover:not([aria-disabled="true"]) {
           @include theme.define-var(
             (
               background-color: theme.get-color($value, "background-faded"),
@@ -120,7 +124,7 @@
           );
         }
 
-        &[href]:active {
+        &[href]:not([aria-disabled="true"]):active {
           @include theme.define-var(
             (
               background-color: theme.get-color($value, "background-faded"),
@@ -138,7 +142,7 @@
           )
         );
 
-        &[href]:hover {
+        &[href]:hover:not([aria-disabled="true"]) {
           @include theme.define-var(
             (
               color: theme.get-color($value, "foreground"),
@@ -146,7 +150,7 @@
           );
         }
 
-        &[href]:active {
+        &[href]:active:not([aria-disabled="true"]) {
           @include theme.define-var(
             (
               color: theme.get-color($value, "foreground"),
@@ -164,18 +168,19 @@
           )
         );
 
-        &[href]:hover {
+        &[href]:not([aria-disabled="true"]):hover {
           @include theme.define-var(
             (
-              color: theme.get-color($value, "foreground"),
+              background-color: theme.get-color($value, "background-faded"),
             )
           );
         }
 
-        &[href]:active {
+        &[href]:not([aria-disabled="true"]):active {
           @include theme.define-var(
             (
-              color: theme.get-color($value, "foreground"),
+              background-color:
+                color-mix(in srgb, theme.get-color($value, "background"), transparent 90%),
             )
           );
         }

@@ -12,7 +12,7 @@ import styles from "./styles/index.module.scss";
 // Default HTML element type for the this component
 const defaultElement = "span";
 
-export interface TagProps<T> extends React.ComponentProps<typeof defaultElement> {
+export interface TagProps<T = "span"> extends React.ComponentProps<typeof defaultElement> {
   /**
    * Specifies the type of element to use as the tag.
    * @default span
@@ -81,13 +81,16 @@ export const Tag = fixedForwardRef(function Tag<T extends React.ElementType>(
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ modifiers: [`${skin}-${appearance}`, size], extraClasses: className }),
+    root: getBlock({
+      modifiers: [`${skin}-${appearance}`, size, props.disabled && "disabled"],
+      extraClasses: className,
+    }),
     left: getElement(["left"]),
     right: getElement(["right"]),
   };
 
   return (
-    <Comp ref={ref} className={cssClasses.root} {...props}>
+    <Comp ref={ref} className={cssClasses.root} aria-disabled={props.disabled} {...props}>
       {leftSlot && <span className={cssClasses.left}>{leftSlot}</span>}
       {children}
       {rightSlot && <span className={cssClasses.right}>{rightSlot}</span>}

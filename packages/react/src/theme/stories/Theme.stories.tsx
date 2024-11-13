@@ -25,6 +25,7 @@ import {
 import { useStateForm } from "@stewed/hooks";
 // Tokens
 import {
+  skin,
   color,
   palette,
   breakpoints,
@@ -56,16 +57,22 @@ export const Palette: Story = {
   render: (): React.ReactElement => {
     return (
       <Theme>
-        <Grid cols={9}>
+        <Grid cols={9} gap="xs">
           {Object.keys(palette).map((color, index) => (
             <Box
               key={color}
-              padding={{ block: "2xl" }}
+              radius="md"
+              padding={{ block: "3xl" }}
               style={{
                 backgroundColor: `var(--color-${color})`,
               }}
             >
-              <Text size="xs" alignment="center" skin={index % 9 >= 4 ? "white" : "black"}>
+              <Text
+                size="xs"
+                weight="medium"
+                alignment="center"
+                skin={index % 9 >= 4 || color === "black" ? "white" : "black"}
+              >
                 {color}
               </Text>
             </Box>
@@ -88,7 +95,7 @@ export const Colors: Story = {
             </Table.Row>
           </Table.Head>
           <Table.Body>
-            {Object.entries(color).map(([key, val]) => (
+            {Object.entries({...color, ...skin}).map(([key, val]) => (
               <Table.Row key={key}>
                 <Table.Cell>{key}</Table.Cell>
                 <Table.Cell>{val}</Table.Cell>

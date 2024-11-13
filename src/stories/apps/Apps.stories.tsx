@@ -698,7 +698,7 @@ export const Music = {
   },
 };
 
-export const Chat = {
+export const ChatAI = {
   render: function Render() {
     return (
       <Theme>

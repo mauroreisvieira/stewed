@@ -27,6 +27,7 @@ export const Base: Story = {
     children: "Base",
   },
 };
+
 export const Outline: Story = {
   args: {
     skin: "primary",
@@ -44,7 +45,6 @@ export const LeftSlot: Story = {
   args: {
     skin: "primary",
     size: "lg",
-    appearance: "soft",
     children: "Premium",
     leftSlot: <FiStar />,
   },

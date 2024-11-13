@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 // UI Components
 import { Root } from "./Root";
 // Tokens
-import { type Tokens, defaultTokens } from "@stewed/tokens";
+import { defaultTokens, type Tokens } from "@stewed/tokens";
 // Context
 import { ThemeContext, type ThemeContextProps } from "./ThemeContext";
 // Utilities
@@ -14,6 +14,8 @@ export interface ThemeProps<T extends string = "default">
    * Set the default theme to be used when no theme is set.
    * @remarks This prop is uncontrolled, meaning the component will manage its own internal state for the default theme.
    * If you provide a value, it will be used as the initial default theme.
+   *
+   * @default default
    */
   defaultTheme?: ThemeContextProps<T>["defaultTheme"];
   /**
@@ -34,7 +36,7 @@ export interface ThemeProps<T extends string = "default">
  * @returns {React.ReactElement} - React element representing the themed application.
  */
 export function Theme<T extends string>({
-  defaultTheme,
+  defaultTheme = "default",
   theme: activeTheme,
   tokens: currentTokens,
   ...props
