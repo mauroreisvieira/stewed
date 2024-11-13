@@ -1,3 +1,4 @@
+@use "sass:meta";
 @use "@stewed/react/src/theme/src/styles" as theme;
 @use "./variables" as *;
 
@@ -8,24 +9,38 @@
     background-clip: text;
   }
 
-  // From
   @each $color, $shades in $gradient-palette {
-    @each $shade, $value in $shades {
-      &--from-#{$color}-#{$shade} {
+    @if meta.type-of($shades) == "map" {
+      @each $shade, $value in $shades {
+        @if $shade != NULL {
+          &--from-#{$color}-#{$shade} {
+            @include theme.define-var(
+              (
+                from: $value,
+              )
+            );
+          }
+          &--to-#{$color}-#{$shade} {
+            @include theme.define-var(
+              (
+                to: $value,
+              )
+            );
+          }
+        }
+      }
+    } @else {
+      &--from-#{$color} {
         @include theme.define-var(
           (
-            from: $value,
+            from: $shades,
           )
         );
       }
-    }
-
-    // To
-    @each $shade, $value in $shades {
-      &--to-#{$color}-#{$shade} {
+      &--to-#{$color} {
         @include theme.define-var(
           (
-            to: $value,
+            to: $shades,
           )
         );
       }

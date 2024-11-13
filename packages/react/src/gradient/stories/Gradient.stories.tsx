@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // Components
-import { Theme, Gradient, Box, Text, Button, Stack, Card } from "../../index";
+import { Theme, Gradient, Box, Text } from "../../index";
 
 type Story = StoryObj<typeof Gradient>;
 
@@ -43,33 +43,7 @@ export const Background: Story = {
   render: function Render({ ...args }) {
     return (
       <Gradient {...args}>
-        <Card
-          padding={{
-            block: "xl",
-            inline: "xl",
-          }}
-          shadow="2xl"
-        >
-          <Card.Header>
-            <Text as="h2" skin="white">Startup</Text>
-          </Card.Header>
-          <Card.Body>
-            <Stack direction="column" gap="2xl">
-              <Text skin="white">Tailored for propelling your business to success!</Text>
-              <Stack items="baseline" gap="sm">
-                <Text skin="white" size="4xl" weight="bold">
-                  144€
-                </Text>
-                <Text skin="white" size="xs" weight="medium">
-                  /year
-                </Text>
-              </Stack>
-            </Stack>
-          </Card.Body>
-          <Card.Footer>
-            <Button skin="secondary" size="xl" fullWidth>Subscribe</Button>
-          </Card.Footer>
-        </Card>
+        <Box padding={{ block: "9xl", inline: "9xl" }} radius="md" />
       </Gradient>
     );
   },
