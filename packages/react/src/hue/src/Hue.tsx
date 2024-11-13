@@ -8,11 +8,16 @@ import { classNames } from "@stewed/utilities";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface GradientProps {
-  /** The starting color of the gradient, defined by a palette. */
-  from?: Palette;
-  /** The ending color of the gradient, defined by a palette. */
-  to?: Palette;
+export interface HueProps {
+  /** Determines the background style or gradient colors. */
+  skin?:
+    | Palette
+    | {
+        /** The starting color of the gradient, defined by a palette.  */
+        from: Palette;
+        /** The ending color of the gradient, defined by a palette.  */
+        to: Palette;
+      };
   /**
    * If true, applies the gradient as a clipped background to the text within the component.
    * @default false
@@ -28,22 +33,29 @@ export interface GradientProps {
  *
  * @example
  * ```tsx
- * <Gradient from="red-700" to="red-100">
+ * <Hue skin={{ from: "indigo-500", to: "pink-800" }}>
  *   <div />
- * </Gradient>
+ * </Hue>
  * ```
  *
- * @param {GradientProps} props - The props for the Gradient component.
- * @returns {React.ReactElement} - The rendered Gradient component.
+ * @param {HueProps} props - The props for the Hue component.
+ * @returns {React.ReactElement} - The rendered Hue component.
  */
-export function Gradient({ from, to, clipText, children }: GradientProps): React.ReactElement {
+export function Hue({ skin, clipText, children }: HueProps): React.ReactElement {
   // Importing useBem to handle BEM class names
-  const { getBlock } = useBem({ block: components.Gradient, styles });
+  const { getBlock } = useBem({ block: components.Hue, styles });
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({
-      modifiers: [from && `from-${from}`, to && `to-${to}`, clipText && "clip-text"],
+      modifiers: [
+        skin && typeof skin !== "string" && "gradient",
+        skin && typeof skin === "string" && "solid",
+        typeof skin === "string" && skin,
+        typeof skin !== "string" && skin?.from && `from-${skin.from}`,
+        typeof skin !== "string" && skin?.to && `to-${skin.to}`,
+        clipText && "clip-text",
+      ],
     }),
   };
 

@@ -20,7 +20,7 @@ export const components = {
   Drawer: "drawer",
   Dropdown: "dropdown",
   FormField: "form-field",
-  Gradient: "gradient",
+  Hue: "hue",
   Grid: "grid",
   Group: "group",
   List: "list",
