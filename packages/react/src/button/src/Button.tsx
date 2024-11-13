@@ -28,7 +28,7 @@ export interface ButtonProps<T = "button"> extends React.ComponentProps<typeof d
    * Change the visual appearance of the button.
    * @default filled
    */
-  appearance?: "filled" | "ghost" | "outline";
+  appearance?: "filled" | "soft" | "outline" | "ghost";
   /**
    * Changes the size of the button, giving it more or less padding.
    * @default md
@@ -51,8 +51,6 @@ export interface ButtonProps<T = "button"> extends React.ComponentProps<typeof d
   disabled?: boolean;
   /** Displays a loading indicator on the button. */
   loading?: boolean;
-  /** The content to display inside the button. */
-  children?: React.ReactNode;
 }
 
 /**

@@ -23,10 +23,13 @@ export default meta;
 
 export const Base: Story = {
   args: {
-    disabled: false,
-    size: "md",
+    children: "Button",
+  },
+};
+
+export const Skin: Story = {
+  args: {
     skin: "neutral",
-    appearance: "filled",
     children: "Button",
   },
 };
@@ -39,30 +42,6 @@ export const LeftSlot: Story = {
   },
   args: {
     leftSlot: <FiSearch />,
-    children: "Button",
-  },
-};
-
-export const IconOnly: Story = {
-  argTypes: {
-    leftSlot: {
-      control: false,
-    },
-  },
-  args: {
-    appearance: "filled",
-    skin: "primary",
-    size: "sm",
-    iconOnly: true,
-    leftSlot: <FiSearch />,
-    children: "Button",
-  },
-};
-
-export const Polymorphic: Story = {
-  args: {
-    as: "span",
-    role: "button",
     children: "Button",
   },
 };

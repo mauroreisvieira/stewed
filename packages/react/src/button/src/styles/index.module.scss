@@ -66,7 +66,7 @@
         }
 
         &.#{$button-root}--pressed,
-        &:active {
+        &:active:not([aria-disabled="true"]) {
           @include theme.define-var(
             (
               background-color: theme.get-color($value, "background-pressed"),
@@ -97,7 +97,7 @@
         }
 
         &.#{$button-root}--pressed,
-        &:active {
+        &:active:not([aria-disabled="true"]) {
           @include theme.define-var(
             (
               background-color:
@@ -129,10 +129,38 @@
         }
 
         &.#{$button-root}--pressed,
-        &:active {
+        &:active:not([aria-disabled="true"]) {
           @include theme.define-var(
             (
               color: theme.get-color($value, "foreground"),
+            )
+          );
+        }
+      }
+
+      &-soft {
+        @include theme.define-var(
+          (
+            color: theme.get-color($value, "foreground"),
+            background-color:
+              color-mix(in srgb, theme.get-color($value, "background-faded"), transparent 20%),
+          )
+        );
+
+        &:hover:not([aria-disabled="true"]) {
+          @include theme.define-var(
+            (
+              background-color: theme.get-color($value, "background-faded"),
+            )
+          );
+        }
+
+        &.#{$button-root}--pressed,
+        &:active:not([aria-disabled="true"]) {
+          @include theme.define-var(
+            (
+              background-color:
+                color-mix(in srgb, theme.get-color($value, "background"), transparent 90%),
             )
           );
         }
