@@ -27,7 +27,7 @@ import {
   Box,
   useTheme,
   TextArea,
-  Gradient,
+  Hue,
 } from "@stewed/react";
 // Hooks
 import { useToggle, useFetch } from "@stewed/hooks";
@@ -90,7 +90,7 @@ function Discover(): React.ReactElement {
   const { add } = useSnackbar();
 
   // Theme management hook to set and retrieve the current theme
-  const { setTheme, theme } = useTheme();
+  const { setTheme, theme } = useTheme<"default" | "dark">();
 
   // Unique identifier generated using the current timestamp
   const idx = new Date().getTime().toString();
@@ -337,7 +337,7 @@ function Discover(): React.ReactElement {
                   <Grid.Item key={index}>
                     <Hoverable>
                       {({ isHovering, isTouch }) => (
-                        <Card skin="neutral-faded" shadow="none">
+                        <Card shadow="none">
                           <Box>
                             <Stack direction="row" items="center" justify="between" grow>
                               <Stack items="center" gap="md">
@@ -431,7 +431,7 @@ function Discover(): React.ReactElement {
                 <Separator space={{ block: "lg" }} />
                 <Grid cols={2} responsive={{ sm: { cols: 4 }, md: { cols: 8 } }} gap="md">
                   {images?.results?.map((image, index) => (
-                    <Card skin="neutral-faded" key={index} padding={{ block: "lg", inline: "md" }}>
+                    <Card key={index} padding={{ block: "lg", inline: "md" }}>
                       <Card.Media
                         src={`${image.urls.raw}&w=200&h=200&fit=crop`}
                         alt={image.alt_description}
@@ -649,6 +649,7 @@ export const Music = {
         tokens={{
           default: {
             color: {
+              "background-surface": "slate-100",
               "primary-background": "#1db954",
               "primary-background-hovered": "#1aa64b",
               "primary-background-pressed": "#179443",
@@ -671,14 +672,15 @@ export const Music = {
               "background-backdrop": "#aaaaaaa8",
               "background-default": "#0f162a",
               "background-elevated": "#0f162a",
-              "background-surface": "#0f162a",
+              "background-surface": "#3b4554",
               "foreground-default": "#fff",
-              "neutral-background": "gray-500",
-              "neutral-background-faded": "gray-800",
-              "neutral-border-faded": "gray-700",
-              "neutral-foreground": "gray-100",
+              "neutral-background": "slate-500",
+              "neutral-background-faded": "slate-800",
+              "neutral-border-faded": "slate-700",
+              "neutral-foreground": "slate-100",
               "secondary-background": "#fff",
-              "secondary-background-hovered": "#FCFCFC",
+              "secondary-background-hovered": "#fcfcfc",
+              "secondary-background-pressed": "#fcfcfc",
               "secondary-foreground": "#fff",
               "secondary-foreground-on-background": "#121212",
             },
@@ -707,11 +709,11 @@ export const ChatAI = {
             <Box space={{ y: "4xl" }}>
               <Text weight="medium" size="7xl">
                 Hi there,{" "}
-                <Gradient from="indigo-500" to="pink-800" clipText>
+                <Hue skin={{ from: "indigo-500", to: "pink-800" }} clipText>
                   <Text skin="transparent" as="span" weight="extra-bold" inherit>
                     Devon Lane
                   </Text>
-                </Gradient>
+                </Hue>
               </Text>
 
               <Text weight="semi-bold" size="5xl" space={{ y: "lg" }}>
@@ -786,7 +788,7 @@ export const ChatAI = {
               </Stack>
             </Box>
 
-            <Card skin="default" padding={{ block: "md", inline: "md" }} shadow="md">
+            <Card padding={{ block: "md", inline: "md" }} shadow="md">
               <Card.Body>
                 <Stack direction="column" gap="md">
                   <TextArea

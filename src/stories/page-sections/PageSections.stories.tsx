@@ -97,6 +97,7 @@ export const PricingPlans = {
               {plans.map(({ title, description, price }, index) => (
                 <Box
                   key={index}
+                  borderStyle="solid"
                   borderColor={index === 1 ? "primary" : undefined}
                   radius="md"
                   fullWidth
@@ -282,6 +283,7 @@ export const FAQ = {
                     </>
                   )}
                 </Accordion.Item>
+                <Separator />
                 <Accordion.Item open>
                   {({ open }) => (
                     <>
@@ -298,6 +300,7 @@ export const FAQ = {
                     </>
                   )}
                 </Accordion.Item>
+                <Separator />
                 <Accordion.Item>
                   {({ open }) => (
                     <>

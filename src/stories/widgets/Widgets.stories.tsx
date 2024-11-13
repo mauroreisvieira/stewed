@@ -20,6 +20,7 @@ import {
   ListBox,
   Calendar,
   Popover,
+  Hue,
 } from "@stewed/react";
 // Hooks
 import { useSelect, useToggle } from "@stewed/hooks";
@@ -35,7 +36,6 @@ import {
 } from "react-icons/md";
 import { FiCopy } from "react-icons/fi";
 import { FaPaypal, FaCreditCard, FaApple } from "react-icons/fa";
-import { Gradient } from "@stewed/react/src";
 
 const meta = {
   title: "Examples/Widgets",
@@ -182,7 +182,7 @@ export const Notification = {
             </Stack>
           </Card.Body>
           <Card.Footer>
-            <Button fullWidth>Save preferences</Button>
+            <Button appearance="soft" fullWidth>Save preferences</Button>
           </Card.Footer>
         </Card>
       </Container>
@@ -208,7 +208,7 @@ export const RecentActivity = {
                   </Button>
                 )}
               >
-                <Text size="xs" skin="inherit">
+                <Text size="xs" inherit>
                   Pin this widget to your dashboard for quick access.
                 </Text>
               </Tooltip>
@@ -514,6 +514,7 @@ export const PaymentMethod = {
                     key={name}
                     radius="md"
                     borderWidth={1}
+                    borderStyle="solid"
                     borderColor={idx === index ? "success" : "neutral-faded"}
                     padding={{ inline: "lg", block: "lg" }}
                     onClick={() => setIndex(idx)}
@@ -654,7 +655,7 @@ export const CompletedProgress = {
   render: function Render() {
     return (
       <Container screen="xl" alignment="center" padding={{ block: "7xl" }}>
-        <Gradient from="indigo-600" to="blue-900">
+        <Hue skin={{ from: "indigo-600", to: "blue-900" }}>
           <Card padding={{ block: "2xl", inline: "2xl" }}>
             <Card.Body>
               <Stack direction="column" gap="xl">
@@ -690,7 +691,7 @@ export const CompletedProgress = {
               </Stack>
             </Card.Body>
           </Card>
-        </Gradient>
+        </Hue>
       </Container>
     );
   },

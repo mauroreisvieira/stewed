@@ -4,6 +4,7 @@
 @use "./variables" as *;
 
 @include theme.scope($textarea-root) {
+  all: unset;
   position: relative;
   box-sizing: border-box;
   display: inline-flex;
@@ -22,6 +23,7 @@
     @include theme.disabled-styles;
   }
 
+  // Resize
   @each $value in ("both", "horizontal", "vertical", "none") {
     &--resize-#{$value} {
       @include theme.define-var(

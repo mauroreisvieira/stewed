@@ -55,6 +55,17 @@
     padding-inline-start: theme.get-spacing("md");
   }
 
+  // Sizes
+  @each $key, $value in $input-sizes {
+    &--#{$key} {
+      @include theme.define-var(
+        (
+          height: $value,
+        )
+      );
+    }
+  }
+
   // Skins
   @each $key, $value in $input-skins {
     &--#{$key} {
@@ -63,17 +74,6 @@
           border-color: map.get($value, "border"),
           background-color: map.get($value, "background-color"),
           background-color-faded: map.get($value, "background-color-faded"),
-        )
-      );
-    }
-  }
-
-  // Sizes
-  @each $key, $value in $input-sizes {
-    &--#{$key} {
-      @include theme.define-var(
-        (
-          height: $value,
         )
       );
     }
