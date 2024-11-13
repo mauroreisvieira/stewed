@@ -1,4 +1,10 @@
 export const palette = {
+  // White
+  "white": "#fff",
+  // Color
+  "black": "#000",
+  // Transparent
+  "transparent": "transparent",
   // Indigo ------------------------------------------------------------------
   "indigo-100": "color-mix(in oklab, var(--color-indigo-500) 10%, white)",
   "indigo-200": "color-mix(in oklab, var(--color-indigo-500) 20%, white)",

@@ -27,6 +27,7 @@ import {
   Box,
   useTheme,
   TextArea,
+  Gradient,
 } from "@stewed/react";
 // Hooks
 import { useToggle, useFetch } from "@stewed/hooks";
@@ -37,9 +38,18 @@ import { TbMenuDeep, TbMicrophone2 } from "react-icons/tb";
 import { FaPlay } from "react-icons/fa";
 import { RxGrid } from "react-icons/rx";
 import { LuListMusic, LuMusic2 } from "react-icons/lu";
-import { IoPersonCircleOutline, IoRadioOutline } from "react-icons/io5";
+import {
+  IoPersonCircleOutline,
+  IoRadioOutline,
+  IoAttach,
+  IoImage,
+  IoMailOutline,
+  IoSettingsOutline,
+} from "react-icons/io5";
 import { FiSearch, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { PiBrowsersFill } from "react-icons/pi";
+import { GoArrowRight, GoTasklist } from "react-icons/go";
+import { BsBodyText } from "react-icons/bs";
 import {
   MdNotifications,
   MdOutlinePlayCircleOutline,
@@ -55,62 +65,15 @@ import {
 } from "react-icons/md";
 
 const meta: Meta = {
-  title: "Examples/Music",
+  title: "Examples/Applications",
   parameters: {
     layout: "fullscreen",
   },
-  decorators: [
-    (Story) => (
-      <Theme<"default" | "dark">
-        theme="default"
-        tokens={{
-          default: {
-            color: {
-              "primary-background": "#1db954",
-              "primary-background-hovered": "#1aa64b",
-              "primary-background-pressed": "#179443",
-              "primary-border": "#1db954",
-              "primary-border-faded": "teal-200",
-              "primary-foreground": "#1db954",
-              "secondary-background": "#121212",
-              "secondary-background-hovered": "#101010",
-              "secondary-background-pressed": "#101010",
-              "secondary-foreground": "#121212",
-            },
-            components: {
-              button: {
-                radius: "full",
-              },
-            },
-          },
-          dark: {
-            color: {
-              "background-backdrop": "#aaaaaaa8",
-              "background-default": "#0f162a",
-              "background-elevated": "#0f162a",
-              "background-surface": "#0f162a",
-              "foreground-default": "#fff",
-              "neutral-background": "gray-500",
-              "neutral-background-faded": "gray-800",
-              "neutral-border-faded": "gray-700",
-              "neutral-foreground": "gray-100",
-              "secondary-background": "#fff",
-              "secondary-background-hovered": "#FCFCFC",
-              "secondary-foreground": "#fff",
-              "secondary-foreground-on-background": "#121212",
-            },
-          },
-        }}
-      >
-        <Story />
-      </Theme>
-    ),
-  ],
 };
 
 export default meta;
 
-function Music(): React.ReactElement {
+function Discover(): React.ReactElement {
   // State to manage the value of the segmented control between "music" and "podcast"
   const [segmentedValue, setSegmentedValue] = useState<"music" | "podcast">("music");
 
@@ -678,12 +641,200 @@ function Music(): React.ReactElement {
   );
 }
 
-export const Discover = {
+export const Music = {
+  decorators: [
+    (Story) => (
+      <Theme<"default" | "dark">
+        theme="default"
+        tokens={{
+          default: {
+            color: {
+              "primary-background": "#1db954",
+              "primary-background-hovered": "#1aa64b",
+              "primary-background-pressed": "#179443",
+              "primary-border": "#1db954",
+              "primary-border-faded": "teal-200",
+              "primary-foreground": "#1db954",
+              "secondary-background": "#121212",
+              "secondary-background-hovered": "#101010",
+              "secondary-background-pressed": "#101010",
+              "secondary-foreground": "#121212",
+            },
+            components: {
+              button: {
+                radius: "full",
+              },
+            },
+          },
+          dark: {
+            color: {
+              "background-backdrop": "#aaaaaaa8",
+              "background-default": "#0f162a",
+              "background-elevated": "#0f162a",
+              "background-surface": "#0f162a",
+              "foreground-default": "#fff",
+              "neutral-background": "gray-500",
+              "neutral-background-faded": "gray-800",
+              "neutral-border-faded": "gray-700",
+              "neutral-foreground": "gray-100",
+              "secondary-background": "#fff",
+              "secondary-background-hovered": "#FCFCFC",
+              "secondary-foreground": "#fff",
+              "secondary-foreground-on-background": "#121212",
+            },
+          },
+        }}
+      >
+        <Story />
+      </Theme>
+    ),
+  ],
   render: function Render() {
     return (
       <Snackbar screen="sm" placement="bottom" max={3}>
-        <Music />
+        <Discover />
       </Snackbar>
+    );
+  },
+};
+
+export const Chat = {
+  render: function Render() {
+    return (
+      <Theme>
+        <Box skin="neutral-faded" padding={{ block: "9xl", inline: "9xl" }} fullScreen fullWidth>
+          <Container screen="lg" alignment="center">
+            <Box space={{ y: "4xl" }}>
+              <Text weight="medium" size="7xl">
+                Hi there,{" "}
+                <Gradient from="indigo-500" to="pink-800" clipText>
+                  <Text skin="transparent" as="span" inherit>
+                    Devon Lane
+                  </Text>
+                </Gradient>
+              </Text>
+
+              <Text weight="semi-bold" size="5xl" space={{ y: "lg" }}>
+                What would like to know?
+              </Text>
+
+              <Text size="xl" skin="neutral">
+                Use one of the most common prompts below or use your own to begin
+              </Text>
+            </Box>
+
+            <Box space={{ y: "9xl" }}>
+              <Stack items="start" direction="column" gap="lg">
+                <Grid
+                  cols={2}
+                  responsive={{
+                    sm: {
+                      cols: 4,
+                    },
+                  }}
+                  gap="lg"
+                >
+                  <Card skin="neutral-faded">
+                    <Card.Body>
+                      <Text size="sm" skin="neutral">
+                        Write a to-do list for a personal project or task
+                      </Text>
+                    </Card.Body>
+                    <Card.Footer>
+                      <Text skin="neutral">
+                        <GoTasklist size={18} />
+                      </Text>
+                    </Card.Footer>
+                  </Card>
+                  <Card skin="neutral-faded">
+                    <Card.Body>
+                      <Text size="sm" skin="neutral">
+                        Generate an email ro reply to a job offer
+                      </Text>
+                    </Card.Body>
+                    <Card.Footer>
+                      <Text skin="neutral">
+                        <IoMailOutline size={18} />
+                      </Text>
+                    </Card.Footer>
+                  </Card>
+                  <Card skin="neutral-faded">
+                    <Card.Body>
+                      <Text size="sm" skin="neutral">
+                        Summarize this article or text for me in one paragraph
+                      </Text>
+                    </Card.Body>
+                    <Card.Footer>
+                      <Text skin="neutral">
+                        <BsBodyText size={18} />
+                      </Text>
+                    </Card.Footer>
+                  </Card>
+                  <Card skin="neutral-faded">
+                    <Card.Body>
+                      <Text size="sm" skin="neutral">
+                        How does Al work in a technical capacity
+                      </Text>
+                    </Card.Body>
+                    <Card.Footer>
+                      <Text skin="neutral">
+                        <IoSettingsOutline size={18} />
+                      </Text>
+                    </Card.Footer>
+                  </Card>
+                </Grid>
+              </Stack>
+            </Box>
+
+            <Card skin="default" padding={{ block: "md", inline: "md" }} shadow="md">
+              <Card.Body>
+                <Stack direction="column" gap="md">
+                  <TextArea
+                    rows={5}
+                    appearance="soft"
+                    skin="transparent"
+                    placeholder="Ask whatever you want..."
+                    resize="none"
+                  />
+                  <Stack gap="md" justify="between">
+                    <Stack gap="sm">
+                      <Button
+                        skin="neutral"
+                        appearance="ghost"
+                        size="sm"
+                        leftSlot={<IoAttach size={16} />}
+                      >
+                        Add Attachment
+                      </Button>
+                      <Button
+                        skin="neutral"
+                        appearance="ghost"
+                        size="sm"
+                        leftSlot={<IoImage size={16} />}
+                      >
+                        Use Image
+                      </Button>
+                    </Stack>
+                    <Stack items="center" gap="sm">
+                      <Text size="xs" skin="neutral">
+                        0/1000
+                      </Text>
+                      <Button
+                        skin="primary"
+                        size="sm"
+                        leftSlot={<GoArrowRight size={16} />}
+                        iconOnly
+                      >
+                        Submit
+                      </Button>
+                    </Stack>
+                  </Stack>
+                </Stack>
+              </Card.Body>
+            </Card>
+          </Container>
+        </Box>
+      </Theme>
     );
   },
 };

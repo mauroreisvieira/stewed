@@ -74,10 +74,6 @@ export const skin = {
 };
 
 export const color = {
-  // Pure white color, often used for backgrounds or text
-  "white": "#fff",
-  // Pure black color, useful for text or contrasting elements
-  "black": "#000",
   // Base background color used for the application
   "background-default": "#fff",
   // Inverted background color used for the application (ex: Tooltip)
