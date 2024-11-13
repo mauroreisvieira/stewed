@@ -1,6 +1,4 @@
 import React, { useCallback, useState } from "react";
-// UI Components
-import { Spinner } from "../../index";
 // Compound Component
 import { AvatarGroup } from "./AvatarGroup";
 // Hooks
@@ -88,12 +86,8 @@ export const Root = fixedForwardRef(function Avatar<T extends React.ElementType>
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({ modifiers: [appearance, size, skin], extraClasses: className }),
-    loading: getElement(["loading"]),
     img: getElement(["img"], image?.className),
   };
-
-  // State to track if the image is still loading
-  const [isLoading, setLoading] = useState(true);
 
   // State to track if there was an error while loading the image
   const [imageError, setImageError] = useState(false);
@@ -112,32 +106,15 @@ export const Root = fixedForwardRef(function Avatar<T extends React.ElementType>
     [image],
   );
 
-  // Callback to handle successful image load
-  // Sets `isLoading` to false and triggers any optional `onLoad` event handler passed in `image`
-  const onHandleLoad = useCallback<React.ReactEventHandler<HTMLImageElement>>(
-    (event) => {
-      setLoading(false);
-      image?.onLoad?.(event);
-    },
-    [image],
-  );
-
   return (
     <Comp ref={ref} className={cssClasses.root} {...props}>
       {image && !imageError ? (
         <>
-          {isLoading && (
-            <span className={cssClasses.loading}>
-              <Spinner skin="white" size="md" />
-            </span>
-          )}
-
           <img
             {...image}
             className={cssClasses.img}
             alt={image?.alt || name}
             onError={onHandleError}
-            onLoad={onHandleLoad}
           />
         </>
       ) : (
