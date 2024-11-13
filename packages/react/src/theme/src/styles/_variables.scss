@@ -119,6 +119,9 @@ $config: (
     "hint": var(--elevation-hint),
   ),
   "palette": (
+    "transparent": var(--color-transparent),
+    "white": var(--color-white),
+    "black": var(--color-black),
     "indigo": (
       "100": var(--color-indigo-100),
       "200": var(--color-indigo-200),
@@ -294,8 +297,6 @@ $config: (
     "background-backdrop": var(--color-background-backdrop),
     "foreground-default": var(--color-foreground-default),
     "foreground-inverted": var(--color-foreground-inverted),
-    "white": var(--color-white),
-    "black": var(--color-black),
     "focus": var(--color-focus),
   ),
   "disabled": 0.5,
@@ -339,7 +340,7 @@ $radius: map.get($config, radius);
 $palette: map.get($config, palette);
 
 /// Defines color primary, neutral, critical, success, info and warning
-$colors: map.get($config, colors);
+$colors: map.merge(map.get($config, palette), map.get($config, colors));
 
 /// Defines responsive breakpoints (sm, md, lg, xl).
 $breakpoints: map.get($config, breakpoints);

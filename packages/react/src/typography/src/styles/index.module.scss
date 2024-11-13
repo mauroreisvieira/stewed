@@ -86,6 +86,17 @@
     display: none;
   }
 
+  &--inherit {
+    @include theme.define-var(
+      (
+        color: inherit,
+        font-size: inherit,
+        font-weight: inherit,
+        font-family: inherit,
+      )
+    );
+  }
+
   // Skins
   @each $key, $value in $typography-skins {
     &--#{$key} {

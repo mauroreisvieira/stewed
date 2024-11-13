@@ -5,7 +5,6 @@ import { useTheme } from "../../theme";
 // Types
 import { type DistributiveOmit, fixedForwardRef } from "../../types";
 import {
-  type Palette,
   type Spacings,
   type FontSize,
   type FontWeight,
@@ -45,10 +44,9 @@ type TextVariation =
 export interface TextProps<T>
   extends Omit<React.ComponentProps<typeof defaultElement>, "hidden">,
     UseResponsiveProps<{
-      /**
-       * Changes the size of the text, giving it more or less font size.
-       * @default default
-       */
+      /** Apply inherited styles from parent component */
+      inherit?: boolean;
+      /** Changes the size of the text, giving it more or less font size. */
       size?: FontSize;
       /** Changes the weight of the text, giving it more or less weight. */
       weight?: FontWeight;
@@ -83,7 +81,6 @@ export interface TextProps<T>
    */
   skin?:
     | "transparent"
-    | "inherit"
     | "white"
     | "black"
     | "default"
@@ -116,6 +113,7 @@ export const Text = fixedForwardRef(function Typography<T extends React.ElementT
   {
     as,
     size,
+    inherit,
     hidden,
     family,
     weight,
@@ -145,6 +143,7 @@ export const Text = fixedForwardRef(function Typography<T extends React.ElementT
   // Compute responsive props based on current theme and screen sizes
   const computedProps = useResponsive(
     {
+      inherit,
       hidden,
       size,
       weight,
@@ -181,6 +180,7 @@ export const Text = fixedForwardRef(function Typography<T extends React.ElementT
         computedProps.size,
         computedProps.weight,
         computedProps.hidden && "hidden",
+        computedProps.inherit && "inherit",
         computedProps.lineClamp && `line-clamp-${computedProps.lineClamp}`,
         computedProps.alignment && `alignment-${computedProps.alignment}`,
         computedProps.whiteSpace && `white-space-${computedProps.whiteSpace}`,
