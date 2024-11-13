@@ -56,14 +56,20 @@ export interface BoxProps<T>
   borderWidth?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
   /** Defines the color of the border. */
   borderColor?:
-    | "neutral-faded"
     | "primary"
-    | "neutral"
+    | "primary-faded"
     | "secondary"
+    | "secondary-faded"
+    | "neutral"
+    | "neutral-faded"
     | "critical"
+    | "critical-faded"
     | "success"
+    | "success-faded"
     | "info"
-    | "warning";
+    | "info-faded"
+    | "warning"
+    | "warning-faded";
   /** Determines if should expand to use the full width. */
   fullWidth?: boolean;
   /** Determines if should expand to use the full width and height. */
