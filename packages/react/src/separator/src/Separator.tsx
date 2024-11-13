@@ -36,14 +36,20 @@ interface SeparatorProps
   skin?:
     | "white"
     | "black"
-    | "neutral"
-    | "neutral-faded"
     | "primary"
     | "primary-faded"
     | "secondary"
     | "secondary-faded"
+    | "neutral"
+    | "neutral-faded"
     | "critical"
-    | "critical-faded";
+    | "critical-faded"
+    | "success"
+    | "success-faded"
+    | "info"
+    | "info-faded"
+    | "warning"
+    | "warning-faded";
 }
 
 /**

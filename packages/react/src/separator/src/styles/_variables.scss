@@ -6,14 +6,20 @@ $separator-root: "separator";
 $separator-skins: (
   "white": theme.get-color("white"),
   "black": theme.get-color("black"),
-  "neutral": theme.get-color("neutral", "border"),
-  "neutral-faded": theme.get-color("neutral", "border-faded"),
   "primary": theme.get-color("primary", "border"),
   "primary-faded": theme.get-color("primary", "border-faded"),
   "secondary": theme.get-color("secondary", "border"),
   "secondary-faded": theme.get-color("secondary", "border-faded"),
+  "neutral": theme.get-color("neutral", "border"),
+  "neutral-faded": theme.get-color("neutral", "border-faded"),
   "critical": theme.get-color("critical", "border"),
   "critical-border": theme.get-color("critical", "border-faded"),
+  "success": theme.get-color("success", "border"),
+  "success-border": theme.get-color("success", "border-faded"),
+  "info": theme.get-color("info", "border"),
+  "info-border": theme.get-color("info", "border-faded"),
+  "warning": theme.get-color("warning", "border"),
+  "warning-border": theme.get-color("warning", "border-faded"),
 );
 
 /// Space
