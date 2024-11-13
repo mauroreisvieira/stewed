@@ -27,7 +27,6 @@ export const Base: Story = {
     },
   },
   args: {
-    selected: false,
     children: (
       <>
         <Card.Header>
@@ -55,9 +54,8 @@ export const Skin: Story = {
     },
   },
   args: {
-    selected: false,
     skin: "primary",
-    shadow: "none",
+    shadow: "md",
     children: (
       <>
         <Card.Body>
