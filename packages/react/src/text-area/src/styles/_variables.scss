@@ -4,11 +4,6 @@ $textarea-root: "text-area";
 
 /// Skins
 $textarea-skins: (
-  "transparent": (
-    "border": theme.get-color("transparent"),
-    "background-color": theme.get-color("transparent"),
-    "background-color-faded": theme.get-color("transparent"),
-  ),
   "neutral-faded": (
     "border": theme.get-color("neutral", "border-faded"),
     "background-color": theme.get-color("neutral", "background-faded"),

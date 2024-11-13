@@ -791,7 +791,7 @@ export const Chat = {
                 <Stack direction="column" gap="md">
                   <TextArea
                     rows={5}
-                    appearance="soft"
+                    appearance="ghost"
                     skin="transparent"
                     placeholder="Ask whatever you want..."
                     resize="none"
