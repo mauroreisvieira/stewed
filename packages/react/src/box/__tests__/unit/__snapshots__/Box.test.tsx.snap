@@ -3,7 +3,7 @@
 exports[`Box Snapshots should applies border-color classes 1`] = `
 <div>
   <div
-    class="box box--border-color-secondary box--border-style-solid"
+    class="box box--border-color-secondary"
   >
     Box
   </div>
@@ -23,7 +23,7 @@ exports[`Box Snapshots should applies border-style classes 1`] = `
 exports[`Box Snapshots should applies border-width classes 1`] = `
 <div>
   <div
-    class="box box--border-width-2 box--border-style-solid"
+    class="box box--border-width-2"
   >
     Box
   </div>
@@ -33,7 +33,7 @@ exports[`Box Snapshots should applies border-width classes 1`] = `
 exports[`Box Snapshots should applies full-screen classes 1`] = `
 <div>
   <div
-    class="box box--border-style-solid box--full-screen"
+    class="box box--full-screen"
   >
     Box
   </div>
@@ -43,7 +43,7 @@ exports[`Box Snapshots should applies full-screen classes 1`] = `
 exports[`Box Snapshots should applies full-width classes 1`] = `
 <div>
   <div
-    class="box box--border-style-solid box--full-width"
+    class="box box--full-width"
   >
     Box
   </div>
@@ -53,7 +53,7 @@ exports[`Box Snapshots should applies full-width classes 1`] = `
 exports[`Box Snapshots should applies primary skin 1`] = `
 <div>
   <div
-    class="box box--primary box--border-style-solid"
+    class="box box--primary"
   >
     Box
   </div>
@@ -63,7 +63,7 @@ exports[`Box Snapshots should applies primary skin 1`] = `
 exports[`Box Snapshots should applies radius classes 1`] = `
 <div>
   <div
-    class="box box--radius-2xl box--border-style-solid"
+    class="box box--radius-2xl"
   >
     Box
   </div>
@@ -73,7 +73,7 @@ exports[`Box Snapshots should applies radius classes 1`] = `
 exports[`Box Snapshots should render additional classes 1`] = `
 <div>
   <div
-    class="box box--border-style-solid other-class"
+    class="box other-class"
   >
     Box
   </div>
@@ -83,7 +83,7 @@ exports[`Box Snapshots should render additional classes 1`] = `
 exports[`Box Snapshots should renders component as main 1`] = `
 <div>
   <main
-    class="box box--border-style-solid"
+    class="box"
   >
     Box
   </main>
@@ -93,7 +93,7 @@ exports[`Box Snapshots should renders component as main 1`] = `
 exports[`Box Snapshots should renders default component 1`] = `
 <div>
   <div
-    class="box box--border-style-solid"
+    class="box"
   >
     Box
   </div>

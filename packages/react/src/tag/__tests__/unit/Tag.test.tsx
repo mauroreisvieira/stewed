@@ -1,6 +1,6 @@
 import React from "react";
 // UI Components
-import { Tag } from "../../index";
+import { Tag, type TagProps } from "../../index";
 // Utilities
 import { render } from "@testing-library/react";
 
@@ -28,23 +28,32 @@ describe("Tag", () => {
       expect(container).toMatchSnapshot();
     });
 
-    it("should applies appearance classes", () => {
-      const { container } = render(<Tag appearance="outline">Tag</Tag>);
+    it.each<TagProps["skin"]>(["primary", "secondary", "neutral", "critical", "success"])(
+      "should apply '%s' skin classes",
+      (skin) => {
+        const { container } = render(<Tag skin={skin}>Tag</Tag>);
 
-      expect(container).toMatchSnapshot();
-    });
+        expect(container).toMatchSnapshot();
+      },
+    );
 
-    it("should applies critical skin", () => {
-      const { container } = render(<Tag skin="critical">Tag</Tag>);
+    it.each<TagProps["appearance"]>(["filled", "ghost", "outline", "soft"])(
+      "should apply '%s' appearance classes",
+      (appearance) => {
+        const { container } = render(<Tag appearance={appearance}>Tag</Tag>);
 
-      expect(container).toMatchSnapshot();
-    });
+        expect(container).toMatchSnapshot();
+      },
+    );
 
-    it("should applies correct size classes", () => {
-      const { container } = render(<Tag size="md">Tag</Tag>);
+    it.each<TagProps["size"]>(["xs", "sm", "md", "lg"])(
+      "should apply '%s' size classes",
+      (size) => {
+        const { container } = render(<Tag size={size}>Tag</Tag>);
 
-      expect(container).toMatchSnapshot();
-    });
+        expect(container).toMatchSnapshot();
+      },
+    );
 
     it("should render left slot content", () => {
       const { container } = render(<Tag leftSlot="Left slot">Tag</Tag>);
