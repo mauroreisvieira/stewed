@@ -11,6 +11,7 @@
   justify-content: center;
   padding: theme.get-spacing("md");
   touch-action: manipulation;
+  resize: theme.get-var(resize);
   border: 1px solid transparent;
   border-radius: theme.get-var(radius);
 
@@ -19,6 +20,16 @@
 
   &--disabled {
     @include theme.disabled-styles;
+  }
+
+  @each $value in ("both", "horizontal", "vertical", "none") {
+    &--resize-#{$value} {
+      @include theme.define-var(
+        (
+          resize: $value,
+        )
+      );
+    }
   }
 
   // Skins
