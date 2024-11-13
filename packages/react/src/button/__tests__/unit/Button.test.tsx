@@ -37,7 +37,7 @@ describe("Button", () => {
       },
     );
 
-    it.each<ButtonProps["appearance"]>(["filled", "ghost", "outline"])(
+    it.each<ButtonProps["appearance"]>(["filled", "ghost", "outline", "soft"])(
       "should apply '%s' appearance classes",
       (appearance) => {
         const { container } = render(<Button appearance={appearance}>Button</Button>);

@@ -290,6 +290,20 @@ exports[`Button Snapshots should apply 'sm' size classes 1`] = `
 </div>
 `;
 
+exports[`Button Snapshots should apply 'soft' appearance classes 1`] = `
+<div>
+  <button
+    class="button button--primary-soft button--md"
+  >
+    <span
+      class="button__text"
+    >
+      Button
+    </span>
+  </button>
+</div>
+`;
+
 exports[`Button Snapshots should apply 'success' skin classes 1`] = `
 <div>
   <button
