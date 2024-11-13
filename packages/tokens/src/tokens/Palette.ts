@@ -1,10 +1,4 @@
 export const palette = {
-  // White
-  "white": "#fff",
-  // Color
-  "black": "#000",
-  // Transparent
-  "transparent": "transparent",
   // Indigo ------------------------------------------------------------------
   "indigo-100": "color-mix(in oklab, var(--color-indigo-500) 10%, white)",
   "indigo-200": "color-mix(in oklab, var(--color-indigo-500) 20%, white)",
@@ -85,6 +79,12 @@ export const palette = {
   "teal-700": "color-mix(in oklab, var(--color-teal-500) 80%, black)",
   "teal-800": "color-mix(in oklab, var(--color-teal-500) 70%, black)",
   "teal-900": "color-mix(in oklab, var(--color-teal-500) 60%, black)",
+  // White
+  "white": "#fff",
+  // Color
+  "black": "#000",
+  // Transparent
+  "transparent": "transparent",
 };
 
 export type Palette = keyof typeof palette;

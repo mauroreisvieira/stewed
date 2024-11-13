@@ -708,7 +708,7 @@ export const Chat = {
               <Text weight="medium" size="7xl">
                 Hi there,{" "}
                 <Gradient from="indigo-500" to="pink-800" clipText>
-                  <Text skin="transparent" as="span" inherit>
+                  <Text skin="transparent" as="span" weight="extra-bold" inherit>
                     Devon Lane
                   </Text>
                 </Gradient>
@@ -791,11 +791,12 @@ export const Chat = {
                 <Stack direction="column" gap="md">
                   <TextArea
                     rows={5}
+                    autoHeight
                     appearance="ghost"
-                    skin="transparent"
                     placeholder="Ask whatever you want..."
                     resize="none"
                   />
+
                   <Stack gap="md" justify="between">
                     <Stack gap="sm">
                       <Button
