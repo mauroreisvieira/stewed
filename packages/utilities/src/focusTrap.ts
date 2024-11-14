@@ -17,23 +17,24 @@ export class FocusTrap {
   private initialElementFocused: HTMLElement | null;
   private initialRootTabIndex: string | null;
   private active: boolean;
-  private selectors = [
-    "[href]",
-    "button",
-    "input",
-    "select",
-    "textarea",
-    "[tabindex]",
-    "[controls]",
-  ];
+  private selectors;
 
   /**
    * Creates an instance of FocusTrap.
    * @param root The root element to trap focus within.
    */
-  constructor(root: HTMLElement) {
+  constructor(root: HTMLElement, selectors?: string[]) {
     this.stack = window;
     this.root = root;
+    this.selectors = selectors || [
+      "[href]",
+      "button",
+      "input",
+      "select",
+      "textarea",
+      "[tabindex]",
+      "[controls]",
+    ];
     this.initialElementFocused = null;
     this.initialRootTabIndex = null;
     this.active = false;
@@ -100,6 +101,9 @@ export class FocusTrap {
 
     const index = this.stack.FocusTrapInstances.indexOf(this);
     this.stack.FocusTrapInstances.splice(index, 1);
+
+    // Clean up any null or undefined entries
+    this.stack.FocusTrapInstances = this.stack.FocusTrapInstances.filter(Boolean);
   }
 
   /**

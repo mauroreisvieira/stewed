@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List Snapshots should apply 'bullet' skin classes 1`] = `
+<div>
+  <ul
+    class="list list--bullet list--gap-xs"
+  >
+    <li
+      class="list__item"
+    >
+      Item
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`List Snapshots should apply 'decimal' skin classes 1`] = `
+<div>
+  <ul
+    class="list list--decimal list--gap-xs"
+  >
+    <li
+      class="list__item"
+    >
+      Item
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`List Snapshots should apply 'none' skin classes 1`] = `
+<div>
+  <ul
+    class="list list--none list--gap-xs"
+  >
+    <li
+      class="list__item"
+    >
+      Item
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`List Snapshots should render additional classes 1`] = `
+<div>
+  <ul
+    class="list list--bullet list--gap-xs other-class"
+  >
+    <li
+      class="list__item other-class"
+    >
+      Item
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`List Snapshots should renders default component 1`] = `
+<div>
+  <ul
+    class="list list--bullet list--gap-xs"
+  >
+    <li
+      class="list__item"
+    >
+      Item
+    </li>
+  </ul>
+</div>
+`;

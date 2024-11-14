@@ -10,8 +10,8 @@
   "license": "MIT",
   "scripts": {
     "build": "vite build",
+    "test:unit": "jest --testPathPattern=\".test.*\" --coverage",
     "lint": "eslint .",
-    "test": "jest --testPathPattern=\".test.*\" --coverage",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "dependencies": {

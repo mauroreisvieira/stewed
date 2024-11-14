@@ -7,7 +7,7 @@ import { components, type Spacings } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-interface SeparatorProps
+export interface SeparatorProps
   extends React.ComponentPropsWithoutRef<"hr">,
     UseResponsiveProps<{
       /** Adds space between separators on the horizontal and vertical axes. */

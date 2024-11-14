@@ -10,8 +10,8 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "watch": "tsc --watch -p tsconfig.json",
+    "test:unit": "jest --testPathPattern=\".test.*\" --coverage",
     "lint": "eslint .",
-    "test": "jest --testPathPattern=\".test.*\" --coverage",
     "clean": "rm -rf dist node_modules"
   },
   "devDependencies": {

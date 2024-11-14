@@ -71,14 +71,15 @@ describe("TextField", () => {
   });
 
   describe("Events", () => {
-    it("should trigger `onClick` event when clicked", async () => {
+    it("should trigger `onChange` event when change value", () => {
       const handleChange = jest.fn();
 
-      const { findByText } = render(<TextField onChange={handleChange} defaultValue="Input" />);
-      const btn = await findByText("Input");
+      const { getByLabelText } = render(<TextField aria-label="input" onChange={handleChange} />);
+      const input = getByLabelText("input");
 
       act(() => {
-        fireEvent.change(btn);
+        fireEvent.change(input, { target: { value: "123" } });
+        expect((input as HTMLInputElement).value).toBe("123");
       });
 
       expect(handleChange).toHaveBeenCalledTimes(1);

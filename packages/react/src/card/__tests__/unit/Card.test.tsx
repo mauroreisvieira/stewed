@@ -53,18 +53,6 @@ describe("Card", () => {
       expect(container).toMatchSnapshot();
     });
 
-    it("should render skin classes", () => {
-      const { container } = render(
-        <Card skin="primary-faded">
-          <Card.Header>Header</Card.Header>
-          <Card.Body>Body</Card.Body>
-          <Card.Footer>Footer</Card.Footer>
-        </Card>,
-      );
-
-      expect(container).toMatchSnapshot();
-    });
-
     it("should render shadow classes", () => {
       const { container } = render(
         <Card shadow="3xl">

@@ -11,8 +11,8 @@
   "scripts": {
     "build": "vite build",
     "watch": "vite build --watch",
+    "test:unit": "jest --testPathPattern=\".test.*\" --coverage",
     "lint": "eslint .",
-    "test": "jest --testPathPattern=\".test.*\" --coverage",
     "clean": "rm -rf dist node_modules"
   },
   "dependencies": {

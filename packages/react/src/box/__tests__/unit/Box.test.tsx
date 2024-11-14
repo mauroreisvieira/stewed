@@ -1,6 +1,6 @@
 import React from "react";
 // UI Components
-import { Box } from "../../index";
+import { Box, type BoxProps } from "../../index";
 // Utilities
 import { render } from "@testing-library/react";
 
@@ -24,8 +24,14 @@ describe("Box", () => {
       expect(container).toMatchSnapshot();
     });
 
-    it("should applies primary skin", () => {
-      const { container } = render(<Box skin="primary">Box</Box>);
+    it.each<BoxProps["skin"]>([
+      "default",
+      "primary-faded",
+      "secondary-faded",
+      "neutral-faded",
+      "white",
+    ])("should apply '%s' skin classes", (skin) => {
+      const { container } = render(<Box skin={skin}>Box</Box>);
 
       expect(container).toMatchSnapshot();
     });

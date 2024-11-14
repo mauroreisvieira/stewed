@@ -50,20 +50,60 @@ exports[`Box Snapshots should applies full-width classes 1`] = `
 </div>
 `;
 
-exports[`Box Snapshots should applies primary skin 1`] = `
+exports[`Box Snapshots should applies radius classes 1`] = `
 <div>
   <div
-    class="box box--primary"
+    class="box box--radius-2xl"
   >
     Box
   </div>
 </div>
 `;
 
-exports[`Box Snapshots should applies radius classes 1`] = `
+exports[`Box Snapshots should apply 'default' skin classes 1`] = `
 <div>
   <div
-    class="box box--radius-2xl"
+    class="box box--default"
+  >
+    Box
+  </div>
+</div>
+`;
+
+exports[`Box Snapshots should apply 'neutral-faded' skin classes 1`] = `
+<div>
+  <div
+    class="box box--neutral-faded"
+  >
+    Box
+  </div>
+</div>
+`;
+
+exports[`Box Snapshots should apply 'primary-faded' skin classes 1`] = `
+<div>
+  <div
+    class="box box--primary-faded"
+  >
+    Box
+  </div>
+</div>
+`;
+
+exports[`Box Snapshots should apply 'secondary-faded' skin classes 1`] = `
+<div>
+  <div
+    class="box box--secondary-faded"
+  >
+    Box
+  </div>
+</div>
+`;
+
+exports[`Box Snapshots should apply 'white' skin classes 1`] = `
+<div>
+  <div
+    class="box box--white"
   >
     Box
   </div>

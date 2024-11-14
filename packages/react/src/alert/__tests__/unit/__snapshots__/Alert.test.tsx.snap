@@ -19,10 +19,219 @@ exports[`Alert Snapshots should applies correct size classes 1`] = `
 </div>
 `;
 
-exports[`Alert Snapshots should applies critical skin 1`] = `
+exports[`Alert Snapshots should apply '2xl' shadow classes 1`] = `
+<div>
+  <div
+    class="alert alert--primary alert--md alert--shadow-2xl"
+    role="alert"
+  >
+    <div
+      class="alert__wrapper"
+    >
+      <div
+        class="alert__body"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert Snapshots should apply '3xl' shadow classes 1`] = `
+<div>
+  <div
+    class="alert alert--primary alert--md alert--shadow-3xl"
+    role="alert"
+  >
+    <div
+      class="alert__wrapper"
+    >
+      <div
+        class="alert__body"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert Snapshots should apply 'critical' skin classes 1`] = `
 <div>
   <div
     class="alert alert--critical alert--md alert--shadow-none"
+    role="alert"
+  >
+    <div
+      class="alert__wrapper"
+    >
+      <div
+        class="alert__body"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert Snapshots should apply 'lg' shadow classes 1`] = `
+<div>
+  <div
+    class="alert alert--primary alert--md alert--shadow-lg"
+    role="alert"
+  >
+    <div
+      class="alert__wrapper"
+    >
+      <div
+        class="alert__body"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert Snapshots should apply 'md' shadow classes 1`] = `
+<div>
+  <div
+    class="alert alert--primary alert--md alert--shadow-md"
+    role="alert"
+  >
+    <div
+      class="alert__wrapper"
+    >
+      <div
+        class="alert__body"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert Snapshots should apply 'neutral' skin classes 1`] = `
+<div>
+  <div
+    class="alert alert--neutral alert--md alert--shadow-none"
+    role="alert"
+  >
+    <div
+      class="alert__wrapper"
+    >
+      <div
+        class="alert__body"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert Snapshots should apply 'none' shadow classes 1`] = `
+<div>
+  <div
+    class="alert alert--primary alert--md alert--shadow-none"
+    role="alert"
+  >
+    <div
+      class="alert__wrapper"
+    >
+      <div
+        class="alert__body"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert Snapshots should apply 'primary' skin classes 1`] = `
+<div>
+  <div
+    class="alert alert--primary alert--md alert--shadow-none"
+    role="alert"
+  >
+    <div
+      class="alert__wrapper"
+    >
+      <div
+        class="alert__body"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert Snapshots should apply 'secondary' skin classes 1`] = `
+<div>
+  <div
+    class="alert alert--secondary alert--md alert--shadow-none"
+    role="alert"
+  >
+    <div
+      class="alert__wrapper"
+    >
+      <div
+        class="alert__body"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert Snapshots should apply 'sm' shadow classes 1`] = `
+<div>
+  <div
+    class="alert alert--primary alert--md alert--shadow-sm"
+    role="alert"
+  >
+    <div
+      class="alert__wrapper"
+    >
+      <div
+        class="alert__body"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert Snapshots should apply 'success' skin classes 1`] = `
+<div>
+  <div
+    class="alert alert--success alert--md alert--shadow-none"
+    role="alert"
+  >
+    <div
+      class="alert__wrapper"
+    >
+      <div
+        class="alert__body"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert Snapshots should apply 'xl' shadow classes 1`] = `
+<div>
+  <div
+    class="alert alert--primary alert--md alert--shadow-xl"
     role="alert"
   >
     <div
@@ -100,25 +309,6 @@ exports[`Alert Snapshots should render right slot content 1`] = `
       class="alert__right"
     >
       Right slot
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Alert Snapshots should render shadow classes 1`] = `
-<div>
-  <div
-    class="alert alert--primary alert--md alert--shadow-3xl"
-    role="alert"
-  >
-    <div
-      class="alert__wrapper"
-    >
-      <div
-        class="alert__body"
-      >
-        Alert
-      </div>
     </div>
   </div>
 </div>

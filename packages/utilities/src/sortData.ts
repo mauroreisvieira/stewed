@@ -1,5 +1,5 @@
 // Define sorting directions as a constant object
-const SortDirection = {
+export const SortDirection = {
   ASC: "ASC",
   DESC: "DESC",
 } as const;

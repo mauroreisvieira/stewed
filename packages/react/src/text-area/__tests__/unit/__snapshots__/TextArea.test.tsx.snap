@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextArea Snapshots should applies disabled classes 1`] = `
+<div>
+  <textarea
+    class="text-area text-area--disabled text-area--full-width text-area--resize-both text-area--outline text-area--neutral-faded"
+    disabled=""
+  >
+    TextArea
+  </textarea>
+</div>
+`;
+
+exports[`TextArea Snapshots should applies fullWidth classes 1`] = `
+<div>
+  <textarea
+    class="text-area text-area--full-width text-area--resize-both text-area--outline text-area--neutral-faded"
+  >
+    TextArea
+  </textarea>
+</div>
+`;
+
+exports[`TextArea Snapshots should apply 'critical' skin classes 1`] = `
+<div>
+  <textarea
+    class="text-area text-area--full-width text-area--resize-both text-area--outline text-area--critical"
+  >
+    TextArea
+  </textarea>
+</div>
+`;
+
+exports[`TextArea Snapshots should apply 'ghost' appearance classes 1`] = `
+<div>
+  <textarea
+    class="text-area text-area--full-width text-area--resize-both text-area--ghost text-area--neutral-faded"
+  >
+    TextArea
+  </textarea>
+</div>
+`;
+
+exports[`TextArea Snapshots should apply 'neutral' skin classes 1`] = `
+<div>
+  <textarea
+    class="text-area text-area--full-width text-area--resize-both text-area--outline text-area--neutral"
+  >
+    TextArea
+  </textarea>
+</div>
+`;
+
+exports[`TextArea Snapshots should apply 'neutral-faded' skin classes 1`] = `
+<div>
+  <textarea
+    class="text-area text-area--full-width text-area--resize-both text-area--outline text-area--neutral-faded"
+  >
+    TextArea
+  </textarea>
+</div>
+`;
+
+exports[`TextArea Snapshots should apply 'outline' appearance classes 1`] = `
+<div>
+  <textarea
+    class="text-area text-area--full-width text-area--resize-both text-area--outline text-area--neutral-faded"
+  >
+    TextArea
+  </textarea>
+</div>
+`;
+
+exports[`TextArea Snapshots should apply 'soft' appearance classes 1`] = `
+<div>
+  <textarea
+    class="text-area text-area--full-width text-area--resize-both text-area--soft text-area--neutral-faded"
+  >
+    TextArea
+  </textarea>
+</div>
+`;
+
+exports[`TextArea Snapshots should apply 'success' skin classes 1`] = `
+<div>
+  <textarea
+    class="text-area text-area--full-width text-area--resize-both text-area--outline text-area--success"
+  >
+    TextArea
+  </textarea>
+</div>
+`;
+
+exports[`TextArea Snapshots should render additional classes 1`] = `
+<div>
+  <textarea
+    class="text-area text-area--full-width text-area--resize-both text-area--outline text-area--neutral-faded other-class"
+  >
+    TextArea
+  </textarea>
+</div>
+`;
+
+exports[`TextArea Snapshots should renders default component 1`] = `
+<div>
+  <textarea
+    class="text-area text-area--full-width text-area--resize-both text-area--outline text-area--neutral-faded"
+  >
+    TextArea
+  </textarea>
+</div>
+`;

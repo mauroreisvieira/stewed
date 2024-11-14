@@ -3,7 +3,7 @@
 exports[`Card Snapshots should render additional classes 1`] = `
 <div>
   <div
-    class="card card--default card--column card--padding-block-xl card--padding-inline-xl card--shadow-sm other-class"
+    class="card card--column card--padding-block-xl card--padding-inline-xl card--shadow-sm other-class"
   >
     <div
       class="card__header other-header-class"
@@ -27,7 +27,7 @@ exports[`Card Snapshots should render additional classes 1`] = `
 exports[`Card Snapshots should render direction classes 1`] = `
 <div>
   <div
-    class="card card--default card--row card--padding-block-xl card--padding-inline-xl card--shadow-sm"
+    class="card card--row card--padding-block-xl card--padding-inline-xl card--shadow-sm"
   >
     <div
       class="card__header"
@@ -51,7 +51,7 @@ exports[`Card Snapshots should render direction classes 1`] = `
 exports[`Card Snapshots should render media 1`] = `
 <div>
   <div
-    class="card card--default card--row card--padding-block-xl card--padding-inline-xl card--shadow-sm"
+    class="card card--row card--padding-block-xl card--padding-inline-xl card--shadow-sm"
   >
     <div
       class="card__media"
@@ -68,7 +68,7 @@ exports[`Card Snapshots should render media 1`] = `
 exports[`Card Snapshots should render padding classes 1`] = `
 <div>
   <div
-    class="card card--default card--column card--padding-block-md card--padding-inline-xl card--shadow-sm"
+    class="card card--column card--padding-block-md card--padding-inline-xl card--shadow-sm"
   >
     <div
       class="card__header"
@@ -92,31 +92,7 @@ exports[`Card Snapshots should render padding classes 1`] = `
 exports[`Card Snapshots should render shadow classes 1`] = `
 <div>
   <div
-    class="card card--default card--column card--padding-block-xl card--padding-inline-xl card--shadow-3xl"
-  >
-    <div
-      class="card__header"
-    >
-      Header
-    </div>
-    <div
-      class="card__body"
-    >
-      Body
-    </div>
-    <div
-      class="card__footer"
-    >
-      Footer
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Card Snapshots should render skin classes 1`] = `
-<div>
-  <div
-    class="card card--primary-faded card--column card--padding-block-xl card--padding-inline-xl card--shadow-sm"
+    class="card card--column card--padding-block-xl card--padding-inline-xl card--shadow-3xl"
   >
     <div
       class="card__header"
@@ -140,7 +116,7 @@ exports[`Card Snapshots should render skin classes 1`] = `
 exports[`Card Snapshots should renders default component 1`] = `
 <div>
   <div
-    class="card card--default card--column card--padding-block-xl card--padding-inline-xl card--shadow-sm"
+    class="card card--column card--padding-block-xl card--padding-inline-xl card--shadow-sm"
   >
     <div
       class="card__header"

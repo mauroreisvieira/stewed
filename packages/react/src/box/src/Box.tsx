@@ -11,7 +11,7 @@ import styles from "./styles/index.module.scss";
 
 const defaultElement = "div";
 
-export interface BoxProps<T>
+export interface BoxProps<T = "div">
   extends Omit<React.ComponentProps<typeof defaultElement>, "hidden">,
     UseResponsiveProps<{
       /** Padding options for horizontal and vertical orientation. */
