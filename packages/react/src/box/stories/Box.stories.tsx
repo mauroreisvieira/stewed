@@ -29,6 +29,7 @@ export const Base: Story = {
     },
   },
   args: {
+    borderStyle: "solid",
     borderColor: "neutral-faded",
     radius: "md",
     padding: {
