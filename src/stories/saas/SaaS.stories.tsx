@@ -32,6 +32,7 @@ import {
   Accordion,
   Switch,
   Dialog,
+  Hue,
 } from "@stewed/react";
 // Icons
 import {
@@ -1064,80 +1065,82 @@ export const Kanban = {
                       </Stack>
                     </Card.Body>
                   </Card>
-                  <Card skin="neutral-faded" padding={{ block: "sm", inline: "sm" }}>
-                    <Card.Body>
-                      <Stack gap="md" direction="column">
-                        {tasks.map(({ id, title, members, tasks, messages, attach }) => (
-                          <Stack key={id} gap="md" grow>
-                            <Card padding={{ block: "md", inline: "md" }}>
-                              <Card.Body>
-                                <Box space={{ y: "lg" }}>
-                                  <Stack direction="column" gap="sm">
-                                    <Text weight="medium" size="lg" space={{ y: "lg" }}>
-                                      {title}
-                                    </Text>
+                  <Hue skin="gray-100">
+                    <Card padding={{ block: "sm", inline: "sm" }}>
+                      <Card.Body>
+                        <Stack gap="md" direction="column">
+                          {tasks.map(({ id, title, members, tasks, messages, attach }) => (
+                            <Stack key={id} gap="md" grow>
+                              <Card padding={{ block: "md", inline: "md" }}>
+                                <Card.Body>
+                                  <Box space={{ y: "lg" }}>
+                                    <Stack direction="column" gap="sm">
+                                      <Text weight="medium" size="lg" space={{ y: "lg" }}>
+                                        {title}
+                                      </Text>
 
-                                    {tasks && (
-                                      <>
-                                        <Stack justify="between">
-                                          <Text skin="neutral" size="xs">
-                                            Tasks
-                                          </Text>
-                                          <Text skin="neutral" size="xs">
-                                            {tasks.completed}/{tasks.total}
-                                          </Text>
-                                        </Stack>
+                                      {tasks && (
+                                        <>
+                                          <Stack justify="between">
+                                            <Text skin="neutral" size="xs">
+                                              Tasks
+                                            </Text>
+                                            <Text skin="neutral" size="xs">
+                                              {tasks.completed}/{tasks.total}
+                                            </Text>
+                                          </Stack>
 
-                                        <Progress
-                                          value={100 * (tasks.completed / tasks.total)}
-                                          skin="success"
-                                          size="xs"
-                                        />
-                                      </>
-                                    )}
-                                  </Stack>
-                                </Box>
-                                <Stack justify="between" items="center">
-                                  <Stack gap="xs">
-                                    <Button
-                                      size="sm"
-                                      skin="neutral"
-                                      appearance="ghost"
-                                      leftSlot={<IoChatbubbleOutline />}
-                                    >
-                                      {messages}
-                                    </Button>
-                                    {attach && (
+                                          <Progress
+                                            value={100 * (tasks.completed / tasks.total)}
+                                            skin="success"
+                                            size="xs"
+                                          />
+                                        </>
+                                      )}
+                                    </Stack>
+                                  </Box>
+                                  <Stack justify="between" items="center">
+                                    <Stack gap="xs">
                                       <Button
                                         size="sm"
                                         skin="neutral"
                                         appearance="ghost"
-                                        leftSlot={<IoAttach />}
+                                        leftSlot={<IoChatbubbleOutline />}
                                       >
-                                        {attach}
+                                        {messages}
                                       </Button>
-                                    )}
+                                      {attach && (
+                                        <Button
+                                          size="sm"
+                                          skin="neutral"
+                                          appearance="ghost"
+                                          leftSlot={<IoAttach />}
+                                        >
+                                          {attach}
+                                        </Button>
+                                      )}
+                                    </Stack>
+                                    <Avatar.Group>
+                                      {members.map(({ id, name }) => (
+                                        <Tooltip<HTMLDivElement>
+                                          key={id}
+                                          renderAnchor={(props) => (
+                                            <Avatar key={id} size="xs" name={name} {...props} />
+                                          )}
+                                        >
+                                          {name}
+                                        </Tooltip>
+                                      ))}
+                                    </Avatar.Group>
                                   </Stack>
-                                  <Avatar.Group>
-                                    {members.map(({ id, name }) => (
-                                      <Tooltip<HTMLDivElement>
-                                        key={id}
-                                        renderAnchor={(props) => (
-                                          <Avatar key={id} size="xs" name={name} {...props} />
-                                        )}
-                                      >
-                                        {name}
-                                      </Tooltip>
-                                    ))}
-                                  </Avatar.Group>
-                                </Stack>
-                              </Card.Body>
-                            </Card>
-                          </Stack>
-                        ))}
-                      </Stack>
-                    </Card.Body>
-                  </Card>
+                                </Card.Body>
+                              </Card>
+                            </Stack>
+                          ))}
+                        </Stack>
+                      </Card.Body>
+                    </Card>
+                  </Hue>
                 </Stack>
               ))}
             </Stack>

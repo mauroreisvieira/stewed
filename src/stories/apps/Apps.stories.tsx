@@ -683,7 +683,7 @@ export const Music = {
               "secondary-background-pressed": "#fcfcfc",
               "secondary-foreground": "#fff",
               "secondary-foreground-on-background": "#121212",
-              shadow: "rgb(178 184 202 / 39%)"
+              "shadow": "rgb(178 184 202 / 39%)",
             },
           },
         }}
@@ -727,16 +727,17 @@ export const ChatAI = {
             </Box>
 
             <Box space={{ y: "9xl" }}>
-                <Grid
-                  cols={2}
-                  responsive={{
-                    sm: {
-                      cols: 4,
-                    },
-                  }}
-                  gap="lg"
-                >
-                  <Card skin="neutral-faded">
+              <Grid
+                cols={2}
+                responsive={{
+                  sm: {
+                    cols: 4,
+                  },
+                }}
+                gap="lg"
+              >
+                <Hue skin="transparent">
+                  <Card>
                     <Card.Body>
                       <Text size="sm" skin="neutral">
                         Write a to-do list for a personal project or task
@@ -748,8 +749,10 @@ export const ChatAI = {
                       </Text>
                     </Card.Footer>
                   </Card>
+                </Hue>
 
-                  <Card skin="neutral-faded">
+                <Hue skin="transparent">
+                  <Card>
                     <Card.Body>
                       <Text size="sm" skin="neutral">
                         Generate an email ro reply to a job offer
@@ -761,8 +764,10 @@ export const ChatAI = {
                       </Text>
                     </Card.Footer>
                   </Card>
+                </Hue>
 
-                  <Card skin="neutral-faded">
+                <Hue skin="transparent">
+                  <Card>
                     <Card.Body>
                       <Text size="sm" skin="neutral">
                         Summarize this article or text for me in one paragraph
@@ -775,8 +780,10 @@ export const ChatAI = {
                       </Text>
                     </Card.Footer>
                   </Card>
+                </Hue>
 
-                  <Card skin="neutral-faded">
+                <Hue skin="transparent">
+                  <Card>
                     <Card.Body>
                       <Text size="sm" skin="neutral">
                         How does Al work in a technical capacity
@@ -788,7 +795,8 @@ export const ChatAI = {
                       </Text>
                     </Card.Footer>
                   </Card>
-                </Grid>
+                </Hue>
+              </Grid>
             </Box>
 
             <Card padding={{ block: "md", inline: "md" }} shadow="md">

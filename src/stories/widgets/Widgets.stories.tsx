@@ -182,7 +182,9 @@ export const Notification = {
             </Stack>
           </Card.Body>
           <Card.Footer>
-            <Button appearance="soft" fullWidth>Save preferences</Button>
+            <Button appearance="soft" fullWidth>
+              Save preferences
+            </Button>
           </Card.Footer>
         </Card>
       </Container>
@@ -353,7 +355,7 @@ export const ShareSettings = {
           </Card.Header>
           <Card.Body>
             <Stack direction="column" gap="xl">
-              <Card skin="neutral-faded">
+              <Card>
                 <Card.Body>
                   <Stack justify="between">
                     <div>
