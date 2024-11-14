@@ -10,7 +10,7 @@ type Story = StoryObj<typeof Segmented>;
 const meta: Meta<typeof Segmented> = {
   title: "Components/Segmented",
   component: Segmented,
-    subcomponents: {
+  subcomponents: {
     "Segmented.Item": Segmented.Item as React.FC<unknown>,
   },
   decorators: [

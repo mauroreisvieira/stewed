@@ -32,7 +32,6 @@ export const Skin: Story = {
   },
 };
 
-
 export const Heading: Story = {
   args: {
     as: "h1",

@@ -26,10 +26,18 @@ export const Fetch: Story = {
 
     return (
       <Box>
-        <Text as="h1" space={{ y: "lg" }}>Fetch Data</Text>
-        {status && <Text skin="neutral" space={{ y: "md" }}>Status: {status}</Text>}
+        <Text as="h1" space={{ y: "lg" }}>
+          Fetch Data
+        </Text>
+        {status && (
+          <Text skin="neutral" space={{ y: "md" }}>
+            Status: {status}
+          </Text>
+        )}
 
-        <Text as="pre" skin="neutral-faded">{JSON.stringify(data, null, 4)}</Text>
+        <Text as="pre" skin="neutral-faded">
+          {JSON.stringify(data, null, 4)}
+        </Text>
       </Box>
     );
   },

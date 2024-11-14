@@ -15,7 +15,6 @@ const DAYS_WEEK = {
   SATURDAY: 6,
 };
 
-
 const meta: Meta<typeof Calendar> = {
   title: "Components/Calendar",
   component: Calendar,

@@ -41,9 +41,9 @@ export const ResizeObserver: Story = {
 
     return (
       <Stack direction="column" gap="xl">
-            <Text skin="neutral" alignment="center">
-            Resize this box
-          </Text>
+        <Text skin="neutral" alignment="center">
+          Resize this box
+        </Text>
         <Box
           ref={elementRef}
           radius="md"

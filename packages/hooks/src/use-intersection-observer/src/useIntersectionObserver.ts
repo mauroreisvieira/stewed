@@ -45,9 +45,10 @@ export function useIntersectionObserver<T extends HTMLElement>({
   rootMargin = "0%",
   freezeOnceVisible = false,
 }: UseIntersectionObserverProps<T>): UseIntersectionObserver {
-  const [observerEntry, setObserverEntry] = useState<UseIntersectionObserver>(
-    { entries: undefined, observer: undefined },
-  );
+  const [observerEntry, setObserverEntry] = useState<UseIntersectionObserver>({
+    entries: undefined,
+    observer: undefined,
+  });
 
   // Determine if the observer should freeze when the element is visible
   const frozen = observerEntry?.entries?.isIntersecting && freezeOnceVisible;

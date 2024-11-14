@@ -68,7 +68,7 @@ export type Components = {
   [components.Popover]?: { radius?: Radius; shadow?: Shadow };
   [components.Quantity]?: { radius?: Radius };
   [components.Radio]?: { radius?: Radius };
-  [components.Segmented]?: { radius?: Radius, shadow?: Shadow };
+  [components.Segmented]?: { radius?: Radius; shadow?: Shadow };
   [components.Select]?: { radius?: Radius };
   [components.Switch]?: { radius?: Radius };
   [components.Tag]?: { radius?: Radius };

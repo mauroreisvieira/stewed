@@ -95,7 +95,7 @@ export const Colors: Story = {
             </Table.Row>
           </Table.Head>
           <Table.Body>
-            {Object.entries({...color, ...skin}).map(([key, val]) => (
+            {Object.entries({ ...color, ...skin }).map(([key, val]) => (
               <Table.Row key={key}>
                 <Table.Cell>{key}</Table.Cell>
                 <Table.Cell>{val}</Table.Cell>

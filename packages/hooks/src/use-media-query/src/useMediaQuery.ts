@@ -28,10 +28,7 @@ interface UseMediaQueryProps {
  *   // Render for small screens
  * }
  */
-export function useMediaQuery({
-  query,
-  defaultValue = false,
-}: UseMediaQueryProps): boolean {
+export function useMediaQuery({ query, defaultValue = false }: UseMediaQueryProps): boolean {
   const queries = useMemo(() => (Array.isArray(query) ? query : [query]), [query]);
   const [matches, setMatches] = useState(defaultValue);
 
