@@ -11,10 +11,9 @@ $box-space: theme.get-spacing();
 /// Skins
 $box-skins: (
   "default": theme.get-color("background-default"),
-  "neutral": theme.get-color("neutral", "background"),
-  "neutral-faded": theme.get-color("neutral", "background-faded"),
-  "primary": theme.get-color("primary", "background"),
   "primary-faded": theme.get-color("primary", "background-faded"),
+  "secondary-faded": theme.get-color("secondary", "background-faded"),
+  "neutral-faded": theme.get-color("neutral", "background-faded"),
   "white": theme.get-color("white"),
 );
 

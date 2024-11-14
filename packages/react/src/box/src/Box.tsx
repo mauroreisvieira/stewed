@@ -36,13 +36,8 @@ export interface BoxProps<T>
    * @default div
    */
   as?: T;
-  /**
-   * Change the visual style of the Section.
-   * Determines the color scheme of the component.
-   *
-   * @default "default"
-   */
-  skin?: "default" | "neutral" | "neutral-faded" | "primary" | "primary-faded" | "white";
+  /** Change the visual style of the component. */
+  skin?: "default" | "primary-faded" | "secondary-faded" | "neutral-faded" | "white";
   /**
    * Defines the border-radius of the aspect ratio children, controlling the rounding of corners.
    *
@@ -77,11 +72,12 @@ export interface BoxProps<T>
 }
 
 /**
- * Box is the most primitive layout component.
+ * The Box component serves as a fundamental container for grouping and structuring other components.
+ * It functions similarly to a `<div>`, but with additional built-in features that enhance layout flexibility and styling options
  *
  * @example
  * ```tsx
- * <Box gap="sm"></Box>
+ * <Box skin="neutral-faded">Box</Box>
  * ```
  *
  * @remarks This component is a polymorphic component can be rendered as a different element
