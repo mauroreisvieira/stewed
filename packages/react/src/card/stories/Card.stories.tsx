@@ -47,28 +47,6 @@ export const Base: Story = {
   },
 };
 
-export const Skin: Story = {
-  argTypes: {
-    children: {
-      control: false,
-    },
-  },
-  args: {
-    skin: "primary",
-    children: (
-      <>
-        <Card.Body>
-          <Text skin="white">
-            Pellentesque elementum diam sapien, nec ultrices risus convallis eget. Nam pharetra
-            dolor at dictum tempor. Quisque ut est a ligula hendrerit sodales. Curabitur ornare a
-            nulla in laoreet. Maecenas semper mi egestas, dignissim nisi et, elementum neque.
-          </Text>
-        </Card.Body>
-      </>
-    ),
-  },
-};
-
 export const Direction: Story = {
   argTypes: {
     children: {
@@ -79,7 +57,7 @@ export const Direction: Story = {
     direction: "row",
     children: (
       <>
-        <Card.Media src="https://placehold.co/100x100" />
+        <Card.Media src="https://placehold.co/200x200" />
         <Card.Body>
           <Text>
             Pellentesque elementum diam sapien, nec ultrices risus convallis eget. Nam pharetra

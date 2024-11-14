@@ -7,7 +7,7 @@
   display: flex;
   width: 100%;
   overflow: hidden;
-  background-color: theme.get-var(background-color);
+  background-color: theme.get-color("background-surface");
   border-radius: theme.get-var(radius);
   box-shadow: theme.get-var(box-shadow);
 
@@ -97,17 +97,6 @@
         padding: theme.get-spacing("2xl"),
       )
     );
-  }
-
-  // Skins
-  @each $key, $value in $card-skins {
-    &--#{$key} {
-      @include theme.define-var(
-        (
-          background-color: $value,
-        )
-      );
-    }
   }
 
   // Padding

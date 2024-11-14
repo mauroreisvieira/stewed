@@ -17,11 +17,6 @@ export interface CardProps extends React.ComponentPropsWithRef<"div"> {
    * @default column
    */
   direction?: "row" | "column";
-  /**
-   * Change the visual style of the card.
-   * @default default
-   */
-  skin?: "default" | "neutral" | "neutral-faded" | "primary" | "primary-faded";
   /** Padding options for horizontal and vertical orientation. */
   padding?: {
     /** Adds padding in the block direction (e.g., top and bottom for vertical orientation). */
@@ -58,7 +53,6 @@ const Root = forwardRef(
   (
     {
       direction = "column",
-      skin = "default",
       shadow = "sm",
       padding = {
         block: "xl",
@@ -77,7 +71,6 @@ const Root = forwardRef(
     const cssClasses = {
       root: getBlock({
         modifiers: [
-          skin,
           direction,
           padding?.block && `padding-block-${padding.block}`,
           padding?.inline && `padding-inline-${padding.inline}`,
