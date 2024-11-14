@@ -1,5 +1,6 @@
 import React, { forwardRef } from "react";
 // Compound Component
+import { SelectGroup } from "./SelectGroup";
 import { SelectOption } from "./SelectOption";
 // Hooks
 import { useBem } from "@stewed/hooks";
@@ -94,5 +95,6 @@ const Root = forwardRef(
 
 // Compound component composition
 export const Select = Object.assign(Root, {
+  Group: SelectGroup,
   Option: SelectOption,
 });
