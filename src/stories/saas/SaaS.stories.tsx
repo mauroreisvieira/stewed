@@ -783,11 +783,12 @@ export const Inventory = {
         </Container>
         <Dialog
           open={dialogOpen}
+          onClose={() => setDialogOpen(false)}
           onEscape={() => setDialogOpen(false)}
           onClickOutside={() => setDialogOpen(false)}
         >
           <Dialog.Header>
-            <Text size="2xl" space={{ y: "sm" }}>
+            <Text size="2xl" weight="semi-bold" space={{ y: "sm" }}>
               Add Stock
             </Text>
             <Text skin="neutral" size="sm">
@@ -801,7 +802,7 @@ export const Inventory = {
                 <Button
                   onClick={() => setValue(Number(value) - 1)}
                   size="lg"
-                  appearance="outline"
+                  appearance="soft"
                   leftSlot={<FiMinus size={20} />}
                   iconOnly
                 >
@@ -817,7 +818,7 @@ export const Inventory = {
                 <Button
                   onClick={() => setValue(Number(value) + 1)}
                   size="lg"
-                  appearance="outline"
+                  appearance="soft"
                   leftSlot={<FiPlus size={20} />}
                   iconOnly
                 >
@@ -825,17 +826,24 @@ export const Inventory = {
                 </Button>
               </Stack>
 
-              <Text size="sm">
+              <Text size="sm" skin="neutral">
                 Add stock from your connected accounts directly to your available balance.
               </Text>
             </Stack>
           </Dialog.Body>
+          <Separator />
           <Dialog.Footer>
             <Stack direction="row" gap="md">
-              <Button skin="neutral" appearance="ghost" size="lg" fullWidth>
+              <Button
+                onClick={() => setDialogOpen(false)}
+                skin="neutral"
+                appearance="soft"
+                size="lg"
+                fullWidth
+              >
                 Cancel
               </Button>
-              <Button skin="success" size="lg" fullWidth>
+              <Button onClick={() => setDialogOpen(false)} skin="success" size="lg" fullWidth>
                 Add Stock
               </Button>
             </Stack>

@@ -57,7 +57,7 @@
           )
         );
 
-        &:hover:not([aria-disabled="true"]) {
+        &:hover:not([aria-disabled="true"], [aria-pressed="true"]) {
           @include theme.define-var(
             (
               background-color: theme.get-color($value, "background-hovered"),
@@ -83,7 +83,7 @@
           )
         );
 
-        &:hover:not([aria-disabled="true"]) {
+        &:hover:not([aria-disabled="true"], [aria-pressed="true"]) {
           @include theme.define-var(
             (
               background-color:
@@ -120,7 +120,7 @@
           )
         );
 
-        &:hover:not([aria-disabled="true"]) {
+        &:hover:not([aria-disabled="true"], [aria-pressed="true"]) {
           @include theme.define-var(
             (
               color: theme.get-color($value, "border-hovered"),
@@ -147,7 +147,7 @@
           )
         );
 
-        &:hover:not([aria-disabled="true"]) {
+        &:hover:not([aria-disabled="true"], [aria-pressed="true"]) {
           @include theme.define-var(
             (
               background-color: theme.get-color($value, "background-faded"),

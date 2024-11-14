@@ -204,13 +204,14 @@ export const RecentActivity = {
               <Text as="h5">Recent activity</Text>
               <Tooltip<HTMLButtonElement>
                 placement="top"
+                delay={1000}
                 renderAnchor={(props) => (
                   <Button size="sm" leftSlot={<TbPin />} appearance="ghost" iconOnly {...props}>
                     Bookmark
                   </Button>
                 )}
               >
-                <Text size="xs" inherit>
+                <Text size="xs" skin="white" inherit>
                   Pin this widget to your dashboard for quick access.
                 </Text>
               </Tooltip>
@@ -302,6 +303,7 @@ export const Suggested = {
                     <Button
                       ref={ref}
                       onClick={isOpen ? close : open}
+                      pressed={isOpen}
                       size="sm"
                       skin="neutral"
                       appearance="outline"
