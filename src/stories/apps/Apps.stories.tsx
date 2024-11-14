@@ -30,7 +30,7 @@ import {
   Hue,
 } from "@stewed/react";
 // Hooks
-import { useToggle, useFetch } from "@stewed/hooks";
+import { useToggle, useFetch, useInput } from "@stewed/hooks";
 // Icons
 import { IoMdClose, IoMdAdd } from "react-icons/io";
 import { RiHistoryLine, RiAlbumFill, RiPlayListFill } from "react-icons/ri";
@@ -703,6 +703,16 @@ export const Music = {
 
 export const ChatAI = {
   render: function Render() {
+    const { value: text, onChange: onTextChange } = useInput<string>("", {
+      validate: (newValue) => {
+        if (newValue.length >= 1001) {
+          return false;
+        }
+
+        return true;
+      },
+    });
+
     return (
       <Theme>
         <Box skin="neutral-faded" padding={{ block: "9xl", inline: "9xl" }} fullScreen fullWidth>
@@ -804,9 +814,10 @@ export const ChatAI = {
                 <Stack direction="column" gap="md">
                   <TextArea
                     rows={5}
-                    autoHeight
                     appearance="ghost"
                     placeholder="Ask whatever you want..."
+                    value={text}
+                    onChange={onTextChange}
                     resize="none"
                   />
 
@@ -830,8 +841,8 @@ export const ChatAI = {
                       </Button>
                     </Stack>
                     <Stack items="center" gap="sm">
-                      <Text size="xs" skin="neutral">
-                        0/1000
+                      <Text size="xs" skin={text.length === 1000 ? "critical" : "neutral"}>
+                        {text.length}/1000
                       </Text>
                       <Button
                         skin="primary"

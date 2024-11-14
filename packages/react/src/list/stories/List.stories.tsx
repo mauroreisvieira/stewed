@@ -8,6 +8,9 @@ type Story = StoryObj<typeof List>;
 const meta: Meta<typeof List> = {
   title: "Components/List",
   component: List,
+  subcomponents: {
+    "List.Item": List.Item as React.FC<unknown>,
+  },
   decorators: [
     (Story) => (
       <Theme>

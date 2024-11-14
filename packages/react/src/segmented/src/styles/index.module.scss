@@ -50,7 +50,8 @@
     }
 
     &--selected {
-      box-shadow: theme.get-shadow("sm");
+      box-shadow: theme.get-var(box-shadow);
+
       @include theme.define-var(
         (
           background-color: theme.get-color("background-default"),

@@ -11,6 +11,10 @@ type Story = StoryObj<typeof ListBox>;
 const meta: Meta<typeof ListBox> = {
   title: "Components/List Box",
   component: ListBox,
+  subcomponents: {
+    "ListBox.Group": ListBox.Group as React.FC<unknown>,
+    "ListBox.Item": ListBox.Item as React.FC<unknown>,
+  },
   decorators: [
     (Story) => (
       <Theme>

@@ -9,6 +9,12 @@ type Story = StoryObj<typeof Card>;
 const meta: Meta<typeof Card> = {
   title: "Components/Card",
   component: Card,
+  subcomponents: {
+    "Card.Media": Card.Media as React.FC<unknown>,
+    "Card.Header": Card.Header as React.FC<unknown>,
+    "Card.Body": Card.Body as React.FC<unknown>,
+    "Card.Footer": Card.Footer as React.FC<unknown>,
+  },
   decorators: [
     (Story) => (
       <Theme>

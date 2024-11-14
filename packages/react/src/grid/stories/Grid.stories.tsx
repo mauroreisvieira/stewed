@@ -8,6 +8,9 @@ type Story = StoryObj<typeof Grid>;
 const meta: Meta<typeof Grid> = {
   title: "Components/Grid",
   component: Grid,
+  subcomponents: {
+    "Grid.Item": Grid.Item as React.FC<unknown>,
+  },
   decorators: [
     (Story) => (
       <Theme>

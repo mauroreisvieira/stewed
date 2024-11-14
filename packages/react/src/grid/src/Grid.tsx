@@ -1,6 +1,6 @@
 import React from "react";
 // Compound Component
-import { GridItem, type Size } from "./GridItem";
+import { GridItem, type GridSize } from "./GridItem";
 // Tokens
 import { type Spacings, components } from "@stewed/tokens";
 // Hooks
@@ -21,9 +21,9 @@ export interface GridProps<T>
       /** Aligns stack items along the cross axis. */
       items?: "start" | "end" | "center" | "baseline" | "stretch";
       /** The number of rows in the grid container. */
-      rows?: Size;
+      rows?: GridSize;
       /** The number of columns in the grid container. */
-      cols?: Size;
+      cols?: GridSize;
       /** The flow direction of the grid items. */
       flow?: "row" | "column" | "row-dense" | "column-dense";
       /** Specifies whether the grid container is a subgrid or not. */

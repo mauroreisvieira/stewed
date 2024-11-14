@@ -8,6 +8,13 @@ type Story = StoryObj<typeof Table>;
 const meta: Meta<typeof Table> = {
   title: "Components/Table",
   component: Table,
+  subcomponents: {
+    "Table.Head": Table.Head as React.FC<unknown>,
+    "Table.Body": Table.Body as React.FC<unknown>,
+    "Table.Foot": Table.Foot as React.FC<unknown>,
+    "Table.Row": Table.Row as React.FC<unknown>,
+    "Table.Cell": Table.Cell as React.FC<unknown>,
+  },
   decorators: [
     (Story) => (
       <Theme>

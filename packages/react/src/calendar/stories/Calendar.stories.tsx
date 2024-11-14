@@ -3,8 +3,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 // Components
 import { Theme, Calendar, DateOrArrayDates, Stack, Button, Text, Icon } from "../../index";
 
-type Story = StoryObj<typeof Calendar>;
-
 const now = new Date();
 
 const DAYS_WEEK = {
@@ -17,9 +15,15 @@ const DAYS_WEEK = {
   SATURDAY: 6,
 };
 
+
 const meta: Meta<typeof Calendar> = {
   title: "Components/Calendar",
   component: Calendar,
+  subcomponents: {
+    "Calendar.Navigation": Calendar.Navigation as React.FC<unknown>,
+    "Calendar.Week": Calendar.Week as React.FC<unknown>,
+    "Calendar.Month": Calendar.Month as React.FC<unknown>,
+  },
   decorators: [
     (Story) => (
       <Theme>
@@ -91,6 +95,8 @@ const meta: Meta<typeof Calendar> = {
 };
 
 export default meta;
+
+type Story = StoryObj<typeof Calendar>;
 
 const Template = (args) => {
   const [selectedDates, setSelectedDates] = useState<DateOrArrayDates>(args.selectedDates);

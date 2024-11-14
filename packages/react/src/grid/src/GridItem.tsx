@@ -11,23 +11,23 @@ import styles from "./styles/index.module.scss";
 
 const defaultElement = "div";
 
-export type Size = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+export type GridSize = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
 export interface GridProps<T>
   extends Omit<React.ComponentProps<typeof defaultElement>, "hidden">,
     UseResponsiveProps<{
       /** The number of rows that the element should span. */
-      rowSpan?: Size;
+      rowSpan?: GridSize;
       /** The row at which the element should start. */
-      rowStart?: Size;
+      rowStart?: GridSize;
       /** The row at which the element should end. */
-      rowEnd?: Size;
+      rowEnd?: GridSize;
       /** The number of columns that the element should span. */
-      colSpan?: Size;
+      colSpan?: GridSize;
       /** The column at which the element should start. */
-      colStart?: Size;
+      colStart?: GridSize;
       /** The column at which the element should end. */
-      colEnd?: Size;
+      colEnd?: GridSize;
       /** Boolean indicating if the element should be hidden. */
       hidden?: boolean;
     }> {

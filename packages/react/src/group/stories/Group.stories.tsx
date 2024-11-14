@@ -2,7 +2,6 @@ import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // Components
 import { Theme, Group, Button, TextField } from "../../index";
-// Icons
 
 type Story = StoryObj<typeof Group>;
 
@@ -24,19 +23,13 @@ export const Buttons: Story = {
   args: {
     children: (
       <>
-        <Button skin="neutral" size="xs" appearance="outline">
+        <Button skin="neutral" appearance="outline">
           Button
         </Button>
-        <Button skin="neutral" size="sm" appearance="outline">
+        <Button skin="neutral" appearance="outline" disabled>
           Button
         </Button>
-        <Button skin="neutral" size="md" appearance="outline" disabled>
-          Button
-        </Button>
-        <Button skin="neutral" size="lg" appearance="outline">
-          Button
-        </Button>
-        <Button skin="neutral" size="xl" appearance="outline">
+        <Button skin="neutral" appearance="outline">
           Button
         </Button>
       </>
@@ -59,11 +52,11 @@ export const Mixed: Story = {
   args: {
     children: (
       <>
-        <Button skin="neutral" size="xs" appearance="outline">
+        <Button skin="primary" appearance="soft">
           Button
         </Button>
         <TextField appearance="outline" defaultValue={"Input field..."} />
-        <Button skin="neutral" size="xs" appearance="outline">
+        <Button skin="primary" appearance="soft">
           Button
         </Button>
       </>

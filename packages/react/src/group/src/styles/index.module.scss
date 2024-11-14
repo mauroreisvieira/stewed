@@ -22,6 +22,11 @@
     border-radius: 0;
   }
 
+  :not(:first-child, :last-child) {
+    position: relative;
+    z-index: 1;
+  }
+
   :first-child {
     border-radius: 0;
     border-top-left-radius: theme.get-var(border-radius);

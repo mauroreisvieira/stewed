@@ -10,6 +10,10 @@ type Story = StoryObj<typeof Tabs>;
 const meta: Meta<typeof Tabs> = {
   title: "Components/Tabs",
   component: Tabs,
+  subcomponents: {
+    "Tabs.List": Tabs.List as React.FC<unknown>,
+    "Tabs.Item": Tabs.Item as React.FC<unknown>,
+  },
   decorators: [
     (Story) => (
       <Theme>

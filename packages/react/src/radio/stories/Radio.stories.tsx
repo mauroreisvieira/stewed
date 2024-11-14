@@ -11,7 +11,7 @@ const meta: Meta<typeof Radio> = {
   title: "Components/Radio",
   component: Radio,
   subcomponents: {
-    Group: Radio.Group as React.FC<unknown>,
+    "Radio.Group": Radio.Group as React.FC<unknown>,
   },
   decorators: [
     (Story) => (
