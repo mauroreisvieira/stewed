@@ -656,7 +656,7 @@ export const CompletedProgress = {
     return (
       <Container screen="xl" alignment="center" padding={{ block: "7xl" }}>
         <Hue skin={{ from: "indigo-600", to: "blue-900" }}>
-          <Card padding={{ block: "2xl", inline: "2xl" }}>
+          <Card padding={{ block: "2xl", inline: "2xl" }} shadow="lg">
             <Card.Body>
               <Stack direction="column" gap="xl">
                 <Text weight="semi-bold" skin="white" space={{ y: "lg" }}>

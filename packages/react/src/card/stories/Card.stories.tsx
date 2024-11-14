@@ -55,7 +55,6 @@ export const Skin: Story = {
   },
   args: {
     skin: "primary",
-    shadow: "md",
     children: (
       <>
         <Card.Body>

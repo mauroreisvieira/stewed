@@ -683,6 +683,7 @@ export const Music = {
               "secondary-background-pressed": "#fcfcfc",
               "secondary-foreground": "#fff",
               "secondary-foreground-on-background": "#121212",
+              shadow: "rgb(178 184 202 / 39%)"
             },
           },
         }}
@@ -726,7 +727,6 @@ export const ChatAI = {
             </Box>
 
             <Box space={{ y: "9xl" }}>
-              <Stack items="start" direction="column" gap="lg">
                 <Grid
                   cols={2}
                   responsive={{
@@ -748,6 +748,7 @@ export const ChatAI = {
                       </Text>
                     </Card.Footer>
                   </Card>
+
                   <Card skin="neutral-faded">
                     <Card.Body>
                       <Text size="sm" skin="neutral">
@@ -760,18 +761,21 @@ export const ChatAI = {
                       </Text>
                     </Card.Footer>
                   </Card>
+
                   <Card skin="neutral-faded">
                     <Card.Body>
                       <Text size="sm" skin="neutral">
                         Summarize this article or text for me in one paragraph
                       </Text>
                     </Card.Body>
+
                     <Card.Footer>
                       <Text skin="neutral">
                         <BsBodyText size={18} />
                       </Text>
                     </Card.Footer>
                   </Card>
+
                   <Card skin="neutral-faded">
                     <Card.Body>
                       <Text size="sm" skin="neutral">
@@ -785,7 +789,6 @@ export const ChatAI = {
                     </Card.Footer>
                   </Card>
                 </Grid>
-              </Stack>
             </Box>
 
             <Card padding={{ block: "md", inline: "md" }} shadow="md">

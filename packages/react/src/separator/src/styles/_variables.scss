@@ -13,13 +13,13 @@ $separator-skins: (
   "neutral": theme.get-color("neutral", "border"),
   "neutral-faded": theme.get-color("neutral", "border-faded"),
   "critical": theme.get-color("critical", "border"),
-  "critical-border": theme.get-color("critical", "border-faded"),
+  "critical-faded": theme.get-color("critical", "border-faded"),
   "success": theme.get-color("success", "border"),
-  "success-border": theme.get-color("success", "border-faded"),
+  "success-faded": theme.get-color("success", "border-faded"),
   "info": theme.get-color("info", "border"),
   "info-border": theme.get-color("info", "border-faded"),
   "warning": theme.get-color("warning", "border"),
-  "warning-border": theme.get-color("warning", "border-faded"),
+  "warning-faded": theme.get-color("warning", "border-faded"),
 );
 
 /// Space
