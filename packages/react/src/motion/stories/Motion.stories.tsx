@@ -26,7 +26,7 @@ export const Zoom: Story = {
     const [animation, setAnimation] = useState<(typeof zooms)[number]>();
     return (
       <Stack justify="center" direction="column" items="center" gap="2xl">
-        <Stack style={{ width: 200, height: 200, overflow: "hidden" }}>
+        <Stack style={{ width: 120, height: 120, overflow: "hidden" }}>
           <Motion
             duration="slowly"
             timing="ease-in-out"
@@ -36,9 +36,11 @@ export const Zoom: Story = {
             }}
           >
             <Box
-              padding={{ block: "9xl", inline: "9xl" }}
-              skin="primary"
-              style={{ width: 200, height: 200 }}
+              radius="md"
+              skin="primary-faded"
+              borderStyle="solid"
+              borderColor="primary-faded"
+              style={{ width: 120, height: 120 }}
             />
           </Motion>
         </Stack>
@@ -61,7 +63,7 @@ export const Fade: Story = {
     const [animation, setAnimation] = useState<(typeof fades)[number]>();
     return (
       <Stack justify="center" direction="column" items="center" gap="2xl">
-        <Stack style={{ width: 200, height: 200, overflow: "hidden" }}>
+        <Stack style={{ width: 120, height: 120, overflow: "hidden" }}>
           <Motion
             duration="slowly"
             timing="ease-in-out"
@@ -71,9 +73,11 @@ export const Fade: Story = {
             }}
           >
             <Box
-              padding={{ block: "9xl", inline: "9xl" }}
-              skin="primary"
-              style={{ width: 200, height: 200 }}
+              radius="md"
+              skin="primary-faded"
+              borderStyle="solid"
+              borderColor="primary-faded"
+              style={{ width: 120, height: 120 }}
             />
           </Motion>
         </Stack>
@@ -105,7 +109,7 @@ export const Slide: Story = {
     const [animation, setAnimation] = useState<(typeof slides)[number]>();
     return (
       <Stack justify="center" direction="column" items="center" gap="2xl">
-        <Stack style={{ width: 200, height: 200, overflow: "hidden" }}>
+        <Stack style={{ width: 120, height: 120, overflow: "hidden" }}>
           <Motion
             duration="slowly"
             timing="ease-in-out"
@@ -115,9 +119,11 @@ export const Slide: Story = {
             }}
           >
             <Box
-              padding={{ block: "9xl", inline: "9xl" }}
-              skin="primary"
-              style={{ width: 200, height: 200 }}
+              radius="md"
+              skin="primary-faded"
+              borderStyle="solid"
+              borderColor="primary-faded"
+              style={{ width: 120, height: 120 }}
             />
           </Motion>
         </Stack>

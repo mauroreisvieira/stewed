@@ -28,7 +28,7 @@ export const ResizeObserver: Story = {
     // Use the hook, passing in the ref, enabled flag, and onChange callback
     useResizeObserver({
       elementRef,
-      onChange: (entries: ResizeObserverEntry[]) => {
+      handler: (entries: ResizeObserverEntry[]) => {
         const entry = entries[0];
         if (entry) {
           setDimensions({

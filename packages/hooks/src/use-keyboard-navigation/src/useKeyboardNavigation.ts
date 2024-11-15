@@ -7,7 +7,7 @@ interface UseKeyboardNavigationProps {
    * Object that maps custom keyboard keys to their navigation directions.
    * Keys are the keyboard event key values, and values are the navigation direction (-1 for backward, 1 for forward).
    */
-  keyboardKey?: Record<string, number>;
+  key?: Record<string, number>;
   /** Determines whether navigation should wrap around when reaching the start or end of the list. */
   loop?: boolean;
 }
@@ -57,7 +57,7 @@ interface UseKeyboardNavigation<T> {
  */
 export function useKeyboardNavigation<T extends HTMLDivElement>({
   target,
-  keyboardKey = {
+  key = {
     ArrowUp: -1,
     ArrowLeft: -1,
     ArrowDown: 1,
@@ -120,8 +120,8 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
       // Find the index of the currently focused item in the items array.
       const index = items.findIndex((item) => item === document.activeElement);
 
-      // Determine the direction of navigation based on the pressed key using the keyboardKey mapping.
-      const direction = keyboardKey?.[event.key];
+      // Determine the direction of navigation based on the pressed key using the key mapping.
+      const direction = key?.[event.key];
 
       // If a valid focused item is found (index >= 0) and a direction is defined (not undefined):
       if (index >= 0 && direction !== undefined) {
@@ -140,7 +140,7 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
         setFocusedIndex(nextIndex);
       }
     },
-    [keyboardKey, loop, setFocusedIndex, target],
+    [key, loop, setFocusedIndex, target],
   );
 
   // Sets the first element with `[aria-selected="true"]` as focusable, or the first item if none found.

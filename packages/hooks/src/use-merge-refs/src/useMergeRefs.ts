@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useCallback, useMemo } from "react";
 
 /**
  * Hook that merges multiple refs into a single callback ref.
@@ -16,25 +16,21 @@ import { useMemo } from "react";
  * ```
  */
 export function useMergeRefs<T>(
-  refs: Array<React.Ref<T> | undefined>,
+  refs: Array<React.Ref<T> | undefined | null>,
 ): React.RefCallback<T> | null {
-  return useMemo(() => {
-    // If all refs are null or undefined, return null to avoid unnecessary callbacks
-    if (refs.every((ref) => ref == null)) {
-      return null;
+  const setRef = useCallback((ref: React.Ref<T> | undefined | null, value: T) => {
+    if (typeof ref === "function") {
+      ref(value);
+    } else if (ref && "current" in ref) {
+      (ref as React.MutableRefObject<T>).current = value;
     }
+  }, []);
 
-    // Return a callback ref that updates all provided refs
-    return (value: T | null) => {
-      refs.forEach((ref) => {
-        if (typeof ref === "function") {
-          ref(value); // Call the ref callback with the current value
-        } else if (ref) {
-          // Assign the value to the current property of the mutable ref object
-          (ref as React.MutableRefObject<T | null>).current = value;
-        }
-      });
+  return useMemo(() => {
+    if (!refs.some(Boolean)) return null;
+
+    return (value: T) => {
+      refs.forEach((ref) => setRef(ref, value));
     };
-  // eslint-disable-next-line react-compiler/react-compiler, react-hooks/exhaustive-deps
-  }, refs);
+  }, [refs, setRef]);
 }

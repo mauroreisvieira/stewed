@@ -90,9 +90,11 @@ export const Base: Story = {
           ))}
         </Table.Body>
         <Table.Foot>
-          <Table.Cell>Foot</Table.Cell>
-          <Table.Cell>Foot</Table.Cell>
-          <Table.Cell>Foot</Table.Cell>
+          <Table.Row>
+            <Table.Cell>Foot</Table.Cell>
+            <Table.Cell>Foot</Table.Cell>
+            <Table.Cell>Foot</Table.Cell>
+          </Table.Row>
         </Table.Foot>
       </>
     ),
@@ -126,7 +128,9 @@ export const Border: Story = {
           ))}
         </Table.Body>
         <Table.Foot>
-          <Table.Cell colSpan={4}>Foot</Table.Cell>
+          <Table.Row>
+            <Table.Cell colSpan={4}>Foot</Table.Cell>
+          </Table.Row>
         </Table.Foot>
       </>
     ),
@@ -197,10 +201,12 @@ export const Error: Story = {
           ))}
         </Table.Body>
         <Table.Foot>
-          <Table.Cell>Foot</Table.Cell>
-          <Table.Cell>Foot</Table.Cell>
-          <Table.Cell>Foot</Table.Cell>
-          <Table.Cell>Foot</Table.Cell>
+          <Table.Row>
+            <Table.Cell>Foot</Table.Cell>
+            <Table.Cell>Foot</Table.Cell>
+            <Table.Cell>Foot</Table.Cell>
+            <Table.Cell>Foot</Table.Cell>
+          </Table.Row>
         </Table.Foot>
       </>
     ),

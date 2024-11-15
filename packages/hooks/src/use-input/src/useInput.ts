@@ -20,7 +20,7 @@ interface UseInputHandler<T> {
   isValid: boolean;
 }
 
-export interface UseInputOptions<T> {
+export interface UseInputProps<T> {
   /**
    * Validation function to validate the new value.
    *
@@ -40,7 +40,7 @@ export interface UseInputOptions<T> {
  */
 export function useInput<T extends UseInputValue>(
   initialValue: T,
-  { validate }: UseInputOptions<T> = {},
+  { validate }: UseInputProps<T> = {},
 ): UseInputHandler<T> {
   // State for the current value of the input field
   const [currentValue, setCurrentValue] = useState<T>(initialValue);

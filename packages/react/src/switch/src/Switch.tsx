@@ -22,7 +22,7 @@ export interface SwitchProps
    * Specifies the visual style of the switch.
    * @default primary
    */
-  skin?: "primary" | "critical";
+  skin?: "primary" | "critical" | "success";
   /** Sets element's content before switch. */
   reversed?: boolean;
   /** Displays a loading indicator on the switch. */

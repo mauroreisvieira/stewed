@@ -1,3 +1,5 @@
+// eslint-disable-next-line eslint-comments/disable-enable-pair
+/* eslint-disable react-compiler/react-compiler */
 import React, { useCallback, useEffect, useRef, useState } from "react";
 // UI Components
 import { Motion, Scope } from "../..";
@@ -126,14 +128,14 @@ export function Popover<T extends HTMLElement>({
   useClickOutside({
     enabled: isOpen,
     ignoredElements: [popoverRef.current as Element, floating.current as Element],
-    onClickOutside: () => (allowClickOutside ? onClickOutside : setOpen(false)),
+    handler: () => (allowClickOutside ? onClickOutside : setOpen(false)),
   });
 
   // Disable arrow key scrolling in users browser
   useKey({
     enabled: !!isOpen,
     keys: ["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"],
-    callback: (event: KeyboardEvent) => {
+    handler: (event: KeyboardEvent) => {
       event.preventDefault();
     },
   });

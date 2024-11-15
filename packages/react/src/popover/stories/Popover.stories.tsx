@@ -153,7 +153,7 @@ export const Boundary: Story = {
             >
               {() => {
                 return (
-                  <Box skin="neutral">
+                  <Box skin="primary-faded">
                     <div style={{ width: 100, height: 100 }} />
                   </Box>
                 );

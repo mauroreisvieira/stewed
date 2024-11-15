@@ -139,7 +139,7 @@ export function Drawer({
   useClickOutside({
     enabled: open,
     ignoredElements: rootRef ? [rootRef] : undefined,
-    onClickOutside: () => onClickOutside?.(),
+    handler: () => onClickOutside?.(),
   });
 
   useEffect(() => {

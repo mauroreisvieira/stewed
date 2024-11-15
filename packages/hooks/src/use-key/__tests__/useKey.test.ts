@@ -3,10 +3,10 @@ import { useKey } from "../index";
 import { renderHook } from "@testing-library/react";
 
 describe("useKey", () => {
-  let callback: jest.Mock;
+  let handler: jest.Mock;
 
   beforeEach(() => {
-    callback = jest.fn();
+    handler = jest.fn();
   });
 
   it("should not call the callback when disabled", () => {
@@ -14,7 +14,7 @@ describe("useKey", () => {
       useKey({
         keys: ["Enter", "Escape"],
         enabled: false,
-        callback,
+        handler,
       }),
     );
 
@@ -23,7 +23,7 @@ describe("useKey", () => {
     document.dispatchEvent(new KeyboardEvent("keydown", { code: "Escape" }));
 
     // Callback should not be called
-    expect(callback).not.toHaveBeenCalled();
+    expect(handler).not.toHaveBeenCalled();
   });
 
   it("should call the callback when enabled and specified key is pressed", () => {
@@ -31,7 +31,7 @@ describe("useKey", () => {
       useKey({
         keys: ["Enter"],
         enabled: true,
-        callback,
+        handler,
       }),
     );
 
@@ -39,7 +39,7 @@ describe("useKey", () => {
     document.dispatchEvent(new KeyboardEvent("keydown", { code: "Enter" }));
 
     // Callback should be called once
-    expect(callback).toHaveBeenCalledTimes(1);
+    expect(handler).toHaveBeenCalledTimes(1);
   });
 
   it("should not call the callback for keys not in the list", () => {
@@ -47,7 +47,7 @@ describe("useKey", () => {
       useKey({
         keys: ["Enter"],
         enabled: true,
-        callback,
+        handler,
       }),
     );
 
@@ -55,7 +55,7 @@ describe("useKey", () => {
     document.dispatchEvent(new KeyboardEvent("keydown", { code: "Escape" }));
 
     // Callback should not be called
-    expect(callback).not.toHaveBeenCalled();
+    expect(handler).not.toHaveBeenCalled();
   });
 
   it("should call the callback for multiple specified keys", () => {
@@ -63,7 +63,7 @@ describe("useKey", () => {
       useKey({
         keys: ["Enter", "Escape"],
         enabled: true,
-        callback,
+        handler,
       }),
     );
 
@@ -72,7 +72,7 @@ describe("useKey", () => {
     document.dispatchEvent(new KeyboardEvent("keydown", { code: "Escape" }));
 
     // Callback should be called twice (once for each specified key)
-    expect(callback).toHaveBeenCalledTimes(2);
+    expect(handler).toHaveBeenCalledTimes(2);
   });
 
   it("should stop calling the callback after being disabled", () => {
@@ -81,7 +81,7 @@ describe("useKey", () => {
         useKey({
           keys: ["Enter"],
           enabled,
-          callback,
+          handler,
         }),
       {
         initialProps: { enabled: true },
@@ -90,7 +90,7 @@ describe("useKey", () => {
 
     // Initially enabled, simulate keydown for "Enter"
     document.dispatchEvent(new KeyboardEvent("keydown", { code: "Enter" }));
-    expect(callback).toHaveBeenCalledTimes(1);
+    expect(handler).toHaveBeenCalledTimes(1);
 
     // Rerender with enabled set to false
     rerender({ enabled: false });
@@ -99,6 +99,6 @@ describe("useKey", () => {
     document.dispatchEvent(new KeyboardEvent("keydown", { code: "Enter" }));
 
     // Callback should not be called again as hook is disabled
-    expect(callback).toHaveBeenCalledTimes(1);
+    expect(handler).toHaveBeenCalledTimes(1);
   });
 });

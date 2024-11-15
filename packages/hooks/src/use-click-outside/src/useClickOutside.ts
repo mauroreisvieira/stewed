@@ -10,14 +10,11 @@ export interface UseClickOutside extends ClickOutsideOptions {
  * Hook that detects clicks outside of specified elements and triggers a callback.
  *
  * @param props - Configuration options for the hook.
- * @param props.enabled - Determines if the hook is active. Default is false.
- * @param props.ignoredElements - Array of elements to ignore clicks on.
- * @param props.onClickOutside - Callback function to trigger on outside click.
  */
 export const useClickOutside = ({
   enabled = false,
   ignoredElements,
-  onClickOutside,
+  handler,
 }: UseClickOutside): void => {
   const clickOutside = useRef<ClickOutside>();
 
@@ -34,17 +31,17 @@ export const useClickOutside = ({
 
     clickOutside.current.update({
       ignoredElements,
-      onClickOutside,
+      handler,
     });
 
     if (enabled) {
       clickOutside.current.activate({
         ignoredElements,
-        onClickOutside,
+        handler,
       });
       return;
     }
 
     clickOutside.current.deactivate();
-  }, [enabled, onClickOutside, ignoredElements]);
+  }, [enabled, handler, ignoredElements]);
 };

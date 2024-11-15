@@ -103,9 +103,6 @@ const Root = forwardRef(
     // Event handler for when the radio state changes
     const onHandleChange: React.ChangeEventHandler<HTMLInputElement> = useCallback(
       (event) => {
-        // Trigger the external onChange handler if provided
-        onChange?.(event);
-
         // Calculate the new checked state by toggling the current checked state
         const newChecked = !isChecked;
 
@@ -116,6 +113,9 @@ const Root = forwardRef(
           // Update the parent component's checkedValues if onCheckedChange is provided
           onCheckedChange?.(newCheckedValue);
         }
+
+        // Trigger the external onChange handler if provided
+        onChange?.(event);
       },
       [isChecked, value, onChange, onCheckedChange],
     );

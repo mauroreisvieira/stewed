@@ -76,7 +76,7 @@ export function Motion({
 
   // Cloning the child element to inject className and onTransitionEnd and onAnimationEnd
   return React.cloneElement(children, {
-    className: classNames(children.props.className, cssClasses.root),
+    className: classNames(cssClasses.root, children.props.className),
     onTransitionEnd: () => {
       children?.props?.onTransitionEnd?.();
       onDone?.();

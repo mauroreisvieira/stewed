@@ -168,6 +168,7 @@ export function Tooltip<T extends HTMLElement>({
       return;
     }
     const id = currentState.timeoutId;
+    // eslint-disable-next-line react-compiler/react-compiler
     delete currentState.timeoutId;
 
     return () => clearTimeout(id);

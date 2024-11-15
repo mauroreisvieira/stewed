@@ -30,7 +30,7 @@ export const Outside: Story = {
     useClickOutside({
       enabled: true,
       ignoredElements: [containerRef.current as Element],
-      onClickOutside: () => {
+      handler: () => {
         setClicks((prev) => prev + 1);
       },
     });

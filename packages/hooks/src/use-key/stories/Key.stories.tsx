@@ -31,7 +31,7 @@ export const Base: Story = {
 
     useKey({
       keys: ["Enter", "Escape"],
-      callback: handleKeyPress,
+      handler: handleKeyPress,
     });
 
     return (
@@ -40,6 +40,32 @@ export const Base: Story = {
           Press <kbd>Enter</kbd> or <kbd>Escape</kbd> to see a message:
         </Text>
         {key && <Text skin="neutral">{key} key was pressed!</Text>}
+      </Box>
+    );
+  },
+};
+
+export const Combine: Story = {
+  render: function Render() {
+    const [key, setKey] = useState<string | null>(null);
+
+    // Define the callback function for key presses
+    const handleKeyPress = (event: KeyboardEvent) => {
+      setKey(event.code.toString());
+    };
+
+    useKey({
+      keys: ["KeyB"],
+      modifiers: ["alt"],
+      handler: handleKeyPress,
+    });
+
+    return (
+      <Box>
+        <Text weight="medium" space={{ y: "lg" }}>
+          Press <kbd>Alt</kbd> + <kbd>B</kbd> to see a message:
+        </Text>
+        {key && <Text skin="neutral">Congratulations, you press the bomb button!</Text>}
       </Box>
     );
   },

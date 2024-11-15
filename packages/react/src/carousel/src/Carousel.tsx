@@ -17,13 +17,13 @@ import { useTheme } from "../../theme";
 // Style
 import styles from "./styles/index.module.scss";
 
-interface RenderNavigationCallbackProps {
-  /** Function to handle the click event for the navigation button. */
-  onClick: () => void;
+interface NavigationButtonProps {
   /** The class name to be applied to the navigation button for styling purposes. */
   className: string;
   /** Whether the navigation button is disabled. If true, the button will be non-interactive and typically styled as disabled. */
   disabled: boolean;
+  /** Function to handle the click event for the navigation button. */
+  onClick: () => void;
 }
 
 export interface CarouselProps
@@ -55,12 +55,12 @@ export interface CarouselProps
          * A callback function for rendering the previous button.
          * @param props - The properties for rendering, including `onClick` and `disabled`.
          */
-        renderPrev: (props: RenderNavigationCallbackProps) => React.ReactNode;
+        renderPrev: (props: NavigationButtonProps) => React.ReactNode;
         /**
          * A callback function for rendering the next button.
          * @param props - The properties for rendering, including `onClick` and `disabled`.
          */
-        renderNext: (props: RenderNavigationCallbackProps) => React.ReactNode;
+        renderNext: (props: NavigationButtonProps) => React.ReactNode;
       };
       /**
        * Number of slides to display

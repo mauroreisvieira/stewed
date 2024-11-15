@@ -1,4 +1,4 @@
-import { useInput, type UseInputValue, type UseInputOptions } from "../../index";
+import { useInput, type UseInputValue, type UseInputProps } from "../../index";
 // Utilities
 import { renderHook, act } from "@testing-library/react";
 
@@ -21,7 +21,7 @@ describe("useInput", () => {
     const initialValue = "initial";
     const newValue = "new value";
 
-    const validateOptions: UseInputOptions<UseInputValue> = {
+    const validateOptions: UseInputProps<UseInputValue> = {
       validate: mockValidate,
     };
 
@@ -41,7 +41,7 @@ describe("useInput", () => {
     const initialValue = "initial";
     const invalidValue = "new value";
 
-    const validateOptions: UseInputOptions<UseInputValue> = {
+    const validateOptions: UseInputProps<UseInputValue> = {
       validate: () => false,
     };
 

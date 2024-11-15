@@ -33,7 +33,7 @@ export const Base: Story = {
 export const Critical: Story = {
   args: {
     placeholder: "Type your value...",
-    value: "mail@mail",
+    defaultValue: "mail@mail",
     skin: "critical",
   },
 };

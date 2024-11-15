@@ -13,7 +13,7 @@ interface UseResizeObserverProps<T> {
    * The callback function to be invoked when a resize event occurs on the observed element.
    * This function will receive the `ResizeObserverEntry[]` and the `ResizeObserver` instance.
    */
-  onChange: ResizeObserverCallback | null;
+  handler: ResizeObserverCallback | null;
 }
 
 /**
@@ -39,15 +39,15 @@ interface UseResizeObserverProps<T> {
 export function useResizeObserver<T extends HTMLElement>({
   elementRef,
   enabled = true,
-  onChange,
+  handler,
 }: UseResizeObserverProps<T>): void {
   // Callback function to handle resize events and call the provided onChange handler
   const updateEntry = useCallback(
     (entries: ResizeObserverEntry[], observer: ResizeObserver): void => {
       // Invoke the callback function with the entries when a resize occurs
-      onChange?.(entries, observer);
+      handler?.(entries, observer);
     },
-    [onChange], // Dependency array: only recreate the callback if onChange changes
+    [handler], // Dependency array: only recreate the callback if onChange changes
   );
 
   useEffect(() => {

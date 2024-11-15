@@ -11,6 +11,7 @@ const meta: Meta<typeof Backdrop> = {
   decorators: [
     (Story) => (
       <Theme>
+        <div style={{ height: 200 }} />
         <Story />
       </Theme>
     ),

@@ -2,7 +2,7 @@ export interface ClickOutsideOptions {
   /** Array of elements that will be ignored on click. */
   ignoredElements?: (Element | null)[];
   /** A callback function triggered on click outside the elements associated. */
-  onClickOutside?: () => void;
+  handler?: () => void;
 }
 
 interface ClickOutside {
@@ -83,7 +83,7 @@ export class ClickOutsideManager {
   }
 
   /**
-   * Handles the mousedown event to trigger onClickOutside.
+   * Handles the mousedown event to trigger handler.
    *
    * @param event - The MouseEvent object.
    */
@@ -93,13 +93,13 @@ export class ClickOutsideManager {
 
     if (!latestStackItem) return;
 
-    const { ignoredElements, onClickOutside } = latestStackItem;
+    const { ignoredElements, handler } = latestStackItem;
 
-    if (!onClickOutside) return;
+    if (!handler) return;
 
     if (target instanceof Node) {
       if (!ignoredElements?.some((el) => this.elementContainsTarget(target, el))) {
-        onClickOutside();
+        handler();
       }
     }
   };
