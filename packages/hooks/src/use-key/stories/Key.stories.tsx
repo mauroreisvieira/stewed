@@ -55,15 +55,14 @@ export const Combine: Story = {
     };
 
     useKey({
-      keys: ["KeyB"],
-      modifiers: ["alt"],
+      keys: ["cmd+b"],
       handler: handleKeyPress,
     });
 
     return (
       <Box>
         <Text weight="medium" space={{ y: "lg" }}>
-          Press <kbd>Alt</kbd> + <kbd>B</kbd> to see a message:
+          Press <kbd>Cmd/Win</kbd> + <kbd>B</kbd> to see a message:
         </Text>
         {key && <Text skin="neutral">Congratulations, you press the bomb button!</Text>}
       </Box>
