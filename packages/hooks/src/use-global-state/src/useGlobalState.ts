@@ -21,6 +21,7 @@ export function useGlobalState<T>(config: ReturnType<typeof createState<T>>) {
       if (typeof stateOrSetter === "function") {
         next = stateOrSetter(config.state);
       }
+      // eslint-disable-next-line react-compiler/react-compiler
       config.state = next;
       config.listeners?.forEach((l) => l());
     },

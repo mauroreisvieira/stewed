@@ -30,7 +30,7 @@ import {
   Hue,
 } from "@stewed/react";
 // Hooks
-import { useToggle, useFetch, useInput } from "@stewed/hooks";
+import { useToggle, useFetch, useInput, useMediaQuery } from "@stewed/hooks";
 // Icons
 import { IoMdClose, IoMdAdd } from "react-icons/io";
 import { RiHistoryLine, RiAlbumFill, RiPlayListFill } from "react-icons/ri";
@@ -713,8 +713,12 @@ export const ChatAI = {
       },
     });
 
+    const { activeToken } = useTheme();
+
+    const isDesktop = useMediaQuery({ query: `(min-width: ${activeToken.breakpoints?.sm})` });
+
     return (
-      <Theme>
+
         <Box skin="neutral-faded" padding={{ block: "9xl", inline: "9xl" }} fullScreen fullWidth>
           <Container screen="lg" alignment="center">
             <Box space={{ y: "4xl" }}>
@@ -814,6 +818,7 @@ export const ChatAI = {
                 <Stack direction="column" gap="md">
                   <TextArea
                     rows={5}
+                    autoHeight
                     appearance="ghost"
                     placeholder="Ask whatever you want..."
                     value={text}
@@ -827,6 +832,7 @@ export const ChatAI = {
                         skin="neutral"
                         appearance="ghost"
                         size="sm"
+                        iconOnly={!isDesktop}
                         leftSlot={<IoAttach size={16} />}
                       >
                         Add Attachment
@@ -835,6 +841,7 @@ export const ChatAI = {
                         skin="neutral"
                         appearance="ghost"
                         size="sm"
+                        iconOnly={!isDesktop}
                         leftSlot={<IoImage size={16} />}
                       >
                         Use Image
@@ -859,7 +866,8 @@ export const ChatAI = {
             </Card>
           </Container>
         </Box>
-      </Theme>
+
     );
   },
+  decorators: [(Story) => <Theme><Story /></Theme>],
 };

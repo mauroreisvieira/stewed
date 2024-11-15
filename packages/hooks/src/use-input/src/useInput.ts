@@ -8,7 +8,7 @@ interface UseInputHandler<T> {
    * Event handler to handle input changes.
    * @param event - The change event object.
    */
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   /** The current value of the input field. */
   value: T;
   /**
@@ -66,8 +66,8 @@ export function useInput<T extends UseInputValue>(
   );
 
   // Handles input change events.
-  const onHandleChange = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onHandleChange: UseInputHandler<T>["onChange"] = useCallback(
+    (event) => {
       const newValue = event.target.value as T;
       // Validated and update value
       onUpdateValue(newValue);

@@ -41,5 +41,6 @@ export const usePortal = (): HTMLElement => {
     return rootElemRef.current;
   }
 
+  // eslint-disable-next-line react-compiler/react-compiler
   return getRootElement();
 };
