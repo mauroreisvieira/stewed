@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Progress Snapshots should applies appearance classes 1`] = `
+<div>
+  <div
+    class="progress progress--primary progress--sm progress--squared"
+  >
+    <progress
+      class="progress__control"
+      max="100"
+    />
+  </div>
+</div>
+`;
+
+exports[`Progress Snapshots should applies correct size classes 1`] = `
+<div>
+  <div
+    class="progress progress--primary progress--md progress--rounded"
+  >
+    <progress
+      class="progress__control"
+      max="100"
+    />
+  </div>
+</div>
+`;
+
+exports[`Progress Snapshots should applies critical skin 1`] = `
+<div>
+  <div
+    class="progress progress--critical progress--sm progress--rounded"
+  >
+    <progress
+      class="progress__control"
+      max="100"
+    />
+  </div>
+</div>
+`;
+
+exports[`Progress Snapshots should render additional classes 1`] = `
+<div>
+  <div
+    class="progress progress--primary progress--sm progress--rounded other-class"
+  >
+    <progress
+      class="progress__control"
+      max="100"
+    />
+  </div>
+</div>
+`;
+
+exports[`Progress Snapshots should render steps 1`] = `
+<div>
+  <div
+    class="progress progress--primary progress--sm progress--rounded"
+  >
+    <progress
+      class="progress__control"
+      max="100"
+    />
+    <div
+      class="progress__wrapper"
+    >
+      <span
+        class="progress__step"
+        style="left: 0%;"
+      />
+      <span
+        class="progress__step"
+        style="left: 10%;"
+      />
+      <span
+        class="progress__step"
+        style="left: 20%;"
+      />
+      <span
+        class="progress__step"
+        style="left: 30%;"
+      />
+      <span
+        class="progress__step"
+        style="left: 40%;"
+      />
+      <span
+        class="progress__step"
+        style="left: 50%;"
+      />
+      <span
+        class="progress__step"
+        style="left: 60%;"
+      />
+      <span
+        class="progress__step"
+        style="left: 70%;"
+      />
+      <span
+        class="progress__step"
+        style="left: 80%;"
+      />
+      <span
+        class="progress__step"
+        style="left: 90%;"
+      />
+      <span
+        class="progress__step"
+        style="left: 100%;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Progress Snapshots should renders default component 1`] = `
+<div>
+  <div
+    class="progress progress--primary progress--sm progress--rounded"
+  >
+    <progress
+      class="progress__control"
+      max="100"
+    />
+  </div>
+</div>
+`;
+
+exports[`Progress Snapshots should renders value 1`] = `
+<div>
+  <div
+    class="progress progress--primary progress--sm progress--rounded"
+  >
+    <progress
+      class="progress__control"
+      max="100"
+      value="50"
+    />
+  </div>
+</div>
+`;

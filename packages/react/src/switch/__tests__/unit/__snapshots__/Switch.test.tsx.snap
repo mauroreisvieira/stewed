@@ -1,0 +1,290 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Switch Snapshots should apply 'critical' skin classes 1`] = `
+<div>
+  <label
+    class="switch switch--critical switch--md"
+  >
+    <input
+      class="switch__input"
+      type="checkbox"
+    />
+    <span
+      class="switch__control"
+    >
+      <span
+        class="switch__thumb"
+      />
+    </span>
+    <span
+      class="switch__text"
+    >
+      Switch
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Switch Snapshots should apply 'lg' size classes 1`] = `
+<div>
+  <label
+    class="switch switch--primary switch--lg"
+  >
+    <input
+      class="switch__input"
+      type="checkbox"
+    />
+    <span
+      class="switch__control"
+    >
+      <span
+        class="switch__thumb"
+      />
+    </span>
+    <span
+      class="switch__text"
+    >
+      Switch
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Switch Snapshots should apply 'md' size classes 1`] = `
+<div>
+  <label
+    class="switch switch--primary switch--md"
+  >
+    <input
+      class="switch__input"
+      type="checkbox"
+    />
+    <span
+      class="switch__control"
+    >
+      <span
+        class="switch__thumb"
+      />
+    </span>
+    <span
+      class="switch__text"
+    >
+      Switch
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Switch Snapshots should apply 'primary' skin classes 1`] = `
+<div>
+  <label
+    class="switch switch--primary switch--md"
+  >
+    <input
+      class="switch__input"
+      type="checkbox"
+    />
+    <span
+      class="switch__control"
+    >
+      <span
+        class="switch__thumb"
+      />
+    </span>
+    <span
+      class="switch__text"
+    >
+      Switch
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Switch Snapshots should apply 'sm' size classes 1`] = `
+<div>
+  <label
+    class="switch switch--primary switch--sm"
+  >
+    <input
+      class="switch__input"
+      type="checkbox"
+    />
+    <span
+      class="switch__control"
+    >
+      <span
+        class="switch__thumb"
+      />
+    </span>
+    <span
+      class="switch__text"
+    >
+      Switch
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Switch Snapshots should apply 'success' skin classes 1`] = `
+<div>
+  <label
+    class="switch switch--success switch--md"
+  >
+    <input
+      class="switch__input"
+      type="checkbox"
+    />
+    <span
+      class="switch__control"
+    >
+      <span
+        class="switch__thumb"
+      />
+    </span>
+    <span
+      class="switch__text"
+    >
+      Switch
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Switch Snapshots should render additional classes 1`] = `
+<div>
+  <label
+    class="switch switch--primary switch--md other-class"
+  >
+    <input
+      class="switch__input"
+      type="checkbox"
+    />
+    <span
+      class="switch__control"
+    >
+      <span
+        class="switch__thumb"
+      />
+    </span>
+    <span
+      class="switch__text"
+    >
+      Switch
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Switch Snapshots should render loading 1`] = `
+<div>
+  <label
+    class="switch switch--primary switch--md switch--loading"
+  >
+    <input
+      class="switch__input"
+      type="checkbox"
+    />
+    <span
+      class="switch__control"
+    >
+      <span
+        class="switch__thumb"
+      >
+        <div
+          class="spinner spinner--default spinner--xs switch__spinner"
+        >
+          <svg
+            class="spinner__svg"
+            fill="currentColor"
+            height="20"
+            viewBox="0 0 48 48"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="24"
+              cy="4"
+              r="4"
+            />
+            <circle
+              cx="12.19"
+              cy="7.86"
+              r="3.7"
+            />
+            <circle
+              cx="5.02"
+              cy="17.68"
+              r="3.4"
+            />
+            <circle
+              cx="5.02"
+              cy="30.32"
+              r="3.1"
+            />
+            <circle
+              cx="12.19"
+              cy="40.14"
+              r="2.8"
+            />
+            <circle
+              cx="24"
+              cy="44"
+              r="2.5"
+            />
+            <circle
+              cx="35.81"
+              cy="40.14"
+              r="2.2"
+            />
+            <circle
+              cx="42.98"
+              cy="30.32"
+              r="1.9"
+            />
+            <circle
+              cx="42.98"
+              cy="17.68"
+              r="1.6"
+            />
+            <circle
+              cx="35.81"
+              cy="7.86"
+              r="1.3"
+            />
+          </svg>
+        </div>
+      </span>
+    </span>
+    <span
+      class="switch__text"
+    >
+      Switch
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Switch Snapshots should renders default component 1`] = `
+<div>
+  <label
+    class="switch switch--primary switch--md"
+  >
+    <input
+      class="switch__input"
+      type="checkbox"
+    />
+    <span
+      class="switch__control"
+    >
+      <span
+        class="switch__thumb"
+      />
+    </span>
+    <span
+      class="switch__text"
+    >
+      Switch
+    </span>
+  </label>
+</div>
+`;

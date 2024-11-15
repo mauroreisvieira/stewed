@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioGroup Snapshots should render additional classes 1`] = `
+<div>
+  <div
+    class="radio__group radio__group--horizontal other-class"
+  >
+    <label
+      class="radio radio--primary radio--md other-class"
+    >
+      <input
+        class="radio__input"
+        name="name"
+        type="radio"
+        value=""
+      />
+      <span
+        class="radio__control"
+      />
+      <div
+        class="radio__text"
+      >
+        Radio
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`RadioGroup Snapshots should renders default component 1`] = `
+<div>
+  <div
+    class="radio__group radio__group--horizontal"
+  >
+    <label
+      class="radio radio--primary radio--md"
+    >
+      <input
+        class="radio__input"
+        name="name"
+        type="radio"
+        value=""
+      />
+      <span
+        class="radio__control"
+      />
+      <div
+        class="radio__text"
+      >
+        Radio
+      </div>
+    </label>
+  </div>
+</div>
+`;

@@ -1,0 +1,221 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Radio Snapshots should apply 'border' appearance classes 1`] = `
+<div>
+  <label
+    class="radio radio--primary radio--border radio--md"
+  >
+    <input
+      class="radio__input"
+      type="radio"
+      value=""
+    />
+    <span
+      class="radio__control"
+    />
+    <div
+      class="radio__text"
+    >
+      Radio
+    </div>
+  </label>
+</div>
+`;
+
+exports[`Radio Snapshots should apply 'critical' skin classes 1`] = `
+<div>
+  <label
+    class="radio radio--critical radio--md"
+  >
+    <input
+      class="radio__input"
+      type="radio"
+      value=""
+    />
+    <span
+      class="radio__control"
+    />
+    <div
+      class="radio__text"
+    >
+      Radio
+    </div>
+  </label>
+</div>
+`;
+
+exports[`Radio Snapshots should apply 'default' appearance classes 1`] = `
+<div>
+  <label
+    class="radio radio--primary radio--md"
+  >
+    <input
+      class="radio__input"
+      type="radio"
+      value=""
+    />
+    <span
+      class="radio__control"
+    />
+    <div
+      class="radio__text"
+    >
+      Radio
+    </div>
+  </label>
+</div>
+`;
+
+exports[`Radio Snapshots should apply 'lg' size classes 1`] = `
+<div>
+  <label
+    class="radio radio--primary radio--lg"
+  >
+    <input
+      class="radio__input"
+      type="radio"
+      value=""
+    />
+    <span
+      class="radio__control"
+    />
+    <div
+      class="radio__text"
+    >
+      Radio
+    </div>
+  </label>
+</div>
+`;
+
+exports[`Radio Snapshots should apply 'md' size classes 1`] = `
+<div>
+  <label
+    class="radio radio--primary radio--md"
+  >
+    <input
+      class="radio__input"
+      type="radio"
+      value=""
+    />
+    <span
+      class="radio__control"
+    />
+    <div
+      class="radio__text"
+    >
+      Radio
+    </div>
+  </label>
+</div>
+`;
+
+exports[`Radio Snapshots should apply 'primary' skin classes 1`] = `
+<div>
+  <label
+    class="radio radio--primary radio--md"
+  >
+    <input
+      class="radio__input"
+      type="radio"
+      value=""
+    />
+    <span
+      class="radio__control"
+    />
+    <div
+      class="radio__text"
+    >
+      Radio
+    </div>
+  </label>
+</div>
+`;
+
+exports[`Radio Snapshots should apply 'sm' size classes 1`] = `
+<div>
+  <label
+    class="radio radio--primary radio--sm"
+  >
+    <input
+      class="radio__input"
+      type="radio"
+      value=""
+    />
+    <span
+      class="radio__control"
+    />
+    <div
+      class="radio__text"
+    >
+      Radio
+    </div>
+  </label>
+</div>
+`;
+
+exports[`Radio Snapshots should apply 'success' skin classes 1`] = `
+<div>
+  <label
+    class="radio radio--success radio--md"
+  >
+    <input
+      class="radio__input"
+      type="radio"
+      value=""
+    />
+    <span
+      class="radio__control"
+    />
+    <div
+      class="radio__text"
+    >
+      Radio
+    </div>
+  </label>
+</div>
+`;
+
+exports[`Radio Snapshots should render additional classes 1`] = `
+<div>
+  <label
+    class="radio radio--primary radio--md other-class"
+  >
+    <input
+      class="radio__input"
+      type="radio"
+      value=""
+    />
+    <span
+      class="radio__control"
+    />
+    <div
+      class="radio__text"
+    >
+      Radio
+    </div>
+  </label>
+</div>
+`;
+
+exports[`Radio Snapshots should renders default component 1`] = `
+<div>
+  <label
+    class="radio radio--primary radio--md"
+  >
+    <input
+      class="radio__input"
+      type="radio"
+      value=""
+    />
+    <span
+      class="radio__control"
+    />
+    <div
+      class="radio__text"
+    >
+      Radio
+    </div>
+  </label>
+</div>
+`;
