@@ -21,8 +21,6 @@ export default meta;
 
 export const Base: Story = {
   args: {
-    skin: "primary",
-    size: "sm",
     total: 10,
     currentPage: 1,
   },
