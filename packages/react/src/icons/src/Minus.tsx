@@ -2,7 +2,7 @@ import React from "react";
 // Types
 import type { IconProps } from "./types";
 
-export const HorizontalRule: React.FC<IconProps> = ({
+export const Minus: React.FC<IconProps> = ({
   size = "20",
   color = "currentColor",
   ...attributes

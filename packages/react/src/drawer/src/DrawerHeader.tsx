@@ -37,7 +37,7 @@ export function DrawerHeader({
           size="sm"
           appearance="ghost"
           iconOnly
-          leftSlot={<Icon.XMark size={18} />}
+          leftSlot={<Icon.Cross size={18} />}
         />
       )}
     </div>

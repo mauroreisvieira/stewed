@@ -176,7 +176,7 @@ const Root = forwardRef(
           ) : (
             <>
               {indeterminate ? (
-                <Icon.HorizontalRule className={cssClasses.svg} />
+                <Icon.Minus className={cssClasses.svg} />
               ) : (
                 <Icon.Check className={cssClasses.svg} />
               )}

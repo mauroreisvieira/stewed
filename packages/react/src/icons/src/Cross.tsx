@@ -2,7 +2,7 @@ import React from "react";
 // Types
 import type { IconProps } from "./types";
 
-export const XMark: React.FC<IconProps> = ({
+export const Cross: React.FC<IconProps> = ({
   size = "20",
   color = "currentColor",
   ...attributes

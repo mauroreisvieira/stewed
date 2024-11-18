@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 // Packages
 import { Theme, Tag } from "../../index";
 // Icons
-import { FiStar } from "react-icons/fi";
+import { FiGitPullRequest } from "react-icons/fi";
 
 type Story = StoryObj<typeof Tag>;
 
@@ -24,28 +24,36 @@ export default meta;
 
 export const Base: Story = {
   args: {
-    children: "Base",
+    children: "documentation",
+  },
+};
+
+export const Ghost: Story = {
+  args: {
+    skin: "warning",
+    appearance: "ghost",
+    children: "help wanted",
+  },
+};
+
+export const Soft: Story = {
+  args: {
+    skin: "secondary",
+    appearance: "soft",
+    children: "good first issue",
   },
 };
 
 export const Outline: Story = {
-  args: {
-    skin: "primary",
-    appearance: "outline",
-    children: "Premium",
-  },
-};
-
-export const LeftSlot: Story = {
   argTypes: {
     leftSlot: {
       control: false,
     },
   },
   args: {
-    skin: "primary",
-    size: "lg",
-    children: "Premium",
-    leftSlot: <FiStar />,
+    skin: "critical",
+    appearance: "outline",
+    children: "unresolved conflicts",
+    leftSlot: <FiGitPullRequest />,
   },
 };

@@ -48,6 +48,7 @@ export const ResizeObserver: Story = {
           ref={elementRef}
           radius="md"
           borderColor="neutral-faded"
+          borderStyle="solid"
           style={{
             boxSizing: "border-box",
             minHeight: 100,

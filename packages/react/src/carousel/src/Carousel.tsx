@@ -6,8 +6,9 @@ import React, {
   useImperativeHandle,
   useCallback,
 } from "react";
+// UI Components
+import { Button, Icon } from "../../index";
 // Sub Components
-import { CarouselNavigation } from "./CarouselNavigation";
 import { CarouselSlide } from "./CarouselSlide";
 // Tokens
 import { components, type Spacings } from "@stewed/tokens";
@@ -368,11 +369,15 @@ export const Carousel = forwardRef(
                   disabled: isPrevDisabled,
                 })
               ) : (
-                <CarouselNavigation
-                  direction="prev"
-                  className={cssClasses.prev}
+                <Button
+                  skin="neutral"
+                  appearance="ghost"
+                  iconOnly
                   onClick={onHandleClickPrev}
                   disabled={isPrevDisabled}
+                  aria-label="Prev slide"
+                  className={cssClasses.prev}
+                  leftSlot={<Icon.ChevronLeft />}
                 />
               )}
 
@@ -384,11 +389,15 @@ export const Carousel = forwardRef(
                   disabled: isNextDisabled,
                 })
               ) : (
-                <CarouselNavigation
-                  direction="next"
-                  className={cssClasses.next}
+                <Button
+                  skin="neutral"
+                  appearance="ghost"
+                  iconOnly
                   onClick={onHandleClickNext}
                   disabled={isNextDisabled}
+                  aria-label="Next slide"
+                  className={cssClasses.next}
+                  leftSlot={<Icon.ChevronRight />}
                 />
               )}
             </>
