@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // UI Components
-import { Theme, Tabs } from "../../index";
+import { Theme, Tabs, Text } from "../../index";
 // Icons
 import { FiPackage, FiBell, FiCalendar } from "react-icons/fi";
 
@@ -13,6 +13,18 @@ const meta: Meta<typeof Tabs> = {
   subcomponents: {
     "Tabs.List": Tabs.List as React.FC<unknown>,
     "Tabs.Item": Tabs.Item as React.FC<unknown>,
+    "Tabs.Panel": Tabs.Panel as React.FC<unknown>,
+  },
+  argTypes: {
+    onValueChange: {
+      control: false,
+    },
+    children: {
+      control: false,
+    },
+  },
+  args: {
+    onValueChange: undefined,
   },
   decorators: [
     (Story) => (
@@ -25,22 +37,21 @@ const meta: Meta<typeof Tabs> = {
 
 export default meta;
 
-export const Base: Story = {
+export const Uncontrolled: Story = {
   argTypes: {
-    children: {
+    value: {
       control: false,
     },
     direction: {
       control: false,
     },
     alignment: {
-      control: "select",
-      options: ["start", "center", "end"],
+      control: false,
     },
   },
   args: {
-    value: "2",
-    alignment: "center",
+    defaultValue: "2",
+    onValueChange: undefined,
     children: (
       <>
         <Tabs.List>
@@ -57,8 +68,74 @@ export const Base: Story = {
             Calendar
           </Tabs.Item>
         </Tabs.List>
+        <Tabs.Panel value="1">
+          <Text>Panel 1</Text>
+        </Tabs.Panel>
+        <Tabs.Panel value="2">
+          <Text>Panel 2</Text>
+        </Tabs.Panel>
+        <Tabs.Panel value="3">
+          <Text>Panel 3</Text>
+        </Tabs.Panel>
+        <Tabs.Panel value="4">
+          <Text>Panel 4</Text>
+        </Tabs.Panel>
       </>
     ),
+  },
+};
+
+export const Controlled: Story = {
+  argTypes: {
+    defaultValue: {
+      control: false,
+    },
+    children: {
+      control: false,
+    },
+    direction: {
+      control: false,
+    },
+    alignment: {
+      control: false,
+    },
+  },
+  args: {
+    value: "1",
+  },
+  render: function Render({ value, ...args }): React.ReactElement {
+    const [tab, setTab] = useState<string | undefined>(value);
+
+    return (
+      <Tabs {...args} value={tab} onValueChange={(checked) => setTab(checked)}>
+        <Tabs.List>
+          <Tabs.Item leftSlot={<FiPackage />} value="1">
+            Orders
+          </Tabs.Item>
+          <Tabs.Item leftSlot={<FiBell />} value="2">
+            Notifications
+          </Tabs.Item>
+          <Tabs.Item leftSlot={<FiBell />} value="3" disabled>
+            Team
+          </Tabs.Item>
+          <Tabs.Item leftSlot={<FiCalendar />} value="4">
+            Calendar
+          </Tabs.Item>
+        </Tabs.List>
+        <Tabs.Panel value="1">
+          <Text>Panel 1</Text>
+        </Tabs.Panel>
+        <Tabs.Panel value="2">
+          <Text>Panel 2</Text>
+        </Tabs.Panel>
+        <Tabs.Panel value="3">
+          <Text>Panel 3</Text>
+        </Tabs.Panel>
+        <Tabs.Panel value="4">
+          <Text>Panel 4</Text>
+        </Tabs.Panel>
+      </Tabs>
+    );
   },
 };
 
@@ -67,18 +144,11 @@ export const Direction: Story = {
     children: {
       control: false,
     },
-    direction: {
-      control: false,
-    },
-    alignment: {
-      control: "select",
-      options: ["start", "end"],
-    },
   },
   args: {
     alignment: "end",
     direction: "column",
-    value: "2",
+    defaultValue: "3",
     children: (
       <>
         <Tabs.List>
@@ -95,6 +165,18 @@ export const Direction: Story = {
             Calendar
           </Tabs.Item>
         </Tabs.List>
+        <Tabs.Panel value="1">
+          <Text>Panel 1</Text>
+        </Tabs.Panel>
+        <Tabs.Panel value="2">
+          <Text>Panel 2</Text>
+        </Tabs.Panel>
+        <Tabs.Panel value="3">
+          <Text>Panel 3</Text>
+        </Tabs.Panel>
+        <Tabs.Panel value="4">
+          <Text>Panel 4</Text>
+        </Tabs.Panel>
       </>
     ),
   },

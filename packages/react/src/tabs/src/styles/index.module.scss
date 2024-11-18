@@ -3,8 +3,8 @@
 @use "./variables" as *;
 
 @include theme.scope($tabs-root) {
-  box-sizing: border-box;
-  display: inline-flex;
+  display: flex;
+  width: 100%;
 
   @include theme.define-var(
     (
@@ -42,6 +42,7 @@
   }
 
   &--row {
+    flex-direction: column;
     width: 100%;
 
     .#{$tabs-root}__list {
@@ -77,20 +78,26 @@
     &:where(.#{$tabs-root}--column) {
       &.#{$tabs-root} {
         &--start {
-          border-left: 1px solid theme.get-color("neutral", "border-faded");
+          flex-direction: row-reverse;
 
-          .#{$tabs-root}__item {
-            left: -1px;
-            border-left: 2px solid theme.get-var(border-color);
+          .#{$tabs-root}__list {
+            border-left: 1px solid theme.get-color("neutral", "border-faded");
+
+            .#{$tabs-root}__item {
+              left: -1px;
+              border-left: 2px solid theme.get-var(border-color);
+            }
           }
         }
 
         &--end {
-          border-right: 1px solid theme.get-color("neutral", "border-faded");
+          .#{$tabs-root}__list {
+            border-right: 1px solid theme.get-color("neutral", "border-faded");
 
-          .#{$tabs-root}__item {
-            right: -1px;
-            border-right: 2px solid theme.get-var(border-color);
+            .#{$tabs-root}__item {
+              right: -1px;
+              border-right: 2px solid theme.get-var(border-color);
+            }
           }
         }
       }
@@ -149,5 +156,10 @@
         )
       );
     }
+  }
+
+  &__panel {
+    flex-grow: 1;
+    padding: theme.get-spacing("lg");
   }
 }

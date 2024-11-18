@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 // Context
 import { TabsContext, type TabsContextProps } from "./TabsContext";
 // Compound Component
-import { TabsItem } from "./TabsItem";
 import { TabsList } from "./TabsList";
+import { TabsItem } from "./TabsItem";
+import { TabsPanel } from "./TabsPanel";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
@@ -12,8 +13,13 @@ import { components } from "@stewed/tokens";
 import styles from "./styles/index.module.scss";
 
 interface TabsBase<T extends string>
-  extends React.ComponentPropsWithoutRef<"div">,
-    TabsContextProps<T> {
+  extends Omit<React.ComponentPropsWithoutRef<"div">, "defaultValue" | "defaultChecked">,
+    Omit<TabsContextProps<T>, "setSelectedValue"> {
+  /**
+   * The default value of the selected tab item when the component is uncontrolled.
+   * This is used to initialize the state internally.
+   */
+  defaultValue?: T | undefined;
   /**
    * The direction of the tab container.
    * @default row
@@ -56,14 +62,16 @@ type TabsProps<T extends string> = TabsDirectionRow<T> | TabsDirectionColumn<T>;
 
 export function Tabs<T extends string>({
   value,
+  defaultValue,
   appearance = "underline",
   alignment = "start",
   direction = "row",
   className,
-  onValueChange,
   children,
+  onValueChange,
   ...props
 }: TabsProps<T>): React.ReactElement {
+  const [selectedValue, setSelectedValue] = useState<T | undefined>(value || defaultValue);
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: components.Tabs, styles });
 
@@ -75,10 +83,24 @@ export function Tabs<T extends string>({
     }),
   };
 
+  // Ensure consistent usage of controlled or uncontrolled components
+  if (value !== undefined && defaultValue !== undefined) {
+    throw new Error("Please do not mix controlled and uncontrolled components.");
+  }
+
+  // Enforce the requirement for `onValueChange` in controlled mode
+  if (value !== undefined && !onValueChange) {
+    throw new Error("The `onValueChange` prop must be defined when the component is controlled.");
+  }
+
   return (
     <div className={cssClasses.root} {...props}>
       <TabsContext.Provider
-        value={{ value, onValueChange: onValueChange as (value: unknown) => void }}
+        value={{
+          value: value || selectedValue,
+          setSelectedValue: setSelectedValue as (value: unknown) => void,
+          onValueChange: onValueChange as (value: unknown) => void,
+        }}
       >
         {children}
       </TabsContext.Provider>
@@ -87,5 +109,6 @@ export function Tabs<T extends string>({
 }
 
 // Compound component composition
-Tabs.Item = TabsItem;
 Tabs.List = TabsList;
+Tabs.Item = TabsItem;
+Tabs.Panel = TabsPanel;

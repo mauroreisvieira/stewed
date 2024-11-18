@@ -16,7 +16,12 @@ const definitionError = (): null => {
  */
 export interface TabsContextProps<T extends string> {
   /** Sets value of tab item selected. */
-  value: T | undefined;
+  value?: T | undefined;
+  /**
+   * A state updater function for setting the selected value internally.
+   * This is typically used in uncontrolled mode.
+   */
+  setSelectedValue?: React.Dispatch<React.SetStateAction<T | undefined>>;
   /** Callback fired when the value changes. */
   onValueChange?: (value: T) => void;
 }
@@ -33,6 +38,7 @@ export interface TabsContextProps<T extends string> {
 function createTabsContext<T extends string>() {
   return createContext<TabsContextProps<T>>({
     value: undefined,
+    setSelectedValue: definitionError,
     onValueChange: definitionError,
   });
 }
