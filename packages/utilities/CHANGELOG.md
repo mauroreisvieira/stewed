@@ -1,11 +1,5 @@
 # @stewed/utilities
 
-## 1.0.0
-
-### Major Changes
-
-- d5c33d6: first release
-
 ## 0.3.1
 
 ### Patch Changes
