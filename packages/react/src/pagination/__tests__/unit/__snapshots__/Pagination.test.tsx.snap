@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination Snapshots should renders default component 1`] = `
+<div>
+  <nav
+    class="pagination pagination--start"
+    role="navigation"
+  >
+    <button
+      aria-disabled="true"
+      aria-label="Previous page"
+      class="button button--neutral-soft button--sm button--icon-only button--disabled"
+      disabled=""
+    >
+      <span
+        class="button__left"
+      >
+        <svg
+          fill="none"
+          height="14"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="14"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M15.75 19.5 8.25 12l7.5-7.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </span>
+    </button>
+    <button
+      aria-current="true"
+      aria-disabled="false"
+      aria-selected="true"
+      class="button button--primary-filled button--sm"
+    >
+      <span
+        class="button__text"
+      >
+        1
+      </span>
+    </button>
+    <button
+      aria-current="false"
+      aria-disabled="false"
+      aria-selected="false"
+      class="button button--neutral-ghost button--sm"
+    >
+      <span
+        class="button__text"
+      >
+        2
+      </span>
+    </button>
+    <button
+      aria-current="false"
+      aria-disabled="false"
+      aria-selected="false"
+      class="button button--neutral-ghost button--sm"
+    >
+      <span
+        class="button__text"
+      >
+        3
+      </span>
+    </button>
+    <button
+      aria-disabled="false"
+      aria-label="Next page"
+      class="button button--neutral-soft button--sm button--icon-only"
+    >
+      <span
+        class="button__left"
+      >
+        <svg
+          fill="none"
+          height="14"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="14"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="m8.25 4.5 7.5 7.5-7.5 7.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </span>
+    </button>
+  </nav>
+</div>
+`;

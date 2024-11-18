@@ -5,7 +5,7 @@ exports[`Drawer Snapshots should applies correct placement classes 1`] = `
   class="drawer drawer--md drawer--bottom drawer--open drawer--safe-margin-xl"
 >
   <div
-    class="drawer__surface motion motion--slide-in-bottom motion--ease-in motion--normal"
+    class="motion motion--slide-in-bottom motion--ease-in motion--normal drawer__surface"
     role="region"
     tabindex="0"
   >
@@ -33,7 +33,7 @@ exports[`Drawer Snapshots should applies correct size classes 1`] = `
   class="drawer drawer--sm drawer--left drawer--open drawer--safe-margin-xl"
 >
   <div
-    class="drawer__surface motion motion--slide-in-left motion--ease-in motion--normal"
+    class="motion motion--slide-in-left motion--ease-in motion--normal drawer__surface"
     role="region"
     tabindex="0"
   >
@@ -61,7 +61,7 @@ exports[`Drawer Snapshots should render additional classes 1`] = `
   class="drawer drawer--md drawer--left drawer--open drawer--safe-margin-xl other-class"
 >
   <div
-    class="drawer__surface motion motion--slide-in-left motion--ease-in motion--normal"
+    class="motion motion--slide-in-left motion--ease-in motion--normal drawer__surface"
     role="region"
     tabindex="0"
   >
@@ -89,7 +89,7 @@ exports[`Drawer Snapshots should renders close button component 1`] = `
   class="drawer drawer--md drawer--left drawer--open drawer--safe-margin-xl"
 >
   <div
-    class="drawer__surface motion motion--slide-in-left motion--ease-in motion--normal"
+    class="motion motion--slide-in-left motion--ease-in motion--normal drawer__surface"
     role="region"
   >
     <div
@@ -134,7 +134,7 @@ exports[`Drawer Snapshots should renders default component 1`] = `
   class="drawer drawer--md drawer--left drawer--open drawer--safe-margin-xl"
 >
   <div
-    class="drawer__surface motion motion--slide-in-left motion--ease-in motion--normal"
+    class="motion motion--slide-in-left motion--ease-in motion--normal drawer__surface"
     role="region"
     tabindex="0"
   >
