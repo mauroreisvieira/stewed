@@ -484,15 +484,15 @@ export const PaymentMethod = {
     const items = [
       {
         name: "Card",
-        icon: <FaCreditCard />,
+        icon: <FaCreditCard size={24} />,
       },
       {
         name: "Paypal",
-        icon: <FaPaypal />,
+        icon: <FaPaypal size={24} />,
       },
       {
         name: "Apple",
-        icon: <FaApple />,
+        icon: <FaApple size={24} />,
       },
     ];
 
@@ -512,13 +512,13 @@ export const PaymentMethod = {
           </Card.Header>
           <Card.Body>
             <Box space={{ y: "xl" }}>
-              <Group gap="lg" fullWidth>
+              <Group  fullWidth>
                 {items.map(({ name, icon }, idx) => (
                   <Box
                     as="button"
                     key={name}
                     radius="md"
-                    skin={idx === index ? "success-faded" : "default"}
+                    skin={idx === index ? "success-faded" : "neutral-faded"}
                     borderWidth={1}
                     borderStyle="solid"
                     aria-selected={idx === index}
@@ -527,10 +527,10 @@ export const PaymentMethod = {
                     onClick={() => setIndex(idx)}
                     fullWidth
                   >
-                    <Text size="2xl" alignment="center">
+                    <Text size="2xl" space={{ y: "sm" }} alignment="center">
                       {icon}
                     </Text>
-                    <Text size="sm" alignment="center">
+                    <Text size="sm" weight="medium" alignment="center">
                       {name}
                     </Text>
                   </Box>
