@@ -14,6 +14,10 @@ $box-skins: (
   "primary-faded": theme.get-color("primary", "background-faded"),
   "secondary-faded": theme.get-color("secondary", "background-faded"),
   "neutral-faded": theme.get-color("neutral", "background-faded"),
+  "critical-faded": theme.get-color("critical", "background-faded"),
+  "success-faded": theme.get-color("success", "background-faded"),
+  "info-faded": theme.get-color("info", "background-faded"),
+  "warning-faded": theme.get-color("warning", "background-faded"),
   "white": theme.get-color("white"),
 );
 

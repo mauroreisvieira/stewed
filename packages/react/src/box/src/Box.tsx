@@ -37,7 +37,16 @@ export interface BoxProps<T = "div">
    */
   as?: T;
   /** Change the visual style of the component. */
-  skin?: "default" | "primary-faded" | "secondary-faded" | "neutral-faded" | "white";
+  skin?:
+    | "default"
+    | "primary-faded"
+    | "secondary-faded"
+    | "neutral-faded"
+    | "critical-faded"
+    | "success-faded"
+    | "warning-faded"
+    | "info-faded"
+    | "white";
   /**
    * Defines the border-radius of the aspect ratio children, controlling the rounding of corners.
    *

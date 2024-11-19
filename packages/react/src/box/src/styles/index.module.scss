@@ -2,6 +2,7 @@
 @use "./variables" as *;
 
 @include theme.scope($box-root) {
+  all: unset;
   position: relative;
   box-sizing: border-box;
   display: block;
@@ -11,6 +12,8 @@
   border-width: theme.get-var(border-width);
   border-radius: theme.get-var(border-radius);
   box-shadow: theme.get-var(box-shadow);
+
+  @include theme.focus-styles;
 
   @include theme.define-var(
     (
