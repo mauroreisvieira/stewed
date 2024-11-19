@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // Components
-import { Theme, Group, Button, TextField } from "../../index";
+import { Theme, Group, Button, TextField, Box, Text } from "../../index";
 
 type Story = StoryObj<typeof Group>;
 
