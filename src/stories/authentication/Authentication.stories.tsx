@@ -43,11 +43,11 @@ export const SignUp = {
       <Container screen="lg" alignment="center" padding={{ block: "7xl" }}>
         <Card>
           <Card.Body>
-            <Grid cols={2} gap="4xl">
+            <Grid responsive={{ md: { cols: 2 } }} gap="4xl">
               <Box skin="neutral-faded" padding={{ block: "9xl", inline: "4xl" }} radius="md">
                 <Stack direction="column" gap="9xl" items="baseline" style={{ height: "100%" }}>
                   <Stack direction="column" grow>
-                    <Text size="4xl" weight="medium" space={{ y: "4xl" }}>
+                    <Text size="4xl" weight="bold" space={{ y: "4xl" }}>
                       Let us support you run your freelance business.
                     </Text>
                     <Text skin="neutral">
@@ -61,7 +61,7 @@ export const SignUp = {
                       <Card.Body>
                         <Text
                           skin="white"
-                          size="2xl"
+                          size="xl"
                           weight="light"
                           space={{ y: "2xl" }}
                           variation={"italic"}

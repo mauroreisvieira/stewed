@@ -512,13 +512,16 @@ export const PaymentMethod = {
           </Card.Header>
           <Card.Body>
             <Box space={{ y: "xl" }}>
-              <Stack gap="md">
+              <Group gap="lg" fullWidth>
                 {items.map(({ name, icon }, idx) => (
                   <Box
+                    as="button"
                     key={name}
                     radius="md"
+                    skin={idx === index ? "success-faded" : "default"}
                     borderWidth={1}
                     borderStyle="solid"
+                    aria-selected={idx === index}
                     borderColor={idx === index ? "success" : "neutral-faded"}
                     padding={{ inline: "lg", block: "lg" }}
                     onClick={() => setIndex(idx)}
@@ -532,7 +535,7 @@ export const PaymentMethod = {
                     </Text>
                   </Box>
                 ))}
-              </Stack>
+              </Group>
             </Box>
             <Stack direction="column" gap="lg">
               <FormField>

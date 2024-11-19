@@ -52,8 +52,7 @@ export function Group({
 
   // Define a reference to a list element
   const { ref, onNavigate } = useKeyboardNavigation<HTMLDivElement>({
-    target:
-      "button:not([aria-disabled='true']), input:not([disabled='true'])",
+    target: "button:not([aria-disabled='true']), input:not([disabled='true'])",
   });
 
   const onHandleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(

@@ -134,7 +134,7 @@ function Discover(): React.ReactElement {
           <Grid cols={2} responsive={{ sm: { cols: 6 }, lg: { cols: 3 } }} items="center">
             <Grid.Item>
               <Button
-                leftSlot={<TbMenuDeep />}
+                leftSlot={<TbMenuDeep size={16} />}
                 skin="secondary"
                 appearance="ghost"
                 onClick={onHandleDrawer}
@@ -149,7 +149,12 @@ function Discover(): React.ReactElement {
               responsive={{ sm: { hidden: false, colSpan: 4 }, lg: { colSpan: undefined } }}
             >
               <Stack items="center" gap="md">
-                <Button appearance="ghost" skin="secondary" leftSlot={<MdHome />} iconOnly>
+                <Button
+                  appearance="ghost"
+                  skin="secondary"
+                  leftSlot={<MdHome size={16} />}
+                  iconOnly
+                >
                   Home
                 </Button>
                 <Popover<HTMLDivElement>
@@ -166,7 +171,7 @@ function Discover(): React.ReactElement {
                         <Stack gap="sm">
                           <Separator orientation="vertical" />
                           <Button
-                            leftSlot={<PiBrowsersFill />}
+                            leftSlot={<PiBrowsersFill size={16} />}
                             size="sm"
                             skin="secondary"
                             appearance="ghost"
@@ -222,7 +227,12 @@ function Discover(): React.ReactElement {
 
             <Grid.Item>
               <Stack justify="end">
-                <Button appearance="ghost" skin="secondary" leftSlot={<MdNotifications />} iconOnly>
+                <Button
+                  appearance="ghost"
+                  skin="secondary"
+                  leftSlot={<MdNotifications size={16} />}
+                  iconOnly
+                >
                   Notifications
                 </Button>
                 <Separator orientation="vertical" space={{ inline: "xl" }} />
@@ -718,10 +728,16 @@ export const ChatAI = {
     const isDesktop = useMediaQuery({ query: `(min-width: ${activeToken.breakpoints?.sm})` });
 
     return (
-      <Box skin="neutral-faded" padding={{ block: "9xl", inline: "9xl" }} fullScreen fullWidth>
+      <Box
+        skin="neutral-faded"
+        padding={{ block: "9xl", inline: "lg" }}
+        responsive={{ md: { padding: { block: "9xl", inline: "9xl" } } }}
+        fullScreen
+        fullWidth
+      >
         <Container screen="lg" alignment="center">
           <Box space={{ y: "4xl" }}>
-            <Text weight="medium" size="7xl">
+            <Text weight="medium" size="4xl" responsive={{ md: { size: "7xl" } }}>
               Hi there,{" "}
               <Hue skin={{ from: "indigo-500", to: "pink-800" }} clipText>
                 <Text skin="transparent" as="span" weight="extra-bold" inherit>
@@ -730,7 +746,12 @@ export const ChatAI = {
               </Hue>
             </Text>
 
-            <Text weight="semi-bold" size="5xl" space={{ y: "lg" }}>
+            <Text
+              weight="semi-bold"
+              size="3xl"
+              responsive={{ md: { size: "5xl" } }}
+              space={{ y: "xl" }}
+            >
               What would like to know?
             </Text>
 
