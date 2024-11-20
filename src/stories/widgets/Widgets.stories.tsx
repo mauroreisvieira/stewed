@@ -512,7 +512,7 @@ export const PaymentMethod = {
           </Card.Header>
           <Card.Body>
             <Box space={{ y: "xl" }}>
-              <Group  fullWidth>
+              <Group fullWidth>
                 {items.map(({ name, icon }, idx) => (
                   <Box
                     as="button"

@@ -7,6 +7,7 @@ export * from "./use-floating";
 export * from "./use-focus-trap";
 export * from "./use-global-state";
 export * from "./use-input";
+export * from "./use-input-mask";
 export * from "./use-intersection-observer";
 export * from "./use-key";
 export * from "./use-keyboard-navigation";
