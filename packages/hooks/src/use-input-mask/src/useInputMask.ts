@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect } from "react";
+import { useMounted } from "../../use-mounted";
 
 const MASKED_NUMBER = "XMDY";
 const MASKED_LETTER = "_";
@@ -27,6 +28,7 @@ interface UseInputMask {
   value: string;
   /** Indicates whether the input value is valid according to the `pattern`. */
   isValid: boolean;
+  setValue: (value: string) => void;
   /** Handler for the `onChange` event to update the input value. */
   onChange: React.ChangeEventHandler<HTMLInputElement>;
   /** Handler for the `onBlur` event to validate the input on blur. */
@@ -56,6 +58,7 @@ export function useInputMask({
   required,
   charset,
 }: UseInputMaskProps): UseInputMask {
+  const [mounted, setMounted] = useState(false);
   const [maskValue, setMaskValue] = useState<string>("");
   const [isValid, setValid] = useState<boolean>(true);
 
@@ -115,9 +118,12 @@ export function useInputMask({
   useEffect(() => {
     // If `maskValue` already exists or there is no `defaultValue`, exit early.
     // This prevents unnecessary processing during initialization or when no default value is provided.
-    if (maskValue || !defaultValue) {
+    if (mounted || maskValue || !defaultValue) {
       return;
     }
+
+    // Will ensure if clean input value, will not store the default value again
+    setMounted(true);
 
     // Validate the `defaultValue` against the provided pattern and update the `isValid` state.
     // This ensures that the default value is immediately checked for validity.
@@ -126,7 +132,7 @@ export function useInputMask({
     // Format the `defaultValue` using the mask if a mask is provided,
     // or directly set it as the masked value if no mask is applied.
     setMaskValue(mask ? formatValue(defaultValue) : defaultValue);
-  }, [defaultValue, formatValue, mask, maskValue, pattern]);
+  }, [mounted, defaultValue, formatValue, mask, maskValue, pattern]);
 
   const onHandleChange: React.ChangeEventHandler<HTMLInputElement> = useCallback(
     (event) => {
@@ -173,6 +179,7 @@ export function useInputMask({
 
   return {
     value: maskValue,
+    setValue: (value) => setMaskValue(formatValue(value)),
     onChange: onHandleChange,
     onBlur: onHandleBlur,
     isValid,

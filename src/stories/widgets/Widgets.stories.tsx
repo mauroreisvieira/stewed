@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 // UI Components
 import {
   Theme,
@@ -18,22 +18,14 @@ import {
   FormField,
   Group,
   ListBox,
-  Calendar,
-  Popover,
   Hue,
 } from "@stewed/react";
 // Hooks
-import { useSelect, useToggle } from "@stewed/hooks";
+import { useSelect, useToggle, useInputMask } from "@stewed/hooks";
 import { useDateTime } from "@hello-week/hooks";
 // Icons
 import { TbPin, TbStar, TbPlus } from "react-icons/tb";
-import {
-  MdOutlineKeyboardArrowDown,
-  MdOutlineKeyboardArrowUp,
-  MdOutlineCalendarToday,
-  MdKeyboardArrowLeft,
-  MdKeyboardArrowRight,
-} from "react-icons/md";
+import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
 import { FiCopy } from "react-icons/fi";
 import { FaPaypal, FaCreditCard, FaApple } from "react-icons/fa";
 
@@ -477,10 +469,6 @@ export const ShareSettings = {
 
 export const PaymentMethod = {
   render: function Render() {
-    const { formatDate } = useDateTime();
-
-    const [expires, setExpires] = useState<Date>(new Date());
-
     const items = [
       {
         name: "Card",
@@ -499,6 +487,40 @@ export const PaymentMethod = {
     // Using the useSelect hook to manage selection
     const { index, setIndex } = useSelect<{ name: string; icon: React.ReactNode }>(items, 0);
 
+    const regexPatterns = {
+      name: /^[a-zA-Z ]+$/,
+      creditCard: /^\d{4}(\s?\d{4}){3}$/, // Matches 4 groups of 4 digits (e.g., 1234 5678 1234 5678)
+      cvv: /^\d{3,4}$/, // Matches 3 or 4 digits (e.g., 123 or 1234)
+      expireDate: /^(0[1-9]|1[0-2])\/\d{2}$/, // MM/YY format (e.g., 12/25)
+    };
+
+    const nameMask = useInputMask({
+      defaultValue: "Benjamin Martinez",
+      pattern: regexPatterns.name,
+      required: true,
+    });
+
+    const creditCardMask = useInputMask({
+      defaultValue: "1234567812345678",
+      mask: "XXXX XXXX XXXX XXXX",
+      pattern: regexPatterns.creditCard,
+      required: true,
+    });
+
+    const cvvMask = useInputMask({
+      defaultValue: "123",
+      mask: "XXX",
+      pattern: regexPatterns.cvv,
+      required: true,
+    });
+
+    const expireDateMask = useInputMask({
+      defaultValue: "03/24",
+      mask: "MM/YY",
+      pattern: regexPatterns.expireDate,
+      required: true,
+    });
+
     return (
       <Container screen="sm" alignment="center" padding={{ block: "7xl" }}>
         <Card>
@@ -512,13 +534,13 @@ export const PaymentMethod = {
           </Card.Header>
           <Card.Body>
             <Box space={{ y: "xl" }}>
-              <Group fullWidth>
+              <Group gap="md" fullWidth>
                 {items.map(({ name, icon }, idx) => (
                   <Box
                     as="button"
                     key={name}
                     radius="md"
-                    skin={idx === index ? "success-faded" : "neutral-faded"}
+                    skin={idx === index ? "success-faded" : "white"}
                     borderWidth={1}
                     borderStyle="solid"
                     aria-selected={idx === index}
@@ -544,8 +566,11 @@ export const PaymentMethod = {
                   <TextField
                     id="name"
                     type="name"
+                    skin={nameMask.isValid ? "neutral-faded" : "critical"}
+                    value={nameMask.value}
+                    onChange={nameMask.onChange}
+                    onBlur={nameMask.onBlur}
                     placeholder="Card name"
-                    defaultValue="Mr. Benjamin Martinez"
                     fullWidth
                   />
                 </FormField.Control>
@@ -554,7 +579,15 @@ export const PaymentMethod = {
               <FormField>
                 <FormField.Label>Card number</FormField.Label>
                 <FormField.Control>
-                  <TextField id="card" type="text" defaultValue={"0001211022912221"} fullWidth />
+                  <TextField
+                    id="card"
+                    type="text"
+                    skin={creditCardMask.isValid ? "neutral-faded" : "critical"}
+                    value={creditCardMask.value}
+                    onChange={creditCardMask.onChange}
+                    onBlur={creditCardMask.onBlur}
+                    fullWidth
+                  />
                 </FormField.Control>
               </FormField>
 
@@ -563,77 +596,14 @@ export const PaymentMethod = {
                   <FormField>
                     <FormField.Label>Expires</FormField.Label>
                     <FormField.Control>
-                      <Popover<HTMLInputElement>
-                        renderAnchor={({ ref, open }) => (
-                          <TextField
-                            rootRef={ref}
-                            onFocus={open}
-                            value={expires ? formatDate(expires) : ""}
-                            readOnly
-                            leftSlot={<MdOutlineCalendarToday />}
-                            placeholder="Select a date"
-                            fullWidth
-                          />
-                        )}
-                        offset={6}
-                        placement="bottom-start"
-                      >
-                        {({ close }) => (
-                          <Box padding={{ block: "sm", inline: "sm" }}>
-                            <Calendar
-                              defaultDate={expires ? new Date(expires) : undefined}
-                              selectedDates={expires ? [expires] : undefined}
-                              siblingMonthDays={true}
-                              formatDate={{
-                                day: "numeric",
-                                month: "long",
-                                year: "numeric",
-                                weekday: "narrow",
-                              }}
-                              onDaySelected={(day) => {
-                                setExpires(day.date);
-                                close();
-                              }}
-                            >
-                              <Calendar.Navigation>
-                                {({ locked, month, year, onPrev, onNext }) => (
-                                  <>
-                                    <Button
-                                      skin="neutral"
-                                      appearance="ghost"
-                                      size="sm"
-                                      iconOnly
-                                      aria-label="Previous month"
-                                      disabled={locked}
-                                      onClick={onPrev}
-                                      leftSlot={<MdKeyboardArrowLeft />}
-                                    />
-
-                                    <Stack justify="center" grow>
-                                      <Text weight="medium">
-                                        {month} {year}
-                                      </Text>
-                                    </Stack>
-
-                                    <Button
-                                      skin="neutral"
-                                      appearance="ghost"
-                                      size="sm"
-                                      iconOnly
-                                      onClick={onNext}
-                                      aria-label="Next month"
-                                      disabled={locked}
-                                      leftSlot={<MdKeyboardArrowRight />}
-                                    />
-                                  </>
-                                )}
-                              </Calendar.Navigation>
-                              <Calendar.Week />
-                              <Calendar.Month />
-                            </Calendar>
-                          </Box>
-                        )}
-                      </Popover>
+                      <TextField
+                        placeholder="Select a date"
+                        skin={expireDateMask.isValid ? "neutral-faded" : "critical"}
+                        value={expireDateMask.value}
+                        onChange={expireDateMask.onChange}
+                        onBlur={expireDateMask.onBlur}
+                        fullWidth
+                      />
                     </FormField.Control>
                   </FormField>
                 </Stack>
@@ -642,7 +612,14 @@ export const PaymentMethod = {
                   <FormField>
                     <FormField.Label>CVC</FormField.Label>
                     <FormField.Control>
-                      <TextField id="cvc" type="text" defaultValue={123} />
+                      <TextField
+                        id="cvc"
+                        type="text"
+                        skin={cvvMask.isValid ? "neutral-faded" : "critical"}
+                        value={cvvMask.value}
+                        onChange={cvvMask.onChange}
+                        onBlur={cvvMask.onBlur}
+                      />
                     </FormField.Control>
                   </FormField>
                 </Stack>
@@ -650,7 +627,9 @@ export const PaymentMethod = {
             </Stack>
           </Card.Body>
           <Card.Footer>
-            <Button fullWidth>Continue</Button>
+            <Button size="lg" appearance="soft" fullWidth>
+              Save
+            </Button>
           </Card.Footer>
         </Card>
       </Container>
