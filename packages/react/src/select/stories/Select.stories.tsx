@@ -14,6 +14,16 @@ const meta: Meta<typeof Select> = {
     "Select.Group": Select.Group as React.FC<unknown>,
     "Select.Option": Select.Option as React.FC<unknown>,
   },
+  argTypes: {
+    appearance: {
+      control: "select",
+      options: ["ghost", "outline", "soft"],
+    },
+    skin: {
+      control: "select",
+      options: ["neutral", "critical", "success"],
+    },
+  },
   decorators: [
     (Story) => (
       <Theme>

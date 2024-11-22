@@ -122,7 +122,13 @@ export const Base: Story = {
           };
 
           return (
-            <Tag skin={skins[status] as TagProps<"span">["skin"]} appearance="soft" size="sm">
+            <Tag
+              as="a"
+              skin={skins[status] as TagProps["skin"]}
+              appearance="soft"
+              size="md"
+              href="/"
+            >
               {status}
             </Tag>
           );

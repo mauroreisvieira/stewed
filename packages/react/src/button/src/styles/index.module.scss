@@ -143,14 +143,15 @@
           (
             color: theme.get-color($value, "foreground"),
             background-color:
-              color-mix(in srgb, theme.get-color($value, "background-faded"), transparent 20%),
+              color-mix(in srgb, theme.get-color($value, "background"), transparent 95%),
           )
         );
 
         &:hover:not([aria-disabled="true"], [aria-pressed="true"]) {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "background-faded"),
+              background-color:
+                color-mix(in srgb, theme.get-color($value, "background"), transparent 90%),
             )
           );
         }
@@ -160,7 +161,7 @@
           @include theme.define-var(
             (
               background-color:
-                color-mix(in srgb, theme.get-color($value, "background"), transparent 90%),
+                color-mix(in srgb, theme.get-color($value, "background"), transparent 85%),
             )
           );
         }

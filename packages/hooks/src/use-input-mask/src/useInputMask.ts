@@ -1,5 +1,4 @@
 import { useState, useCallback, useEffect } from "react";
-import { useMounted } from "../../use-mounted";
 
 const MASKED_NUMBER = "XMDY";
 const MASKED_LETTER = "_";
@@ -28,6 +27,10 @@ interface UseInputMask {
   value: string;
   /** Indicates whether the input value is valid according to the `pattern`. */
   isValid: boolean;
+  /**
+   * Sets the value of the input.
+   * @param value - The new input value.
+   */
   setValue: (value: string) => void;
   /** Handler for the `onChange` event to update the input value. */
   onChange: React.ChangeEventHandler<HTMLInputElement>;

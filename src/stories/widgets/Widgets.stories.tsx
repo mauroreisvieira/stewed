@@ -566,7 +566,7 @@ export const PaymentMethod = {
                   <TextField
                     id="name"
                     type="name"
-                    skin={nameMask.isValid ? "neutral-faded" : "critical"}
+                    skin={nameMask.isValid ? "neutral" : "critical"}
                     value={nameMask.value}
                     onChange={nameMask.onChange}
                     onBlur={nameMask.onBlur}
@@ -582,7 +582,7 @@ export const PaymentMethod = {
                   <TextField
                     id="card"
                     type="text"
-                    skin={creditCardMask.isValid ? "neutral-faded" : "critical"}
+                    skin={creditCardMask.isValid ? "neutral" : "critical"}
                     value={creditCardMask.value}
                     onChange={creditCardMask.onChange}
                     onBlur={creditCardMask.onBlur}
@@ -598,7 +598,7 @@ export const PaymentMethod = {
                     <FormField.Control>
                       <TextField
                         placeholder="Select a date"
-                        skin={expireDateMask.isValid ? "neutral-faded" : "critical"}
+                        skin={expireDateMask.isValid ? "neutral" : "critical"}
                         value={expireDateMask.value}
                         onChange={expireDateMask.onChange}
                         onBlur={expireDateMask.onBlur}
@@ -615,7 +615,7 @@ export const PaymentMethod = {
                       <TextField
                         id="cvc"
                         type="text"
-                        skin={cvvMask.isValid ? "neutral-faded" : "critical"}
+                        skin={cvvMask.isValid ? "neutral" : "critical"}
                         value={cvvMask.value}
                         onChange={cvvMask.onChange}
                         onBlur={cvvMask.onBlur}

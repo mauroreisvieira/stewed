@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect } from "react";
 // UI Components
-import { Backdrop, Motion, Scope, useTheme } from "../..";
+import { Backdrop, Motion, Scope, useTheme, type BackdropProps } from "../..";
 // Context
 import { DrawerContext, type DrawerContextProps } from "./DrawerContext";
 // Compound Component
@@ -23,6 +23,7 @@ import styles from "./styles/index.module.scss";
 
 export interface DrawerProps
   extends React.ComponentProps<"div">,
+    BackdropProps,
     DrawerContextProps,
     UseResponsiveProps<{
       /**
@@ -72,8 +73,9 @@ export function Drawer({
   open,
   size = "md",
   safeMargin = "xl",
-  responsive,
   placement = "left",
+  responsive,
+  blur,
   className,
   children,
   onClose,
@@ -159,7 +161,7 @@ export function Drawer({
       {shouldRender && (
         <Scope elevation="navigation">
           <Motion animation={open ? "fade-in" : "fade-out"}>
-            <Backdrop blur />
+            <Backdrop blur={blur} />
           </Motion>
           <DrawerContext.Provider value={{ onClose }}>
             <div className={cssClasses.root} {...props}>

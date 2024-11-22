@@ -62,7 +62,7 @@ export const Validators: Story = {
                       name="email"
                       value={email.value}
                       onChange={onFormChange}
-                      skin={email.valid ? "neutral-faded" : "critical"}
+                      skin={email.valid ? "neutral" : "critical"}
                       placeholder="Enter your email"
                     />
                   </FormField.Control>
@@ -78,7 +78,7 @@ export const Validators: Story = {
                       name="password"
                       value={password.value}
                       onChange={onFormChange}
-                      skin={password.valid ? "neutral-faded" : "critical"}
+                      skin={password.valid ? "neutral" : "critical"}
                       placeholder="Enter your password"
                     />
                   </FormField.Control>

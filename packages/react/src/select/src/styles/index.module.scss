@@ -66,9 +66,9 @@
     &--#{$key} {
       @include theme.define-var(
         (
+          foreground: map.get($value, "color"),
           border-color: map.get($value, "border"),
           background-color: map.get($value, "background-color"),
-          background-color-faded: map.get($value, "background-color-faded"),
         )
       );
     }
@@ -90,15 +90,12 @@
   }
 
   &--ghost {
+    color: theme.get-var(foreground);
     border-color: transparent;
   }
 
   &--soft {
-    background-color: color-mix(
-      in srgb,
-      theme.get-var(background-color),
-      theme.get-var(background-color-faded) 90%
-    );
+    background-color: color-mix(in srgb, theme.get-var(background-color), transparent 95%);
     border-color: transparent;
   }
 

@@ -14,9 +14,9 @@ export interface TextAreaProps extends React.ComponentPropsWithRef<"textarea"> {
   appearance?: "ghost" | "outline" | "soft";
   /**
    * Change the visual style of the text area.
-   * @default "neutral-faded"
+   * @default "neutral"
    */
-  skin?: "neutral-faded" | "neutral" | "critical" | "success";
+  skin?: "neutral" | "critical" | "success";
   /**
    * Sets the text area to use the full width of its container.
    * If true, the text area will stretch to fill the container's width.
@@ -52,7 +52,7 @@ export interface TextAreaProps extends React.ComponentPropsWithRef<"textarea"> {
 export const TextArea = forwardRef(
   (
     {
-      skin = "neutral-faded",
+      skin = "neutral",
       appearance = "outline",
       className,
       disabled,

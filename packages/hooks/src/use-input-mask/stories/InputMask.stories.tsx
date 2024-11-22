@@ -67,7 +67,7 @@ export const Base: Story = {
             <TextField
               id="phone"
               type="text"
-              skin={phoneMask.isValid ? "neutral-faded" : "critical"}
+              skin={phoneMask.isValid ? "neutral" : "critical"}
               value={phoneMask.value}
               onChange={phoneMask.onChange}
               onBlur={phoneMask.onBlur}
@@ -85,7 +85,7 @@ export const Base: Story = {
             <TextField
               id="zip"
               type="text"
-              skin={zipMask.isValid ? "neutral-faded" : "critical"}
+              skin={zipMask.isValid ? "neutral" : "critical"}
               value={zipMask.value}
               onChange={zipMask.onChange}
               onBlur={zipMask.onBlur}
@@ -103,7 +103,7 @@ export const Base: Story = {
             <TextField
               type="text"
               id="creditCard"
-              skin={creditCardMask.isValid ? "neutral-faded" : "critical"}
+              skin={creditCardMask.isValid ? "neutral" : "critical"}
               value={creditCardMask.value}
               onChange={creditCardMask.onChange}
               onBlur={creditCardMask.onBlur}
@@ -122,7 +122,7 @@ export const Base: Story = {
             <TextField
               type="text"
               id="cvv"
-              skin={cvvMask.isValid ? "neutral-faded" : "critical"}
+              skin={cvvMask.isValid ? "neutral" : "critical"}
               value={cvvMask.value}
               onChange={cvvMask.onChange}
               onBlur={cvvMask.onBlur}
@@ -140,7 +140,7 @@ export const Base: Story = {
             <TextField
               type="text"
               id="expireDate"
-              skin={expireDateMask.isValid ? "neutral-faded" : "critical"}
+              skin={expireDateMask.isValid ? "neutral" : "critical"}
               value={expireDateMask.value}
               onChange={expireDateMask.onChange}
               onBlur={expireDateMask.onBlur}

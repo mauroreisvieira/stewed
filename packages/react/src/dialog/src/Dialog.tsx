@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect } from "react";
 // UI Components
-import { Backdrop, Motion, Scope, useTheme } from "../..";
+import { Backdrop, Motion, Scope, useTheme, type BackdropProps } from "../..";
 // Context
 import { DialogContext, type DialogContextProps } from "./DialogContext";
 // Compound Component
@@ -23,6 +23,7 @@ import styles from "./styles/index.module.scss";
 
 export interface DialogProps
   extends React.ComponentProps<"div">,
+    BackdropProps,
     DialogContextProps,
     UseResponsiveProps<{
       /**
@@ -74,6 +75,7 @@ export function Dialog({
   safeMargin = "xl",
   responsive,
   scrollInViewport = false,
+  blur,
   className,
   children,
   onClose,
@@ -159,13 +161,13 @@ export function Dialog({
       {shouldRender && (
         <Scope elevation="popup">
           <Motion animation={open ? "fade-in" : "fade-out"}>
-            <Backdrop blur />
+            <Backdrop blur={blur} />
           </Motion>
           <DialogContext.Provider value={{ onClose }}>
             <div className={cssClasses.root} {...props}>
               <Motion
                 timing="ease-out-back"
-                duration={open ? "normal" : "quickly"}
+                duration="quickly"
                 animation={open ? "zoom-in-soft" : "zoom-out-soft"}
                 onDone={onHandleAnimationEnd}
               >

@@ -19,9 +19,9 @@ export interface SelectProps extends Omit<React.ComponentPropsWithRef<"select">,
   appearance?: "ghost" | "outline" | "soft";
   /**
    * Change the visual style of the select.
-   * @default "neutral-faded"
+   * @default "neutral"
    */
-  skin?: "neutral-faded" | "neutral" | "critical" | "success";
+  skin?: "neutral" | "critical" | "success";
   /**
    * Changes the size of the select, giving it more or less padding.
    * @default md
@@ -55,7 +55,7 @@ export interface SelectProps extends Omit<React.ComponentPropsWithRef<"select">,
 const Root = forwardRef(
   (
     {
-      skin = "neutral-faded",
+      skin = "neutral",
       appearance = "outline",
       size = "md",
       leftSlot,

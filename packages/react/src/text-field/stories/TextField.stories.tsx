@@ -10,6 +10,16 @@ type Story = StoryObj<typeof TextField>;
 const meta: Meta<typeof TextField> = {
   title: "Components/Text Field",
   component: TextField,
+  argTypes: {
+    appearance: {
+      control: "select",
+      options: ["ghost", "outline", "soft"],
+    },
+    skin: {
+      control: "select",
+      options: ["neutral", "critical", "success"],
+    },
+  },
   decorators: [
     (Story) => (
       <Theme>
@@ -25,7 +35,6 @@ export const Base: Story = {
   args: {
     placeholder: "Type your value...",
     appearance: "outline",
-    skin: "neutral-faded",
     disabled: false,
   },
 };
@@ -43,7 +52,6 @@ export const Small: Story = {
     placeholder: "Type your value...",
     size: "sm",
     appearance: "outline",
-    skin: "neutral-faded",
     disabled: false,
   },
 };

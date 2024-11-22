@@ -159,32 +159,34 @@ function Discover(): React.ReactElement {
                 </Button>
                 <Popover<HTMLDivElement>
                   renderAnchor={({ ref: inputSearchRef, open, close }) => (
-                    <TextField
-                      onFocus={() => open()}
-                      onBlur={() => close()}
-                      rootRef={inputSearchRef}
-                      list="recent-search"
-                      appearance="soft"
-                      skin="neutral-faded"
-                      leftSlot={<FiSearch />}
-                      rightSlot={
-                        <Stack gap="sm">
-                          <Separator orientation="vertical" />
-                          <Button
-                            leftSlot={<PiBrowsersFill size={16} />}
-                            size="sm"
-                            skin="secondary"
-                            appearance="ghost"
-                            iconOnly
-                          >
-                            Browse
-                          </Button>
-                        </Stack>
-                      }
-                      size="xl"
-                      placeholder="What do you want to play?"
-                      fullWidth
-                    />
+                    <Box skin="neutral-faded" radius="sm" fullWidth>
+                      <TextField
+                        onFocus={() => open()}
+                        onBlur={() => close()}
+                        rootRef={inputSearchRef}
+                        list="recent-search"
+                        appearance="soft"
+                        skin="neutral"
+                        leftSlot={<FiSearch />}
+                        rightSlot={
+                          <Stack gap="sm">
+                            <Separator orientation="vertical" />
+                            <Button
+                              leftSlot={<PiBrowsersFill size={16} />}
+                              size="sm"
+                              skin="secondary"
+                              appearance="ghost"
+                              iconOnly
+                            >
+                              Browse
+                            </Button>
+                          </Stack>
+                        }
+                        size="xl"
+                        placeholder="What do you want to play?"
+                        fullWidth
+                      />
+                    </Box>
                   )}
                 >
                   {({ reference }) => {
@@ -679,7 +681,6 @@ export const Music = {
           },
           dark: {
             color: {
-              "background-backdrop": "#aaaaaaa8",
               "background-default": "#0f162a",
               "background-elevated": "#0f162a",
               "background-surface": "#3b4554",
@@ -693,7 +694,6 @@ export const Music = {
               "secondary-background-pressed": "#fcfcfc",
               "secondary-foreground": "#fff",
               "secondary-foreground-on-background": "#121212",
-              "shadow": "rgb(178 184 202 / 39%)",
             },
           },
         }}

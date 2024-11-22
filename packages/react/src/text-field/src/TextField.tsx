@@ -16,9 +16,9 @@ export interface TextFieldProps extends Omit<React.ComponentPropsWithRef<"input"
   appearance?: "ghost" | "outline" | "soft";
   /**
    * Change the visual style of the input.
-   * @default "neutral-faded"
+   * @default "neutral"
    */
-  skin?: "neutral-faded" | "neutral" | "critical" | "success";
+  skin?: "neutral" | "critical" | "success";
   /**
    * Changes the size of the input, giving it more or less padding.
    * @default md
@@ -60,7 +60,7 @@ export const TextField = forwardRef(
   (
     {
       rootRef,
-      skin = "neutral-faded",
+      skin = "neutral",
       appearance = "outline",
       size = "md",
       alignment,
