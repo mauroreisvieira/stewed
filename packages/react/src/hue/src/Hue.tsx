@@ -67,7 +67,7 @@ export function Hue({ degree = 90, skin, clipText, children }: HueProps): React.
   };
 
   const computedStyles = {
-    "--hue-deg": `${Math.min(360, Math.max(0, degree ?? 0))}deg`,
+    "--hue-deg": `${Math.min(359, Math.max(0, degree ?? 0))}deg`,
   };
 
   // Cloning the child element to inject `className`

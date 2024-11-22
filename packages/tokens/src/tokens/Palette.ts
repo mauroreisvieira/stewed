@@ -19,6 +19,16 @@ export const palette = {
   "gray-700": "color-mix(in oklab, var(--color-gray-500) 80%, black)",
   "gray-800": "color-mix(in oklab, var(--color-gray-500) 70%, black)",
   "gray-900": "color-mix(in oklab, var(--color-gray-500) 60%, black)",
+  // Cyan ------------------------------------------------------------------
+  "cyan-100": "color-mix(in oklab, var(--color-cyan-500) 5%, white)",
+  "cyan-200": "color-mix(in oklab, var(--color-cyan-500) 10%, white)",
+  "cyan-300": "color-mix(in oklab, var(--color-cyan-500) 20%, white)",
+  "cyan-400": "color-mix(in oklab, var(--color-cyan-500) 30%, white)",
+  "cyan-500": "#06b6d4",
+  "cyan-600": "color-mix(in oklab, var(--color-cyan-500) 90%, black)",
+  "cyan-700": "color-mix(in oklab, var(--color-cyan-500) 80%, black)",
+  "cyan-800": "color-mix(in oklab, var(--color-cyan-500) 70%, black)",
+  "cyan-900": "color-mix(in oklab, var(--color-cyan-500) 60%, black)",
   // Indigo ------------------------------------------------------------------
   "indigo-100": "color-mix(in oklab, var(--color-indigo-500) 10%, white)",
   "indigo-200": "color-mix(in oklab, var(--color-indigo-500) 20%, white)",

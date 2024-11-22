@@ -121,7 +121,7 @@ function Discover(): React.ReactElement {
           </>
         ),
         skin: "critical",
-        dismissDuration: 5000,
+        autoDismiss: 5000,
       });
     },
     [add, idx],

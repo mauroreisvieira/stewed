@@ -529,7 +529,7 @@ function Elements(): React.ReactElement {
                       name="username"
                       value={username.value}
                       onChange={onFormChange}
-                      skin={username.valid ? "neutral-faded" : "critical"}
+                      skin={username.valid ? "neutral" : "critical"}
                       placeholder="Enter your username"
                       fullWidth
                     />
@@ -571,7 +571,7 @@ function Elements(): React.ReactElement {
                       name="email"
                       value={email.value}
                       onChange={onFormChange}
-                      skin={email.valid ? "neutral-faded" : "critical"}
+                      skin={email.valid ? "neutral" : "critical"}
                       placeholder="Enter your email"
                       fullWidth
                     />
@@ -588,7 +588,7 @@ function Elements(): React.ReactElement {
                       name="password"
                       value={password.value}
                       onChange={onFormChange}
-                      skin={password.valid ? "neutral-faded" : "critical"}
+                      skin={password.valid ? "neutral" : "critical"}
                       placeholder="Enter your password"
                       fullWidth
                     />
@@ -734,7 +734,7 @@ export const ThemeTokens: Story = {
             },
           },
         }}
-        theme="metro"
+        theme="default"
       >
         <Container screen="lg" alignment="center">
           <Elements />
