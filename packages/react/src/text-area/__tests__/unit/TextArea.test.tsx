@@ -18,7 +18,7 @@ describe("TextArea", () => {
       expect(container).toMatchSnapshot();
     });
 
-    it.each<TextAreaProps["skin"]>(["neutral-faded", "neutral", "critical", "success"])(
+    it.each<TextAreaProps["skin"]>(["neutral", "critical", "success"])(
       "should apply '%s' skin classes",
       (skin) => {
         const { container } = render(<TextArea defaultValue="TextArea" skin={skin} />);

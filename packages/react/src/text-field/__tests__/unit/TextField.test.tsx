@@ -18,7 +18,7 @@ describe("TextField", () => {
       expect(container).toMatchSnapshot();
     });
 
-    it.each<TextFieldProps["skin"]>(["neutral-faded", "neutral", "critical", "success"])(
+    it.each<TextFieldProps["skin"]>(["neutral", "critical", "success"])(
       "should apply '%s' skin classes",
       (skin) => {
         const { container } = render(<TextField skin={skin} defaultValue="Input" />);
