@@ -34,6 +34,7 @@ export const Solid: Story = {
 
 export const Gradient: Story = {
   args: {
+    degree: 160,
     skin: {
       from: "teal-900",
       to: "teal-700",

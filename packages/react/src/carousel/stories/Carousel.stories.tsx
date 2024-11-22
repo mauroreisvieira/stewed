@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Theme, Carousel, Card, Text } from "../../index";
+import { Theme, Carousel, Card, Text, Hue } from "../../index";
 
 type Story = StoryObj<typeof Carousel>;
 
@@ -27,18 +27,15 @@ export const Base: Story = {
   },
   args: {
     children: Array.from({ length: 4 }).map((_, index) => (
-      <Card
-        shadow="none"
-        key={index}
-        padding={{ block: "7xl", inline: "7xl" }}
-        skin="primary-faded"
-      >
-        <Card.Body>
-          <Text alignment="center" size="8xl">
-            {index + 1}
-          </Text>
-        </Card.Body>
-      </Card>
+      <Hue skin="slate-100" key={index}>
+        <Card shadow="none" padding={{ block: "7xl", inline: "7xl" }}>
+          <Card.Body>
+            <Text alignment="center" size="8xl">
+              {index + 1}
+            </Text>
+          </Card.Body>
+        </Card>
+      </Hue>
     )),
   },
 };
@@ -63,13 +60,15 @@ export const PerView: Story = {
       },
     },
     children: Array.from({ length: 12 }).map((_, index) => (
-      <Card shadow="none" padding={{ block: "7xl", inline: "7xl" }}>
-        <Card.Body>
-          <Text alignment="center" size="8xl">
-            {index + 1}
-          </Text>
-        </Card.Body>
-      </Card>
+      <Hue skin="slate-100" key={index}>
+        <Card shadow="none" padding={{ block: "7xl", inline: "7xl" }}>
+          <Card.Body>
+            <Text alignment="center" size="8xl">
+              {index + 1}
+            </Text>
+          </Card.Body>
+        </Card>
+      </Hue>
     )),
   },
 };

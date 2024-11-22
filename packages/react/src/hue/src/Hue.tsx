@@ -5,6 +5,8 @@ import { useBem } from "@stewed/hooks";
 import { components, type Palette } from "@stewed/tokens";
 // Utilities
 import { classNames } from "@stewed/utilities";
+// Types
+import { type Range } from "../..";
 // Styles
 import styles from "./styles/index.module.scss";
 
@@ -23,6 +25,11 @@ export interface HueProps {
    * @default false
    */
   clipText?: boolean;
+  /**
+   * Specifies the gradient rotate degree for the component.
+   * @default 90
+   */
+  degree?: Range<0, 360>;
   /** The child element to which the gradient effect or animation will be applied. */
   children: React.ReactElement;
 }
@@ -41,7 +48,7 @@ export interface HueProps {
  * @param {HueProps} props - The props for the Hue component.
  * @returns {React.ReactElement} - The rendered Hue component.
  */
-export function Hue({ skin, clipText, children }: HueProps): React.ReactElement {
+export function Hue({ degree = 90, skin, clipText, children }: HueProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: components.Hue, styles });
 
@@ -59,8 +66,13 @@ export function Hue({ skin, clipText, children }: HueProps): React.ReactElement 
     }),
   };
 
+  const computedStyles = {
+    "--hue-deg": `${Math.min(360, Math.max(0, degree ?? 0))}deg`,
+  };
+
   // Cloning the child element to inject `className`
   return React.cloneElement(children, {
+    style: { ...computedStyles, ...children.props.styes },
     className: classNames(children.props.className, cssClasses.root),
   });
 }
