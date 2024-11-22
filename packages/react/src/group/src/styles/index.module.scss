@@ -6,7 +6,6 @@
 @include theme.scope($group-root) {
   display: inline-flex;
   gap: theme.get-var(gap);
-  align-items: center;
 
   @include theme.define-var(
     (

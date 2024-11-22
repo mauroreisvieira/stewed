@@ -681,6 +681,7 @@ export const Music = {
           },
           dark: {
             color: {
+              "background-backdrop": "#aaaaaaa8",
               "background-default": "#0f162a",
               "background-elevated": "#0f162a",
               "background-surface": "#3b4554",
@@ -704,7 +705,7 @@ export const Music = {
   ],
   render: function Render() {
     return (
-      <Snackbar screen="sm" placement="bottom" max={3}>
+      <Snackbar screen="sm" placement="bottom-start" max={5}>
         <Discover />
       </Snackbar>
     );

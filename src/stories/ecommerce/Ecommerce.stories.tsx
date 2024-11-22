@@ -13,6 +13,8 @@ import {
   List,
   Separator,
   Grid,
+  Accordion,
+  Box,
 } from "@stewed/react";
 // Hooks
 import { useInput } from "../../../packages/hooks/index";
@@ -83,37 +85,50 @@ export const QuickViews = {
               <FormField>
                 <FormField.Label htmlFor="quantity">Quantity</FormField.Label>
                 <FormField.Control>
-                  <Group>
-                    <Button
-                      skin="neutral"
-                      appearance="outline"
-                      leftSlot={<HiMinusSm />}
-                      onClick={() => setValue(Number(value) - 1)}
-                      disabled={value === 0}
-                      iconOnly
-                    >
-                      Decrease
-                    </Button>
-                    <TextField
-                      id="quantity"
-                      skin="neutral"
-                      name="quantity"
-                      value={value}
-                      onChange={onChange}
-                      maxChars={3}
-                      alignment="center"
-                    />
-                    <Button
-                      skin="neutral"
-                      appearance="outline"
-                      leftSlot={<HiOutlinePlusSm />}
-                      onClick={() => setValue(Number(value) + 1)}
-                      disabled={value === 10}
-                      iconOnly
-                    >
-                      Increase
-                    </Button>
-                  </Group>
+                  <Box
+                    radius="md"
+                    borderColor="neutral-faded"
+                    borderStyle="solid"
+                    padding={{ block: "xs", inline: "xs" }}
+                  >
+                    <Group gap="sm">
+                      <Button
+                        appearance="ghost"
+                        size="sm"
+                        skin="primary"
+                        leftSlot={<HiMinusSm size={16} />}
+                        onClick={() => setValue(Number(value) - 1)}
+                        disabled={value === 0}
+                        iconOnly
+                      >
+                        Decrease
+                      </Button>
+                      <Separator orientation="vertical" />
+                      <TextField
+                        id="quantity"
+                        skin="neutral"
+                        size="sm"
+                        appearance="ghost"
+                        name="quantity"
+                        value={value}
+                        onChange={onChange}
+                        maxChars={3}
+                        alignment="center"
+                      />
+                      <Separator orientation="vertical" />
+                      <Button
+                        appearance="ghost"
+                        skin="primary"
+                        size="sm"
+                        leftSlot={<HiOutlinePlusSm size={16} />}
+                        onClick={() => setValue(Number(value) + 1)}
+                        disabled={value === 10}
+                        iconOnly
+                      >
+                        Increase
+                      </Button>
+                    </Group>
+                  </Box>
                 </FormField.Control>
               </FormField>
 
@@ -122,7 +137,7 @@ export const QuickViews = {
                 <Text size="sm" skin="neutral">
                   The Basic tee is an honest new take on a classic. The tee uses super soft,
                   pre-shrunk cotton for true comfort and a dependable fit. They are hand cut and
-                  sewn locally, with a special dye technique that gives each tee it's own look.
+                  sewn locally, with a special dye technique that gives each tee its own look.
                 </Text>
 
                 <Text size="sm" skin="neutral">
@@ -132,29 +147,44 @@ export const QuickViews = {
 
                 <Separator space={{ block: "xl" }} />
 
-                <Text weight="medium">Fabric & Care</Text>
-                <List>
-                  <List.Item>
-                    <Text size="sm" skin="neutral">
-                      Only the best materials
-                    </Text>
-                  </List.Item>
-                  <List.Item>
-                    <Text size="sm" skin="neutral">
-                      Ethically and locally made
-                    </Text>
-                  </List.Item>
-                  <List.Item>
-                    <Text size="sm" skin="neutral">
-                      Pre-washed and pre-shrunk
-                    </Text>
-                  </List.Item>
-                  <List.Item>
-                    <Text size="sm" skin="neutral">
-                      Machine wash cold with similar colors
-                    </Text>
-                  </List.Item>
-                </List>
+                <Accordion>
+                  <Accordion.Item>
+                    {({ open }) => (
+                      <>
+                        <Accordion.Header
+                          rightSlot={open ? <HiMinusSm size={20} /> : <HiOutlinePlusSm size={20} />}
+                        >
+                          <Text weight="medium">Fabric & Care</Text>
+                        </Accordion.Header>
+                        <Separator />
+                        <Accordion.Body>
+                          <List>
+                            <List.Item>
+                              <Text size="sm" skin="neutral">
+                                Only the best materials
+                              </Text>
+                            </List.Item>
+                            <List.Item>
+                              <Text size="sm" skin="neutral">
+                                Ethically and locally made
+                              </Text>
+                            </List.Item>
+                            <List.Item>
+                              <Text size="sm" skin="neutral">
+                                Pre-washed and pre-shrunk
+                              </Text>
+                            </List.Item>
+                            <List.Item>
+                              <Text size="sm" skin="neutral">
+                                Machine wash cold with similar colors
+                              </Text>
+                            </List.Item>
+                          </List>
+                        </Accordion.Body>
+                      </>
+                    )}
+                  </Accordion.Item>
+                </Accordion>
               </Stack>
             </Stack>
           </Drawer.Body>
