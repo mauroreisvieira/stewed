@@ -1,12 +1,14 @@
 import React, { useCallback } from "react";
 // Hooks
-import { useBem, useKeyboardNavigation } from "@stewed/hooks";
+import { useBem, useKeyboardNavigation, type UseKeyboardNavigationProps } from "@stewed/hooks";
 // Tokens
 import { components, type Spacings } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface GroupProps extends React.ComponentPropsWithoutRef<"div"> {
+export interface GroupProps
+  extends React.ComponentPropsWithoutRef<"div">,
+    Pick<UseKeyboardNavigationProps, "loop"> {
   /**
    * The gap between group children's.
    * @default none
@@ -34,6 +36,7 @@ export interface GroupProps extends React.ComponentPropsWithoutRef<"div"> {
 export function Group({
   fullWidth,
   gap = "none",
+  loop,
   className,
   children,
   onKeyDown,
@@ -53,6 +56,7 @@ export function Group({
   // Define a reference to a list element
   const { ref, onNavigate } = useKeyboardNavigation<HTMLDivElement>({
     target: "button:not([aria-disabled='true']), input:not([disabled='true'])",
+    loop,
   });
 
   const onHandleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
