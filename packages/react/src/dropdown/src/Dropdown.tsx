@@ -154,6 +154,7 @@ export function Dropdown<T extends HTMLElement>({
         // Close the dropdown component.
         setOpen(false);
 
+        // Callback for when press "Escape" key
         onEscape?.();
 
         // Stop the event from bubbling up to other elements.
@@ -175,10 +176,10 @@ export function Dropdown<T extends HTMLElement>({
 
   useEffect(() => {
     // Set the first element as focusable when the floating element is mounted or updated
-    if (floating.current) {
+    if (mergedRefs) {
       setFirstElementFocusable();
     }
-  }, [floating, setFirstElementFocusable]);
+  }, [mergedRefs, setFirstElementFocusable]);
 
   useEffect(() => {
     // Cleanup function to run when the component unmounts or the effect is re-run
