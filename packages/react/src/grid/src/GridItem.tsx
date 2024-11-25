@@ -3,8 +3,10 @@ import React from "react";
 import { components } from "@stewed/tokens";
 // Hooks
 import { useBem, useResponsive, type UseResponsiveProps } from "@stewed/hooks";
-// Utilities
-import { useTheme, fixedForwardRef, type DistributiveOmit } from "../../";
+// Hooks
+import { useTheme } from "../../";
+// Types
+import { type DistributiveOmit, fixedForwardRef } from "../../types";
 // Style
 import styles from "./styles/index.module.scss";
 

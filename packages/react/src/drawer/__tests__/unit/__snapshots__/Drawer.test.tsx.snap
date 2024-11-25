@@ -12,7 +12,11 @@ exports[`Drawer Snapshots should applies correct placement classes 1`] = `
     <div
       class="drawer__header other-header-class"
     >
-      Header
+      <div
+        class="drawer__header__content"
+      >
+        Header
+      </div>
     </div>
     <div
       class="drawer__body other-body-class"
@@ -40,7 +44,11 @@ exports[`Drawer Snapshots should applies correct size classes 1`] = `
     <div
       class="drawer__header other-header-class"
     >
-      Header
+      <div
+        class="drawer__header__content"
+      >
+        Header
+      </div>
     </div>
     <div
       class="drawer__body other-body-class"
@@ -68,7 +76,11 @@ exports[`Drawer Snapshots should render additional classes 1`] = `
     <div
       class="drawer__header other-header-class"
     >
-      Header
+      <div
+        class="drawer__header__content"
+      >
+        Header
+      </div>
     </div>
     <div
       class="drawer__body other-body-class"
@@ -95,7 +107,11 @@ exports[`Drawer Snapshots should renders close button component 1`] = `
     <div
       class="drawer__header"
     >
-      Header
+      <div
+        class="drawer__header__content"
+      >
+        Header
+      </div>
       <button
         class="button button--neutral-ghost button--sm button--icon-only"
       >
@@ -141,7 +157,11 @@ exports[`Drawer Snapshots should renders default component 1`] = `
     <div
       class="drawer__header"
     >
-      Header
+      <div
+        class="drawer__header__content"
+      >
+        Header
+      </div>
     </div>
     <div
       class="drawer__body"
