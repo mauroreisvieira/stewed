@@ -34,6 +34,8 @@ import {
   Dialog,
   Hue,
 } from "@stewed/react";
+// Hooks
+import { useInput } from "@stewed/hooks";
 // Icons
 import {
   MdOutlineArrowUpward,
@@ -44,11 +46,16 @@ import {
   MdOutlineTimerOff,
   MdOutlineTimer,
   MdOutlineEventRepeat,
+  MdLogout,
+  MdShare,
+  MdPassword,
+  MdDarkMode,
+  MdNotifications,
 } from "react-icons/md";
 import { FaUserEdit } from "react-icons/fa";
 import { VscKebabVertical } from "react-icons/vsc";
 import { GoKebabHorizontal } from "react-icons/go";
-import { IoMdAdd } from "react-icons/io";
+import { IoMdAdd, IoMdPersonAdd } from "react-icons/io";
 import {
   FiFile,
   FiFilePlus,
@@ -61,10 +68,9 @@ import {
   FiEdit,
 } from "react-icons/fi";
 import { LuFilter } from "react-icons/lu";
-import { IoAttach, IoChatbubbleOutline } from "react-icons/io5";
+import { IoAttach, IoChatbubbleOutline, IoSettingsOutline } from "react-icons/io5";
 import { FormField, Radio, Select, TextArea } from "@stewed/react";
 import { FaUserDoctor, FaArrowLeft, FaArrowRight } from "react-icons/fa6";
-import { useInput } from "@stewed/hooks";
 
 const meta: Meta = {
   title: "Examples/SaaS",
@@ -1179,8 +1185,6 @@ export const SidePanel = {
             </Stack>
           </Drawer.Header>
 
-          <Separator />
-
           <Drawer.Body>
             <Stack gap="2xl" direction="column">
               <TextField
@@ -1199,9 +1203,7 @@ export const SidePanel = {
                     All boards
                   </ListBox.Item>
                   <ListBox.Item leftSlot={<FiFilePlus />}>Tasks</ListBox.Item>
-                  <ListBox.Item skin="critical" leftSlot={<FiTrash />}>
-                    Trash
-                  </ListBox.Item>
+                  <ListBox.Item leftSlot={<FiTrash />}>Trash</ListBox.Item>
                 </ListBox.Group>
                 <Separator space={{ block: "sm" }} />
                 <ListBox.Group>
@@ -1214,6 +1216,86 @@ export const SidePanel = {
               </ListBox>
             </Stack>
           </Drawer.Body>
+
+          <Separator />
+
+          <Drawer.Footer>
+            <Stack gap="md">
+              <Avatar
+                size="lg"
+                name="Devon Lane"
+                image={{
+                  src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde",
+                }}
+              />
+              <Stack direction="column" gap="xs" grow>
+                <Text weight="medium">Devon Lane</Text>
+                <Text as="a" href="" size="xs">
+                  devon.lane@example.com
+                </Text>
+              </Stack>
+
+              <Dropdown<HTMLButtonElement>
+                placement="right-end"
+                renderAnchor={({ ref, open, close, isOpen }) => (
+                  <Button
+                    ref={ref}
+                    onClick={isOpen ? close : open}
+                    appearance="ghost"
+                    size="sm"
+                    skin="neutral"
+                    leftSlot={<IoSettingsOutline />}
+                    iconOnly
+                  />
+                )}
+              >
+                {() => (
+                  <Box style={{ minWidth: 280 }} padding={{ block: "sm", inline: "sm" }}>
+                    <Stack items="center" gap="md">
+                      <Avatar
+                        skin="primary"
+                        size="md"
+                        name="Devon Lane"
+                        image={{
+                          src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde",
+                        }}
+                      />
+                      <Stack direction="column" gap="xs">
+                        <Text weight="medium">Devon Lane</Text>
+                        <Text as="a" href="" size="xs">
+                          devon.lane@example.com
+                        </Text>
+                      </Stack>
+                    </Stack>
+
+                    <Separator space={{ block: "md" }} />
+
+                    <ListBox>
+                      <ListBox.Item leftSlot={<IoMdPersonAdd />}>Add Account</ListBox.Item>
+                      <ListBox.Item leftSlot={<FaUserEdit />}>Edit Profile</ListBox.Item>
+                      <Separator space={{ block: "sm" }} />
+                      <ListBox.Item leftSlot={<MdPassword />}>Change Password</ListBox.Item>
+                      <ListBox.Item leftSlot={<MdShare />}>Share Profile Info</ListBox.Item>
+                      <Separator space={{ block: "sm" }} />
+                      <ListBox.Item
+                        leftSlot={<MdNotifications />}
+                        rightSlot={<Switch defaultChecked={true} />}
+                      >
+                        Notifications
+                      </ListBox.Item>
+                      <ListBox.Item leftSlot={<MdDarkMode />} rightSlot={<Switch />}>
+                        Dark Mode
+                      </ListBox.Item>
+                      <Separator space={{ block: "sm" }} />
+                      <ListBox.Item skin="critical" leftSlot={<MdLogout />}>
+                        Log Out
+                      </ListBox.Item>
+                    </ListBox>
+                  </Box>
+                )}
+              </Dropdown>
+            </Stack>
+          </Drawer.Footer>
         </Drawer>
       </Container>
     );

@@ -14,6 +14,7 @@ import {
   Separator,
   Grid,
   Accordion,
+  Tag,
   Box,
 } from "@stewed/react";
 // Hooks
@@ -49,18 +50,26 @@ export const QuickViews = {
       <Container screen="md" alignment="center" padding={{ block: "7xl" }}>
         <Drawer placement="right" open>
           <Drawer.Header>
-            <Text as="h5">Benfica ÁGUIA Hoodie</Text>
+            <Text as="h5" space={{ y: "sm" }}>
+              Benfica ÁGUIA Hoodie
+            </Text>
           </Drawer.Header>
-          <Separator />
+
           <Drawer.Body>
             <Stack direction="column" gap="2xl">
-              <Stack gap="lg">
-                <Text size="3xl" weight="bold">
-                  €89,95
-                </Text>
-                <Text size="3xl" variation={["line-through"]} skin="critical">
-                  €120
-                </Text>
+              <Stack gap="lg" items="center">
+                <Stack gap="sm" grow>
+                  <Text size="3xl" variation={["line-through"]} skin="neutral-faded">
+                    €120
+                  </Text>
+                  <Text size="3xl" weight="bold">
+                    €89,95
+                  </Text>
+                </Stack>
+
+                <Button skin="neutral" appearance="ghost" size="sm" leftSlot={<HiHeart />} iconOnly>
+                  Add to favorites
+                </Button>
               </Stack>
 
               <FormField>
@@ -155,7 +164,83 @@ export const QuickViews = {
                         <Accordion.Header
                           rightSlot={open ? <HiMinusSm size={20} /> : <HiOutlinePlusSm size={20} />}
                         >
-                          <Text weight="medium">Fabric & Care</Text>
+                          <Text weight="medium">Fabric & Fit</Text>
+                        </Accordion.Header>
+                        <Separator />
+                        <Accordion.Body>
+                          <List>
+                            <List.Item>
+                              <Text size="sm" skin="neutral">
+                                Only the best materials
+                              </Text>
+                            </List.Item>
+                            <List.Item>
+                              <Text size="sm" skin="neutral">
+                                Ethically and locally made
+                              </Text>
+                            </List.Item>
+                            <List.Item>
+                              <Text size="sm" skin="neutral">
+                                Pre-washed and pre-shrunk
+                              </Text>
+                            </List.Item>
+                            <List.Item>
+                              <Text size="sm" skin="neutral">
+                                Machine wash cold with similar colors
+                              </Text>
+                            </List.Item>
+                          </List>
+                        </Accordion.Body>
+                      </>
+                    )}
+                  </Accordion.Item>
+                  <Separator />
+
+                  <Accordion.Item>
+                    {({ open }) => (
+                      <>
+                        <Accordion.Header
+                          rightSlot={open ? <HiMinusSm size={20} /> : <HiOutlinePlusSm size={20} />}
+                        >
+                          <Text weight="medium">Care Guide</Text>
+                        </Accordion.Header>
+                        <Separator />
+                        <Accordion.Body>
+                          <List>
+                            <List.Item>
+                              <Text size="sm" skin="neutral">
+                                Only the best materials
+                              </Text>
+                            </List.Item>
+                            <List.Item>
+                              <Text size="sm" skin="neutral">
+                                Ethically and locally made
+                              </Text>
+                            </List.Item>
+                            <List.Item>
+                              <Text size="sm" skin="neutral">
+                                Pre-washed and pre-shrunk
+                              </Text>
+                            </List.Item>
+                            <List.Item>
+                              <Text size="sm" skin="neutral">
+                                Machine wash cold with similar colors
+                              </Text>
+                            </List.Item>
+                          </List>
+                        </Accordion.Body>
+                      </>
+                    )}
+                  </Accordion.Item>
+                  <Separator />
+
+                  <Accordion.Item>
+                    {({ open }) => (
+                      <>
+                        <Accordion.Header
+                          rightSlot={open ? <HiMinusSm size={20} /> : <HiOutlinePlusSm size={20} />}
+                        >
+                          <Text weight="medium">Size Guide</Text>
                         </Accordion.Header>
                         <Separator />
                         <Accordion.Body>
@@ -190,13 +275,12 @@ export const QuickViews = {
             </Stack>
           </Drawer.Body>
           <Drawer.Footer>
-            <Stack gap="md">
+            <Stack direction="column" gap="md">
               <Button skin="primary" size="xl" fullWidth>
-                Add to bug
+                Checkout now
               </Button>
-
-              <Button skin="neutral" appearance="ghost" size="xl" leftSlot={<HiHeart />} iconOnly>
-                Add to favorites
+              <Button skin="neutral" size="xl" appearance="outline" fullWidth>
+                Add to cart
               </Button>
             </Stack>
           </Drawer.Footer>
