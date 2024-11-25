@@ -66,7 +66,7 @@ export const QuickViews = {
               <FormField>
                 <FormField.Label htmlFor="group">Size</FormField.Label>
                 <FormField.Control>
-                  <Grid cols={7} gap="sm">
+                  <Grid cols={7} gap="xs">
                     {productsSizes.map((value) => (
                       <Button
                         key={value}
@@ -89,9 +89,10 @@ export const QuickViews = {
                     radius="md"
                     borderColor="neutral-faded"
                     borderStyle="solid"
-                    padding={{ block: "xs", inline: "xs" }}
+                    borderWidth={1}
+                    padding={{ block: "xxs", inline: "xxs" }}
                   >
-                    <Group gap="sm">
+                    <Group gap="xxs">
                       <Button
                         appearance="ghost"
                         size="sm"
