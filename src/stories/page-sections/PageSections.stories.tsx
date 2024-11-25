@@ -15,6 +15,7 @@ import {
 } from "@stewed/react";
 // Icons
 import { FiPlus, FiMinus } from "react-icons/fi";
+import { GoArrowRight } from "react-icons/go";
 
 const meta = {
   title: "Examples/Page Sections",
@@ -155,7 +156,7 @@ export const CTASection = {
             </Text>
             <Stack justify="center" gap="lg">
               <Button>Get started</Button>
-              <Button appearance="ghost" rightSlot="→">
+              <Button appearance="ghost" rightSlot={<GoArrowRight />}>
                 Learn more
               </Button>
             </Stack>
@@ -183,13 +184,13 @@ export const Testimonials = {
           >
             <Stack direction="column" gap="2xl" grow>
               <Text size="xl" weight="light" space={{ y: "2xl" }}>
-                <Text size="3xl" skin="primary" as="span">
+                <Text size="3xl" skin="primary" as="span" family="serif">
                   “
                 </Text>
                 Amet amet eget scelerisque tellus sit neque faucibus non eleifend. Integer eu
                 praesent at a. Ornare arcu gravida natoque erat et cursus tortor consequat at.
                 Vulputate gravida sociis enim nullam ultricies habitant malesuada lorem ac.
-                <Text size="3xl" skin="primary" as="span">
+                <Text size="3xl" skin="primary" as="span" family="serif">
                   ”
                 </Text>
               </Text>
@@ -224,13 +225,13 @@ export const Testimonials = {
             />
             <Stack direction="column" gap="2xl" grow>
               <Text size="xl" weight="light" space={{ y: "2xl" }}>
-                <Text size="3xl" skin="primary" as="span">
+                <Text size="3xl" skin="primary" as="span" family="serif">
                   “
                 </Text>
-                “Excepteur veniam labore ullamco eiusmod. Pariatur consequat proident duis dolore
+                Excepteur veniam labore ullamco eiusmod. Pariatur consequat proident duis dolore
                 nulla veniam reprehenderit nisi officia voluptate incididunt exercitation
                 exercitation elit. Nostrud veniam sint dolor nisi ullamco.
-                <Text size="3xl" skin="primary" as="span">
+                <Text size="3xl" skin="primary" as="span" family="serif">
                   ”
                 </Text>
               </Text>

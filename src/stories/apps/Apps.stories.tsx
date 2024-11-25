@@ -3,7 +3,7 @@ import type { Meta } from "@storybook/react";
 // UI Components
 import {
   Avatar,
-  Stack,
+  Box,
   Button,
   Card,
   Carousel,
@@ -14,20 +14,20 @@ import {
   FormField,
   Grid,
   Hoverable,
+  Hue,
   ListBox,
+  Popover,
+  Segmented,
   Select,
   Separator,
   Snackbar,
-  Popover,
-  Segmented,
+  Stack,
   Text,
+  TextArea,
   TextField,
   Theme,
   useSnackbar,
-  Box,
   useTheme,
-  TextArea,
-  Hue,
 } from "@stewed/react";
 // Hooks
 import { useToggle, useFetch, useInput, useMediaQuery } from "@stewed/hooks";
@@ -86,7 +86,7 @@ function Discover(): React.ReactElement {
   // State to manage the visibility of the podcast dialog (a toggle state)
   const [podcastDialogState, onHandlePodcastDialog] = useToggle(false);
 
-  // Snackbar hook to display notifications
+  // Hook to display notifications
   const { add } = useSnackbar();
 
   // Theme management hook to set and retrieve the current theme
@@ -108,20 +108,20 @@ function Discover(): React.ReactElement {
     }[];
   }>(`https://api.unsplash.com/search/photos?query="music"&client_id=${accessKey}&per_page=8`);
 
-  // Callback function triggered when an item is clicked, showing an error message in the Snackbar
+  // Callback function triggered when an item is clicked, showing an error message
   const onHandleClick = useCallback(
     (index: number) => {
       add({
         id: idx,
         title: "Unexpected error happened",
         content: (
-          <>
+          <Text size="xs" skin="neutral">
             We have encountered an error when trying to reproduce{" "}
-            <strong>Daily Mix {index + 1}</strong>. Please try again later.
-          </>
+            <strong>Daily Mix {index + 1}</strong>.
+          </Text>
         ),
         skin: "critical",
-        autoDismiss: 5000,
+        autoDismiss: 3000,
       });
     },
     [add, idx],
@@ -705,7 +705,7 @@ export const Music = {
   ],
   render: function Render() {
     return (
-      <Snackbar screen="sm" placement="bottom-start" max={5}>
+      <Snackbar screen="sm" placement="top" max={5}>
         <Discover />
       </Snackbar>
     );

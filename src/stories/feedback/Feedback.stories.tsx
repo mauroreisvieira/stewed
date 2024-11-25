@@ -1,6 +1,8 @@
 import React from "react";
 // UI Components
-import { Box, Button, Container, Text, Theme, Stack } from "@stewed/react";
+import { Box, Button, Container, Text, Theme, Stack, Hue } from "@stewed/react";
+// Icons
+import { GoArrowRight } from "react-icons/go";
 
 const meta = {
   title: "Examples/Feedback",
@@ -22,18 +24,26 @@ export const Page404 = {
         <Stack direction="column" items="center" justify="center">
           <Container screen="md" alignment="center" padding={{ block: "7xl" }}>
             <Box>
-              <Text size="2xl" weight="bolder" skin="neutral" variation={"uppercase"}>
+              <Text
+                size="2xl"
+                weight="light"
+                skin="neutral-faded"
+                variation="uppercase"
+                family="serif"
+              >
                 404 Page
               </Text>
-              <Text size="7xl" space={{ y: "sm" }}>
-                Oops! Page not found.
-              </Text>
-              <Text size="xl" skin="neutral" space={{ y: "7xl" }}>
+              <Hue skin={{ from: "slate-500", to: "slate-100" }} clipText>
+                <Text skin="transparent" size="7xl" space={{ y: "sm" }} weight="bolder">
+                  Oops! Page not found.
+                </Text>
+              </Hue>
+              <Text size="2xl" space={{ y: "7xl" }} skin="neutral">
                 Sorry, we could`t find the page you where looking for.
               </Text>
               <Stack gap="lg">
                 <Button>Go back home</Button>
-                <Button appearance="outline" rightSlot="→">
+                <Button appearance="ghost" rightSlot={<GoArrowRight />}>
                   Contact support
                 </Button>
               </Stack>

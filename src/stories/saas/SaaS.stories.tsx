@@ -1010,7 +1010,7 @@ export const Kanban = {
     return (
       <Container>
         <Stack direction="column" gap="5xl">
-          <Tabs<"board" | "backlog" | "roadmap"> value="backlog">
+          <Tabs<"board" | "backlog" | "roadmap"> defaultValue="backlog">
             <Tabs.List>
               <Tabs.Item value="backlog">Backlog</Tabs.Item>
               <Tabs.Item value="board">Status board</Tabs.Item>
