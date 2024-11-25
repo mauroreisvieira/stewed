@@ -16,11 +16,12 @@ export function DrawerHeader({
   ...props
 }: React.ComponentPropsWithoutRef<"div">): React.ReactElement {
   // Importing useBem to handle BEM class names
-  const { getBlock } = useBem({ block: `${components.Drawer}__header`, styles });
+  const { getBlock, getElement } = useBem({ block: `${components.Drawer}__header`, styles });
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({ extraClasses: className }),
+    content: getElement(["content"]),
   };
 
   // Get function to close the drawer from the context
@@ -28,7 +29,7 @@ export function DrawerHeader({
 
   return (
     <div className={cssClasses.root} {...props}>
-      {children}
+      {children && <div className={cssClasses.content}>{children}</div>}
 
       {onClose && (
         <Button

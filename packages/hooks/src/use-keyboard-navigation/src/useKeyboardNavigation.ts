@@ -1,6 +1,6 @@
 import React, { useCallback, useRef, useState } from "react";
 
-interface UseKeyboardNavigationProps {
+export interface UseKeyboardNavigationProps {
   /** The CSS selector string that identifies the elements to navigate. */
   target: string;
   /**
