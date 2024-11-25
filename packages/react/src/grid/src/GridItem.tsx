@@ -3,9 +3,8 @@ import React from "react";
 import { components } from "@stewed/tokens";
 // Hooks
 import { useBem, useResponsive, type UseResponsiveProps } from "@stewed/hooks";
-import { useTheme } from "../../theme";
-// Types
-import { type DistributiveOmit, fixedForwardRef } from "../../types";
+// Utilities
+import { useTheme, fixedForwardRef, type DistributiveOmit } from "../../";
 // Style
 import styles from "./styles/index.module.scss";
 
@@ -16,6 +15,8 @@ export type GridSize = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 export interface GridProps<T>
   extends Omit<React.ComponentProps<typeof defaultElement>, "hidden">,
     UseResponsiveProps<{
+      /** Controlling the order of grid items. */
+      order?: GridSize;
       /** The number of rows that the element should span. */
       rowSpan?: GridSize;
       /** The row at which the element should start. */
@@ -41,6 +42,7 @@ export interface GridProps<T>
 export const GridItem = fixedForwardRef(function GridItem<T extends React.ElementType>(
   {
     as,
+    order,
     colSpan,
     colStart,
     colEnd,
@@ -68,6 +70,7 @@ export const GridItem = fixedForwardRef(function GridItem<T extends React.Elemen
   // Compute responsive props based on current theme and screen sizes
   const computedProps = useResponsive(
     {
+      order,
       colSpan,
       colStart,
       colEnd,
@@ -87,6 +90,7 @@ export const GridItem = fixedForwardRef(function GridItem<T extends React.Elemen
   const cssClasses = {
     root: getBlock({
       modifiers: [
+        computedProps.order && `order-${computedProps.order}`,
         computedProps.colSpan && `col-span-${computedProps.colSpan}`,
         computedProps.colStart && `col-start-${computedProps.colStart}`,
         computedProps.colEnd && `col-end-${computedProps.colEnd}`,

@@ -8,6 +8,10 @@
     box-sizing: border-box;
 
     @for $i from 1 through 12 {
+      &--order-#{$i} {
+        order: $i;
+      }
+
       &--row-span-#{$i} {
         grid-row: span $i/span $i;
       }
