@@ -40,7 +40,7 @@ export function Scope({
   const target = usePortal();
 
   // Access current theme and tokens
-  const { theme, tokens } = useTheme();
+  const { theme, tokens, cssScope } = useTheme();
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
@@ -51,7 +51,7 @@ export function Scope({
   };
 
   const content = (
-    <Theme defaultTheme={theme} tokens={tokens} className={cssClasses.root} {...props}>
+    <Theme defaultTheme={theme} tokens={tokens} className={cssClasses.root} cssScope={cssScope} {...props}>
       {children}
     </Theme>
   );

@@ -16,11 +16,27 @@ const definitionError = (): null => {
  * @template T - The type representing theme names.
  */
 export interface ThemeContextProps<T extends string> {
-  /** Default theme to be used when no theme is set. */
+  /**
+   * A string that represents the scope or unique class name used to target specific CSS styles.
+   * This class name will be applied to the root element (e.g., the `themeRef` element) to scope
+   * styles to a particular section of the UI, preventing conflicts with other parts of the page.
+   */
+  cssScope?: string;
+  /**
+   * Set the default theme to be used when no theme is set.
+   * @remarks This prop is uncontrolled, meaning the component will manage its own internal state for the default theme.
+   * If you provide a value, it will be used as the initial default theme.
+   *
+   * @default default
+   */
   defaultTheme?: T | "default";
-  /** Current active theme. */
+  /**
+   * Set the current active theme.
+   * @remarks This prop is controlled, meaning the parent component manages the theme state by providing the 'theme' value.
+   * If this prop is provided, the component will reflect the current theme specified by the parent.
+   */
   theme?: T | "default";
-  /** Partial map of theme names to tokens. */
+  /** Map of theme names to tokens. */
   tokens?: Partial<Record<T, Tokens>>;
   /** Currently selected token. */
   activeToken: Tokens;

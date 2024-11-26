@@ -1,10 +1,10 @@
-import React, { useEffect, useMemo, useRef } from "react";
+import React, { useEffect, useInsertionEffect, useMemo, useRef } from "react";
 // Tokens
 import { type Tokens, type Components } from "@stewed/tokens";
+// Hooks
+import { useTheme, type ThemeContextProps } from "./ThemeContext";
 // Utilities
 import { objectEntries } from "@stewed/utilities";
-// Hooks
-import { type ThemeContextProps, useTheme } from "./ThemeContext";
 
 type TokensOnly = Exclude<Tokens, "components">;
 
@@ -39,7 +39,7 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
   const themeRef = useRef<HTMLDivElement>(null);
 
   // Theme and tokens from the context
-  const { theme, activeToken } = useTheme();
+  const { theme, cssScope, activeToken } = useTheme();
 
   // Determine the current theme, defaulting to 'default' if not otherwise specified.
   const currentTheme = theme || "default";
@@ -100,22 +100,51 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
   );
 
   useEffect(() => {
-    if (!themeRef.current) {
+    // Exit early if themeRef or cssScope is not provided
+    if (!themeRef.current || !cssScope) {
       return;
     }
 
-    const styleTag = document.createElement("style");
-    styleTag.innerHTML = `[data-theme="${currentTheme}"] {${computedStyles}\n}`;
+    // Add the CSS scope class to the theme element
+    themeRef.current.classList.add(cssScope);
 
-    themeRef.current.insertAdjacentElement("afterbegin", styleTag);
+    // Create a new <style> element and inject the computed styles scoped to the CSS class
+    const cssRules = document.createElement("style");
+    cssRules.innerHTML = `@scope (.${cssScope}) { \n :scope { ${computedStyles}\n}}`;
 
+    // Insert the new <style> tag as the first child of the themeRef element
+    themeRef.current.insertAdjacentElement("afterbegin", cssRules);
+
+    // Cleanup: Remove the style tag on component unmount or when dependencies change
     return () => {
-      styleTag.remove();
+      cssRules.remove();
     };
-  }, [computedStyles, cssProperties, currentTheme]);
+  }, [computedStyles, currentTheme, cssScope]);
+
+  useInsertionEffect(() => {
+    // Ensure theme is not undefined or empty before proceeding
+    if (!theme) {
+      return;
+    }
+
+    // Check if the style tag for the specific theme already exists
+    let cssRules = document.querySelector(`style[data-stewed-theme="${theme}"]`);
+
+    // If the style tag doesn't exist, create a new one
+    if (!cssRules) {
+      cssRules = document.createElement("style");
+      cssRules.setAttribute("data-stewed-theme", theme); // Set a data attribute for unique identification
+      document.head.appendChild(cssRules);
+    }
+
+    // Update the inner HTML of the existing or newly created <style> tag with the computed styles
+    cssRules.innerHTML = `[data-stewed-theme="${currentTheme}"] {${computedStyles}\n}`;
+
+    // Note: No need to remove the style tag, as this is managed by the component lifecycle
+  }, [computedStyles, theme]);
 
   return (
-    <div ref={themeRef} data-theme={currentTheme} {...props}>
+    <div ref={themeRef} data-stewed-theme={theme} {...props}>
       {children}
     </div>
   );

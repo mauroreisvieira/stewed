@@ -9,24 +9,8 @@ import { ThemeContext, type ThemeContextProps } from "./ThemeContext";
 import { objectKeys } from "@stewed/utilities";
 
 export interface ThemeProps<T extends string = "default">
-  extends React.ComponentPropsWithoutRef<"div"> {
-  /**
-   * Set the default theme to be used when no theme is set.
-   * @remarks This prop is uncontrolled, meaning the component will manage its own internal state for the default theme.
-   * If you provide a value, it will be used as the initial default theme.
-   *
-   * @default default
-   */
-  defaultTheme?: ThemeContextProps<T>["defaultTheme"];
-  /**
-   * Set the current active theme.
-   * @remarks This prop is controlled, meaning the parent component manages the theme state by providing the 'theme' value.
-   * If this prop is provided, the component will reflect the current theme specified by the parent.
-   */
-  theme?: ThemeContextProps<T>["theme"];
-  /** Map of theme names to tokens. */
-  tokens?: ThemeContextProps<T>["tokens"];
-}
+  extends Pick<ThemeContextProps<T>, "cssScope" | "defaultTheme" | "theme" | "tokens">,
+    React.ComponentPropsWithoutRef<"div"> {}
 
 /**
  * A Theme component allows you to manage various objects that define your application's colors, spacing, fonts, and more in a coherent and organized manner.
@@ -36,6 +20,7 @@ export interface ThemeProps<T extends string = "default">
  * @returns {React.ReactElement} - React element representing the themed application.
  */
 export function Theme<T extends string>({
+  cssScope,
   defaultTheme = "default",
   theme: activeTheme,
   tokens: currentTokens,
@@ -71,6 +56,7 @@ export function Theme<T extends string>({
   return (
     <ThemeContext.Provider
       value={{
+        cssScope,
         defaultTheme,
         activeToken,
         theme,

@@ -743,3 +743,54 @@ export const ThemeTokens: Story = {
     );
   },
 };
+
+export const ThemeScope: Story = {
+  render: function Render(): React.ReactElement {
+    return (
+      <Theme cssScope="first-scope">
+        <Box
+          radius="md"
+          borderStyle="solid"
+          borderColor="neutral-faded"
+          skin="primary-faded"
+          padding={{ block: "lg", inline: "lg" }}
+        >
+          <Stack direction="column" gap="lg">
+            <div>
+              <Button>Primary</Button>
+            </div>
+            <Theme
+              cssScope="second-scope"
+              tokens={{
+                default: {
+                  color: {
+                    "primary-background": "purple-500",
+                    "primary-background-hovered": "purple-600",
+                    "primary-background-pressed": "purple-600",
+                    "primary-background-faded": "purple-100",
+                    "focus": "purple-500",
+                  },
+                  components: {
+                    button: {
+                      radius: "full",
+                    },
+                  },
+                },
+              }}
+            >
+              <Box
+                radius="md"
+                borderStyle="solid"
+                borderColor="neutral-faded"
+                skin="primary-faded"
+                padding={{ block: "lg", inline: "lg" }}
+              >
+                <Button>Primary</Button>
+              </Box>
+            </Theme>
+          </Stack>
+        </Box>
+      </Theme>
+    );
+  },
+};
