@@ -10,6 +10,11 @@ export interface UseKeyboardNavigationProps {
   key?: Record<string, number>;
   /** Determines whether navigation should wrap around when reaching the start or end of the list. */
   loop?: boolean;
+  /**
+   * A function defining the condition for the navigation.
+   * @param nextIndex - Index of next focused item.
+   */
+  condition?: (nextIndex: number) => boolean;
 }
 
 /**
@@ -64,6 +69,7 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
     ArrowRight: 1,
   },
   loop = true,
+  condition = () => true,
 }: UseKeyboardNavigationProps): UseKeyboardNavigation<T> {
   // Create a reference to the list element, where `T` is a generic type representing the element type (e.g., HTMLUListElement, HTMLDivElement)
   const listRef = useRef<T>(null);
@@ -136,11 +142,13 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
           nextIndex = Math.max(0, Math.min(index + direction, items.length - 1));
         }
 
-        // Update the current index state.
-        setFocusedIndex(nextIndex);
+        if (condition?.(nextIndex)) {
+          // Update the current index state.
+          setFocusedIndex(nextIndex);
+        }
       }
     },
-    [key, loop, setFocusedIndex, target],
+    [condition, key, loop, setFocusedIndex, target],
   );
 
   // Sets the first element with `[aria-selected="true"]` as focusable, or the first item if none found.
@@ -157,7 +165,11 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
     const items = Array.from<HTMLElement>(list.querySelectorAll(target));
 
     // Try to find the first item with `aria-selected="true"`.
-    const selectedIndex = items.findIndex((item) => item.getAttribute("aria-selected") === "true");
+    const selectedIndex = items.findIndex(
+      (item) =>
+        item.getAttribute("aria-selected") === "true" ||
+        item.getAttribute("aria-checked") === "true",
+    );
 
     setFocusedIndex(selectedIndex);
   }, [target, setFocusedIndex]);
