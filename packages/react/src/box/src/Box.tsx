@@ -76,7 +76,9 @@ export interface BoxProps<T = "div">
     | "warning-faded";
   /** Determines if should expand to use the full width. */
   fullWidth?: boolean;
-  /** Determines if should expand to use the full width and height. */
+  /** Determines if should expand to use the full height. */
+  fullHeight?: boolean;
+  /** Determines if should expand to use the full screen */
   fullScreen?: boolean;
 }
 
@@ -108,6 +110,7 @@ export const Box = fixedForwardRef(function Box<T extends React.ElementType>(
     borderWidth,
     borderStyle,
     fullWidth,
+    fullHeight,
     fullScreen,
     className,
     children,
@@ -152,6 +155,7 @@ export const Box = fixedForwardRef(function Box<T extends React.ElementType>(
         computedProps.space?.x && `space-x-${computedProps.space.x}`,
         computedProps.space?.y && `space-y-${computedProps.space.y}`,
         hidden && "hidden",
+        fullHeight && "full-height",
         fullWidth && "full-width",
         fullScreen && "full-screen",
       ],
