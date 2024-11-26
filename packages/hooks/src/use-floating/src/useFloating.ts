@@ -100,7 +100,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
 
   // Reducer to update the options, merging the previous state with the new state
   const [options, setOptions] = useReducer(
-    (prev: FloatingOptions, next: FloatingOptions) => {
+    (prev: FloatingOptions, next: Partial<FloatingOptions>) => {
       return { ...prev, ...next };
     },
     { placement, isPositioned: false }, // Initial state with placement and whether the element is positioned
@@ -208,76 +208,287 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
       floatingRect,
     });
 
-    // Adjust position to keep the element within the viewport or boundary
-    const boundaryRect = boundary
-      ? boundary.getBoundingClientRect()
-      : { height: window.innerHeight, width: window.innerWidth, top: 0, left: 0 };
-
-    // Get the current scroll position of the boundary or the window
-    const { scrollTop, scrollLeft } = boundary ? boundary : document.documentElement;
-
-    // Check if the floating element exceeds the boundary or viewport
-    const exceedsRight =
-      x + floatingRect.width > boundaryRect.left + boundaryRect.width + scrollLeft;
-    const exceedsBottom =
-      y + floatingRect.height > boundaryRect.top + boundaryRect.height + scrollTop;
-
-    const exceedsLeft = x < boundaryRect.left + window.scrollX + scrollLeft;
-    const exceedsTop = y < boundaryRect.top + window.scrollY + scrollTop;
-
-    // Check if a given placement fits within the viewport
     const doesPlacementFit = (placement: FloatingPlacement): boolean => {
+      // Adjust position to keep the element within the viewport or boundary
+      const boundaryRect = boundary
+        ? boundary.getBoundingClientRect()
+        : { height: window.innerHeight, width: window.innerWidth, top: 0, left: 0 };
+
+      const { width: floatingWidth, height: floatingHeight } = floatingRect;
+
+      // Adjust boundaryRect to include scroll offsets
+      const {
+        left: boundaryLeft,
+        top: boundaryTop,
+        width: boundaryWidth,
+        height: boundaryHeight,
+      } = boundaryRect;
+
+      const scrollTop = boundary?.scrollTop || 0;
+      const scrollLeft = boundary?.scrollLeft || 0;
+
+      const adjustedBoundaryTop = boundaryTop + scrollTop;
+      const adjustedBoundaryLeft = boundaryLeft + scrollLeft;
+
+      // Adjust referenceRect to include scroll offsets
+      const {
+        left: referenceLeft,
+        top: referenceTop,
+        width: referenceWidth,
+        height: referenceHeight,
+      } = referenceRect;
+
+      const adjustedReferenceTop = referenceTop + scrollTop;
+      const adjustedReferenceLeft = referenceLeft + scrollLeft;
+
       switch (placement) {
-        case "top":
-          return !exceedsTop;
         case "bottom":
-          return !exceedsBottom;
-        case "right":
-          return !exceedsRight && !exceedsTop && !exceedsBottom;
-        case "left":
-          return !exceedsLeft && !exceedsTop && !exceedsBottom;
-        case "top-start":
-          return !exceedsTop && !exceedsRight;
-        case "top-end":
-          return !exceedsTop && !exceedsLeft;
+          return (
+            adjustedReferenceTop + referenceHeight + floatingHeight <=
+              adjustedBoundaryTop + boundaryHeight && // Space at the bottom
+            adjustedReferenceLeft + floatingWidth / 2 <= adjustedBoundaryLeft + boundaryWidth && // Space on the right
+            adjustedReferenceLeft - floatingWidth / 2 >= adjustedBoundaryLeft // Space on the left
+          );
+
         case "bottom-start":
-          return !exceedsBottom && !exceedsRight;
+          return (
+            adjustedReferenceTop + referenceHeight + floatingHeight <=
+              adjustedBoundaryTop + boundaryHeight && // Space at the bottom
+            adjustedReferenceLeft + floatingWidth <= adjustedBoundaryLeft + boundaryWidth // Space on the right
+          );
+
         case "bottom-end":
-          return !exceedsBottom && !exceedsLeft;
-        case "right-start":
-          return !exceedsRight && !exceedsBottom;
-        case "right-end":
-          return !exceedsRight && !exceedsTop;
+          return (
+            adjustedReferenceTop + referenceHeight + floatingHeight <=
+              adjustedBoundaryTop + boundaryHeight && // Space at the bottom
+            adjustedReferenceLeft + referenceWidth - floatingWidth >= adjustedBoundaryLeft // Space on the left
+          );
+
+        case "top":
+          return (
+            adjustedReferenceTop - floatingHeight >= adjustedBoundaryTop && // Space at the top
+            adjustedReferenceLeft + floatingWidth / 2 <= adjustedBoundaryLeft + boundaryWidth && // Space on the right
+            adjustedReferenceLeft - floatingWidth / 2 >= adjustedBoundaryLeft // Space on the left
+          );
+
+        case "top-start":
+          return (
+            adjustedReferenceTop - floatingHeight >= adjustedBoundaryTop && // Space at the top
+            adjustedReferenceLeft + floatingWidth <= adjustedBoundaryLeft + boundaryWidth // Space on the right
+          );
+
+        case "top-end":
+          return (
+            adjustedReferenceTop - floatingHeight >= adjustedBoundaryTop && // Space at the top
+            adjustedReferenceLeft + referenceWidth - floatingWidth >= adjustedBoundaryLeft // Space on the left
+          );
+
+        case "left":
+          return (
+            adjustedReferenceLeft - floatingWidth >= adjustedBoundaryLeft && // Space on the left
+            adjustedReferenceTop + floatingHeight / 2 <= adjustedBoundaryTop + boundaryHeight && // Space at the bottom
+            adjustedReferenceTop - floatingHeight / 2 >= adjustedBoundaryTop // Space at the top
+          );
+
         case "left-start":
-          return !exceedsLeft && !exceedsBottom;
+          return (
+            adjustedReferenceLeft - floatingWidth >= adjustedBoundaryLeft && // Space on the left
+            adjustedReferenceTop + floatingHeight <= adjustedBoundaryTop + boundaryHeight // Space at the bottom
+          );
+
         case "left-end":
-          return !exceedsLeft && !exceedsTop;
+          return (
+            adjustedReferenceLeft - floatingWidth >= adjustedBoundaryLeft && // Space on the left
+            adjustedReferenceTop + referenceHeight - floatingHeight >= adjustedBoundaryTop // Space at the top
+          );
+
+        case "right":
+          return (
+            adjustedReferenceLeft + referenceWidth + floatingWidth <=
+              adjustedBoundaryLeft + boundaryWidth && // Space on the right
+            adjustedReferenceTop + floatingHeight / 2 <= adjustedBoundaryTop + boundaryHeight && // Space at the bottom
+            adjustedReferenceTop - floatingHeight / 2 >= adjustedBoundaryTop // Space at the top
+          );
+
+        case "right-start":
+          return (
+            adjustedReferenceLeft + referenceWidth + floatingWidth <=
+              adjustedBoundaryLeft + boundaryWidth && // Space on the right
+            adjustedReferenceTop + floatingHeight <= adjustedBoundaryTop + boundaryHeight // Space at the bottom
+          );
+
+        case "right-end":
+          return (
+            adjustedReferenceLeft + referenceWidth + floatingWidth <=
+              adjustedBoundaryLeft + boundaryWidth && // Space on the right
+            adjustedReferenceTop + referenceHeight - floatingHeight >= adjustedBoundaryTop // Space at the top
+          );
+
         default:
-          return true; // Default case, assume it fits
+          return true; // Assume it fits if placement is unrecognized
       }
     };
 
     // Adjust the placement of the floating element to fit within the viewport
     const adjustPlacement = (initialPlacement: FloatingPlacement): FloatingPlacement => {
-      // First, check if the initial placement fits
-      if (doesPlacementFit(initialPlacement)) {
-        return initialPlacement;
-      }
-
       // Define alternative placements for cases where the initial placement does not fit
       const relatedPlacements = {
-        "top": ["top-start", "top-end", "bottom", "bottom-start", "bottom-end"],
-        "bottom": ["bottom-start", "bottom-end", "top", "top-start", "top-end"],
-        "left": ["left-start", "left-end", "right", "right-start", "right-end"],
-        "right": ["right-start", "right-end", "left", "left-start", "left-end"],
-        "top-start": ["top", "top-end", "bottom-start", "bottom", "bottom-end"],
-        "top-end": ["top", "top-start", "bottom-end", "bottom", "bottom-start"],
-        "bottom-start": ["bottom", "bottom-end", "top-start", "top", "top-end"],
-        "bottom-end": ["bottom", "bottom-start", "top-end", "top", "top-start"],
-        "left-start": ["left", "left-end", "right-start", "right", "right-end"],
-        "left-end": ["left", "left-start", "right-end", "right", "right-start"],
-        "right-start": ["right", "right-end", "left-start", "left", "left-end"],
-        "right-end": ["right", "right-start", "left-end", "left", "left-start"],
+        "top": [
+          "top-start",
+          "top-end", // Variations on top
+          "bottom",
+          "bottom-start",
+          "bottom-end", // Opposite placements on the bottom
+          "left",
+          "left-start",
+          "left-end", // Left variations
+          "right",
+          "right-start",
+          "right-end", // Right variations
+        ],
+        "bottom": [
+          "bottom-start",
+          "bottom-end", // Variations on bottom
+          "top",
+          "top-start",
+          "top-end", // Opposite placements on the top
+          "left",
+          "left-start",
+          "left-end", // Left variations
+          "right",
+          "right-start",
+          "right-end", // Right variations
+        ],
+        "left": [
+          "left-start",
+          "left-end", // Variations on left
+          "right",
+          "right-start",
+          "right-end", // Opposite placements on the right
+          "top",
+          "top-start",
+          "top-end", // Top variations
+          "bottom",
+          "bottom-start",
+          "bottom-end", // Bottom variations
+        ],
+        "right": [
+          "right-start",
+          "right-end", // Variations on right
+          "left",
+          "left-start",
+          "left-end", // Opposite placements on the left
+          "top",
+          "top-start",
+          "top-end", // Top variations
+          "bottom",
+          "bottom-start",
+          "bottom-end", // Bottom variations
+        ],
+        "top-start": [
+          "top",
+          "top-end", // Variations on top
+          "bottom-start",
+          "bottom",
+          "bottom-end", // Opposite placements on the bottom
+          "left-start",
+          "left",
+          "left-end", // Left variations
+          "right-start",
+          "right",
+          "right-end", // Right variations
+        ],
+        "top-end": [
+          "top",
+          "top-start", // Variations on top
+          "bottom-end",
+          "bottom",
+          "bottom-start", // Opposite placements on the bottom
+          "left-end",
+          "left",
+          "left-start", // Left variations
+          "right-end",
+          "right",
+          "right-start", // Right variations
+        ],
+        "bottom-start": [
+          "bottom",
+          "bottom-end", // Variations on bottom
+          "top-start",
+          "top",
+          "top-end", // Opposite placements on the top
+          "left-start",
+          "left",
+          "left-end", // Left variations
+          "right-start",
+          "right",
+          "right-end", // Right variations
+        ],
+        "bottom-end": [
+          "bottom",
+          "bottom-start", // Variations on bottom
+          "top-end",
+          "top",
+          "top-start", // Opposite placements on the top
+          "left-end",
+          "left",
+          "left-start", // Left variations
+          "right-end",
+          "right",
+          "right-start", // Right variations
+        ],
+        "left-start": [
+          "left",
+          "left-end", // Variations on left
+          "right-start",
+          "right",
+          "right-end", // Opposite placements on the right
+          "top-start",
+          "top",
+          "top-end", // Top variations
+          "bottom-start",
+          "bottom",
+          "bottom-end", // Bottom variations
+        ],
+        "left-end": [
+          "left",
+          "left-start", // Variations on left
+          "right-end",
+          "right",
+          "right-start", // Opposite placements on the right
+          "top-end",
+          "top",
+          "top-start", // Top variations
+          "bottom-end",
+          "bottom",
+          "bottom-start", // Bottom variations
+        ],
+        "right-start": [
+          "right",
+          "right-end", // Variations on right
+          "left-start",
+          "left",
+          "left-end", // Opposite placements on the left
+          "top-start",
+          "top",
+          "top-end", // Top variations
+          "bottom-start",
+          "bottom",
+          "bottom-end", // Bottom variations
+        ],
+        "right-end": [
+          "right",
+          "right-start", // Variations on right
+          "left-end",
+          "left",
+          "left-start", // Opposite placements on the left
+          "bottom-end",
+          "bottom",
+          "bottom-start", // Bottom variations
+          "top-end",
+          "top",
+          "top-start", // Top variations
+        ],
       } as const;
 
       // Try the related placements to see if they fit
@@ -292,7 +503,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
     };
 
     // If fit is enabled, adjust the position to keep the element within the viewport
-    if (flip) {
+    if (flip && !doesPlacementFit(placement)) {
       // Adjust the placement based on some criteria (e.g., screen boundaries or available space)
       const newPlacement = adjustPlacement(placement);
 
@@ -307,11 +518,11 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
       }
     }
 
-    // Update the options with the new placement
-    setOptions({ placement: options.placement, isPositioned: true });
-
     // Update floating element position with calculated x and y coordinates
     setFloatingPosition({ x, y, reference: referenceRect });
+
+    // Update the options with the new placement
+    setOptions({ isPositioned: true });
   }, [boundary, calculateFloatingPosition, flip, options.placement, placement, reference]);
 
   useEffect(() => {
@@ -337,7 +548,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
 
     // Cleanup function
     return () => {
-      setOptions({ placement: placement, isPositioned: false });
+      setOptions({ placement, isPositioned: false });
       resizeObserver.disconnect();
       controller.abort();
     };
