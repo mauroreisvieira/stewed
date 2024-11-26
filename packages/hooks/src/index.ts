@@ -14,6 +14,7 @@ export * from "./use-keyboard-navigation";
 export * from "./use-media-query";
 export * from "./use-merge-refs";
 export * from "./use-mounted";
+export * from "./use-non-reactive-callback";
 export * from "./use-portal";
 export * from "./use-previous";
 export * from "./use-resize-observer";
