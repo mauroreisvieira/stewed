@@ -78,7 +78,18 @@ export const Colors: Story = {
             {Object.entries({ ...color, ...skin }).map(([key, val]) => (
               <Table.Row key={key}>
                 <Table.Cell>{key}</Table.Cell>
-                <Table.Cell>{val}</Table.Cell>
+                <Table.Cell>
+                  <Stack gap="md">
+                    <Box
+                      borderColor="neutral-faded"
+                      borderWidth={1}
+                      borderStyle="solid"
+                      radius="full"
+                      style={{ width: 18, height: 18, background: val }}
+                    />
+                    {val}
+                  </Stack>
+                </Table.Cell>
               </Table.Row>
             ))}
           </Table.Body>
