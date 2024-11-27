@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
 // UI Components
 import {
   Theme,
@@ -21,12 +21,12 @@ import {
   Hue,
 } from "@stewed/react";
 // Hooks
-import { useSelect, useToggle, useInputMask } from "@stewed/hooks";
+import { useSelect, useToggle, useInputMask, useInput } from "@stewed/hooks";
 import { useDateTime } from "@hello-week/hooks";
 // Icons
 import { TbPin, TbStar, TbPlus } from "react-icons/tb";
-import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
-import { FiCopy } from "react-icons/fi";
+import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp, MdCheck } from "react-icons/md";
+import { FiCopy, FiSearch } from "react-icons/fi";
 import { FaPaypal, FaCreditCard, FaApple } from "react-icons/fa";
 
 const meta = {
@@ -630,6 +630,107 @@ export const PaymentMethod = {
             <Button size="lg" appearance="soft" fullWidth>
               Save
             </Button>
+          </Card.Footer>
+        </Card>
+      </Container>
+    );
+  },
+};
+
+export const NewMessage = {
+  render: function Render() {
+    const [selected, setSelected] = useState<number[]>([]);
+
+    const { value, onChange } = useInput<string>("");
+
+    const filterTeam = useMemo(() => {
+      if (value) {
+        return team.filter(({ name }) => name.toUpperCase().includes(value.toUpperCase()));
+      }
+
+      return team;
+    }, [value]);
+
+    return (
+      <Container screen="sm" alignment="center" padding={{ block: "7xl" }}>
+        <Card>
+          <Card.Header>
+            <Stack gap="2xl">
+              <Text as="h5">New message</Text>
+            </Stack>
+            <Text size="sm" skin="neutral">
+              Invite a user to this thread. This will create a new group message.
+            </Text>
+          </Card.Header>
+          <Separator />
+          <Box padding={{ inline: "md" }}>
+            <TextField
+              leftSlot={<FiSearch />}
+              appearance="ghost"
+              outline={false}
+              onChange={onChange}
+              value={value}
+              placeholder="Search a user..."
+            />
+          </Box>
+          <Separator />
+          <Card.Body>
+            <ListBox>
+              {filterTeam.length > 0 ? (
+                <>
+                  {filterTeam.map(({ id, name, email }) => (
+                    <ListBox.Item
+                      key={id}
+                      onClick={() => {
+                        setSelected((prev) => {
+                          const exists = prev.some((curr) => curr === id);
+
+                          if (exists) {
+                            return prev.filter((curr) => curr !== id);
+                          }
+
+                          return [...prev, id];
+                        });
+                      }}
+                      rightSlot={selected.includes(id) ? <MdCheck /> : ""}
+                    >
+                      <Box padding={{ block: "sm" }}>
+                        <Stack gap="lg" items="center">
+                          <Avatar name={name} />
+                          <Stack direction="column" gap="xs">
+                            <Text weight="medium">{name}</Text>
+                            <Text size="xs" skin="neutral">
+                              {email}
+                            </Text>
+                          </Stack>
+                        </Stack>
+                      </Box>
+                    </ListBox.Item>
+                  ))}
+                </>
+              ) : (
+                <Box padding={{ block: "4xl" }}>
+                  <Text alignment="center" skin="neutral-faded">
+                    No users found.
+                  </Text>
+                </Box>
+              )}
+            </ListBox>
+          </Card.Body>
+          <Separator />
+          <Card.Footer>
+            <Stack justify="between">
+              <Stack gap="sm">
+                <Avatar.Group>
+                  {team
+                    .filter(({ id }) => selected.includes(id))
+                    .map(({ id, name }) => (
+                      <Avatar key={id} name={name} size="sm" />
+                    ))}
+                </Avatar.Group>
+              </Stack>
+              <Button disabled={selected.length === 0}>Continue</Button>
+            </Stack>
           </Card.Footer>
         </Card>
       </Container>

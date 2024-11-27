@@ -840,6 +840,7 @@ export const ChatAI = {
                   value={text}
                   onChange={onTextChange}
                   resize="none"
+                  outline={false}
                 />
 
                 <Stack gap="md" justify="between">
