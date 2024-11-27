@@ -17,7 +17,10 @@
   border-radius: theme.get-var(radius);
 
   @include text.typography(base, $overrides: (font-size: theme.get-font-size("md")));
-  @include theme.focus-styles;
+
+  &--outline {
+    @include theme.focus-styles;
+  }
 
   &--disabled {
     @include theme.disabled-styles;
