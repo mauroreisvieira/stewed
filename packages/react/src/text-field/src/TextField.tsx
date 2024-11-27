@@ -38,8 +38,11 @@ export interface TextFieldProps extends Omit<React.ComponentPropsWithRef<"input"
    * @default true
    */
   fullWidth?: boolean;
-  /** Screen reader only, will hide the text. */
-  srOnly?: boolean;
+  /**
+   * Whether the element should have an outline focus.
+   * @default true
+   */
+  outline?: boolean;
 }
 
 /**
@@ -68,9 +71,9 @@ export const TextField = forwardRef(
       className,
       disabled,
       fullWidth = true,
-      srOnly,
       leftSlot,
       rightSlot,
+      outline = true,
       ...props
     }: TextFieldProps,
     ref: React.ForwardedRef<HTMLInputElement>,
@@ -82,9 +85,9 @@ export const TextField = forwardRef(
     const cssClasses = {
       root: getBlock({
         modifiers: [
+          outline && "outline",
           disabled && "disabled",
           fullWidth && "full-width",
-          srOnly && "sr-only",
           size,
           alignment,
           appearance,

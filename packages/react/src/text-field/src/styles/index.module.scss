@@ -16,7 +16,10 @@
   border-radius: theme.get-var(radius);
 
   @include text.typography(base, $overrides: (font-size: theme.get-font-size("md")));
-  @include theme.focus-styles($target: ":has(input:focus-visible)");
+
+  &--outline {
+    @include theme.focus-styles($target: ":has(input:focus-visible)");
+  }
 
   &--disabled {
     @include theme.disabled-styles;
@@ -113,14 +116,5 @@
 
   &--full-width {
     width: 100%;
-  }
-
-  &--sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(1px, 1px, 1px, 1px);
-    white-space: nowrap;
   }
 }
