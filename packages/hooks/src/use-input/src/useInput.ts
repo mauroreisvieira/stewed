@@ -40,7 +40,7 @@ export interface UseInputProps<T> {
  */
 export function useInput<T extends UseInputValue>(
   initialValue: T,
-  { validate }: UseInputProps<T> = {},
+  { validate = () => true }: UseInputProps<T> = {},
 ): UseInputHandler<T> {
   // State for the current value of the input field
   const [currentValue, setCurrentValue] = useState<T>(initialValue);
