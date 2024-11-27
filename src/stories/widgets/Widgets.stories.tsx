@@ -659,7 +659,7 @@ export const NewMessage = {
               <Text as="h5">New message</Text>
             </Stack>
             <Text size="sm" skin="neutral">
-              Invite a user to this thread. This will create a new group message.
+              Invite a user to create a new group message.
             </Text>
           </Card.Header>
           <Separator />
