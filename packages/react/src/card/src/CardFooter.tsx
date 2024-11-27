@@ -6,7 +6,7 @@ import { useBem } from "@stewed/hooks";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface CardFooterProps extends React.ComponentPropsWithoutRef<"div"> {}
+export type CardFooterProps = React.ComponentPropsWithoutRef<"div">;
 
 export function CardFooter({ className, children, ...props }: CardFooterProps): React.ReactElement {
   // Importing useBem to handle BEM class names

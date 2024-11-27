@@ -1,4 +1,4 @@
-import { useCallback, useInsertionEffect, useRef } from 'react';
+import { useCallback, useInsertionEffect, useRef } from "react";
 
 /**
  * A hook to create a callback function that remains referentially stable
@@ -19,7 +19,9 @@ import { useCallback, useInsertionEffect, useRef } from 'react';
  * @param fn - The function whose stable reference is required.
  * @returns A stable callback function that always executes the latest version of `fn`.
  */
-export function useNonReactiveCallback<T extends (...args: Parameters<T>) => ReturnType<T>>(fn: T): T {
+export function useNonReactiveCallback<T extends (...args: Parameters<T>) => ReturnType<T>>(
+  fn: T,
+): T {
   // Store the function in a ref to ensure we can always access the latest version.
   const ref = useRef(fn);
 
@@ -30,10 +32,7 @@ export function useNonReactiveCallback<T extends (...args: Parameters<T>) => Ret
 
   // Return a stable callback that always invokes the latest function stored in the ref.
   // eslint-disable-next-line react-compiler/react-compiler
-  return useCallback(
-    (...args: Parameters<T>): ReturnType<T> => {
-      return ref.current(...args);
-    },
-    []
-  ) as T;
+  return useCallback((...args: Parameters<T>): ReturnType<T> => {
+    return ref.current(...args);
+  }, []) as T;
 }

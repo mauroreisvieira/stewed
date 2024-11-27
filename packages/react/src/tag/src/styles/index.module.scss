@@ -163,16 +163,22 @@
         @include theme.define-var(
           (
             color: theme.get-color($value, "foreground"),
-            background-color:
-              color-mix(in srgb, theme.get-color($value, "background"), transparent 95%),
+            background-color: color-mix(
+                in srgb,
+                theme.get-color($value, "background"),
+                transparent 95%
+              ),
           )
         );
 
         &[href]:not([aria-disabled="true"]):hover {
           @include theme.define-var(
             (
-              background-color:
-                color-mix(in srgb, theme.get-color($value, "background"), transparent 90%),
+              background-color: color-mix(
+                  in srgb,
+                  theme.get-color($value, "background"),
+                  transparent 90%
+                ),
             )
           );
         }
@@ -180,8 +186,11 @@
         &[href]:not([aria-disabled="true"]):active {
           @include theme.define-var(
             (
-              background-color:
-                color-mix(in srgb, theme.get-color($value, "background"), transparent 85%),
+              background-color: color-mix(
+                  in srgb,
+                  theme.get-color($value, "background"),
+                  transparent 85%
+                ),
             )
           );
         }

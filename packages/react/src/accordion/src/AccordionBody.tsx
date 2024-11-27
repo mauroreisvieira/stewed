@@ -6,7 +6,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface AccordionBodyProps extends React.ComponentPropsWithoutRef<"div"> {}
+export type AccordionBodyProps = React.ComponentPropsWithoutRef<"div">;
 
 export function AccordionBody({
   className,

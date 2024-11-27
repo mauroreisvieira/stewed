@@ -30,6 +30,12 @@
     height: 100%;
     touch-action: manipulation;
 
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      margin: 0;
+      appearance: none;
+    }
+
     &:-internal-autofill-selected,
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus,

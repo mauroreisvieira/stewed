@@ -8,23 +8,21 @@ import { classNames } from "@stewed/utilities";
 // Styles
 import styles from "./styles/index.module.scss";
 
-const animations = {
-  zoom: ["zoom-in", "zoom-out", "zoom-in-soft", "zoom-out-soft"],
-  fade: ["fade-in", "fade-out"],
-  slide: [
-    "slide-in-top",
-    "slide-in-right",
-    "slide-in-bottom",
-    "slide-in-left",
-    "slide-out-top",
-    "slide-out-right",
-    "slide-out-bottom",
-    "slide-out-left",
-  ],
-} as const;
-
-// Combine all animation types into a single union type
-type TAnimation = (typeof animations)[keyof typeof animations][number];
+type TAnimation =
+  | "zoom-in"
+  | "zoom-out"
+  | "zoom-in-soft"
+  | "zoom-out-soft"
+  | "fade-in"
+  | "fade-out"
+  | "slide-in-top"
+  | "slide-in-right"
+  | "slide-in-bottom"
+  | "slide-in-left"
+  | "slide-out-top"
+  | "slide-out-right"
+  | "slide-out-bottom"
+  | "slide-out-left";
 
 export interface MotionProps {
   /** The animation type. */

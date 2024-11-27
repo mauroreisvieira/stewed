@@ -123,28 +123,28 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
 
   useInsertionEffect(() => {
     // Ensure theme is not undefined or empty before proceeding
-    if (!theme) {
+    if (!theme || cssScope) {
       return;
     }
 
     // Check if the style tag for the specific theme already exists
-    let cssRules = document.querySelector(`style[data-stewed-theme="${theme}"]`);
+    let cssRules = document.querySelector(`style[data-global-styles]`);
 
     // If the style tag doesn't exist, create a new one
     if (!cssRules) {
       cssRules = document.createElement("style");
-      cssRules.setAttribute("data-stewed-theme", theme); // Set a data attribute for unique identification
+      cssRules.setAttribute("data-global-styles", "true"); // Set a data attribute for unique identification
       document.head.appendChild(cssRules);
     }
 
     // Update the inner HTML of the existing or newly created <style> tag with the computed styles
-    cssRules.innerHTML = `[data-stewed-theme="${currentTheme}"] {${computedStyles}\n}`;
+    cssRules.innerHTML = `:scope {${computedStyles}\n}`;
 
     // Note: No need to remove the style tag, as this is managed by the component lifecycle
   }, [computedStyles, theme]);
 
   return (
-    <div ref={themeRef} data-stewed-theme={theme} {...props}>
+    <div ref={themeRef} {...props}>
       {children}
     </div>
   );

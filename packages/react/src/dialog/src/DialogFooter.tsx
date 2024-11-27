@@ -6,7 +6,7 @@ import { useBem } from "@stewed/hooks";
 // Styles
 import styles from "./styles/index.module.scss";
 
-interface DialogFooterProps extends React.ComponentPropsWithoutRef<"div"> {}
+type DialogFooterProps = React.ComponentPropsWithoutRef<"div">;
 
 export function DialogFooter({
   className,

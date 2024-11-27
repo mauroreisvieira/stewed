@@ -5,7 +5,6 @@ import { sortData, TSortDirection } from "@stewed/utilities";
 import { type TableRowProps } from "../../";
 
 // Define a type alias for the column key, which can be a key of the generic type T or a string
-// eslint-disable-next-line @typescript-eslint/ban-types
 export type TAccessorKeyKey<T> = keyof T | (string & {});
 
 interface HeadCellRenderProps<T> {

@@ -251,7 +251,7 @@ function Discover(): React.ReactElement {
                     />
                   )}
                 >
-                  {({ close }) => (
+                  {() => (
                     <Box padding={{ block: "sm", inline: "sm" }}>
                       <Stack items="center" gap="md">
                         <Avatar
@@ -276,7 +276,6 @@ function Discover(): React.ReactElement {
                           leftSlot={<MdLightMode />}
                           aria-label="Light"
                           onClick={() => {
-                            close();
                             setTheme("default");
                           }}
                         />
@@ -285,7 +284,6 @@ function Discover(): React.ReactElement {
                           leftSlot={<MdDarkMode />}
                           aria-label="Dark"
                           onClick={() => {
-                            close();
                             setTheme("dark");
                           }}
                         />
@@ -356,7 +354,6 @@ function Discover(): React.ReactElement {
                                 <img
                                   src={`${image.urls.raw}&w=80&h=80&fit=crop`}
                                   alt={image.alt_description}
-                                  style={{ height: "100%" }}
                                 />
                                 <Text weight="medium">Daily Mix {index + 1}</Text>
                               </Stack>
@@ -418,7 +415,6 @@ function Discover(): React.ReactElement {
                       <Card.Media
                         src={`${image.urls.raw}&w=300&h=500&fit=crop`}
                         alt={image.alt_description}
-                        style={{ width: "100%", height: "100%" }}
                       />
                       <Card.Body>
                         <Text size="sm" weight="medium">
@@ -447,7 +443,6 @@ function Discover(): React.ReactElement {
                       <Card.Media
                         src={`${image.urls.raw}&w=200&h=200&fit=crop`}
                         alt={image.alt_description}
-                        style={{ width: "100%", height: "100%" }}
                       />
 
                       <Card.Body>
@@ -705,7 +700,7 @@ export const Music = {
   ],
   render: function Render() {
     return (
-      <Snackbar screen="sm" placement="top" max={5}>
+      <Snackbar screen="sm" placement="bottom" max={5}>
         <Discover />
       </Snackbar>
     );

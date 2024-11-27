@@ -1339,7 +1339,16 @@ export const AddStaff = {
                 <Text size="xs" weight="medium" skin="neutral-faded" variation={"uppercase"}>
                   Step {step}
                 </Text>
-                <Text size="sm" weight="medium">
+                <Text
+                  size="sm"
+                  weight="medium"
+                  hidden
+                  responsive={{
+                    sm: {
+                      hidden: false,
+                    },
+                  }}
+                >
                   {title}
                 </Text>
               </Stepper.Item>

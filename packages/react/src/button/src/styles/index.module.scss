@@ -86,8 +86,7 @@
         &:hover:not([aria-disabled="true"], [aria-pressed="true"]) {
           @include theme.define-var(
             (
-              background-color:
-                color-mix(
+              background-color: color-mix(
                   in srgb,
                   theme.get-color($value, "background"),
                   theme.get-color("background-default") 95%
@@ -100,8 +99,7 @@
         &:active:not([aria-disabled="true"]) {
           @include theme.define-var(
             (
-              background-color:
-                color-mix(
+              background-color: color-mix(
                   in srgb,
                   theme.get-color($value, "background"),
                   theme.get-color("background-default") 90%
@@ -142,16 +140,22 @@
         @include theme.define-var(
           (
             color: theme.get-color($value, "foreground"),
-            background-color:
-              color-mix(in srgb, theme.get-color($value, "background"), transparent 95%),
+            background-color: color-mix(
+                in srgb,
+                theme.get-color($value, "background"),
+                transparent 95%
+              ),
           )
         );
 
         &:hover:not([aria-disabled="true"], [aria-pressed="true"]) {
           @include theme.define-var(
             (
-              background-color:
-                color-mix(in srgb, theme.get-color($value, "background"), transparent 90%),
+              background-color: color-mix(
+                  in srgb,
+                  theme.get-color($value, "background"),
+                  transparent 90%
+                ),
             )
           );
         }
@@ -160,8 +164,11 @@
         &:active:not([aria-disabled="true"]) {
           @include theme.define-var(
             (
-              background-color:
-                color-mix(in srgb, theme.get-color($value, "background"), transparent 85%),
+              background-color: color-mix(
+                  in srgb,
+                  theme.get-color($value, "background"),
+                  transparent 85%
+                ),
             )
           );
         }

@@ -45,7 +45,12 @@ export const SignUp = {
           <Card.Body>
             <Grid responsive={{ md: { cols: 2 } }} gap="4xl">
               <Grid.Item order={2} responsive={{ sm: { order: 1 } }}>
-                <Box skin="neutral-faded" padding={{ block: "9xl", inline: "4xl" }} radius="md">
+                <Box
+                  skin="neutral-faded"
+                  padding={{ block: "4xl", inline: "2xl" }}
+                  radius="md"
+                  fullHeight
+                >
                   <Stack direction="column" gap="9xl" items="baseline" style={{ height: "100%" }}>
                     <Stack direction="column" grow>
                       <Text size="4xl" weight="bold" space={{ y: "4xl" }}>
@@ -270,16 +275,18 @@ function OTPInput({ onInputChange }) {
       value={currentValue}
       maxChars={1}
       fullWidth={false}
+      type="text"
+      pattern="\d*"
       onKeyDown={(event) => {
         if (event.code === "Backspace") {
           if (currentValue.length === 0) {
-            onInputChange(-1);
+            onInputChange(-1, "");
             return;
           }
 
           if (backspacePressCount === 1) {
             setCurrentValue("");
-            onInputChange(-1);
+            onInputChange(-1, "");
             setBackspacePressCount(0);
             return;
           }
@@ -298,7 +305,7 @@ function OTPInput({ onInputChange }) {
 
         if (validNumber) {
           setCurrentValue(value);
-          onInputChange(1);
+          onInputChange(1, value);
         }
       }}
     />
@@ -307,9 +314,17 @@ function OTPInput({ onInputChange }) {
 
 export const VerifyAccount = {
   render: function Render() {
+    const [otpValues, setOtpValues] = useState(Array.from({ length: 6 }));
     const { ref, onNavigate, setFocusedIndex } = useKeyboardNavigation<HTMLDivElement>({
       target: "input",
       loop: false,
+      condition: (index) => {
+        if (!otpValues[index]) {
+          return false;
+        }
+
+        return true;
+      },
     });
 
     return (
@@ -325,11 +340,14 @@ export const VerifyAccount = {
 
             <Box space={{ y: "2xl" }}>
               <Stack ref={ref} gap="md" items="center" justify="center" onKeyDown={onNavigate}>
-                {Array.from({ length: 6 }).map((_, idx) => (
+                {Array.from({ length: 6 }).map((_, index) => (
                   <OTPInput
-                    key={idx}
-                    onInputChange={(direction: number) => {
-                      setFocusedIndex(idx + direction);
+                    key={index}
+                    onInputChange={(direction: number, value: string) => {
+                      setFocusedIndex(index + direction);
+                      const newOtpValues = [...otpValues];
+                      newOtpValues[index] = value;
+                      setOtpValues(newOtpValues);
                     }}
                   />
                 ))}

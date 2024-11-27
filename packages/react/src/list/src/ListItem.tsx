@@ -6,7 +6,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface ListItemProps extends React.ComponentPropsWithoutRef<"li"> {}
+export type ListItemProps = React.ComponentPropsWithoutRef<"li">;
 
 export function ListItem({ className, children, ...props }: ListItemProps): React.ReactElement {
   // Importing useBem to handle BEM class names

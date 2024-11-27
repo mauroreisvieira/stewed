@@ -51,7 +51,13 @@ export function Scope({
   };
 
   const content = (
-    <Theme defaultTheme={theme} tokens={tokens} className={cssClasses.root} cssScope={cssScope} {...props}>
+    <Theme
+      defaultTheme={theme}
+      tokens={tokens}
+      className={cssClasses.root}
+      cssScope={cssScope}
+      {...props}
+    >
       {children}
     </Theme>
   );

@@ -26,10 +26,10 @@ export const Page404 = {
             <Box>
               <Text
                 size="2xl"
-                weight="light"
+                weight="bolder"
                 skin="neutral-faded"
                 variation="uppercase"
-                family="serif"
+                family="mono"
               >
                 404 Page
               </Text>
@@ -38,7 +38,7 @@ export const Page404 = {
                   Oops! Page not found.
                 </Text>
               </Hue>
-              <Text size="2xl" space={{ y: "7xl" }} skin="neutral">
+              <Text size="2xl" space={{ y: "7xl" }} skin="neutral" weight="light">
                 Sorry, we could`t find the page you where looking for.
               </Text>
               <Stack gap="lg">

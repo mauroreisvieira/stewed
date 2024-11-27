@@ -26,7 +26,20 @@ const meta = {
   title: "Examples/Ecommerce",
   decorators: [
     (Story) => (
-      <Theme>
+      <Theme
+        tokens={{
+          default: {
+            components: {
+              group: {
+                radius: "full",
+              },
+              button: {
+                radius: "full",
+              },
+            },
+          },
+        }}
+      >
         <Story />
       </Theme>
     ),
@@ -67,7 +80,7 @@ export const QuickViews = {
                   </Text>
                 </Stack>
 
-                <Button skin="neutral" appearance="ghost" size="sm" leftSlot={<HiHeart />} iconOnly>
+                <Button skin="neutral" appearance="ghost" leftSlot={<HiHeart />} iconOnly>
                   Add to favorites
                 </Button>
               </Stack>
@@ -75,19 +88,27 @@ export const QuickViews = {
               <FormField>
                 <FormField.Label htmlFor="group">Size</FormField.Label>
                 <FormField.Control>
-                  <Grid cols={7} gap="xs">
-                    {productsSizes.map((value) => (
-                      <Button
-                        key={value}
-                        skin={value === selectedSize ? "primary" : "neutral"}
-                        disabled={value === "XXL" ? true : false}
-                        appearance={value === selectedSize ? "filled" : "outline"}
-                        onClick={() => setSelectedSize(value)}
-                      >
-                        {value}
-                      </Button>
-                    ))}
-                  </Grid>
+                  <Box
+                    radius="full"
+                    borderColor="neutral-faded"
+                    borderStyle="solid"
+                    borderWidth={1}
+                    padding={{ block: "xxs", inline: "xxs" }}
+                  >
+                    <Group>
+                      {productsSizes.map((value) => (
+                        <Button
+                          key={value}
+                          size="sm"
+                          skin={value === selectedSize ? "primary" : "neutral"}
+                          appearance={value === selectedSize ? "filled" : "soft"}
+                          onClick={() => setSelectedSize(value)}
+                        >
+                          {value}
+                        </Button>
+                      ))}
+                    </Group>
+                  </Box>
                 </FormField.Control>
               </FormField>
 
@@ -95,7 +116,7 @@ export const QuickViews = {
                 <FormField.Label htmlFor="quantity">Quantity</FormField.Label>
                 <FormField.Control>
                   <Box
-                    radius="md"
+                    radius="full"
                     borderColor="neutral-faded"
                     borderStyle="solid"
                     borderWidth={1}
@@ -103,9 +124,9 @@ export const QuickViews = {
                   >
                     <Group gap="xxs">
                       <Button
-                        appearance="ghost"
+                        appearance="soft"
                         size="sm"
-                        skin="primary"
+                        skin="neutral"
                         leftSlot={<HiMinusSm size={16} />}
                         onClick={() => setValue(Number(value) - 1)}
                         disabled={value === 0}
@@ -113,7 +134,7 @@ export const QuickViews = {
                       >
                         Decrease
                       </Button>
-                      <Separator orientation="vertical" />
+
                       <TextField
                         id="quantity"
                         skin="neutral"
@@ -125,10 +146,10 @@ export const QuickViews = {
                         maxChars={3}
                         alignment="center"
                       />
-                      <Separator orientation="vertical" />
+
                       <Button
-                        appearance="ghost"
-                        skin="primary"
+                        appearance="soft"
+                        skin="neutral"
                         size="sm"
                         leftSlot={<HiOutlinePlusSm size={16} />}
                         onClick={() => setValue(Number(value) + 1)}
@@ -274,12 +295,13 @@ export const QuickViews = {
               </Stack>
             </Stack>
           </Drawer.Body>
+          <Separator />
           <Drawer.Footer>
             <Stack direction="column" gap="md">
-              <Button skin="primary" size="xl" fullWidth>
+              <Button skin="primary" fullWidth>
                 Checkout now
               </Button>
-              <Button skin="neutral" size="xl" appearance="outline" fullWidth>
+              <Button skin="neutral" appearance="outline" fullWidth>
                 Add to cart
               </Button>
             </Stack>
