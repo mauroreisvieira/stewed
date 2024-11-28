@@ -4,7 +4,6 @@ import type { Meta } from "@storybook/react";
 // Packages
 import {
   Text,
-  Box,
   Card,
   Theme,
   TextField,
