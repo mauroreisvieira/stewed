@@ -10,7 +10,6 @@
   align-items: center;
   justify-content: center;
   height: theme.get-var(height);
-  padding-inline: theme.get-spacing("md");
   overflow: hidden;
   border: 1px solid transparent;
   border-radius: theme.get-var(radius);
@@ -31,6 +30,7 @@
     flex-grow: 1;
     width: 100%;
     height: 100%;
+    padding-inline: theme.get-spacing("md");
     touch-action: manipulation;
 
     &::-webkit-inner-spin-button,
@@ -57,11 +57,11 @@
   }
 
   &__left {
-    padding-inline-end: theme.get-spacing("md");
+    padding-inline-start: theme.get-spacing("md");
   }
 
   &__right {
-    padding-inline-start: theme.get-spacing("md");
+    padding-inline-end: theme.get-spacing("md");
   }
 
   // Sizes
