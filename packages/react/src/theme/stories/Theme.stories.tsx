@@ -37,7 +37,15 @@ export const Palette: Story = {
   render: (): React.ReactElement => {
     return (
       <Theme>
-        <Grid cols={9} gap="xs">
+        <Grid
+          cols={3}
+          responsive={{
+            md: {
+              cols: 9,
+            },
+          }}
+          gap="xs"
+        >
           {Object.keys(palette).map((color, index) => (
             <Box
               key={color}
@@ -48,7 +56,12 @@ export const Palette: Story = {
               }}
             >
               <Text
-                size="xs"
+                size="xxs"
+                responsive={{
+                  sm: {
+                    size: "xs",
+                  },
+                }}
                 weight="medium"
                 alignment="center"
                 skin={index % 9 >= 4 || color === "black" ? "white" : "black"}
@@ -85,7 +98,7 @@ export const Colors: Story = {
                       borderWidth={1}
                       borderStyle="solid"
                       radius="full"
-                      style={{ width: 18, height: 18, background: val }}
+                      style={{ minWidth: 18, height: 18, background: val }}
                     />
                     {val}
                   </Stack>

@@ -39,10 +39,7 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
   const themeRef = useRef<HTMLDivElement>(null);
 
   // Theme and tokens from the context
-  const { theme, cssScope, activeToken } = useTheme();
-
-  // Determine the current theme, defaulting to 'default' if not otherwise specified.
-  const currentTheme = theme || "default";
+  const { theme = "default", cssScope, activeToken } = useTheme();
 
   const transformedTokens: OutputTokens = useMemo(() => {
     const { components, color, ...otherTokens } = activeToken;
@@ -100,26 +97,42 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
   );
 
   useEffect(() => {
-    // Exit early if themeRef or cssScope is not provided
-    if (!themeRef.current || !cssScope) {
-      return;
-    }
+    if (!themeRef.current || !cssScope) return;
 
-    // Add the CSS scope class to the theme element
+    // CSS scope class and added to the theme element.
     themeRef.current.classList.add(cssScope);
 
-    // Create a new <style> element and inject the computed styles scoped to the CSS class
-    const cssRules = document.createElement("style");
-    cssRules.innerHTML = `@scope (.${cssScope}) { \n :scope { ${computedStyles}\n}}`;
+    // Use a Map to keep track of style tags for scoped elements
+    const scopedElements = Array.from(document.querySelectorAll(`.${cssScope}`));
+    const styleTag = new Map();
 
-    // Insert the new <style> tag as the first child of the themeRef element
-    themeRef.current.insertAdjacentElement("afterbegin", cssRules);
+    // Update styles for all scoped elements
+    scopedElements.forEach((element) => {
+      // Avoid unnecessary DOM queries by checking the Map first
+      let cssRules = styleTag.get(element);
 
-    // Cleanup: Remove the style tag on component unmount or when dependencies change
+      if (!cssRules) {
+        // If no style tag exists, create a new one
+        cssRules = document.createElement("style");
+        cssRules.setAttribute("data-scope", cssScope);
+        element.insertAdjacentElement("afterbegin", cssRules);
+        styleTag.set(element, cssRules);
+      }
+
+      // Update the styles of the style tag
+      cssRules.innerHTML = `@scope (.${cssScope}) { \n :scope { ${computedStyles}\n}}`;
+    });
+
+    // Cleanup by remove only the created style tags
     return () => {
-      cssRules.remove();
+      styleTag.forEach((cssRule, element) => {
+        if (element.contains(cssRule)) {
+          cssRule.remove();
+        }
+      });
+      styleTag.clear();
     };
-  }, [computedStyles, currentTheme, cssScope]);
+  }, [computedStyles, cssScope]);
 
   useInsertionEffect(() => {
     // Ensure theme is not undefined or empty before proceeding
