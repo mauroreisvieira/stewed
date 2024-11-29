@@ -57,7 +57,7 @@ export interface TextProps<T>
       /** Adjust horizontal alignment of text. */
       alignment?: "start" | "center" | "end" | "justify";
       /** Changes the white space of the text. */
-      whiteSpace?: "normal" | "nowrap";
+      whiteSpace?: "normal" | "nowrap" | "pre-wrap";
       /** Adds space between text or elements, affecting adjacent elements. */
       space?: {
         /** Adds space on the horizontal axis (e.g., margin-right) affecting adjacent elements. */

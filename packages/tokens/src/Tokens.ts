@@ -138,7 +138,7 @@ export const defaultTokens: Tokens = {
     },
     [components.Segmented]: {
       radius: "md",
-      shadow: "sm",
+      shadow: "md",
     },
     [components.Tag]: {
       radius: "sm",
