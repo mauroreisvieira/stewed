@@ -14,6 +14,11 @@ export interface GroupProps
    * @default none
    */
   gap?: Spacings;
+  /**
+   * The direction of the stack container.
+   * @default row
+   */
+  direction?: "row" | "column";
   /** Determines if should expand to use the full width. */
   fullWidth?: boolean;
 }
@@ -36,6 +41,7 @@ export interface GroupProps
 export function Group({
   fullWidth,
   gap = "none",
+  direction = "row",
   loop,
   className,
   children,
@@ -48,7 +54,7 @@ export function Group({
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({
-      modifiers: [fullWidth && "full-width", gap && `gap-${gap}`],
+      modifiers: [fullWidth && "full-width", direction, gap && `gap-${gap}`],
       extraClasses: className,
     }),
   };

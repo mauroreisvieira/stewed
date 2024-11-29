@@ -45,6 +45,18 @@
     cursor: pointer;
   }
 
+  [aria-disabled="true"] {
+    @include theme.disabled-styles;
+  }
+
+  &--row {
+    flex-direction: row;
+  }
+
+  &--column {
+    flex-direction: column;
+  }
+
   &--full-width {
     width: 100%;
   }
