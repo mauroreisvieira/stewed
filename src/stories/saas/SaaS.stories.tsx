@@ -1171,22 +1171,14 @@ export const SidePanel = {
       <Container screen="sm" alignment="center" padding={{ block: "7xl" }}>
         <Drawer size="sm" open>
           <Drawer.Header>
-            <Stack gap="lg" items="center" direction="column" justify="center" grow>
-              <Avatar size="3xl" name="Stewed Board" skin="primary" appearance="square" />
-              <Text
-                skin="primary"
-                size="2xl"
-                weight="light"
-                variation="uppercase"
-                whiteSpace="nowrap"
-              >
-                Stewed Board
-              </Text>
-            </Stack>
-          </Drawer.Header>
+            <Stack direction="column" gap="4xl">
+              <Stack gap="lg" items="center" grow>
+                <Avatar name="Stewed Board" skin="primary" appearance="square" />
+                <Text skin="primary" size="lg" weight="medium">
+                  Stewed UI Kit
+                </Text>
+              </Stack>
 
-          <Drawer.Body>
-            <Stack gap="2xl" direction="column">
               <TextField
                 placeholder="Quick search"
                 leftSlot={<FiSearch />}
@@ -1196,6 +1188,13 @@ export const SidePanel = {
                   </Text>
                 }
               />
+            </Stack>
+          </Drawer.Header>
+
+          <Separator />
+
+          <Drawer.Body>
+            <Stack gap="2xl" direction="column">
               <ListBox>
                 <ListBox.Group>
                   <ListBox.Item leftSlot={<FiActivity />}>Activity</ListBox.Item>
