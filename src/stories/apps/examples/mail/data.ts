@@ -110,3 +110,21 @@ export const mails = [
     labels: ["feedback", "work"],
   },
 ];
+
+export const accounts = [
+  {
+    label: "Judith Black",
+    email: "judith@example.com",
+    icon: "🌸",
+  },
+  {
+    label: "Judith Black",
+    email: "judith@gmail.com",
+    icon: "🎀",
+  },
+  {
+    label: "Judith Black",
+    email: "judith@me.com",
+    icon: "💖",
+  },
+];

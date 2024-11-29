@@ -79,7 +79,9 @@ const Root = forwardRef(
     const inputRef = useRef<HTMLInputElement>(null);
 
     // This allows both refs to point to the same DOM element, enabling multiple components or hooks to interact with the same element.
-    const mergedRefs = useMergeRefs([ref, inputRef]);
+    const mergeRefs = useMergeRefs();
+    // eslint-disable-next-line react-compiler/react-compiler
+    const mergedRefs = mergeRefs([ref, inputRef]);
 
     // Importing useBem to handle BEM class names
     const { getBlock, getElement } = useBem({ block: components.Checkbox, styles });

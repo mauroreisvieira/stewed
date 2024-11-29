@@ -1,66 +1,91 @@
+import { MutableRefObject, createRef } from "react";
+// Hooks
 import { useMergeRefs } from "../../index";
 // Utilities
 import { renderHook } from "@testing-library/react";
 
 describe("useMergeRefs", () => {
-  it("should return null if no refs are provided", () => {
-    const { result } = renderHook(() => useMergeRefs([]));
-    expect(result.current).toBeNull();
+  it("should merge multiple refs and assign the same DOM element", () => {
+    // Arrange
+    const ref1 = createRef<HTMLDivElement>();
+    const ref2: MutableRefObject<HTMLDivElement | null> = { current: null };
+
+    // Act
+    const { result } = renderHook(() => useMergeRefs<HTMLDivElement>());
+    const mergedRef = result.current([ref1, ref2]);
+
+    const element = document.createElement("div");
+    mergedRef(element);
+
+    // Assert
+    expect(ref1.current).toBe(element);
+    expect(ref2.current).toBe(element);
   });
 
-  it("should correctly assign a single ref", () => {
-    const ref1 = { current: null } as React.MutableRefObject<HTMLDivElement | null>;
-    const { result } = renderHook(() => useMergeRefs([ref1]));
+  it("should call ref callback with the DOM element", () => {
+    // Arrange
+    const refCallback = jest.fn();
 
-    const div = document.createElement("div");
-    if (result.current) result.current(div);
+    // Act
+    const { result } = renderHook(() => useMergeRefs<HTMLDivElement>());
+    const mergedRef = result.current([refCallback]);
 
-    expect(ref1.current).toBe(div);
-  });
+    const element = document.createElement("div");
+    mergedRef(element);
 
-  it("should correctly assign multiple refs", () => {
-    const ref1 = { current: null } as React.MutableRefObject<HTMLDivElement | null>;
-    const ref2 = { current: null } as React.MutableRefObject<HTMLDivElement | null>;
-    const { result } = renderHook(() => useMergeRefs([ref1, ref2]));
-
-    const div = document.createElement("div");
-    if (result.current) result.current(div);
-
-    expect(ref1.current).toBe(div);
-    expect(ref2.current).toBe(div);
-  });
-
-  it("should call function refs with the correct value", () => {
-    const funcRef1 = jest.fn();
-    const funcRef2 = jest.fn();
-    const { result } = renderHook(() => useMergeRefs([funcRef1, funcRef2]));
-
-    const div = document.createElement("div");
-    if (result.current) result.current(div);
-
-    expect(funcRef1).toHaveBeenCalledWith(div);
-    expect(funcRef2).toHaveBeenCalledWith(div);
-  });
-
-  it("should handle a mix of function refs and object refs", () => {
-    const funcRef = jest.fn();
-    const objectRef = { current: null } as React.MutableRefObject<HTMLDivElement | null>;
-    const { result } = renderHook(() => useMergeRefs([funcRef, objectRef]));
-
-    const div = document.createElement("div");
-    if (result.current) result.current(div);
-
-    expect(funcRef).toHaveBeenCalledWith(div);
-    expect(objectRef.current).toBe(div);
+    // Assert
+    expect(refCallback).toHaveBeenCalledWith(element);
   });
 
   it("should handle null or undefined refs gracefully", () => {
-    const ref1 = { current: null } as React.MutableRefObject<HTMLDivElement | null>;
-    const { result } = renderHook(() => useMergeRefs([ref1, null, undefined]));
+    // Arrange
+    const ref1 = createRef<HTMLDivElement>();
+    const ref2: MutableRefObject<HTMLDivElement | null> = { current: null };
 
-    const div = document.createElement("div");
-    if (result.current) result.current(div);
+    // Act
+    const { result } = renderHook(() => useMergeRefs<HTMLDivElement>());
+    const mergedRef = result.current([ref1, null, undefined, ref2]);
 
-    expect(ref1.current).toBe(div);
+    const element = document.createElement("div");
+    mergedRef(element);
+
+    // Assert
+    expect(ref1.current).toBe(element);
+    expect(ref2.current).toBe(element);
+  });
+
+  it("should reset refs when called with null", () => {
+    // Arrange
+    const ref1 = createRef<HTMLDivElement>();
+    const ref2: MutableRefObject<HTMLDivElement | null> = { current: null };
+
+    // Act
+    const { result } = renderHook(() => useMergeRefs<HTMLDivElement>());
+    const mergedRef = result.current([ref1, ref2]);
+
+    const element = document.createElement("div");
+    mergedRef(element);
+    mergedRef(null);
+
+    // Assert
+    expect(ref1.current).toBeNull();
+    expect(ref2.current).toBeNull();
+  });
+
+  it("should handle mixed ref types (callback and object refs)", () => {
+    // Arrange
+    const ref1 = createRef<HTMLDivElement>();
+    const refCallback = jest.fn();
+
+    // Act
+    const { result } = renderHook(() => useMergeRefs<HTMLDivElement>());
+    const mergedRef = result.current([ref1, refCallback]);
+
+    const element = document.createElement("div");
+    mergedRef(element);
+
+    // Assert
+    expect(ref1.current).toBe(element);
+    expect(refCallback).toHaveBeenCalledWith(element);
   });
 });

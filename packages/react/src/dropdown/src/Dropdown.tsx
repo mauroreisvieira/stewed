@@ -138,7 +138,8 @@ export function Dropdown<T extends HTMLElement>({
   });
 
   // Merge the floating reference (likely for a floating UI element) with the navigation reference
-  const mergedRefs = useMergeRefs([floating, navigationRef]);
+  const mergeRefs = useMergeRefs();
+  const mergedRefs = mergeRefs([floating, navigationRef]);
 
   // Handles the `keydown` event on a specific HTML element.
   const onHandleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
@@ -176,10 +177,12 @@ export function Dropdown<T extends HTMLElement>({
 
   useEffect(() => {
     // Set the first element as focusable when the floating element is mounted or updated
-    if (mergedRefs) {
-      setFirstElementFocusable();
+    if (floating && navigationRef && isPositioned) {
+      requestAnimationFrame(() => {
+        setFirstElementFocusable();
+      });
     }
-  }, [mergedRefs, setFirstElementFocusable]);
+  }, [floating, navigationRef, isPositioned, setFirstElementFocusable]);
 
   useEffect(() => {
     // Cleanup function to run when the component unmounts or the effect is re-run

@@ -22,6 +22,7 @@ import {
   Hoverable,
   Dropdown,
   ListBox,
+  Calendar,
 } from "@stewed/react";
 // Icons
 import {
@@ -34,22 +35,26 @@ import {
   LuMoreVertical,
   LuSearch,
   LuArchive,
+  LuArrowLeft,
+  LuArrowRight,
 } from "react-icons/lu";
 
 import { Sidebar } from "./components/Sidebar";
 
 // Hooks
 import { useDateTime } from "@hello-week/hooks";
-import { useSelect } from "@stewed/hooks";
+import { useMergeRefs, useSelect } from "@stewed/hooks";
 
 // Data
-import { mails } from "./data";
+import { mails, accounts } from "./data";
 
 export function Mail(): React.ReactElement {
   const [show, setShow] = useState<"all" | "unread">("all");
 
   const { formatDate } = useDateTime({ locale: "en-GB" });
   const { item, index, setIndex } = useSelect(mails, 0);
+
+  const mergeRefs = useMergeRefs();
 
   const memoMails = useMemo(() => {
     if (show === "all") {
@@ -121,7 +126,11 @@ export function Mail(): React.ReactElement {
                 <Box padding={{ block: "md", inline: "md" }} fullWidth>
                   <Group direction="column" gap="sm" loop={false}>
                     {memoMails.map(({ id, read, name, date, subject, labels, text }, idx) => (
-                      <Hoverable key={id} aria-selected={index === idx} onClick={() => setIndex(idx)}>
+                      <Hoverable
+                        key={id}
+                        aria-selected={index === idx}
+                        onClick={() => setIndex(idx)}
+                      >
                         {({ isHovering }) => (
                           <Box
                             as="button"
@@ -236,21 +245,84 @@ export function Mail(): React.ReactElement {
 
                     <Separator orientation="vertical" />
 
-                    <Tooltip<HTMLButtonElement>
-                      renderAnchor={(props) => (
-                        <Button
-                          {...props}
-                          appearance="ghost"
-                          skin="neutral"
-                          leftSlot={<LuTimerOff size={14} />}
-                          iconOnly
+                    <Dropdown
+                      renderAnchor={(popoverProps) => (
+                        <Tooltip<HTMLButtonElement>
+                          renderAnchor={(tooltipProps) => (
+                            <Button
+                              ref={mergeRefs([tooltipProps.ref, popoverProps.ref])}
+                              onClick={() =>
+                                popoverProps.isOpen ? popoverProps.close() : popoverProps.open()
+                              }
+                              onMouseEnter={tooltipProps.onMouseEnter}
+                              onMouseLeave={tooltipProps.onMouseLeave}
+                              appearance="ghost"
+                              skin="neutral"
+                              leftSlot={<LuTimerOff size={14} />}
+                              iconOnly
+                            >
+                              Snooze
+                            </Button>
+                          )}
                         >
                           Snooze
-                        </Button>
+                        </Tooltip>
                       )}
+                      placement="bottom"
                     >
-                      Snooze
-                    </Tooltip>
+                      {({ close }) => (
+                        <Box padding={{ block: "md", inline: "md" }}>
+                          <Calendar
+                            siblingMonthDays={true}
+                            formatDate={{
+                              day: "numeric",
+                              month: "long",
+                              year: "numeric",
+                              weekday: "narrow",
+                            }}
+                            onDaySelected={() => {
+                              close();
+                            }}
+                          >
+                            <Calendar.Navigation>
+                              {({ locked, month, year, onPrev, onNext }) => (
+                                <>
+                                  <Button
+                                    skin="neutral"
+                                    appearance="ghost"
+                                    size="sm"
+                                    iconOnly
+                                    aria-label="Previous month"
+                                    disabled={locked}
+                                    onClick={onPrev}
+                                    leftSlot={<LuArrowLeft />}
+                                  />
+
+                                  <Stack justify="center" grow>
+                                    <Text weight="medium">
+                                      {month} {year}
+                                    </Text>
+                                  </Stack>
+
+                                  <Button
+                                    skin="neutral"
+                                    appearance="ghost"
+                                    size="sm"
+                                    iconOnly
+                                    onClick={onNext}
+                                    aria-label="Next month"
+                                    disabled={locked}
+                                    leftSlot={<LuArrowRight />}
+                                  />
+                                </>
+                              )}
+                            </Calendar.Navigation>
+                            <Calendar.Week />
+                            <Calendar.Month />
+                          </Calendar>
+                        </Box>
+                      )}
+                    </Dropdown>
                   </Stack>
 
                   <Stack gap="sm">
