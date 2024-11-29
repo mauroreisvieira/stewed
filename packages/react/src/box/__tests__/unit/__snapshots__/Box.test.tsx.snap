@@ -3,7 +3,7 @@
 exports[`Box Snapshots should applies border-color classes 1`] = `
 <div>
   <div
-    class="box box--border-color-secondary"
+    class="box box--radius-none box--border-color-secondary"
   >
     Box
   </div>
@@ -13,7 +13,7 @@ exports[`Box Snapshots should applies border-color classes 1`] = `
 exports[`Box Snapshots should applies border-style classes 1`] = `
 <div>
   <div
-    class="box box--border-style-dashed"
+    class="box box--radius-none box--border-style-dashed"
   >
     Box
   </div>
@@ -23,7 +23,7 @@ exports[`Box Snapshots should applies border-style classes 1`] = `
 exports[`Box Snapshots should applies border-width classes 1`] = `
 <div>
   <div
-    class="box box--border-width-2"
+    class="box box--radius-none box--border-width-2"
   >
     Box
   </div>
@@ -33,7 +33,7 @@ exports[`Box Snapshots should applies border-width classes 1`] = `
 exports[`Box Snapshots should applies full-screen classes 1`] = `
 <div>
   <div
-    class="box box--full-screen"
+    class="box box--radius-none box--full-screen"
   >
     Box
   </div>
@@ -43,7 +43,7 @@ exports[`Box Snapshots should applies full-screen classes 1`] = `
 exports[`Box Snapshots should applies full-width classes 1`] = `
 <div>
   <div
-    class="box box--full-width"
+    class="box box--radius-none box--full-width"
   >
     Box
   </div>
@@ -63,7 +63,7 @@ exports[`Box Snapshots should applies radius classes 1`] = `
 exports[`Box Snapshots should apply 'default' skin classes 1`] = `
 <div>
   <div
-    class="box box--default"
+    class="box box--default box--radius-none"
   >
     Box
   </div>
@@ -73,7 +73,7 @@ exports[`Box Snapshots should apply 'default' skin classes 1`] = `
 exports[`Box Snapshots should apply 'neutral-faded' skin classes 1`] = `
 <div>
   <div
-    class="box box--neutral-faded"
+    class="box box--neutral-faded box--radius-none"
   >
     Box
   </div>
@@ -83,7 +83,7 @@ exports[`Box Snapshots should apply 'neutral-faded' skin classes 1`] = `
 exports[`Box Snapshots should apply 'primary-faded' skin classes 1`] = `
 <div>
   <div
-    class="box box--primary-faded"
+    class="box box--primary-faded box--radius-none"
   >
     Box
   </div>
@@ -93,7 +93,7 @@ exports[`Box Snapshots should apply 'primary-faded' skin classes 1`] = `
 exports[`Box Snapshots should apply 'secondary-faded' skin classes 1`] = `
 <div>
   <div
-    class="box box--secondary-faded"
+    class="box box--secondary-faded box--radius-none"
   >
     Box
   </div>
@@ -103,7 +103,7 @@ exports[`Box Snapshots should apply 'secondary-faded' skin classes 1`] = `
 exports[`Box Snapshots should apply 'white' skin classes 1`] = `
 <div>
   <div
-    class="box box--white"
+    class="box box--white box--radius-none"
   >
     Box
   </div>
@@ -113,7 +113,7 @@ exports[`Box Snapshots should apply 'white' skin classes 1`] = `
 exports[`Box Snapshots should render additional classes 1`] = `
 <div>
   <div
-    class="box other-class"
+    class="box box--radius-none other-class"
   >
     Box
   </div>
@@ -123,7 +123,7 @@ exports[`Box Snapshots should render additional classes 1`] = `
 exports[`Box Snapshots should renders component as main 1`] = `
 <div>
   <main
-    class="box"
+    class="box box--radius-none"
   >
     Box
   </main>
@@ -133,7 +133,7 @@ exports[`Box Snapshots should renders component as main 1`] = `
 exports[`Box Snapshots should renders default component 1`] = `
 <div>
   <div
-    class="box"
+    class="box box--radius-none"
   >
     Box
   </div>
