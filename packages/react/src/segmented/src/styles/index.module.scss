@@ -50,7 +50,7 @@
     }
 
     &--selected {
-      box-shadow: theme.get-var(box-shadow);
+      box-shadow: theme.get-var(shadow);
 
       @include theme.define-var(
         (

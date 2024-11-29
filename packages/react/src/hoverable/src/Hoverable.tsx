@@ -1,16 +1,14 @@
-import React, { useMemo, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 // Utilities
 import { isTouch } from "@stewed/utilities";
 
-export interface HoverableProps {
+export interface HoverableProps extends Omit<React.ComponentPropsWithoutRef<"div">, "children"> {
   /**
    * Enables hover state handling for touch devices.
    * If set to `true`, touch events will be used to simulate hover behavior.
    * @default true
    */
   enabledTouch?: boolean;
-  /** Additional class name(s) for the element. */
-  className?: string;
   /**
    * A function that returns a React node based on the hover state and device type.
    *
@@ -46,15 +44,60 @@ export function Hoverable({
   enabledTouch = true,
   className,
   children,
+  onMouseEnter,
+  onMouseLeave,
+  onTouchStart,
+  onTouchEnd,
+  onTouchCancel,
+  ...props
 }: HoverableProps): React.ReactElement {
   // State to track whether the component is being hovered over.
   const [isHovering, setHovering] = useState(false);
 
   // Event handler for when the mouse or touch starts hovering over the component.
-  const onHandleHover = () => setHovering(true);
+  const onHandleMouseEnter: React.MouseEventHandler<HTMLDivElement> = useCallback(
+    (event) => {
+      setHovering(true);
+      onMouseEnter?.(event);
+    },
+    [onMouseEnter],
+  );
 
-  // Event handler for when the mouse or touch stops hovering over the component.
-  const onHandleLeave = () => setHovering(false);
+  // Event handler for when the mouse stops hovering over the component.
+  const onHandleMouseLeave: React.MouseEventHandler<HTMLDivElement> = useCallback(
+    (event) => {
+      setHovering(false);
+      onMouseLeave?.(event);
+    },
+    [onMouseLeave],
+  );
+
+  // Event handler for when the mouse starts hovering over the component.
+  const onHandleTouchStart: React.TouchEventHandler<HTMLDivElement> = useCallback(
+    (event) => {
+      setHovering(true);
+      onTouchStart?.(event);
+    },
+    [onTouchStart],
+  );
+
+  // Event handler for when the touch stops over the component.
+  const onHandleTouchEnd: React.TouchEventHandler<HTMLDivElement> = useCallback(
+    (event) => {
+      setHovering(false);
+      onTouchEnd?.(event);
+    },
+    [onTouchEnd],
+  );
+
+  // Event handler for when the touch cancel over the component.
+  const onHandleTouchCancel: React.TouchEventHandler<HTMLDivElement> = useCallback(
+    (event) => {
+      setHovering(false);
+      onTouchCancel?.(event);
+    },
+    [onTouchCancel],
+  );
 
   // Check if the current device is touch.
   const touchDevice = useMemo(() => isTouch(), []);
@@ -62,11 +105,12 @@ export function Hoverable({
   return (
     <div
       className={className}
-      onMouseEnter={onHandleHover}
-      onMouseLeave={onHandleLeave}
-      onTouchStart={enabledTouch ? onHandleHover : undefined}
-      onTouchEnd={enabledTouch ? onHandleLeave : undefined}
-      onTouchCancel={enabledTouch ? onHandleLeave : undefined}
+      onMouseEnter={onHandleMouseEnter}
+      onMouseLeave={onHandleMouseLeave}
+      onTouchStart={enabledTouch ? onHandleTouchStart : undefined}
+      onTouchEnd={enabledTouch ? onHandleTouchEnd : undefined}
+      onTouchCancel={enabledTouch ? onHandleTouchCancel : undefined}
+      {...props}
     >
       {children({ isHovering, isTouch: touchDevice })}
     </div>
