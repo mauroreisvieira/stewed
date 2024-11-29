@@ -49,9 +49,8 @@ export interface BoxProps<T = "div">
     | "white";
   /**
    * Defines the border-radius of the aspect ratio children, controlling the rounding of corners.
-   *
-   * @remarks
-   * Accepts values from the `Radius` token to apply consistent corner rounding.
+   * @default none
+   * @remarks Accepts values from the `Radius` token to apply consistent corner rounding.
    */
   radius?: Radius;
   /** Defines the border style of the component. */
@@ -105,7 +104,7 @@ export const Box = fixedForwardRef(function Box<T extends React.ElementType>(
     space,
     hidden,
     responsive,
-    radius,
+    radius = "none",
     borderColor,
     borderWidth,
     borderStyle,

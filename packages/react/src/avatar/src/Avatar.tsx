@@ -14,6 +14,8 @@ const defaultElement = "div";
 
 export interface AvatarProps<T = "div">
   extends Omit<React.ComponentProps<typeof defaultElement>, "children"> {
+  /** The name associated with the avatar. */
+  name?: string;
   /**
    * Specifies the type of element to use as the avatar.
    * @default div
@@ -34,8 +36,6 @@ export interface AvatarProps<T = "div">
    * @default circle
    */
   appearance?: "circle" | "square";
-  /** The name associated with the avatar. */
-  name?: string;
   /** Additional CSS class to apply to the avatar. */
   className?: string;
   /** The props to be added on image element. */
