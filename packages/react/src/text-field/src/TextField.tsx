@@ -42,7 +42,7 @@ export interface TextFieldProps extends Omit<React.ComponentPropsWithRef<"input"
    * Whether the element should have an outline focus.
    * @default true
    */
-  outline?: boolean;
+  outlineFocus?: boolean;
 }
 
 /**
@@ -71,9 +71,9 @@ export const TextField = forwardRef(
       className,
       disabled,
       fullWidth = true,
+      outlineFocus = true,
       leftSlot,
       rightSlot,
-      outline = true,
       ...props
     }: TextFieldProps,
     ref: React.ForwardedRef<HTMLInputElement>,
@@ -85,7 +85,7 @@ export const TextField = forwardRef(
     const cssClasses = {
       root: getBlock({
         modifiers: [
-          outline && "outline",
+          outlineFocus && "outline-focus",
           disabled && "disabled",
           fullWidth && "full-width",
           size,

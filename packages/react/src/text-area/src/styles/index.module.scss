@@ -18,7 +18,7 @@
 
   @include text.typography(base, $overrides: (font-size: theme.get-font-size("md")));
 
-  &--outline {
+  &--outline-focus {
     @include theme.focus-styles;
   }
 
