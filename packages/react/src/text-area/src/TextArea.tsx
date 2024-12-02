@@ -34,11 +34,6 @@ export interface TextAreaProps extends React.ComponentPropsWithRef<"textarea"> {
    * @default both
    */
   resize?: "both" | "horizontal" | "vertical" | "none";
-  /**
-   * Whether the element should have an outline focus.
-   * @default true
-   */
-  outlineFocus?: boolean;
 }
 
 /**
@@ -62,7 +57,6 @@ export const TextArea = forwardRef(
       className,
       disabled,
       fullWidth = true,
-      outlineFocus = true,
       resize = "both",
       autoHeight,
       children,
@@ -77,7 +71,6 @@ export const TextArea = forwardRef(
     const cssClasses = {
       root: getBlock({
         modifiers: [
-          outlineFocus && "outline-focus",
           disabled && "disabled",
           fullWidth && "full-width",
           autoHeight && "auto-height",

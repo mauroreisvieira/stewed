@@ -667,7 +667,6 @@ export const NewMessage = {
             <TextField
               leftSlot={<FiSearch />}
               appearance="ghost"
-              outlineFocus={false}
               onChange={onChange}
               value={value}
               placeholder="Search a user..."

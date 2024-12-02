@@ -1,6 +1,4 @@
 {
   "compileOnSave": false,
-  "compilerOptions": {
-    "jsx": "react"
-  }
+  "extends": "@harmonix-hub/tsconfig/react.json",
 }

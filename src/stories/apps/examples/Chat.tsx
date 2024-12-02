@@ -153,7 +153,6 @@ export function ChatAI(): React.ReactElement {
                   value={text}
                   onChange={onTextChange}
                   resize="none"
-                  outlineFocus={false}
                 />
 
                 <Stack gap="md" justify="between">

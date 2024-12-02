@@ -16,10 +16,6 @@
 
   @include text.typography(base, $overrides: (font-size: theme.get-font-size("md")));
 
-  &--outline-focus {
-    @include theme.focus-styles($target: ":has(input:focus-visible)");
-  }
-
   &--disabled {
     @include theme.disabled-styles;
   }
@@ -86,6 +82,11 @@
         )
       );
     }
+  }
+
+  &--outline,
+  &--soft {
+    @include theme.focus-styles($target: ":has(input:focus-visible)");
   }
 
   &--outline {

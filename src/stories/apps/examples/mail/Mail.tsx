@@ -87,12 +87,7 @@ export function Mail(): React.ReactElement {
               <Separator />
 
               <Box skin="default" padding={{ block: "md", inline: "md" }} fullWidth>
-                <TextField
-                  skin="neutral"
-                  placeholder="Search"
-                  leftSlot={<LuSearch />}
-                  outlineFocus={false}
-                />
+                <TextField skin="neutral" placeholder="Search" leftSlot={<LuSearch />} />
               </Box>
 
               <Separator />

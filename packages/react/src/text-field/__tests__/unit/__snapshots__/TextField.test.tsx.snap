@@ -3,7 +3,7 @@
 exports[`TextField Snapshots should applies disabled classes 1`] = `
 <div>
   <div
-    class="text-field text-field--outline text-field--disabled text-field--full-width text-field--md text-field--outline text-field--neutral"
+    class="text-field text-field--disabled text-field--full-width text-field--md text-field--outline text-field--neutral"
   >
     <input
       class="text-field__input"
@@ -17,7 +17,7 @@ exports[`TextField Snapshots should applies disabled classes 1`] = `
 exports[`TextField Snapshots should applies fullWidth classes 1`] = `
 <div>
   <div
-    class="text-field text-field--outline text-field--full-width text-field--md text-field--outline text-field--neutral"
+    class="text-field text-field--full-width text-field--md text-field--outline text-field--neutral"
   >
     <input
       class="text-field__input"
@@ -30,7 +30,7 @@ exports[`TextField Snapshots should applies fullWidth classes 1`] = `
 exports[`TextField Snapshots should apply 'critical' skin classes 1`] = `
 <div>
   <div
-    class="text-field text-field--outline text-field--full-width text-field--md text-field--outline text-field--critical"
+    class="text-field text-field--full-width text-field--md text-field--outline text-field--critical"
   >
     <input
       class="text-field__input"
@@ -43,7 +43,7 @@ exports[`TextField Snapshots should apply 'critical' skin classes 1`] = `
 exports[`TextField Snapshots should apply 'ghost' appearance classes 1`] = `
 <div>
   <div
-    class="text-field text-field--outline text-field--full-width text-field--md text-field--ghost text-field--neutral"
+    class="text-field text-field--full-width text-field--md text-field--ghost text-field--neutral"
   >
     <input
       class="text-field__input"
@@ -56,7 +56,7 @@ exports[`TextField Snapshots should apply 'ghost' appearance classes 1`] = `
 exports[`TextField Snapshots should apply 'lg' size classes 1`] = `
 <div>
   <div
-    class="text-field text-field--outline text-field--full-width text-field--lg text-field--outline text-field--neutral"
+    class="text-field text-field--full-width text-field--lg text-field--outline text-field--neutral"
   >
     <input
       class="text-field__input"
@@ -69,7 +69,7 @@ exports[`TextField Snapshots should apply 'lg' size classes 1`] = `
 exports[`TextField Snapshots should apply 'md' size classes 1`] = `
 <div>
   <div
-    class="text-field text-field--outline text-field--full-width text-field--md text-field--outline text-field--neutral"
+    class="text-field text-field--full-width text-field--md text-field--outline text-field--neutral"
   >
     <input
       class="text-field__input"
@@ -82,7 +82,7 @@ exports[`TextField Snapshots should apply 'md' size classes 1`] = `
 exports[`TextField Snapshots should apply 'neutral' skin classes 1`] = `
 <div>
   <div
-    class="text-field text-field--outline text-field--full-width text-field--md text-field--outline text-field--neutral"
+    class="text-field text-field--full-width text-field--md text-field--outline text-field--neutral"
   >
     <input
       class="text-field__input"
@@ -95,7 +95,7 @@ exports[`TextField Snapshots should apply 'neutral' skin classes 1`] = `
 exports[`TextField Snapshots should apply 'outline' appearance classes 1`] = `
 <div>
   <div
-    class="text-field text-field--outline text-field--full-width text-field--md text-field--outline text-field--neutral"
+    class="text-field text-field--full-width text-field--md text-field--outline text-field--neutral"
   >
     <input
       class="text-field__input"
@@ -108,7 +108,7 @@ exports[`TextField Snapshots should apply 'outline' appearance classes 1`] = `
 exports[`TextField Snapshots should apply 'sm' size classes 1`] = `
 <div>
   <div
-    class="text-field text-field--outline text-field--full-width text-field--sm text-field--outline text-field--neutral"
+    class="text-field text-field--full-width text-field--sm text-field--outline text-field--neutral"
   >
     <input
       class="text-field__input"
@@ -121,7 +121,7 @@ exports[`TextField Snapshots should apply 'sm' size classes 1`] = `
 exports[`TextField Snapshots should apply 'soft' appearance classes 1`] = `
 <div>
   <div
-    class="text-field text-field--outline text-field--full-width text-field--md text-field--soft text-field--neutral"
+    class="text-field text-field--full-width text-field--md text-field--soft text-field--neutral"
   >
     <input
       class="text-field__input"
@@ -134,7 +134,7 @@ exports[`TextField Snapshots should apply 'soft' appearance classes 1`] = `
 exports[`TextField Snapshots should apply 'success' skin classes 1`] = `
 <div>
   <div
-    class="text-field text-field--outline text-field--full-width text-field--md text-field--outline text-field--success"
+    class="text-field text-field--full-width text-field--md text-field--outline text-field--success"
   >
     <input
       class="text-field__input"
@@ -147,7 +147,7 @@ exports[`TextField Snapshots should apply 'success' skin classes 1`] = `
 exports[`TextField Snapshots should apply 'xl' size classes 1`] = `
 <div>
   <div
-    class="text-field text-field--outline text-field--full-width text-field--xl text-field--outline text-field--neutral"
+    class="text-field text-field--full-width text-field--xl text-field--outline text-field--neutral"
   >
     <input
       class="text-field__input"
@@ -160,7 +160,7 @@ exports[`TextField Snapshots should apply 'xl' size classes 1`] = `
 exports[`TextField Snapshots should render additional classes 1`] = `
 <div>
   <div
-    class="text-field text-field--outline text-field--full-width text-field--md text-field--outline text-field--neutral other-class"
+    class="text-field text-field--full-width text-field--md text-field--outline text-field--neutral other-class"
   >
     <input
       class="text-field__input"
@@ -173,7 +173,7 @@ exports[`TextField Snapshots should render additional classes 1`] = `
 exports[`TextField Snapshots should render left slot content 1`] = `
 <div>
   <div
-    class="text-field text-field--outline text-field--full-width text-field--md text-field--outline text-field--neutral"
+    class="text-field text-field--full-width text-field--md text-field--outline text-field--neutral"
   >
     <span
       class="text-field__left"
@@ -191,7 +191,7 @@ exports[`TextField Snapshots should render left slot content 1`] = `
 exports[`TextField Snapshots should render right slot content 1`] = `
 <div>
   <div
-    class="text-field text-field--outline text-field--full-width text-field--md text-field--outline text-field--neutral"
+    class="text-field text-field--full-width text-field--md text-field--outline text-field--neutral"
   >
     <input
       class="text-field__input"
@@ -209,7 +209,7 @@ exports[`TextField Snapshots should render right slot content 1`] = `
 exports[`TextField Snapshots should renders default component 1`] = `
 <div>
   <div
-    class="text-field text-field--outline text-field--full-width text-field--md text-field--outline text-field--neutral"
+    class="text-field text-field--full-width text-field--md text-field--outline text-field--neutral"
   >
     <input
       class="text-field__input"
