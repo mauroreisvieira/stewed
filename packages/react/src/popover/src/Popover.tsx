@@ -9,6 +9,8 @@ import {
   useFloating,
   useClickOutside,
   useKey,
+  useMergeRefs,
+  type UseMergeRefs,
   type FloatingPlacement,
 } from "@stewed/hooks";
 // Tokens
@@ -19,6 +21,11 @@ import styles from "./styles/index.module.scss";
 export interface PopoverRenderProps<T> {
   /** Ref to attach to the `Popover` element */
   ref: React.RefObject<T>;
+  /**
+   * A function that allows multiple refs to be merged into a single callback ref.
+   * This is useful when you need to attach multiple refs to the same element.
+   */
+  attachRefs: UseMergeRefs<T>;
   /** Callback to open the Popover */
   open: () => void;
   /** Callback to close Popover  */
@@ -65,7 +72,9 @@ export interface PopoverProps<T>
    * The content to be displayed in the Popover
    * or function that returns a React element with events to trigger `Popover` position and visibility.
    */
-  children: React.ReactNode | ((props: Omit<PopoverRenderProps<T>, "ref">) => React.ReactElement);
+  children:
+    | React.ReactNode
+    | ((props: Omit<PopoverRenderProps<T>, "ref" | "attachRefs">) => React.ReactElement);
 }
 
 /**
@@ -140,6 +149,11 @@ export function Popover<T extends HTMLElement>({
     },
   });
 
+  // Merge the floating reference with the navigation reference combines multiple refs into a single callback ref.
+  // It is particularly useful when you need to attach several refs to a single element, allowing the component to
+  // manage references more efficiently and flexibly.
+  const mergeRefs = useMergeRefs();
+
   // Handles the `keydown` event on a specific HTML element.
   const onHandleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
     (event): void => {
@@ -182,6 +196,7 @@ export function Popover<T extends HTMLElement>({
     <>
       {renderAnchor({
         ref: popoverRef,
+        attachRefs: (ref) => mergeRefs([popoverRef, ...ref]),
         open: onHandleOpen,
         close: onHandleClose,
         isOpen: !!isOpen,

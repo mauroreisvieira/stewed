@@ -11,6 +11,7 @@ import {
   useKey,
   useKeyboardNavigation,
   useMergeRefs,
+  type UseMergeRefs,
   type FloatingPlacement,
 } from "@stewed/hooks";
 // Tokens
@@ -21,6 +22,11 @@ import styles from "./styles/index.module.scss";
 export interface DropdownRenderProps<T> {
   /** Ref to attach to the `Dropdown` element */
   ref: React.RefObject<T>;
+  /**
+   * A function that allows multiple refs to be merged into a single callback ref.
+   * This is useful when you need to attach multiple refs to the same element.
+   */
+  attachRefs: UseMergeRefs<T>;
   /** Callback to open the dropdown */
   open: () => void;
   /** Callback to close dropdown  */
@@ -55,7 +61,9 @@ export interface DropdownProps<T>
    * The content to be displayed in the dropdown
    * or function that returns a React element with events to trigger `Dropdown` position and visibility.
    */
-  children: React.ReactNode | ((props: Omit<DropdownRenderProps<T>, "ref">) => React.ReactElement);
+  children:
+    | React.ReactNode
+    | ((props: Omit<DropdownRenderProps<T>, "ref" | "attachRefs">) => React.ReactElement);
 }
 
 /**
@@ -137,9 +145,14 @@ export function Dropdown<T extends HTMLElement>({
     target: '[tabindex="0"]:not([aria-disabled]), [role="option"]:not([aria-disabled])',
   });
 
-  // Merge the floating reference (likely for a floating UI element) with the navigation reference
+  // Merge the floating reference with the navigation reference combines multiple refs into a single callback ref.
+  // It is particularly useful when you need to attach several refs to a single element, allowing the component to
+  // manage references more efficiently and flexibly.
   const mergeRefs = useMergeRefs();
-  const mergedRefs = mergeRefs([floating, navigationRef]);
+
+  // Combine the `floating` reference  and the `navigationRef` into one merged reference.
+  // This ensures that both refs are updated with the same element without interfering with each other.
+  const refs = mergeRefs([floating, navigationRef]);
 
   // Handles the `keydown` event on a specific HTML element.
   const onHandleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
@@ -177,12 +190,12 @@ export function Dropdown<T extends HTMLElement>({
 
   useEffect(() => {
     // Set the first element as focusable when the floating element is mounted or updated
-    if (floating && navigationRef && isPositioned) {
+    if (navigationRef && isPositioned) {
       requestAnimationFrame(() => {
         setFirstElementFocusable();
       });
     }
-  }, [floating, navigationRef, isPositioned, setFirstElementFocusable]);
+  }, [navigationRef, setFirstElementFocusable, isPositioned]);
 
   useEffect(() => {
     // Cleanup function to run when the component unmounts or the effect is re-run
@@ -196,6 +209,7 @@ export function Dropdown<T extends HTMLElement>({
     <>
       {renderAnchor({
         ref: dropdownRef,
+        attachRefs: (ref) => mergeRefs([dropdownRef, ...ref]),
         open: onHandleOpen,
         close: onHandleClose,
         isOpen: !!isOpen,
@@ -204,7 +218,7 @@ export function Dropdown<T extends HTMLElement>({
         <Scope elevation="navigation">
           <Motion animation="fade-in">
             <div
-              ref={mergedRefs}
+              ref={refs}
               role="region"
               className={cssClasses.root}
               onKeyDown={onHandleKeyDown}
