@@ -277,6 +277,7 @@ function OTPInput({ onInputChange }) {
       fullWidth={false}
       type="text"
       pattern="\d*"
+      autoComplete="off"
       onKeyDown={(event) => {
         if (event.code === "Backspace") {
           if (currentValue.length === 0) {

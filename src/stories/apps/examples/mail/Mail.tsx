@@ -46,7 +46,7 @@ import { useDateTime } from "@hello-week/hooks";
 import { useMergeRefs, useSelect } from "@stewed/hooks";
 
 // Data
-import { mails, accounts } from "./data";
+import { mails } from "./data";
 
 export function Mail(): React.ReactElement {
   const [show, setShow] = useState<"all" | "unread">("all");
@@ -246,16 +246,14 @@ export function Mail(): React.ReactElement {
                     <Separator orientation="vertical" />
 
                     <Dropdown
-                      renderAnchor={(popoverProps) => (
+                      renderAnchor={({ ref: dropdownRef, isOpen, open, close }) => (
                         <Tooltip<HTMLButtonElement>
-                          renderAnchor={(tooltipProps) => (
+                          renderAnchor={({ ref: tooltipRef, onMouseEnter, onMouseLeave }) => (
                             <Button
-                              ref={mergeRefs([tooltipProps.ref, popoverProps.ref])}
-                              onClick={() =>
-                                popoverProps.isOpen ? popoverProps.close() : popoverProps.open()
-                              }
-                              onMouseEnter={tooltipProps.onMouseEnter}
-                              onMouseLeave={tooltipProps.onMouseLeave}
+                              ref={mergeRefs([tooltipRef, dropdownRef])}
+                              onClick={() => (isOpen ? close() : open())}
+                              onMouseEnter={onMouseEnter}
+                              onMouseLeave={onMouseLeave}
                               appearance="ghost"
                               skin="neutral"
                               leftSlot={<LuTimerOff size={14} />}

@@ -12,15 +12,13 @@ import {
   FormField,
   List,
   Separator,
-  Grid,
   Accordion,
-  Tag,
   Box,
 } from "@stewed/react";
 // Hooks
 import { useInput } from "../../../packages/hooks/index";
 // Icons
-import { HiOutlinePlusSm, HiMinusSm, HiHeart } from "react-icons/hi";
+import { HiOutlinePlusSm, HiMinusSm } from "react-icons/hi";
 
 const meta = {
   title: "Examples/Ecommerce",
@@ -79,10 +77,6 @@ export const QuickViews = {
                     €89,95
                   </Text>
                 </Stack>
-
-                <Button skin="neutral" appearance="ghost" leftSlot={<HiHeart />} iconOnly>
-                  Add to favorites
-                </Button>
               </Stack>
 
               <FormField>
@@ -100,6 +94,7 @@ export const QuickViews = {
                         <Button
                           key={value}
                           size="sm"
+                          aria-selected={value === selectedSize}
                           skin={value === selectedSize ? "primary" : "neutral"}
                           appearance={value === selectedSize ? "filled" : "soft"}
                           onClick={() => setSelectedSize(value)}
@@ -145,6 +140,8 @@ export const QuickViews = {
                         onChange={onChange}
                         maxChars={3}
                         alignment="center"
+                        pattern="\d*"
+                        autoComplete="off"
                       />
 
                       <Button
