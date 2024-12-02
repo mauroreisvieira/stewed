@@ -77,101 +77,117 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
   // State to track the current index of the focused or selected item within the list
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
+  // Helper function to retrieve all selectable items within the list element using the target selector.
+  const getSelectableItems = (list: HTMLElement | null, target: string): HTMLElement[] => {
+    // If the list is not available, return an empty array.
+    return list ? Array.from<HTMLElement>(list.querySelectorAll(target)) : [];
+  };
+
+  // Helper function to calculate the next index for focus navigation.
+  // Handles looping (wrapping around) or clamping within bounds if looping is disabled.
+  const calculateNextIndex = useCallback(
+    (currentIndex: number, direction: number, itemCount: number, loop: boolean): number => {
+      if (loop) {
+        // If looping is enabled, wrap around using modulo arithmetic.
+        return (currentIndex + direction + itemCount) % itemCount;
+      }
+      // If looping is disabled, ensure the index stays within the valid range.
+      return Math.max(0, Math.min(currentIndex + direction, itemCount - 1));
+    },
+    [],
+  );
+
+  // Sets focus on the item at the specified index, updating the state and handling looping if enabled.
   const setFocusedIndex = useCallback(
     (index: number) => {
       // Get the current reference to the list element.
       const list = listRef.current;
 
-      // If the list reference is not available (null or undefined), exit the function.
-      if (!list) {
-        return;
-      }
+      // Retrieve all selectable items using the helper function.
+      const items = getSelectableItems(list, target);
 
-      // Convert the NodeList of elements matching the 'target' selector into an array of HTMLElements.
-      const items = Array.from<HTMLElement>(list.querySelectorAll(target));
+      // If no items are found, exit early.
+      if (items.length === 0) return;
 
-      // Calculate the next index to focus.
-      let nextIndex = index >= 0 && index < items.length ? index : 0;
-
-      // If looping is enabled and we're at the end, wrap around to the start
-      if (loop) {
-        nextIndex = (index + items.length) % items.length;
-      } else {
-        // If looping is disabled, don't go beyond the bounds
-        nextIndex = index >= 0 && index < items.length ? index : currentIndex;
-      }
+      // Calculate the next index based on the provided index and looping settings.
+      const nextIndex = loop
+        ? (index + items.length) % items.length // Loop around if needed.
+        : Math.max(0, Math.min(index, items.length - 1)); // Clamp within bounds if looping is disabled.
 
       // Update the current index state.
       setCurrentIndex(nextIndex);
 
-      // Focus the item at the next index, if it exists.
+      // Focus the item at the calculated index, if it exists.
       items[nextIndex]?.focus();
     },
-    [target, loop, currentIndex],
+    [target, loop],
   );
 
+  // Handles keyboard navigation to move focus based on key presses.
   const onHandleKeyDown: React.KeyboardEventHandler<T> = useCallback(
     (event) => {
       // Get the current reference to the list element.
       const list = listRef.current;
 
-      // If the list reference is not available (null or undefined), exit the function.
-      if (!list) {
-        return;
-      }
+      // Retrieve all selectable items using the helper function.
+      const items = getSelectableItems(list, target);
 
-      // Convert the NodeList of elements matching the 'target' selector into an array of HTMLElements.
-      const items = Array.from<HTMLElement>(list.querySelectorAll(target));
-
-      // Find the index of the currently focused item in the items array.
+      // Find the index of the currently focused element in the items array.
       const index = items.findIndex((item) => item === document.activeElement);
 
-      // Determine the direction of navigation based on the pressed key using the key mapping.
+      // Determine the navigation direction based on the pressed key using the key mapping.
       const direction = key?.[event.key];
 
-      // If a valid focused item is found (index >= 0) and a direction is defined (not undefined):
+      // Proceed only if a valid index and direction are found.
       if (index >= 0 && direction !== undefined) {
-        // Calculate the next index
-        let nextIndex: number;
+        // Calculate the next index for focus navigation.
+        const nextIndex = calculateNextIndex(index, direction, items.length, loop);
 
-        if (loop) {
-          // If looping is enabled, wrap around using modulo operation
-          nextIndex = (index + direction + items.length) % items.length;
-        } else {
-          // If looping is disabled, stay within bounds
-          nextIndex = Math.max(0, Math.min(index + direction, items.length - 1));
-        }
-
+        // Check any additional conditions for focusing the next element.
         if (condition?.(nextIndex)) {
-          // Update the current index state.
+          // Update the focused index if the condition is met.
           setFocusedIndex(nextIndex);
         }
       }
     },
-    [condition, key, loop, setFocusedIndex, target],
+    [calculateNextIndex, condition, key, loop, setFocusedIndex, target],
   );
 
-  // Sets the first element with `[aria-selected="true"]` as focusable, or the first item if none found.
+  // Sets the first focusable element based on custom criteria or defaults to the first selectable item.
   const setFirstElementFocusable = useCallback(() => {
     // Get the current reference to the list element.
     const list = listRef.current;
 
-    // If the list reference is not available (null or undefined), exit the function.
-    if (!list) {
-      return;
-    }
+    // Retrieve all selectable items using the helper function.
+    const items = getSelectableItems(list, target);
 
-    // Convert the NodeList of elements matching the 'target' selector into an array of HTMLElements.
-    const items = Array.from<HTMLElement>(list.querySelectorAll(target));
-
-    // Try to find the first item with `aria-selected="true"`.
-    const selectedIndex = items.findIndex(
+    // Find the index of the first item with `aria-selected="true"` or `aria-checked="true"`.
+    let selectedIndex = items.findIndex(
       (item) =>
         item.getAttribute("aria-selected") === "true" ||
         item.getAttribute("aria-checked") === "true",
     );
 
-    setFocusedIndex(selectedIndex);
+    // If no such item is found, default to the first selectable item using predefined selectors.
+    if (selectedIndex === -1) {
+      const selectableSelectors = [
+        "[href]", // Links.
+        "button", // Buttons.
+        "input", // Inputs (e.g., text fields).
+        "select", // Dropdowns.
+        "textarea", // Text areas.
+        "[tabindex]", // Any element with a tabindex.
+        "[controls]", // Elements with `controls` attribute (e.g., video/audio players).
+      ].join(", ");
+
+      // Find the index of the first element matching the selectable selectors.
+      selectedIndex = items.findIndex((item) => item.matches(selectableSelectors));
+    }
+
+    // If a valid item is found, set its index as the focused index.
+    if (selectedIndex !== -1) {
+      setFocusedIndex(selectedIndex);
+    }
   }, [target, setFocusedIndex]);
 
   return {
