@@ -13,48 +13,23 @@ import {
   TextField,
   Switch,
   Select,
-  Avatar,
-  Tooltip,
-  Group,
-  Badge,
-  Tag,
-  ScrollArea,
-  Hoverable,
-  Dropdown,
-  ListBox,
-  Calendar,
 } from "@stewed/react";
-// Icons
-import {
-  LuReplyAll,
-  LuReply,
-  LuTrash,
-  LuArchiveRestore,
-  LuForward,
-  LuTimerOff,
-  LuMoreVertical,
-  LuSearch,
-  LuArchive,
-  LuArrowLeft,
-  LuArrowRight,
-} from "react-icons/lu";
-
-import { Sidebar } from "./components/Sidebar";
-
 // Hooks
-import { useDateTime } from "@hello-week/hooks";
-import { useMergeRefs, useSelect } from "@stewed/hooks";
-
+import { useSelect } from "@stewed/hooks";
+// Partials
+import { Actions } from "./partials/Actions";
+import { Sidebar } from "./partials/Sidebar";
+import { Display } from "./partials/Display";
+import { List } from "./partials/List";
+// Icons
+import { LuSearch } from "react-icons/lu";
 // Data
 import { mails } from "./data";
 
 export function Mail(): React.ReactElement {
   const [show, setShow] = useState<"all" | "unread">("all");
 
-  const { formatDate } = useDateTime({ locale: "en-GB" });
   const { item, index, setIndex } = useSelect(mails, 0);
-
-  const mergeRefs = useMergeRefs();
 
   const memoMails = useMemo(() => {
     if (show === "all") {
@@ -116,324 +91,23 @@ export function Mail(): React.ReactElement {
                   skin="neutral"
                   placeholder="Search"
                   leftSlot={<LuSearch />}
-                  outline={false}
+                  outlineFocus={false}
                 />
               </Box>
 
               <Separator />
 
-              <ScrollArea>
-                <Box padding={{ block: "md", inline: "md" }} fullWidth>
-                  <Group direction="column" gap="sm" loop={false}>
-                    {memoMails.map(({ id, read, name, date, subject, labels, text }, idx) => (
-                      <Hoverable
-                        key={id}
-                        aria-selected={index === idx}
-                        onClick={() => setIndex(idx)}
-                      >
-                        {({ isHovering }) => (
-                          <Box
-                            as="button"
-                            padding={{ block: "md", inline: "md" }}
-                            radius="md"
-                            borderColor={index === idx ? "primary-faded" : "neutral-faded"}
-                            borderStyle="solid"
-                            borderWidth={1}
-                            skin={
-                              index === idx
-                                ? "primary-faded"
-                                : isHovering
-                                  ? "neutral-faded"
-                                  : "default"
-                            }
-                            fullWidth
-                          >
-                            <Stack gap="md" items="baseline">
-                              {read ? <Badge skin="info" /> : <div />}
-                              <div>
-                                <Stack items="baseline" justify="between">
-                                  <Stack gap="sm">
-                                    <Text size="sm" weight="semi-bold" space={{ y: "sm" }}>
-                                      {name}
-                                    </Text>
-                                  </Stack>
-                                  <Text size="xs" skin="neutral">
-                                    {formatDate(date, {
-                                      day: "2-digit",
-                                      month: "2-digit",
-                                      year: "numeric",
-                                    })}
-                                  </Text>
-                                </Stack>
-                                <Text size="xs" weight="medium" space={{ y: "md" }}>
-                                  {subject}
-                                </Text>
-                                <Text size="xs" skin="neutral" lineClamp={2} space={{ y: "md" }}>
-                                  {text}
-                                </Text>
-                                <Stack gap="xs">
-                                  {labels.map((label) => (
-                                    <Tag key={label} size="xs" skin="neutral" appearance="outline">
-                                      {label}
-                                    </Tag>
-                                  ))}
-                                </Stack>
-                              </div>
-                            </Stack>
-                          </Box>
-                        )}
-                      </Hoverable>
-                    ))}
-                  </Group>
-                </Box>
-              </ScrollArea>
+              <List mails={memoMails} selectedIndex={index} onSelectIndex={setIndex} />
             </Stack>
 
             <Separator orientation="vertical" />
 
             <Stack direction="column" size={6}>
-              <Box padding={{ block: "sm", inline: "md" }} fullWidth>
-                <Stack justify="between" grow>
-                  <Stack gap="sm">
-                    <Tooltip<HTMLButtonElement>
-                      renderAnchor={(props) => (
-                        <Button
-                          {...props}
-                          appearance="ghost"
-                          skin="neutral"
-                          leftSlot={<LuArchive size={14} />}
-                          iconOnly
-                        >
-                          Archive
-                        </Button>
-                      )}
-                    >
-                      Archive
-                    </Tooltip>
-
-                    <Tooltip<HTMLButtonElement>
-                      renderAnchor={(props) => (
-                        <Button
-                          {...props}
-                          appearance="ghost"
-                          skin="neutral"
-                          leftSlot={<LuArchiveRestore size={14} />}
-                          iconOnly
-                        >
-                          Archive junk
-                        </Button>
-                      )}
-                    >
-                      Archive junk
-                    </Tooltip>
-
-                    <Tooltip<HTMLButtonElement>
-                      renderAnchor={(props) => (
-                        <Button
-                          {...props}
-                          appearance="ghost"
-                          skin="neutral"
-                          leftSlot={<LuTrash size={14} />}
-                          iconOnly
-                        >
-                          Move to trash
-                        </Button>
-                      )}
-                    >
-                      Move to trash
-                    </Tooltip>
-
-                    <Separator orientation="vertical" />
-
-                    <Dropdown
-                      renderAnchor={({ ref: dropdownRef, isOpen, open, close }) => (
-                        <Tooltip<HTMLButtonElement>
-                          renderAnchor={({ ref: tooltipRef, onMouseEnter, onMouseLeave }) => (
-                            <Button
-                              ref={mergeRefs([tooltipRef, dropdownRef])}
-                              onClick={() => (isOpen ? close() : open())}
-                              onMouseEnter={onMouseEnter}
-                              onMouseLeave={onMouseLeave}
-                              appearance="ghost"
-                              skin="neutral"
-                              leftSlot={<LuTimerOff size={14} />}
-                              iconOnly
-                            >
-                              Snooze
-                            </Button>
-                          )}
-                        >
-                          Snooze
-                        </Tooltip>
-                      )}
-                      placement="bottom"
-                    >
-                      {({ close }) => (
-                        <Box padding={{ block: "md", inline: "md" }}>
-                          <Calendar
-                            siblingMonthDays={true}
-                            formatDate={{
-                              day: "numeric",
-                              month: "long",
-                              year: "numeric",
-                              weekday: "narrow",
-                            }}
-                            onDaySelected={() => {
-                              close();
-                            }}
-                          >
-                            <Calendar.Navigation>
-                              {({ locked, month, year, onPrev, onNext }) => (
-                                <>
-                                  <Button
-                                    skin="neutral"
-                                    appearance="ghost"
-                                    size="sm"
-                                    iconOnly
-                                    aria-label="Previous month"
-                                    disabled={locked}
-                                    onClick={onPrev}
-                                    leftSlot={<LuArrowLeft />}
-                                  />
-
-                                  <Stack justify="center" grow>
-                                    <Text weight="medium">
-                                      {month} {year}
-                                    </Text>
-                                  </Stack>
-
-                                  <Button
-                                    skin="neutral"
-                                    appearance="ghost"
-                                    size="sm"
-                                    iconOnly
-                                    onClick={onNext}
-                                    aria-label="Next month"
-                                    disabled={locked}
-                                    leftSlot={<LuArrowRight />}
-                                  />
-                                </>
-                              )}
-                            </Calendar.Navigation>
-                            <Calendar.Week />
-                            <Calendar.Month />
-                          </Calendar>
-                        </Box>
-                      )}
-                    </Dropdown>
-                  </Stack>
-
-                  <Stack gap="sm">
-                    <Tooltip<HTMLButtonElement>
-                      renderAnchor={(props) => (
-                        <Button
-                          {...props}
-                          appearance="ghost"
-                          skin="neutral"
-                          leftSlot={<LuReply size={14} />}
-                          iconOnly
-                        >
-                          Reply
-                        </Button>
-                      )}
-                    >
-                      Reply
-                    </Tooltip>
-
-                    <Tooltip<HTMLButtonElement>
-                      renderAnchor={(props) => (
-                        <Button
-                          {...props}
-                          appearance="ghost"
-                          skin="neutral"
-                          leftSlot={<LuReplyAll size={14} />}
-                          iconOnly
-                        >
-                          Reply all
-                        </Button>
-                      )}
-                    >
-                      Reply all
-                    </Tooltip>
-
-                    <Tooltip<HTMLButtonElement>
-                      renderAnchor={(props) => (
-                        <Button
-                          {...props}
-                          appearance="ghost"
-                          skin="neutral"
-                          leftSlot={<LuForward size={14} />}
-                          iconOnly
-                        >
-                          Forward
-                        </Button>
-                      )}
-                    >
-                      Forward
-                    </Tooltip>
-
-                    <Separator orientation="vertical" />
-
-                    <Dropdown<HTMLButtonElement>
-                      renderAnchor={({ ref, isOpen, open, close }) => (
-                        <Button
-                          ref={ref}
-                          onClick={isOpen ? close : open}
-                          appearance="ghost"
-                          skin="neutral"
-                          leftSlot={<LuMoreVertical size={14} />}
-                          iconOnly
-                        >
-                          More options
-                        </Button>
-                      )}
-                      placement="bottom-end"
-                    >
-                      <ListBox>
-                        <ListBox.Item>Mark as unread</ListBox.Item>
-                        <ListBox.Item>Star thread</ListBox.Item>
-                        <ListBox.Item>Mute thread</ListBox.Item>
-                      </ListBox>
-                    </Dropdown>
-                  </Stack>
-                </Stack>
-              </Box>
+              <Actions />
 
               <Separator />
 
-              <Box padding={{ block: "md", inline: "md" }} fullWidth>
-                <Stack gap="lg">
-                  <Avatar name={item?.name} />
-                  <Stack direction="column" grow>
-                    <Stack justify="between">
-                      <Text weight="semi-bold" space={{ y: "sm" }}>
-                        {item?.name}
-                      </Text>
-                      <Text size="xs" skin="neutral">
-                        {formatDate(item?.date, {
-                          month: "long",
-                          day: "2-digit",
-                          year: "numeric",
-                          hour: "numeric",
-                          minute: "2-digit",
-                          hour12: true,
-                        })}
-                      </Text>
-                    </Stack>
-                    <Text size="xs" space={{ y: "xs" }}>
-                      {item?.subject}
-                    </Text>
-                    <Text size="xs" space={{ y: "xxs" }}>
-                      <Text as="span" weight="medium" inherit>
-                        Reply-To:{" "}
-                      </Text>
-                      <Text as="a" href="/" skin="primary" inherit>
-                        {item?.email}
-                      </Text>
-                    </Text>
-                  </Stack>
-                </Stack>
-              </Box>
+              <Display {...item} />
 
               <Separator />
 

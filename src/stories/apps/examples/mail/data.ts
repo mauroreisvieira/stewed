@@ -111,6 +111,8 @@ export const mails = [
   },
 ];
 
+export type Mail = (typeof mails)[number];
+
 export const accounts = [
   {
     label: "Judith Black",
