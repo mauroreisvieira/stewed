@@ -40,7 +40,22 @@ export function Mail(): React.ReactElement {
   }, [show]);
 
   return (
-    <Theme style={{ height: "80vh" }}>
+    <Theme
+      style={{ height: "80vh" }}
+      tokens={{
+        default: {
+          color: {
+            "focus": "#000",
+            "primary-foreground": "#000",
+            "primary-background": "#000",
+            "primary-border-faded": "slate-400",
+            "primary-background-faded": "slate-100",
+            "primary-background-hovered": "#010101",
+            "primary-background-pressed": "#020202",
+          },
+        },
+      }}
+    >
       <Container
         screen="2xl"
         alignment="center"

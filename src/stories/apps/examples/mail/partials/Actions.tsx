@@ -18,8 +18,8 @@ import {
   LuArchiveRestore,
   LuTrash,
   LuTimerOff,
-  LuArrowLeft,
-  LuArrowRight,
+  LuChevronRight,
+  LuChevronLeft,
   LuReply,
   LuReplyAll,
   LuForward,
@@ -129,7 +129,7 @@ export function Actions(): React.ReactElement {
                           aria-label="Previous month"
                           disabled={locked}
                           onClick={onPrev}
-                          leftSlot={<LuArrowLeft />}
+                          leftSlot={<LuChevronLeft />}
                         />
 
                         <Stack justify="center" grow>
@@ -146,7 +146,7 @@ export function Actions(): React.ReactElement {
                           onClick={onNext}
                           aria-label="Next month"
                           disabled={locked}
-                          leftSlot={<LuArrowRight />}
+                          leftSlot={<LuChevronRight />}
                         />
                       </>
                     )}
