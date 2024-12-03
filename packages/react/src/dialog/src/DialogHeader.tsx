@@ -10,7 +10,7 @@ import { useBem } from "@stewed/hooks";
 // Styles
 import styles from "./styles/index.module.scss";
 
-type DialogHeaderProps = React.ComponentPropsWithoutRef<"div">;
+export type DialogHeaderProps = React.ComponentPropsWithoutRef<"div">;
 
 export function DialogHeader({
   className,

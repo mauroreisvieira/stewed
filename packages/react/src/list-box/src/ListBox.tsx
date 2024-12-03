@@ -2,6 +2,7 @@ import React from "react";
 // Compound Component
 import { ListBoxGroup } from "./ListBoxGroup";
 import { ListBoxItem } from "./ListBoxItem";
+import { ListBoxSeparator } from "./ListBoxSeparator";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
@@ -29,4 +30,5 @@ export function ListBox({ className, children, ...props }: ListBoxProps): React.
 
 // Compound component composition
 ListBox.Item = ListBoxItem;
+ListBox.Separator = ListBoxSeparator;
 ListBox.Group = ListBoxGroup;

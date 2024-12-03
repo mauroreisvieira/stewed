@@ -5,3 +5,4 @@ export type { CardHeaderProps } from "./CardHeader";
 export type { CardMediaProps } from "./CardMedia";
 export type { CardBodyProps } from "./CardBody";
 export type { CardFooterProps } from "./CardFooter";
+export type { CardSeparatorProps } from "./CardSeparator";

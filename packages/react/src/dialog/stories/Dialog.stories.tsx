@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // UI Components
-import { Theme, Dialog, Text, Separator, Button } from "../../index";
+import { Theme, Dialog, Text, Button } from "../../index";
 // Hooks
 import { useToggle } from "@stewed/hooks";
 
@@ -84,7 +84,7 @@ export const HugeContent: Story = {
           <Dialog.Header>
             <Text as="h4">Dialog Header</Text>
           </Dialog.Header>
-          <Separator />
+          <Dialog.Separator />
           <Dialog.Body>
             {Array.from({ length: 100 }).map((_, index) => (
               <Text key={index}>
@@ -94,7 +94,7 @@ export const HugeContent: Story = {
               </Text>
             ))}
           </Dialog.Body>
-          <Separator />
+          <Dialog.Separator />
           <Dialog.Footer>
             <Text as="h4">Dialog Footer</Text>
           </Dialog.Footer>

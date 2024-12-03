@@ -47,6 +47,14 @@ export interface DropdownProps<T>
    * @default false
    */
   allowClickOutside?: boolean;
+  /**
+   * A flag to determine if the dropdown should match the width of the trigger element.
+   * When enabled, the dropdown will inherit the width of the element that triggers it,
+   * such as a button or input field.
+   *
+   * @default false
+   */
+  matchReferenceWidth?: boolean;
   /** Callback function invoked when the escape key is pressed. */
   onEscape?: () => void;
   /** Callback function invoked when the dialog is clicked outside. */
@@ -91,6 +99,7 @@ export function Dropdown<T extends HTMLElement>({
   className,
   style,
   renderAnchor,
+  matchReferenceWidth = false,
   allowClickOutside = false,
   onEscape,
   onClickOutside,
@@ -113,7 +122,7 @@ export function Dropdown<T extends HTMLElement>({
   const [isOpen, setOpen] = useState(false);
 
   // Floating position calculation hook
-  const { floating, x, y, isPositioned } = useFloating<T, HTMLDivElement>({
+  const { floating, x, y, isPositioned, reference } = useFloating<T, HTMLDivElement>({
     open: isOpen,
     placement,
     reference: dropdownRef.current,
@@ -205,6 +214,14 @@ export function Dropdown<T extends HTMLElement>({
     };
   }, []);
 
+  const computedStyles = {
+    "--dropdown-min-width": matchReferenceWidth ? `${reference.width}px` : undefined,
+    "visibility": isPositioned ? "visible" : "hidden",
+    "left": `${x}px`,
+    "top": `${y}px`,
+    ...style,
+  } as React.CSSProperties;
+
   return (
     <>
       {renderAnchor({
@@ -222,16 +239,15 @@ export function Dropdown<T extends HTMLElement>({
               role="region"
               className={cssClasses.root}
               onKeyDown={onHandleKeyDown}
-              style={{
-                ...style,
-                visibility: isPositioned ? "visible" : "hidden",
-                left: `${x}px`,
-                top: `${y}px`,
-              }}
+              style={computedStyles}
               {...props}
             >
               {typeof children === "function"
-                ? children({ open: onHandleOpen, close: onHandleClose, isOpen: !!isOpen })
+                ? children({
+                    open: onHandleOpen,
+                    close: onHandleClose,
+                    isOpen: !!isOpen,
+                  })
                 : children}
             </div>
           </Motion>

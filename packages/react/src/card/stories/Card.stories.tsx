@@ -38,6 +38,7 @@ export const Base: Story = {
         <Card.Header>
           <Text>Card Header</Text>
         </Card.Header>
+        <Card.Separator />
         <Card.Body>
           <Text>
             Pellentesque elementum diam sapien, nec ultrices risus convallis eget. Nam pharetra
@@ -45,6 +46,7 @@ export const Base: Story = {
             nulla in laoreet. Maecenas semper mi egestas, dignissim nisi et, elementum neque.
           </Text>
         </Card.Body>
+        <Card.Separator />
         <Card.Footer>
           <Text>Card Footer</Text>
         </Card.Footer>

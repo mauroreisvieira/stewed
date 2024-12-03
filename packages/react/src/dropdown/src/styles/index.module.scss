@@ -3,10 +3,17 @@
 
 @include theme.scope($dropdown-root) {
   position: absolute;
-  min-width: 180px;
+  box-sizing: border-box;
+  min-width: theme.get-var(min-width);
   padding: theme.get-spacing("sm");
   background-color: theme.get-color("background-elevated");
   border: 1px solid theme.get-color("neutral", "border-faded");
   border-radius: theme.get-var(radius);
   box-shadow: theme.get-var(shadow);
+
+  @include theme.define-var(
+    (
+      min-width: 180px,
+    )
+  );
 }

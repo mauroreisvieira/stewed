@@ -1,9 +1,12 @@
 import React, { forwardRef } from "react";
+// Context
+import { CardContext, type CardContextProps } from "./CardContext";
 // Compound Component
 import { CardBody } from "./CardBody";
 import { CardHeader } from "./CardHeader";
 import { CardFooter } from "./CardFooter";
 import { CardMedia } from "./CardMedia";
+import { CardSeparator } from "./CardSeparator";
 // Tokens
 import { components, type Shadow, type Spacings } from "@stewed/tokens";
 // Hooks
@@ -11,7 +14,7 @@ import { useBem } from "@stewed/hooks";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface CardProps extends React.ComponentPropsWithRef<"div"> {
+export interface CardProps extends CardContextProps, React.ComponentPropsWithRef<"div"> {
   /**
    * The direction of the card.
    * @default column
@@ -81,9 +84,11 @@ const Root = forwardRef(
     };
 
     return (
-      <div ref={ref} className={cssClasses.root} {...props}>
-        {children}
-      </div>
+      <CardContext.Provider value={{ direction }}>
+        <div ref={ref} className={cssClasses.root} {...props}>
+          {children}
+        </div>
+      </CardContext.Provider>
     );
   },
 );
@@ -94,4 +99,5 @@ export const Card = Object.assign(Root, {
   Media: CardMedia,
   Header: CardHeader,
   Footer: CardFooter,
+  Separator: CardSeparator,
 });

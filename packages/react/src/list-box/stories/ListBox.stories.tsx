@@ -57,6 +57,7 @@ export const Base: Story = {
             Trash
           </ListBox.Item>
         </ListBox.Group>
+        <ListBox.Separator />
         <ListBox.Group title="Pinned messages">
           <ListBox.Item
             rightSlot={

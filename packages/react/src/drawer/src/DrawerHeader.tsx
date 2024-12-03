@@ -10,11 +10,13 @@ import { useBem } from "@stewed/hooks";
 // Styles
 import styles from "./styles/index.module.scss";
 
+export type DrawerHeaderProps = React.ComponentPropsWithoutRef<"div">;
+
 export function DrawerHeader({
   className,
   children,
   ...props
-}: React.ComponentPropsWithoutRef<"div">): React.ReactElement {
+}: DrawerHeaderProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock, getElement } = useBem({ block: `${components.Drawer}__header`, styles });
 

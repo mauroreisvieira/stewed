@@ -6,11 +6,9 @@ import { useBem } from "@stewed/hooks";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export function DrawerBody({
-  className,
-  children,
-  ...props
-}: React.ComponentPropsWithoutRef<"div">): React.ReactElement {
+export type DrawerBodyProps = React.ComponentPropsWithoutRef<"div">;
+
+export function DrawerBody({ className, children, ...props }: DrawerBodyProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: `${components.Drawer}__body`, styles });
 

@@ -113,7 +113,8 @@
     padding-block: theme.get-spacing("xxs");
 
     &__title {
-      margin-bottom: 8px;
+      margin-bottom: theme.get-spacing("sm");
+      margin-left: theme.get-spacing("md");
 
       @include text.typography(
         base,

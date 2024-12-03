@@ -7,6 +7,7 @@ import { DialogContext, type DialogContextProps } from "./DialogContext";
 import { DialogBody } from "./DialogBody";
 import { DialogHeader } from "./DialogHeader";
 import { DialogFooter } from "./DialogFooter";
+import { DialogSeparator } from "./DialogSeparator";
 // Hooks
 import {
   useBem,
@@ -193,3 +194,4 @@ export function Dialog({
 Dialog.Body = DialogBody;
 Dialog.Header = DialogHeader;
 Dialog.Footer = DialogFooter;
+Dialog.Separator = DialogSeparator;

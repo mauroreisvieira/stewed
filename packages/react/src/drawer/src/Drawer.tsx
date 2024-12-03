@@ -7,6 +7,7 @@ import { DrawerContext, type DrawerContextProps } from "./DrawerContext";
 import { DrawerBody } from "./DrawerBody";
 import { DrawerHeader } from "./DrawerHeader";
 import { DrawerFooter } from "./DrawerFooter";
+import { DrawerSeparator } from "./DrawerSeparator";
 // Hooks
 import {
   useBem,
@@ -191,3 +192,4 @@ export function Drawer({
 Drawer.Body = DrawerBody;
 Drawer.Header = DrawerHeader;
 Drawer.Footer = DrawerFooter;
+Drawer.Separator = DrawerSeparator;

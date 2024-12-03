@@ -67,7 +67,7 @@ export interface PopoverProps<T>
    * @param props - Render props for the `Popover` component, including the necessary event handlers.
    * @returns A React element that serves as the anchor for the `Popover`.
    */
-  renderAnchor: (props: PopoverRenderProps<T>) => React.ReactElement;
+  renderAnchor: (props: Omit<PopoverRenderProps<T>, "reference">) => React.ReactElement;
   /**
    * The content to be displayed in the Popover
    * or function that returns a React element with events to trigger `Popover` position and visibility.
