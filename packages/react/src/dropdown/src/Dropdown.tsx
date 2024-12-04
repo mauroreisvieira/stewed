@@ -3,6 +3,9 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 // UI Components
 import { Motion, Scope } from "../..";
+// Compound Component
+import { DropdownScrollable } from "./DropdownScrollable";
+import { DropdownButton } from "./DropdownButton";
 // Hooks
 import {
   useBem,
@@ -41,20 +44,12 @@ export interface DropdownProps<T>
    * Specifies the preferred placement of the `Dropdown` relative to its trigger.
    * @example "top", "bottom", "left", "right"
    */
-  placement?: FloatingPlacement;
+  placement?: FloatingPlacement | "top-fit" | "bottom-fit";
   /**
    * Allows the `Dropdown` to remain open even when clicking outside of it.
    * @default false
    */
   allowClickOutside?: boolean;
-  /**
-   * A flag to determine if the dropdown should match the width of the trigger element.
-   * When enabled, the dropdown will inherit the width of the element that triggers it,
-   * such as a button or input field.
-   *
-   * @default false
-   */
-  matchReferenceWidth?: boolean;
   /** Callback function invoked when the escape key is pressed. */
   onEscape?: () => void;
   /** Callback function invoked when the dialog is clicked outside. */
@@ -94,12 +89,11 @@ export interface DropdownProps<T>
  * @param {DropdownProps} props - The props for the Dropdown component.
  * @returns {React.ReactElement} - The rendered Dropdown component.
  */
-export function Dropdown<T extends HTMLElement>({
+function Root<T extends HTMLElement>({
   placement = "bottom-start",
   className,
   style,
   renderAnchor,
-  matchReferenceWidth = false,
   allowClickOutside = false,
   onEscape,
   onClickOutside,
@@ -124,7 +118,7 @@ export function Dropdown<T extends HTMLElement>({
   // Floating position calculation hook
   const { floating, x, y, isPositioned, reference } = useFloating<T, HTMLDivElement>({
     open: isOpen,
-    placement,
+    placement: placement.replace("-fit", "") as FloatingPlacement,
     reference: dropdownRef.current,
     offset: 4,
   });
@@ -152,6 +146,7 @@ export function Dropdown<T extends HTMLElement>({
     setFirstElementFocusable,
   } = useKeyboardNavigation<HTMLDivElement>({
     target: '[tabindex="0"]:not([aria-disabled]), [role="option"]:not([aria-disabled])',
+    loop: false,
   });
 
   // Merge the floating reference with the navigation reference combines multiple refs into a single callback ref.
@@ -195,6 +190,9 @@ export function Dropdown<T extends HTMLElement>({
   // Closes the dropdown by set the state to false.
   const onHandleClose = (): void => {
     setOpen(false);
+
+    // Reset focus to reference element
+    dropdownRef.current?.focus();
   };
 
   useEffect(() => {
@@ -214,14 +212,6 @@ export function Dropdown<T extends HTMLElement>({
     };
   }, []);
 
-  const computedStyles = {
-    "--dropdown-min-width": matchReferenceWidth ? `${reference.width}px` : undefined,
-    "visibility": isPositioned ? "visible" : "hidden",
-    "left": `${x}px`,
-    "top": `${y}px`,
-    ...style,
-  } as React.CSSProperties;
-
   return (
     <>
       {renderAnchor({
@@ -239,7 +229,17 @@ export function Dropdown<T extends HTMLElement>({
               role="region"
               className={cssClasses.root}
               onKeyDown={onHandleKeyDown}
-              style={computedStyles}
+              style={
+                {
+                  "--dropdown-min-width": placement.includes("fit")
+                    ? `${reference.width}px`
+                    : undefined,
+                  "visibility": isPositioned ? "visible" : "hidden",
+                  "left": `${x}px`,
+                  "top": `${y}px`,
+                  ...style,
+                } as React.CSSProperties
+              }
               {...props}
             >
               {typeof children === "function"
@@ -256,3 +256,9 @@ export function Dropdown<T extends HTMLElement>({
     </>
   );
 }
+
+// Compound component composition
+export const Dropdown = Object.assign(Root, {
+  Button: DropdownButton,
+  Scrollable: DropdownScrollable,
+});
