@@ -4,15 +4,16 @@ import {
   Box,
   Button,
   Container,
-  Stack,
-  Text,
-  Theme,
-  TextArea,
+  Dropdown,
   Segmented,
   Separator,
-  TextField,
+  Stack,
   Switch,
-  Select,
+  Text,
+  TextArea,
+  TextField,
+  ListBox,
+  Theme,
 } from "@stewed/react";
 // Hooks
 import { useSelect } from "@stewed/hooks";
@@ -22,14 +23,20 @@ import { Sidebar } from "./partials/Sidebar";
 import { Display } from "./partials/Display";
 import { List } from "./partials/List";
 // Icons
-import { LuSearch } from "react-icons/lu";
+import { LuSearch, LuCheck } from "react-icons/lu";
 // Data
-import { mails } from "./data";
+import { mails, accounts } from "./data";
 
 export function Mail(): React.ReactElement {
   const [show, setShow] = useState<"all" | "unread">("all");
 
   const { item, index, setIndex } = useSelect(mails, 0);
+
+  const {
+    item: accountsItem,
+    index: accountIndex,
+    setIndex: setAccountsIndex,
+  } = useSelect(accounts, 0);
 
   const memoMails = useMemo(() => {
     if (show === "all") {
@@ -72,9 +79,48 @@ export function Mail(): React.ReactElement {
           <Stack style={{ height: "100%" }}>
             <Stack direction="column" size={3}>
               <Box padding={{ block: "sm", inline: "md" }}>
-                <Select leftSlot={<Text>🌸</Text>}>
-                  <Select.Option>Judith Black</Select.Option>
-                </Select>
+                <Dropdown<HTMLButtonElement>
+                  renderAnchor={({ ref, isOpen, open, close }) => (
+                    <Dropdown.Button
+                      ref={ref}
+                      onClick={isOpen ? close : open}
+                      size="md"
+                      leftSlot={accountsItem?.icon}
+                      fullWidth
+                    >
+                      {accountsItem?.label}
+                    </Dropdown.Button>
+                  )}
+                  placement="bottom-fit"
+                >
+                  {({ close }) => {
+                    return (
+                      <>
+                        <Dropdown.Scrollable>
+                          <Box padding={{ inline: "xs", block: "xs" }}>
+                            <ListBox>
+                              {accounts.map(({ icon, email }, idx) => (
+                                <ListBox.Item
+                                  key={email}
+                                  as="button"
+                                  leftSlot={icon}
+                                  rightSlot={idx === accountIndex ? <LuCheck /> : undefined}
+                                  selected={idx === accountIndex}
+                                  onClick={() => {
+                                    setAccountsIndex(idx);
+                                    close();
+                                  }}
+                                >
+                                  {email}
+                                </ListBox.Item>
+                              ))}
+                            </ListBox>
+                          </Box>
+                        </Dropdown.Scrollable>
+                      </>
+                    );
+                  }}
+                </Dropdown>
               </Box>
 
               <Separator />

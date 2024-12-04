@@ -596,6 +596,7 @@ export function Music(): React.ReactElement {
             "background-elevated": "#0f162a",
             "background-surface": "#3b4554",
             "foreground-default": "#fff",
+            "neutral-foreground": "slate-300",
             "neutral-background": "slate-500",
             "neutral-background-faded": "slate-800",
             "neutral-border-faded": "slate-700",
