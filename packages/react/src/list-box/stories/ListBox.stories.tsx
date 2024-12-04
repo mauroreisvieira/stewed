@@ -88,7 +88,7 @@ export const MultiLine: Story = {
     children: (
       <>
         <ListBox.Group>
-          <ListBox.Item leftSlot={<Avatar name="A" />}>
+          <ListBox.Item as={"button"} leftSlot={<Avatar name="A" />}>
             <Box padding={{ block: "lg" }}>
               <Text size="sm">Headline</Text>
               <Text skin="neutral" size="xs">

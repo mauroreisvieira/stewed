@@ -1,12 +1,22 @@
-import React, { forwardRef } from "react";
+import React from "react";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
 import { components } from "@stewed/tokens";
+// Types
+import { type DistributiveOmit, fixedForwardRef } from "../../types";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface ListBoxItemProps extends React.ComponentPropsWithRef<"div"> {
+const defaultElement = "div";
+
+export interface ListBoxItemProps<T = typeof defaultElement>
+  extends React.ComponentProps<typeof defaultElement> {
+  /**
+   * Specifies the type of element to use as the box.
+   * @default div
+   */
+  as?: T;
   /**
    * Change the visual style of the menu item.
    * @default primary
@@ -22,8 +32,9 @@ export interface ListBoxItemProps extends React.ComponentPropsWithRef<"div"> {
   disabled?: boolean;
 }
 
-export const ListBoxItem = forwardRef(function Root(
+export const ListBoxItem = fixedForwardRef(function ListBoxItem<T extends React.ElementType>(
   {
+    as,
     skin = "primary",
     leftSlot,
     rightSlot,
@@ -32,9 +43,16 @@ export const ListBoxItem = forwardRef(function Root(
     className,
     children,
     ...props
-  }: ListBoxItemProps,
-  ref: React.Ref<HTMLDivElement>,
+  }: ListBoxItemProps<T> &
+    DistributiveOmit<
+      React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
+      "as"
+    >,
+  ref: React.ForwardedRef<unknown>,
 ): React.ReactElement {
+  // Component to render based on the 'as' prop
+  const Comp = as || defaultElement;
+
   // Importing useBem to handle BEM class names
   const { getBlock, getElement } = useBem({ block: `${components.ListBox}__item`, styles });
 
@@ -50,7 +68,7 @@ export const ListBoxItem = forwardRef(function Root(
   };
 
   return (
-    <div
+    <Comp
       ref={ref}
       className={cssClasses.root}
       role="option"
@@ -62,6 +80,6 @@ export const ListBoxItem = forwardRef(function Root(
       {leftSlot && <div className={cssClasses.left}>{leftSlot}</div>}
       {children && <div className={cssClasses.text}>{children}</div>}
       {rightSlot && <div className={cssClasses.right}>{rightSlot}</div>}
-    </div>
+    </Comp>
   );
 });
