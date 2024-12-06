@@ -72,7 +72,7 @@
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-icons": "^5.3.0",
+    "react-icons": "^5.4.0",
     "storybook": "^8.4.6",
     "stylelint": "^16.11.0",
     "stylelint-config-prettier-scss": "^1.0.0",
@@ -86,7 +86,7 @@
     "stylelint-scss": "^6.10.0",
     "turbo": "^2.3.3",
     "typescript": "^5.7.2",
-    "react-scan": "^0.0.35"
+    "react-scan": "^0.0.37"
   },
   "optionalDependencies": {
     "@nx/nx-linux-x64-gnu": "^20.1.4"

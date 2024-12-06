@@ -33,9 +33,10 @@ import {
   Switch,
   Dialog,
   Hue,
+  Segmented,
 } from "@stewed/react";
 // Hooks
-import { useInput } from "@stewed/hooks";
+import { useInput, useSelect } from "@stewed/hooks";
 // Icons
 import {
   MdOutlineArrowUpward,
@@ -60,17 +61,20 @@ import {
   FiFile,
   FiFilePlus,
   FiSearch,
+  FiCheck,
   FiTrash,
   FiUsers,
   FiActivity,
   FiMinus,
   FiPlus,
   FiEdit,
+  FiUserPlus,
 } from "react-icons/fi";
-import { LuFilter } from "react-icons/lu";
+import { LuFilter, LuClipboard, LuColumns } from "react-icons/lu";
 import { IoAttach, IoChatbubbleOutline, IoSettingsOutline } from "react-icons/io5";
 import { FormField, Radio, Select, TextArea } from "@stewed/react";
 import { FaUserDoctor, FaArrowLeft, FaArrowRight } from "react-icons/fa6";
+import { TfiArrowTopRight } from "react-icons/tfi";
 
 const meta: Meta = {
   title: "Examples/SaaS",
@@ -656,135 +660,258 @@ export const Inventory = {
       },
     });
 
+    const accounts = [
+      { label: "Judith Black" },
+      { label: "Eleanor Pena" },
+      { label: "Devon Lane" },
+      { label: "Savannah Nguyen" },
+      { label: "Alicia Richards" },
+      { label: "Benjamin Turner" },
+    ];
+
+    const teams = [
+      { label: "Tech Solutions" },
+      { label: "Creative Dynamics" },
+      { label: "Bright Minds" },
+    ];
+
+    const { item, setItem } = useSelect([...accounts, ...teams], 0, (a, b) => a.label === b.label);
+
     return (
       <>
         <Container screen="2xl" alignment="center" padding={{ block: "7xl" }}>
-          <Box space={{ y: "xl" }}>
-            <Stack direction="column">
-              <Text as="h3">Stock</Text>
-
-              <Separator space={{ block: "xl" }} />
-
-              <Grid
-                responsive={{ sm: { cols: 2 } }}
-                cols={1}
-                space={{ y: "2xl" }}
-                padding={{ block: "md" }}
+          <Box
+            padding={{ inline: "md", block: "md" }}
+            borderColor="neutral-faded"
+            borderWidth={1}
+            borderStyle="solid"
+          >
+            <Stack justify="between" items="center">
+              <Dropdown<HTMLButtonElement>
+                renderAnchor={({ ref, isOpen, open, close }) => (
+                  <Dropdown.Button
+                    ref={ref}
+                    onClick={isOpen ? close : open}
+                    leftSlot={<Avatar size="xs" name={item?.label} />}
+                  >
+                    {item?.label}
+                  </Dropdown.Button>
+                )}
+                placement="bottom-fit"
               >
-                <Grid.Item>
-                  <Text size="2xl" weight="light" skin="neutral">
-                    Total assets value
-                  </Text>
-                  <Text size="5xl" weight="bold">
-                    $10,100,323
-                  </Text>
-                </Grid.Item>
-
-                <Grid.Item>
-                  <Stack
-                    direction="column"
-                    responsive={{
-                      sm: {
-                        direction: "row",
-                      },
-                    }}
-                    grow
-                  >
-                    <Separator
-                      orientation="horizontal"
-                      space={{ block: "md" }}
-                      responsive={{ sm: { orientation: "vertical", space: { inline: "xl" } } }}
-                    />
-                    <Stack direction="column" gap="lg" grow>
-                      <Text size="3xl" weight="semi-bold">
-                        {totalProducts}{" "}
-                        <Text as="sup" skin="neutral">
-                          products
-                        </Text>
-                      </Text>
-
-                      <Progress size="md" value={totalProducts} max={1500} skin="primary" />
-
-                      <Text skin="neutral" size="sm">
-                        <Badge skin="primary" /> Max of capacity:{" "}
-                        <Text as="span" size="sm">
-                          1500
-                        </Text>
-                      </Text>
-                    </Stack>
-                  </Stack>
-                </Grid.Item>
-              </Grid>
-
-              <Stack justify="between">
-                <Stack size={4}>
-                  <TextField
-                    leftSlot={<FiSearch />}
-                    placeholder="Search inventory"
-                    onChange={(event) => setSearch(event.target.value)}
-                    value={search}
-                    fullWidth
-                  />
-                </Stack>
-                <Stack justify="end" grow>
-                  <Dropdown<HTMLButtonElement>
-                    placement="bottom-end"
-                    renderAnchor={({ ref, open, close, isOpen }) => (
-                      <Button
-                        ref={ref}
-                        onClick={isOpen ? close : open}
-                        appearance="outline"
-                        skin={isOpen ? "primary" : "neutral"}
-                        leftSlot={<LuFilter />}
-                      >
-                        Filters
-                      </Button>
-                    )}
-                  >
-                    {() => (
-                      <ListBox>
-                        <ListBox.Group>
-                          {allColumns.map((column) => (
-                            <ListBox.Item
-                              key={column}
-                              onClick={() => onHandleChange(column)}
-                              leftSlot={
-                                <Checkbox
-                                  checked={!hiddenColumns.includes(column)}
-                                  onClick={(event) => {
-                                    event.preventDefault();
-                                    event.stopPropagation();
-                                  }}
-                                />
-                              }
-                            >
-                              <Text size="sm" variation={"capitalize"}>
-                                {column}
-                              </Text>
-                            </ListBox.Item>
-                          ))}
-                        </ListBox.Group>
-                      </ListBox>
-                    )}
-                  </Dropdown>
-                </Stack>
+                {({ close }) => {
+                  return (
+                    <>
+                      <Box padding={{ inline: "sm" }}>
+                        <TextField
+                          leftSlot={<FiSearch />}
+                          appearance="ghost"
+                          placeholder="Search..."
+                        />
+                      </Box>
+                      <Separator />
+                      <Dropdown.Scrollable>
+                        <Box padding={{ inline: "sm", block: "sm" }}>
+                          <Stack direction="column" gap="md">
+                            <ListBox>
+                              <ListBox.Group title="Personal accounts">
+                                {accounts.map(({ label }) => (
+                                  <ListBox.Item
+                                    key={label}
+                                    as="button"
+                                    leftSlot={<Avatar size="xs" name={label} />}
+                                    rightSlot={label === item?.label ? <FiCheck /> : undefined}
+                                    selected={label === item?.label}
+                                    onClick={() => {
+                                      setItem({ label });
+                                      close();
+                                    }}
+                                  >
+                                    {label}
+                                  </ListBox.Item>
+                                ))}
+                              </ListBox.Group>
+                            </ListBox>
+                            <ListBox>
+                              <ListBox.Group title="Teams">
+                                {teams.map(({ label }) => (
+                                  <ListBox.Item
+                                    key={label}
+                                    as="button"
+                                    leftSlot={<Avatar size="xs" name={label} />}
+                                    rightSlot={label === item?.label ? <FiCheck /> : undefined}
+                                    selected={label === item?.label}
+                                    onClick={() => {
+                                      setItem({ label });
+                                      close();
+                                    }}
+                                  >
+                                    {label}
+                                  </ListBox.Item>
+                                ))}
+                              </ListBox.Group>
+                            </ListBox>
+                          </Stack>
+                        </Box>
+                      </Dropdown.Scrollable>
+                      <Separator />
+                      <Box padding={{ block: "sm", inline: "sm" }}>
+                        <ListBox>
+                          <ListBox.Item leftSlot={<FiPlus />}>Create team</ListBox.Item>
+                        </ListBox>
+                      </Box>
+                    </>
+                  );
+                }}
+              </Dropdown>
+              <Stack gap="md" justify="end" grow>
+                <Segmented value="Stock">
+                  <Segmented.Item value="Stock">Stock</Segmented.Item>
+                  <Segmented.Item value="Analytics" disabled>
+                    Analytics
+                  </Segmented.Item>
+                  <Segmented.Item value="Customers" disabled>
+                    Customers
+                  </Segmented.Item>
+                </Segmented>
               </Stack>
-
-              <DataTable<TStock>
-                itemKeySelector={({ id }) => id}
-                appearance={["border-rows"]}
-                data={stock}
-                columns={columns}
-                sortableColumns={["name", "stock"]}
-                hiddenColumns={hiddenColumns}
-                defaultColumnDirection="ASC"
-                defaultColumnSorted="name"
-                onFilter={({ name, vendor }) =>
-                  name.toLowerCase().includes(search.toLowerCase()) ||
-                  vendor.toLowerCase().includes(search.toLowerCase())
-                }
-              />
             </Stack>
+
+            <Separator space={{ block: "md" }} />
+
+            <Box space={{ y: "xl" }}>
+              <Stack direction="column">
+                <Grid
+                  responsive={{ sm: { cols: 2 } }}
+                  cols={1}
+                  space={{ y: "2xl" }}
+                  padding={{ block: "md" }}
+                >
+                  <Grid.Item>
+                    <Text size="2xl" weight="light" skin="neutral">
+                      Total assets value
+                    </Text>
+                    <Text size="5xl" weight="bold">
+                      $10,100,323
+                    </Text>
+                  </Grid.Item>
+
+                  <Grid.Item>
+                    <Stack
+                      direction="column"
+                      responsive={{
+                        sm: {
+                          direction: "row",
+                        },
+                      }}
+                      grow
+                    >
+                      <Separator
+                        orientation="horizontal"
+                        space={{ block: "md" }}
+                        responsive={{ sm: { orientation: "vertical", space: { inline: "xl" } } }}
+                      />
+                      <Stack direction="column" gap="lg" grow>
+                        <Text size="3xl" weight="semi-bold">
+                          {totalProducts}{" "}
+                          <Text as="sup" skin="neutral">
+                            products
+                          </Text>
+                        </Text>
+
+                        <Progress size="md" value={totalProducts} max={1500} skin="primary" />
+
+                        <Text skin="neutral" size="sm">
+                          <Badge skin="primary" /> Max of capacity:{" "}
+                          <Text as="span" size="sm">
+                            1500
+                          </Text>
+                        </Text>
+                      </Stack>
+                    </Stack>
+                  </Grid.Item>
+                </Grid>
+
+                <Stack justify="between">
+                  <Stack size={4}>
+                    <TextField
+                      leftSlot={<FiSearch />}
+                      placeholder="Search inventory"
+                      onChange={(event) => setSearch(event.target.value)}
+                      value={search}
+                      fullWidth
+                    />
+                  </Stack>
+                  <Stack justify="end" grow>
+                    <Dropdown<HTMLButtonElement>
+                      placement="bottom-end"
+                      renderAnchor={({ ref, open, close, isOpen }) => (
+                        <Button
+                          ref={ref}
+                          onClick={isOpen ? close : open}
+                          appearance="outline"
+                          skin={isOpen ? "primary" : "neutral"}
+                          leftSlot={<LuFilter />}
+                        >
+                          Filters
+                        </Button>
+                      )}
+                    >
+                      {() => (
+                        <Box padding={{ inline: "sm", block: "sm" }}>
+                          <ListBox>
+                            <ListBox.Group>
+                              {allColumns.map((column) => (
+                                <ListBox.Item
+                                  key={column}
+                                  as="button"
+                                  onClick={() => onHandleChange(column)}
+                                  leftSlot={
+                                    <Checkbox
+                                      checked={!hiddenColumns.includes(column)}
+                                      onClick={(event) => {
+                                        event.preventDefault();
+                                        event.stopPropagation();
+                                      }}
+                                    />
+                                  }
+                                >
+                                  <Text size="sm" variation={"capitalize"}>
+                                    {column}
+                                  </Text>
+                                </ListBox.Item>
+                              ))}
+                            </ListBox.Group>
+                          </ListBox>
+                        </Box>
+                      )}
+                    </Dropdown>
+                  </Stack>
+                </Stack>
+
+                <DataTable<TStock>
+                  itemKeySelector={({ id }) => id}
+                  appearance={["border-rows"]}
+                  data={stock}
+                  columns={columns}
+                  sortableColumns={["name", "stock"]}
+                  hiddenColumns={hiddenColumns}
+                  defaultColumnDirection="ASC"
+                  defaultColumnSorted="name"
+                  onFilter={({ name, vendor }) =>
+                    name.toLowerCase().includes(search.toLowerCase()) ||
+                    vendor.toLowerCase().includes(search.toLowerCase())
+                  }
+                  emptyState={
+                    <Box padding={{ block: "7xl" }}>
+                      <Text alignment="center" skin="neutral">
+                        No results found for, please try a different search term.
+                      </Text>
+                    </Box>
+                  }
+                />
+              </Stack>
+            </Box>
           </Box>
         </Container>
         <Dialog
@@ -1013,154 +1140,206 @@ export const Kanban = {
       },
     ];
 
+    const [isOpen, setOpen] = useState(false);
+
     return (
-      <Container>
-        <Stack direction="column" gap="5xl">
-          <Tabs<"board" | "backlog" | "roadmap"> defaultValue="backlog">
-            <Tabs.List>
-              <Tabs.Item value="backlog">Backlog</Tabs.Item>
-              <Tabs.Item value="board">Status board</Tabs.Item>
-              <Tabs.Item value="roadmap">Roadmap</Tabs.Item>
-            </Tabs.List>
-          </Tabs>
+      <>
+        <Container>
+          <Stack direction="column" gap="5xl">
+            <Tabs<"board" | "backlog" | "roadmap"> defaultValue="backlog">
+              <Tabs.List>
+                <Tabs.Item value="backlog">Backlog</Tabs.Item>
+                <Tabs.Item value="board">Status board</Tabs.Item>
+                <Tabs.Item value="roadmap">Roadmap</Tabs.Item>
+              </Tabs.List>
+            </Tabs>
 
-          <Stack justify="between" items="center">
-            <Text size="2xl" weight="medium">
-              Acme Project - SaaS
-            </Text>
-          </Stack>
+            <Stack justify="between" items="center">
+              <Stack grow>
+                <Text size="2xl" weight="medium">
+                  Acme Project - SaaS
+                </Text>
+              </Stack>
+              <Stack>
+                <TextField
+                  leftSlot={<FiSearch />}
+                  rightSlot={
+                    <Text as="kbd" size="xs" skin="neutral-faded" weight="medium">
+                      ⌘K
+                    </Text>
+                  }
+                  placeholder="Search..."
+                  onClick={() => setOpen(true)}
+                  readOnly
+                />
+              </Stack>
+            </Stack>
 
-          <Stack direction="column" gap="md">
-            <Stack
-              wrap="wrap"
-              gap="2xl"
-              responsive={{
-                md: {
-                  wrap: "nowrap",
-                },
-              }}
-            >
-              {board.map(({ id, title, tasks }) => (
-                <Stack
-                  key={id}
-                  size={12}
-                  gap="md"
-                  direction="column"
-                  responsive={{
-                    md: {
-                      size: 4,
-                    },
-                  }}
-                >
-                  <Card shadow="sm" padding={{ block: "sm", inline: "md" }}>
-                    <Card.Body>
-                      <Stack items="center" justify="between">
-                        <Text weight="semi-bold">{title}</Text>
-                        <div>
-                          <Button
-                            size="sm"
-                            skin="neutral"
-                            appearance="ghost"
-                            leftSlot={<IoMdAdd />}
-                            iconOnly
-                          >
-                            Add
-                          </Button>
-                          <Button
-                            size="sm"
-                            skin="neutral"
-                            appearance="ghost"
-                            leftSlot={<GoKebabHorizontal />}
-                            iconOnly
-                          >
-                            Add
-                          </Button>
-                        </div>
-                      </Stack>
-                    </Card.Body>
-                  </Card>
-                  <Hue skin="gray-100">
-                    <Card padding={{ block: "sm", inline: "sm" }}>
+            <Stack direction="column" gap="md">
+              <Stack
+                wrap="wrap"
+                gap="2xl"
+                responsive={{
+                  md: {
+                    wrap: "nowrap",
+                  },
+                }}
+              >
+                {board.map(({ id, title, tasks }) => (
+                  <Stack
+                    key={id}
+                    size={12}
+                    gap="md"
+                    direction="column"
+                    responsive={{
+                      md: {
+                        size: 4,
+                      },
+                    }}
+                  >
+                    <Card shadow="sm" padding={{ block: "sm", inline: "md" }}>
                       <Card.Body>
-                        <Stack gap="md" direction="column">
-                          {tasks.map(({ id, title, members, tasks, messages, attach }) => (
-                            <Stack key={id} gap="md" grow>
-                              <Card padding={{ block: "md", inline: "md" }}>
-                                <Card.Body>
-                                  <Box space={{ y: "lg" }}>
-                                    <Stack direction="column" gap="sm">
-                                      <Text weight="medium" size="lg" space={{ y: "lg" }}>
-                                        {title}
-                                      </Text>
+                        <Stack items="center" justify="between">
+                          <Text weight="semi-bold">{title}</Text>
+                          <div>
+                            <Button
+                              size="sm"
+                              skin="neutral"
+                              appearance="ghost"
+                              leftSlot={<IoMdAdd />}
+                              iconOnly
+                            >
+                              Add
+                            </Button>
+                            <Button
+                              size="sm"
+                              skin="neutral"
+                              appearance="ghost"
+                              leftSlot={<GoKebabHorizontal />}
+                              iconOnly
+                            >
+                              Add
+                            </Button>
+                          </div>
+                        </Stack>
+                      </Card.Body>
+                    </Card>
+                    <Hue skin="gray-100">
+                      <Card padding={{ block: "sm", inline: "sm" }}>
+                        <Card.Body>
+                          <Stack gap="md" direction="column">
+                            {tasks.map(({ id, title, members, tasks, messages, attach }) => (
+                              <Stack key={id} gap="md" grow>
+                                <Card padding={{ block: "md", inline: "md" }}>
+                                  <Card.Body>
+                                    <Box space={{ y: "lg" }}>
+                                      <Stack direction="column" gap="sm">
+                                        <Text weight="medium" size="lg" space={{ y: "lg" }}>
+                                          {title}
+                                        </Text>
 
-                                      {tasks && (
-                                        <>
-                                          <Stack justify="between">
-                                            <Text skin="neutral" size="xs">
-                                              Tasks
-                                            </Text>
-                                            <Text skin="neutral" size="xs">
-                                              {tasks.completed}/{tasks.total}
-                                            </Text>
-                                          </Stack>
+                                        {tasks && (
+                                          <>
+                                            <Stack justify="between">
+                                              <Text skin="neutral" size="xs">
+                                                Tasks
+                                              </Text>
+                                              <Text skin="neutral" size="xs">
+                                                {tasks.completed}/{tasks.total}
+                                              </Text>
+                                            </Stack>
 
-                                          <Progress
-                                            value={100 * (tasks.completed / tasks.total)}
-                                            skin="success"
-                                            size="xs"
-                                          />
-                                        </>
-                                      )}
-                                    </Stack>
-                                  </Box>
-                                  <Stack justify="between" items="center">
-                                    <Stack gap="xs">
-                                      <Button
-                                        size="sm"
-                                        skin="neutral"
-                                        appearance="ghost"
-                                        leftSlot={<IoChatbubbleOutline />}
-                                      >
-                                        {messages}
-                                      </Button>
-                                      {attach && (
+                                            <Progress
+                                              value={100 * (tasks.completed / tasks.total)}
+                                              skin="success"
+                                              size="xs"
+                                            />
+                                          </>
+                                        )}
+                                      </Stack>
+                                    </Box>
+                                    <Stack justify="between" items="center">
+                                      <Stack gap="xs">
                                         <Button
                                           size="sm"
                                           skin="neutral"
                                           appearance="ghost"
-                                          leftSlot={<IoAttach />}
+                                          leftSlot={<IoChatbubbleOutline />}
                                         >
-                                          {attach}
+                                          {messages}
                                         </Button>
-                                      )}
+                                        {attach && (
+                                          <Button
+                                            size="sm"
+                                            skin="neutral"
+                                            appearance="ghost"
+                                            leftSlot={<IoAttach />}
+                                          >
+                                            {attach}
+                                          </Button>
+                                        )}
+                                      </Stack>
+                                      <Avatar.Group>
+                                        {members.map(({ id, name }) => (
+                                          <Tooltip<HTMLDivElement>
+                                            key={id}
+                                            renderAnchor={(props) => (
+                                              <Avatar key={id} size="xs" name={name} {...props} />
+                                            )}
+                                          >
+                                            {name}
+                                          </Tooltip>
+                                        ))}
+                                      </Avatar.Group>
                                     </Stack>
-                                    <Avatar.Group>
-                                      {members.map(({ id, name }) => (
-                                        <Tooltip<HTMLDivElement>
-                                          key={id}
-                                          renderAnchor={(props) => (
-                                            <Avatar key={id} size="xs" name={name} {...props} />
-                                          )}
-                                        >
-                                          {name}
-                                        </Tooltip>
-                                      ))}
-                                    </Avatar.Group>
-                                  </Stack>
-                                </Card.Body>
-                              </Card>
-                            </Stack>
-                          ))}
-                        </Stack>
-                      </Card.Body>
-                    </Card>
-                  </Hue>
-                </Stack>
-              ))}
+                                  </Card.Body>
+                                </Card>
+                              </Stack>
+                            ))}
+                          </Stack>
+                        </Card.Body>
+                      </Card>
+                    </Hue>
+                  </Stack>
+                ))}
+              </Stack>
             </Stack>
           </Stack>
-        </Stack>
-      </Container>
+        </Container>
+        <Dialog
+          open={isOpen}
+          onClickOutside={() => setOpen(false)}
+          size="sm"
+          padding={{ inline: "md", block: "xs" }}
+        >
+          <Dialog.Header>
+            <TextField
+              appearance="ghost"
+              leftSlot={<FiSearch />}
+              placeholder="Type a command or search..."
+              fullWidth
+            />
+          </Dialog.Header>
+          <Dialog.Separator />
+          <Dialog.Body>
+            <Box padding={{ block: "md" }}>
+              <ListBox>
+                <ListBox.Group title="Quick start">
+                  <ListBox.Item leftSlot={<LuClipboard />}>New board</ListBox.Item>
+                  <ListBox.Item leftSlot={<LuColumns />}>New block</ListBox.Item>
+                  <ListBox.Item leftSlot={<FiUserPlus />}>Add new member</ListBox.Item>
+                </ListBox.Group>
+                <ListBox.Separator />
+                <ListBox.Group title="Navigation">
+                  <ListBox.Item leftSlot={<TfiArrowTopRight />}>Go to dashboard</ListBox.Item>
+                  <ListBox.Item leftSlot={<TfiArrowTopRight />}>Go to status board</ListBox.Item>
+                  <ListBox.Item leftSlot={<TfiArrowTopRight />}>Go to roadmap</ListBox.Item>
+                </ListBox.Group>
+              </ListBox>
+            </Box>
+          </Dialog.Body>
+        </Dialog>
+      </>
     );
   },
 };

@@ -8,7 +8,11 @@ import styles from "./styles/index.module.scss";
 
 export type DropdownScrollableProps = React.ComponentPropsWithoutRef<"div">;
 
-export function DropdownScrollable({ className, children, ...props }: DropdownScrollableProps): React.ReactElement {
+export function DropdownScrollable({
+  className,
+  children,
+  ...props
+}: DropdownScrollableProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: `${components.Dropdown}__scrollable`, styles });
 
