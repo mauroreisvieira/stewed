@@ -23,7 +23,7 @@ import {
   LuReply,
   LuReplyAll,
   LuForward,
-  LuMoreVertical,
+  LuEllipsisVertical,
 } from "react-icons/lu";
 
 export function Actions(): React.ReactElement {
@@ -217,7 +217,7 @@ export function Actions(): React.ReactElement {
                 onClick={isOpen ? close : open}
                 appearance="ghost"
                 skin="neutral"
-                leftSlot={<LuMoreVertical size={14} />}
+                leftSlot={<LuEllipsisVertical size={14} />}
                 iconOnly
               >
                 More options

@@ -70,7 +70,7 @@ import {
   FiEdit,
   FiUserPlus,
 } from "react-icons/fi";
-import { LuFilter, LuClipboard, LuColumns } from "react-icons/lu";
+import { LuFilter, LuClipboard, LuColumns2 } from "react-icons/lu";
 import { IoAttach, IoChatbubbleOutline, IoSettingsOutline } from "react-icons/io5";
 import { FormField, Radio, Select, TextArea } from "@stewed/react";
 import { FaUserDoctor, FaArrowLeft, FaArrowRight } from "react-icons/fa6";
@@ -1326,7 +1326,7 @@ export const Kanban = {
               <ListBox>
                 <ListBox.Group title="Quick start">
                   <ListBox.Item leftSlot={<LuClipboard />}>New board</ListBox.Item>
-                  <ListBox.Item leftSlot={<LuColumns />}>New block</ListBox.Item>
+                  <ListBox.Item leftSlot={<LuColumns2 />}>New block</ListBox.Item>
                   <ListBox.Item leftSlot={<FiUserPlus />}>Add new member</ListBox.Item>
                 </ListBox.Group>
                 <ListBox.Separator />
