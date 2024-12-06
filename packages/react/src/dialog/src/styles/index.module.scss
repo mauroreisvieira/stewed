@@ -48,7 +48,8 @@
   &__header,
   &__body,
   &__footer {
-    padding: theme.get-spacing("xl");
+    padding-block: theme.get-var(padding-block);
+    padding-inline: theme.get-var(padding-inline);
   }
 
   &--open {
@@ -86,6 +87,25 @@
       @include theme.define-var(
         (
           safe-margin: $value,
+        )
+      );
+    }
+  }
+
+  // Padding
+  @each $key, $value in $dialog-padding {
+    &--padding-block-#{$key} {
+      @include theme.define-var(
+        (
+          padding-block: #{$value},
+        )
+      );
+    }
+
+    &--padding-inline-#{$key} {
+      @include theme.define-var(
+        (
+          padding-inline: #{$value},
         )
       );
     }

@@ -108,10 +108,7 @@
         )
       );
     }
-  }
 
-  // Padding
-  @each $key, $value in $card-padding {
     &--padding-inline-#{$key} {
       @include theme.define-var(
         (

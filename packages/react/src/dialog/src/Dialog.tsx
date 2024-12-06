@@ -37,6 +37,13 @@ export interface DialogProps
        * @default md
        */
       size?: "sm" | "md" | "lg" | "xl";
+      /** Padding options for horizontal and vertical orientation. */
+      padding?: {
+        /** Adds padding in the block direction (e.g., top and bottom for vertical orientation). */
+        block?: Spacings;
+        /** Adds padding in the inline direction (e.g., left and right for vertical orientation). */
+        inline?: Spacings;
+      };
     }> {
   /** The controlled open state of the dialog. */
   open?: boolean;
@@ -74,6 +81,10 @@ export function Dialog({
   open,
   size = "md",
   safeMargin = "xl",
+  padding = {
+    block: "xl",
+    inline: "xl",
+  },
   responsive,
   scrollInViewport = false,
   blur,
@@ -122,6 +133,8 @@ export function Dialog({
         open && "open",
         scrollInViewport && "scroll-in-viewport",
         safeMargin && `safe-margin-${safeMargin}`,
+        padding?.block && `padding-block-${padding.block}`,
+        padding?.inline && `padding-inline-${padding.inline}`,
       ],
       extraClasses: className,
     }),
