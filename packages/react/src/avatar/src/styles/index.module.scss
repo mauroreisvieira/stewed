@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "@stewed/react/src/theme/src/styles" as theme;
 @use "@stewed/react/src/typography/src/styles" as text;
 @use "./variables" as *;
@@ -12,7 +13,6 @@
   height: theme.get-var(size);
   overflow: hidden;
   user-select: none;
-  background-color: theme.get-var(background-color);
   border-radius: theme.get-var(border-radius);
 
   @include text.typography(
@@ -28,10 +28,12 @@
     display: flex;
 
     > .#{$avatar-root} {
-      box-shadow: 0 0 0 1px currentcolor;
-
       + .#{$avatar-root} {
         margin-left: calc(theme.get-var(size) / -3);
+      }
+
+      &--filled {
+        box-shadow: 0 0 0 1px theme.get-color("background-surface");
       }
     }
   }
@@ -57,11 +59,28 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          color: theme.get-color($key, "foreground-on-background"),
-          background-color: theme.get-color($key, "background"),
+          background-color: map.get($value, "background-color"),
+          color-on-background: map.get($value, "color-on-background"),
+          border-color: map.get($value, "border-color"),
+          color: map.get($value, "color"),
         )
       );
     }
+  }
+
+  &--filled {
+    background-color: theme.get-var(background-color);
+
+    @include theme.define-var(
+      (
+        color: theme.get-var(color-on-background),
+      )
+    );
+  }
+
+  &--outline {
+    background-color: theme.get-color("background-surface");
+    border: 1px solid theme.get-var(border-color);
   }
 
   &--circle {

@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Avatar Snapshots should apply 'circle' appearance classes 1`] = `
+exports[`Avatar Snapshots should apply 'circle' shape classes 1`] = `
 <div>
   <div
-    class="avatar avatar--circle avatar--md avatar--primary"
+    class="avatar avatar--filled avatar--circle avatar--md avatar--primary"
   >
     EC
   </div>
@@ -13,7 +13,17 @@ exports[`Avatar Snapshots should apply 'circle' appearance classes 1`] = `
 exports[`Avatar Snapshots should apply 'critical' skin classes 1`] = `
 <div>
   <div
-    class="avatar avatar--circle avatar--md avatar--critical"
+    class="avatar avatar--filled avatar--circle avatar--md avatar--critical"
+  >
+    EC
+  </div>
+</div>
+`;
+
+exports[`Avatar Snapshots should apply 'filled' appearance classes 1`] = `
+<div>
+  <div
+    class="avatar avatar--filled avatar--circle avatar--md avatar--primary"
   >
     EC
   </div>
@@ -23,7 +33,7 @@ exports[`Avatar Snapshots should apply 'critical' skin classes 1`] = `
 exports[`Avatar Snapshots should apply 'lg' size classes 1`] = `
 <div>
   <div
-    class="avatar avatar--circle avatar--lg avatar--primary"
+    class="avatar avatar--filled avatar--circle avatar--lg avatar--primary"
   >
     EC
   </div>
@@ -33,7 +43,7 @@ exports[`Avatar Snapshots should apply 'lg' size classes 1`] = `
 exports[`Avatar Snapshots should apply 'md' size classes 1`] = `
 <div>
   <div
-    class="avatar avatar--circle avatar--md avatar--primary"
+    class="avatar avatar--filled avatar--circle avatar--md avatar--primary"
   >
     EC
   </div>
@@ -43,7 +53,17 @@ exports[`Avatar Snapshots should apply 'md' size classes 1`] = `
 exports[`Avatar Snapshots should apply 'neutral' skin classes 1`] = `
 <div>
   <div
-    class="avatar avatar--circle avatar--md avatar--neutral"
+    class="avatar avatar--filled avatar--circle avatar--md avatar--neutral"
+  >
+    EC
+  </div>
+</div>
+`;
+
+exports[`Avatar Snapshots should apply 'outline' appearance classes 1`] = `
+<div>
+  <div
+    class="avatar avatar--outline avatar--circle avatar--md avatar--primary"
   >
     EC
   </div>
@@ -53,7 +73,7 @@ exports[`Avatar Snapshots should apply 'neutral' skin classes 1`] = `
 exports[`Avatar Snapshots should apply 'primary' skin classes 1`] = `
 <div>
   <div
-    class="avatar avatar--circle avatar--md avatar--primary"
+    class="avatar avatar--filled avatar--circle avatar--md avatar--primary"
   >
     EC
   </div>
@@ -63,7 +83,7 @@ exports[`Avatar Snapshots should apply 'primary' skin classes 1`] = `
 exports[`Avatar Snapshots should apply 'secondary' skin classes 1`] = `
 <div>
   <div
-    class="avatar avatar--circle avatar--md avatar--secondary"
+    class="avatar avatar--filled avatar--circle avatar--md avatar--secondary"
   >
     EC
   </div>
@@ -73,17 +93,17 @@ exports[`Avatar Snapshots should apply 'secondary' skin classes 1`] = `
 exports[`Avatar Snapshots should apply 'sm' size classes 1`] = `
 <div>
   <div
-    class="avatar avatar--circle avatar--sm avatar--primary"
+    class="avatar avatar--filled avatar--circle avatar--sm avatar--primary"
   >
     EC
   </div>
 </div>
 `;
 
-exports[`Avatar Snapshots should apply 'square' appearance classes 1`] = `
+exports[`Avatar Snapshots should apply 'square' shape classes 1`] = `
 <div>
   <div
-    class="avatar avatar--square avatar--md avatar--primary"
+    class="avatar avatar--filled avatar--square avatar--md avatar--primary"
   >
     EC
   </div>
@@ -93,7 +113,7 @@ exports[`Avatar Snapshots should apply 'square' appearance classes 1`] = `
 exports[`Avatar Snapshots should apply 'success' skin classes 1`] = `
 <div>
   <div
-    class="avatar avatar--circle avatar--md avatar--success"
+    class="avatar avatar--filled avatar--circle avatar--md avatar--success"
   >
     EC
   </div>
@@ -103,7 +123,7 @@ exports[`Avatar Snapshots should apply 'success' skin classes 1`] = `
 exports[`Avatar Snapshots should apply 'xl' size classes 1`] = `
 <div>
   <div
-    class="avatar avatar--circle avatar--xl avatar--primary"
+    class="avatar avatar--filled avatar--circle avatar--xl avatar--primary"
   >
     EC
   </div>
@@ -113,7 +133,7 @@ exports[`Avatar Snapshots should apply 'xl' size classes 1`] = `
 exports[`Avatar Snapshots should apply 'xs' size classes 1`] = `
 <div>
   <div
-    class="avatar avatar--circle avatar--xs avatar--primary"
+    class="avatar avatar--filled avatar--circle avatar--xs avatar--primary"
   >
     EC
   </div>
@@ -123,7 +143,7 @@ exports[`Avatar Snapshots should apply 'xs' size classes 1`] = `
 exports[`Avatar Snapshots should render additional classes 1`] = `
 <div>
   <div
-    class="avatar avatar--circle avatar--md avatar--primary other-class"
+    class="avatar avatar--filled avatar--circle avatar--md avatar--primary other-class"
   >
     EC
   </div>
@@ -133,7 +153,7 @@ exports[`Avatar Snapshots should render additional classes 1`] = `
 exports[`Avatar Snapshots should render image 1`] = `
 <div>
   <div
-    class="avatar avatar--circle avatar--md avatar--primary"
+    class="avatar avatar--filled avatar--circle avatar--md avatar--primary"
   >
     <img
       alt="Emma Clark"
@@ -147,7 +167,7 @@ exports[`Avatar Snapshots should render image 1`] = `
 exports[`Avatar Snapshots should renders component as anchor 1`] = `
 <div>
   <a
-    class="avatar avatar--circle avatar--md avatar--primary"
+    class="avatar avatar--filled avatar--circle avatar--md avatar--primary"
     href="#"
   >
     EC
@@ -158,7 +178,7 @@ exports[`Avatar Snapshots should renders component as anchor 1`] = `
 exports[`Avatar Snapshots should renders default component 1`] = `
 <div>
   <div
-    class="avatar avatar--circle avatar--md avatar--primary"
+    class="avatar avatar--filled avatar--circle avatar--md avatar--primary"
   >
     EC
   </div>

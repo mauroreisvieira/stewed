@@ -6,7 +6,7 @@ exports[`Avatar Group should render additional classes 1`] = `
     class="avatar-group other-class"
   >
     <div
-      class="avatar avatar--circle avatar--md avatar--primary"
+      class="avatar avatar--filled avatar--circle avatar--md avatar--primary"
     >
       EC
     </div>
@@ -20,7 +20,7 @@ exports[`Avatar Group should renders default component 1`] = `
     class="avatar-group"
   >
     <div
-      class="avatar avatar--circle avatar--md avatar--primary"
+      class="avatar avatar--filled avatar--circle avatar--md avatar--primary"
     >
       EC
     </div>

@@ -25,17 +25,30 @@ export interface AvatarProps<T = "div">
    * Defines the skin color of the avatar.
    * @default primary
    */
-  skin?: "primary" | "secondary" | "neutral" | "critical" | "success" | "info" | "warning";
+  skin?:
+    | "primary"
+    | "secondary"
+    | "neutral"
+    | "neutral-faded"
+    | "critical"
+    | "success"
+    | "info"
+    | "warning";
   /**
    * Specifies the size of the avatar.
    * @default md
    */
-  size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl";
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl";
   /**
-   * Determines the appearance shape of the avatar.
+   * Determines the shape of the avatar.
    * @default circle
    */
-  appearance?: "circle" | "square";
+  shape?: "circle" | "square";
+  /**
+   * Determines the appearance of the avatar.
+   * @default filled
+   */
+  appearance?: "filled" | "outline";
   /** Additional CSS class to apply to the avatar. */
   className?: string;
   /** The props to be added on image element. */
@@ -43,6 +56,8 @@ export interface AvatarProps<T = "div">
     /** The ref to attach to the `<img />` element. */
     ref?: React.Ref<HTMLImageElement>;
   };
+  /** Slot for an SVG icon, a possible alternative to using an image. */
+  svgIcon?: React.ComponentPropsWithoutRef<"svg">;
 }
 
 /**
@@ -51,7 +66,7 @@ export interface AvatarProps<T = "div">
  *
  * @example
  * ```tsx
- * <Avatar appearance="square" name="Noah Andersen" size="3xl" skin="neutral" />
+ * <Avatar shape="square" name="Noah Andersen" size="3xl" skin="neutral" />
  * ```
  *
  * @remarks This component is a polymorphic component can be rendered as a different element
@@ -65,9 +80,11 @@ export const Root = fixedForwardRef(function Avatar<T extends React.ElementType>
     as,
     size = "md",
     skin = "primary",
-    appearance = "circle",
+    appearance = "filled",
+    shape = "circle",
     className,
     image,
+    svgIcon,
     name,
     ...props
   }: AvatarProps<T> &
@@ -85,7 +102,7 @@ export const Root = fixedForwardRef(function Avatar<T extends React.ElementType>
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ modifiers: [appearance, size, skin], extraClasses: className }),
+    root: getBlock({ modifiers: [appearance, shape, size, skin], extraClasses: className }),
     img: getElement(["img"], image?.className),
   };
 
@@ -108,17 +125,23 @@ export const Root = fixedForwardRef(function Avatar<T extends React.ElementType>
 
   return (
     <Comp ref={ref} className={cssClasses.root} {...props}>
-      {image && !imageError ? (
-        <>
-          <img
-            {...image}
-            className={cssClasses.img}
-            alt={image?.alt || name}
-            onError={onHandleError}
-          />
-        </>
+      {svgIcon ? (
+        svgIcon
       ) : (
-        initials
+        <>
+          {image && !imageError ? (
+            <>
+              <img
+                {...image}
+                className={cssClasses.img}
+                alt={image?.alt || name}
+                onError={onHandleError}
+              />
+            </>
+          ) : (
+            initials
+          )}
+        </>
       )}
     </Comp>
   );

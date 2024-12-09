@@ -44,7 +44,16 @@ describe("Avatar", () => {
       },
     );
 
-    it.each<AvatarProps["appearance"]>(["circle", "square"])(
+    it.each<AvatarProps["shape"]>(["circle", "square"])(
+      "should apply '%s' shape classes",
+      (shape) => {
+        const { container } = render(<Avatar name="Emma Clark" shape={shape} />);
+
+        expect(container).toMatchSnapshot();
+      },
+    );
+
+    it.each<AvatarProps["appearance"]>(["filled", "outline"])(
       "should apply '%s' appearance classes",
       (appearance) => {
         const { container } = render(<Avatar name="Emma Clark" appearance={appearance} />);
