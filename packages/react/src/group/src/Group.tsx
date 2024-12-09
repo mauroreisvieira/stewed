@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 // Hooks
 import { useBem, useKeyboardNavigation, type UseKeyboardNavigationProps } from "@stewed/hooks";
 // Tokens
@@ -21,6 +21,14 @@ export interface GroupProps
   direction?: "row" | "column";
   /** Determines if should expand to use the full width. */
   fullWidth?: boolean;
+  /**
+   * When `true`, the element will receive focus when selected, improving keyboard navigation.
+   * This ensures that the item is focused automatically when selected, enhancing the accessibility and usability
+   * for users navigating with a keyboard.
+   *
+   * @default false
+   */
+  focusOnSelected?: boolean;
 }
 
 /**
@@ -42,6 +50,7 @@ export function Group({
   fullWidth,
   gap = "none",
   direction = "row",
+  focusOnSelected = false,
   loop,
   className,
   children,
@@ -60,7 +69,7 @@ export function Group({
   };
 
   // Define a reference to a list element
-  const { ref, onNavigate } = useKeyboardNavigation<HTMLDivElement>({
+  const { ref, onNavigate, setFirstElementFocusable } = useKeyboardNavigation<HTMLDivElement>({
     target: "button:not([aria-disabled='true']), input:not([disabled='true'])",
     loop,
   });
@@ -72,6 +81,15 @@ export function Group({
     },
     [onKeyDown, onNavigate],
   );
+
+  useEffect(() => {
+    // Set the first element selected focusable
+    if (ref.current && focusOnSelected) {
+      requestAnimationFrame(() => {
+        setFirstElementFocusable();
+      })
+    }
+  }, [ref, setFirstElementFocusable, focusOnSelected]);
 
   return (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions

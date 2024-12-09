@@ -22,15 +22,22 @@ export default meta;
 
 export const Buttons: Story = {
   args: {
+    focusOnSelected: true,
     children: (
       <>
-        <Button skin="neutral" appearance="outline">
+        <Button skin="neutral" disabled>
           Button
         </Button>
-        <Button skin="neutral" appearance="outline" disabled>
+        <Button skin="neutral">
           Button
         </Button>
-        <Button skin="neutral" appearance="outline">
+        <Button skin="neutral">
+          Button
+        </Button>
+        <Button skin="neutral" pressed={true}>
+          Button
+        </Button>
+        <Button skin="neutral">
           Button
         </Button>
       </>

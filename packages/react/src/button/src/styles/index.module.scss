@@ -131,7 +131,7 @@
         &:active:not([aria-disabled="true"]) {
           @include theme.define-var(
             (
-              color: theme.get-color($value, "foreground"),
+              color: theme.get-color($value, "background-pressed"),
             )
           );
         }
