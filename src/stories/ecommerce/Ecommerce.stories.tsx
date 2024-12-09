@@ -89,12 +89,13 @@ export const QuickViews = {
                     borderWidth={1}
                     padding={{ block: "xxs", inline: "xxs" }}
                   >
-                    <Group>
+                    <Group focusOnSelected>
                       {productsSizes.map((value) => (
                         <Button
                           key={value}
                           size="sm"
-                          aria-selected={value === selectedSize}
+                          tabIndex={value === selectedSize ? 0 : -1}
+                          pressed={value === selectedSize}
                           skin={value === selectedSize ? "primary" : "neutral"}
                           appearance={value === selectedSize ? "filled" : "soft"}
                           onClick={() => setSelectedSize(value)}
@@ -176,7 +177,7 @@ export const QuickViews = {
                 <Separator space={{ block: "xl" }} />
 
                 <Accordion>
-                  <Accordion.Item>
+                  <Accordion.Item value="1">
                     {({ open }) => (
                       <>
                         <Accordion.Header
@@ -214,7 +215,7 @@ export const QuickViews = {
                   </Accordion.Item>
                   <Separator />
 
-                  <Accordion.Item>
+                  <Accordion.Item value="2">
                     {({ open }) => (
                       <>
                         <Accordion.Header
@@ -252,7 +253,7 @@ export const QuickViews = {
                   </Accordion.Item>
                   <Separator />
 
-                  <Accordion.Item>
+                  <Accordion.Item value="3">
                     {({ open }) => (
                       <>
                         <Accordion.Header

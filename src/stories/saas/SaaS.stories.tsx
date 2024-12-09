@@ -1627,8 +1627,8 @@ export const AddStaff = {
         {selectedStep === "2" && (
           <Box space={{ y: "2xl" }}>
             <Stack direction="column" gap="md">
-              <Accordion appearance="border">
-                <Accordion.Item open>
+              <Accordion appearance="border" multipleExpanded>
+                <Accordion.Item value="1" defaultOpen>
                   {({ open }) => (
                     <>
                       <Accordion.Header rightSlot={open ? <FiMinus /> : <FiPlus />}>
@@ -1652,10 +1652,8 @@ export const AddStaff = {
                     </>
                   )}
                 </Accordion.Item>
-              </Accordion>
-
-              <Accordion appearance="border">
-                <Accordion.Item open>
+                <Separator />
+                <Accordion.Item value="2" defaultOpen>
                   {({ open }) => (
                     <>
                       <Accordion.Header rightSlot={open ? <FiMinus /> : <FiPlus />}>

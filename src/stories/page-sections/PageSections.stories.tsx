@@ -269,7 +269,7 @@ export const FAQ = {
             </Text>
             <Stack grow gap="lg">
               <Accordion>
-                <Accordion.Item>
+                <Accordion.Item value="1">
                   {({ open }) => (
                     <>
                       <Accordion.Header rightSlot={open ? <FiMinus /> : <FiPlus />}>
@@ -285,7 +285,7 @@ export const FAQ = {
                   )}
                 </Accordion.Item>
                 <Separator />
-                <Accordion.Item open>
+                <Accordion.Item value="2" defaultOpen>
                   {({ open }) => (
                     <>
                       <Accordion.Header rightSlot={open ? <FiMinus /> : <FiPlus />}>
@@ -302,7 +302,7 @@ export const FAQ = {
                   )}
                 </Accordion.Item>
                 <Separator />
-                <Accordion.Item>
+                <Accordion.Item value="3">
                   {({ open }) => (
                     <>
                       <Accordion.Header rightSlot={open ? <FiMinus /> : <FiPlus />}>

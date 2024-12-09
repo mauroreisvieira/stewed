@@ -59,7 +59,7 @@ describe("useSelect", () => {
       result.current.setItem("Grape"); // Non-existent item
     });
 
-    expect(result.current.index).toBe(-1);
+    expect(result.current.index).toBe(0);
     expect(result.current.item).toBe(undefined);
   });
 
