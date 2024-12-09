@@ -11,15 +11,11 @@
     flex-direction: column;
   }
 
-  &__header,
-  &__body {
-    padding-block: theme.get-spacing("md");
-  }
-
   &__header {
     display: flex;
     gap: theme.get-spacing("lg");
     align-items: center;
+    padding-block: theme.get-spacing("md");
     appearance: auto;
     cursor: pointer;
 
@@ -44,11 +40,14 @@
     }
   }
 
+  &__body {
+    padding-bottom: theme.get-spacing("md");
+  }
+
   &--default {
     .#{$accordion-root} {
-      &__header,
-      &__body {
-        padding-block: theme.get-spacing("md");
+      &__item {
+        border-bottom: 1px solid theme.get-color("neutral", "border-faded");
       }
     }
   }
@@ -58,13 +57,31 @@
     border-radius: theme.get-radius(md);
 
     .#{$accordion-root} {
-      &__body {
-        border-top: 1px solid theme.get-color("neutral", "border-faded");
-      }
-
       &__header,
       &__body {
         padding-inline: theme.get-spacing("md");
+      }
+
+      &__item:not(:last-child) {
+        border-bottom: 1px solid theme.get-color("neutral", "border-faded");
+      }
+    }
+  }
+
+  &--border-row {
+    .#{$accordion-root} {
+      &__header,
+      &__body {
+        padding-inline: theme.get-spacing("md");
+      }
+
+      &__item {
+        border: 1px solid theme.get-color("neutral", "border-faded");
+        border-radius: theme.get-radius(md);
+
+        &:not(:last-child) {
+          margin-bottom: theme.get-spacing("sm");
+        }
       }
     }
   }

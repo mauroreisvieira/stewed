@@ -3,13 +3,13 @@
 exports[`Accordion Snapshots should render additional classes 1`] = `
 <div>
   <div
-    class="accordion other-class"
+    class="accordion accordion--default other-class"
+    role="group"
   >
     <details
       class="accordion__item other-item-class"
     >
       <summary
-        aria-expanded="false"
         class="accordion__header other-header-class"
       >
         <div
@@ -31,13 +31,13 @@ exports[`Accordion Snapshots should render additional classes 1`] = `
 exports[`Accordion Snapshots should render left slot content 1`] = `
 <div>
   <div
-    class="accordion"
+    class="accordion accordion--default"
+    role="group"
   >
     <details
       class="accordion__item"
     >
       <summary
-        aria-expanded="false"
         class="accordion__header"
       >
         <div
@@ -64,13 +64,13 @@ exports[`Accordion Snapshots should render left slot content 1`] = `
 exports[`Accordion Snapshots should render right slot content 1`] = `
 <div>
   <div
-    class="accordion"
+    class="accordion accordion--default"
+    role="group"
   >
     <details
       class="accordion__item"
     >
       <summary
-        aria-expanded="false"
         class="accordion__header"
       >
         <div
@@ -97,13 +97,13 @@ exports[`Accordion Snapshots should render right slot content 1`] = `
 exports[`Accordion Snapshots should renders default component 1`] = `
 <div>
   <div
-    class="accordion"
+    class="accordion accordion--default"
+    role="group"
   >
     <details
       class="accordion__item"
     >
       <summary
-        aria-expanded="false"
         class="accordion__header"
       >
         <div

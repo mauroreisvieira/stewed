@@ -19,7 +19,7 @@ interface AccordionProps
    * Change the visual appearance of the accordion.
    * @default default
    */
-  appearance?: "default" | "border";
+  appearance?: "default" | "border" | "border-row";
 }
 
 /**
@@ -55,11 +55,11 @@ interface AccordionProps
  */
 export function Accordion({
   multipleExpanded = false,
-  onOpenChange,
-  appearance,
+  appearance = "default",
   className,
   onKeyDown,
   children,
+  onOpenChange,
   ...props
 }: AccordionProps): React.ReactElement {
   // Importing useBem to handle BEM class names
