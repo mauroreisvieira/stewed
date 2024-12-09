@@ -1,16 +1,20 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
+// Context
+import { AccordionContext, type AccordionContextProps } from "./AccordionContext";
 // Compound Component
 import { AccordionBody } from "./AccordionBody";
 import { AccordionHeader } from "./AccordionHeader";
 import { AccordionItem } from "./AccordionItem";
 // Hooks
-import { useBem } from "@stewed/hooks";
+import { useBem, useKeyboardNavigation } from "@stewed/hooks";
 // Tokens
 import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-interface AccordionProps extends React.ComponentPropsWithoutRef<"div"> {
+interface AccordionProps
+  extends Omit<AccordionContextProps, "open" | "setOpen">,
+    React.ComponentPropsWithoutRef<"div"> {
   /**
    * Change the visual appearance of the accordion.
    * @default default
@@ -50,8 +54,11 @@ interface AccordionProps extends React.ComponentPropsWithoutRef<"div"> {
  * ```
  */
 export function Accordion({
+  multipleExpanded = false,
+  onOpenChange,
   appearance,
   className,
+  onKeyDown,
   children,
   ...props
 }: AccordionProps): React.ReactElement {
@@ -63,10 +70,35 @@ export function Accordion({
     root: getBlock({ modifiers: [appearance], extraClasses: className }),
   };
 
+  // Used to manage the accordion state
+  const [open, setOpen] = useState<string[]>([]);
+
+  // Define a reference to a list element
+  const { ref, onNavigate } = useKeyboardNavigation<HTMLDivElement>({
+    target: "summary:not([aria-disabled='true'])",
+    loop: true,
+  });
+
+  const onHandleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
+    (event) => {
+      onNavigate(event);
+      onKeyDown?.(event);
+    },
+    [onKeyDown, onNavigate],
+  );
+
   return (
-    <div className={cssClasses.root} {...props}>
-      {children}
-    </div>
+    <AccordionContext.Provider value={{ multipleExpanded, onOpenChange, open, setOpen }}>
+      <div
+        ref={ref}
+        role="group"
+        className={cssClasses.root}
+        onKeyDown={onHandleKeyDown}
+        {...props}
+      >
+        {children}
+      </div>
+    </AccordionContext.Provider>
   );
 }
 

@@ -1,7 +1,6 @@
-import React, { useCallback } from "react";
+import React from "react";
 // Hooks
 import { useBem } from "@stewed/hooks";
-import { useAccordion } from "./AccordionContext";
 // Tokens
 import { components } from "@stewed/tokens";
 // Styles
@@ -19,15 +18,10 @@ export function AccordionHeader({
   rightSlot,
   className,
   children,
-  onClick,
-  onKeyDown,
   ...props
 }: AccordionHeaderProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock, getElement } = useBem({ block: `${components.Accordion}__header`, styles });
-
-  // Importing useAccordion to manage the accordion state
-  const { setOpen, open } = useAccordion();
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
@@ -37,45 +31,8 @@ export function AccordionHeader({
     text: getElement(["text"]),
   };
 
-  /**
-   * Handles click events on the accordion item.
-   * Toggles the open state of the accordion and calls the onClick prop if provided.
-   *
-   * @param event - The click event
-   */
-  const onHandleClick: React.MouseEventHandler<HTMLDivElement> = useCallback(
-    (event): void => {
-      event.stopPropagation();
-      setOpen((prev) => !prev);
-      onClick?.(event);
-    },
-    [onClick, setOpen],
-  );
-
-  /**
-   * Handles keyboard events on the accordion item.
-   * Toggles the open state of the accordion and calls the onKeyDown prop if provided.
-   *
-   * @param event - The keyboard event
-   */
-  const onHandleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
-    (event): void => {
-      event.stopPropagation();
-      setOpen((prev) => !prev);
-      onKeyDown?.(event);
-    },
-    [onKeyDown, setOpen],
-  );
-
   return (
-    // eslint-disable-next-line jsx-a11y/no-static-element-interactions
-    <summary
-      className={cssClasses.root}
-      onClick={onHandleClick}
-      onKeyDown={onHandleKeyDown}
-      aria-expanded={open}
-      {...props}
-    >
+    <summary className={cssClasses.root} {...props}>
       {leftSlot && <div className={cssClasses.left}>{leftSlot}</div>}
       <div className={cssClasses.text}>{children}</div>
       {rightSlot && <div className={cssClasses.right}>{rightSlot}</div>}

@@ -9,7 +9,7 @@ describe("Accordion", () => {
     it("should renders default component", () => {
       const { container } = render(
         <Accordion>
-          <Accordion.Item>
+          <Accordion.Item value="1">
             <Accordion.Header>Header</Accordion.Header>
             <Accordion.Body>Body</Accordion.Body>
           </Accordion.Item>
@@ -22,7 +22,7 @@ describe("Accordion", () => {
     it("should render additional classes", () => {
       const { container } = render(
         <Accordion className="other-class">
-          <Accordion.Item className="other-item-class">
+          <Accordion.Item value="1" className="other-item-class">
             <Accordion.Header className="other-header-class">Header</Accordion.Header>
             <Accordion.Body className="other-body-class">Body</Accordion.Body>
           </Accordion.Item>
@@ -35,7 +35,7 @@ describe("Accordion", () => {
     it("should render left slot content", () => {
       const { container } = render(
         <Accordion>
-          <Accordion.Item>
+          <Accordion.Item value="1">
             <Accordion.Header leftSlot="Left slot">Header</Accordion.Header>
             <Accordion.Body>Body</Accordion.Body>
           </Accordion.Item>
@@ -48,7 +48,7 @@ describe("Accordion", () => {
     it("should render right slot content", () => {
       const { container } = render(
         <Accordion>
-          <Accordion.Item>
+          <Accordion.Item value="1">
             <Accordion.Header rightSlot="Right slot">Header</Accordion.Header>
             <Accordion.Body>Body</Accordion.Body>
           </Accordion.Item>
@@ -65,7 +65,7 @@ describe("Accordion", () => {
 
       const { findByText } = render(
         <Accordion>
-          <Accordion.Item>
+          <Accordion.Item value="1">
             <Accordion.Header onClick={handleClick}>Header</Accordion.Header>
             <Accordion.Body>Body</Accordion.Body>
           </Accordion.Item>
@@ -86,7 +86,7 @@ describe("Accordion", () => {
 
       const { findByText } = render(
         <Accordion>
-          <Accordion.Item>
+          <Accordion.Item value="1">
             <Accordion.Header onKeyDown={handleKeyDown}>Header</Accordion.Header>
             <Accordion.Body>Body</Accordion.Body>
           </Accordion.Item>

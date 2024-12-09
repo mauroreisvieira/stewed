@@ -33,10 +33,9 @@ export const Base: Story = {
     },
   },
   args: {
-    appearance: "border",
     children: (
       <>
-        <Accordion.Item>
+        <Accordion.Item value="1">
           {({ open }) => (
             <>
               <Accordion.Header rightSlot={open ? <FiMinus /> : <FiPlus />}>
@@ -49,7 +48,48 @@ export const Base: Story = {
           )}
         </Accordion.Item>
         <Separator />
-        <Accordion.Item>
+        <Accordion.Item value="2">
+          {({ open }) => (
+            <>
+              <Accordion.Header rightSlot={open ? <FiMinus /> : <FiPlus />}>
+                Item 2
+              </Accordion.Header>
+              <Accordion.Body>
+                <Text>Body for Item 2</Text>
+              </Accordion.Body>
+            </>
+          )}
+        </Accordion.Item>
+      </>
+    ),
+  },
+};
+
+export const MultipleExpanded: Story = {
+  argTypes: {
+    children: {
+      control: false,
+    },
+  },
+  args: {
+    multipleExpanded: true,
+    appearance: "border",
+    children: (
+      <>
+        <Accordion.Item value="1">
+          {({ open }) => (
+            <>
+              <Accordion.Header rightSlot={open ? <FiMinus /> : <FiPlus />}>
+                Item 1
+              </Accordion.Header>
+              <Accordion.Body>
+                <Text>Body for Item 1</Text>
+              </Accordion.Body>
+            </>
+          )}
+        </Accordion.Item>
+        <Separator />
+        <Accordion.Item value="2">
           {({ open }) => (
             <>
               <Accordion.Header rightSlot={open ? <FiMinus /> : <FiPlus />}>

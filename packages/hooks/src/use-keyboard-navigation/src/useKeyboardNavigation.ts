@@ -165,6 +165,7 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
     let selectedIndex = items.findIndex(
       (item) =>
         item.getAttribute("aria-selected") === "true" ||
+        item.getAttribute("aria-pressed") === "true" ||
         item.getAttribute("aria-checked") === "true",
     );
 
