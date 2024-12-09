@@ -338,7 +338,7 @@ export const ShareSettings = {
         <Card>
           <Card.Header>
             <Stack items="center" gap="md">
-              <Avatar name="Acme" size="xl" appearance="square" />
+              <Avatar name="Acme" size="xl" shape="square" />
               <Stack direction="column" gap="xxs">
                 <Text as="h5">Share Settings</Text>
                 <Text size="sm" skin="neutral">
@@ -675,45 +675,49 @@ export const NewMessage = {
           <Separator />
           <Card.Body>
             <ListBox>
-              {filterTeam.length > 0 ? (
-                <>
-                  {filterTeam.map(({ id, name, email }) => (
-                    <ListBox.Item
-                      key={id}
-                      onClick={() => {
-                        setSelected((prev) => {
-                          const exists = prev.some((curr) => curr === id);
+              <Group direction="column" gap="xxs" fullWidth>
+                {filterTeam.length > 0 ? (
+                  <>
+                    {filterTeam.map(({ id, name, email }) => (
+                      <ListBox.Item
+                        key={id}
+                        as="button"
+                        tabIndex={selected.includes(id) ? 0 : -1}
+                        onClick={() => {
+                          setSelected((prev) => {
+                            const exists = prev.some((curr) => curr === id);
 
-                          if (exists) {
-                            return prev.filter((curr) => curr !== id);
-                          }
+                            if (exists) {
+                              return prev.filter((curr) => curr !== id);
+                            }
 
-                          return [...prev, id];
-                        });
-                      }}
-                      rightSlot={selected.includes(id) ? <MdCheck /> : ""}
-                    >
-                      <Box padding={{ block: "sm" }}>
-                        <Stack gap="lg" items="center">
-                          <Avatar name={name} />
-                          <Stack direction="column" gap="xs">
-                            <Text weight="medium">{name}</Text>
-                            <Text size="xs" skin="neutral">
-                              {email}
-                            </Text>
+                            return [...prev, id];
+                          });
+                        }}
+                        rightSlot={selected.includes(id) ? <MdCheck /> : ""}
+                      >
+                        <Box padding={{ block: "sm" }}>
+                          <Stack gap="lg" items="center">
+                            <Avatar name={name} />
+                            <Stack direction="column" gap="xs">
+                              <Text weight="medium">{name}</Text>
+                              <Text size="xs" skin="neutral">
+                                {email}
+                              </Text>
+                            </Stack>
                           </Stack>
-                        </Stack>
-                      </Box>
-                    </ListBox.Item>
-                  ))}
-                </>
-              ) : (
-                <Box padding={{ block: "4xl" }}>
-                  <Text alignment="center" skin="neutral-faded">
-                    No users found.
-                  </Text>
-                </Box>
-              )}
+                        </Box>
+                      </ListBox.Item>
+                    ))}
+                  </>
+                ) : (
+                  <Box padding={{ block: "4xl" }}>
+                    <Text alignment="center" skin="neutral-faded">
+                      No users found.
+                    </Text>
+                  </Box>
+                )}
+              </Group>
             </ListBox>
           </Card.Body>
           <Separator />
@@ -724,7 +728,7 @@ export const NewMessage = {
                   {team
                     .filter(({ id }) => selected.includes(id))
                     .map(({ id, name }) => (
-                      <Avatar key={id} name={name} size="sm" />
+                      <Avatar key={id} skin="neutral-faded" appearance="filled" name={name} size="sm" />
                     ))}
                 </Avatar.Group>
               </Stack>

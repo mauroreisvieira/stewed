@@ -1352,7 +1352,7 @@ export const SidePanel = {
           <Drawer.Header>
             <Stack direction="column" gap="4xl">
               <Stack gap="lg" items="center" grow>
-                <Avatar name="Stewed Board" skin="primary" appearance="square" />
+                <Avatar name="Stewed Board" skin="primary" shape="square" />
                 <Text skin="primary" size="lg" weight="medium">
                   Stewed UI Kit
                 </Text>
@@ -1627,7 +1627,7 @@ export const AddStaff = {
         {selectedStep === "2" && (
           <Box space={{ y: "2xl" }}>
             <Stack direction="column" gap="md">
-              <Accordion appearance="border" multipleExpanded>
+              <Accordion appearance="border-row" multipleExpanded>
                 <Accordion.Item value="1" defaultOpen>
                   {({ open }) => (
                     <>
@@ -1652,7 +1652,7 @@ export const AddStaff = {
                     </>
                   )}
                 </Accordion.Item>
-                <Separator />
+
                 <Accordion.Item value="2" defaultOpen>
                   {({ open }) => (
                     <>

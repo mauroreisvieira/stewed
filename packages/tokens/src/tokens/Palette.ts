@@ -3,7 +3,7 @@ export const palette = {
   "slate-100": "color-mix(in oklab, var(--color-slate-500) 5%, white)",
   "slate-200": "color-mix(in oklab, var(--color-slate-500) 10%, white)",
   "slate-300": "color-mix(in oklab, var(--color-slate-500) 20%, white)",
-  "slate-400": "color-mix(in oklab, var(--color-slate-500) 30%, white)",
+  "slate-400": "color-mix(in oklab, var(--color-slate-500) 50%, white)",
   "slate-500": "#64748b",
   "slate-600": "color-mix(in oklab, var(--color-slate-500) 90%, black)",
   "slate-700": "color-mix(in oklab, var(--color-slate-500) 80%, black)",

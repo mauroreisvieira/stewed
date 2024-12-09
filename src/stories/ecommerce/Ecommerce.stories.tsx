@@ -185,7 +185,7 @@ export const QuickViews = {
                         >
                           <Text weight="medium">Fabric & Fit</Text>
                         </Accordion.Header>
-                        <Separator />
+
                         <Accordion.Body>
                           <List>
                             <List.Item>
@@ -213,7 +213,6 @@ export const QuickViews = {
                       </>
                     )}
                   </Accordion.Item>
-                  <Separator />
 
                   <Accordion.Item value="2">
                     {({ open }) => (
@@ -223,7 +222,6 @@ export const QuickViews = {
                         >
                           <Text weight="medium">Care Guide</Text>
                         </Accordion.Header>
-                        <Separator />
                         <Accordion.Body>
                           <List>
                             <List.Item>
@@ -251,7 +249,6 @@ export const QuickViews = {
                       </>
                     )}
                   </Accordion.Item>
-                  <Separator />
 
                   <Accordion.Item value="3">
                     {({ open }) => (
@@ -261,7 +258,7 @@ export const QuickViews = {
                         >
                           <Text weight="medium">Size Guide</Text>
                         </Accordion.Header>
-                        <Separator />
+
                         <Accordion.Body>
                           <List>
                             <List.Item>

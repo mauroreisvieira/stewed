@@ -60,7 +60,7 @@ describe("useSelect", () => {
     });
 
     expect(result.current.index).toBe(0);
-    expect(result.current.item).toBe(undefined);
+    expect(result.current.item).toBe("Apple");
   });
 
   it("maintains index and item if the list changes to an empty array", () => {

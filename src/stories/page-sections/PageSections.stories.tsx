@@ -284,7 +284,7 @@ export const FAQ = {
                     </>
                   )}
                 </Accordion.Item>
-                <Separator />
+
                 <Accordion.Item value="2" defaultOpen>
                   {({ open }) => (
                     <>
@@ -301,7 +301,7 @@ export const FAQ = {
                     </>
                   )}
                 </Accordion.Item>
-                <Separator />
+
                 <Accordion.Item value="3">
                   {({ open }) => (
                     <>

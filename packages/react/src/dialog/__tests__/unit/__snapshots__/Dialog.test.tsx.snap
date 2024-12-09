@@ -2,7 +2,7 @@
 
 exports[`Dialog Snapshots should applies correct size classes 1`] = `
 <div
-  class="dialog dialog--xl dialog--open dialog--safe-margin-xl"
+  class="dialog dialog--xl dialog--open dialog--safe-margin-xl dialog--padding-block-xl dialog--padding-inline-xl"
 >
   <div
     aria-modal="true"
@@ -35,7 +35,7 @@ exports[`Dialog Snapshots should applies correct size classes 1`] = `
 
 exports[`Dialog Snapshots should render additional classes 1`] = `
 <div
-  class="dialog dialog--md dialog--open dialog--safe-margin-xl other-class"
+  class="dialog dialog--md dialog--open dialog--safe-margin-xl dialog--padding-block-xl dialog--padding-inline-xl other-class"
 >
   <div
     aria-modal="true"
@@ -68,7 +68,7 @@ exports[`Dialog Snapshots should render additional classes 1`] = `
 
 exports[`Dialog Snapshots should renders close button component 1`] = `
 <div
-  class="dialog dialog--md dialog--open dialog--safe-margin-xl"
+  class="dialog dialog--md dialog--open dialog--safe-margin-xl dialog--padding-block-xl dialog--padding-inline-xl"
 >
   <div
     aria-modal="true"
@@ -118,7 +118,7 @@ exports[`Dialog Snapshots should renders close button component 1`] = `
 
 exports[`Dialog Snapshots should renders default component 1`] = `
 <div
-  class="dialog dialog--md dialog--open dialog--safe-margin-xl"
+  class="dialog dialog--md dialog--open dialog--safe-margin-xl dialog--padding-block-xl dialog--padding-inline-xl"
 >
   <div
     aria-modal="true"

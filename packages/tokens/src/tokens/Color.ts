@@ -28,7 +28,7 @@ export const skin = {
   "neutral-background-pressed": palette["slate-700"],
   "neutral-border": "var(--color-slate-500)",
   "neutral-border-faded": palette["slate-300"],
-  "neutral-foreground": "var(--color-slate-600)",
+  "neutral-foreground": "var(--color-slate-500)",
   "neutral-foreground-faded": palette["slate-400"],
   "neutral-foreground-on-background": "#fff",
   // Critical ------------------------------------------------------------------

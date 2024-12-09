@@ -225,11 +225,13 @@ export function Actions(): React.ReactElement {
             )}
             placement="bottom-end"
           >
-            <ListBox>
-              <ListBox.Item>Mark as unread</ListBox.Item>
-              <ListBox.Item>Star thread</ListBox.Item>
-              <ListBox.Item>Mute thread</ListBox.Item>
-            </ListBox>
+            <Box padding={{ inline: "xs", block: "xs" }}>
+              <ListBox>
+                <ListBox.Item>Mark as unread</ListBox.Item>
+                <ListBox.Item>Star thread</ListBox.Item>
+                <ListBox.Item>Mute thread</ListBox.Item>
+              </ListBox>
+            </Box>
           </Dropdown>
         </Stack>
       </Stack>
