@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, use } from "react";
 // Types
 import type { AlertProps } from "../../../";
 
@@ -45,4 +45,4 @@ export const SnackbarContext = createContext<SnackbarContextProps>({
   remove: definitionError,
 });
 
-export const useSnackbar = (): SnackbarContextProps => useContext(SnackbarContext);
+export const useSnackbar = (): SnackbarContextProps => use(SnackbarContext);

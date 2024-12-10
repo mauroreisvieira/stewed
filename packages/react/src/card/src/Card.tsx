@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React from "react";
 // Context
 import { CardContext, type CardContextProps } from "./CardContext";
 // Compound Component
@@ -52,52 +52,46 @@ export interface CardProps extends CardContextProps, React.ComponentPropsWithRef
  * @param {CardProps} props - The props for the Card component.
  * @returns {React.ReactElement} - The rendered Card component.
  */
-const Root = forwardRef(
-  (
-    {
-      direction = "column",
-      shadow = "sm",
-      padding = {
-        block: "xl",
-        inline: "xl",
-      },
-      className,
-      children,
-      ...props
-    }: CardProps,
-    ref: React.Ref<HTMLDivElement>,
-  ): React.ReactElement => {
-    // Importing useBem to handle BEM class names
-    const { getBlock } = useBem({ block: components.Card, styles });
-
-    // Generating CSS classes based on component props and styles
-    const cssClasses = {
-      root: getBlock({
-        modifiers: [
-          direction,
-          padding?.block && `padding-block-${padding.block}`,
-          padding?.inline && `padding-inline-${padding.inline}`,
-          shadow && `shadow-${shadow}`,
-        ],
-        extraClasses: className,
-      }),
-    };
-
-    return (
-      <CardContext.Provider value={{ direction }}>
-        <div ref={ref} className={cssClasses.root} {...props}>
-          {children}
-        </div>
-      </CardContext.Provider>
-    );
+export function Card({
+  ref,
+  direction = "column",
+  shadow = "sm",
+  padding = {
+    block: "xl",
+    inline: "xl",
   },
-);
+  className,
+  children,
+  ...props
+}: CardProps): React.ReactElement {
+  // Importing useBem to handle BEM class names
+  const { getBlock } = useBem({ block: components.Card, styles });
+
+  // Generating CSS classes based on component props and styles
+  const cssClasses = {
+    root: getBlock({
+      modifiers: [
+        direction,
+        padding?.block && `padding-block-${padding.block}`,
+        padding?.inline && `padding-inline-${padding.inline}`,
+        shadow && `shadow-${shadow}`,
+      ],
+      extraClasses: className,
+    }),
+  };
+
+  return (
+    <CardContext value={{ direction }}>
+      <div ref={ref} className={cssClasses.root} {...props}>
+        {children}
+      </div>
+    </CardContext>
+  );
+}
 
 // Compound component composition
-export const Card = Object.assign(Root, {
-  Body: CardBody,
-  Media: CardMedia,
-  Header: CardHeader,
-  Footer: CardFooter,
-  Separator: CardSeparator,
-});
+Card.Body = CardBody;
+Card.Media = CardMedia;
+Card.Header = CardHeader;
+Card.Footer = CardFooter;
+Card.Separator = CardSeparator;

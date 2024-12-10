@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 
 interface UseIntersectionObserverProps<T> extends IntersectionObserverInit {
   /** A reference to the DOM element to observe. Typically created using `useRef`. */
-  elementRef: React.RefObject<T>;
+  elementRef: React.RefObject<T | null>;
   /**
    * A boolean indicating whether the intersection observer is enabled.
    * @default `true`

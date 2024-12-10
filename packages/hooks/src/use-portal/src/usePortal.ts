@@ -12,7 +12,7 @@ import { useEffect, useRef } from "react";
  * ```
  */
 export const usePortal = (): HTMLElement => {
-  const rootElemRef = useRef<HTMLElement>();
+  const rootElemRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     // add the detached element to body, to work in different micro services in same app.

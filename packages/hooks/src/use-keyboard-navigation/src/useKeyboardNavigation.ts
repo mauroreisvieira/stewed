@@ -27,7 +27,7 @@ interface UseKeyboardNavigation<T> {
    * Reference to the DOM element used for navigation.
    * This ref should be attached to the container element that holds the navigable items.
    */
-  ref: React.RefObject<T>;
+  ref: React.RefObject<T | null>;
   /**
    * Event handler function to navigate through keyboard interactions.
    * This function should be called within the `onKeyDown` event handler of the container element.

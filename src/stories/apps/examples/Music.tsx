@@ -95,7 +95,6 @@ function Header(): React.ReactElement {
                     <Box skin="neutral-faded" radius="sm" fullWidth>
                       <TextField
                         onFocus={() => open()}
-                        onBlur={() => close()}
                         rootRef={inputSearchRef}
                         list="recent-search"
                         appearance="soft"
@@ -131,6 +130,8 @@ function Header(): React.ReactElement {
                               <Hoverable key={index}>
                                 {({ isHovering, isTouch }) => (
                                   <ListBox.Item
+                                    as="a"
+                                    href="/"
                                     leftSlot={<RiHistoryLine />}
                                     rightSlot={
                                       isHovering || isTouch ? (

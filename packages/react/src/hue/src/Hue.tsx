@@ -10,6 +10,13 @@ import { type Range } from "../..";
 // Styles
 import styles from "./styles/index.module.scss";
 
+interface ChildProps {
+  /** Additional class name(s) to apply to the child element. */
+  className?: string;
+  /** Additional styles to apply to the child element. */
+  style?: React.CSSProperties;
+}
+
 export interface HueProps {
   /** Determines the background style or gradient colors. */
   skin?:
@@ -71,8 +78,12 @@ export function Hue({ degree = 90, skin, clipText, children }: HueProps): React.
   };
 
   // Cloning the child element to inject `className`
-  return React.cloneElement(children, {
-    style: { ...computedStyles, ...children.props.styes },
-    className: classNames(children.props.className, cssClasses.root),
-  });
+  if (React.isValidElement<ChildProps>(children)) {
+    return React.cloneElement(children, {
+      style: { ...computedStyles, ...children.props.style },
+      className: classNames(children.props.className, cssClasses.root),
+    });
+  }
+  // If `children` is not a valid React element, handle it appropriately
+  return children;
 }

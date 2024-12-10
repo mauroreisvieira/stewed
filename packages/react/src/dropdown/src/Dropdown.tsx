@@ -24,7 +24,7 @@ import styles from "./styles/index.module.scss";
 
 export interface DropdownRenderProps<T> {
   /** Ref to attach to the `Dropdown` element */
-  ref: React.RefObject<T>;
+  ref: React.RefObject<T | null>;
   /**
    * A function that allows multiple refs to be merged into a single callback ref.
    * This is useful when you need to attach multiple refs to the same element.
@@ -89,7 +89,7 @@ export interface DropdownProps<T>
  * @param {DropdownProps} props - The props for the Dropdown component.
  * @returns {React.ReactElement} - The rendered Dropdown component.
  */
-function Root<T extends HTMLElement>({
+export function Dropdown<T extends HTMLElement>({
   placement = "bottom-start",
   className,
   style,
@@ -258,7 +258,5 @@ function Root<T extends HTMLElement>({
 }
 
 // Compound component composition
-export const Dropdown = Object.assign(Root, {
-  Button: DropdownButton,
-  Scrollable: DropdownScrollable,
-});
+Dropdown.Button = DropdownButton;
+Dropdown.Scrollable = DropdownScrollable;

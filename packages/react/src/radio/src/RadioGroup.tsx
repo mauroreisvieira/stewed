@@ -9,7 +9,7 @@ import { useBem } from "@stewed/hooks";
 import styles from "./styles/index.module.scss";
 
 export interface RadioGroupProps
-  extends React.ComponentPropsWithoutRef<"div">,
+  extends React.ComponentPropsWithRef<"div">,
     RadioGroupContextProps {
   /**
    * Specifies the orientation of the radio group.
@@ -59,9 +59,9 @@ export function RadioGroup({
 
   return (
     <div className={cssClasses.root} {...props}>
-      <RadioGroupContext.Provider value={{ name, checkedValue, onCheckedChange }}>
+      <RadioGroupContext value={{ name, checkedValue, onCheckedChange }}>
         {children}
-      </RadioGroupContext.Provider>
+      </RadioGroupContext>
     </div>
   );
 }

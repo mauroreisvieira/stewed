@@ -28,7 +28,7 @@ interface NavigationButtonProps {
 }
 
 export interface CarouselProps
-  extends React.ComponentPropsWithRef<"div">,
+  extends React.ComponentPropsWithoutRef<"div">,
     UseResponsiveProps<{
       /**
        * The gap between box children's.

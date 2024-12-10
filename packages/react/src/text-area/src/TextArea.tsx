@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React from "react";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
@@ -49,43 +49,38 @@ export interface TextAreaProps extends React.ComponentPropsWithRef<"textarea"> {
  * @param {TextAreaProps} props - The props for the TextArea component.
  * @returns {React.ReactElement} - The rendered TextArea component.
  */
-export const TextArea = forwardRef(
-  (
-    {
-      skin = "neutral",
-      appearance = "outline",
-      className,
-      disabled,
-      fullWidth = true,
-      resize = "both",
-      autoHeight,
-      children,
-      ...props
-    }: TextAreaProps,
-    ref: React.Ref<HTMLTextAreaElement>,
-  ): React.ReactElement => {
-    // Importing useBem to handle BEM class names
-    const { getBlock } = useBem({ block: components.TextArea, styles });
+export function TextArea({
+  skin = "neutral",
+  appearance = "outline",
+  className,
+  disabled,
+  fullWidth = true,
+  resize = "both",
+  autoHeight,
+  children,
+  ...props
+}: TextAreaProps): React.ReactElement {
+  // Importing useBem to handle BEM class names
+  const { getBlock } = useBem({ block: components.TextArea, styles });
 
-    // Generating CSS classes based on component props and styles
-    const cssClasses = {
-      root: getBlock({
-        modifiers: [
-          disabled && "disabled",
-          fullWidth && "full-width",
-          autoHeight && "auto-height",
-          resize && `resize-${resize}`,
-          appearance,
-          skin,
-        ],
-        extraClasses: className,
-      }),
-    };
+  // Generating CSS classes based on component props and styles
+  const cssClasses = {
+    root: getBlock({
+      modifiers: [
+        disabled && "disabled",
+        fullWidth && "full-width",
+        autoHeight && "auto-height",
+        resize && `resize-${resize}`,
+        appearance,
+        skin,
+      ],
+      extraClasses: className,
+    }),
+  };
 
-    return (
-      <textarea ref={ref} className={cssClasses.root} disabled={disabled} {...props}>
-        {children}
-      </textarea>
-    );
-  },
-);
+  return (
+    <textarea className={cssClasses.root} disabled={disabled} {...props}>
+      {children}
+    </textarea>
+  );
+}

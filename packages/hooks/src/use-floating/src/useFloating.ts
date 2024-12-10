@@ -62,7 +62,7 @@ interface UseFloatingProps<R extends HTMLElement> extends Pick<FloatingOptions, 
 
 interface UseFloating<T> extends FloatingOptions {
   /** The reference to attach to the floating element. */
-  floating: React.RefObject<T>;
+  floating: React.RefObject<T | null>;
   /** The x-coordinate of the floating element. */
   x: number;
   /** The y-coordinate of the floating element. */

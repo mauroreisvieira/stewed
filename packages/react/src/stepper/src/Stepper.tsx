@@ -64,7 +64,7 @@ export function Stepper({
 
   return (
     <div className={cssClasses.root} {...props}>
-      <StepperContext.Provider value={{ selectedValue, steps }}>
+      <StepperContext value={{ selectedValue, steps }}>
         {childArray.map((child, index) => (
           <React.Fragment key={child.props.value}>
             {child}
@@ -73,7 +73,7 @@ export function Stepper({
             )}
           </React.Fragment>
         ))}
-      </StepperContext.Provider>
+      </StepperContext>
     </div>
   );
 }

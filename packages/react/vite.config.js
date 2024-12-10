@@ -4,11 +4,11 @@ import { resolve } from "path";
 // Plugins
 import dts from "vite-plugin-dts";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
-import react from "@vitejs/plugin-react";
+import react from "@vitejs/plugin-react-swc";
 import { libInjectCss } from "vite-plugin-lib-inject-css";
 
 const ReactCompilerConfig = {
-  target: "18", // '17' | '18' | '19'
+  target: "19", // '17' | '18' | '19'
 };
 
 export default defineConfig({

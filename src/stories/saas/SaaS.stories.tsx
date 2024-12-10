@@ -1325,15 +1325,27 @@ export const Kanban = {
             <Box padding={{ block: "md" }}>
               <ListBox>
                 <ListBox.Group title="Quick start">
-                  <ListBox.Item leftSlot={<LuClipboard />}>New board</ListBox.Item>
-                  <ListBox.Item leftSlot={<LuColumns2 />}>New block</ListBox.Item>
-                  <ListBox.Item leftSlot={<FiUserPlus />}>Add new member</ListBox.Item>
+                  <ListBox.Item as="button" leftSlot={<LuClipboard />}>
+                    New board
+                  </ListBox.Item>
+                  <ListBox.Item as="button" leftSlot={<LuColumns2 />}>
+                    New block
+                  </ListBox.Item>
+                  <ListBox.Item as="button" leftSlot={<FiUserPlus />}>
+                    Add new member
+                  </ListBox.Item>
                 </ListBox.Group>
                 <ListBox.Separator />
                 <ListBox.Group title="Navigation">
-                  <ListBox.Item leftSlot={<TfiArrowTopRight />}>Go to dashboard</ListBox.Item>
-                  <ListBox.Item leftSlot={<TfiArrowTopRight />}>Go to status board</ListBox.Item>
-                  <ListBox.Item leftSlot={<TfiArrowTopRight />}>Go to roadmap</ListBox.Item>
+                  <ListBox.Item as="a" href="/" leftSlot={<TfiArrowTopRight />}>
+                    Go to dashboard
+                  </ListBox.Item>
+                  <ListBox.Item as="a" href="/" leftSlot={<TfiArrowTopRight />}>
+                    Go to status board
+                  </ListBox.Item>
+                  <ListBox.Item as="a" href="/" leftSlot={<TfiArrowTopRight />}>
+                    Go to roadmap
+                  </ListBox.Item>
                 </ListBox.Group>
               </ListBox>
             </Box>

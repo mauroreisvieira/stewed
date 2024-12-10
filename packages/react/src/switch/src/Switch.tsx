@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React from "react";
 // Components
 import { Spinner } from "../../spinner";
 // Hooks
@@ -44,75 +44,64 @@ export interface SwitchProps
  * @param {SwitchProps} props - The props for the Switch component.
  * @returns {React.ReactElement} - The rendered Switch component.
  */
-export const Switch = forwardRef(
-  (
+export function Switch({
+  skin = "primary",
+  size = "md",
+  reversed,
+  loading,
+  disabled,
+  children,
+  className,
+  ...props
+}: SwitchProps): React.ReactElement {
+  // Importing useBem to handle BEM class names
+  const { getBlock, getElement } = useBem({ block: components.Switch, styles });
+
+  // Retrieve values from the current theme context
+  const { activeToken } = useTheme();
+
+  // Compute responsive props based on current theme and screen sizes
+  const computedProps = useResponsive(
     {
-      skin = "primary",
-      size = "md",
-      reversed,
-      loading,
-      disabled,
-      children,
-      className,
-      ...props
-    }: SwitchProps,
-    ref: React.Ref<HTMLInputElement>,
-  ): React.ReactElement => {
-    // Importing useBem to handle BEM class names
-    const { getBlock, getElement } = useBem({ block: components.Switch, styles });
+      size,
+    },
+    activeToken.breakpoints,
+  );
 
-    // Retrieve values from the current theme context
-    const { activeToken } = useTheme();
+  // Generating CSS classes based on component props and styles
+  const cssClasses = {
+    root: getBlock({
+      modifiers: [
+        skin,
+        computedProps.size,
+        disabled && "disabled",
+        loading && "loading",
+        reversed && "reversed",
+      ],
+      extraClasses: className,
+    }),
+    input: getElement(["input"]),
+    control: getElement(["control"]),
+    thumb: getElement(["thumb"]),
+    text: getElement(["text"]),
+    spinner: getElement(["spinner"]),
+  };
 
-    // Compute responsive props based on current theme and screen sizes
-    const computedProps = useResponsive(
-      {
-        size,
-      },
-      activeToken.breakpoints,
-    );
-
-    // Generating CSS classes based on component props and styles
-    const cssClasses = {
-      root: getBlock({
-        modifiers: [
-          skin,
-          computedProps.size,
-          disabled && "disabled",
-          loading && "loading",
-          reversed && "reversed",
-        ],
-        extraClasses: className,
-      }),
-      input: getElement(["input"]),
-      control: getElement(["control"]),
-      thumb: getElement(["thumb"]),
-      text: getElement(["text"]),
-      spinner: getElement(["spinner"]),
-    };
-
-    return (
-      <label className={cssClasses.root}>
-        <input
-          ref={ref}
-          type="checkbox"
-          disabled={disabled}
-          className={cssClasses.input}
-          {...props}
-        />
-        <span className={cssClasses.control}>
-          <span className={cssClasses.thumb}>
-            {loading && (
-              <Spinner
-                className={cssClasses.spinner}
-                skin="default"
-                size={size === "sm" ? "xxs" : size === "md" ? "xs" : "sm"}
-              />
-            )}
-          </span>
+  return (
+    <label className={cssClasses.root}>
+      <input type="checkbox" disabled={disabled} className={cssClasses.input} {...props} />
+      <span className={cssClasses.control}>
+        <span className={cssClasses.thumb}>
+          {loading && (
+            <Spinner
+              className={cssClasses.spinner}
+              skin="default"
+              size={size === "sm" ? "xxs" : size === "md" ? "xs" : "sm"}
+            />
+          )}
         </span>
-        {children && <span className={cssClasses.text}>{children}</span>}
-      </label>
-    );
-  },
-);
+      </span>
+      {children && <span className={cssClasses.text}>{children}</span>}
+    </label>
+  );
+}

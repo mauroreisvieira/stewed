@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // UI Components
-import { Theme, Accordion, Text, Avatar } from "../../index";
+import { Theme, Accordion, Text } from "../../index";
 // Icons
 import { FiPlus, FiMinus, FiChevronDown, FiChevronUp } from "react-icons/fi";
 

@@ -11,8 +11,8 @@ import { useEffect, useRef } from "react";
  * @param value The current value to track.
  * @returns The previous value.
  */
-export function usePrevious<T>(value: T): T | undefined {
-  const ref = useRef<T>();
+export function usePrevious<T>(value: T): T | null {
+  const ref = useRef<T>(null);
 
   useEffect(() => {
     ref.current = value;

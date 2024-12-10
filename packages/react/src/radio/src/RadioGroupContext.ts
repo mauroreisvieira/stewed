@@ -1,4 +1,4 @@
-import { useContext, createContext } from "react";
+import { use, createContext } from "react";
 
 /**
  * Dummy function to throw an error when radio is not provided by a RadioGroup.
@@ -57,5 +57,5 @@ export const RadioGroupContext = createRadioGroupContext();
  * @returns RadioGroup context value.
  */
 export function useRadioGroup() {
-  return useContext(RadioGroupContext);
+  return use(RadioGroupContext);
 }

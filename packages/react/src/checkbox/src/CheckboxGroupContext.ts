@@ -1,7 +1,7 @@
-import { useContext, createContext } from "react";
+import { use, createContext } from "react";
 
 /**
- * Dummy function to throw an error when checkbox is not provided by a CheckboxGroup.
+ * Dummy function to throw an error when checkbox is not provided by a Checkbox Group.
  *
  * @returns Always throws an error.
  */
@@ -54,5 +54,5 @@ export const CheckboxGroupContext = createCheckboxGroupContext();
  * @returns CheckboxGroup context value.
  */
 export function useCheckboxGroup() {
-  return useContext(CheckboxGroupContext);
+  return use(CheckboxGroupContext);
 }

@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+// Utilities
 import { ClickOutside, type ClickOutsideOptions } from "@stewed/utilities";
 
 export interface UseClickOutside extends ClickOutsideOptions {
@@ -16,7 +17,7 @@ export const useClickOutside = ({
   ignoredElements,
   handler,
 }: UseClickOutside): void => {
-  const clickOutside = useRef<ClickOutside>();
+  const clickOutside = useRef<ClickOutside>(null);
 
   useEffect(() => {
     clickOutside.current = new ClickOutside();

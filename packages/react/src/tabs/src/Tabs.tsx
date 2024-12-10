@@ -95,7 +95,7 @@ export function Tabs<T extends string>({
 
   return (
     <div className={cssClasses.root} {...props}>
-      <TabsContext.Provider
+      <TabsContext
         value={{
           value: value || selectedValue,
           setSelectedValue: setSelectedValue as (value: unknown) => void,
@@ -103,7 +103,7 @@ export function Tabs<T extends string>({
         }}
       >
         {children}
-      </TabsContext.Provider>
+      </TabsContext>
     </div>
   );
 }

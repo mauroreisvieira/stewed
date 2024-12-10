@@ -1,4 +1,4 @@
-import React, { useContext, createContext } from "react";
+import React, { use, createContext } from "react";
 
 /**
  * Dummy function to throw an error when tab is not provided by a TabsProvider.
@@ -57,5 +57,5 @@ export const TabsContext = createTabsContext();
  * @returns Tabs context values.
  */
 export function useTabs<T extends string>() {
-  return useContext(TabsContext as unknown as React.Context<TabsContextProps<T>>);
+  return use(TabsContext as unknown as React.Context<TabsContextProps<T>>);
 }

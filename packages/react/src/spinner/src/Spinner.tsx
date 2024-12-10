@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React from "react";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // UI Components
@@ -27,10 +27,12 @@ export interface SpinnerProps extends React.ComponentPropsWithRef<"div"> {
  * @param {SpinnerProps} props - The props for the Spinner component.
  * @returns {React.ReactElement} - The rendered Spinner component.
  */
-export const Spinner = forwardRef(function Root(
-  { skin = "primary", size = "2xl", className, ...props }: SpinnerProps,
-  ref: React.Ref<HTMLDivElement>,
-): React.ReactElement {
+export function Spinner({
+  skin = "primary",
+  size = "2xl",
+  className,
+  ...props
+}: SpinnerProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock, getElement } = useBem({ block: components.Spinner, styles });
 
@@ -41,8 +43,8 @@ export const Spinner = forwardRef(function Root(
   };
 
   return (
-    <div ref={ref} className={cssClasses.root} {...props}>
+    <div className={cssClasses.root} {...props}>
       <Icon.DotsScale className={cssClasses.svg} />
     </div>
   );
-});
+}

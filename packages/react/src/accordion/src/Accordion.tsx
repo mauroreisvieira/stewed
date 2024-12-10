@@ -88,7 +88,7 @@ export function Accordion({
   );
 
   return (
-    <AccordionContext.Provider value={{ multipleExpanded, onOpenChange, open, setOpen }}>
+    <AccordionContext value={{ multipleExpanded, onOpenChange, open, setOpen }}>
       <div
         ref={ref}
         role="group"
@@ -98,7 +98,7 @@ export function Accordion({
       >
         {children}
       </div>
-    </AccordionContext.Provider>
+    </AccordionContext>
   );
 }
 

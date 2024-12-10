@@ -164,7 +164,7 @@ export function Drawer({
           <Motion animation={open ? "fade-in" : "fade-out"}>
             <Backdrop blur={blur} />
           </Motion>
-          <DrawerContext.Provider value={{ onClose }}>
+          <DrawerContext value={{ onClose }}>
             <div className={cssClasses.root} {...props}>
               <Motion
                 animation={open ? `slide-in-${placement}` : `slide-out-${placement}`}
@@ -181,7 +181,7 @@ export function Drawer({
                 </div>
               </Motion>
             </div>
-          </DrawerContext.Provider>
+          </DrawerContext>
         </Scope>
       )}
     </>

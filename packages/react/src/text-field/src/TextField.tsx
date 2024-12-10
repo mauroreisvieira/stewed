@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React from "react";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
@@ -7,7 +7,7 @@ import { components } from "@stewed/tokens";
 import styles from "./styles/index.module.scss";
 
 export interface TextFieldProps extends Omit<React.ComponentPropsWithRef<"input">, "size"> {
-  /** The ref to attach to the root `div` element. */
+  /** The ref to attach to the root wrapper `div` element. */
   rootRef?: React.Ref<HTMLDivElement>;
   /**
    * Change the visual appearance of the text field.
@@ -53,58 +53,46 @@ export interface TextFieldProps extends Omit<React.ComponentPropsWithRef<"input"
  * @param {TextFieldProps} props - The props for the TextField component.
  * @returns {React.ReactElement} - The rendered TextField component.
  */
+export function TextField({
+  rootRef,
+  skin = "neutral",
+  appearance = "outline",
+  size = "md",
+  alignment,
+  maxChars,
+  className,
+  disabled,
+  fullWidth = true,
+  leftSlot,
+  rightSlot,
+  ...props
+}: TextFieldProps): React.ReactElement {
+  // Importing useBem to handle BEM class names
+  const { getBlock, getElement } = useBem({ block: components.TextField, styles });
 
-export const TextField = forwardRef(
-  (
-    {
-      rootRef,
-      skin = "neutral",
-      appearance = "outline",
-      size = "md",
-      alignment,
-      maxChars,
-      className,
-      disabled,
-      fullWidth = true,
-      leftSlot,
-      rightSlot,
-      ...props
-    }: TextFieldProps,
-    ref: React.ForwardedRef<HTMLInputElement>,
-  ): React.ReactElement => {
-    // Importing useBem to handle BEM class names
-    const { getBlock, getElement } = useBem({ block: components.TextField, styles });
+  // Generating CSS classes based on component props and styles
+  const cssClasses = {
+    root: getBlock({
+      modifiers: [
+        disabled && "disabled",
+        fullWidth && "full-width",
+        size,
+        alignment,
+        appearance,
+        skin,
+      ],
+      extraClasses: className,
+    }),
+    input: getElement(["input"]),
+    left: getElement(["left"]),
+    right: getElement(["right"]),
+  };
 
-    // Generating CSS classes based on component props and styles
-    const cssClasses = {
-      root: getBlock({
-        modifiers: [
-          disabled && "disabled",
-          fullWidth && "full-width",
-          size,
-          alignment,
-          appearance,
-          skin,
-        ],
-        extraClasses: className,
-      }),
-      input: getElement(["input"]),
-      left: getElement(["left"]),
-      right: getElement(["right"]),
-    };
-
-    return (
-      <div ref={rootRef} className={cssClasses.root}>
-        {leftSlot && <span className={cssClasses.left}>{leftSlot}</span>}
-        <input
-          ref={ref}
-          className={cssClasses.input}
-          size={maxChars}
-          disabled={disabled}
-          {...props}
-        />
-        {rightSlot && <span className={cssClasses.right}>{rightSlot}</span>}
-      </div>
-    );
-  },
-);
+  return (
+    <div ref={rootRef} className={cssClasses.root}>
+      {leftSlot && <span className={cssClasses.left}>{leftSlot}</span>}
+      <input className={cssClasses.input} size={maxChars} disabled={disabled} {...props} />
+      {rightSlot && <span className={cssClasses.right}>{rightSlot}</span>}
+    </div>
+  );
+}

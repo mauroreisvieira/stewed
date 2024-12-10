@@ -1,4 +1,4 @@
-import { useContext, createContext } from "react";
+import { use, createContext } from "react";
 
 interface Steps {
   /** The unique identifier or label for the step. */
@@ -31,7 +31,7 @@ function createStepperContext() {
  * Default context for managing Stepper.
  *
  * This context provides functionalities to manage Steppers across the application.
- * It includes default value and setters for Stepper-related operations.
+ * It includes default value and setters for stepper related operations.
  */
 export const StepperContext = createStepperContext();
 
@@ -41,5 +41,5 @@ export const StepperContext = createStepperContext();
  * @returns Stepper context value.
  */
 export function useStepper() {
-  return useContext(StepperContext);
+  return use(StepperContext);
 }

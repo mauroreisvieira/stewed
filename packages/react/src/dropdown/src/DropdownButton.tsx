@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React from "react";
 // UI Components
 import { Icon, Spinner } from "../..";
 // Hooks
@@ -30,19 +30,16 @@ export interface DropdownButtonProps extends React.ComponentPropsWithRef<"button
   loading?: boolean;
 }
 
-export const DropdownButton = forwardRef(function DropdownButton(
-  {
-    skin = "neutral",
-    size = "md",
-    leftSlot,
-    fullWidth,
-    loading,
-    className,
-    children,
-    ...props
-  }: DropdownButtonProps,
-  ref: React.Ref<HTMLButtonElement>,
-): React.ReactElement {
+export function DropdownButton({
+  skin = "neutral",
+  size = "md",
+  leftSlot,
+  fullWidth,
+  loading,
+  className,
+  children,
+  ...props
+}: DropdownButtonProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock, getElement } = useBem({ block: `${components.Dropdown}__button`, styles });
 
@@ -59,7 +56,7 @@ export const DropdownButton = forwardRef(function DropdownButton(
   };
 
   return (
-    <button ref={ref} className={cssClasses.root} aria-disabled={props.disabled} {...props}>
+    <button className={cssClasses.root} aria-disabled={props.disabled} {...props}>
       {leftSlot && <span className={cssClasses.left}>{leftSlot}</span>}
       <div className={cssClasses.content}>{children}</div>
       {loading ? (
@@ -69,4 +66,4 @@ export const DropdownButton = forwardRef(function DropdownButton(
       )}
     </button>
   );
-});
+}

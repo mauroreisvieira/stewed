@@ -87,7 +87,7 @@ export function Group({
     if (ref.current && focusOnSelected) {
       requestAnimationFrame(() => {
         setFirstElementFocusable();
-      })
+      });
     }
   }, [ref, setFirstElementFocusable, focusOnSelected]);
 

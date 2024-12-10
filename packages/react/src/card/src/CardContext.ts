@@ -1,4 +1,4 @@
-import { useContext, createContext } from "react";
+import { use, createContext } from "react";
 
 export interface CardContextProps {
   /**
@@ -36,5 +36,5 @@ export const CardContext = createCardContext();
  * @returns Card context values.
  */
 export function useCard() {
-  return useContext(CardContext);
+  return use(CardContext);
 }

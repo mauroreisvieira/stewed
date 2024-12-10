@@ -1,4 +1,5 @@
-import React, { useContext, createContext } from "react";
+import React, { use, createContext } from "react";
+// Types
 import type { Tokens } from "@stewed/tokens";
 
 /**
@@ -80,5 +81,5 @@ export const ThemeContext = createThemeContext<string>();
  * @returns Theme context values.
  */
 export function useTheme<T extends string>() {
-  return useContext(ThemeContext as React.Context<ThemeContextProps<T>>);
+  return use(ThemeContext as React.Context<ThemeContextProps<T>>);
 }

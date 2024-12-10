@@ -24,6 +24,15 @@ type TAnimation =
   | "slide-out-bottom"
   | "slide-out-left";
 
+interface ChildProps {
+  /** Additional class name(s) to apply to the child element. */
+  className?: string;
+  /** Callback triggered when a CSS transition on the element ends. */
+  onTransitionEnd?: () => void;
+  /** Callback triggered when a CSS animation on the element ends. */
+  onAnimationEnd?: () => void;
+}
+
 export interface MotionProps {
   /** The animation type. */
   animation?: TAnimation;
@@ -73,15 +82,20 @@ export function Motion({
   };
 
   // Cloning the child element to inject className and onTransitionEnd and onAnimationEnd
-  return React.cloneElement(children, {
-    className: classNames(cssClasses.root, children.props.className),
-    onTransitionEnd: () => {
-      children?.props?.onTransitionEnd?.();
-      onDone?.();
-    },
-    onAnimationEnd: () => {
-      children?.props?.onAnimationEnd?.();
-      onDone?.();
-    },
-  });
+  if (React.isValidElement<ChildProps>(children)) {
+    return React.cloneElement(children, {
+      className: classNames(cssClasses.root, children.props.className),
+      onTransitionEnd: () => {
+        children.props.onTransitionEnd?.();
+        onDone?.();
+      },
+      onAnimationEnd: () => {
+        children.props.onAnimationEnd?.();
+        onDone?.();
+      },
+    });
+  }
+
+  // If `children` is not a valid React element, handle it appropriately
+  return children;
 }

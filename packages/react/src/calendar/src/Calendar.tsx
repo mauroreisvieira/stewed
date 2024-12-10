@@ -159,7 +159,7 @@ export function Calendar<T>({
 
   return (
     <div className={cssClasses.root}>
-      <CalendarContext.Provider
+      <CalendarContext
         value={{
           locked,
           readOnly,
@@ -177,7 +177,7 @@ export function Calendar<T>({
         }}
       >
         {children}
-      </CalendarContext.Provider>
+      </CalendarContext>
     </div>
   );
 }

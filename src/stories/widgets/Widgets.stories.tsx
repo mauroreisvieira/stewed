@@ -309,17 +309,19 @@ export const Suggested = {
                   )}
                 >
                   {() => (
-                    <ListBox>
-                      <ListBox.Group title="Suggested list">
-                        <ListBox.Item>Future ideas</ListBox.Item>
-                        <ListBox.Item>My Stack</ListBox.Item>
-                        <ListBox.Item>Inspiration</ListBox.Item>
-                      </ListBox.Group>
-                      <Separator space={{ block: "none" }} />
-                      <ListBox.Group>
-                        <ListBox.Item leftSlot={<TbPlus />}>Create list</ListBox.Item>
-                      </ListBox.Group>
-                    </ListBox>
+                    <Box padding={{ inline: "sm", block: "sm" }}>
+                      <ListBox>
+                        <ListBox.Group title="Suggested list">
+                          <ListBox.Item>Future ideas</ListBox.Item>
+                          <ListBox.Item>My Stack</ListBox.Item>
+                          <ListBox.Item>Inspiration</ListBox.Item>
+                        </ListBox.Group>
+                        <Separator space={{ block: "none" }} />
+                        <ListBox.Group>
+                          <ListBox.Item leftSlot={<TbPlus />}>Create list</ListBox.Item>
+                        </ListBox.Group>
+                      </ListBox>
+                    </Box>
                   )}
                 </Dropdown>
               </Group>
@@ -728,7 +730,7 @@ export const NewMessage = {
                   {team
                     .filter(({ id }) => selected.includes(id))
                     .map(({ id, name }) => (
-                      <Avatar key={id} skin="neutral-faded" appearance="filled" name={name} size="sm" />
+                      <Avatar key={id} name={name} size="sm" />
                     ))}
                 </Avatar.Group>
               </Stack>

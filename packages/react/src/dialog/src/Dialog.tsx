@@ -177,7 +177,7 @@ export function Dialog({
           <Motion animation={open ? "fade-in" : "fade-out"}>
             <Backdrop blur={blur} />
           </Motion>
-          <DialogContext.Provider value={{ onClose }}>
+          <DialogContext value={{ onClose }}>
             <div className={cssClasses.root} {...props}>
               <Motion
                 timing="ease-out-back"
@@ -196,7 +196,7 @@ export function Dialog({
                 </div>
               </Motion>
             </div>
-          </DialogContext.Provider>
+          </DialogContext>
         </Scope>
       )}
     </>

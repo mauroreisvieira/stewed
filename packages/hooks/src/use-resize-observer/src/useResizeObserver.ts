@@ -2,7 +2,7 @@ import React, { useEffect, useCallback } from "react";
 
 interface UseResizeObserverProps<T> {
   /** A reference to the DOM element to observe. */
-  elementRef: React.RefObject<T>;
+  elementRef: React.RefObject<T | null>;
   /**
    * A boolean indicating whether the resize observer is enabled.
    * When set to `false`, the observer will not track size changes for the element.

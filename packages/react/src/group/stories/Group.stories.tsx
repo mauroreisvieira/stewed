@@ -28,18 +28,12 @@ export const Buttons: Story = {
         <Button skin="neutral" disabled>
           Button
         </Button>
-        <Button skin="neutral">
-          Button
-        </Button>
-        <Button skin="neutral">
-          Button
-        </Button>
+        <Button skin="neutral">Button</Button>
+        <Button skin="neutral">Button</Button>
         <Button skin="neutral" pressed={true}>
           Button
         </Button>
-        <Button skin="neutral">
-          Button
-        </Button>
+        <Button skin="neutral">Button</Button>
       </>
     ),
   },

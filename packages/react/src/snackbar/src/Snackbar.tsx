@@ -133,7 +133,7 @@ export function Snackbar({
   }, [placement]);
 
   return (
-    <SnackbarContext.Provider value={{ add, remove, notifications }}>
+    <SnackbarContext value={{ add, remove, notifications }}>
       {notifications.length > 0 && (
         <Scope elevation="notification" className={cssClasses.root} role="region">
           <div className={cssClasses.content} {...props}>
@@ -173,6 +173,6 @@ export function Snackbar({
         </Scope>
       )}
       {children}
-    </SnackbarContext.Provider>
+    </SnackbarContext>
   );
 }

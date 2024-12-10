@@ -54,7 +54,7 @@ export function Theme<T extends string>({
   }, [theme, tokens]);
 
   return (
-    <ThemeContext.Provider
+    <ThemeContext
       value={{
         cssScope,
         defaultTheme,
@@ -67,6 +67,6 @@ export function Theme<T extends string>({
     >
       {/* Root component to which the themed styles are applied */}
       <Root {...props} />
-    </ThemeContext.Provider>
+    </ThemeContext>
   );
 }

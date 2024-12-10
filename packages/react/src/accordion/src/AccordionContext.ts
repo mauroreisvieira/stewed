@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, use } from "react";
 
 const definitionError = (): null => {
   throw new Error('Please make sure "<Accordion>" component is wrapping your component.');
@@ -43,4 +43,4 @@ export const AccordionContext = createContext<AccordionContextProps>({
   onOpenChange: definitionError,
 });
 
-export const useAccordion = (): AccordionContextProps => useContext(AccordionContext);
+export const useAccordion = (): AccordionContextProps => use(AccordionContext);

@@ -20,7 +20,7 @@ import styles from "./styles/index.module.scss";
 
 export interface PopoverRenderProps<T> {
   /** Ref to attach to the `Popover` element */
-  ref: React.RefObject<T>;
+  ref: React.RefObject<T | null>;
   /**
    * A function that allows multiple refs to be merged into a single callback ref.
    * This is useful when you need to attach multiple refs to the same element.

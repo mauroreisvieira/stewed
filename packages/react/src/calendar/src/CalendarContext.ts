@@ -1,4 +1,4 @@
-import React, { useContext, createContext } from "react";
+import React, { use, createContext } from "react";
 // Types
 import type { DateOrArrayDates, DayOptions, UseCalendarProps } from "@hello-week/hooks";
 
@@ -117,5 +117,5 @@ export const CalendarContext = createCalendarContext();
  * @returns Calendar context values.
  */
 export function useCalendarContext<T>() {
-  return useContext(CalendarContext as unknown as React.Context<CalendarContextProps<T>>);
+  return use(CalendarContext as unknown as React.Context<CalendarContextProps<T>>);
 }

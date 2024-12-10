@@ -59,9 +59,9 @@ export function CheckboxGroup({
 
   return (
     <div className={cssClasses.root} {...props}>
-      <CheckboxGroupContext.Provider value={{ checkedValues, onCheckedChange }}>
+      <CheckboxGroupContext value={{ checkedValues, onCheckedChange }}>
         {children}
-      </CheckboxGroupContext.Provider>
+      </CheckboxGroupContext>
     </div>
   );
 }
