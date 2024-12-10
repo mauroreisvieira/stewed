@@ -124,36 +124,96 @@
   &--top-left {
     @include theme.define-var(
       (
-        inset: 0 auto auto 0,
         transform: translate(-50%, -50%),
       )
     );
+
+    &.#{$badge-root}--rectangular {
+      @include theme.define-var(
+        (
+          inset: 0 auto auto 0,
+        )
+      );
+    }
+
+    &.#{$badge-root}--circular {
+      @include theme.define-var(
+        (
+          inset: calc(theme.get-spacing("sm") * 0.5) auto auto calc(theme.get-spacing("sm") * 0.75),
+        )
+      );
+    }
   }
 
   &--top-right {
     @include theme.define-var(
       (
-        inset: 0 0 auto auto,
         transform: translate(50%, -50%),
       )
     );
+
+    &.#{$badge-root}--rectangular {
+      @include theme.define-var(
+        (
+          inset: 0 0 auto auto,
+        )
+      );
+    }
+
+    &.#{$badge-root}--circular {
+      @include theme.define-var(
+        (
+          inset: calc(theme.get-spacing("sm") * 0.5) calc(theme.get-spacing("sm") * 0.75) auto auto,
+        )
+      );
+    }
   }
 
   &--bottom-left {
     @include theme.define-var(
       (
-        inset: auto auto 0 0,
         transform: translate(-50%, 50%),
       )
     );
+
+    &.#{$badge-root}--rectangular {
+      @include theme.define-var(
+        (
+          inset: auto auto 0 0,
+        )
+      );
+    }
+
+    &.#{$badge-root}--circular {
+      @include theme.define-var(
+        (
+          inset: auto auto calc(theme.get-spacing("sm") * 0.5) calc(theme.get-spacing("sm") * 0.75),
+        )
+      );
+    }
   }
 
   &--bottom-right {
     @include theme.define-var(
       (
-        inset: auto 0 0 auto,
         transform: translate(50%, 50%),
       )
     );
+
+    &.#{$badge-root}--rectangular {
+      @include theme.define-var(
+        (
+          inset: auto 0 0 auto,
+        )
+      );
+    }
+
+    &.#{$badge-root}--circular {
+      @include theme.define-var(
+        (
+          inset: auto calc(theme.get-spacing("sm") * 0.75) calc(theme.get-spacing("sm") * 0.5) auto,
+        )
+      );
+    }
   }
 }

@@ -23,6 +23,11 @@ export interface BadgeProps extends React.ComponentPropsWithoutRef<"span"> {
    */
   appearance?: "filled" | "outline";
   /**
+   * Change the wrapped shape the badge should overlap.
+   * @default rectangular
+   */
+  overlap?: "rectangular" | "circular";
+  /**
    * Position of the badge.
    * @default top-right
    */
@@ -48,6 +53,7 @@ export interface BadgeProps extends React.ComponentPropsWithoutRef<"span"> {
 export function Badge({
   skin = "primary",
   size = "sm",
+  overlap = "rectangular",
   appearance = "filled",
   position = "top-right",
   value,
@@ -63,6 +69,7 @@ export function Badge({
       modifiers: [
         `${skin}-${appearance}`,
         size,
+        overlap,
         !!children && position,
         value && value.length > 2 && "padded",
       ],
