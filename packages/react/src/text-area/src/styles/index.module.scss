@@ -18,6 +18,14 @@
 
   @include text.typography(base, $overrides: (font-size: theme.get-font-size("md")));
 
+  &:-internal-autofill-selected,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    background-clip: text;
+    -webkit-text-fill-color: theme.get-color("foreground-default");
+  }
+
   &--disabled {
     @include theme.disabled-styles;
   }

@@ -83,6 +83,7 @@ export function Notifications(): React.ReactElement {
                 skin="neutral"
                 appearance="ghost"
                 leftSlot={<IoCheckmarkDone />}
+                iconOnly
               >
                 Mark all as read
               </Button>

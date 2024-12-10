@@ -5,7 +5,7 @@ $input-root: "text-field";
 /// Skins
 $input-skins: (
   "neutral": (
-    "color": theme.get-color("neutral", "foreground"),
+    "color": theme.get-color("foreground-default"),
     "border": theme.get-color("neutral", "border-faded"),
     "background-color": theme.get-color("neutral", "background"),
   ),
