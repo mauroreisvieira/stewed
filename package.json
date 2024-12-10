@@ -22,7 +22,7 @@
     "packages:version": "changeset version"
   },
   "dependencies": {
-    "@hello-week/hooks": "^0.3.0",
+    "@hello-week/hooks": "^0.4.0",
     "@stewed/hooks": "workspace:*",
     "@stewed/react": "workspace:*",
     "@stewed/utilities": "workspace:*",

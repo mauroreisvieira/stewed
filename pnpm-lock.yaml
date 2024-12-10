@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@hello-week/hooks':
-        specifier: ^0.3.0
-        version: 0.3.0(react@19.0.0)
+        specifier: ^0.4.0
+        version: 0.4.0(react@19.0.0)
       '@stewed/hooks':
         specifier: workspace:*
         version: link:packages/hooks
@@ -246,8 +246,8 @@ importers:
   packages/react:
     dependencies:
       '@hello-week/hooks':
-        specifier: ^0.3.0
-        version: 0.3.0(react@18.3.1)
+        specifier: ^0.4.0
+        version: 0.4.0(react@18.3.1)
       '@hello-week/utilities':
         specifier: ^0.2.0
         version: 0.2.0
@@ -1538,10 +1538,10 @@ packages:
   '@hello-week/core@0.2.0':
     resolution: {integrity: sha512-G2LeONCtbJQqkm6jmBtUH8su9MFqb2UvEfRpnMEp5UBmaEhj5d+6PQDdzANOxrZbTYMckh1Xh0jUVb4Hw/FreA==}
 
-  '@hello-week/hooks@0.3.0':
-    resolution: {integrity: sha512-SCvYHxAUmryJvEqYjtK1q5z4sx2fP1gNSp/W8LiQZuCqiVCv8/8120M4eGFfHKKp+kP6lKurJOBsLy0BnQTxbA==}
+  '@hello-week/hooks@0.4.0':
+    resolution: {integrity: sha512-yfT9xWU6Kjpsb6hW2FmIr8He+yerOT4FO/Mv3xtas2FtiMuyrT4MRwEH7nS8oZCep+vNDuuj0cU0J6URPm502w==}
     peerDependencies:
-      react: ^18.3.1
+      react: ^17.0 || ^18.0 || ^19.0
 
   '@hello-week/utilities@0.2.0':
     resolution: {integrity: sha512-5UaXdMo06wpBs+ZYLYj2CUVf5dE3DFqpt7r0YwlJME+j5XD3WEEDU6i2rfLBFDeg9HEumZctsigH77RGJKY4Gw==}
@@ -7485,13 +7485,13 @@ snapshots:
     dependencies:
       '@hello-week/utilities': 0.2.0
 
-  '@hello-week/hooks@0.3.0(react@18.3.1)':
+  '@hello-week/hooks@0.4.0(react@18.3.1)':
     dependencies:
       '@hello-week/core': 0.2.0
       '@hello-week/utilities': 0.2.0
       react: 18.3.1
 
-  '@hello-week/hooks@0.3.0(react@19.0.0)':
+  '@hello-week/hooks@0.4.0(react@19.0.0)':
     dependencies:
       '@hello-week/core': 0.2.0
       '@hello-week/utilities': 0.2.0

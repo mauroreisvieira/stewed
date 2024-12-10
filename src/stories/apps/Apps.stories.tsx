@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/react";
 // Examples
-import { Music } from "./examples/Music";
+import { Music } from "./examples/music/Music";
 import { ChatAI } from "./examples/Chat";
 import { Mail } from "./examples/mail/Mail";
 

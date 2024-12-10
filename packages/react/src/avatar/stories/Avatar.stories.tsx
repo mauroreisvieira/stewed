@@ -86,6 +86,17 @@ export const Square: Story = {
   },
 };
 
+export const Button: Story = {
+  args: {
+    as: "button",
+    skin: "neutral",
+    size: "6xl",
+    name: "Company Acme",
+    shape: "square",
+    appearance: "outline",
+  },
+};
+
 export const Group: StoryObj<typeof Avatar.Group> = {
   render: function Render() {
     return (
