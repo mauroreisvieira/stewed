@@ -85,7 +85,7 @@ export const color = {
   // Colors used for backdrop effects and backdrops
   "background-backdrop": "rgb(0 0 0 / 70%)",
   // Text color
-  "foreground-default": palette["gray-900"],
+  "foreground-default": "#111",
   // Text inverted color
   "foreground-inverted": "#fff",
   // Shadow for subtle depth in UI components

@@ -146,8 +146,7 @@ export function ChatAI(): React.ReactElement {
             <Card.Body>
               <Stack direction="column" gap="md">
                 <TextArea
-                  rows={5}
-                  autoHeight
+                  rows={4}
                   appearance="ghost"
                   placeholder="Ask whatever you want..."
                   value={text}

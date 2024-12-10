@@ -11,7 +11,7 @@ import {
   useKey,
   useMergeRefs,
   type UseMergeRefs,
-  type FloatingPlacement,
+  type UseFloatingProps,
 } from "@stewed/hooks";
 // Tokens
 import { components } from "@stewed/tokens";
@@ -37,12 +37,8 @@ export interface PopoverRenderProps<T> {
 }
 
 export interface PopoverProps<T>
-  extends Omit<React.ComponentPropsWithoutRef<"div">, "children" | "content"> {
-  /**
-   * Specifies the preferred placement of the `Popover` relative to its trigger.
-   * @example "top", "bottom", "left", "right"
-   */
-  placement?: FloatingPlacement;
+  extends Pick<UseFloatingProps<HTMLElement>, "placement" | "flip" | "offset" | "boundary">,
+    Omit<React.ComponentPropsWithoutRef<"div">, "children" | "content"> {
   /**
    * Allows the `Popover` to remain open even when clicking outside of it.
    * @default false
@@ -50,16 +46,6 @@ export interface PopoverProps<T>
   allowClickOutside?: boolean;
   /** Callback function invoked when the escape key is pressed. */
   onEscape?: () => void;
-  /**
-   * The distance in pixels from the anchor.
-   * @default 4
-   */
-  offset?: number;
-  /**
-   * The boundary element that will be checked for overflow relative to.
-   * @default window
-   */
-  boundary?: HTMLElement | null;
   /** Callback function invoked when the dialog is clicked outside. */
   onClickOutside?: () => void;
   /**
@@ -98,6 +84,7 @@ export interface PopoverProps<T>
  */
 export function Popover<T extends HTMLElement>({
   placement = "bottom",
+  flip,
   className,
   style,
   boundary,
@@ -126,11 +113,12 @@ export function Popover<T extends HTMLElement>({
 
   // Floating position calculation hook
   const { floating, x, y, isPositioned, reference } = useFloating<T, HTMLDivElement>({
-    boundary,
     open: isOpen,
-    placement,
     reference: popoverRef.current,
+    boundary,
+    placement,
     offset,
+    flip,
   });
 
   // Hook to handle clicks outside the floating element.

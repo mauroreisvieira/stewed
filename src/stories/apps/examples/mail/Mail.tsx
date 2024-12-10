@@ -48,7 +48,7 @@ export function Mail(): React.ReactElement {
 
   return (
     <Theme
-      style={{ height: "80vh" }}
+      style={{ height: "90vh" }}
       tokens={{
         default: {
           color: {
@@ -64,10 +64,10 @@ export function Mail(): React.ReactElement {
       }}
     >
       <Container
-        screen="2xl"
+        screen="xl"
         alignment="center"
         style={{ height: "100%" }}
-        padding={{ block: "lg", inline: "lg" }}
+        padding={{ block: "2xl", inline: "2xl" }}
       >
         <Box
           radius="md"

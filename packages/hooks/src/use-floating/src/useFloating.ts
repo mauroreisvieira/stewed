@@ -30,7 +30,7 @@ interface FloatingOptions {
   isPositioned?: boolean;
 }
 
-interface UseFloatingProps<R extends HTMLElement> extends Pick<FloatingOptions, "placement"> {
+export interface UseFloatingProps<R extends HTMLElement> extends Pick<FloatingOptions, "placement"> {
   /**
    * The reference element used for positioning the floating component.
    * Should be a DOM element or null.
@@ -528,7 +528,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
   useEffect(() => {
     // Check if the options require positioning and if the reference element and flip behavior are defined.
     // If any of these conditions are not met, exit early to avoid unnecessary processing.
-    if (!reference || !flip || !open) return;
+    if (!reference || !open) return;
 
     // Create a new AbortController to manage aborting ongoing operations if needed.
     const controller = new AbortController();
@@ -552,7 +552,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
       resizeObserver.disconnect();
       controller.abort();
     };
-  }, [reference, updatePosition, flip, open, placement]);
+  }, [reference, updatePosition, open, placement]);
 
   // Make sure to call updatePosition when the floating element is ready, for cases when the width of the floating element change
   useEffect(() => {

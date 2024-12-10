@@ -16,6 +16,7 @@ import {
   useMergeRefs,
   type UseMergeRefs,
   type FloatingPlacement,
+  type UseFloatingProps,
 } from "@stewed/hooks";
 // Tokens
 import { components } from "@stewed/tokens";
@@ -39,7 +40,8 @@ export interface DropdownRenderProps<T> {
 }
 
 export interface DropdownProps<T>
-  extends Omit<React.ComponentPropsWithoutRef<"div">, "children" | "content"> {
+  extends Pick<UseFloatingProps<HTMLElement>, "flip">,
+    Omit<React.ComponentPropsWithoutRef<"div">, "children" | "content"> {
   /**
    * Specifies the preferred placement of the `Dropdown` relative to its trigger.
    * @example "top", "bottom", "left", "right"
@@ -93,6 +95,7 @@ export function Dropdown<T extends HTMLElement>({
   placement = "bottom-start",
   className,
   style,
+  flip = true,
   renderAnchor,
   allowClickOutside = false,
   onEscape,
@@ -121,6 +124,7 @@ export function Dropdown<T extends HTMLElement>({
     placement: placement.replace("-fit", "") as FloatingPlacement,
     reference: dropdownRef.current,
     offset: 4,
+    flip,
   });
 
   // Hook to handle clicks outside the floating element.

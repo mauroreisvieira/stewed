@@ -12,7 +12,7 @@ import styles from "./styles/index.module.scss";
 
 const defaultElement = "div";
 
-export interface AvatarProps<T = "div">
+export interface AvatarProps<T = typeof defaultElement>
   extends Omit<React.ComponentProps<typeof defaultElement>, "children"> {
   /** The name associated with the avatar. */
   name?: string;

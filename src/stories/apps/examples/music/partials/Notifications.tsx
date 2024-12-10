@@ -57,6 +57,7 @@ export function Notifications(): React.ReactElement {
   return (
     <Popover<HTMLButtonElement>
       placement="bottom-end"
+      flip={false}
       renderAnchor={({ ref, open, close, isOpen }) => (
         <Button
           ref={ref}

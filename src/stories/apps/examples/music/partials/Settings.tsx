@@ -29,12 +29,14 @@ export function Settings(): React.ReactElement {
   const { setTheme, theme } = useTheme<TMusicTheme>();
 
   return (
-    <Dropdown<HTMLButtonElement>
+    <Dropdown<HTMLDivElement>
       placement="bottom-end"
+      flip={false}
       renderAnchor={({ ref, open, close, isOpen }) => (
         <Avatar
+          role="button"
+          tabIndex={0}
           ref={ref}
-          as="button"
           onClick={isOpen ? close : open}
           name="Devon Lane"
           image={{
