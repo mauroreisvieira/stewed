@@ -4,6 +4,7 @@
 @use "./variables" as *;
 
 @include theme.scope($avatar-root) {
+  all: unset;
   position: relative;
   display: inline-flex;
   flex-shrink: 0;
@@ -14,6 +15,8 @@
   overflow: hidden;
   user-select: none;
   border-radius: theme.get-var(border-radius);
+
+  @include theme.focus-styles;
 
   @include text.typography(
     base,
