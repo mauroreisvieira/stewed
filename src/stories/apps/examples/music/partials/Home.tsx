@@ -47,7 +47,7 @@ export function Home(): React.ReactElement {
             <strong>Daily Mix {index + 1}</strong>.
           </Text>
         ),
-        skin: "critical"
+        skin: "critical",
       });
     },
     [add],

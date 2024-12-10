@@ -75,7 +75,14 @@ export function Notifications(): React.ReactElement {
           <Box padding={{ inline: "lg", block: "md" }}>
             <Stack justify="between" items="center">
               <Text weight="medium">Notifications</Text>
-              <Button as="a" href="/" size="sm" skin="neutral" appearance="ghost" leftSlot={<IoCheckmarkDone />}>
+              <Button
+                as="a"
+                href="/"
+                size="sm"
+                skin="neutral"
+                appearance="ghost"
+                leftSlot={<IoCheckmarkDone />}
+              >
                 Mark all as read
               </Button>
             </Stack>
