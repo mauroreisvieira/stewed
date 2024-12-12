@@ -34,7 +34,7 @@ describe("useScrollLock", () => {
 
   it("should update overflow style when enabled changes", () => {
     const { rerender } = renderHook((props) => useScrollLock(props), {
-      initialProps: { enabled: true },
+      initialProps: { enabled: true }
     });
 
     // Initially, overflow should be "hidden"

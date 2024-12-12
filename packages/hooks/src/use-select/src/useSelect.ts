@@ -42,7 +42,7 @@ export interface UseSelect<T> {
 export function useSelect<T>(
   list: T[],
   initialIndex = 0,
-  condition: (a: T, b: T) => boolean = (a, b) => a === b,
+  condition: (a: T, b: T) => boolean = (a, b) => a === b
 ): UseSelect<T> {
   const [index, setIndex] = useState(initialIndex);
 
@@ -53,13 +53,13 @@ export function useSelect<T>(
         setIndex(newIndex);
       }
     },
-    [list, condition],
+    [list, condition]
   );
 
   return {
     item: list[index],
     index,
     setIndex,
-    setItem,
+    setItem
   };
 }

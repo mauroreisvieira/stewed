@@ -46,10 +46,10 @@ export function ScrollArea({
       modifiers: [
         insetShadow && showTopShadow && !showBottomShadow && "top-shadow",
         insetShadow && showBottomShadow && !showTopShadow && "bottom-shadow",
-        insetShadow && showTopShadow && showBottomShadow && "both-shadow",
+        insetShadow && showTopShadow && showBottomShadow && "both-shadow"
       ],
-      extraClasses: className,
-    }),
+      extraClasses: className
+    })
   };
 
   // Function to handle scroll and update shadow visibility

@@ -64,14 +64,14 @@ export function Group({
   const cssClasses = {
     root: getBlock({
       modifiers: [fullWidth && "full-width", direction, gap && `gap-${gap}`],
-      extraClasses: className,
-    }),
+      extraClasses: className
+    })
   };
 
   // Define a reference to a list element
   const { ref, onNavigate, setFirstElementFocusable } = useKeyboardNavigation<HTMLDivElement>({
     target: "button:not([aria-disabled='true']), input:not([disabled='true'])",
-    loop,
+    loop
   });
 
   const onHandleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
@@ -79,7 +79,7 @@ export function Group({
       onNavigate(event);
       onKeyDown?.(event);
     },
-    [onKeyDown, onNavigate],
+    [onKeyDown, onNavigate]
   );
 
   useEffect(() => {

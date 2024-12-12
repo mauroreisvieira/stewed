@@ -61,7 +61,7 @@ export const GridItem = fixedForwardRef(function GridItem<T extends React.Elemen
       React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
       "as"
     >,
-  ref: React.ForwardedRef<unknown>,
+  ref: React.ForwardedRef<unknown>
 ): React.ReactElement {
   // Component to render based on the 'as' prop
   const Comp = as || defaultElement;
@@ -80,9 +80,9 @@ export const GridItem = fixedForwardRef(function GridItem<T extends React.Elemen
       rowStart,
       rowEnd,
       hidden,
-      responsive,
+      responsive
     },
-    activeToken.breakpoints,
+    activeToken.breakpoints
   );
 
   // Importing useBem to handle BEM class names
@@ -99,10 +99,10 @@ export const GridItem = fixedForwardRef(function GridItem<T extends React.Elemen
         computedProps.rowSpan && `row-span-${computedProps.rowSpan}`,
         computedProps.rowStart && `row-start-${computedProps.rowStart}`,
         computedProps.rowStart && `row-end-${computedProps.rowStart}`,
-        computedProps.hidden && "hidden",
+        computedProps.hidden && "hidden"
       ],
-      extraClasses: className,
-    }),
+      extraClasses: className
+    })
   };
 
   return (

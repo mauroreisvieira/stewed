@@ -11,8 +11,8 @@ const meta = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -52,5 +52,5 @@ export const Page404 = {
         </Stack>
       </Box>
     );
-  },
+  }
 };

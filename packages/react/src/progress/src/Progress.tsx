@@ -61,7 +61,7 @@ export function Progress({
     root: getBlock({ modifiers: [skin, size, appearance], extraClasses: className }),
     control: getElement(["control"]),
     wrapper: getElement(["wrapper"]),
-    step: getElement(["step"]),
+    step: getElement(["step"])
   };
 
   return (

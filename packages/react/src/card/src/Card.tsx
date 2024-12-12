@@ -58,7 +58,7 @@ export function Card({
   shadow = "sm",
   padding = {
     block: "xl",
-    inline: "xl",
+    inline: "xl"
   },
   className,
   children,
@@ -74,10 +74,10 @@ export function Card({
         direction,
         padding?.block && `padding-block-${padding.block}`,
         padding?.inline && `padding-inline-${padding.inline}`,
-        shadow && `shadow-${shadow}`,
+        shadow && `shadow-${shadow}`
       ],
-      extraClasses: className,
-    }),
+      extraClasses: className
+    })
   };
 
   return (

@@ -41,8 +41,8 @@ export function Table({
   const cssClasses = {
     root: getBlock({
       modifiers: [...computedVariation.map((i) => i), hoverable && "hoverable"],
-      extraClasses: className,
-    }),
+      extraClasses: className
+    })
   };
 
   return (

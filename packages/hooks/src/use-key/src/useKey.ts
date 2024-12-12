@@ -69,7 +69,7 @@ export function useKey({ keys, enabled = true, handler }: UseKeyProps): void {
         }
       }
     },
-    [handler, keys],
+    [handler, keys]
   );
 
   useEffect(() => {

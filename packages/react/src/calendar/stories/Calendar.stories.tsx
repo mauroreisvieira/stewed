@@ -12,7 +12,7 @@ const DAYS_WEEK = {
   WEDNESDAY: 3,
   THURSDAY: 4,
   FRIDAY: 5,
-  SATURDAY: 6,
+  SATURDAY: 6
 };
 
 const meta: Meta<typeof Calendar> = {
@@ -21,14 +21,14 @@ const meta: Meta<typeof Calendar> = {
   subcomponents: {
     "Calendar.Navigation": Calendar.Navigation as React.FC<unknown>,
     "Calendar.Week": Calendar.Week as React.FC<unknown>,
-    "Calendar.Month": Calendar.Month as React.FC<unknown>,
+    "Calendar.Month": Calendar.Month as React.FC<unknown>
   },
   decorators: [
     (Story) => (
       <Theme>
         <Story />
       </Theme>
-    ),
+    )
   ],
   argTypes: {
     lang: {
@@ -40,10 +40,10 @@ const meta: Meta<typeof Calendar> = {
           "fr-FR": "French",
           "es-ES": "Spanish",
           "de-DE": "German",
-          "it-IT": "Italian",
-        },
+          "it-IT": "Italian"
+        }
       },
-      options: ["en-EN", "pt-PT", "fr-FR", "es-ES", "de-DE", "it-IT"],
+      options: ["en-EN", "pt-PT", "fr-FR", "es-ES", "de-DE", "it-IT"]
     },
     weekStart: {
       control: {
@@ -55,10 +55,10 @@ const meta: Meta<typeof Calendar> = {
           3: "Wednesday",
           4: "Thursday",
           5: "Friday",
-          6: "Saturday",
-        },
+          6: "Saturday"
+        }
       },
-      options: Object.values(DAYS_WEEK),
+      options: Object.values(DAYS_WEEK)
     },
     disabledDaysOfWeek: {
       control: {
@@ -70,11 +70,11 @@ const meta: Meta<typeof Calendar> = {
           3: "Wednesday",
           4: "Thursday",
           5: "Friday",
-          6: "Saturday",
-        },
+          6: "Saturday"
+        }
       },
-      options: Object.values(DAYS_WEEK),
-    },
+      options: Object.values(DAYS_WEEK)
+    }
   },
   args: {
     defaultDate: now,
@@ -89,8 +89,8 @@ const meta: Meta<typeof Calendar> = {
     weekStart: 0,
     disabledDaysOfWeek: undefined,
     lang: undefined,
-    onMonthChange: undefined,
-  },
+    onMonthChange: undefined
+  }
 };
 
 export default meta;
@@ -142,7 +142,7 @@ const Template = (args) => {
 };
 
 export const Base: Story = {
-  render: Template.bind({}),
+  render: Template.bind({})
 };
 
 export const Highlighted: Story = {
@@ -153,11 +153,11 @@ export const Highlighted: Story = {
         days: [
           new Date(new Date().setDate(now.getDate() + 1)),
           new Date(new Date().setDate(now.getDate() + 2)),
-          new Date(new Date().setDate(now.getDate() + 3)),
-        ],
-      },
-    ],
-  },
+          new Date(new Date().setDate(now.getDate() + 3))
+        ]
+      }
+    ]
+  }
 };
 
 export const DisabledDates: Story = {
@@ -166,9 +166,9 @@ export const DisabledDates: Story = {
     disabledDates: [
       new Date(new Date().setDate(now.getDate() + 1)),
       new Date(new Date().setDate(now.getDate() + 2)),
-      new Date(new Date().setDate(now.getDate() + 3)),
-    ],
-  },
+      new Date(new Date().setDate(now.getDate() + 3))
+    ]
+  }
 };
 
 export const Range: Story = {
@@ -178,16 +178,16 @@ export const Range: Story = {
     selectedDates: [
       [
         new Date(new Date().setDate(now.getDate() + 2)),
-        new Date(new Date().setDate(now.getDate() + 7)),
-      ],
-    ],
-  },
+        new Date(new Date().setDate(now.getDate() + 7))
+      ]
+    ]
+  }
 };
 
 export const Boundaries: Story = {
   ...Base,
   args: {
     minDate: new Date(new Date().setDate(now.getDate() - 3)),
-    maxDate: new Date(new Date().setDate(now.getDate() + 3)),
-  },
+    maxDate: new Date(new Date().setDate(now.getDate() + 3))
+  }
 };

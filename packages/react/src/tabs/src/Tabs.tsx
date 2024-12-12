@@ -79,8 +79,8 @@ export function Tabs<T extends string>({
   const cssClasses = {
     root: getBlock({
       modifiers: [appearance, alignment, direction],
-      extraClasses: className,
-    }),
+      extraClasses: className
+    })
   };
 
   // Ensure consistent usage of controlled or uncontrolled components
@@ -99,7 +99,7 @@ export function Tabs<T extends string>({
         value={{
           value: value || selectedValue,
           setSelectedValue: setSelectedValue as (value: unknown) => void,
-          onValueChange: onValueChange as (value: unknown) => void,
+          onValueChange: onValueChange as (value: unknown) => void
         }}
       >
         {children}

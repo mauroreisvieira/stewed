@@ -1,7 +1,9 @@
 import { useState, useCallback, useEffect } from "react";
 
+/** Possible phases types  */
 type Status = "idle" | "pending" | "success" | "error";
 
+/** UseAsync returned value, status and functions */
 interface UseAsync<T> {
   /**
    * Function to execute the asynchronous operation.
@@ -26,8 +28,8 @@ interface UseAsync<T> {
  * Hook to manage asynchronous operations with state handling.
  *
  * @template T The type of the result returned by the async function.
- * @param asyncFunction A function that returns a promise to be executed asynchronously.
- * @param immediate Optional parameter that determines if the asyncFunction should be executed immediately after the hook is mounted. Defaults to true.
+ * @params asyncFunction A function that returns a promise to be executed asynchronously.
+ * @params immediate Optional parameter that determines if the asyncFunction should be executed immediately after the hook is mounted. Defaults to true.
  * @returns An object containing the execute function, current status, result value, and any encountered error.
  */
 export function useAsync<T>(asyncFunction: () => Promise<T>, immediate = true): UseAsync<T> {

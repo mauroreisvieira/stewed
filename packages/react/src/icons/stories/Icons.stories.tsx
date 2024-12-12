@@ -14,8 +14,8 @@ const meta: Meta<typeof Icon> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -43,5 +43,5 @@ export const Base: Story = {
         })}
       </Grid>
     );
-  },
+  }
 };

@@ -89,9 +89,9 @@ export function Checkbox({
   // Compute responsive props based on current theme and screen sizes
   const computedProps = useResponsive(
     {
-      size,
+      size
     },
-    activeToken.breakpoints,
+    activeToken.breakpoints
   );
 
   // Use the custom hook useCheckboxGroup to access functions and state related to checkbox management
@@ -105,15 +105,15 @@ export function Checkbox({
         loading && "loading",
         computedProps.size,
         skin,
-        appearance !== "default" && appearance,
+        appearance !== "default" && appearance
       ],
-      extraClasses: className,
+      extraClasses: className
     }),
     svg: getElement(["svg"]),
     input: getElement(["input"]),
     control: getElement(["control"]),
     text: getElement(["text"]),
-    spinner: getElement(["spinner"]),
+    spinner: getElement(["spinner"])
   };
 
   // Effect to handle the indeterminate state of the checkbox
@@ -150,7 +150,7 @@ export function Checkbox({
         onCheckedChange?.(newCheckedValues || []);
       }
     },
-    [isChecked, checkedValues, value, onChange, onCheckedChange],
+    [isChecked, checkedValues, value, onChange, onCheckedChange]
   );
 
   return (

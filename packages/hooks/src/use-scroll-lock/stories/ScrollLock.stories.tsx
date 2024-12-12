@@ -14,8 +14,8 @@ const meta: Meta<typeof useScrollLock> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -31,5 +31,5 @@ export const Base: Story = {
         <Button onClick={() => setLocked(!locked)}>{locked ? "Unlock" : "Lock"} Scroll</Button>
       </Box>
     );
-  },
+  }
 };

@@ -9,7 +9,7 @@ describe("Avatar Group", () => {
     const { container } = render(
       <Avatar.Group>
         <Avatar name="Emma Clark" />
-      </Avatar.Group>,
+      </Avatar.Group>
     );
 
     expect(container).toMatchSnapshot();
@@ -19,7 +19,7 @@ describe("Avatar Group", () => {
     const { container } = render(
       <Avatar.Group className="other-class">
         <Avatar name="Emma Clark" />
-      </Avatar.Group>,
+      </Avatar.Group>
     );
 
     expect(container).toMatchSnapshot();

@@ -43,9 +43,9 @@ export function Stepper({
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({
-      extraClasses: className,
+      extraClasses: className
     }),
-    connecter: getElement(["connecter"]),
+    connecter: getElement(["connecter"])
   };
 
   // Array of valid child components to optimize performance.
@@ -53,9 +53,9 @@ export function Stepper({
   const childArray = useMemo(
     () =>
       React.Children.toArray(children).filter((child) =>
-        React.isValidElement<StepperItemProps>(child),
+        React.isValidElement<StepperItemProps>(child)
       ),
-    [children],
+    [children]
   );
 
   // Array of step values derived from each valid child component's 'value' prop.

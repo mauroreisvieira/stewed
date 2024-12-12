@@ -90,7 +90,7 @@ const Root = fixedForwardRef(function Grid<T extends React.ElementType>(
       React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
       "as"
     >,
-  ref: React.ForwardedRef<unknown>,
+  ref: React.ForwardedRef<unknown>
 ): React.ReactElement {
   // Component to render based on the 'as' prop
   const Comp = as || defaultElement;
@@ -110,9 +110,9 @@ const Root = fixedForwardRef(function Grid<T extends React.ElementType>(
       gap,
       padding,
       space,
-      responsive,
+      responsive
     },
-    activeToken.breakpoints,
+    activeToken.breakpoints
   );
 
   // Importing useBem to handle BEM class names
@@ -132,10 +132,10 @@ const Root = fixedForwardRef(function Grid<T extends React.ElementType>(
         computedProps.padding?.block && `padding-block-${computedProps.padding.block}`,
         computedProps.padding?.inline && `padding-inline-${computedProps.padding.inline}`,
         computedProps.space?.x && `space-x-${computedProps.space.x}`,
-        computedProps.space?.y && `space-y-${computedProps.space.y}`,
+        computedProps.space?.y && `space-y-${computedProps.space.y}`
       ],
-      extraClasses: className,
-    }),
+      extraClasses: className
+    })
   };
 
   return (
@@ -147,5 +147,5 @@ const Root = fixedForwardRef(function Grid<T extends React.ElementType>(
 
 // Compound component composition
 export const Grid = Object.assign(Root, {
-  Item: GridItem,
+  Item: GridItem
 });

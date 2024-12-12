@@ -24,7 +24,7 @@ describe("TextField", () => {
         const { container } = render(<TextField skin={skin} defaultValue="Input" />);
 
         expect(container).toMatchSnapshot();
-      },
+      }
     );
 
     it.each<TextFieldProps["appearance"]>(["soft", "ghost", "outline"])(
@@ -33,7 +33,7 @@ describe("TextField", () => {
         const { container } = render(<TextField appearance={appearance} defaultValue="Input" />);
 
         expect(container).toMatchSnapshot();
-      },
+      }
     );
 
     it.each<TextFieldProps["size"]>(["sm", "md", "lg", "xl"])(
@@ -42,7 +42,7 @@ describe("TextField", () => {
         const { container } = render(<TextField size={size} defaultValue="Input" />);
 
         expect(container).toMatchSnapshot();
-      },
+      }
     );
 
     it("should render left slot content", () => {

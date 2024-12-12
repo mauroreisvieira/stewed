@@ -14,8 +14,8 @@ const meta: Meta<typeof useToggle> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -32,5 +32,5 @@ export const Base: Story = {
         </Button>
       </>
     );
-  },
+  }
 };

@@ -58,7 +58,7 @@ export function Badge({
   position = "top-right",
   value,
   className,
-  children,
+  children
 }: BadgeProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock, getElement } = useBem({ block: components.Badge, styles });
@@ -71,11 +71,11 @@ export function Badge({
         size,
         overlap,
         !!children && position,
-        value && value.length > 2 && "padded",
+        value && value.length > 2 && "padded"
       ],
-      extraClasses: className,
+      extraClasses: className
     }),
-    value: getElement(["value"]),
+    value: getElement(["value"])
   };
 
   return (

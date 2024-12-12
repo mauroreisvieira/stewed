@@ -49,8 +49,8 @@ export function AspectRatio({
   const cssClasses = {
     root: getBlock({
       modifiers: [ratio.replace(":", "-"), radius && `radius-${radius}`],
-      extraClasses: className,
-    }),
+      extraClasses: className
+    })
   };
 
   return (

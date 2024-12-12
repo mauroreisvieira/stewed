@@ -13,8 +13,8 @@ const meta: Meta<typeof Carousel> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -22,8 +22,8 @@ export default meta;
 export const Base: Story = {
   argTypes: {
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
     children: Array.from({ length: 4 }).map((_, index) => (
@@ -36,28 +36,28 @@ export const Base: Story = {
           </Card.Body>
         </Card>
       </Hue>
-    )),
-  },
+    ))
+  }
 };
 
 export const PerView: Story = {
   argTypes: {
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
     loop: false,
     responsive: {
       sm: {
-        perView: 1,
+        perView: 1
       },
       md: {
-        perView: 2,
+        perView: 2
       },
       lg: {
-        perView: 3,
-      },
+        perView: 3
+      }
     },
     children: Array.from({ length: 12 }).map((_, index) => (
       <Hue skin="slate-100" key={index}>
@@ -69,6 +69,6 @@ export const PerView: Story = {
           </Card.Body>
         </Card>
       </Hue>
-    )),
-  },
+    ))
+  }
 };

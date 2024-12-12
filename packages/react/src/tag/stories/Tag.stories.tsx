@@ -16,44 +16,44 @@ const meta: Meta<typeof Tag> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
 
 export const Base: Story = {
   args: {
-    children: "documentation",
-  },
+    children: "documentation"
+  }
 };
 
 export const Ghost: Story = {
   args: {
     skin: "warning",
     appearance: "ghost",
-    children: "help wanted",
-  },
+    children: "help wanted"
+  }
 };
 
 export const Soft: Story = {
   args: {
     skin: "secondary",
     appearance: "soft",
-    children: "good first issue",
-  },
+    children: "good first issue"
+  }
 };
 
 export const Outline: Story = {
   argTypes: {
     leftSlot: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
     skin: "critical",
     appearance: "outline",
     children: "unresolved conflicts",
-    leftSlot: <FiGitPullRequest />,
-  },
+    leftSlot: <FiGitPullRequest />
+  }
 };

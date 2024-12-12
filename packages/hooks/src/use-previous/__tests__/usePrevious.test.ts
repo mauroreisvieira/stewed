@@ -12,7 +12,7 @@ describe("usePrevious", () => {
 
   it("should return the previous value after an update", () => {
     const { result, rerender } = renderHook(({ value }) => usePrevious(value), {
-      initialProps: { value: 0 },
+      initialProps: { value: 0 }
     });
 
     // Initial render, previous value should be undefined

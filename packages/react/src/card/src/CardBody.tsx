@@ -14,7 +14,7 @@ export function CardBody({ className, children, ...props }: CardBodyProps): Reac
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ extraClasses: className }),
+    root: getBlock({ extraClasses: className })
   };
 
   return (

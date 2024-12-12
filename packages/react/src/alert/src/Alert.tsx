@@ -6,6 +6,13 @@ import { components, type Shadow } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Interface for the properties of the `Alert` component.
+ *
+ * @remarks
+ * Extends the properties of a standard `<div>` element (`React.ComponentPropsWithoutRef<"div">`),
+ * allowing the `Alert` component to accept all native `div` attributes.
+ */
 export interface AlertProps extends React.ComponentPropsWithoutRef<"div"> {
   /** Will render the bold text shown at the top of the alert. */
   title?: string;
@@ -66,13 +73,13 @@ export function Alert({
   const cssClasses = {
     root: getBlock({
       modifiers: [skin, size, shadow && `shadow-${shadow}`],
-      extraClasses: className,
+      extraClasses: className
     }),
     title: getElement(["title"]),
     body: getElement(["body"]),
     wrapper: getElement(["wrapper"]),
     left: getElement(["left"]),
-    right: getElement(["right"]),
+    right: getElement(["right"])
   };
 
   return (

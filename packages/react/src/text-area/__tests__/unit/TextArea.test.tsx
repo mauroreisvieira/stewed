@@ -24,7 +24,7 @@ describe("TextArea", () => {
         const { container } = render(<TextArea defaultValue="TextArea" skin={skin} />);
 
         expect(container).toMatchSnapshot();
-      },
+      }
     );
 
     it.each<TextAreaProps["appearance"]>(["ghost", "outline", "soft"])(
@@ -33,7 +33,7 @@ describe("TextArea", () => {
         const { container } = render(<TextArea defaultValue="TextArea" appearance={appearance} />);
 
         expect(container).toMatchSnapshot();
-      },
+      }
     );
 
     it("should applies disabled classes", () => {
@@ -54,7 +54,7 @@ describe("TextArea", () => {
       const handleChange = jest.fn();
 
       const { getByLabelText } = render(
-        <TextArea aria-label="text-area" onChange={handleChange} />,
+        <TextArea aria-label="text-area" onChange={handleChange} />
       );
       const textarea = getByLabelText("text-area");
 

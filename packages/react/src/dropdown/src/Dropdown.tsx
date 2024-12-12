@@ -16,7 +16,7 @@ import {
   useMergeRefs,
   type UseMergeRefs,
   type FloatingPlacement,
-  type UseFloatingProps,
+  type UseFloatingProps
 } from "@stewed/hooks";
 // Tokens
 import { components } from "@stewed/tokens";
@@ -109,7 +109,7 @@ export function Dropdown<T extends HTMLElement>({
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ extraClasses: className }),
+    root: getBlock({ extraClasses: className })
   };
 
   // Create a reference to manage the dropdown element
@@ -124,14 +124,14 @@ export function Dropdown<T extends HTMLElement>({
     placement: placement.replace("-fit", "") as FloatingPlacement,
     reference: dropdownRef.current,
     offset: 4,
-    flip,
+    flip
   });
 
   // Hook to handle clicks outside the floating element.
   useClickOutside({
     enabled: isOpen,
     ignoredElements: [dropdownRef.current as Element, floating.current as Element],
-    handler: () => (allowClickOutside ? onClickOutside : setOpen(false)),
+    handler: () => (allowClickOutside ? onClickOutside : setOpen(false))
   });
 
   // Disable arrow key scrolling in users browser
@@ -140,17 +140,17 @@ export function Dropdown<T extends HTMLElement>({
     keys: ["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"],
     handler: (event: KeyboardEvent) => {
       event.preventDefault();
-    },
+    }
   });
 
   // Define a reference for the list element and enable keyboard navigation within it
   const {
     ref: navigationRef,
     onNavigate,
-    setFirstElementFocusable,
+    setFirstElementFocusable
   } = useKeyboardNavigation<HTMLDivElement>({
     target: '[tabindex="0"]:not([aria-disabled]), [role="option"]:not([aria-disabled])',
-    loop: false,
+    loop: false
   });
 
   // Merge the floating reference with the navigation reference combines multiple refs into a single callback ref.
@@ -183,7 +183,7 @@ export function Dropdown<T extends HTMLElement>({
         event.stopPropagation();
       }
     },
-    [onNavigate, onKeyDown, onEscape],
+    [onNavigate, onKeyDown, onEscape]
   );
 
   // Opens the dropdown by set the state to true.
@@ -223,7 +223,7 @@ export function Dropdown<T extends HTMLElement>({
         attachRefs: (ref) => mergeRefs([dropdownRef, ...ref]),
         open: onHandleOpen,
         close: onHandleClose,
-        isOpen: !!isOpen,
+        isOpen: !!isOpen
       })}
       {isOpen && (
         <Scope elevation="navigation">
@@ -238,10 +238,10 @@ export function Dropdown<T extends HTMLElement>({
                   "--dropdown-min-width": placement.includes("fit")
                     ? `${reference.width}px`
                     : undefined,
-                  "visibility": isPositioned ? "visible" : "hidden",
-                  "left": `${x}px`,
-                  "top": `${y}px`,
-                  ...style,
+                  visibility: isPositioned ? "visible" : "hidden",
+                  left: `${x}px`,
+                  top: `${y}px`,
+                  ...style
                 } as React.CSSProperties
               }
               {...props}
@@ -250,7 +250,7 @@ export function Dropdown<T extends HTMLElement>({
                 ? children({
                     open: onHandleOpen,
                     close: onHandleClose,
-                    isOpen: !!isOpen,
+                    isOpen: !!isOpen
                   })
                 : children}
             </div>

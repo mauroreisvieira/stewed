@@ -53,8 +53,8 @@ export function RadioGroup({
   const cssClasses = {
     root: getBlock({
       modifiers: [orientation, fullWidth && "full-width"],
-      extraClasses: className,
-    }),
+      extraClasses: className
+    })
   };
 
   return (

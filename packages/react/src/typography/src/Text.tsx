@@ -9,7 +9,7 @@ import {
   type FontSize,
   type FontWeight,
   type FontFamily,
-  components,
+  components
 } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
@@ -25,9 +25,9 @@ const SizeMap = {
   "display-4": "h4",
   "display-5": "h5",
   "display-6": "h6",
-  "link": "a",
-  "label": "label",
-  "base": defaultElement,
+  link: "a",
+  label: "label",
+  base: defaultElement
 } as const;
 
 // Possible variations for text styling
@@ -132,7 +132,7 @@ export const Text = fixedForwardRef(function Typography<T extends React.ElementT
       React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
       "as"
     >,
-  ref: React.ForwardedRef<unknown>,
+  ref: React.ForwardedRef<unknown>
 ): React.ReactElement {
   // Determine the component type based on 'as' prop or use the default element
   const Comp = as || defaultElement;
@@ -152,9 +152,9 @@ export const Text = fixedForwardRef(function Typography<T extends React.ElementT
       space,
       variation,
       whiteSpace,
-      responsive,
+      responsive
     },
-    activeToken.breakpoints,
+    activeToken.breakpoints
   );
 
   // Ensure variation is an array
@@ -164,7 +164,7 @@ export const Text = fixedForwardRef(function Typography<T extends React.ElementT
 
   // Determine the size based on the provided 'as' prop or use the default element
   const computedSize = ((Object.keys(SizeMap) as Array<keyof typeof SizeMap>).find(
-    (key) => SizeMap[key] === (as || defaultElement),
+    (key) => SizeMap[key] === (as || defaultElement)
   ) ?? "base") as keyof typeof SizeMap;
 
   // Importing useBem to handle BEM class names
@@ -186,10 +186,10 @@ export const Text = fixedForwardRef(function Typography<T extends React.ElementT
         computedProps.whiteSpace && `white-space-${computedProps.whiteSpace}`,
         computedProps.space?.x && `space-x-${computedProps.space.x}`,
         computedProps.space?.y && `space-y-${computedProps.space.y}`,
-        ...computedVariation.map((i) => i),
+        ...computedVariation.map((i) => i)
       ],
-      extraClasses: className,
-    }),
+      extraClasses: className
+    })
   };
 
   return (

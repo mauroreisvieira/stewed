@@ -69,10 +69,10 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
     ArrowUp: -1,
     ArrowLeft: -1,
     ArrowDown: 1,
-    ArrowRight: 1,
+    ArrowRight: 1
   },
   loop = true,
-  condition = () => true,
+  condition = () => true
 }: UseKeyboardNavigationProps): UseKeyboardNavigation<T> {
   // Create a reference to the list element, where `T` is a generic type representing the element type (e.g., HTMLUListElement, HTMLDivElement)
   const listRef = useRef<T>(null);
@@ -97,7 +97,7 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
       // If looping is disabled, ensure the index stays within the valid range.
       return Math.max(0, Math.min(currentIndex + direction, itemCount - 1));
     },
-    [],
+    []
   );
 
   // Sets focus on the item at the specified index, updating the state and handling looping if enabled.
@@ -123,7 +123,7 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
       // Focus the item at the calculated index, if it exists.
       items[nextIndex]?.focus();
     },
-    [target, loop],
+    [target, loop]
   );
 
   // Handles keyboard navigation to move focus based on key presses.
@@ -153,7 +153,7 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
         }
       }
     },
-    [calculateNextIndex, condition, key, loop, setFocusedIndex, target],
+    [calculateNextIndex, condition, key, loop, setFocusedIndex, target]
   );
 
   // Sets the first focusable element based on custom criteria or defaults to the first selectable item.
@@ -169,7 +169,7 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
       (item) =>
         item.getAttribute("aria-selected") === "true" ||
         item.getAttribute("aria-pressed") === "true" ||
-        item.getAttribute("aria-checked") === "true",
+        item.getAttribute("aria-checked") === "true"
     );
 
     // If no such item is found, default to the first selectable item using predefined selectors.
@@ -181,7 +181,7 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
         "select", // Dropdowns.
         "textarea", // Text areas.
         "[tabindex]", // Any element with a tabindex.
-        "[controls]", // Elements with `controls` attribute (e.g., video/audio players).
+        "[controls]" // Elements with `controls` attribute (e.g., video/audio players).
       ].join(", ");
 
       // Find the index of the first element matching the selectable selectors.
@@ -199,6 +199,6 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
     onNavigate: onHandleKeyDown,
     setFocusedIndex,
     currentIndex,
-    setFirstElementFocusable,
+    setFirstElementFocusable
   };
 }

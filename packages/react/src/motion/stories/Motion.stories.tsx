@@ -13,8 +13,8 @@ const meta: Meta<typeof Motion> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -53,7 +53,7 @@ export const Zoom: Story = {
         </Stack>
       </Stack>
     );
-  },
+  }
 };
 
 export const Fade: Story = {
@@ -90,7 +90,7 @@ export const Fade: Story = {
         </Stack>
       </Stack>
     );
-  },
+  }
 };
 
 export const Slide: Story = {
@@ -103,7 +103,7 @@ export const Slide: Story = {
       "slide-in-bottom",
       "slide-out-bottom",
       "slide-in-left",
-      "slide-out-left",
+      "slide-out-left"
     ] as const;
 
     const [animation, setAnimation] = useState<(typeof slides)[number]>();
@@ -136,5 +136,5 @@ export const Slide: Story = {
         </Stack>
       </Stack>
     );
-  },
+  }
 };

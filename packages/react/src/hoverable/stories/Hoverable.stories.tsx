@@ -14,8 +14,8 @@ const meta: Meta = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -27,7 +27,7 @@ export const Base: Story = {
         {({ isHovering }) => <Text>{isHovering ? "Hovering" : "Not Hovering"}</Text>}
       </Hoverable>
     );
-  },
+  }
 };
 
 export const Touch: Story = {
@@ -37,5 +37,5 @@ export const Touch: Story = {
         {({ isTouch }) => <Text>{isTouch ? "Touch device" : "Not touch device"}</Text>}
       </Hoverable>
     );
-  },
+  }
 };

@@ -11,15 +11,15 @@ const meta: Meta<typeof Segmented> = {
   title: "Components/Segmented",
   component: Segmented,
   subcomponents: {
-    "Segmented.Item": Segmented.Item as React.FC<unknown>,
+    "Segmented.Item": Segmented.Item as React.FC<unknown>
   },
   decorators: [
     (Story) => (
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -27,8 +27,8 @@ export default meta;
 export const Base: Story = {
   argTypes: {
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
     value: "2",
@@ -48,6 +48,6 @@ export const Base: Story = {
           Calendar
         </Segmented.Item>
       </>
-    ),
-  },
+    )
+  }
 };

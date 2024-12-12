@@ -14,7 +14,7 @@ export interface ListBoxGroupProps extends React.ComponentPropsWithoutRef<"div">
 export function ListBoxGroup({
   title,
   className,
-  children,
+  children
 }: ListBoxGroupProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock, getElement } = useBem({ block: `${components.ListBox}__group`, styles });
@@ -22,7 +22,7 @@ export function ListBoxGroup({
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({ extraClasses: className }),
-    title: getElement(["title"]),
+    title: getElement(["title"])
   };
 
   return (

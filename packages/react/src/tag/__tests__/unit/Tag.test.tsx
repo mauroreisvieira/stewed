@@ -16,7 +16,7 @@ describe("Tag", () => {
       const { asFragment } = render(
         <Tag as="a" href="#">
           Tag
-        </Tag>,
+        </Tag>
       );
 
       expect(asFragment()).toMatchSnapshot();
@@ -34,7 +34,7 @@ describe("Tag", () => {
         const { container } = render(<Tag skin={skin}>Tag</Tag>);
 
         expect(container).toMatchSnapshot();
-      },
+      }
     );
 
     it.each<TagProps["appearance"]>(["filled", "ghost", "outline", "soft"])(
@@ -43,7 +43,7 @@ describe("Tag", () => {
         const { container } = render(<Tag appearance={appearance}>Tag</Tag>);
 
         expect(container).toMatchSnapshot();
-      },
+      }
     );
 
     it.each<TagProps["size"]>(["xs", "sm", "md", "lg"])(
@@ -52,7 +52,7 @@ describe("Tag", () => {
         const { container } = render(<Tag size={size}>Tag</Tag>);
 
         expect(container).toMatchSnapshot();
-      },
+      }
     );
 
     it("should render left slot content", () => {

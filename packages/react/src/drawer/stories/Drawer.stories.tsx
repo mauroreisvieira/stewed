@@ -13,15 +13,15 @@ const meta: Meta<typeof Drawer> = {
   subcomponents: {
     "Drawer.Header": Drawer.Header as React.FC<unknown>,
     "Drawer.Body": Drawer.Body as React.FC<unknown>,
-    "Drawer.Footer": Drawer.Footer as React.FC<unknown>,
+    "Drawer.Footer": Drawer.Footer as React.FC<unknown>
   },
   decorators: [
     (Story) => (
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -29,8 +29,8 @@ export default meta;
 export const Base: Story = {
   argTypes: {
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   render: function Render({ ...args }): React.ReactElement {
     const [open, toggleOpen] = useToggle();
@@ -59,14 +59,14 @@ export const Base: Story = {
         </Drawer>
       </>
     );
-  },
+  }
 };
 
 export const HugeContent: Story = {
   argTypes: {
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   render: function Render({ ...args }): React.ReactElement {
     const [open, toggleOpen] = useToggle();
@@ -101,5 +101,5 @@ export const HugeContent: Story = {
         </Drawer>
       </>
     );
-  },
+  }
 };

@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 
 export type UseMergeRefs<T> = (
-  refs: Array<React.Ref<T> | undefined | null>,
+  refs: Array<React.Ref<T> | undefined | null>
 ) => (value: T | null) => void;
 
 /**

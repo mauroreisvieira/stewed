@@ -22,14 +22,14 @@ describe("useInput", () => {
     const newValue = "new value";
 
     const validateOptions: UseInputProps<UseInputValue> = {
-      validate: mockValidate,
+      validate: mockValidate
     };
 
     const { result } = renderHook(() => useInput(initialValue, validateOptions));
 
     act(() => {
       result.current.onChange({
-        target: { value: newValue },
+        target: { value: newValue }
       } as React.ChangeEvent<HTMLInputElement>);
     });
 
@@ -42,14 +42,14 @@ describe("useInput", () => {
     const invalidValue = "new value";
 
     const validateOptions: UseInputProps<UseInputValue> = {
-      validate: () => false,
+      validate: () => false
     };
 
     const { result } = renderHook(() => useInput(initialValue, validateOptions));
 
     act(() => {
       result.current.onChange({
-        target: { value: invalidValue },
+        target: { value: invalidValue }
       } as React.ChangeEvent<HTMLInputElement>);
     });
 
@@ -60,8 +60,8 @@ describe("useInput", () => {
     const { result, rerender } = renderHook(
       (props: { initialValue: UseInputValue }) => useInput(props.initialValue),
       {
-        initialProps: { initialValue: "initial" },
-      },
+        initialProps: { initialValue: "initial" }
+      }
     );
 
     expect(result.current.value).toBe("initial");

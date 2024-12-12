@@ -79,7 +79,7 @@ export function useStateForm<T>({
   validators,
   onSubmit,
   onReset,
-  onChange,
+  onChange
 }: UseStateFormProps<T>): UseStateForm<T> {
   const [formData, setFormData] = useReducer((prev: T, next: Partial<T>) => {
     return { ...prev, ...next };
@@ -120,13 +120,13 @@ export function useStateForm<T>({
             valid: validators?.(formData)[key]?.condition
               ? validators?.(formData)[key]?.condition?.()
               : true,
-            error: validators?.(formData)[key]?.description,
+            error: validators?.(formData)[key]?.description
           };
           return acc;
         },
-        {} as UseStateForm<T>["formData"],
+        {} as UseStateForm<T>["formData"]
       ),
-    [formData, validators],
+    [formData, validators]
   );
 
   return {
@@ -134,6 +134,6 @@ export function useStateForm<T>({
     setFormData,
     onFormChange: onHandleChange,
     onFormSubmit: onHandleSubmit,
-    onFormReset: onHandleReset,
+    onFormReset: onHandleReset
   };
 }

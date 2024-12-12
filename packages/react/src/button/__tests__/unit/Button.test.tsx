@@ -16,7 +16,7 @@ describe("Button", () => {
       const { container } = render(
         <Button as="a" href="#">
           Button
-        </Button>,
+        </Button>
       );
 
       expect(container).toMatchSnapshot();
@@ -34,7 +34,7 @@ describe("Button", () => {
         const { container } = render(<Button skin={skin}>Button</Button>);
 
         expect(container).toMatchSnapshot();
-      },
+      }
     );
 
     it.each<ButtonProps["appearance"]>(["filled", "ghost", "outline", "soft"])(
@@ -43,7 +43,7 @@ describe("Button", () => {
         const { container } = render(<Button appearance={appearance}>Button</Button>);
 
         expect(container).toMatchSnapshot();
-      },
+      }
     );
 
     it.each<ButtonProps["size"]>(["xs", "sm", "md", "lg", "xl"])(
@@ -52,7 +52,7 @@ describe("Button", () => {
         const { container } = render(<Button size={size}>Button</Button>);
 
         expect(container).toMatchSnapshot();
-      },
+      }
     );
 
     it("should render left slot content", () => {
@@ -87,7 +87,7 @@ describe("Button", () => {
           iconOnly
         >
           Button
-        </Button>,
+        </Button>
       );
 
       expect(container).toMatchSnapshot();

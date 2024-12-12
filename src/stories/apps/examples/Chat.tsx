@@ -11,7 +11,7 @@ import {
   Text,
   Theme,
   TextArea,
-  useTheme,
+  useTheme
 } from "@stewed/react";
 // Hooks
 import { useInput, useMediaQuery } from "@stewed/hooks";
@@ -28,7 +28,7 @@ export function ChatAI(): React.ReactElement {
       }
 
       return true;
-    },
+    }
   });
 
   const { activeToken } = useTheme();
@@ -74,8 +74,8 @@ export function ChatAI(): React.ReactElement {
               cols={2}
               responsive={{
                 sm: {
-                  cols: 4,
-                },
+                  cols: 4
+                }
               }}
               gap="lg"
             >

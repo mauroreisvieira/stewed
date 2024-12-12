@@ -14,8 +14,8 @@ const meta: Meta<typeof useMediaQuery> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -39,5 +39,5 @@ export const MediaQuery: Story = {
         </Box>
       </Box>
     );
-  },
+  }
 };

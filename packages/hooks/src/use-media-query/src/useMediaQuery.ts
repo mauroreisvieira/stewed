@@ -1,5 +1,6 @@
 import { useEffect, useState, useMemo } from "react";
 
+/** Interface declaration for UseMediaQuery */
 interface UseMediaQueryProps {
   /**
    * The media query string(s) to match against.
@@ -35,6 +36,7 @@ export function useMediaQuery({ query, defaultValue = false }: UseMediaQueryProp
   // Memoize the matchMedia objects for each query
   const mediaQueryLists = useMemo(() => {
     if (typeof window === "undefined") return [];
+
     return queries.map((q) => window.matchMedia(q));
   }, [queries]);
 
@@ -44,7 +46,10 @@ export function useMediaQuery({ query, defaultValue = false }: UseMediaQueryProp
     // Create a new AbortController to manage aborting ongoing operations if needed.
     const controller = new AbortController();
 
-    // Check if any query matches
+    /**
+     * Function to check if any query matches
+     * @returns void
+     */
     const updateMatchState = () => {
       const isMatching = mediaQueryLists.some((mql) => mql.matches);
       setMatches(isMatching);

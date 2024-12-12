@@ -13,15 +13,15 @@ const meta: Meta<typeof Card> = {
     "Card.Media": Card.Media as React.FC<unknown>,
     "Card.Header": Card.Header as React.FC<unknown>,
     "Card.Body": Card.Body as React.FC<unknown>,
-    "Card.Footer": Card.Footer as React.FC<unknown>,
+    "Card.Footer": Card.Footer as React.FC<unknown>
   },
   decorators: [
     (Story) => (
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -29,8 +29,8 @@ export default meta;
 export const Base: Story = {
   argTypes: {
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
     children: (
@@ -51,15 +51,15 @@ export const Base: Story = {
           <Text>Card Footer</Text>
         </Card.Footer>
       </>
-    ),
-  },
+    )
+  }
 };
 
 export const Direction: Story = {
   argTypes: {
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
     direction: "row",
@@ -74,6 +74,6 @@ export const Direction: Story = {
           </Text>
         </Card.Body>
       </>
-    ),
-  },
+    )
+  }
 };

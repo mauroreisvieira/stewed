@@ -70,11 +70,11 @@ export function Select({
   const cssClasses = {
     root: getBlock({
       modifiers: [disabled && "disabled", fullWidth && "full-width", skin, appearance, size],
-      extraClasses: className,
+      extraClasses: className
     }),
     left: getElement(["left"]),
     input: getElement(["input"]),
-    icon: getElement(["icon"]),
+    icon: getElement(["icon"])
   };
 
   return (

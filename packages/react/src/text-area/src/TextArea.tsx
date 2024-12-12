@@ -72,10 +72,10 @@ export function TextArea({
         autoHeight && "auto-height",
         resize && `resize-${resize}`,
         appearance,
-        skin,
+        skin
       ],
-      extraClasses: className,
-    }),
+      extraClasses: className
+    })
   };
 
   return (

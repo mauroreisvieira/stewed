@@ -13,15 +13,15 @@ const meta: Meta<typeof ListBox> = {
   component: ListBox,
   subcomponents: {
     "ListBox.Group": ListBox.Group as React.FC<unknown>,
-    "ListBox.Item": ListBox.Item as React.FC<unknown>,
+    "ListBox.Item": ListBox.Item as React.FC<unknown>
   },
   decorators: [
     (Story) => (
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -29,8 +29,8 @@ export default meta;
 export const Base: Story = {
   argTypes: {
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
     children: (
@@ -74,15 +74,15 @@ export const Base: Story = {
           <ListBox.Item>Top of mind</ListBox.Item>
         </ListBox.Group>
       </>
-    ),
-  },
+    )
+  }
 };
 
 export const MultiLine: Story = {
   argTypes: {
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
     children: (
@@ -98,6 +98,6 @@ export const MultiLine: Story = {
           </ListBox.Item>
         </ListBox.Group>
       </>
-    ),
-  },
+    )
+  }
 };

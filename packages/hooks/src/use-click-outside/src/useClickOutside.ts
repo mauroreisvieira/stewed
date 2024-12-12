@@ -15,7 +15,7 @@ export interface UseClickOutside extends ClickOutsideOptions {
 export const useClickOutside = ({
   enabled = false,
   ignoredElements,
-  handler,
+  handler
 }: UseClickOutside): void => {
   const clickOutside = useRef<ClickOutside>(null);
 
@@ -32,13 +32,13 @@ export const useClickOutside = ({
 
     clickOutside.current.update({
       ignoredElements,
-      handler,
+      handler
     });
 
     if (enabled) {
       clickOutside.current.activate({
         ignoredElements,
-        handler,
+        handler
       });
       return;
     }

@@ -14,8 +14,8 @@ const meta: Meta<typeof useKey> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -31,7 +31,7 @@ export const Base: Story = {
 
     useKey({
       keys: ["Enter", "Escape"],
-      handler: handleKeyPress,
+      handler: handleKeyPress
     });
 
     return (
@@ -42,7 +42,7 @@ export const Base: Story = {
         {key && <Text skin="neutral">{key} key was pressed!</Text>}
       </Box>
     );
-  },
+  }
 };
 
 export const Combine: Story = {
@@ -56,7 +56,7 @@ export const Combine: Story = {
 
     useKey({
       keys: ["cmd+b"],
-      handler: handleKeyPress,
+      handler: handleKeyPress
     });
 
     return (
@@ -67,5 +67,5 @@ export const Combine: Story = {
         {key && <Text skin="neutral">Congratulations, you press the bomb button!</Text>}
       </Box>
     );
-  },
+  }
 };

@@ -12,7 +12,7 @@ describe("Card", () => {
           <Card.Header>Header</Card.Header>
           <Card.Body>Body</Card.Body>
           <Card.Footer>Footer</Card.Footer>
-        </Card>,
+        </Card>
       );
 
       expect(container).toMatchSnapshot();
@@ -24,7 +24,7 @@ describe("Card", () => {
           <Card.Header className="other-header-class">Header</Card.Header>
           <Card.Body className="other-body-class">Body</Card.Body>
           <Card.Footer className="other-footer-class">Footer</Card.Footer>
-        </Card>,
+        </Card>
       );
 
       expect(container).toMatchSnapshot();
@@ -35,7 +35,7 @@ describe("Card", () => {
       const { container } = render(
         <Card direction="row">
           <Card.Media src={img.src} />
-        </Card>,
+        </Card>
       );
 
       expect(container).toMatchSnapshot();
@@ -47,7 +47,7 @@ describe("Card", () => {
           <Card.Header>Header</Card.Header>
           <Card.Body>Body</Card.Body>
           <Card.Footer>Footer</Card.Footer>
-        </Card>,
+        </Card>
       );
 
       expect(container).toMatchSnapshot();
@@ -59,7 +59,7 @@ describe("Card", () => {
           <Card.Header>Header</Card.Header>
           <Card.Body>Body</Card.Body>
           <Card.Footer>Footer</Card.Footer>
-        </Card>,
+        </Card>
       );
 
       expect(container).toMatchSnapshot();
@@ -71,7 +71,7 @@ describe("Card", () => {
           <Card.Header>Header</Card.Header>
           <Card.Body>Body</Card.Body>
           <Card.Footer>Footer</Card.Footer>
-        </Card>,
+        </Card>
       );
 
       expect(container).toMatchSnapshot();

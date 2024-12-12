@@ -63,7 +63,7 @@ function createThemeContext<T extends string>() {
     tokens: undefined,
     activeToken: {},
     setTheme: definitionError,
-    setTokens: definitionError,
+    setTokens: definitionError
   });
 }
 

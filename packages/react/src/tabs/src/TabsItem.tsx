@@ -40,10 +40,10 @@ export function TabsItem({
   const cssClasses = {
     root: getBlock({
       modifiers: [isSelected && "selected", disabled && "disabled"],
-      extraClasses: className,
+      extraClasses: className
     }),
     left: getElement(["left"]),
-    right: getElement(["right"]),
+    right: getElement(["right"])
   };
 
   const onHandleClick: React.MouseEventHandler<HTMLButtonElement> = useCallback(
@@ -62,7 +62,7 @@ export function TabsItem({
       // Trigger the provided `onClick` handler, if defined
       onClick?.(event);
     },
-    [disabled, onClick, onValueChange, setSelectedValue, value],
+    [disabled, onClick, onValueChange, setSelectedValue, value]
   );
 
   return (

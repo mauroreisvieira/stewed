@@ -11,7 +11,7 @@ import {
   Separator,
   Text,
   Avatar,
-  Icon,
+  Icon
 } from "../../index";
 // Hooks
 import { useSelect } from "@stewed/hooks";
@@ -24,110 +24,110 @@ const team = [
   {
     id: 1,
     name: "Sophia Chang",
-    email: "sophia.chang@example.com",
+    email: "sophia.chang@example.com"
   },
   {
     id: 2,
     name: "Olivia Patel",
-    email: "olivia.patel@example.com",
+    email: "olivia.patel@example.com"
   },
   {
     id: 3,
     name: "Benjamin Martinez",
-    email: "benjamin.martinez@example.com",
+    email: "benjamin.martinez@example.com"
   },
   {
     id: 4,
     name: "Noah Andersen",
-    email: "noah.andersen@example.com",
+    email: "noah.andersen@example.com"
   },
   {
     id: 5,
     name: "Liam O'Connor",
-    email: "liam.connor@example.com",
+    email: "liam.connor@example.com"
   },
   {
     id: 6,
     name: "Emma Johnson",
-    email: "emma.johnson@example.com",
+    email: "emma.johnson@example.com"
   },
   {
     id: 7,
     name: "Lucas Kim",
-    email: "lucas.kim@example.com",
+    email: "lucas.kim@example.com"
   },
   {
     id: 8,
     name: "Amelia Davis",
-    email: "amelia.davis@example.com",
+    email: "amelia.davis@example.com"
   },
   {
     id: 9,
     name: "Ethan Nguyen",
-    email: "ethan.nguyen@example.com",
+    email: "ethan.nguyen@example.com"
   },
   {
     id: 10,
     name: "Charlotte Garcia",
-    email: "charlotte.garcia@example.com",
+    email: "charlotte.garcia@example.com"
   },
   {
     id: 11,
     name: "William Brown",
-    email: "william.brown@example.com",
+    email: "william.brown@example.com"
   },
   {
     id: 12,
     name: "Mia Wilson",
-    email: "mia.wilson@example.com",
+    email: "mia.wilson@example.com"
   },
   {
     id: 13,
     name: "Alexander Hall",
-    email: "alexander.hall@example.com",
+    email: "alexander.hall@example.com"
   },
   {
     id: 14,
     name: "Isabella Moore",
-    email: "isabella.moore@example.com",
+    email: "isabella.moore@example.com"
   },
   {
     id: 15,
     name: "James Taylor",
-    email: "james.taylor@example.com",
+    email: "james.taylor@example.com"
   },
   {
     id: 16,
     name: "Ava Thompson",
-    email: "ava.thompson@example.com",
+    email: "ava.thompson@example.com"
   },
   {
     id: 17,
     name: "Michael White",
-    email: "michael.white@example.com",
+    email: "michael.white@example.com"
   },
   {
     id: 18,
     name: "Emily Harris",
-    email: "emily.harris@example.com",
+    email: "emily.harris@example.com"
   },
   {
     id: 19,
     name: "Daniel Clark",
-    email: "daniel.clark@example.com",
+    email: "daniel.clark@example.com"
   },
   {
     id: 20,
     name: "Harper Lewis",
-    email: "harper.lewis@example.com",
-  },
+    email: "harper.lewis@example.com"
+  }
 ];
 
 const meta: Meta<typeof Dropdown> = {
   title: "Components/Dropdown",
   component: Dropdown,
   subcomponents: {
-    "Dropdown.Button": Dropdown.Button as React.FC<unknown>,
+    "Dropdown.Button": Dropdown.Button as React.FC<unknown>
   },
   decorators: [
     (Story) => (
@@ -138,19 +138,19 @@ const meta: Meta<typeof Dropdown> = {
           </Stack>
         </Box>
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
 
 export const Base: Story = {
   args: {
-    placement: "top-fit",
+    placement: "top-fit"
   },
   argTypes: {
     renderAnchor: {
-      control: false,
+      control: false
     },
     placement: {
       options: [
@@ -165,9 +165,9 @@ export const Base: Story = {
         "bottom-end",
         "left",
         "left-start",
-        "left-end",
-      ],
-    },
+        "left-end"
+      ]
+    }
   },
   render: function Render(args): React.ReactElement {
     const { item, index, setIndex } = useSelect(team, 0);
@@ -206,7 +206,7 @@ export const Base: Story = {
                       >
                         <Box
                           padding={{
-                            block: "sm",
+                            block: "sm"
                           }}
                         >
                           <Text size="sm">{name}</Text>
@@ -224,16 +224,16 @@ export const Base: Story = {
         }}
       </Dropdown>
     );
-  },
+  }
 };
 
 export const Nested: Story = {
   args: {
-    placement: "bottom-start",
+    placement: "bottom-start"
   },
   argTypes: {
     renderAnchor: {
-      control: false,
+      control: false
     },
     placement: {
       options: [
@@ -248,9 +248,9 @@ export const Nested: Story = {
         "bottom-end",
         "left",
         "left-start",
-        "left-end",
-      ],
-    },
+        "left-end"
+      ]
+    }
   },
   render: (args) => {
     return (
@@ -290,7 +290,7 @@ export const Nested: Story = {
                     ref: listRef,
                     open: openMoreTools,
                     close: closeMoreTools,
-                    isOpen: isOpenMoreTools,
+                    isOpen: isOpenMoreTools
                   }) => (
                     <ListBox.Item
                       ref={listRef}
@@ -336,5 +336,5 @@ export const Nested: Story = {
         }}
       </Dropdown>
     );
-  },
+  }
 };

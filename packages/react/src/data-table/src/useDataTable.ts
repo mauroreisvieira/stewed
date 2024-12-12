@@ -139,11 +139,11 @@ export function useDataTable<T>({
   itemKeySelector,
   bodyRowProps,
   onFilter,
-  onSort,
+  onSort
 }: UseDataTableProps<T>): UseDataTable<T> {
   // Initially set to the default sorting direction.
   const [sortDirection, setSortDirection] = useState<TSortDirection>(
-    defaultColumnDirection || "ASC",
+    defaultColumnDirection || "ASC"
   );
 
   // Initially set to the default sorted column.
@@ -160,7 +160,7 @@ export function useDataTable<T>({
     const sorted = onSort?.({
       column: sortedColumn,
       direction: sortDirection === "ASC" ? "ASC" : "DESC",
-      items: data,
+      items: data
     });
 
     // If the user-defined sorting function returns a non-empty array, use it.
@@ -172,7 +172,7 @@ export function useDataTable<T>({
     return sortData<T>({
       items: data,
       column: sortedColumn,
-      direction: sortDirection,
+      direction: sortDirection
     });
   }, [data, sortedColumn, sortDirection, onSort]);
 
@@ -184,12 +184,12 @@ export function useDataTable<T>({
 
       // Map order columns to corresponding columns.
       const mapOrderedColumns = orderColumns.map((key) =>
-        columns.find((column) => column.accessorKey === key),
+        columns.find((column) => column.accessorKey === key)
       );
 
       // Filter out columns not present in order columns.
       const remainingColumns = columns.filter(
-        (column) => !orderedKeysSet.has(column.accessorKey as keyof T),
+        (column) => !orderedKeysSet.has(column.accessorKey as keyof T)
       );
 
       // Concatenate ordered columns with remaining columns.
@@ -203,9 +203,9 @@ export function useDataTable<T>({
   const visibleColumns = useMemo(
     () =>
       orderedColumns?.filter(
-        (column) => column?.accessorKey && !hiddenColumns?.includes(column.accessorKey as keyof T),
+        (column) => column?.accessorKey && !hiddenColumns?.includes(column.accessorKey as keyof T)
       ),
-    [orderedColumns, hiddenColumns],
+    [orderedColumns, hiddenColumns]
   );
 
   // Array to store head cells of the table.
@@ -225,11 +225,11 @@ export function useDataTable<T>({
           cellNode: column?.headCell?.({
             isSortable,
             sortDirection,
-            sortedColumn,
-          }),
+            sortedColumn
+          })
         };
       }),
-    [sortDirection, sortableColumns, sortedColumn, visibleColumns],
+    [sortDirection, sortableColumns, sortedColumn, visibleColumns]
   );
 
   // Generate an array of body rows based on sorted items and ordered columns.
@@ -244,9 +244,9 @@ export function useDataTable<T>({
       key: itemKeySelector(item),
       bodyCells: columns.map((column) => ({
         columnKey: column?.accessorKey,
-        cellNode: column?.bodyCell?.(item),
+        cellNode: column?.bodyCell?.(item)
       })),
-      ...bodyRowProps?.(item),
+      ...bodyRowProps?.(item)
     })) as BodyRows<T>[];
   }, [sortedItems, visibleColumns, onFilter, itemKeySelector, bodyRowProps]);
 
@@ -255,9 +255,9 @@ export function useDataTable<T>({
     (): FootCell<T>[] =>
       (visibleColumns || [])?.map((column) => ({
         columnKey: column?.accessorKey,
-        cellNode: column?.footCell?.(),
+        cellNode: column?.footCell?.()
       })),
-    [visibleColumns],
+    [visibleColumns]
   );
 
   // Flag indicating whether there are any cell node present in the foot cells.
@@ -269,6 +269,6 @@ export function useDataTable<T>({
   return {
     headCells: displayHead ? headCells : [],
     bodyRows,
-    footCells: displayFoot ? footCells : [],
+    footCells: displayFoot ? footCells : []
   };
 }

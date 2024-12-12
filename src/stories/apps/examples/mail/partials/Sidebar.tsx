@@ -12,7 +12,7 @@ import {
   LuUsers,
   LuShoppingCart,
   LuPercent,
-  LuStar,
+  LuStar
 } from "react-icons/lu";
 
 export function Sidebar(): React.ReactElement {

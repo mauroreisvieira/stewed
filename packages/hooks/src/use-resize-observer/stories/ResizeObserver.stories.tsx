@@ -14,8 +14,8 @@ const meta: Meta<typeof useResizeObserver> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -33,10 +33,10 @@ export const ResizeObserver: Story = {
         if (entry) {
           setDimensions({
             width: entry.contentRect.width,
-            height: entry.contentRect.height,
+            height: entry.contentRect.height
           });
         }
-      },
+      }
     });
 
     return (
@@ -53,7 +53,7 @@ export const ResizeObserver: Story = {
             boxSizing: "border-box",
             minHeight: 100,
             resize: "both",
-            overflow: "auto",
+            overflow: "auto"
           }}
         />
         <Box>
@@ -62,5 +62,5 @@ export const ResizeObserver: Story = {
         </Box>
       </Stack>
     );
-  },
+  }
 };

@@ -24,7 +24,7 @@ describe("Radio", () => {
         const { container } = render(<Radio skin={skin}>Radio</Radio>);
 
         expect(container).toMatchSnapshot();
-      },
+      }
     );
 
     it.each<RadioProps["appearance"]>(["border", "default"])(
@@ -33,7 +33,7 @@ describe("Radio", () => {
         const { container } = render(<Radio appearance={appearance}>Radio</Radio>);
 
         expect(container).toMatchSnapshot();
-      },
+      }
     );
 
     it.each<RadioProps["size"]>(["sm", "md", "lg"])("should apply '%s' size classes", (size) => {
@@ -51,7 +51,7 @@ describe("Radio", () => {
       const { getByLabelText } = render(
         <Radio aria-label="radio-input" onChange={handleChange}>
           Radio
-        </Radio>,
+        </Radio>
       );
 
       // Get the radio input by its ARIA label

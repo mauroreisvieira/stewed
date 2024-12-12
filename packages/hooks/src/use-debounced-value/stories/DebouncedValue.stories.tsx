@@ -14,8 +14,8 @@ const meta: Meta<typeof useDebouncedValue> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -43,5 +43,5 @@ export const Base: Story = {
         <Text>Debounced value: {debouncedValue}</Text>
       </div>
     );
-  },
+  }
 };

@@ -13,7 +13,7 @@ import {
   List,
   Separator,
   Accordion,
-  Box,
+  Box
 } from "@stewed/react";
 // Hooks
 import { useInput } from "../../../packages/hooks/index";
@@ -29,19 +29,19 @@ const meta = {
           default: {
             components: {
               group: {
-                radius: "full",
+                radius: "full"
               },
               button: {
-                radius: "full",
-              },
-            },
-          },
+                radius: "full"
+              }
+            }
+          }
         }}
       >
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -54,7 +54,7 @@ export const QuickViews = {
     const { value, setValue, onChange } = useInput<number>(1, {
       validate: (newValue) => {
         return newValue >= 0 && newValue <= 100;
-      },
+      }
     });
 
     return (
@@ -304,5 +304,5 @@ export const QuickViews = {
         </Drawer>
       </Container>
     );
-  },
+  }
 };

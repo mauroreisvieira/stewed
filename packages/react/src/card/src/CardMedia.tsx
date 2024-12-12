@@ -21,7 +21,7 @@ export function CardMedia({
   const cssClasses = {
     root: getBlock({}),
     img: getElement(["img"], className),
-    slot: getElement(["slot"], className),
+    slot: getElement(["slot"], className)
   };
   return (
     <div className={cssClasses.root}>

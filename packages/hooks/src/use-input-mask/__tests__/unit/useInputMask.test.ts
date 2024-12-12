@@ -7,8 +7,8 @@ describe("useInputMask", () => {
       useInputMask({
         pattern: /^\d+$/,
         defaultValue: "123456",
-        mask: "XXX-XXX",
-      }),
+        mask: "XXX-XXX"
+      })
     );
 
     expect(result.current.value).toBe("123-456"); // Masked value
@@ -19,13 +19,13 @@ describe("useInputMask", () => {
     const { result } = renderHook(() =>
       useInputMask({
         pattern: /^\d{3}-\d{3}$/,
-        mask: "XXX-XXX",
-      }),
+        mask: "XXX-XXX"
+      })
     );
 
     act(() => {
       result.current.onChange({
-        target: { value: "123456" },
+        target: { value: "123456" }
       } as React.ChangeEvent<HTMLInputElement>);
     });
 
@@ -37,13 +37,13 @@ describe("useInputMask", () => {
     const { result } = renderHook(() =>
       useInputMask({
         pattern: /^\d{3}-\d{3}$/,
-        mask: "XXX-XXX",
-      }),
+        mask: "XXX-XXX"
+      })
     );
 
     act(() => {
       result.current.onChange({
-        target: { value: "123456789" },
+        target: { value: "123456789" }
       } as React.ChangeEvent<HTMLInputElement>);
     });
 
@@ -56,8 +56,8 @@ describe("useInputMask", () => {
     const { result } = renderHook(() =>
       useInputMask({
         pattern: /^\d+$/,
-        required: true,
-      }),
+        required: true
+      })
     );
 
     act(() => {
@@ -76,8 +76,8 @@ describe("useInputMask", () => {
   it("should handle empty mask gracefully", () => {
     const { result } = renderHook(() =>
       useInputMask({
-        pattern: /^\d+$/,
-      }),
+        pattern: /^\d+$/
+      })
     );
 
     act(() => {
@@ -93,13 +93,13 @@ describe("useInputMask", () => {
       useInputMask({
         pattern: /^[A-Z]+$/,
         mask: "____",
-        charset: true,
-      }),
+        charset: true
+      })
     );
 
     act(() => {
       result.current.onChange({
-        target: { value: "A1B2C3" },
+        target: { value: "A1B2C3" }
       } as React.ChangeEvent<HTMLInputElement>);
     });
 

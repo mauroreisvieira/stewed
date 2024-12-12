@@ -9,7 +9,7 @@ import {
   ScrollArea,
   Separator,
   Stack,
-  Text,
+  Text
 } from "@stewed/react";
 // Hooks
 import { useDateTime } from "@hello-week/hooks";
@@ -48,10 +48,10 @@ export function Notifications(): React.ReactElement {
         month: "short",
         year: "numeric",
         hour: "numeric",
-        minute: "numeric",
+        minute: "numeric"
       });
     },
-    [createDate, formatDate],
+    [createDate, formatDate]
   );
 
   return (

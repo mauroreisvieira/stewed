@@ -87,7 +87,7 @@ export function Pagination({
   renderPrev,
   renderPage,
   renderNext,
-  onPageChange,
+  onPageChange
 }: PaginationProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: components.Pagination, styles });
@@ -96,8 +96,8 @@ export function Pagination({
   const cssClasses = {
     root: getBlock({
       modifiers: [alignment],
-      extraClasses: className,
-    }),
+      extraClasses: className
+    })
   };
 
   const selectedPage = Math.max(1, Math.min(currentPage, total));
@@ -117,7 +117,7 @@ export function Pagination({
     let minPage = Math.max(maxEllipsis, selectedPage - maxPivotPages);
     const maxPage = Math.min(
       total - 1,
-      selectedPage + maxPivotPages * 2 - (selectedPage - minPage),
+      selectedPage + maxPivotPages * 2 - (selectedPage - minPage)
     );
     minPage = Math.max(maxEllipsis, minPage - (maxPivotPages * 2 - (maxPage - minPage)));
 
@@ -138,7 +138,7 @@ export function Pagination({
       {renderPrev ? (
         renderPrev({
           disabled: disabled || selectedPage === 1,
-          onClick: () => onPageChange?.(selectedPage - 1),
+          onClick: () => onPageChange?.(selectedPage - 1)
         })
       ) : (
         <Button
@@ -161,7 +161,7 @@ export function Pagination({
             selected,
             disabled,
             hasEllipsis,
-            onClick: () => onPageChange?.(current),
+            onClick: () => onPageChange?.(current)
           })
         ) : (
           <Button
@@ -181,7 +181,7 @@ export function Pagination({
       {renderNext ? (
         renderNext({
           disabled: disabled || selectedPage === total,
-          onClick: () => onPageChange?.(selectedPage + 1),
+          onClick: () => onPageChange?.(selectedPage + 1)
         })
       ) : (
         <Button

@@ -32,13 +32,13 @@ interface UseBreakpointData<T> {
 /**
  * A hook to manage responsive props based on breakpoints.
  *
- * @param props The props including responsive configurations.
- * @param breakpoints Breakpoints configuration.
+ * @params props The props including responsive configurations.
+ * @params breakpoints Breakpoints configuration.
  * @returns Computed responsive props based on the current viewport.
  */
 export function useResponsive<T>(
   props: UseResponsiveProps<T>,
-  breakpoints?: typeof defaultTokens.breakpoints,
+  breakpoints?: typeof defaultTokens.breakpoints
 ): T {
   // Track if the component is mounted, useful for cleanup in effects
   const isMounted = useMounted();
@@ -67,7 +67,7 @@ export function useResponsive<T>(
 
       result = {
         ...result,
-        ...bp.mqProps,
+        ...bp.mqProps
       };
       activeBps.push(bp.bpName);
     });
@@ -86,12 +86,13 @@ export function useResponsive<T>(
     bpListRef.current = Object.entries(breakpoints || {})
       .map(([name, value]) => {
         const bpProps = (props.responsive || {})[name as Breakpoints] || {};
+
         return {
           mq: window.matchMedia(`(min-width: ${value})`),
           bpValue: parseInt(value),
           bpName: name as Breakpoints,
           mqProps: bpProps,
-          onChange: onBreakpointChange,
+          onChange: onBreakpointChange
         };
       })
       .sort((a, b) => a.bpValue - b.bpValue);

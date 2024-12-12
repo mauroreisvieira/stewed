@@ -37,7 +37,7 @@ interface UseVisualViewportProps {
  * @returns An object with the current visual viewport dimensions and position, or undefined if not enabled.
  */
 export const useVisualViewport = ({
-  enabled,
+  enabled
 }: UseVisualViewportProps): UseVisualViewport | undefined => {
   // State to hold the current viewport value.
   const [value, setValue] = useState<UseVisualViewport>();
@@ -64,7 +64,7 @@ export const useVisualViewport = ({
         pageTop,
         scale,
         width,
-        height,
+        height
       });
     };
 

@@ -12,7 +12,7 @@ describe("classNames function", () => {
 
   it("should ignore falsy values", () => {
     expect(classNames("class1", null, "class2", undefined, "class3", false)).toBe(
-      "class1 class2 class3",
+      "class1 class2 class3"
     );
   });
 

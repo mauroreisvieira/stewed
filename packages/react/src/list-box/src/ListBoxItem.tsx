@@ -48,7 +48,7 @@ export const ListBoxItem = fixedForwardRef(function ListBoxItem<T extends React.
       React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
       "as"
     >,
-  ref: React.ForwardedRef<unknown>,
+  ref: React.ForwardedRef<unknown>
 ): React.ReactElement {
   // Component to render based on the 'as' prop
   const Comp = as || defaultElement;
@@ -60,11 +60,11 @@ export const ListBoxItem = fixedForwardRef(function ListBoxItem<T extends React.
   const cssClasses = {
     root: getBlock({
       modifiers: [skin !== "primary" && skin, selected && "selected", disabled && "disabled"],
-      extraClasses: className,
+      extraClasses: className
     }),
     left: getElement(["left"]),
     text: getElement(["text"]),
-    right: getElement(["right"]),
+    right: getElement(["right"])
   };
 
   return (

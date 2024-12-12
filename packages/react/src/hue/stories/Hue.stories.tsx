@@ -13,15 +13,15 @@ const meta: Meta<typeof Hue> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
 
 export const Solid: Story = {
   args: {
-    skin: "indigo-500",
+    skin: "indigo-500"
   },
   render: function Render({ ...args }) {
     return (
@@ -29,7 +29,7 @@ export const Solid: Story = {
         <Box padding={{ block: "9xl", inline: "9xl" }} radius="md" />
       </Hue>
     );
-  },
+  }
 };
 
 export const Gradient: Story = {
@@ -37,8 +37,8 @@ export const Gradient: Story = {
     degree: 160,
     skin: {
       from: "teal-900",
-      to: "teal-700",
-    },
+      to: "teal-700"
+    }
   },
   render: function Render({ ...args }) {
     return (
@@ -46,15 +46,15 @@ export const Gradient: Story = {
         <Box padding={{ block: "9xl", inline: "9xl" }} radius="md" />
       </Hue>
     );
-  },
+  }
 };
 
 export const ClipText: Story = {
   args: {
     skin: {
       from: "pink-400",
-      to: "red-900",
-    },
+      to: "red-900"
+    }
   },
   render: function Render({ ...args }) {
     return (
@@ -64,5 +64,5 @@ export const ClipText: Story = {
         </Text>
       </Hue>
     );
-  },
+  }
 };

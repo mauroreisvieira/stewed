@@ -21,7 +21,7 @@ describe("Avatar", () => {
     it("should render image", async () => {
       const img = {
         src: "path/to/image.jpg",
-        alt: "Image",
+        alt: "Image"
       };
 
       const { container } = render(<Avatar name="Emma Clark" image={{ src: img.src }} />);
@@ -41,7 +41,7 @@ describe("Avatar", () => {
         const { container } = render(<Avatar name="Emma Clark" skin={skin} />);
 
         expect(container).toMatchSnapshot();
-      },
+      }
     );
 
     it.each<AvatarProps["shape"]>(["circle", "square"])(
@@ -50,7 +50,7 @@ describe("Avatar", () => {
         const { container } = render(<Avatar name="Emma Clark" shape={shape} />);
 
         expect(container).toMatchSnapshot();
-      },
+      }
     );
 
     it.each<AvatarProps["appearance"]>(["filled", "outline"])(
@@ -59,7 +59,7 @@ describe("Avatar", () => {
         const { container } = render(<Avatar name="Emma Clark" appearance={appearance} />);
 
         expect(container).toMatchSnapshot();
-      },
+      }
     );
 
     it.each<AvatarProps["size"]>(["xs", "sm", "md", "lg", "xl"])(
@@ -68,7 +68,7 @@ describe("Avatar", () => {
         const { container } = render(<Avatar name="Emma Clark" size={size} />);
 
         expect(container).toMatchSnapshot();
-      },
+      }
     );
   });
 

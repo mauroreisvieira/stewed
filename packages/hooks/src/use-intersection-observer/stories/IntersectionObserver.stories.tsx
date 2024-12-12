@@ -14,8 +14,8 @@ const meta: Meta<typeof useIntersectionObserver> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -28,7 +28,7 @@ export const IntersectionObserver: Story = {
     const { entries } = useIntersectionObserver({
       elementRef,
       enabled: true, // IntersectionObserver is enabled
-      threshold: 1, // trigger when 100% of the element is visible
+      threshold: 1 // trigger when 100% of the element is visible
     });
 
     return (
@@ -50,5 +50,5 @@ export const IntersectionObserver: Story = {
         </Box>
       </Box>
     );
-  },
+  }
 };

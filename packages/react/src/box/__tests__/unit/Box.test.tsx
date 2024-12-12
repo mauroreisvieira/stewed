@@ -29,7 +29,7 @@ describe("Box", () => {
       "primary-faded",
       "secondary-faded",
       "neutral-faded",
-      "white",
+      "white"
     ])("should apply '%s' skin classes", (skin) => {
       const { container } = render(<Box skin={skin}>Box</Box>);
 

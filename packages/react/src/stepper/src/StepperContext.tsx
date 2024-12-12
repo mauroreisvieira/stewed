@@ -23,7 +23,7 @@ export interface StepperContextProps {
 function createStepperContext() {
   return createContext<StepperContextProps>({
     steps: [],
-    selectedValue: undefined,
+    selectedValue: undefined
   });
 }
 

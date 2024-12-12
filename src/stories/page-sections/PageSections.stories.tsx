@@ -11,7 +11,7 @@ import {
   Accordion,
   Separator,
   Box,
-  Avatar,
+  Avatar
 } from "@stewed/react";
 // Icons
 import { FiPlus, FiMinus } from "react-icons/fi";
@@ -24,8 +24,8 @@ const meta = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -38,18 +38,18 @@ export const PricingPlans = {
       {
         title: "Freelancer",
         description: "Perfect for getting your business off the ground!",
-        price: 12,
+        price: 12
       },
       {
         title: "Startup",
         description: "Tailored for propelling your business to success!",
-        price: 24,
+        price: 24
       },
       {
         title: "Enterprise",
         description: "Comprehensive features for growing your business!",
-        price: 36,
-      },
+        price: 36
+      }
     ];
 
     return (
@@ -88,11 +88,11 @@ export const PricingPlans = {
               items="center"
               responsive={{
                 xs: {
-                  wrap: "wrap",
+                  wrap: "wrap"
                 },
                 md: {
-                  wrap: "nowrap",
-                },
+                  wrap: "nowrap"
+                }
               }}
             >
               {plans.map(({ title, description, price }, index) => (
@@ -106,7 +106,7 @@ export const PricingPlans = {
                   <Card
                     padding={{
                       block: index === 1 ? "2xl" : "xl",
-                      inline: "xl",
+                      inline: "xl"
                     }}
                     shadow={index === 1 ? "2xl" : undefined}
                   >
@@ -137,7 +137,7 @@ export const PricingPlans = {
         </Stack>
       </Container>
     );
-  },
+  }
 };
 
 export const CTASection = {
@@ -164,7 +164,7 @@ export const CTASection = {
         </Container>
       </Stack>
     );
-  },
+  }
 };
 
 export const Testimonials = {
@@ -178,8 +178,8 @@ export const Testimonials = {
             gap="4xl"
             responsive={{
               md: {
-                direction: "row",
-              },
+                direction: "row"
+              }
             }}
           >
             <Stack direction="column" gap="2xl" grow>
@@ -199,7 +199,7 @@ export const Testimonials = {
                   skin="neutral"
                   size="xl"
                   image={{
-                    src: "https://images.unsplash.com/photo-1701615004837-40d8573b6652",
+                    src: "https://images.unsplash.com/photo-1701615004837-40d8573b6652"
                   }}
                 />
                 <Stack direction="column">
@@ -218,9 +218,9 @@ export const Testimonials = {
                   orientation: "vertical",
                   space: {
                     inline: "7xl",
-                    block: "none",
-                  },
-                },
+                    block: "none"
+                  }
+                }
               }}
             />
             <Stack direction="column" gap="2xl" grow>
@@ -240,7 +240,7 @@ export const Testimonials = {
                   skin="neutral"
                   size="xl"
                   image={{
-                    src: "https://images.unsplash.com/photo-1633332755192-727a05c4013d",
+                    src: "https://images.unsplash.com/photo-1633332755192-727a05c4013d"
                   }}
                 />
                 <Stack direction="column">
@@ -255,7 +255,7 @@ export const Testimonials = {
         </Container>
       </Stack>
     );
-  },
+  }
 };
 
 export const FAQ = {
@@ -324,5 +324,5 @@ export const FAQ = {
         </Container>
       </Stack>
     );
-  },
+  }
 };

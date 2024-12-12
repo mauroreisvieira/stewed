@@ -16,7 +16,7 @@ describe("Text", () => {
       const { container } = render(
         <Text as="a" href="#">
           Text
-        </Text>,
+        </Text>
       );
 
       expect(container).toMatchSnapshot();

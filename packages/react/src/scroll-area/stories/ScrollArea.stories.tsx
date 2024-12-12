@@ -13,8 +13,8 @@ const meta: Meta<typeof ScrollArea> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -22,8 +22,8 @@ export default meta;
 export const Base: Story = {
   argTypes: {
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
     style: { maxHeight: 500 },
@@ -83,6 +83,6 @@ export const Base: Story = {
           urna eget arcu iaculis porttitor.
         </Text>
       </>
-    ),
-  },
+    )
+  }
 };

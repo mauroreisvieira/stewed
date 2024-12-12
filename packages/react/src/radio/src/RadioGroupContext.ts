@@ -39,7 +39,7 @@ function createRadioGroupContext() {
   return createContext<RadioGroupContextProps>({
     name: "",
     checkedValue: undefined,
-    onCheckedChange: definitionError,
+    onCheckedChange: definitionError
   });
 }
 

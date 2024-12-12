@@ -92,7 +92,7 @@ export const Root = fixedForwardRef(function Avatar<T extends React.ElementType>
       React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
       "as"
     >,
-  ref: React.ForwardedRef<unknown>,
+  ref: React.ForwardedRef<unknown>
 ): React.ReactElement {
   // Component to render based on the 'as' prop
   const Comp = as || defaultElement;
@@ -103,7 +103,7 @@ export const Root = fixedForwardRef(function Avatar<T extends React.ElementType>
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({ modifiers: [appearance, shape, size, skin], extraClasses: className }),
-    img: getElement(["img"], image?.className),
+    img: getElement(["img"], image?.className)
   };
 
   // State to track if there was an error while loading the image
@@ -120,7 +120,7 @@ export const Root = fixedForwardRef(function Avatar<T extends React.ElementType>
       setImageError(true);
       image?.onError?.(event);
     },
-    [image],
+    [image]
   );
 
   return (
@@ -149,5 +149,5 @@ export const Root = fixedForwardRef(function Avatar<T extends React.ElementType>
 
 // Compound component composition
 export const Avatar = Object.assign(Root, {
-  Group: AvatarGroup,
+  Group: AvatarGroup
 });

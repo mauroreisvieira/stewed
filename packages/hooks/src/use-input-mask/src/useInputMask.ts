@@ -59,7 +59,7 @@ export function useInputMask({
   mask,
   defaultValue = "",
   required,
-  charset,
+  charset
 }: UseInputMaskProps): UseInputMask {
   const [mounted, setMounted] = useState(false);
   const [maskValue, setMaskValue] = useState<string>("");
@@ -115,7 +115,7 @@ export function useInputMask({
 
       return newValue;
     },
-    [charset, mask],
+    [charset, mask]
   );
 
   useEffect(() => {
@@ -162,7 +162,7 @@ export function useInputMask({
       // If a mask is defined, set the formatted value; otherwise, keep it unformatted
       setMaskValue(formattedValue);
     },
-    [formatValue, mask, pattern],
+    [formatValue, mask, pattern]
   );
 
   const onHandleBlur: React.FocusEventHandler<HTMLInputElement> = useCallback(
@@ -177,7 +177,7 @@ export function useInputMask({
         setValid(pattern ? pattern.test(value) : true);
       }
     },
-    [pattern, required],
+    [pattern, required]
   );
 
   return {
@@ -185,6 +185,6 @@ export function useInputMask({
     setValue: (value) => setMaskValue(formatValue(value)),
     onChange: onHandleChange,
     onBlur: onHandleBlur,
-    isValid,
+    isValid
   };
 }

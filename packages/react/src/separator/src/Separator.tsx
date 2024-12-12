@@ -82,9 +82,9 @@ export function Separator({
     {
       space,
       orientation,
-      responsive,
+      responsive
     },
-    activeToken.breakpoints,
+    activeToken.breakpoints
   );
 
   // Importing useBem to handle BEM class names
@@ -97,10 +97,10 @@ export function Separator({
         skin,
         computedProps.orientation,
         computedProps.space?.block && `space-block-${computedProps.space.block}`,
-        computedProps.space?.inline && `space-inline-${computedProps.space.inline}`,
+        computedProps.space?.inline && `space-inline-${computedProps.space.inline}`
       ],
-      extraClasses: className,
-    }),
+      extraClasses: className
+    })
   };
 
   return <hr className={cssClasses.root} {...props} />;

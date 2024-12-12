@@ -13,7 +13,8 @@ import styles from "./styles/index.module.scss";
 // Default HTML element type for the this component
 const defaultElement = "button";
 
-export interface ButtonProps<T = typeof defaultElement> extends React.ComponentProps<typeof defaultElement> {
+export interface ButtonProps<T = typeof defaultElement>
+  extends React.ComponentProps<typeof defaultElement> {
   /**
    * Specifies the type of element to use as the button.
    * @default button
@@ -88,7 +89,7 @@ export const Button = fixedForwardRef(function Button<T extends React.ElementTyp
       React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
       "as"
     >,
-  ref: React.ForwardedRef<unknown>,
+  ref: React.ForwardedRef<unknown>
 ): React.ReactElement {
   // Determine the component type based on 'as' prop or use the default element
   const Comp = as || defaultElement;
@@ -106,14 +107,14 @@ export const Button = fixedForwardRef(function Button<T extends React.ElementTyp
         iconOnly && "icon-only",
         fullWidth && "full-width",
         loading && "loading",
-        props.disabled && "disabled",
+        props.disabled && "disabled"
       ],
-      extraClasses: className,
+      extraClasses: className
     }),
     spinner: getElement(["spinner"]),
     left: getElement(["left"]),
     text: getElement(["text"]),
-    right: getElement(["right"]),
+    right: getElement(["right"])
   };
 
   return (

@@ -30,7 +30,7 @@ describe("Checkbox", () => {
         const { container } = render(<Checkbox skin={skin}>Checkbox</Checkbox>);
 
         expect(container).toMatchSnapshot();
-      },
+      }
     );
 
     it.each<CheckboxProps["appearance"]>(["border", "default"])(
@@ -39,7 +39,7 @@ describe("Checkbox", () => {
         const { container } = render(<Checkbox appearance={appearance}>Checkbox</Checkbox>);
 
         expect(container).toMatchSnapshot();
-      },
+      }
     );
 
     it.each<CheckboxProps["size"]>(["sm", "md", "lg"])("should apply '%s' size classes", (size) => {
@@ -57,7 +57,7 @@ describe("Checkbox", () => {
       const { getByLabelText } = render(
         <Checkbox aria-label="checkbox-input" onChange={handleChange}>
           Checkbox
-        </Checkbox>,
+        </Checkbox>
       );
 
       // Get the Checkbox input by its ARIA label

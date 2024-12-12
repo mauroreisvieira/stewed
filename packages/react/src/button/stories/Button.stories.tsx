@@ -15,41 +15,41 @@ const meta: Meta<typeof Button> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
 
 export const Base: Story = {
   args: {
-    children: "Button",
-  },
+    children: "Button"
+  }
 };
 
 export const Skin: Story = {
   args: {
     skin: "neutral",
-    children: "Button",
-  },
+    children: "Button"
+  }
 };
 
 export const LeftSlot: Story = {
   argTypes: {
     leftSlot: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
     leftSlot: <FiSearch />,
-    children: "Button",
-  },
+    children: "Button"
+  }
 };
 
 export const Loading: Story = {
   args: {
     children: "",
     size: "md",
-    loading: true,
-  },
+    loading: true
+  }
 };

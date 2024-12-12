@@ -29,13 +29,13 @@ export function Music(): React.ReactElement {
             "secondary-background": "#121212",
             "secondary-background-hovered": "#101010",
             "secondary-background-pressed": "#101010",
-            "secondary-foreground": "#121212",
+            "secondary-foreground": "#121212"
           },
           components: {
             button: {
-              radius: "full",
-            },
-          },
+              radius: "full"
+            }
+          }
         },
         dark: {
           color: {
@@ -52,9 +52,9 @@ export function Music(): React.ReactElement {
             "secondary-background-hovered": "#fcfcfc",
             "secondary-background-pressed": "#fcfcfc",
             "secondary-foreground": "#fff",
-            "secondary-foreground-on-background": "#121212",
-          },
-        },
+            "secondary-foreground-on-background": "#121212"
+          }
+        }
       }}
     >
       <Snackbar screen="sm" placement="bottom" max={5}>

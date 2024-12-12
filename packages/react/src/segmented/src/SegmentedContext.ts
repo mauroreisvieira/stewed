@@ -33,7 +33,7 @@ export interface SegmentedContextProps<T extends string> {
 function createSegmentedContext<T extends string>() {
   return createContext<SegmentedContextProps<T>>({
     value: undefined,
-    onValueChange: definitionError,
+    onValueChange: definitionError
   });
 }
 

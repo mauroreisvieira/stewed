@@ -10,7 +10,7 @@ describe("ListBox", () => {
       const { container } = render(
         <ListBox>
           <ListBox.Item>Item</ListBox.Item>
-        </ListBox>,
+        </ListBox>
       );
 
       expect(container).toMatchSnapshot();
@@ -22,7 +22,7 @@ describe("ListBox", () => {
           <ListBox.Group title="Group">
             <ListBox.Item>Item</ListBox.Item>
           </ListBox.Group>
-        </ListBox>,
+        </ListBox>
       );
 
       expect(container).toMatchSnapshot();
@@ -34,7 +34,7 @@ describe("ListBox", () => {
           <ListBox.Group className="other-group-class">
             <ListBox.Item className="other-item-class">Item</ListBox.Item>
           </ListBox.Group>
-        </ListBox>,
+        </ListBox>
       );
 
       expect(container).toMatchSnapshot();
@@ -44,7 +44,7 @@ describe("ListBox", () => {
       const { container } = render(
         <ListBox>
           <ListBox.Item leftSlot="Left slot">Item</ListBox.Item>
-        </ListBox>,
+        </ListBox>
       );
 
       expect(container).toMatchSnapshot();
@@ -54,7 +54,7 @@ describe("ListBox", () => {
       const { container } = render(
         <ListBox>
           <ListBox.Item rightSlot="Right slot">Item</ListBox.Item>
-        </ListBox>,
+        </ListBox>
       );
 
       expect(container).toMatchSnapshot();
@@ -68,7 +68,7 @@ describe("ListBox", () => {
       const { findByText } = render(
         <ListBox>
           <ListBox.Item onClick={handleClick}>Item</ListBox.Item>
-        </ListBox>,
+        </ListBox>
       );
 
       const item = await findByText("Item");

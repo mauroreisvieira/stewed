@@ -8,7 +8,7 @@ import {
   Separator,
   Button,
   ListBox,
-  Hoverable,
+  Hoverable
 } from "@stewed/react";
 // Icons
 import { FiSearch } from "react-icons/fi";

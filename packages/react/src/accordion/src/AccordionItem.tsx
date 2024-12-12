@@ -51,7 +51,7 @@ export function AccordionItem({
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ extraClasses: className }),
+    root: getBlock({ extraClasses: className })
   };
 
   // Effect hook to set the initial open state of the accordion item.
@@ -101,7 +101,7 @@ export function AccordionItem({
       // Call the optional onClick callback prop, if provided
       onClick?.(event);
     },
-    [multipleExpanded, onClick, setOpen, value, onOpenChange],
+    [multipleExpanded, onClick, setOpen, value, onOpenChange]
   );
 
   return (

@@ -87,7 +87,7 @@ export function DataTable<T>({
     onSort,
     orderColumns,
     sortableColumns,
-    bodyRowProps,
+    bodyRowProps
   });
 
   return (

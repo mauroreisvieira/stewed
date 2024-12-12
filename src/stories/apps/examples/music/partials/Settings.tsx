@@ -9,7 +9,7 @@ import {
   Segmented,
   ListBox,
   Text,
-  useTheme,
+  useTheme
 } from "@stewed/react";
 // Icons
 import {
@@ -19,7 +19,7 @@ import {
   MdAccountCircle,
   MdSettings,
   MdHelpCenter,
-  MdLogout,
+  MdLogout
 } from "react-icons/md";
 
 type TMusicTheme = "default" | "dark";
@@ -40,7 +40,7 @@ export function Settings(): React.ReactElement {
           onClick={isOpen ? close : open}
           name="Devon Lane"
           image={{
-            src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde",
+            src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde"
           }}
         />
       )}
@@ -53,7 +53,7 @@ export function Settings(): React.ReactElement {
               size="md"
               name="Devon Lane"
               image={{
-                src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde",
+                src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde"
               }}
             />
             <Stack direction="column" gap="xs">

@@ -39,13 +39,13 @@ export function Segmented<T extends string>({
   const cssClasses = {
     root: getBlock({
       modifiers: [size, fullWidth && "full-width"],
-      extraClasses: className,
-    }),
+      extraClasses: className
+    })
   };
 
   // Define a reference to a tab list element
   const { ref, onNavigate } = useKeyboardNavigation<HTMLDivElement>({
-    target: '[role="tab"]:not([aria-disabled])',
+    target: '[role="tab"]:not([aria-disabled])'
   });
 
   const onHandleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
@@ -53,7 +53,7 @@ export function Segmented<T extends string>({
       onNavigate(event);
       onKeyDown?.(event);
     },
-    [onKeyDown, onNavigate],
+    [onKeyDown, onNavigate]
   );
 
   return (

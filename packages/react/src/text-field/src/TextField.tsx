@@ -79,13 +79,13 @@ export function TextField({
         size,
         alignment,
         appearance,
-        skin,
+        skin
       ],
-      extraClasses: className,
+      extraClasses: className
     }),
     input: getElement(["input"]),
     left: getElement(["left"]),
-    right: getElement(["right"]),
+    right: getElement(["right"])
   };
 
   return (

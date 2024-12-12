@@ -150,11 +150,12 @@ export const palette = {
   "brown-800": "color-mix(in oklab, var(--color-brown-500) 70%, black)",
   "brown-900": "color-mix(in oklab, var(--color-brown-500) 60%, black)",
   // White
-  "white": "#fff",
+  white: "#fff",
   // Color
-  "black": "#000",
+  black: "#000",
   // Transparent
-  "transparent": "transparent",
+  transparent: "transparent"
 };
 
+/** Type representing the keys of the `palette` object. */
 export type Palette = keyof typeof palette;

@@ -12,14 +12,14 @@ describe("useMediaQuery", () => {
       addListener: jest.fn(),
       removeListener: jest.fn(),
       addEventListener: jest.fn(),
-      removeEventListener: jest.fn(),
+      removeEventListener: jest.fn()
     }));
     window.matchMedia = mockMatchMedia;
   });
 
   it("returns the defaultValue when provided", () => {
     const { result } = renderHook(() =>
-      useMediaQuery({ query: "(min-width: 1024px)", defaultValue: true }),
+      useMediaQuery({ query: "(min-width: 1024px)", defaultValue: true })
     );
 
     expect(result.current).toBe(true);
@@ -40,8 +40,8 @@ describe("useMediaQuery", () => {
   it("handles multiple queries and matches any", () => {
     const { result } = renderHook(() =>
       useMediaQuery({
-        query: ["(min-width: 1024px)", "(max-width: 1023px)"],
-      }),
+        query: ["(min-width: 1024px)", "(max-width: 1023px)"]
+      })
     );
 
     expect(result.current).toBe(true); // One query matches
@@ -55,11 +55,11 @@ describe("useMediaQuery", () => {
       matches: query.includes("min-width: 1024px"),
       media: query,
       addEventListener: mockAddEventListener,
-      removeEventListener: mockRemoveEventListener,
+      removeEventListener: mockRemoveEventListener
     }));
 
     const { result, rerender } = renderHook(({ query }) => useMediaQuery({ query }), {
-      initialProps: { query: "(min-width: 1024px)" },
+      initialProps: { query: "(min-width: 1024px)" }
     });
 
     expect(result.current).toBe(true);
@@ -69,7 +69,7 @@ describe("useMediaQuery", () => {
         matches: false,
         media: query,
         addEventListener: mockAddEventListener,
-        removeEventListener: mockRemoveEventListener,
+        removeEventListener: mockRemoveEventListener
       }));
 
       rerender({ query: "(max-width: 1023px)" });

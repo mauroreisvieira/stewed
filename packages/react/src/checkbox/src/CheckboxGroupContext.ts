@@ -36,7 +36,7 @@ export interface CheckboxGroupContextProps {
 function createCheckboxGroupContext() {
   return createContext<CheckboxGroupContextProps>({
     checkedValues: undefined,
-    onCheckedChange: definitionError,
+    onCheckedChange: definitionError
   });
 }
 

@@ -99,7 +99,7 @@ function createCalendarContext<T>() {
     setSelectedDates: definitionError,
     onDaySelected: definitionError,
     onNext: definitionError,
-    onPrev: definitionError,
+    onPrev: definitionError
   });
 }
 

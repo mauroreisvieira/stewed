@@ -1,8 +1,17 @@
 /**
- * Extends the global Window interface to include FocusTrapInstances array.
+ * Extends the global `Window` interface to include a `FocusTrapInstances` property.
+ * This property holds an array of `FocusTrap` instances for managing focus trapping
+ * across the window context. Focus traps are often used for accessibility purposes,
+ * ensuring focus remains within a specific UI element or component.
  */
 declare global {
+  /** Override Window interface */
   interface Window {
+    /**
+     * An array of `FocusTrap` instances used for managing focus trapping within
+     * the window context. This can be useful for handling modal dialogs, popups,
+     * or other UI components where focus should be confined to a specific area.
+     */
     FocusTrapInstances: FocusTrap[];
   }
 }
@@ -21,7 +30,7 @@ export class FocusTrap {
 
   /**
    * Creates an instance of FocusTrap.
-   * @param root The root element to trap focus within.
+   * @params root The root element to trap focus within.
    */
   constructor(root: HTMLElement, selectors?: string[]) {
     this.stack = window;
@@ -33,7 +42,7 @@ export class FocusTrap {
       "select",
       "textarea",
       "[tabindex]",
-      "[controls]",
+      "[controls]"
     ];
     this.initialElementFocused = null;
     this.initialRootTabIndex = null;
@@ -47,11 +56,13 @@ export class FocusTrap {
 
   /**
    * Returns all elements that can be focused inside a given element.
-   * @param root The root element to search within.
+   * @params root The root element to search within.
    * @returns An object containing the first and last focusable elements.
    */
   private getFocusableElements(root: HTMLElement): {
+    /** First focusable elements */
     first: HTMLElement;
+    /** Last focusable elements */
     last: HTMLElement;
   } {
     // Get list of potential focusable elements
@@ -63,6 +74,7 @@ export class FocusTrap {
      */
     const focusableEls = elements.filter((el) => {
       const { visibility, display } = window.getComputedStyle(el);
+
       return (
         el.tabIndex >= 0 &&
         display !== "none" &&
@@ -82,7 +94,7 @@ export class FocusTrap {
 
     return {
       first: focusableEls[0] as HTMLElement,
-      last: focusableEls[focusableEls.length - 1] as HTMLElement,
+      last: focusableEls[focusableEls.length - 1] as HTMLElement
     };
   }
 
@@ -117,7 +129,7 @@ export class FocusTrap {
 
   /**
    * Handles keydown events, intercepting Tab actions.
-   * @param e The keyboard event.
+   * @params e The keyboard event.
    */
   private handleKeyDown(e: KeyboardEvent): void {
     if (e.key !== "Tab" || !this.activeInstance) return;
@@ -148,7 +160,7 @@ export class FocusTrap {
 
   /**
    * Handles focus when it jumps out of the root element context.
-   * @param e The focus event.
+   * @params e The focus event.
    */
   private handleFocusIn(e: FocusEvent): void {
     if (!this.activeInstance || e.composedPath().includes(this.activeInstance.root)) return;
@@ -163,6 +175,7 @@ export class FocusTrap {
    */
   get instanceInStack(): boolean {
     const idx = this.stack.FocusTrapInstances.indexOf(this);
+
     return idx > -1;
   }
 
@@ -172,6 +185,7 @@ export class FocusTrap {
    */
   get instanceOnTopOfStack(): boolean {
     const idx = this.stack.FocusTrapInstances.indexOf(this);
+
     return this.stack.FocusTrapInstances.length - 1 === idx;
   }
 
@@ -206,7 +220,6 @@ export class FocusTrap {
 
       // Save previously focused element
       this.initialElementFocused =
-        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
         document.activeElement === document.body ? null : (document.activeElement as HTMLElement);
     }
 

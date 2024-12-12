@@ -55,7 +55,7 @@ export function List({ mails, selectedIndex, onSelectIndex }: ListProps): React.
                           {formatDate(date, {
                             day: "2-digit",
                             month: "2-digit",
-                            year: "numeric",
+                            year: "numeric"
                           })}
                         </Text>
                       </Stack>

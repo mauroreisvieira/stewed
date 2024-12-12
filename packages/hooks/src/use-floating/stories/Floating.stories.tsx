@@ -14,8 +14,8 @@ const meta: Meta<typeof useFloating> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -31,12 +31,12 @@ export const Floating: Story = {
       x,
       y,
       isPositioned,
-      reference: { width },
+      reference: { width }
     } = useFloating<HTMLButtonElement, HTMLDivElement>({
       open: isOpen,
       placement: "bottom-start",
       reference: btnRef.current,
-      offset: 2,
+      offset: 2
     });
 
     return (
@@ -55,7 +55,7 @@ export const Floating: Story = {
                 visibility: isPositioned ? "visible" : "hidden",
                 width: `${width}px`,
                 left: `${x}px`,
-                top: `${y}px`,
+                top: `${y}px`
               }}
             >
               <Stack items="center" justify="center">
@@ -66,5 +66,5 @@ export const Floating: Story = {
         )}
       </>
     );
-  },
+  }
 };

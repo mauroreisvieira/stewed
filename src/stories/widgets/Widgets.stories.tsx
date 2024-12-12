@@ -18,7 +18,7 @@ import {
   FormField,
   Group,
   ListBox,
-  Hue,
+  Hue
 } from "@stewed/react";
 // Hooks
 import { useSelect, useToggle, useInputMask, useInput } from "@stewed/hooks";
@@ -36,8 +36,8 @@ const meta = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -47,32 +47,32 @@ const team = [
     id: 1,
     name: "Sophia Chang",
     email: "sophia.chang@example.com",
-    open: false,
+    open: false
   },
   {
     id: 2,
     name: "Olivia Patel",
     email: "olivia.patel@example.com",
-    open: false,
+    open: false
   },
   {
     id: 3,
     name: "Benjamin Martinez",
     email: "benjamin.martinez@example.com",
-    open: false,
+    open: false
   },
   {
     id: 4,
     name: "Noah Andersen",
     email: "noah.andersen@example.com",
-    open: false,
+    open: false
   },
   {
     id: 5,
     name: "Liam O'Connor",
     email: "liam.connor@example.com",
-    open: false,
-  },
+    open: false
+  }
 ];
 
 export const Team = {
@@ -114,7 +114,7 @@ export const Team = {
         </Card>
       </Container>
     );
-  },
+  }
 };
 
 export const Notification = {
@@ -181,7 +181,7 @@ export const Notification = {
         </Card>
       </Container>
     );
-  },
+  }
 };
 
 export const RecentActivity = {
@@ -227,7 +227,7 @@ export const RecentActivity = {
                 {createDate().format({
                   dateStyle: "medium",
                   timeStyle: "short",
-                  hour12: true,
+                  hour12: true
                 })}
               </Text>
             </Stack>
@@ -249,7 +249,7 @@ export const RecentActivity = {
                 {createDate().subtract(10, "days").format({
                   dateStyle: "medium",
                   timeStyle: "short",
-                  hour12: true,
+                  hour12: true
                 })}
               </Text>
             </Stack>
@@ -257,7 +257,7 @@ export const RecentActivity = {
         </Card>
       </Container>
     );
-  },
+  }
 };
 
 export const Suggested = {
@@ -330,7 +330,7 @@ export const Suggested = {
         </Card>
       </Container>
     );
-  },
+  }
 };
 
 export const ShareSettings = {
@@ -466,7 +466,7 @@ export const ShareSettings = {
         </Card>
       </Container>
     );
-  },
+  }
 };
 
 export const PaymentMethod = {
@@ -474,16 +474,16 @@ export const PaymentMethod = {
     const items = [
       {
         name: "Card",
-        icon: <FaCreditCard size={24} />,
+        icon: <FaCreditCard size={24} />
       },
       {
         name: "Paypal",
-        icon: <FaPaypal size={24} />,
+        icon: <FaPaypal size={24} />
       },
       {
         name: "Apple",
-        icon: <FaApple size={24} />,
-      },
+        icon: <FaApple size={24} />
+      }
     ];
 
     // Using the useSelect hook to manage selection
@@ -493,34 +493,34 @@ export const PaymentMethod = {
       name: /^[a-zA-Z ]+$/,
       creditCard: /^\d{4}(\s?\d{4}){3}$/, // Matches 4 groups of 4 digits (e.g., 1234 5678 1234 5678)
       cvv: /^\d{3,4}$/, // Matches 3 or 4 digits (e.g., 123 or 1234)
-      expireDate: /^(0[1-9]|1[0-2])\/\d{2}$/, // MM/YY format (e.g., 12/25)
+      expireDate: /^(0[1-9]|1[0-2])\/\d{2}$/ // MM/YY format (e.g., 12/25)
     };
 
     const nameMask = useInputMask({
       defaultValue: "Benjamin Martinez",
       pattern: regexPatterns.name,
-      required: true,
+      required: true
     });
 
     const creditCardMask = useInputMask({
       defaultValue: "1234567812345678",
       mask: "XXXX XXXX XXXX XXXX",
       pattern: regexPatterns.creditCard,
-      required: true,
+      required: true
     });
 
     const cvvMask = useInputMask({
       defaultValue: "123",
       mask: "XXX",
       pattern: regexPatterns.cvv,
-      required: true,
+      required: true
     });
 
     const expireDateMask = useInputMask({
       defaultValue: "03/24",
       mask: "MM/YY",
       pattern: regexPatterns.expireDate,
-      required: true,
+      required: true
     });
 
     return (
@@ -636,7 +636,7 @@ export const PaymentMethod = {
         </Card>
       </Container>
     );
-  },
+  }
 };
 
 export const NewMessage = {
@@ -740,7 +740,7 @@ export const NewMessage = {
         </Card>
       </Container>
     );
-  },
+  }
 };
 
 export const CompletedProgress = {
@@ -786,5 +786,5 @@ export const CompletedProgress = {
         </Hue>
       </Container>
     );
-  },
+  }
 };

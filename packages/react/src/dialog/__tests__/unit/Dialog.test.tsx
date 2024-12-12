@@ -12,7 +12,7 @@ describe("Dialog", () => {
           <Dialog.Header>Header</Dialog.Header>
           <Dialog.Body>Body</Dialog.Body>
           <Dialog.Footer>Footer</Dialog.Footer>
-        </Dialog>,
+        </Dialog>
       );
 
       expect(baseElement.querySelector(".dialog")).toMatchSnapshot();
@@ -23,7 +23,7 @@ describe("Dialog", () => {
         <Dialog onClose={jest.fn()} open={true}>
           <Dialog.Header>Header</Dialog.Header>
           <Dialog.Body>Body</Dialog.Body>
-        </Dialog>,
+        </Dialog>
       );
 
       expect(baseElement.querySelector(".dialog")).toMatchSnapshot();
@@ -35,7 +35,7 @@ describe("Dialog", () => {
           <Dialog.Header className="other-header-class">Header</Dialog.Header>
           <Dialog.Body className="other-body-class">Body</Dialog.Body>
           <Dialog.Footer className="other-footer-class">Footer</Dialog.Footer>
-        </Dialog>,
+        </Dialog>
       );
 
       expect(baseElement.querySelector(".dialog")).toMatchSnapshot();
@@ -47,7 +47,7 @@ describe("Dialog", () => {
           <Dialog.Header className="other-header-class">Header</Dialog.Header>
           <Dialog.Body className="other-body-class">Body</Dialog.Body>
           <Dialog.Footer className="other-footer-class">Footer</Dialog.Footer>
-        </Dialog>,
+        </Dialog>
       );
 
       expect(baseElement.querySelector(".dialog")).toMatchSnapshot();

@@ -105,7 +105,7 @@ export function Tooltip<T extends HTMLElement>({
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ modifiers: [skin], extraClasses: className }),
+    root: getBlock({ modifiers: [skin], extraClasses: className })
   };
 
   // Create a reference to manage the Tooltip element
@@ -117,7 +117,7 @@ export function Tooltip<T extends HTMLElement>({
         if (action === "hovered") {
           return {
             stage: "might-show",
-            timeoutId: setTimeout(() => dispatch("show-timer-elapsed"), delay),
+            timeoutId: setTimeout(() => dispatch("show-timer-elapsed"), delay)
           };
         }
       }
@@ -135,7 +135,7 @@ export function Tooltip<T extends HTMLElement>({
         if (action === "unhovered") {
           return {
             stage: "might-hide",
-            timeoutId: setTimeout(() => dispatch("hide-timer-elapsed"), HIDE_DELAY),
+            timeoutId: setTimeout(() => dispatch("hide-timer-elapsed"), HIDE_DELAY)
           };
         }
       }
@@ -147,7 +147,7 @@ export function Tooltip<T extends HTMLElement>({
         if (action === "hide-timer-elapsed") {
           return {
             stage: "hiding",
-            timeoutId: setTimeout(() => dispatch("hide-animation-completed"), HIDE_DURATION),
+            timeoutId: setTimeout(() => dispatch("hide-animation-completed"), HIDE_DURATION)
           };
         }
       }
@@ -160,7 +160,7 @@ export function Tooltip<T extends HTMLElement>({
 
       return state;
     },
-    { stage: "hidden" },
+    { stage: "hidden" }
   );
 
   useEffect(() => {
@@ -186,7 +186,7 @@ export function Tooltip<T extends HTMLElement>({
     open: isVisible,
     placement,
     offset: 4,
-    reference: tooltipRef.current,
+    reference: tooltipRef.current
   });
 
   const onHandleOpen = (): void => {
@@ -204,7 +204,7 @@ export function Tooltip<T extends HTMLElement>({
         onFocus: onHandleOpen,
         onBlur: onHandleClose,
         onMouseEnter: onHandleOpen,
-        onMouseLeave: onHandleClose,
+        onMouseLeave: onHandleClose
       })}
       {isVisible && (
         <Scope elevation="hint">
@@ -217,7 +217,7 @@ export function Tooltip<T extends HTMLElement>({
                 ...style,
                 visibility: isPositioned ? "visible" : "hidden",
                 left: `${x}px`,
-                top: `${y}px`,
+                top: `${y}px`
               }}
               onMouseEnter={(event): void => {
                 onHandleOpen();

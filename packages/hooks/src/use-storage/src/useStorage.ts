@@ -10,7 +10,7 @@ import { useCallback, useState, useEffect, Dispatch, SetStateAction } from "reac
  */
 export function useLocalStorage<T>(
   key: string,
-  initialValue: T | (() => T),
+  initialValue: T | (() => T)
 ): [T, Dispatch<SetStateAction<T>>, () => void] {
   return useStorage(key, initialValue, window.localStorage);
 }
@@ -25,7 +25,7 @@ export function useLocalStorage<T>(
  */
 export function useSessionStorage<T>(
   key: string,
-  initialValue: T | (() => T),
+  initialValue: T | (() => T)
 ): [T, Dispatch<SetStateAction<T>>, () => void] {
   return useStorage(key, initialValue, window.sessionStorage);
 }
@@ -43,7 +43,7 @@ export function useSessionStorage<T>(
 function useStorage<T>(
   key: string,
   initialValue: T | (() => T),
-  storageObject: Storage,
+  storageObject: Storage
 ): [T, Dispatch<SetStateAction<T>>, () => void] {
   const [value, setValue] = useState<T>(() => {
     // Attempt to retrieve stored value

@@ -15,7 +15,7 @@ import {
   Stack,
   Text,
   TextField,
-  Theme,
+  Theme
 } from "@stewed/react";
 // Hooks
 import { useKeyboardNavigation } from "@stewed/hooks";
@@ -29,8 +29,8 @@ const meta = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -83,7 +83,7 @@ export const SignUp = {
                           <Stack items="center" gap="md">
                             <Avatar
                               image={{
-                                src: "https://images.unsplash.com/photo-1701615004837-40d8573b6652",
+                                src: "https://images.unsplash.com/photo-1701615004837-40d8573b6652"
                               }}
                               name="Sophia Chang"
                             />
@@ -198,7 +198,7 @@ export const SignUp = {
         </Card>
       </Container>
     );
-  },
+  }
 };
 
 export const SignIn = {
@@ -262,7 +262,7 @@ export const SignIn = {
         </Card>
       </Container>
     );
-  },
+  }
 };
 
 function OTPInput({ onInputChange }) {
@@ -325,7 +325,7 @@ export const VerifyAccount = {
         }
 
         return true;
-      },
+      }
     });
 
     return (
@@ -368,5 +368,5 @@ export const VerifyAccount = {
         </Card>
       </Container>
     );
-  },
+  }
 };

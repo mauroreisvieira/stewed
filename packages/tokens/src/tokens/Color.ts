@@ -70,7 +70,7 @@ export const skin = {
   "warning-border-faded": palette["yellow-300"],
   "warning-border-hovered": palette["yellow-600"],
   "warning-foreground": "var(--color-yellow-500)",
-  "warning-foreground-on-background": "#fff",
+  "warning-foreground-on-background": "#fff"
 };
 
 export const color = {
@@ -89,10 +89,13 @@ export const color = {
   // Text inverted color
   "foreground-inverted": "#fff",
   // Shadow for subtle depth in UI components
-  "shadow": "rgba(0 0 0 / 0.1)",
+  shadow: "rgba(0 0 0 / 0.1)",
   // Color used to indicate focus state in interactive elements
-  "focus": "var(--color-indigo-500)",
+  focus: "var(--color-indigo-500)"
 };
 
+/** Type representing the keys of the `skin` object. */
 export type Skin = keyof typeof skin;
+
+/** Type representing the keys of the `color` object. */
 export type Color = keyof typeof color;

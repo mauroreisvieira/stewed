@@ -33,8 +33,8 @@ export function Backdrop({ blur = false, className, ...props }: BackdropProps): 
   const cssClasses = {
     root: getBlock({
       modifiers: [blur && "blur"],
-      extraClasses: className,
-    }),
+      extraClasses: className
+    })
   };
 
   return <div className={cssClasses.root} {...props} />;

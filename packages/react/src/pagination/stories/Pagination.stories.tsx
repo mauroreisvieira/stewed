@@ -13,8 +13,8 @@ const meta: Meta<typeof Pagination> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -22,6 +22,6 @@ export default meta;
 export const Base: Story = {
   args: {
     total: 10,
-    currentPage: 1,
-  },
+    currentPage: 1
+  }
 };

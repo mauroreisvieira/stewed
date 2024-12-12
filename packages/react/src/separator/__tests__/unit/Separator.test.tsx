@@ -46,7 +46,7 @@ describe("Separator", () => {
       "warning",
       "warning-faded",
       "white",
-      "black",
+      "black"
     ])("should apply '%s' skin classes", (skin) => {
       const { container } = render(<Separator skin={skin} />);
 

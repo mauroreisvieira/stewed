@@ -39,7 +39,7 @@ function createTabsContext<T extends string>() {
   return createContext<TabsContextProps<T>>({
     value: undefined,
     setSelectedValue: definitionError,
-    onValueChange: definitionError,
+    onValueChange: definitionError
   });
 }
 

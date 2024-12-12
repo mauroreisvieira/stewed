@@ -15,7 +15,7 @@ import {
   useResponsive,
   useScrollLock,
   useFocusTrap,
-  type UseResponsiveProps,
+  type UseResponsiveProps
 } from "@stewed/hooks";
 // Tokens
 import { components, type Spacings } from "@stewed/tokens";
@@ -98,7 +98,7 @@ export function Drawer({
   // Trap focus within the Drawer when open and rootRef is available
   useFocusTrap({
     root: rootRef,
-    enabled: !!open && !!rootRef,
+    enabled: !!open && !!rootRef
   });
 
   // Retrieve values from the current theme context
@@ -109,9 +109,9 @@ export function Drawer({
     {
       size,
       safeMargin,
-      responsive,
+      responsive
     },
-    activeToken.breakpoints,
+    activeToken.breakpoints
   );
 
   // Generating CSS classes based on component props and styles
@@ -121,11 +121,11 @@ export function Drawer({
         computedProps.size,
         placement,
         open && "open",
-        safeMargin && `safe-margin-${safeMargin}`,
+        safeMargin && `safe-margin-${safeMargin}`
       ],
-      extraClasses: className,
+      extraClasses: className
     }),
-    surface: getElement([`surface`]),
+    surface: getElement([`surface`])
   };
 
   const onHandleKeydown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
@@ -135,14 +135,14 @@ export function Drawer({
         event.stopPropagation();
       }
     },
-    [onEscape],
+    [onEscape]
   );
 
   // Hook to handle clicks outside the floating element.
   useClickOutside({
     enabled: open,
     ignoredElements: rootRef ? [rootRef] : undefined,
-    handler: () => onClickOutside?.(),
+    handler: () => onClickOutside?.()
   });
 
   useEffect(() => {

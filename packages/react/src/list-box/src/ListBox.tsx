@@ -18,7 +18,7 @@ export function ListBox({ className, children, ...props }: ListBoxProps): React.
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ extraClasses: className }),
+    root: getBlock({ extraClasses: className })
   };
 
   return (

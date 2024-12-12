@@ -1,3 +1,4 @@
+/* eslint-disable jsdoc/require-jsdoc */
 import { sortData, SortDirection } from "../index";
 
 interface Item {
@@ -10,20 +11,20 @@ describe("sortData", () => {
   const items: Item[] = [
     { id: 3, name: "Charlie", createdAt: new Date("2023-03-01") },
     { id: 1, name: "Alice", createdAt: new Date("2023-01-01") },
-    { id: 2, name: "Bob", createdAt: new Date("2023-02-01") },
+    { id: 2, name: "Bob", createdAt: new Date("2023-02-01") }
   ];
 
   it("should sort by a numeric column in ascending order", () => {
     const sorted = sortData({
       items,
       column: "id",
-      direction: SortDirection.ASC,
+      direction: SortDirection.ASC
     });
 
     expect(sorted).toEqual([
       { id: 1, name: "Alice", createdAt: new Date("2023-01-01") },
       { id: 2, name: "Bob", createdAt: new Date("2023-02-01") },
-      { id: 3, name: "Charlie", createdAt: new Date("2023-03-01") },
+      { id: 3, name: "Charlie", createdAt: new Date("2023-03-01") }
     ]);
   });
 
@@ -31,13 +32,13 @@ describe("sortData", () => {
     const sorted = sortData({
       items,
       column: "id",
-      direction: SortDirection.DESC,
+      direction: SortDirection.DESC
     });
 
     expect(sorted).toEqual([
       { id: 3, name: "Charlie", createdAt: new Date("2023-03-01") },
       { id: 2, name: "Bob", createdAt: new Date("2023-02-01") },
-      { id: 1, name: "Alice", createdAt: new Date("2023-01-01") },
+      { id: 1, name: "Alice", createdAt: new Date("2023-01-01") }
     ]);
   });
 
@@ -45,13 +46,13 @@ describe("sortData", () => {
     const sorted = sortData({
       items,
       column: "name",
-      direction: SortDirection.ASC,
+      direction: SortDirection.ASC
     });
 
     expect(sorted).toEqual([
       { id: 1, name: "Alice", createdAt: new Date("2023-01-01") },
       { id: 2, name: "Bob", createdAt: new Date("2023-02-01") },
-      { id: 3, name: "Charlie", createdAt: new Date("2023-03-01") },
+      { id: 3, name: "Charlie", createdAt: new Date("2023-03-01") }
     ]);
   });
 
@@ -59,13 +60,13 @@ describe("sortData", () => {
     const sorted = sortData({
       items,
       column: "name",
-      direction: SortDirection.DESC,
+      direction: SortDirection.DESC
     });
 
     expect(sorted).toEqual([
       { id: 3, name: "Charlie", createdAt: new Date("2023-03-01") },
       { id: 2, name: "Bob", createdAt: new Date("2023-02-01") },
-      { id: 1, name: "Alice", createdAt: new Date("2023-01-01") },
+      { id: 1, name: "Alice", createdAt: new Date("2023-01-01") }
     ]);
   });
 
@@ -73,13 +74,13 @@ describe("sortData", () => {
     const sorted = sortData({
       items,
       column: "createdAt",
-      direction: SortDirection.ASC,
+      direction: SortDirection.ASC
     });
 
     expect(sorted).toEqual([
       { id: 1, name: "Alice", createdAt: new Date("2023-01-01") },
       { id: 2, name: "Bob", createdAt: new Date("2023-02-01") },
-      { id: 3, name: "Charlie", createdAt: new Date("2023-03-01") },
+      { id: 3, name: "Charlie", createdAt: new Date("2023-03-01") }
     ]);
   });
 
@@ -87,13 +88,13 @@ describe("sortData", () => {
     const sorted = sortData({
       items,
       column: "createdAt",
-      direction: SortDirection.DESC,
+      direction: SortDirection.DESC
     });
 
     expect(sorted).toEqual([
       { id: 3, name: "Charlie", createdAt: new Date("2023-03-01") },
       { id: 2, name: "Bob", createdAt: new Date("2023-02-01") },
-      { id: 1, name: "Alice", createdAt: new Date("2023-01-01") },
+      { id: 1, name: "Alice", createdAt: new Date("2023-01-01") }
     ]);
   });
 
@@ -101,19 +102,19 @@ describe("sortData", () => {
     const itemsWithEmpty: Item[] = [
       { id: 1, name: "Alice", createdAt: new Date("2023-01-01") },
       { id: 2, name: "", createdAt: new Date("2023-02-01") },
-      { id: 3, name: "Charlie", createdAt: new Date("2023-03-01") },
+      { id: 3, name: "Charlie", createdAt: new Date("2023-03-01") }
     ];
 
     const sorted = sortData({
       items: itemsWithEmpty,
       column: "name",
-      direction: SortDirection.ASC,
+      direction: SortDirection.ASC
     });
 
     expect(sorted).toEqual([
       { id: 2, name: "", createdAt: new Date("2023-02-01") },
       { id: 1, name: "Alice", createdAt: new Date("2023-01-01") },
-      { id: 3, name: "Charlie", createdAt: new Date("2023-03-01") },
+      { id: 3, name: "Charlie", createdAt: new Date("2023-03-01") }
     ]);
   });
 
@@ -121,7 +122,7 @@ describe("sortData", () => {
     const sorted = sortData({
       items: [],
       column: "name",
-      direction: SortDirection.ASC,
+      direction: SortDirection.ASC
     });
 
     expect(sorted).toEqual([]);

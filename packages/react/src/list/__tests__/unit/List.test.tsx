@@ -10,7 +10,7 @@ describe("List", () => {
       const { container } = render(
         <List>
           <List.Item>Item</List.Item>
-        </List>,
+        </List>
       );
 
       expect(container).toMatchSnapshot();
@@ -22,18 +22,18 @@ describe("List", () => {
         const { container } = render(
           <List type={type}>
             <List.Item>Item</List.Item>
-          </List>,
+          </List>
         );
 
         expect(container).toMatchSnapshot();
-      },
+      }
     );
 
     it("should render additional classes", () => {
       const { container } = render(
         <List className="other-class">
           <List.Item className="other-class">Item</List.Item>
-        </List>,
+        </List>
       );
 
       expect(container).toMatchSnapshot();

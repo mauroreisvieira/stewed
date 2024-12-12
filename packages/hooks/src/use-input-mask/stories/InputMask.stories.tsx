@@ -14,8 +14,8 @@ const meta: Meta<typeof useInputMask> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -32,31 +32,31 @@ export const Base: Story = {
       // CVV pattern (matches 3 or 4 digits, typically used for credit card CVV)
       cvv: /^\d{3,4}$/, // Matches 3 or 4 digits (e.g., 123 or 1234)
       // Expiration date pattern for MM/YY format (months 01-12 and 2-digit year)
-      expireDate: /^(0[1-9]|1[0-2])\/\d{2}$/, // MM/YY format (e.g., 12/25)
+      expireDate: /^(0[1-9]|1[0-2])\/\d{2}$/ // MM/YY format (e.g., 12/25)
     };
 
     const phoneMask = useInputMask({
       mask: "(XXX) XXXXXXXXX",
-      pattern: regexPatterns.phone,
+      pattern: regexPatterns.phone
     });
 
     const zipMask = useInputMask({
       mask: "XXXX-XXX",
-      pattern: regexPatterns.zip,
+      pattern: regexPatterns.zip
     });
 
     const creditCardMask = useInputMask({
       mask: "XXXX XXXX XXXX XXXX",
-      pattern: regexPatterns.creditCard,
+      pattern: regexPatterns.creditCard
     });
 
     const cvvMask = useInputMask({
-      pattern: regexPatterns.cvv,
+      pattern: regexPatterns.cvv
     });
 
     const expireDateMask = useInputMask({
       mask: "MM/YY",
-      pattern: regexPatterns.expireDate,
+      pattern: regexPatterns.expireDate
     });
 
     return (
@@ -153,5 +153,5 @@ export const Base: Story = {
         </FormField>
       </Stack>
     );
-  },
+  }
 };

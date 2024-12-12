@@ -69,9 +69,9 @@ export function Radio({
   // Compute responsive props based on current theme and screen sizes
   const computedProps = useResponsive(
     {
-      size,
+      size
     },
-    activeToken.breakpoints,
+    activeToken.breakpoints
   );
 
   // Use the custom hook useCheckboxGroup to access functions and state related to radio management
@@ -84,13 +84,13 @@ export function Radio({
         skin,
         appearance !== "default" && appearance,
         computedProps.size,
-        disabled && "disabled",
+        disabled && "disabled"
       ],
-      extraClasses: className,
+      extraClasses: className
     }),
     input: getElement(["input"]),
     control: getElement(["control"]),
-    text: getElement(["text"]),
+    text: getElement(["text"])
   };
 
   // Determine the checked state: controlled or uncontrolled

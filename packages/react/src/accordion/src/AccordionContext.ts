@@ -40,7 +40,7 @@ export const AccordionContext = createContext<AccordionContextProps>({
   multipleExpanded: false,
   open: [],
   setOpen: definitionError,
-  onOpenChange: definitionError,
+  onOpenChange: definitionError
 });
 
 export const useAccordion = (): AccordionContextProps => use(AccordionContext);

@@ -12,7 +12,7 @@ describe("Drawer", () => {
           <Drawer.Header>Header</Drawer.Header>
           <Drawer.Body>Body</Drawer.Body>
           <Drawer.Footer>Footer</Drawer.Footer>
-        </Drawer>,
+        </Drawer>
       );
 
       expect(baseElement.querySelector(".drawer")).toMatchSnapshot();
@@ -23,7 +23,7 @@ describe("Drawer", () => {
         <Drawer onClose={jest.fn()} open={true}>
           <Drawer.Header>Header</Drawer.Header>
           <Drawer.Body>Body</Drawer.Body>
-        </Drawer>,
+        </Drawer>
       );
 
       expect(baseElement.querySelector(".drawer")).toMatchSnapshot();
@@ -35,7 +35,7 @@ describe("Drawer", () => {
           <Drawer.Header className="other-header-class">Header</Drawer.Header>
           <Drawer.Body className="other-body-class">Body</Drawer.Body>
           <Drawer.Footer className="other-footer-class">Footer</Drawer.Footer>
-        </Drawer>,
+        </Drawer>
       );
 
       expect(baseElement.querySelector(".drawer")).toMatchSnapshot();
@@ -47,7 +47,7 @@ describe("Drawer", () => {
           <Drawer.Header className="other-header-class">Header</Drawer.Header>
           <Drawer.Body className="other-body-class">Body</Drawer.Body>
           <Drawer.Footer className="other-footer-class">Footer</Drawer.Footer>
-        </Drawer>,
+        </Drawer>
       );
 
       expect(baseElement.querySelector(".drawer")).toMatchSnapshot();
@@ -59,7 +59,7 @@ describe("Drawer", () => {
           <Drawer.Header className="other-header-class">Header</Drawer.Header>
           <Drawer.Body className="other-body-class">Body</Drawer.Body>
           <Drawer.Footer className="other-footer-class">Footer</Drawer.Footer>
-        </Drawer>,
+        </Drawer>
       );
 
       expect(baseElement.querySelector(".drawer")).toMatchSnapshot();

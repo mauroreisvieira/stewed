@@ -85,7 +85,7 @@ export const Stack = fixedForwardRef(function Stack<T extends React.ElementType>
       React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
       "as"
     >,
-  ref: React.ForwardedRef<unknown>,
+  ref: React.ForwardedRef<unknown>
 ): React.ReactElement {
   // Component to render based on the 'as' prop
   const Comp = as || defaultElement;
@@ -105,9 +105,9 @@ export const Stack = fixedForwardRef(function Stack<T extends React.ElementType>
       wrap,
       inline,
       grow,
-      responsive,
+      responsive
     },
-    activeToken.breakpoints,
+    activeToken.breakpoints
   );
 
   // Importing useBem to handle BEM class names
@@ -125,10 +125,10 @@ export const Stack = fixedForwardRef(function Stack<T extends React.ElementType>
         computedProps.wrap,
         computedProps.inline && "inline",
         computedProps.hidden && "hidden",
-        computedProps.grow && "grow",
+        computedProps.grow && "grow"
       ],
-      extraClasses: className,
-    }),
+      extraClasses: className
+    })
   };
 
   return (

@@ -30,7 +30,8 @@ interface FloatingOptions {
   isPositioned?: boolean;
 }
 
-export interface UseFloatingProps<R extends HTMLElement> extends Pick<FloatingOptions, "placement"> {
+export interface UseFloatingProps<R extends HTMLElement>
+  extends Pick<FloatingOptions, "placement"> {
   /**
    * The reference element used for positioning the floating component.
    * Should be a DOM element or null.
@@ -86,7 +87,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
   offset = 0,
   flip = true,
   boundary,
-  open,
+  open
 }: UseFloatingProps<R>): UseFloating<F> {
   // Reference to the floating element, initially set to null
   const floating = useRef<F>(null);
@@ -95,7 +96,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
   const [floatingPosition, setFloatingPosition] = useState({
     x: 0,
     y: 0,
-    reference: {} as DOMRect,
+    reference: {} as DOMRect
   });
 
   // Reducer to update the options, merging the previous state with the new state
@@ -103,7 +104,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
     (prev: FloatingOptions, next: Partial<FloatingOptions>) => {
       return { ...prev, ...next };
     },
-    { placement, isPositioned: false }, // Initial state with placement and whether the element is positioned
+    { placement, isPositioned: false } // Initial state with placement and whether the element is positioned
   );
 
   // Calculate the floating element's position
@@ -111,7 +112,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
     ({
       position,
       referenceRect,
-      floatingRect,
+      floatingRect
     }: {
       position: FloatingPlacement;
       referenceRect: DOMRect;
@@ -189,7 +190,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
 
       return { x, y };
     },
-    [offset],
+    [offset]
   );
 
   // Function to update the position of the floating element based on the reference element's position and size
@@ -205,7 +206,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
     let { x, y } = calculateFloatingPosition({
       position: options.placement,
       referenceRect,
-      floatingRect,
+      floatingRect
     });
 
     const doesPlacementFit = (placement: FloatingPlacement): boolean => {
@@ -221,7 +222,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
         left: boundaryLeft,
         top: boundaryTop,
         width: boundaryWidth,
-        height: boundaryHeight,
+        height: boundaryHeight
       } = boundaryRect;
 
       const scrollTop = boundary?.scrollTop || 0;
@@ -235,7 +236,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
         left: referenceLeft,
         top: referenceTop,
         width: referenceWidth,
-        height: referenceHeight,
+        height: referenceHeight
       } = referenceRect;
 
       const adjustedReferenceTop = referenceTop + scrollTop;
@@ -333,7 +334,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
     const adjustPlacement = (initialPlacement: FloatingPlacement): FloatingPlacement => {
       // Define alternative placements for cases where the initial placement does not fit
       const relatedPlacements = {
-        "top": [
+        top: [
           "top-start",
           "top-end", // Variations on top
           "bottom",
@@ -344,9 +345,9 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
           "left-end", // Left variations
           "right",
           "right-start",
-          "right-end", // Right variations
+          "right-end" // Right variations
         ],
-        "bottom": [
+        bottom: [
           "bottom-start",
           "bottom-end", // Variations on bottom
           "top",
@@ -357,9 +358,9 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
           "left-end", // Left variations
           "right",
           "right-start",
-          "right-end", // Right variations
+          "right-end" // Right variations
         ],
-        "left": [
+        left: [
           "left-start",
           "left-end", // Variations on left
           "right",
@@ -370,9 +371,9 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
           "top-end", // Top variations
           "bottom",
           "bottom-start",
-          "bottom-end", // Bottom variations
+          "bottom-end" // Bottom variations
         ],
-        "right": [
+        right: [
           "right-start",
           "right-end", // Variations on right
           "left",
@@ -383,7 +384,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
           "top-end", // Top variations
           "bottom",
           "bottom-start",
-          "bottom-end", // Bottom variations
+          "bottom-end" // Bottom variations
         ],
         "top-start": [
           "top",
@@ -396,7 +397,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
           "left-end", // Left variations
           "right-start",
           "right",
-          "right-end", // Right variations
+          "right-end" // Right variations
         ],
         "top-end": [
           "top",
@@ -409,7 +410,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
           "left-start", // Left variations
           "right-end",
           "right",
-          "right-start", // Right variations
+          "right-start" // Right variations
         ],
         "bottom-start": [
           "bottom",
@@ -422,7 +423,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
           "left-end", // Left variations
           "right-start",
           "right",
-          "right-end", // Right variations
+          "right-end" // Right variations
         ],
         "bottom-end": [
           "bottom",
@@ -435,7 +436,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
           "left-start", // Left variations
           "right-end",
           "right",
-          "right-start", // Right variations
+          "right-start" // Right variations
         ],
         "left-start": [
           "left",
@@ -448,7 +449,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
           "top-end", // Top variations
           "bottom-start",
           "bottom",
-          "bottom-end", // Bottom variations
+          "bottom-end" // Bottom variations
         ],
         "left-end": [
           "left",
@@ -461,7 +462,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
           "top-start", // Top variations
           "bottom-end",
           "bottom",
-          "bottom-start", // Bottom variations
+          "bottom-start" // Bottom variations
         ],
         "right-start": [
           "right",
@@ -474,7 +475,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
           "top-end", // Top variations
           "bottom-start",
           "bottom",
-          "bottom-end", // Bottom variations
+          "bottom-end" // Bottom variations
         ],
         "right-end": [
           "right",
@@ -487,8 +488,8 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
           "bottom-start", // Bottom variations
           "top-end",
           "top",
-          "top-start", // Top variations
-        ],
+          "top-start" // Top variations
+        ]
       } as const;
 
       // Try the related placements to see if they fit
@@ -513,7 +514,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
         ({ x, y } = calculateFloatingPosition({
           position: newPlacement,
           referenceRect,
-          floatingRect,
+          floatingRect
         }));
       }
     }

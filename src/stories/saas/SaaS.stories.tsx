@@ -33,7 +33,7 @@ import {
   Switch,
   Dialog,
   Hue,
-  Segmented,
+  Segmented
 } from "@stewed/react";
 // Hooks
 import { useInput, useSelect } from "@stewed/hooks";
@@ -51,7 +51,7 @@ import {
   MdShare,
   MdPassword,
   MdDarkMode,
-  MdNotifications,
+  MdNotifications
 } from "react-icons/md";
 import { FaUserEdit } from "react-icons/fa";
 import { VscKebabVertical } from "react-icons/vsc";
@@ -68,7 +68,7 @@ import {
   FiMinus,
   FiPlus,
   FiEdit,
-  FiUserPlus,
+  FiUserPlus
 } from "react-icons/fi";
 import { LuFilter, LuClipboard, LuColumns2 } from "react-icons/lu";
 import { IoAttach, IoChatbubbleOutline, IoSettingsOutline } from "react-icons/io5";
@@ -83,8 +83,8 @@ const meta: Meta = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -98,7 +98,7 @@ export const Staff = {
         specialty: "Dentist",
         contacts: {
           email: "olivia.patel@example.com",
-          phone: "233 900-0122",
+          phone: "233 900-0122"
         },
         workdays: {
           sun: true,
@@ -107,11 +107,11 @@ export const Staff = {
           wed: true,
           thu: false,
           fri: true,
-          sat: true,
+          sat: true
         },
         assignedTreatment: "Dental services",
         type: "Part-time",
-        selected: false,
+        selected: false
       },
       {
         id: "2",
@@ -119,7 +119,7 @@ export const Staff = {
         specialty: "Cardiologist",
         contacts: {
           email: "liam.nguyen@example.com",
-          phone: "233 900-0155",
+          phone: "233 900-0155"
         },
         workdays: {
           sun: false,
@@ -128,11 +128,11 @@ export const Staff = {
           wed: false,
           thu: true,
           fri: false,
-          sat: true,
+          sat: true
         },
         assignedTreatment: "Heart specialist",
         type: "Full-time",
-        selected: false,
+        selected: false
       },
       {
         id: "3",
@@ -140,7 +140,7 @@ export const Staff = {
         specialty: "Pediatrician",
         contacts: {
           email: "emma.clark@example.com",
-          phone: "233 900-0177",
+          phone: "233 900-0177"
         },
         workdays: {
           sun: true,
@@ -149,11 +149,11 @@ export const Staff = {
           wed: true,
           thu: false,
           fri: true,
-          sat: false,
+          sat: false
         },
         assignedTreatment: "Child healthcare",
         type: "Part-time",
-        selected: false,
+        selected: false
       },
       {
         id: "4",
@@ -161,7 +161,7 @@ export const Staff = {
         specialty: "Orthopedic Surgeon",
         contacts: {
           email: "noah.kim@example.com",
-          phone: "233 900-0199",
+          phone: "233 900-0199"
         },
         workdays: {
           sun: false,
@@ -170,11 +170,11 @@ export const Staff = {
           wed: true,
           thu: true,
           fri: true,
-          sat: false,
+          sat: false
         },
         assignedTreatment: "Bone and joint surgery",
         type: "Full-time",
-        selected: false,
+        selected: false
       },
       {
         id: "5",
@@ -182,7 +182,7 @@ export const Staff = {
         specialty: "Dermatologist",
         contacts: {
           email: "ava.lopez@example.com",
-          phone: "233 900-0211",
+          phone: "233 900-0211"
         },
         workdays: {
           sun: true,
@@ -191,11 +191,11 @@ export const Staff = {
           wed: false,
           thu: true,
           fri: true,
-          sat: true,
+          sat: true
         },
         assignedTreatment: "Skin specialist",
         type: "Part-time",
-        selected: false,
+        selected: false
       },
       {
         id: "6",
@@ -203,7 +203,7 @@ export const Staff = {
         specialty: "Neurologist",
         contacts: {
           email: "william.rodriguez@example.com",
-          phone: "233 900-0233",
+          phone: "233 900-0233"
         },
         workdays: {
           sun: false,
@@ -212,11 +212,11 @@ export const Staff = {
           wed: false,
           thu: true,
           fri: true,
-          sat: false,
+          sat: false
         },
         assignedTreatment: "Brain and nervous system",
         type: "Full-time",
-        selected: false,
+        selected: false
       },
       {
         id: "7",
@@ -224,7 +224,7 @@ export const Staff = {
         specialty: "Ophthalmologist",
         contacts: {
           email: "sophia.gonzalez@example.com",
-          phone: "233 900-0255",
+          phone: "233 900-0255"
         },
         workdays: {
           sun: true,
@@ -233,11 +233,11 @@ export const Staff = {
           wed: true,
           thu: false,
           fri: true,
-          sat: true,
+          sat: true
         },
         assignedTreatment: "Eye specialist",
         type: "Part-time",
-        selected: false,
+        selected: false
       },
       {
         id: "8",
@@ -245,7 +245,7 @@ export const Staff = {
         specialty: "Gastroenterologist",
         contacts: {
           email: "james.martinez@example.com",
-          phone: "233 900-0277",
+          phone: "233 900-0277"
         },
         workdays: {
           sun: false,
@@ -254,11 +254,11 @@ export const Staff = {
           wed: true,
           thu: true,
           fri: false,
-          sat: true,
+          sat: true
         },
         assignedTreatment: "Digestive system",
         type: "Full-time",
-        selected: false,
+        selected: false
       },
       {
         id: "9",
@@ -266,7 +266,7 @@ export const Staff = {
         specialty: "Psychiatrist",
         contacts: {
           email: "mia.davis@example.com",
-          phone: "233 900-0299",
+          phone: "233 900-0299"
         },
         workdays: {
           sun: true,
@@ -275,11 +275,11 @@ export const Staff = {
           wed: false,
           thu: true,
           fri: false,
-          sat: false,
+          sat: false
         },
         assignedTreatment: "Mental health",
         type: "Full-time",
-        selected: false,
+        selected: false
       },
       {
         id: "10",
@@ -287,7 +287,7 @@ export const Staff = {
         specialty: "Oncologist",
         contacts: {
           email: "lucas.brown@example.com",
-          phone: "233 900-0311",
+          phone: "233 900-0311"
         },
         workdays: {
           sun: false,
@@ -296,12 +296,12 @@ export const Staff = {
           wed: true,
           thu: true,
           fri: true,
-          sat: false,
+          sat: false
         },
         assignedTreatment: "Cancer treatment",
         type: "Full-time",
-        selected: false,
-      },
+        selected: false
+      }
     ]);
 
     const isAllChecked = useMemo(() => staff?.every(({ selected }) => selected), [staff]);
@@ -329,8 +329,8 @@ export const Staff = {
                       setStaff((prev) =>
                         prev.map((value) => ({
                           ...value,
-                          selected: !isAllChecked,
-                        })),
+                          selected: !isAllChecked
+                        }))
                       );
                     }}
                   />
@@ -353,7 +353,7 @@ export const Staff = {
                   specialty,
                   workdays,
                   assignedTreatment,
-                  selected,
+                  selected
                 }) => (
                   <Table.Row
                     key={id}
@@ -362,8 +362,8 @@ export const Staff = {
                       setStaff((prev) =>
                         prev.map((value) => ({
                           ...value,
-                          selected: value.id === id ? !value.selected : value.selected,
-                        })),
+                          selected: value.id === id ? !value.selected : value.selected
+                        }))
                       );
                     }}
                   >
@@ -374,8 +374,8 @@ export const Staff = {
                           setStaff((prev) =>
                             prev.map((value) => ({
                               ...value,
-                              selected: value.id === id ? !value.selected : value.selected,
-                            })),
+                              selected: value.id === id ? !value.selected : value.selected
+                            }))
                           );
                         }}
                       />
@@ -437,14 +437,14 @@ export const Staff = {
                       />
                     </Table.Cell>
                   </Table.Row>
-                ),
+                )
               )}
             </Table.Body>
           </Table>
         </Stack>
       </Container>
     );
-  },
+  }
 };
 
 type TStock = {
@@ -472,7 +472,7 @@ export const Inventory = {
         sku: "ZKS8124",
         vendor: "Barone LLC.",
         stock: 240,
-        status: "in-stock",
+        status: "in-stock"
       },
       {
         id: "002",
@@ -482,7 +482,7 @@ export const Inventory = {
         sku: "ZKS2098",
         vendor: "Acme Co.",
         stock: 4,
-        status: "low-stock",
+        status: "low-stock"
       },
       {
         id: "003",
@@ -492,7 +492,7 @@ export const Inventory = {
         sku: "ZKS3498",
         vendor: "Abstergo Ltd.",
         stock: 0,
-        status: "out-stock",
+        status: "out-stock"
       },
       {
         id: "004",
@@ -502,7 +502,7 @@ export const Inventory = {
         sku: "ZKS3487",
         vendor: "Binford Ltd.",
         stock: 104,
-        status: "in-stock",
+        status: "in-stock"
       },
       {
         id: "005",
@@ -512,7 +512,7 @@ export const Inventory = {
         sku: "ZKS9823",
         vendor: "Acme Co.",
         stock: 350,
-        status: "in-stock",
+        status: "in-stock"
       },
       {
         id: "006",
@@ -522,7 +522,7 @@ export const Inventory = {
         sku: "ZKS2348",
         vendor: "Dentalku",
         stock: 0,
-        status: "out-stock",
+        status: "out-stock"
       },
       {
         id: "007",
@@ -532,7 +532,7 @@ export const Inventory = {
         sku: "ZKS2342",
         vendor: "Acme Co.",
         stock: 24,
-        status: "in-stock",
+        status: "in-stock"
       },
       {
         id: "008",
@@ -542,8 +542,8 @@ export const Inventory = {
         sku: "ZKS9817",
         vendor: "Biffco Enterprises",
         stock: 10,
-        status: "low-stock",
-      },
+        status: "low-stock"
+      }
     ];
 
     const columns: ColumnsDef<TStock>[] = [
@@ -568,22 +568,22 @@ export const Inventory = {
               </>
             )}
           </Stack>
-        ),
+        )
       },
       {
         accessorKey: "category",
         bodyCell: ({ category }) => category,
-        headCell: () => "Categories",
+        headCell: () => "Categories"
       },
       {
         accessorKey: "sku",
         bodyCell: ({ sku }) => sku,
-        headCell: () => "SKU",
+        headCell: () => "SKU"
       },
       {
         accessorKey: "vendor",
         bodyCell: ({ vendor }) => vendor,
-        headCell: () => "Vendor",
+        headCell: () => "Vendor"
       },
       {
         accessorKey: "stock",
@@ -601,7 +601,7 @@ export const Inventory = {
               </>
             )}
           </Stack>
-        ),
+        )
       },
       {
         accessorKey: "status",
@@ -609,7 +609,7 @@ export const Inventory = {
           const skins = {
             "out-stock": "critical",
             "low-stock": "warning",
-            "in-stock": "success",
+            "in-stock": "success"
           };
 
           return (
@@ -618,7 +618,7 @@ export const Inventory = {
             </Tag>
           );
         },
-        headCell: () => "Status",
+        headCell: () => "Status"
       },
       {
         accessorKey: "options",
@@ -634,8 +634,8 @@ export const Inventory = {
           >
             Edit
           </Button>
-        ),
-      },
+        )
+      }
     ];
 
     const totalProducts = stock.reduce((acc, curr) => (acc = acc + curr.stock), 0);
@@ -651,13 +651,13 @@ export const Inventory = {
           : [...hiddenColumns, value];
         setHiddenColumns(hidden);
       },
-      [hiddenColumns],
+      [hiddenColumns]
     );
 
     const { value, setValue, onChange } = useInput<number>(100, {
       validate: (newValue) => {
         return newValue >= 0 && newValue <= 1000;
-      },
+      }
     });
 
     const accounts = [
@@ -666,13 +666,13 @@ export const Inventory = {
       { label: "Devon Lane" },
       { label: "Savannah Nguyen" },
       { label: "Alicia Richards" },
-      { label: "Benjamin Turner" },
+      { label: "Benjamin Turner" }
     ];
 
     const teams = [
       { label: "Tech Solutions" },
       { label: "Creative Dynamics" },
-      { label: "Bright Minds" },
+      { label: "Bright Minds" }
     ];
 
     const { item, setItem } = useSelect([...accounts, ...teams], 0, (a, b) => a.label === b.label);
@@ -801,8 +801,8 @@ export const Inventory = {
                       direction="column"
                       responsive={{
                         sm: {
-                          direction: "row",
-                        },
+                          direction: "row"
+                        }
                       }}
                       grow
                     >
@@ -984,7 +984,7 @@ export const Inventory = {
         </Dialog>
       </>
     );
-  },
+  }
 };
 
 export const Kanban = {
@@ -1001,14 +1001,14 @@ export const Kanban = {
             members: [
               {
                 id: "john-smith",
-                name: "John Smith",
-              },
+                name: "John Smith"
+              }
             ],
             tasks: {
               total: 6,
-              completed: 0,
+              completed: 0
             },
-            messages: 3,
+            messages: 3
           },
           {
             id: "onboarding-emails",
@@ -1017,18 +1017,18 @@ export const Kanban = {
             members: [
               {
                 id: "jane-doe",
-                name: "Jane Doe",
+                name: "Jane Doe"
               },
               {
                 id: "michael-johnson",
-                name: "Michael Johnson",
-              },
+                name: "Michael Johnson"
+              }
             ],
             tasks: {
               total: 10,
-              completed: 0,
+              completed: 0
             },
-            messages: 10,
+            messages: 10
           },
           {
             id: "api-integration",
@@ -1037,25 +1037,25 @@ export const Kanban = {
             members: [
               {
                 id: "john-smith",
-                name: "John Smith",
+                name: "John Smith"
               },
               {
                 id: "jane-doe",
-                name: "Jane Doe",
+                name: "Jane Doe"
               },
               {
                 id: "michael-johnson",
-                name: "Michael Johnson",
-              },
+                name: "Michael Johnson"
+              }
             ],
             tasks: {
               total: 12,
-              completed: 0,
+              completed: 0
             },
             attach: 3,
-            messages: 63,
-          },
-        ],
+            messages: 63
+          }
+        ]
       },
       {
         id: "in-progress",
@@ -1068,14 +1068,14 @@ export const Kanban = {
             members: [
               {
                 id: "emily-williams",
-                name: "Emily Williams",
-              },
+                name: "Emily Williams"
+              }
             ],
             tasks: {
               total: 12,
-              completed: 7,
+              completed: 7
             },
-            messages: 5,
+            messages: 5
           },
           {
             id: "mobile-app-development",
@@ -1084,21 +1084,21 @@ export const Kanban = {
             members: [
               {
                 id: "john-smith",
-                name: "John Smith",
+                name: "John Smith"
               },
               {
                 id: "michael-johnson",
-                name: "Michael Johnson",
-              },
+                name: "Michael Johnson"
+              }
             ],
             tasks: {
               total: 30,
-              completed: 15,
+              completed: 15
             },
             messages: 20,
-            attach: 2,
-          },
-        ],
+            attach: 2
+          }
+        ]
       },
       {
         id: "done",
@@ -1111,14 +1111,14 @@ export const Kanban = {
             members: [
               {
                 id: "susan-davis",
-                name: "Susan Davis",
-              },
+                name: "Susan Davis"
+              }
             ],
             tasks: {
               total: 5,
-              completed: 5,
+              completed: 5
             },
-            messages: 2,
+            messages: 2
           },
           {
             id: "social-media-strategy",
@@ -1127,17 +1127,17 @@ export const Kanban = {
             members: [
               {
                 id: "emily-williams",
-                name: "Emily Williams",
-              },
+                name: "Emily Williams"
+              }
             ],
             tasks: {
               total: 8,
-              completed: 8,
+              completed: 8
             },
-            messages: 4,
-          },
-        ],
-      },
+            messages: 4
+          }
+        ]
+      }
     ];
 
     const [isOpen, setOpen] = useState(false);
@@ -1181,8 +1181,8 @@ export const Kanban = {
                 gap="2xl"
                 responsive={{
                   md: {
-                    wrap: "nowrap",
-                  },
+                    wrap: "nowrap"
+                  }
                 }}
               >
                 {board.map(({ id, title, tasks }) => (
@@ -1193,8 +1193,8 @@ export const Kanban = {
                     direction="column"
                     responsive={{
                       md: {
-                        size: 4,
-                      },
+                        size: 4
+                      }
                     }}
                   >
                     <Card shadow="sm" padding={{ block: "sm", inline: "md" }}>
@@ -1353,7 +1353,7 @@ export const Kanban = {
         </Dialog>
       </>
     );
-  },
+  }
 };
 
 export const SidePanel = {
@@ -1415,7 +1415,7 @@ export const SidePanel = {
                 size="lg"
                 name="Devon Lane"
                 image={{
-                  src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde",
+                  src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde"
                 }}
               />
               <Stack direction="column" gap="xs" grow>
@@ -1447,7 +1447,7 @@ export const SidePanel = {
                         size="md"
                         name="Devon Lane"
                         image={{
-                          src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde",
+                          src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde"
                         }}
                       />
                       <Stack direction="column" gap="xs">
@@ -1489,7 +1489,7 @@ export const SidePanel = {
         </Drawer>
       </Container>
     );
-  },
+  }
 };
 
 export const AddStaff = {
@@ -1510,7 +1510,7 @@ export const AddStaff = {
       { step: "1", completed: true, title: "Staff Info", icon: <FaUserEdit size={20} /> },
       { step: "2", completed: true, title: "Assigned Services", icon: <FaUserDoctor size={20} /> },
       { step: "3", completed: true, title: "Working Hours", icon: <MdOutlineTimer size={20} /> },
-      { step: "4", completed: false, title: "Days Off", icon: <MdOutlineTimerOff size={20} /> },
+      { step: "4", completed: false, title: "Days Off", icon: <MdOutlineTimerOff size={20} /> }
     ];
 
     return (
@@ -1535,8 +1535,8 @@ export const AddStaff = {
                   hidden
                   responsive={{
                     sm: {
-                      hidden: false,
-                    },
+                      hidden: false
+                    }
                   }}
                 >
                   {title}
@@ -1553,7 +1553,7 @@ export const AddStaff = {
                 <Stack>
                   <Avatar
                     image={{
-                      src: "https://images.unsplash.com/photo-1633332755192-727a05c4013d",
+                      src: "https://images.unsplash.com/photo-1633332755192-727a05c4013d"
                     }}
                     size="5xl"
                     name="Kevin White"
@@ -1653,7 +1653,7 @@ export const AddStaff = {
                             "Dental Veneers",
                             "Dental Bonding",
                             "Inlays and Onlays",
-                            "Dental implants",
+                            "Dental implants"
                           ].map((value) => (
                             <Checkbox key={value} defaultChecked={true} appearance="border">
                               {value}
@@ -1678,7 +1678,7 @@ export const AddStaff = {
                               <Checkbox key={value} appearance="border">
                                 {value}
                               </Checkbox>
-                            ),
+                            )
                           )}
                         </Checkbox.Group>
                       </Accordion.Body>
@@ -1713,7 +1713,7 @@ export const AddStaff = {
                   </Stack>
                   <Separator space={{ block: "lg" }} />
                 </React.Fragment>
-              ),
+              )
             )}
           </Box>
         )}
@@ -1757,7 +1757,7 @@ export const AddStaff = {
                                     day: "numeric",
                                     month: "long",
                                     year: "numeric",
-                                    weekday: "narrow",
+                                    weekday: "narrow"
                                   }}
                                   onDaySelected={() => {
                                     close();
@@ -1825,7 +1825,7 @@ export const AddStaff = {
                                     day: "numeric",
                                     month: "long",
                                     year: "numeric",
-                                    weekday: "narrow",
+                                    weekday: "narrow"
                                   }}
                                   onDaySelected={() => {
                                     close();
@@ -1937,5 +1937,5 @@ export const AddStaff = {
         </Stack>
       </Container>
     );
-  },
+  }
 };

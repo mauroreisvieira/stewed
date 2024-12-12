@@ -15,7 +15,7 @@ import {
   useResponsive,
   useScrollLock,
   useFocusTrap,
-  type UseResponsiveProps,
+  type UseResponsiveProps
 } from "@stewed/hooks";
 // Tokens
 import { components, type Spacings } from "@stewed/tokens";
@@ -83,7 +83,7 @@ export function Dialog({
   safeMargin = "xl",
   padding = {
     block: "xl",
-    inline: "xl",
+    inline: "xl"
   },
   responsive,
   scrollInViewport = false,
@@ -109,7 +109,7 @@ export function Dialog({
   // Trap focus within the dialog when open and rootRef is available
   useFocusTrap({
     root: rootRef,
-    enabled: !!open && !!rootRef,
+    enabled: !!open && !!rootRef
   });
 
   // Retrieve values from the current theme context
@@ -120,9 +120,9 @@ export function Dialog({
     {
       size,
       safeMargin,
-      responsive,
+      responsive
     },
-    activeToken.breakpoints,
+    activeToken.breakpoints
   );
 
   // Generating CSS classes based on component props and styles
@@ -134,11 +134,11 @@ export function Dialog({
         scrollInViewport && "scroll-in-viewport",
         safeMargin && `safe-margin-${safeMargin}`,
         padding?.block && `padding-block-${padding.block}`,
-        padding?.inline && `padding-inline-${padding.inline}`,
+        padding?.inline && `padding-inline-${padding.inline}`
       ],
-      extraClasses: className,
+      extraClasses: className
     }),
-    surface: getElement([`surface`]),
+    surface: getElement([`surface`])
   };
 
   const onHandleKeydown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
@@ -148,14 +148,14 @@ export function Dialog({
         event.stopPropagation();
       }
     },
-    [onEscape],
+    [onEscape]
   );
 
   // Hook to handle clicks outside the floating element.
   useClickOutside({
     enabled: open,
     ignoredElements: rootRef ? [rootRef] : undefined,
-    handler: () => onClickOutside?.(),
+    handler: () => onClickOutside?.()
   });
 
   useEffect(() => {

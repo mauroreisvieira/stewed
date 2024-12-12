@@ -13,15 +13,15 @@ const meta: Meta<typeof Table> = {
     "Table.Body": Table.Body as React.FC<unknown>,
     "Table.Foot": Table.Foot as React.FC<unknown>,
     "Table.Row": Table.Row as React.FC<unknown>,
-    "Table.Cell": Table.Cell as React.FC<unknown>,
+    "Table.Cell": Table.Cell as React.FC<unknown>
   },
   decorators: [
     (Story) => (
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -30,45 +30,45 @@ const data = [
   {
     id: "1",
     name: "Benjamin Martinez",
-    email: "benjamin.martinez@example.com",
+    email: "benjamin.martinez@example.com"
   },
   {
     id: "2",
     name: "Sophia Chang",
-    email: "sophia.chang@example.com",
+    email: "sophia.chang@example.com"
   },
   {
     id: "3",
     name: "Olivia Patel",
-    email: "olivia.patel@example.com",
+    email: "olivia.patel@example.com"
   },
   {
     id: "4",
     name: "Mark Zen",
-    email: "mark.zen@example.com",
+    email: "mark.zen@example.com"
   },
   {
     id: "5",
     name: "Kevin Clark",
-    email: "kevin.clark@example.com",
+    email: "kevin.clark@example.com"
   },
   {
     id: "6",
     name: "Albert Frost",
-    email: "albert.frost@example.com",
+    email: "albert.frost@example.com"
   },
   {
     id: "7",
     name: "Katheryn Winnick",
-    email: "kath.winnick@example.com",
-  },
+    email: "kath.winnick@example.com"
+  }
 ];
 
 export const Base: Story = {
   argTypes: {
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
     children: (
@@ -97,15 +97,15 @@ export const Base: Story = {
           </Table.Row>
         </Table.Foot>
       </>
-    ),
-  },
+    )
+  }
 };
 
 export const Border: Story = {
   argTypes: {
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
     appearance: ["border", "border-rows", "border-columns"],
@@ -133,15 +133,15 @@ export const Border: Story = {
           </Table.Row>
         </Table.Foot>
       </>
-    ),
-  },
+    )
+  }
 };
 
 export const Striped: Story = {
   argTypes: {
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
     appearance: ["striped-rows", "border"],
@@ -164,15 +164,15 @@ export const Striped: Story = {
           ))}
         </Table.Body>
       </>
-    ),
-  },
+    )
+  }
 };
 
 export const Error: Story = {
   argTypes: {
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
     hoverable: true,
@@ -209,6 +209,6 @@ export const Error: Story = {
           </Table.Row>
         </Table.Foot>
       </>
-    ),
-  },
+    )
+  }
 };

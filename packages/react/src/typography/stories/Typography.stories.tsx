@@ -13,28 +13,28 @@ const meta: Meta<typeof Text> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
 
 export const Base: Story = {
   args: {
-    children: "Lorem ipsum, dolor sit amet consectetur adipisicing elit",
-  },
+    children: "Lorem ipsum, dolor sit amet consectetur adipisicing elit"
+  }
 };
 
 export const Skin: Story = {
   args: {
     children: "Lorem ipsum, dolor sit amet consectetur adipisicing elit",
-    skin: "critical",
-  },
+    skin: "critical"
+  }
 };
 
 export const Heading: Story = {
   args: {
     as: "h1",
-    children: "Heading",
-  },
+    children: "Heading"
+  }
 };

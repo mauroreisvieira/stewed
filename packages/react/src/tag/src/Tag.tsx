@@ -71,7 +71,7 @@ export const Tag = fixedForwardRef(function Tag<T extends React.ElementType>(
       React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
       "as"
     >,
-  ref: React.ForwardedRef<unknown>,
+  ref: React.ForwardedRef<unknown>
 ): React.ReactElement {
   // Determine the component type based on 'as' prop or use the default element
   const Comp = as || defaultElement;
@@ -83,10 +83,10 @@ export const Tag = fixedForwardRef(function Tag<T extends React.ElementType>(
   const cssClasses = {
     root: getBlock({
       modifiers: [`${skin}-${appearance}`, size, props.disabled && "disabled"],
-      extraClasses: className,
+      extraClasses: className
     }),
     left: getElement(["left"]),
-    right: getElement(["right"]),
+    right: getElement(["right"])
   };
 
   return (

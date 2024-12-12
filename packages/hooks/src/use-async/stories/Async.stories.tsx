@@ -14,8 +14,8 @@ const meta: Meta<typeof useAsync> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -52,5 +52,5 @@ export const Async: Story = {
         )}
       </Stack>
     );
-  },
+  }
 };

@@ -14,8 +14,8 @@ describe("useKey", () => {
       useKey({
         keys: ["Enter", "Escape"],
         enabled: false,
-        handler,
-      }),
+        handler
+      })
     );
 
     // Simulate keydown event for "Enter" and "Escape"
@@ -31,8 +31,8 @@ describe("useKey", () => {
       useKey({
         keys: ["Enter"],
         enabled: true,
-        handler,
-      }),
+        handler
+      })
     );
 
     // Simulate keydown event for "Enter"
@@ -47,8 +47,8 @@ describe("useKey", () => {
       useKey({
         keys: ["Enter"],
         enabled: true,
-        handler,
-      }),
+        handler
+      })
     );
 
     // Simulate keydown event for "Escape" which is not in the specified keys list
@@ -63,8 +63,8 @@ describe("useKey", () => {
       useKey({
         keys: ["Enter", "Escape"],
         enabled: true,
-        handler,
-      }),
+        handler
+      })
     );
 
     // Simulate keydown events for "Enter" and "Escape"
@@ -81,11 +81,11 @@ describe("useKey", () => {
         useKey({
           keys: ["Enter"],
           enabled,
-          handler,
+          handler
         }),
       {
-        initialProps: { enabled: true },
-      },
+        initialProps: { enabled: true }
+      }
     );
 
     // Initially enabled, simulate keydown for "Enter"

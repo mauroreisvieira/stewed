@@ -13,8 +13,8 @@ const meta: Meta<typeof Skeleton> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -22,16 +22,16 @@ export default meta;
 export const Base: Story = {
   argTypes: {
     children: {
-      control: false,
-    },
-  },
+      control: false
+    }
+  }
 };
 
 export const CardMedia: Story = {
   argTypes: {
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   render: function Render() {
     return (
@@ -51,14 +51,14 @@ export const CardMedia: Story = {
         </Card>
       </Grid>
     );
-  },
+  }
 };
 
 export const DataTable: Story = {
   argTypes: {
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   render: function Render() {
     return (
@@ -86,5 +86,5 @@ export const DataTable: Story = {
         </Table.Body>
       </Table>
     );
-  },
+  }
 };

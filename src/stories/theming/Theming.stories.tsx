@@ -16,7 +16,7 @@ import {
   Select,
   Container,
   Stack,
-  useTheme,
+  useTheme
 } from "@stewed/react";
 // Hooks
 import { useStateForm } from "@stewed/hooks";
@@ -24,8 +24,8 @@ import { useStateForm } from "@stewed/hooks";
 const meta: Meta = {
   title: "Examples/Theming",
   parameters: {
-    layout: "fullscreen",
-  },
+    layout: "fullscreen"
+  }
 };
 
 export default meta;
@@ -37,35 +37,35 @@ function Elements(): React.ReactElement {
   const {
     formData: { username, gender, email, password },
     onFormChange,
-    onFormReset,
+    onFormReset
   } = useStateForm({
     initialValues: {
       username: "",
       email: "",
       gender: "Prefer not to respond",
-      password: "",
+      password: ""
     },
     validators: ({ username, email, password }) => ({
       username: {
         condition: () => {
           return username ? /^[a-zA-Z0-9]+$/.exec(username) !== null : true;
         },
-        description: "Username can only contain letters or digits.",
+        description: "Username can only contain letters or digits."
       },
       email: {
         condition: () => {
           return email ? /[\d%+._a-z-]+@[\d.a-z-]+.[a-z]{2,}$/.exec(email) !== null : true;
         },
-        description: "The email address is not valid, make sure it follows the standard format.",
+        description: "The email address is not valid, make sure it follows the standard format."
       },
       password: {
         condition: () => {
           return password ? /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/.exec(password) !== null : true;
         },
         description:
-          "Password must contain at least one number, one uppercase letter, one lowercase letter, and be at least 8 characters.",
-      },
-    }),
+          "Password must contain at least one number, one uppercase letter, one lowercase letter, and be at least 8 characters."
+      }
+    })
   });
 
   return (
@@ -251,36 +251,36 @@ export const CreateAccount = {
             color: {
               "primary-background": "teal-600",
               "primary-background-hovered": "teal-700",
-              "primary-background-pressed": "teal-800",
+              "primary-background-pressed": "teal-800"
             },
             fontFamily: {
-              base: "'Roboto Serif', serif",
+              base: "'Roboto Serif', serif"
             },
             components: {
               "text-field": {
-                radius: "none",
+                radius: "none"
               },
-              "select": {
-                radius: "none",
+              select: {
+                radius: "none"
               },
-              "card": {
-                radius: "none",
+              card: {
+                radius: "none"
               },
-              "switch": {
-                radius: "none",
+              switch: {
+                radius: "none"
               },
-              "dialog": {
+              dialog: {
                 radius: "none",
-                shadow: "xl",
+                shadow: "xl"
               },
-              "button": {
-                radius: "none",
-              },
-            },
+              button: {
+                radius: "none"
+              }
+            }
           },
           elegant: {
             fontFamily: {
-              base: "'DM Sans', sans-serif",
+              base: "'DM Sans', sans-serif"
             },
             color: {
               "background-backdrop": "rgb(200 200 200 / 70%)",
@@ -288,23 +288,23 @@ export const CreateAccount = {
               "primary-background-hovered":
                 "color-mix(in oklab, var(--color-primary-background) 90%, black)",
               "primary-background-pressed":
-                "color-mix(in oklab, var(--color-primary-background) 80%, black)",
+                "color-mix(in oklab, var(--color-primary-background) 80%, black)"
             },
             components: {
-              "button": {
-                radius: "full",
+              button: {
+                radius: "full"
               },
               "text-field": {
-                radius: "2xl",
+                radius: "2xl"
               },
-              "select": {
-                radius: "2xl",
+              select: {
+                radius: "2xl"
               },
-              "backdrop": {
-                blur: "md",
-              },
-            },
-          },
+              backdrop: {
+                blur: "md"
+              }
+            }
+          }
         }}
         theme="default"
       >
@@ -313,5 +313,5 @@ export const CreateAccount = {
         </Container>
       </Theme>
     );
-  },
+  }
 };

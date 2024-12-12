@@ -33,7 +33,7 @@ export const TableCell = fixedForwardRef(function TableCell<T extends "td" | "th
       React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
       "as"
     >,
-  ref: React.ForwardedRef<unknown>,
+  ref: React.ForwardedRef<unknown>
 ): React.ReactElement {
   // Determine the component type based on 'as' prop or use the default element
   const Comp = as || defaultElement;
@@ -45,8 +45,8 @@ export const TableCell = fixedForwardRef(function TableCell<T extends "td" | "th
   const cssClasses = {
     root: getBlock({
       modifiers: [alignment, props?.onClick && "sortable"],
-      extraClasses: className,
-    }),
+      extraClasses: className
+    })
   };
 
   return (

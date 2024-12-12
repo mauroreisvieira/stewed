@@ -45,11 +45,11 @@ export function StepperItem({
   const cssClasses = {
     root: getBlock({
       modifiers: [value === selectedValue && "selected", completed && "completed"],
-      extraClasses: className,
+      extraClasses: className
     }),
     step: getElement(["step"]),
     title: getElement(["title"]),
-    content: getElement(["content"]),
+    content: getElement(["content"])
   };
 
   // The index of the step that matches the provided 'value'.
@@ -57,7 +57,7 @@ export function StepperItem({
   // If no match is found, defaults to index 0 to ensure a valid index is always returned.
   const stepIndex = useMemo(
     () => steps?.findIndex((step) => step.value === value) ?? 0,
-    [steps, value],
+    [steps, value]
   );
 
   return (

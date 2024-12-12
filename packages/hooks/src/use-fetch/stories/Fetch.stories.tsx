@@ -14,8 +14,8 @@ const meta: Meta<typeof useFetch> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -40,5 +40,5 @@ export const Fetch: Story = {
         </Text>
       </Box>
     );
-  },
+  }
 };

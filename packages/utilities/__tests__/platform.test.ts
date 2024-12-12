@@ -11,7 +11,7 @@ import {
   isAppleDevice,
   isChrome,
   isWebKit,
-  isAndroid,
+  isAndroid
 } from "../index";
 
 describe("Platform and Browser Detection", () => {
@@ -26,10 +26,10 @@ describe("Platform and Browser Detection", () => {
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
           platform: "MacIntel",
           maxTouchPoints: 5,
-          ontouchstart: null,
-        },
+          ontouchstart: null
+        }
       },
-      writable: true,
+      writable: true
     });
   });
 
@@ -77,7 +77,7 @@ describe("Platform and Browser Detection", () => {
   it("should detect WebKit engine", () => {
     Object.defineProperty(window.navigator, "userAgent", {
       value:
-        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Version/13.0.4 Safari/537.36",
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Version/13.0.4 Safari/537.36"
     });
     expect(isWebKit()).toBe(true);
   });
@@ -85,7 +85,7 @@ describe("Platform and Browser Detection", () => {
   it("should detect Android", () => {
     Object.defineProperty(window.navigator, "userAgent", {
       value:
-        "Mozilla/5.0 (Linux; Android 10; Pixel 3 XL) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Mobile Safari/537.36",
+        "Mozilla/5.0 (Linux; Android 10; Pixel 3 XL) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Mobile Safari/537.36"
     });
     expect(isAndroid()).toBe(true);
   });

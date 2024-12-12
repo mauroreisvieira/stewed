@@ -46,8 +46,8 @@ export function Scope({
   const cssClasses = {
     root: getBlock({
       modifiers: [`elevation-${elevation}`],
-      extraClasses: className,
-    }),
+      extraClasses: className
+    })
   };
 
   const content = (

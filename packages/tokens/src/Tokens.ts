@@ -38,23 +38,39 @@ type Colors = Partial<typeof palette> & {
   [key in Skin | Color]?: LooseAutoComplete<Palette>;
 };
 
-// Define Tokens type that represents design tokens
+/** Define Tokens type that represents design tokens */
 export type Tokens = {
+  /** Optional overrides for the `blur` property. */
   blur?: Partial<typeof blur>;
+  /** Optional overrides for the `breakpoints` property. */
   breakpoints?: Partial<typeof breakpoints>;
+  /** Optional color customizations. */
   color?: Colors;
+  /** Optional overrides for the `duration` property. */
   duration?: Partial<typeof duration>;
+  /** Optional overrides for the `elevation` property. */
   elevation?: Partial<typeof elevation>;
+  /** Optional font family customizations. */
   fontFamily?: Partial<typeof fontFamily>;
+  /** Optional font size customizations. */
   fontSize?: Partial<typeof fontSize>;
+  /** Optional font weight customizations. */
   fontWeight?: Partial<typeof fontWeight>;
+  /** Optional line height customizations. */
   lineHeight?: Partial<typeof lineHeight>;
+  /** Optional border radius customizations. */
   radius?: Partial<typeof radius>;
+  /** Optional screen size customizations. */
   screens?: Partial<typeof screens>;
+  /** Optional shadow customizations. */
   shadow?: Partial<typeof shadow>;
+  /** Optional spacing customizations. */
   spacings?: Partial<typeof spacings>;
+  /** Optional timing function customizations. */
   timing?: Partial<typeof timing>;
+  /** Optional viewport-related customizations. */
   viewport?: Partial<typeof viewport>;
+  /** Optional component-specific customizations. */
   components?: Components;
 };
 
@@ -79,78 +95,78 @@ export const defaultTokens: Tokens = {
   components: {
     [components.Alert]: {
       radius: "md",
-      shadow: "xl",
+      shadow: "xl"
     },
     [components.Avatar]: {
-      radius: "sm",
+      radius: "sm"
     },
     [components.Backdrop]: {
-      blur: "sm",
+      blur: "sm"
     },
     [components.Badge]: {
-      radius: "full",
+      radius: "full"
     },
     [components.Button]: {
-      radius: "sm",
+      radius: "sm"
     },
     [components.Card]: {
-      radius: "md",
+      radius: "md"
     },
     [components.Checkbox]: {
-      radius: "sm",
+      radius: "sm"
     },
     [components.Calendar]: {
-      radius: "sm",
+      radius: "sm"
     },
     [components.Dialog]: {
       radius: "md",
-      shadow: "3xl",
+      shadow: "3xl"
     },
     [components.Dropdown]: {
       radius: "md",
-      shadow: "xl",
+      shadow: "xl"
     },
     [components.Popover]: {
       radius: "md",
-      shadow: "xl",
+      shadow: "xl"
     },
     [components.Drawer]: {
       radius: "lg",
-      shadow: "2xl",
+      shadow: "2xl"
     },
     [components.Group]: {
-      radius: "sm",
+      radius: "sm"
     },
     [components.ListBox]: {
-      radius: "sm",
+      radius: "sm"
     },
     [components.Quantity]: {
-      radius: "sm",
+      radius: "sm"
     },
     [components.Radio]: {
-      radius: "sm",
+      radius: "sm"
     },
     [components.Select]: {
-      radius: "sm",
+      radius: "sm"
     },
     [components.Switch]: {
-      radius: "full",
+      radius: "full"
     },
     [components.Segmented]: {
       radius: "md",
-      shadow: "md",
+      shadow: "md"
     },
     [components.Tag]: {
-      radius: "sm",
+      radius: "sm"
     },
     [components.TextArea]: {
-      radius: "sm",
+      radius: "sm"
     },
     [components.TextField]: {
-      radius: "sm",
+      radius: "sm"
     },
     [components.Toggle]: {
-      radius: "sm",
-    },
-  },
+      radius: "sm"
+    }
+  }
 };

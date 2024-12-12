@@ -10,7 +10,7 @@ import {
   Separator,
   Carousel,
   Text,
-  useSnackbar,
+  useSnackbar
 } from "@stewed/react";
 // Hooks
 import { useFetch } from "@stewed/hooks";
@@ -47,10 +47,10 @@ export function Home(): React.ReactElement {
             <strong>Daily Mix {index + 1}</strong>.
           </Text>
         ),
-        skin: "critical",
+        skin: "critical"
       });
     },
-    [add],
+    [add]
   );
 
   return (
@@ -105,9 +105,9 @@ export function Home(): React.ReactElement {
         <Carousel
           responsive={{
             xs: {
-              perView: 2,
+              perView: 2
             },
-            md: { perView: 4 },
+            md: { perView: 4 }
           }}
           navigation={{
             renderPrev: (props) => (
@@ -119,7 +119,7 @@ export function Home(): React.ReactElement {
               <Button skin="secondary" leftSlot={<FiChevronRight />} {...props} iconOnly>
                 Next
               </Button>
-            ),
+            )
           }}
           loop={false}
         >

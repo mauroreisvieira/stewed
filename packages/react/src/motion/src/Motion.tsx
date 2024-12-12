@@ -71,14 +71,14 @@ export function Motion({
   timing = "ease-in",
   duration = "quickly",
   onDone,
-  children,
+  children
 }: MotionProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: components.Motion, styles });
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ modifiers: [animation, timing, duration] }),
+    root: getBlock({ modifiers: [animation, timing, duration] })
   };
 
   // Cloning the child element to inject className and onTransitionEnd and onAnimationEnd
@@ -92,7 +92,7 @@ export function Motion({
       onAnimationEnd: () => {
         children.props.onAnimationEnd?.();
         onDone?.();
-      },
+      }
     });
   }
 

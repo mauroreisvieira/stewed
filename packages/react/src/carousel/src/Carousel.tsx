@@ -4,7 +4,7 @@ import React, {
   useEffect,
   useMemo,
   useImperativeHandle,
-  useCallback,
+  useCallback
 } from "react";
 // UI Components
 import { Button, Icon } from "../../index";
@@ -114,7 +114,7 @@ export const Carousel = forwardRef(
       navigation,
       ...props
     }: CarouselProps,
-    ref: React.Ref<CarouselRef>,
+    ref: React.Ref<CarouselRef>
   ): React.ReactElement => {
     // Importing useBem to handle BEM class names
     const { getBlock, getElement } = useBem({ block: components.Carousel, styles });
@@ -131,9 +131,9 @@ export const Carousel = forwardRef(
         loop,
         showNavigation,
         responsive,
-        navigation,
+        navigation
       },
-      activeToken.breakpoints,
+      activeToken.breakpoints
     );
 
     // Number of slider per view
@@ -143,7 +143,7 @@ export const Carousel = forwardRef(
     const cssClasses = {
       root: getBlock({
         modifiers: [show > 1 && computedProps.gap && `gap-${computedProps.gap}`],
-        extraClasses: className,
+        extraClasses: className
       }),
       wrapper: getElement(["wrapper"]),
       content: getElement(["content"]),
@@ -152,7 +152,7 @@ export const Carousel = forwardRef(
       slide: getElement(["slide"]),
       bottom: getElement(["bottom"]),
       prev: getElement(["prev"], className),
-      next: getElement(["next"], className),
+      next: getElement(["next"], className)
     };
 
     // Total Slides
@@ -161,7 +161,7 @@ export const Carousel = forwardRef(
     // The carousel repeating it's item
     const loopingEffect = useMemo(
       () => computedProps.loop && slidesCount > show,
-      [computedProps.loop, show, slidesCount],
+      [computedProps.loop, show, slidesCount]
     );
 
     // Current Index Item of the Carousel
@@ -319,7 +319,7 @@ export const Carousel = forwardRef(
         React.Children.map(children, (child, index) => (
           <CarouselSlide key={index}>{child}</CarouselSlide>
         )),
-      [children],
+      [children]
     );
 
     const isPrevDisabled = !loopingEffect && currentIndex === 0;
@@ -327,8 +327,8 @@ export const Carousel = forwardRef(
 
     const computedStyles = {
       "--carousel-slides": show,
-      "transform": `translateX(-${currentIndex * (100 / show)}%)`,
-      "transition": !transitionEnabled ? "none" : undefined,
+      transform: `translateX(-${currentIndex * (100 / show)}%)`,
+      transition: !transitionEnabled ? "none" : undefined
     };
 
     useImperativeHandle(
@@ -336,9 +336,9 @@ export const Carousel = forwardRef(
       () => ({
         prev: onHandleClickPrev,
         next: onHandleClickNext,
-        goTo: moveTo,
+        goTo: moveTo
       }),
-      [onHandleClickPrev, onHandleClickNext, moveTo],
+      [onHandleClickPrev, onHandleClickNext, moveTo]
     );
 
     return (
@@ -366,7 +366,7 @@ export const Carousel = forwardRef(
                 computedProps.navigation.renderPrev({
                   className: cssClasses.prev,
                   onClick: onHandleClickPrev,
-                  disabled: isPrevDisabled,
+                  disabled: isPrevDisabled
                 })
               ) : (
                 <Button
@@ -386,7 +386,7 @@ export const Carousel = forwardRef(
                 computedProps.navigation.renderNext({
                   className: cssClasses.next,
                   onClick: onHandleClickNext,
-                  disabled: isNextDisabled,
+                  disabled: isNextDisabled
                 })
               ) : (
                 <Button
@@ -405,5 +405,5 @@ export const Carousel = forwardRef(
         </div>
       </div>
     );
-  },
+  }
 );

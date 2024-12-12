@@ -60,7 +60,7 @@ export function Hoverable({
       setHovering(true);
       onMouseEnter?.(event);
     },
-    [onMouseEnter],
+    [onMouseEnter]
   );
 
   // Event handler for when the mouse stops hovering over the component.
@@ -69,7 +69,7 @@ export function Hoverable({
       setHovering(false);
       onMouseLeave?.(event);
     },
-    [onMouseLeave],
+    [onMouseLeave]
   );
 
   // Event handler for when the mouse starts hovering over the component.
@@ -78,7 +78,7 @@ export function Hoverable({
       setHovering(true);
       onTouchStart?.(event);
     },
-    [onTouchStart],
+    [onTouchStart]
   );
 
   // Event handler for when the touch stops over the component.
@@ -87,7 +87,7 @@ export function Hoverable({
       setHovering(false);
       onTouchEnd?.(event);
     },
-    [onTouchEnd],
+    [onTouchEnd]
   );
 
   // Event handler for when the touch cancel over the component.
@@ -96,7 +96,7 @@ export function Hoverable({
       setHovering(false);
       onTouchCancel?.(event);
     },
-    [onTouchCancel],
+    [onTouchCancel]
   );
 
   // Check if the current device is touch.

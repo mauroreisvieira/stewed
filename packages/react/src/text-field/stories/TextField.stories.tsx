@@ -13,20 +13,20 @@ const meta: Meta<typeof TextField> = {
   argTypes: {
     appearance: {
       control: "select",
-      options: ["ghost", "outline", "soft"],
+      options: ["ghost", "outline", "soft"]
     },
     skin: {
       control: "select",
-      options: ["neutral", "critical", "success"],
-    },
+      options: ["neutral", "critical", "success"]
+    }
   },
   decorators: [
     (Story) => (
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -35,16 +35,16 @@ export const Base: Story = {
   args: {
     placeholder: "Type your value...",
     appearance: "outline",
-    disabled: false,
-  },
+    disabled: false
+  }
 };
 
 export const Critical: Story = {
   args: {
     placeholder: "Type your value...",
     defaultValue: "mail@mail",
-    skin: "critical",
-  },
+    skin: "critical"
+  }
 };
 
 export const Small: Story = {
@@ -52,20 +52,20 @@ export const Small: Story = {
     placeholder: "Type your value...",
     size: "sm",
     appearance: "outline",
-    disabled: false,
-  },
+    disabled: false
+  }
 };
 
 export const LeftSlot: Story = {
   argTypes: {
     leftSlot: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
     placeholder: "Type your value...",
     appearance: "outline",
     leftSlot: <FiSearch />,
-    disabled: false,
-  },
+    disabled: false
+  }
 };

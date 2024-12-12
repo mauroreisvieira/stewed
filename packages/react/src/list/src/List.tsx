@@ -49,8 +49,8 @@ export function List({
   const cssClasses = {
     root: getBlock({
       extraClasses: className,
-      modifiers: [type, `gap-${gap}`],
-    }),
+      modifiers: [type, `gap-${gap}`]
+    })
   };
 
   return (

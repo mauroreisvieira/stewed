@@ -10,7 +10,7 @@ describe("CheckboxGroup", () => {
       const { container } = render(
         <Checkbox.Group>
           <Checkbox>Checkbox</Checkbox>
-        </Checkbox.Group>,
+        </Checkbox.Group>
       );
 
       expect(container).toMatchSnapshot();
@@ -20,7 +20,7 @@ describe("CheckboxGroup", () => {
       const { container } = render(
         <Checkbox.Group className="other-class">
           <Checkbox className="other-class">Checkbox</Checkbox>
-        </Checkbox.Group>,
+        </Checkbox.Group>
       );
 
       expect(container).toMatchSnapshot();

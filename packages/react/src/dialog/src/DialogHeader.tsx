@@ -23,7 +23,7 @@ export function DialogHeader({
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({ extraClasses: className }),
-    content: getElement(["content"]),
+    content: getElement(["content"])
   };
 
   const { onClose } = useDialog();

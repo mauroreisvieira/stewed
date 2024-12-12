@@ -13,15 +13,15 @@ const meta: Meta<typeof Stepper> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
 
 export const Base: Story = {
   args: {
-    selectedValue: "3",
+    selectedValue: "3"
   },
   render: function Render({ ...args }): React.ReactElement {
     return (
@@ -33,5 +33,5 @@ export const Base: Story = {
         <Stepper.Item value="5" title="Step 5" />
       </Stepper>
     );
-  },
+  }
 };

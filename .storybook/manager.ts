@@ -9,10 +9,10 @@ const theme = create({
   colorPrimary: "#6366f1",
   colorSecondary: "#64748b",
   textColor: "#1e293b",
-  appBg: "#fff",
+  appBg: "#fff"
 });
 
 addons.setConfig({
   theme,
-  showToolbar: true,
+  showToolbar: true
 });

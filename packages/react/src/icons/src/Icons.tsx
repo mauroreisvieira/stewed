@@ -15,5 +15,5 @@ export const Icon = {
   ChevronDown,
   Cross,
   DotsScale,
-  Minus,
+  Minus
 };

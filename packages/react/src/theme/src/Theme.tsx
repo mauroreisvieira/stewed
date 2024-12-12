@@ -47,7 +47,7 @@ export function Theme<T extends string>({
       acc[key] = {
         ...defaultTokens[key],
         ...(tokens?.["default" as T]?.[key] ?? {}),
-        ...(tokens?.[theme as T]?.[key] ?? {}),
+        ...(tokens?.[theme as T]?.[key] ?? {})
       };
       return acc;
     }, {} as Tokens);
@@ -62,7 +62,7 @@ export function Theme<T extends string>({
         theme,
         setTheme,
         tokens,
-        setTokens,
+        setTokens
       }}
     >
       {/* Root component to which the themed styles are applied */}

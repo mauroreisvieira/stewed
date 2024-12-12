@@ -14,8 +14,8 @@ const meta: Meta<typeof useSelect> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -50,5 +50,5 @@ export const Base: Story = {
         <Button onClick={() => setItem("Banana")}>Select Banana</Button>
       </div>
     );
-  },
+  }
 };

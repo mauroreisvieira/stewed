@@ -9,15 +9,15 @@ const meta: Meta<typeof Grid> = {
   title: "Components/Grid",
   component: Grid,
   subcomponents: {
-    "Grid.Item": Grid.Item as React.FC<unknown>,
+    "Grid.Item": Grid.Item as React.FC<unknown>
   },
   decorators: [
     (Story) => (
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -25,11 +25,11 @@ export default meta;
 export const Base: Story = {
   argTypes: {
     as: {
-      control: false,
+      control: false
     },
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
     gap: "md",
@@ -44,22 +44,22 @@ export const Base: Story = {
           </Card>
         ))}
       </>
-    ),
-  },
+    )
+  }
 };
 
 export const ColSpan: Story = {
   argTypes: {
     as: {
-      control: false,
+      control: false
     },
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
     gap: "md",
-    cols: 3,
+    cols: 3
   },
   render: ({ ...args }) => {
     return (
@@ -105,23 +105,23 @@ export const ColSpan: Story = {
         </Grid.Item>
       </Grid>
     );
-  },
+  }
 };
 
 export const RowSpan: Story = {
   argTypes: {
     as: {
-      control: false,
+      control: false
     },
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
     gap: "md",
     cols: 3,
     rows: 3,
-    flow: "column",
+    flow: "column"
   },
   render: ({ ...args }) => {
     return (
@@ -157,5 +157,5 @@ export const RowSpan: Story = {
         </Grid.Item>
       </Grid>
     );
-  },
+  }
 };

@@ -7,8 +7,8 @@ import { Mail } from "./examples/mail/Mail";
 const meta: Meta = {
   title: "Examples/Applications",
   parameters: {
-    layout: "fullscreen",
-  },
+    layout: "fullscreen"
+  }
 };
 
 export default meta;

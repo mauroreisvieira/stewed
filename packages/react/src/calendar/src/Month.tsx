@@ -36,24 +36,24 @@ export function Month({ className }: MonthProps): React.ReactElement {
     allowRange,
     days,
     setSelectedDates,
-    onDaySelected,
+    onDaySelected
   } = useCalendarContext();
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ extraClasses: className }),
+    root: getBlock({ extraClasses: className })
   };
 
   const rangeDates = useRef<Range>({
     start: undefined,
-    end: undefined,
+    end: undefined
   });
 
   const onHandleDayClick = useCallback(
     (day: DayOptions<unknown>) => {
       const {
         attributes: { selected, disabled },
-        date,
+        date
       } = day;
 
       if (readOnly || disabled) {
@@ -65,7 +65,7 @@ export function Month({ className }: MonthProps): React.ReactElement {
           // If no start date exists, set the start to the current date
           rangeDates.current = {
             start: date,
-            end: undefined,
+            end: undefined
           };
           setSelectedDates?.([date]);
         } else if (rangeDates.current.end && isSameDay(date, rangeDates.current.end)) {
@@ -76,7 +76,7 @@ export function Month({ className }: MonthProps): React.ReactElement {
           // If the clicked date is the same as the start, set start to undefined
           rangeDates.current = {
             start: undefined,
-            end: undefined,
+            end: undefined
           };
           setSelectedDates?.([]);
         } else if (isDateAfter(date, rangeDates.current.start)) {
@@ -87,7 +87,7 @@ export function Month({ className }: MonthProps): React.ReactElement {
           // If the current date is before the start date, set it as the new start date
           rangeDates.current = {
             start: date,
-            end: undefined,
+            end: undefined
           };
           setSelectedDates?.([date]);
         }
@@ -106,7 +106,7 @@ export function Month({ className }: MonthProps): React.ReactElement {
 
       onDaySelected?.(day);
     },
-    [multipleSelect, onDaySelected, allowRange, readOnly, setSelectedDates],
+    [multipleSelect, onDaySelected, allowRange, readOnly, setSelectedDates]
   );
 
   return (

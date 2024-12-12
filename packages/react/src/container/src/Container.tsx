@@ -67,7 +67,7 @@ export const Container = fixedForwardRef(function Container<T extends React.Elem
       React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
       "as"
     >,
-  ref: React.ForwardedRef<unknown>,
+  ref: React.ForwardedRef<unknown>
 ): React.ReactElement {
   // Component to render based on the 'as' prop
   const Comp = as || defaultElement;
@@ -78,9 +78,9 @@ export const Container = fixedForwardRef(function Container<T extends React.Elem
   // Compute responsive props based on current theme and screen sizes
   const computedProps = useResponsive(
     {
-      padding,
+      padding
     },
-    activeToken.breakpoints,
+    activeToken.breakpoints
   );
 
   // Importing useBem to handle BEM class names
@@ -93,10 +93,10 @@ export const Container = fixedForwardRef(function Container<T extends React.Elem
         alignment !== "default" && alignment,
         computedProps.padding?.block && `padding-block-${computedProps.padding.block}`,
         computedProps.padding?.inline && `padding-inline-${computedProps.padding.inline}`,
-        screen && `screen-${screen}`,
+        screen && `screen-${screen}`
       ],
-      extraClasses: className,
-    }),
+      extraClasses: className
+    })
   };
 
   return (

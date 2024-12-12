@@ -28,7 +28,7 @@ export function AccordionHeader({
     root: getBlock({ extraClasses: className }),
     left: getElement(["left"]),
     right: getElement(["right"]),
-    text: getElement(["text"]),
+    text: getElement(["text"])
   };
 
   return (

@@ -6,7 +6,7 @@ export function createState<T>(initialValue: T): {
 } {
   return {
     listeners: undefined,
-    state: initialValue,
+    state: initialValue
   };
 }
 
@@ -21,11 +21,12 @@ export function useGlobalState<T>(config: ReturnType<typeof createState<T>>) {
       if (typeof stateOrSetter === "function") {
         next = stateOrSetter(config.state);
       }
+
       // eslint-disable-next-line react-compiler/react-compiler
       config.state = next;
       config.listeners?.forEach((l) => l());
     },
-    [config],
+    [config]
   );
 
   const state = useSyncExternalStore(
@@ -36,7 +37,7 @@ export function useGlobalState<T>(config: ReturnType<typeof createState<T>>) {
       // cleanup when unmount
       return () => config.listeners?.filter((l) => l !== listener);
     },
-    () => config.state,
+    () => config.state
   );
 
   return [state, setState];

@@ -13,7 +13,7 @@ export interface DrawerContextProps {
 }
 
 export const DrawerContext = createContext<DrawerContextProps>({
-  onClose: definitionError,
+  onClose: definitionError
 });
 
 export const useDrawer = (): DrawerContextProps => use(DrawerContext);

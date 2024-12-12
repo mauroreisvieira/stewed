@@ -30,7 +30,7 @@ describe("Switch", () => {
         const { container } = render(<Switch skin={skin}>Switch</Switch>);
 
         expect(container).toMatchSnapshot();
-      },
+      }
     );
 
     it.each<SwitchProps["size"]>(["sm", "md", "lg"])("should apply '%s' size classes", (size) => {
@@ -48,7 +48,7 @@ describe("Switch", () => {
       const { getByLabelText } = render(
         <Switch aria-label="Switch-input" onChange={handleChange}>
           Switch
-        </Switch>,
+        </Switch>
       );
 
       // Get the Switch input by its ARIA label

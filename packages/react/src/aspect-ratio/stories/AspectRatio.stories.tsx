@@ -13,8 +13,8 @@ const meta: Meta<typeof AspectRatio> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -22,8 +22,8 @@ export default meta;
 export const Base: Story = {
   argTypes: {
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
     ratio: "4:3",
@@ -33,6 +33,6 @@ export const Base: Story = {
         src="https://images.unsplash.com/photo-1535025183041-0991a977e25b?w=300&dpr=2&q=80"
         alt="Landscape photograph by Tobias Tullius"
       />
-    ),
-  },
+    )
+  }
 };

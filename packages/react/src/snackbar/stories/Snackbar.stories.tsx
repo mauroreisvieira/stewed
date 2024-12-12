@@ -13,8 +13,8 @@ const meta: Meta<typeof Snackbar> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -42,7 +42,7 @@ function Example({ autoDismiss }: { autoDismiss?: number }) {
         >
           UNDO
         </Button>
-      ),
+      )
     });
   }, [add, autoDismiss, remove]);
 
@@ -57,7 +57,7 @@ export const Base: Story = {
         <Example />
       </Snackbar>
     );
-  },
+  }
 };
 
 export const AutomaticDismiss: Story = {
@@ -65,14 +65,14 @@ export const AutomaticDismiss: Story = {
     docs: {
       description: {
         story:
-          "Use the `autoDismiss` prop to automatically hide the notification after a set period of time (in milliseconds).",
-      },
-    },
+          "Use the `autoDismiss` prop to automatically hide the notification after a set period of time (in milliseconds)."
+      }
+    }
   },
   args: {
     max: 5,
     screen: "sm",
-    placement: "bottom-start",
+    placement: "bottom-start"
   },
   render: function Render(args) {
     return (
@@ -80,5 +80,5 @@ export const AutomaticDismiss: Story = {
         <Example autoDismiss={5000} />
       </Snackbar>
     );
-  },
+  }
 };

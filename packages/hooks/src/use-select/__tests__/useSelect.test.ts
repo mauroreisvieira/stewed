@@ -65,7 +65,7 @@ describe("useSelect", () => {
 
   it("maintains index and item if the list changes to an empty array", () => {
     const { result, rerender } = renderHook(({ initialItems }) => useSelect(initialItems), {
-      initialProps: { initialItems: items },
+      initialProps: { initialItems: items }
     });
 
     act(() => {

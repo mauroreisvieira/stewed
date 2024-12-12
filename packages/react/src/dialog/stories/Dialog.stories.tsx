@@ -13,15 +13,15 @@ const meta: Meta<typeof Dialog> = {
   subcomponents: {
     "Dialog.Header": Dialog.Header as React.FC<unknown>,
     "Dialog.Body": Dialog.Body as React.FC<unknown>,
-    "Dialog.Footer": Dialog.Footer as React.FC<unknown>,
+    "Dialog.Footer": Dialog.Footer as React.FC<unknown>
   },
   decorators: [
     (Story) => (
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -29,8 +29,8 @@ export default meta;
 export const Base: Story = {
   argTypes: {
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   render: function Render({ ...args }): React.ReactElement {
     const [open, toggleOpen] = useToggle();
@@ -59,14 +59,14 @@ export const Base: Story = {
         </Dialog>
       </>
     );
-  },
+  }
 };
 
 export const HugeContent: Story = {
   argTypes: {
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   render: function Render({ ...args }): React.ReactElement {
     const [open, toggleOpen] = useToggle();
@@ -101,5 +101,5 @@ export const HugeContent: Story = {
         </Dialog>
       </>
     );
-  },
+  }
 };

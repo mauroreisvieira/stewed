@@ -14,8 +14,8 @@ const meta: Meta<typeof Spinner> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -23,6 +23,6 @@ export default meta;
 export const Base: Story = {
   args: {
     skin: "primary",
-    size: "5xl",
-  },
+    size: "5xl"
+  }
 };

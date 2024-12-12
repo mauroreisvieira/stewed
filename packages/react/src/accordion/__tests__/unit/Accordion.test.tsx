@@ -13,7 +13,7 @@ describe("Accordion", () => {
             <Accordion.Header>Header</Accordion.Header>
             <Accordion.Body>Body</Accordion.Body>
           </Accordion.Item>
-        </Accordion>,
+        </Accordion>
       );
 
       expect(container).toMatchSnapshot();
@@ -26,7 +26,7 @@ describe("Accordion", () => {
             <Accordion.Header className="other-header-class">Header</Accordion.Header>
             <Accordion.Body className="other-body-class">Body</Accordion.Body>
           </Accordion.Item>
-        </Accordion>,
+        </Accordion>
       );
 
       expect(container).toMatchSnapshot();
@@ -39,7 +39,7 @@ describe("Accordion", () => {
             <Accordion.Header leftSlot="Left slot">Header</Accordion.Header>
             <Accordion.Body>Body</Accordion.Body>
           </Accordion.Item>
-        </Accordion>,
+        </Accordion>
       );
 
       expect(container).toMatchSnapshot();
@@ -52,7 +52,7 @@ describe("Accordion", () => {
             <Accordion.Header rightSlot="Right slot">Header</Accordion.Header>
             <Accordion.Body>Body</Accordion.Body>
           </Accordion.Item>
-        </Accordion>,
+        </Accordion>
       );
 
       expect(container).toMatchSnapshot();
@@ -69,7 +69,7 @@ describe("Accordion", () => {
             <Accordion.Header onClick={handleClick}>Header</Accordion.Header>
             <Accordion.Body>Body</Accordion.Body>
           </Accordion.Item>
-        </Accordion>,
+        </Accordion>
       );
 
       const headerElement = await findByText("Header");
@@ -90,7 +90,7 @@ describe("Accordion", () => {
             <Accordion.Header onKeyDown={handleKeyDown}>Header</Accordion.Header>
             <Accordion.Body>Body</Accordion.Body>
           </Accordion.Item>
-        </Accordion>,
+        </Accordion>
       );
 
       const headerElement = await findByText("Header");

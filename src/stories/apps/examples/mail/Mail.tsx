@@ -13,7 +13,7 @@ import {
   TextArea,
   TextField,
   ListBox,
-  Theme,
+  Theme
 } from "@stewed/react";
 // Hooks
 import { useSelect } from "@stewed/hooks";
@@ -35,7 +35,7 @@ export function Mail(): React.ReactElement {
   const {
     item: accountsItem,
     index: accountIndex,
-    setIndex: setAccountsIndex,
+    setIndex: setAccountsIndex
   } = useSelect(accounts, 0);
 
   const memoMails = useMemo(() => {
@@ -52,15 +52,15 @@ export function Mail(): React.ReactElement {
       tokens={{
         default: {
           color: {
-            "focus": "#000",
+            focus: "#000",
             "primary-foreground": "#000",
             "primary-background": "#000",
             "primary-border-faded": "slate-400",
             "primary-background-faded": "slate-100",
             "primary-background-hovered": "#010101",
-            "primary-background-pressed": "#020202",
-          },
-        },
+            "primary-background-pressed": "#020202"
+          }
+        }
       }}
     >
       <Container

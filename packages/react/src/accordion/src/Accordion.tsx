@@ -67,7 +67,7 @@ export function Accordion({
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ modifiers: [appearance], extraClasses: className }),
+    root: getBlock({ modifiers: [appearance], extraClasses: className })
   };
 
   // Used to manage the accordion state
@@ -76,7 +76,7 @@ export function Accordion({
   // Define a reference to a list element
   const { ref, onNavigate } = useKeyboardNavigation<HTMLDivElement>({
     target: "summary:not([aria-disabled='true'])",
-    loop: true,
+    loop: true
   });
 
   const onHandleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
@@ -84,7 +84,7 @@ export function Accordion({
       onNavigate(event);
       onKeyDown?.(event);
     },
-    [onKeyDown, onNavigate],
+    [onKeyDown, onNavigate]
   );
 
   return (

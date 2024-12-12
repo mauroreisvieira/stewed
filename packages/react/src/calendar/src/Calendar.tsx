@@ -89,7 +89,7 @@ export function Calendar<T>({
   weekStart,
   onMonthChange,
   onDaySelected,
-  children,
+  children
 }: CalendarProps<T>): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock, getElement } = useBem({ block: components.Calendar, styles });
@@ -98,17 +98,17 @@ export function Calendar<T>({
   const cssClasses = {
     root: getBlock({
       modifiers: [rtl && "rtl", locked && "locked", allowRange && "range"],
-      extraClasses: className,
+      extraClasses: className
     }),
     week: getElement(["week"]),
-    month: getElement(["month"]),
+    month: getElement(["month"])
   };
 
   // Create a default date using useMemo to avoid unnecessary recalculations.
   // If the initialDate is a valid Date instance, use it, otherwise, default to the current date.
   const defaultDate = useMemo(
     () => (initialDate instanceof Date ? initialDate : new Date()),
-    [initialDate],
+    [initialDate]
   );
 
   // Call the useCalendar hook to get calendar data and navigation functions.
@@ -126,7 +126,7 @@ export function Calendar<T>({
     locked,
     maxDate,
     minDate,
-    weekStart,
+    weekStart
   });
 
   // Effect to handle month change callback.
@@ -173,7 +173,7 @@ export function Calendar<T>({
           weekDays: data?.weekDays,
           days: data?.days,
           onPrev: onHandlePrevMonth,
-          onNext: onHandleNextMonth,
+          onNext: onHandleNextMonth
         }}
       >
         {children}

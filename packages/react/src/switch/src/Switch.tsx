@@ -63,9 +63,9 @@ export function Switch({
   // Compute responsive props based on current theme and screen sizes
   const computedProps = useResponsive(
     {
-      size,
+      size
     },
-    activeToken.breakpoints,
+    activeToken.breakpoints
   );
 
   // Generating CSS classes based on component props and styles
@@ -76,15 +76,15 @@ export function Switch({
         computedProps.size,
         disabled && "disabled",
         loading && "loading",
-        reversed && "reversed",
+        reversed && "reversed"
       ],
-      extraClasses: className,
+      extraClasses: className
     }),
     input: getElement(["input"]),
     control: getElement(["control"]),
     thumb: getElement(["thumb"]),
     text: getElement(["text"]),
-    spinner: getElement(["spinner"]),
+    spinner: getElement(["spinner"])
   };
 
   return (

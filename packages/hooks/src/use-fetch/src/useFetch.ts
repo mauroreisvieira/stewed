@@ -29,8 +29,8 @@ interface FetchOptions extends RequestInit {
  * Custom React hook to perform a fetch request.
  *
  * @template T The type of the data expected from the response.
- * @param url The resource that you wish to fetch.
- * @param options Optional configuration object for the fetch request.
+ * @params url The resource that you wish to fetch.
+ * @params options Optional configuration object for the fetch request.
  * @returns An object containing:
  * - `data`: The fetched data, if available.
  * - `status`: The current status of the fetch request ('loading', 'loaded', 'error', 'aborted').
@@ -47,11 +47,12 @@ export function useFetch<T>(url: RequestInfo, options: FetchOptions = {}): Fetch
 
     const abortController = controller.current;
 
+    /** Fetches a data. */
     const fetchData = async () => {
       try {
         const response = await fetch(url, {
           signal: abortController.signal,
-          ...options,
+          ...options
         });
 
         if (!response.ok) {

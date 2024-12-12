@@ -25,7 +25,7 @@ export function TableHead({
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ modifiers: [skin], extraClasses: className }),
+    root: getBlock({ modifiers: [skin], extraClasses: className })
   };
 
   return (

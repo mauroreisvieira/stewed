@@ -19,12 +19,12 @@ export function TabsList({
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ extraClasses: className }),
+    root: getBlock({ extraClasses: className })
   };
 
   // Define a reference to a tab list element
   const { ref, onNavigate } = useKeyboardNavigation<HTMLDivElement>({
-    target: '[role="tab"]:not([aria-disabled])',
+    target: '[role="tab"]:not([aria-disabled])'
   });
 
   const onHandleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
@@ -32,7 +32,7 @@ export function TabsList({
       onNavigate(event);
       onKeyDown?.(event);
     },
-    [onKeyDown, onNavigate],
+    [onKeyDown, onNavigate]
   );
 
   return (

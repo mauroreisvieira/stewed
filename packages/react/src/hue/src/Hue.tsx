@@ -68,20 +68,20 @@ export function Hue({ degree = 90, skin, clipText, children }: HueProps): React.
         typeof skin === "string" && skin,
         typeof skin !== "string" && skin?.from && `from-${skin.from}`,
         typeof skin !== "string" && skin?.to && `to-${skin.to}`,
-        clipText && "clip-text",
-      ],
-    }),
+        clipText && "clip-text"
+      ]
+    })
   };
 
   const computedStyles = {
-    "--hue-deg": `${Math.min(359, Math.max(0, degree ?? 0))}deg`,
+    "--hue-deg": `${Math.min(359, Math.max(0, degree ?? 0))}deg`
   };
 
   // Cloning the child element to inject `className`
   if (React.isValidElement<ChildProps>(children)) {
     return React.cloneElement(children, {
       style: { ...computedStyles, ...children.props.style },
-      className: classNames(children.props.className, cssClasses.root),
+      className: classNames(children.props.className, cssClasses.root)
     });
   }
   // If `children` is not a valid React element, handle it appropriately

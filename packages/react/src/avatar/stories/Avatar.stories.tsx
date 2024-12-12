@@ -9,15 +9,15 @@ const meta: Meta = {
   title: "Components/Avatar",
   component: Avatar,
   subcomponents: {
-    "Avatar.Group": Avatar.Group as React.FC<unknown>,
+    "Avatar.Group": Avatar.Group as React.FC<unknown>
   },
   decorators: [
     (Story) => (
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -25,8 +25,8 @@ export default meta;
 export const Base: Story = {
   args: {
     skin: "primary",
-    name: "Emma Clark",
-  },
+    name: "Emma Clark"
+  }
 };
 
 export const Picture: Story = {
@@ -34,10 +34,10 @@ export const Picture: Story = {
     skin: "primary",
     size: "5xl",
     image: {
-      src: "https://images.unsplash.com/photo-1469334031218-e382a71b716b",
+      src: "https://images.unsplash.com/photo-1469334031218-e382a71b716b"
     },
-    name: "Emma Clark",
-  },
+    name: "Emma Clark"
+  }
 };
 
 export const SVGIcon: Story = {
@@ -61,8 +61,8 @@ export const SVGIcon: Story = {
         />
       </svg>
     ),
-    name: "Emma Clark",
-  },
+    name: "Emma Clark"
+  }
 };
 
 export const Error: Story = {
@@ -70,10 +70,10 @@ export const Error: Story = {
     skin: "critical",
     size: "lg",
     image: {
-      src: "/example.jpeg",
+      src: "/example.jpeg"
     },
-    name: "Mia Davis",
-  },
+    name: "Mia Davis"
+  }
 };
 
 export const Square: Story = {
@@ -82,8 +82,8 @@ export const Square: Story = {
     size: "6xl",
     name: "Company Acme",
     shape: "square",
-    appearance: "outline",
-  },
+    appearance: "outline"
+  }
 };
 
 export const Button: Story = {
@@ -93,8 +93,8 @@ export const Button: Story = {
     size: "6xl",
     name: "Company Acme",
     shape: "square",
-    appearance: "outline",
-  },
+    appearance: "outline"
+  }
 };
 
 export const Group: StoryObj<typeof Avatar.Group> = {
@@ -107,5 +107,5 @@ export const Group: StoryObj<typeof Avatar.Group> = {
         <Avatar skin="secondary" name="Benjamin Martinez" />
       </Avatar.Group>
     );
-  },
+  }
 };

@@ -10,7 +10,7 @@ import {
   Dropdown,
   Calendar,
   ListBox,
-  Text,
+  Text
 } from "@stewed/react";
 // Icons
 import {
@@ -23,7 +23,7 @@ import {
   LuReply,
   LuReplyAll,
   LuForward,
-  LuEllipsisVertical,
+  LuEllipsisVertical
 } from "react-icons/lu";
 
 export function Actions(): React.ReactElement {
@@ -112,7 +112,7 @@ export function Actions(): React.ReactElement {
                     day: "numeric",
                     month: "long",
                     year: "numeric",
-                    weekday: "narrow",
+                    weekday: "narrow"
                   }}
                   onDaySelected={() => {
                     close();

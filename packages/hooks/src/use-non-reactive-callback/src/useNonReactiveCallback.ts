@@ -20,7 +20,7 @@ import { useCallback, useInsertionEffect, useRef } from "react";
  * @returns A stable callback function that always executes the latest version of `fn`.
  */
 export function useNonReactiveCallback<T extends (...args: Parameters<T>) => ReturnType<T>>(
-  fn: T,
+  fn: T
 ): T {
   // Store the function in a ref to ensure we can always access the latest version.
   const ref = useRef(fn);

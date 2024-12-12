@@ -39,7 +39,7 @@ export function Spinner({
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({ modifiers: [skin, size], extraClasses: className }),
-    svg: getElement(["svg"]),
+    svg: getElement(["svg"])
   };
 
   return (

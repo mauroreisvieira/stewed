@@ -13,26 +13,26 @@ const meta: Meta<typeof Tabs> = {
   subcomponents: {
     "Tabs.List": Tabs.List as React.FC<unknown>,
     "Tabs.Item": Tabs.Item as React.FC<unknown>,
-    "Tabs.Panel": Tabs.Panel as React.FC<unknown>,
+    "Tabs.Panel": Tabs.Panel as React.FC<unknown>
   },
   argTypes: {
     onValueChange: {
-      control: false,
+      control: false
     },
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
-    onValueChange: undefined,
+    onValueChange: undefined
   },
   decorators: [
     (Story) => (
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -40,14 +40,14 @@ export default meta;
 export const Uncontrolled: Story = {
   argTypes: {
     value: {
-      control: false,
+      control: false
     },
     direction: {
-      control: false,
+      control: false
     },
     alignment: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
     defaultValue: "2",
@@ -81,27 +81,27 @@ export const Uncontrolled: Story = {
           <Text>Panel 4</Text>
         </Tabs.Panel>
       </>
-    ),
-  },
+    )
+  }
 };
 
 export const Controlled: Story = {
   argTypes: {
     defaultValue: {
-      control: false,
+      control: false
     },
     children: {
-      control: false,
+      control: false
     },
     direction: {
-      control: false,
+      control: false
     },
     alignment: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
-    value: "1",
+    value: "1"
   },
   render: function Render({ value, ...args }): React.ReactElement {
     const [tab, setTab] = useState<string | undefined>(value);
@@ -136,14 +136,14 @@ export const Controlled: Story = {
         </Tabs.Panel>
       </Tabs>
     );
-  },
+  }
 };
 
 export const Direction: Story = {
   argTypes: {
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
     alignment: "end",
@@ -178,6 +178,6 @@ export const Direction: Story = {
           <Text>Panel 4</Text>
         </Tabs.Panel>
       </>
-    ),
-  },
+    )
+  }
 };

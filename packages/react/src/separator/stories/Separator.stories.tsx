@@ -14,23 +14,23 @@ const meta: Meta<typeof Separator> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
 
 export const Base: Story = {
   args: {
-    skin: "neutral-faded",
-  },
+    skin: "neutral-faded"
+  }
 };
 
 export const Spaces: Story = {
   args: {
     skin: "primary",
     space: {
-      block: "2xl",
-    },
-  },
+      block: "2xl"
+    }
+  }
 };

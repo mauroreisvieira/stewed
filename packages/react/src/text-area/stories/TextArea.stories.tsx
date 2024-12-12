@@ -11,20 +11,20 @@ const meta: Meta<typeof TextArea> = {
   argTypes: {
     appearance: {
       control: "select",
-      options: ["ghost", "outline", "soft"],
+      options: ["ghost", "outline", "soft"]
     },
     skin: {
       control: "select",
-      options: ["neutral", "critical", "success"],
-    },
+      options: ["neutral", "critical", "success"]
+    }
   },
   decorators: [
     (Story) => (
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -33,20 +33,20 @@ export const Base: Story = {
   args: {
     placeholder: "Type your value...",
     rows: 5,
-    disabled: false,
-  },
+    disabled: false
+  }
 };
 
 export const Appearance: Story = {
   args: {
     placeholder: "Type your value...",
-    appearance: "soft",
-  },
+    appearance: "soft"
+  }
 };
 
 export const Critical: Story = {
   args: {
     placeholder: "Type your value...",
-    skin: "critical",
-  },
+    skin: "critical"
+  }
 };

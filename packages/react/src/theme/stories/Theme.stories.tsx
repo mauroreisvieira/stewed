@@ -20,7 +20,7 @@ import {
   radius,
   shadow,
   duration,
-  timing,
+  timing
 } from "@stewed/tokens";
 
 type Story = StoryObj<typeof Theme>;
@@ -28,7 +28,7 @@ type Story = StoryObj<typeof Theme>;
 const meta: Meta<typeof Theme> = {
   title: "Components/Theme",
   component: Theme,
-  decorators: [(Story) => <Story />],
+  decorators: [(Story) => <Story />]
 };
 
 export default meta;
@@ -41,8 +41,8 @@ export const Palette: Story = {
           cols={3}
           responsive={{
             md: {
-              cols: 9,
-            },
+              cols: 9
+            }
           }}
           gap="xs"
         >
@@ -52,15 +52,15 @@ export const Palette: Story = {
               radius="md"
               padding={{ block: "3xl" }}
               style={{
-                backgroundColor: `var(--color-${color})`,
+                backgroundColor: `var(--color-${color})`
               }}
             >
               <Text
                 size="xxs"
                 responsive={{
                   sm: {
-                    size: "xs",
-                  },
+                    size: "xs"
+                  }
                 }}
                 weight="medium"
                 alignment="center"
@@ -73,7 +73,7 @@ export const Palette: Story = {
         </Grid>
       </Theme>
     );
-  },
+  }
 };
 
 export const Colors: Story = {
@@ -109,7 +109,7 @@ export const Colors: Story = {
         </Table>
       </Theme>
     );
-  },
+  }
 };
 
 export const Screens: Story = {
@@ -134,7 +134,7 @@ export const Screens: Story = {
         </Table>
       </Theme>
     );
-  },
+  }
 };
 
 export const Viewport: Story = {
@@ -159,7 +159,7 @@ export const Viewport: Story = {
         </Table>
       </Theme>
     );
-  },
+  }
 };
 
 export const Breakpoints: Story = {
@@ -184,7 +184,7 @@ export const Breakpoints: Story = {
         </Table>
       </Theme>
     );
-  },
+  }
 };
 
 export const FontFamily: Story = {
@@ -209,7 +209,7 @@ export const FontFamily: Story = {
         </Table>
       </Theme>
     );
-  },
+  }
 };
 
 export const FontSize: Story = {
@@ -234,7 +234,7 @@ export const FontSize: Story = {
         </Table>
       </Theme>
     );
-  },
+  }
 };
 
 export const FontWeight: Story = {
@@ -259,7 +259,7 @@ export const FontWeight: Story = {
         </Table>
       </Theme>
     );
-  },
+  }
 };
 
 export const LineHeight: Story = {
@@ -284,7 +284,7 @@ export const LineHeight: Story = {
         </Table>
       </Theme>
     );
-  },
+  }
 };
 
 export const Spacings: Story = {
@@ -309,7 +309,7 @@ export const Spacings: Story = {
         </Table>
       </Theme>
     );
-  },
+  }
 };
 
 export const Elevation: Story = {
@@ -334,7 +334,7 @@ export const Elevation: Story = {
         </Table>
       </Theme>
     );
-  },
+  }
 };
 
 export const Radius: Story = {
@@ -359,7 +359,7 @@ export const Radius: Story = {
         </Table>
       </Theme>
     );
-  },
+  }
 };
 
 export const Shadows: Story = {
@@ -384,7 +384,7 @@ export const Shadows: Story = {
         </Table>
       </Theme>
     );
-  },
+  }
 };
 
 export const Spaces: Story = {
@@ -409,7 +409,7 @@ export const Spaces: Story = {
         </Table>
       </Theme>
     );
-  },
+  }
 };
 
 export const Duration: Story = {
@@ -434,7 +434,7 @@ export const Duration: Story = {
         </Table>
       </Theme>
     );
-  },
+  }
 };
 
 export const Timing: Story = {
@@ -459,7 +459,7 @@ export const Timing: Story = {
         </Table>
       </Theme>
     );
-  },
+  }
 };
 
 export const ThemeScope: Story = {
@@ -486,14 +486,14 @@ export const ThemeScope: Story = {
                     "primary-background-hovered": "purple-600",
                     "primary-background-pressed": "purple-600",
                     "primary-background-faded": "purple-100",
-                    "focus": "purple-500",
+                    focus: "purple-500"
                   },
                   components: {
                     button: {
-                      radius: "full",
-                    },
-                  },
-                },
+                      radius: "full"
+                    }
+                  }
+                }
               }}
             >
               <Box
@@ -510,5 +510,5 @@ export const ThemeScope: Story = {
         </Box>
       </Theme>
     );
-  },
+  }
 };

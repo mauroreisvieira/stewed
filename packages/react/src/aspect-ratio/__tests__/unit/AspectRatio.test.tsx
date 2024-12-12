@@ -10,7 +10,7 @@ describe("Aspect Ratio", () => {
       const { container } = render(
         <AspectRatio>
           <div />
-        </AspectRatio>,
+        </AspectRatio>
       );
 
       expect(container).toMatchSnapshot();
@@ -20,7 +20,7 @@ describe("Aspect Ratio", () => {
       const { container } = render(
         <AspectRatio className="other-class">
           <div />
-        </AspectRatio>,
+        </AspectRatio>
       );
 
       expect(container).toMatchSnapshot();
@@ -30,7 +30,7 @@ describe("Aspect Ratio", () => {
       const { container } = render(
         <AspectRatio ratio="16:9">
           <div />
-        </AspectRatio>,
+        </AspectRatio>
       );
 
       expect(container).toMatchSnapshot();
@@ -40,7 +40,7 @@ describe("Aspect Ratio", () => {
       const { container } = render(
         <AspectRatio radius="2xl">
           <div />
-        </AspectRatio>,
+        </AspectRatio>
       );
 
       expect(container).toMatchSnapshot();

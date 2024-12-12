@@ -9,7 +9,7 @@ import {
   ListBox,
   Separator,
   Stack,
-  Text,
+  Text
 } from "@stewed/react";
 // Hooks
 import { useToggle } from "@stewed/hooks";

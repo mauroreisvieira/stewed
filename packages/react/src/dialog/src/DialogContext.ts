@@ -13,7 +13,7 @@ export interface DialogContextProps {
 }
 
 export const DialogContext = createContext<DialogContextProps>({
-  onClose: definitionError,
+  onClose: definitionError
 });
 
 export const useDialog = (): DialogContextProps => use(DialogContext);

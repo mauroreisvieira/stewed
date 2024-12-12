@@ -13,8 +13,8 @@ const meta: Meta<typeof Stack> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -22,11 +22,11 @@ export default meta;
 export const Base: Story = {
   argTypes: {
     as: {
-      control: false,
+      control: false
     },
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
     gap: "sm",
@@ -55,18 +55,18 @@ export const Base: Story = {
           </Card.Body>
         </Card>
       </>
-    ),
-  },
+    )
+  }
 };
 
 export const Sizing: Story = {
   argTypes: {
     as: {
-      control: false,
+      control: false
     },
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
     gap: "md",
@@ -95,6 +95,6 @@ export const Sizing: Story = {
           </Card>
         </Stack>
       </>
-    ),
-  },
+    )
+  }
 };

@@ -30,7 +30,7 @@ describe("Alert", () => {
         const { container } = render(<Alert shadow={shadow}>Alert</Alert>);
 
         expect(container).toMatchSnapshot();
-      },
+      }
     );
 
     it.each<AlertProps["skin"]>(["primary", "secondary", "neutral", "critical", "success"])(
@@ -39,7 +39,7 @@ describe("Alert", () => {
         const { container } = render(<Alert skin={skin}>Alert</Alert>);
 
         expect(container).toMatchSnapshot();
-      },
+      }
     );
 
     it("should render left slot content", () => {

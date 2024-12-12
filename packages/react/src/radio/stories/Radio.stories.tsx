@@ -11,15 +11,15 @@ const meta: Meta<typeof Radio> = {
   title: "Components/Radio",
   component: Radio,
   subcomponents: {
-    "Radio.Group": Radio.Group as React.FC<unknown>,
+    "Radio.Group": Radio.Group as React.FC<unknown>
   },
   decorators: [
     (Story) => (
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -30,8 +30,8 @@ export default meta;
 export const Controlled: Story = {
   args: {
     disabled: false,
-    children: "Label",
-  },
+    children: "Label"
+  }
 };
 
 /**
@@ -40,7 +40,7 @@ export const Controlled: Story = {
  **/
 export const Uncontrolled: Story = {
   args: {
-    children: "Label",
+    children: "Label"
   },
   render: function Render() {
     const [isChecked, setChecked] = useToggle(false);
@@ -49,18 +49,18 @@ export const Uncontrolled: Story = {
         Label
       </Radio>
     );
-  },
+  }
 };
 
 export const Error: Story = {
   argTypes: {
-    onChange: { action: "change" },
+    onChange: { action: "change" }
   },
   args: {
     skin: "critical",
     defaultChecked: true,
-    children: "Label",
-  },
+    children: "Label"
+  }
 };
 
 /**
@@ -71,12 +71,12 @@ export const Group: StoryObj<RadioGroupProps> = {
   argTypes: {
     orientation: {
       control: "select",
-      options: ["vertical", "horizontal"],
-    },
+      options: ["vertical", "horizontal"]
+    }
   },
   args: {
     orientation: "vertical",
-    fullWidth: true,
+    fullWidth: true
   },
   render: function Render({ ...args }) {
     const [checkedValue, setCheckedValues] = useState<string>("Red");
@@ -101,5 +101,5 @@ export const Group: StoryObj<RadioGroupProps> = {
         </Text>
       </>
     );
-  },
+  }
 };

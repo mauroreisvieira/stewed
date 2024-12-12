@@ -47,12 +47,12 @@ export function DropdownButton({
   const cssClasses = {
     root: getBlock({
       modifiers: [skin, size, props.disabled && "disabled", fullWidth && "full-width"],
-      extraClasses: className,
+      extraClasses: className
     }),
     left: getElement(["left"]),
     content: getElement(["content"]),
     spinner: getElement(["spinner"]),
-    icon: getElement(["icon"]),
+    icon: getElement(["icon"])
   };
 
   return (

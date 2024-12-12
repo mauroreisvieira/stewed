@@ -64,7 +64,7 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
           prop[propName] = tokenValue;
           return prop;
         },
-        {} as Record<string, string>,
+        {} as Record<string, string>
       );
       return acc;
     }, {} as TransformedComponents);
@@ -72,7 +72,7 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
     return {
       color: overrideColors,
       ...otherTokens,
-      ...transformedComponents,
+      ...transformedComponents
     };
   }, [activeToken]);
 
@@ -82,9 +82,9 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
       Object.entries(transformedTokens).flatMap(([context, data]) =>
         Object.entries(data).map(([key, value]) => [
           `--${context}-${key}`.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase(),
-          value,
-        ]),
-      ),
+          value
+        ])
+      )
     );
   }, [transformedTokens]);
 
@@ -93,7 +93,7 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
       `\n${Object.entries(cssProperties)
         .map(([property, value]) => `${property}: ${value};`)
         .join("\n")}`,
-    [cssProperties],
+    [cssProperties]
   );
 
   useEffect(() => {

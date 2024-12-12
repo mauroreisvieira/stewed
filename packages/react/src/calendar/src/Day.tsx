@@ -57,9 +57,9 @@ export function Day({
         siblingMonthDays && "sibling-month-day",
         startRange && "start-range",
         inRange && "in-range",
-        endRange && "end-range",
-      ],
-    }),
+        endRange && "end-range"
+      ]
+    })
   };
 
   return (

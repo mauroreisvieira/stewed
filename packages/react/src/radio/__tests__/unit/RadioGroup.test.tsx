@@ -10,7 +10,7 @@ describe("RadioGroup", () => {
       const { container } = render(
         <Radio.Group name="name">
           <Radio>Radio</Radio>
-        </Radio.Group>,
+        </Radio.Group>
       );
 
       expect(container).toMatchSnapshot();
@@ -20,7 +20,7 @@ describe("RadioGroup", () => {
       const { container } = render(
         <Radio.Group name="name" className="other-class">
           <Radio className="other-class">Radio</Radio>
-        </Radio.Group>,
+        </Radio.Group>
       );
 
       expect(container).toMatchSnapshot();

@@ -40,10 +40,10 @@ export function SegmentedItem({
   const cssClasses = {
     root: getBlock({
       modifiers: [isSelected && "selected", disabled && "disabled"],
-      extraClasses: className,
+      extraClasses: className
     }),
     left: getElement(["left"]),
-    right: getElement(["right"]),
+    right: getElement(["right"])
   };
 
   // Handle click event to change the current item selected
@@ -53,7 +53,7 @@ export function SegmentedItem({
       onValueChange?.(value);
       onClick?.(event);
     },
-    [disabled, onClick, onValueChange, value],
+    [disabled, onClick, onValueChange, value]
   );
 
   return (

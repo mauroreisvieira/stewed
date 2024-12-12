@@ -3,7 +3,7 @@ import React, { useCallback, useMemo, useRef, useState } from "react";
 import {
   SnackbarContext,
   type SnackbarContextProps,
-  type SnackbarNotification,
+  type SnackbarNotification
 } from "./SnackbarContext";
 // UI Components
 import { Scope, Alert, Motion } from "../..";
@@ -74,10 +74,10 @@ export function Snackbar({
   const cssClasses = {
     root: getBlock({
       modifiers: [placement, screen && `screen-${screen}`],
-      extraClasses: className,
+      extraClasses: className
     }),
     content: getElement(["content"]),
-    notification: getElement(["notification"]),
+    notification: getElement(["notification"])
   };
 
   /**
@@ -115,7 +115,7 @@ export function Snackbar({
         }, notification.autoDismiss);
       }
     },
-    [max, remove],
+    [max, remove]
   );
 
   // Determine the animation type based on placement for entry
@@ -146,7 +146,7 @@ export function Snackbar({
                     // Ensure cleanup for notifications already in removing state
                     if (removingNotifications.has(id)) {
                       setNotifications((prev) =>
-                        prev.filter((notification) => notification.id !== id),
+                        prev.filter((notification) => notification.id !== id)
                       );
 
                       setRemovingNotifications((prev) => {

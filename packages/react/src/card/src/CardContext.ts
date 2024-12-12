@@ -18,7 +18,7 @@ export interface CardContextProps {
  */
 function createCardContext() {
   return createContext<CardContextProps>({
-    direction: "column",
+    direction: "column"
   });
 }
 

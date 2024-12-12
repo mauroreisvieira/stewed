@@ -14,8 +14,8 @@ const meta: Meta = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -35,8 +35,8 @@ export const Buttons: Story = {
         </Button>
         <Button skin="neutral">Button</Button>
       </>
-    ),
-  },
+    )
+  }
 };
 
 export const TextFields: Story = {
@@ -46,8 +46,8 @@ export const TextFields: Story = {
         <TextField appearance="outline" defaultValue={"Input field..."} />
         <TextField appearance="outline" defaultValue={"Input field..."} />
       </>
-    ),
-  },
+    )
+  }
 };
 
 export const Mixed: Story = {
@@ -62,6 +62,6 @@ export const Mixed: Story = {
           Button
         </Button>
       </>
-    ),
-  },
+    )
+  }
 };

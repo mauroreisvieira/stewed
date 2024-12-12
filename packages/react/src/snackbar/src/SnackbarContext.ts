@@ -42,7 +42,7 @@ export interface SnackbarContextProps {
 export const SnackbarContext = createContext<SnackbarContextProps>({
   notifications: [],
   add: definitionError,
-  remove: definitionError,
+  remove: definitionError
 });
 
 export const useSnackbar = (): SnackbarContextProps => use(SnackbarContext);

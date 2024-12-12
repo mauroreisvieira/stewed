@@ -1,11 +1,11 @@
 /**
  * Tests the given regular expression against the user agent string in the browser window.
  *
- * @param re The regular expression to test.
+ * @params re The regular expression to test.
  * @returns A boolean indicating whether the regular expression matches the user agent string.
  */
 function testUserAgent(re: RegExp): boolean {
-  return typeof window !== "undefined" && window.navigator != null
+  return typeof window !== "undefined" && window.navigator !== null
     ? re.test(window.navigator.userAgent)
     : false;
 }
@@ -13,11 +13,11 @@ function testUserAgent(re: RegExp): boolean {
 /**
  * Tests the given regular expression against the platform string in the browser window.
  *
- * @param re The regular expression to test.
+ * @params re The regular expression to test.
  * @returns A boolean indicating whether the regular expression matches the platform string.
  */
 function testPlatform(re: RegExp): boolean {
-  return typeof window !== "undefined" && window.navigator != null
+  return typeof window !== "undefined" && window.navigator !== null
     ? re.test(window.navigator.platform)
     : false;
 }

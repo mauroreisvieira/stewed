@@ -17,8 +17,8 @@ const meta: Meta<typeof Tooltip> = {
           </Stack>
         </Box>
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -26,7 +26,7 @@ export default meta;
 export const Base: Story = {
   args: {
     skin: "default",
-    placement: "top",
+    placement: "top"
   },
   argTypes: {
     placement: {
@@ -42,9 +42,9 @@ export const Base: Story = {
         "bottom-end",
         "left",
         "left-start",
-        "left-end",
-      ],
-    },
+        "left-end"
+      ]
+    }
   },
   render: (args) => {
     return (
@@ -55,5 +55,5 @@ export const Base: Story = {
         This order has shipping labels
       </Tooltip>
     );
-  },
+  }
 };
