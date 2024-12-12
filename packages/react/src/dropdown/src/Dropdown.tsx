@@ -1,4 +1,3 @@
-// eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable react-compiler/react-compiler */
 import React, { useCallback, useEffect, useRef, useState } from "react";
 // UI Components
@@ -14,6 +13,7 @@ import {
   useKey,
   useKeyboardNavigation,
   useMergeRefs,
+  useScrollLock,
   type UseMergeRefs,
   type FloatingPlacement,
   type UseFloatingProps
@@ -52,6 +52,11 @@ export interface DropdownProps<T>
    * @default false
    */
   allowClickOutside?: boolean;
+  /**
+   * Allow the body scroll when dropdown is open.
+   * @default true
+   */
+  allowScroll?: boolean;
   /** Callback function invoked when the escape key is pressed. */
   onEscape?: () => void;
   /** Callback function invoked when the dialog is clicked outside. */
@@ -96,8 +101,9 @@ export function Dropdown<T extends HTMLElement>({
   className,
   style,
   flip = true,
-  renderAnchor,
+  allowScroll = true,
   allowClickOutside = false,
+  renderAnchor,
   onEscape,
   onClickOutside,
   onKeyDown,
@@ -127,17 +133,21 @@ export function Dropdown<T extends HTMLElement>({
     flip
   });
 
+  // Lock scrolling when dropdown is open
+  useScrollLock({ enabled: isPositioned && !allowScroll });
+
   // Hook to handle clicks outside the floating element.
   useClickOutside({
     enabled: isOpen,
     ignoredElements: [dropdownRef.current as Element, floating.current as Element],
+    /** Function to close the dropdown when click outside */
     handler: () => (allowClickOutside ? onClickOutside : setOpen(false))
   });
 
-  // Disable arrow key scrolling in users browser
   useKey({
     enabled: !!isOpen,
-    keys: ["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"],
+    keys: ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"],
+    /** Function to prevent arrow key scrolling in users browser */
     handler: (event: KeyboardEvent) => {
       event.preventDefault();
     }
