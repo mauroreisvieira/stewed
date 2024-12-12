@@ -1,9 +1,9 @@
-const { getStyleLintConfig } = require("@harmonix-hub/stylelint");
+const { styleLintConfig } = require("@harmonix-hub/stylelint");
 
-const { rules, ...styleLintConfig } = getStyleLintConfig();
+const { rules, ...rest } = styleLintConfig();
 
 module.exports = {
-  ...styleLintConfig,
+  ...rest,
   rules: {
     ...rules,
     "plugin/no-unsupported-browser-features": [
