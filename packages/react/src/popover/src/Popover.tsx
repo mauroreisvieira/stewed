@@ -1,4 +1,3 @@
-// eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable react-compiler/react-compiler */
 import React, { useCallback, useEffect, useRef, useState } from "react";
 // UI Components
@@ -11,7 +10,8 @@ import {
   useKey,
   useMergeRefs,
   type UseMergeRefs,
-  type UseFloatingProps
+  type UseFloatingProps,
+  useScrollLock
 } from "@stewed/hooks";
 // Tokens
 import { components } from "@stewed/tokens";
@@ -44,6 +44,11 @@ export interface PopoverProps<T>
    * @default false
    */
   allowClickOutside?: boolean;
+  /**
+   * Allow the body scroll when 'Popover' is open.
+   * @default true
+   */
+  allowScroll?: boolean;
   /** Callback function invoked when the escape key is pressed. */
   onEscape?: () => void;
   /** Callback function invoked when the dialog is clicked outside. */
@@ -91,6 +96,7 @@ export function Popover<T extends HTMLElement>({
   offset = 8,
   renderAnchor,
   allowClickOutside = false,
+  allowScroll = true,
   onEscape,
   onClickOutside,
   onKeyDown,
@@ -121,17 +127,22 @@ export function Popover<T extends HTMLElement>({
     flip
   });
 
+  // Lock scrolling when dropdown is open
+  useScrollLock({ enabled: isPositioned && !allowScroll });
+
   // Hook to handle clicks outside the floating element.
   useClickOutside({
     enabled: isOpen,
     ignoredElements: [popoverRef.current as Element, floating.current as Element],
+    /** Function to close the dropdown when click outside */
     handler: () => (allowClickOutside ? onClickOutside : setOpen(false))
   });
 
   // Disable arrow key scrolling in users browser
   useKey({
     enabled: !!isOpen,
-    keys: ["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"],
+    keys: ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"],
+    /** Function to prevent arrow key scrolling in users browser */
     handler: (event: KeyboardEvent) => {
       event.preventDefault();
     }
@@ -162,12 +173,12 @@ export function Popover<T extends HTMLElement>({
     [onKeyDown, onEscape, setOpen]
   );
 
-  // Opens the popover by set the state to true.
+  /** Function opens the popover by set the state to true. */
   const onHandleOpen = (): void => {
     setOpen(true);
   };
 
-  // Closes the popover by set the state to false.
+  /** Function closes the popover by set the state to false. */
   const onHandleClose = (): void => {
     setOpen(false);
   };
@@ -184,6 +195,7 @@ export function Popover<T extends HTMLElement>({
     <>
       {renderAnchor({
         ref: popoverRef,
+        /** Function will merge all references  */
         attachRefs: (ref) => mergeRefs([popoverRef, ...ref]),
         open: onHandleOpen,
         close: onHandleClose,
