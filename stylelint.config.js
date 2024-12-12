@@ -1,6 +1,6 @@
 const { styleLintConfig } = require("@harmonix-hub/stylelint");
 
-const { rules, ...rest } = styleLintConfig();
+const { rules, ...rest } = styleLintConfig;
 
 module.exports = {
   ...rest,

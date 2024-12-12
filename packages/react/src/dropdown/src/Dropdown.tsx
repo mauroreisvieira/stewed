@@ -53,7 +53,7 @@ export interface DropdownProps<T>
    */
   allowClickOutside?: boolean;
   /**
-   * Allow the body scroll when dropdown is open.
+   * Allow the body scroll when 'Dropdown' is open.
    * @default true
    */
   allowScroll?: boolean;

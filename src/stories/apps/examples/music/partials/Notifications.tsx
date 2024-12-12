@@ -37,8 +37,10 @@ export function Notifications(): React.ReactElement {
           if (diffInHours > 23) {
             return `${createdDate.diff(now, "days")} day(s)`;
           }
+
           return `${diffInHours} hour(s)`;
         }
+
         return `${diffInMinutes} minute(s)`;
       }
 
@@ -57,18 +59,22 @@ export function Notifications(): React.ReactElement {
   return (
     <Popover<HTMLButtonElement>
       placement="bottom-end"
+      allowScroll={false}
       flip={false}
       renderAnchor={({ ref, open, close, isOpen }) => (
-        <Button
-          ref={ref}
-          onClick={isOpen ? close : open}
-          appearance="ghost"
-          skin="secondary"
-          leftSlot={<MdNotifications size={16} />}
-          iconOnly
-        >
-          Notifications
-        </Button>
+        <Badge value="3" overlap="circular" skin="critical">
+          <Button
+            ref={ref}
+            onClick={isOpen ? close : open}
+            onBlur={close}
+            appearance="ghost"
+            skin="secondary"
+            leftSlot={<MdNotifications size={16} />}
+            iconOnly
+          >
+            Notifications
+          </Button>
+        </Badge>
       )}
     >
       {() => (
