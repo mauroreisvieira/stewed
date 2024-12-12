@@ -8,7 +8,10 @@ export interface UseKeyboardNavigationProps {
    * Keys are the keyboard event key values, and values are the navigation direction (-1 for backward, 1 for forward).
    */
   key?: Record<string, number>;
-  /** Determines whether navigation should wrap around when reaching the start or end of the list. */
+  /**
+   * Determines whether navigation should wrap around when reaching the start or end of the list.
+   * @default true
+   */
   loop?: boolean;
   /**
    * A function defining the condition for the navigation.
