@@ -137,7 +137,7 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          timing: $value,
+          timing: $value
         )
       );
     }
@@ -148,7 +148,7 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          duration: $value,
+          duration: $value
         )
       );
     }

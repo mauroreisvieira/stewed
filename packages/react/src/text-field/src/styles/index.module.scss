@@ -65,7 +65,7 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          height: $value,
+          height: $value
         )
       );
     }
@@ -78,7 +78,7 @@
         (
           foreground: map.get($value, "color"),
           border-color: map.get($value, "border"),
-          background-color: map.get($value, "background-color"),
+          background-color: map.get($value, "background-color")
         )
       );
     }

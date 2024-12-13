@@ -10,7 +10,7 @@
     (
       flex-direction: row,
       justify-content: center,
-      border-color: transparent,
+      border-color: transparent
     )
   );
 
@@ -18,7 +18,7 @@
     @include theme.define-var(
       (
         justify-content: start,
-        align-items: start,
+        align-items: start
       )
     );
   }
@@ -27,7 +27,7 @@
     @include theme.define-var(
       (
         justify-content: center,
-        align-items: start,
+        align-items: start
       )
     );
   }
@@ -36,7 +36,7 @@
     @include theme.define-var(
       (
         justify-content: end,
-        align-items: end,
+        align-items: end
       )
     );
   }
@@ -62,7 +62,7 @@
   &--column {
     @include theme.define-var(
       (
-        flex-direction: column,
+        flex-direction: column
       )
     );
   }
@@ -135,7 +135,7 @@
     &:hover:not([disabled]) {
       @include theme.define-var(
         (
-          color: theme.get-color("primary", "background"),
+          color: theme.get-color("primary", "background")
         )
       );
     }
@@ -152,7 +152,7 @@
       @include theme.define-var(
         (
           color: theme.get-color("primary", "background"),
-          border-color: theme.get-color("primary", "background"),
+          border-color: theme.get-color("primary", "background")
         )
       );
     }

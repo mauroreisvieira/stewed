@@ -17,7 +17,7 @@
     &--elevation-#{$key} {
       @include theme.define-var(
         (
-          elevation: #{$value},
+          elevation: #{$value}
         )
       );
     }

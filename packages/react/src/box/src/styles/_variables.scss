@@ -18,7 +18,7 @@ $box-skins: (
   "success-faded": theme.get-color("success", "background-faded"),
   "info-faded": theme.get-color("info", "background-faded"),
   "warning-faded": theme.get-color("warning", "background-faded"),
-  "white": theme.get-color("white"),
+  "white": theme.get-color("white")
 );
 
 /// Radius
@@ -39,5 +39,5 @@ $box-border-color: (
   "info": theme.get-color("info", "border"),
   "info-faded": theme.get-color("info", "border-faded"),
   "warning": theme.get-color("warning", "border"),
-  "warning-faded": theme.get-color("warning", "border-faded"),
+  "warning-faded": theme.get-color("warning", "border-faded")
 );

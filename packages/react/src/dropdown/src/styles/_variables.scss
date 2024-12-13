@@ -7,12 +7,12 @@ $dropdown-button-sizes: (
   "sm": 32px,
   "md": 40px,
   "lg": 48px,
-  "xl": 56px,
+  "xl": 56px
 );
 
 // Skins
 $dropdown-button-skins: (
   "neutral": theme.get-color("neutral", "border-faded"),
   "success": theme.get-color("success", "border"),
-  "critical": theme.get-color("critical", "border"),
+  "critical": theme.get-color("critical", "border")
 );

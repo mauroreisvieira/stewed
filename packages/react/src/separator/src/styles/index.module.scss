@@ -27,7 +27,7 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          background-color: $value,
+          background-color: $value
         )
       );
     }
@@ -38,7 +38,7 @@
     &--space-inline-#{$key} {
       @include theme.define-var(
         (
-          margin-inline: $value,
+          margin-inline: $value
         )
       );
     }
@@ -46,7 +46,7 @@
     &--space-block-#{$key} {
       @include theme.define-var(
         (
-          margin-block: $value,
+          margin-block: $value
         )
       );
     }

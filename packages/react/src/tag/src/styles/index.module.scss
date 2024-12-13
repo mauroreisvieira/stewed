@@ -22,7 +22,7 @@
     (
       border-width: 1px,
       border-color: transparent,
-      gap: theme.get-spacing("sm"),
+      gap: theme.get-spacing("sm")
     )
   );
 
@@ -46,7 +46,7 @@
       (
         height: 18px,
         padding-inline: theme.get-spacing("xs"),
-        font-size: theme.get-font-size("xxs"),
+        font-size: theme.get-font-size("xxs")
       )
     );
   }
@@ -56,7 +56,7 @@
       (
         height: 20px,
         padding-inline: theme.get-spacing("sm"),
-        font-size: theme.get-font-size("xxs"),
+        font-size: theme.get-font-size("xxs")
       )
     );
   }
@@ -66,7 +66,7 @@
       (
         height: 22px,
         padding-inline: theme.get-spacing("md"),
-        font-size: theme.get-font-size("xs"),
+        font-size: theme.get-font-size("xs")
       )
     );
   }
@@ -76,7 +76,7 @@
       (
         height: 28px,
         padding-inline: theme.get-spacing("lg"),
-        font-size: theme.get-font-size("sm"),
+        font-size: theme.get-font-size("sm")
       )
     );
   }
@@ -87,14 +87,14 @@
         @include theme.define-var(
           (
             background-color: theme.get-color($value, "background"),
-            color: theme.get-color($value, "foreground-on-background"),
+            color: theme.get-color($value, "foreground-on-background")
           )
         );
 
         &[href]:hover:not([aria-disabled="true"]) {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "background"),
+              background-color: theme.get-color($value, "background")
             )
           );
         }
@@ -102,7 +102,7 @@
         &[href]:not([aria-disabled="true"]):active {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "background"),
+              background-color: theme.get-color($value, "background")
             )
           );
         }
@@ -112,14 +112,14 @@
         @include theme.define-var(
           (
             color: theme.get-color($value, "foreground"),
-            background-color: transparent,
+            background-color: transparent
           )
         );
 
         &[href]:hover:not([aria-disabled="true"]) {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "background-faded"),
+              background-color: theme.get-color($value, "background-faded")
             )
           );
         }
@@ -127,7 +127,7 @@
         &[href]:not([aria-disabled="true"]):active {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "background-faded"),
+              background-color: theme.get-color($value, "background-faded")
             )
           );
         }
@@ -138,14 +138,14 @@
           (
             background-color: transparent,
             border-color: currentColor,
-            color: theme.get-color($value, "foreground"),
+            color: theme.get-color($value, "foreground")
           )
         );
 
         &[href]:hover:not([aria-disabled="true"]) {
           @include theme.define-var(
             (
-              color: theme.get-color($value, "foreground"),
+              color: theme.get-color($value, "foreground")
             )
           );
         }
@@ -153,7 +153,7 @@
         &[href]:active:not([aria-disabled="true"]) {
           @include theme.define-var(
             (
-              color: theme.get-color($value, "foreground"),
+              color: theme.get-color($value, "foreground")
             )
           );
         }
@@ -167,7 +167,7 @@
                 in srgb,
                 theme.get-color($value, "background"),
                 transparent 95%
-              ),
+              )
           )
         );
 
@@ -178,7 +178,7 @@
                   in srgb,
                   theme.get-color($value, "background"),
                   transparent 90%
-                ),
+                )
             )
           );
         }
@@ -190,7 +190,7 @@
                   in srgb,
                   theme.get-color($value, "background"),
                   transparent 85%
-                ),
+                )
             )
           );
         }

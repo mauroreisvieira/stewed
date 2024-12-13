@@ -12,7 +12,7 @@
       size: 40px,
       background-color: transparent,
       border-color: theme.get-color("neutral", "border-faded"),
-      foreground: theme.get-color("neutral", "foreground"),
+      foreground: theme.get-color("neutral", "foreground")
     )
   );
 
@@ -27,7 +27,7 @@
         (
           background-color: theme.get-color("primary", "background"),
           border-color: theme.get-color("primary", "border"),
-          foreground: theme.get-color("primary", "foreground-on-background"),
+          foreground: theme.get-color("primary", "foreground-on-background")
         )
       );
 
@@ -50,7 +50,7 @@
         (
           background-color: theme.get-color("success", "background"),
           border-color: theme.get-color("success", "border"),
-          foreground: theme.get-color("success", "foreground-on-background"),
+          foreground: theme.get-color("success", "foreground-on-background")
         )
       );
 

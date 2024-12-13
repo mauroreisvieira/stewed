@@ -96,7 +96,7 @@
         color: inherit,
         font-size: inherit,
         font-weight: inherit,
-        font-family: inherit,
+        font-family: inherit
       )
     );
   }
@@ -106,7 +106,7 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          color: $value,
+          color: $value
         )
       );
     }
@@ -126,7 +126,7 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          font-size: $value,
+          font-size: $value
         )
       );
     }
@@ -137,7 +137,7 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          font-family: $value,
+          font-family: $value
         )
       );
     }
@@ -148,7 +148,7 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          font-weight: $value,
+          font-weight: $value
         )
       );
     }

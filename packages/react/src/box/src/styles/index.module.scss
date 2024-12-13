@@ -22,14 +22,14 @@
       border-color: transparent,
       border-width: inherit,
       border-radius: inherit,
-      box-shadow: none,
+      box-shadow: none
     )
   );
 
   &--hidden {
     @include theme.define-var(
       (
-        display: none,
+        display: none
       )
     );
   }
@@ -39,7 +39,7 @@
     &--radius-#{$key} {
       @include theme.define-var(
         (
-          border-radius: $value,
+          border-radius: $value
         )
       );
     }
@@ -50,7 +50,7 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          background-color: $value,
+          background-color: $value
         )
       );
     }
@@ -61,7 +61,7 @@
     &--border-width-#{$i} {
       @include theme.define-var(
         (
-          border-width: #{$i}px,
+          border-width: #{$i}px
         )
       );
     }
@@ -71,7 +71,7 @@
   &--border-style-solid {
     @include theme.define-var(
       (
-        border-style: solid,
+        border-style: solid
       )
     );
   }
@@ -79,7 +79,7 @@
   &--border-style-dashed {
     @include theme.define-var(
       (
-        border-style: dashed,
+        border-style: dashed
       )
     );
   }
@@ -89,7 +89,7 @@
     &--border-color-#{$key} {
       @include theme.define-var(
         (
-          border-color: $value,
+          border-color: $value
         )
       );
     }

@@ -18,19 +18,19 @@ $config: (
     "6xl": var(--spacings-6xl),
     "7xl": var(--spacings-7xl),
     "8xl": var(--spacings-8xl),
-    "9xl": var(--spacings-9xl),
+    "9xl": var(--spacings-9xl)
   ),
   "blur": (
     "none": var(--blur-none),
     "sm": var(--blur-sm),
     "md": var(--blur-md),
-    "lg": var(--blur-lg),
+    "lg": var(--blur-lg)
   ),
   "breakpoints": (
     "sm": var(--breakpoints-sm),
     "md": var(--breakpoints-md),
     "lg": var(--breakpoints-lg),
-    "xl": var(--breakpoints-xl),
+    "xl": var(--breakpoints-xl)
   ),
   "screens": (
     "full": var(--screens-full),
@@ -39,7 +39,7 @@ $config: (
     "md": var(--screens-md),
     "lg": var(--screens-lg),
     "xl": var(--screens-xl),
-    "2xl": var(--screens-2xl),
+    "2xl": var(--screens-2xl)
   ),
   "viewport": (
     "vw": var(--viewport-vw),
@@ -49,13 +49,13 @@ $config: (
     "vh": var(--viewport-vh),
     "svh": var(--viewport-svh),
     "lvh": var(--viewport-lvh),
-    "dvh": var(--viewport-dvh),
+    "dvh": var(--viewport-dvh)
   ),
   "font-family": (
     "base": var(--font-family-base),
     "sans": var(--font-family-sans),
     "serif": var(--font-family-serif),
-    "mono": var(--font-family-mono),
+    "mono": var(--font-family-mono)
   ),
   "font-size": (
     "xxs": var(--font-size-xxs),
@@ -70,7 +70,7 @@ $config: (
     "5xl": var(--font-size-5xl),
     "6xl": var(--font-size-6xl),
     "7xl": var(--font-size-7xl),
-    "8xl": var(--font-size-8xl),
+    "8xl": var(--font-size-8xl)
   ),
   "font-weight": (
     "thin": var(--font-weight-thin),
@@ -80,7 +80,7 @@ $config: (
     "semi-bold": var(--font-weight-semi-bold),
     "bold": var(--font-weight-bold),
     "extra-bold": var(--font-weight-extra-bold),
-    "bolder": var(--font-weight-bolder),
+    "bolder": var(--font-weight-bolder)
   ),
   "line-height": (
     "xs": var(--line-height-xs),
@@ -92,7 +92,7 @@ $config: (
     "3xl": var(--line-height-3xl),
     "4xl": var(--line-height-4xl),
     "5xl": var(--line-height-5xl),
-    "6xl": var(--line-height-6xl),
+    "6xl": var(--line-height-6xl)
   ),
   "radius": (
     "none": var(--radius-none),
@@ -101,7 +101,7 @@ $config: (
     "lg": var(--radius-lg),
     "xl": var(--radius-xl),
     "2xl": var(--radius-2xl),
-    "full": var(--radius-full),
+    "full": var(--radius-full)
   ),
   "shadow": (
     "none": var(--shadow-none),
@@ -110,14 +110,14 @@ $config: (
     "lg": var(--shadow-lg),
     "xl": var(--shadow-xl),
     "2xl": var(--shadow-2xl),
-    "3xl": var(--shadow-3xl),
+    "3xl": var(--shadow-3xl)
   ),
   "elevation": (
     "base": var(--elevation-default),
     "navigation": var(--elevation-navigation),
     "popup": var(--elevation-popup),
     "notification": var(--elevation-notification),
-    "hint": var(--elevation-hint),
+    "hint": var(--elevation-hint)
   ),
   "palette": (
     "transparent": var(--color-transparent),
@@ -132,7 +132,7 @@ $config: (
       "600": var(--color-indigo-600),
       "700": var(--color-indigo-700),
       "800": var(--color-indigo-800),
-      "900": var(--color-indigo-900),
+      "900": var(--color-indigo-900)
     ),
     "pink": (
       "100": var(--color-pink-100),
@@ -143,7 +143,7 @@ $config: (
       "600": var(--color-pink-600),
       "700": var(--color-pink-700),
       "800": var(--color-pink-800),
-      "900": var(--color-pink-900),
+      "900": var(--color-pink-900)
     ),
     "purple": (
       "100": var(--color-purple-100),
@@ -154,7 +154,7 @@ $config: (
       "600": var(--color-purple-600),
       "700": var(--color-purple-700),
       "800": var(--color-purple-800),
-      "900": var(--color-purple-900),
+      "900": var(--color-purple-900)
     ),
     "slate": (
       "100": var(--color-slate-100),
@@ -165,7 +165,7 @@ $config: (
       "600": var(--color-slate-600),
       "700": var(--color-slate-700),
       "800": var(--color-slate-800),
-      "900": var(--color-slate-900),
+      "900": var(--color-slate-900)
     ),
     "gray": (
       "100": var(--color-gray-100),
@@ -176,7 +176,7 @@ $config: (
       "600": var(--color-gray-600),
       "700": var(--color-gray-700),
       "800": var(--color-gray-800),
-      "900": var(--color-gray-900),
+      "900": var(--color-gray-900)
     ),
     "teal": (
       "100": var(--color-teal-100),
@@ -187,7 +187,7 @@ $config: (
       "600": var(--color-teal-600),
       "700": var(--color-teal-700),
       "800": var(--color-teal-800),
-      "900": var(--color-teal-900),
+      "900": var(--color-teal-900)
     ),
     "cyan": (
       "100": var(--color-cyan-100),
@@ -198,7 +198,7 @@ $config: (
       "600": var(--color-cyan-600),
       "700": var(--color-cyan-700),
       "800": var(--color-cyan-800),
-      "900": var(--color-cyan-900),
+      "900": var(--color-cyan-900)
     ),
     "red": (
       "100": var(--color-red-100),
@@ -209,7 +209,7 @@ $config: (
       "600": var(--color-red-600),
       "700": var(--color-red-700),
       "800": var(--color-red-800),
-      "900": var(--color-red-900),
+      "900": var(--color-red-900)
     ),
     "green": (
       "100": var(--color-green-100),
@@ -220,7 +220,7 @@ $config: (
       "600": var(--color-green-600),
       "700": var(--color-green-700),
       "800": var(--color-green-800),
-      "900": var(--color-green-900),
+      "900": var(--color-green-900)
     ),
     "lime": (
       "100": var(--color-lime-100),
@@ -231,7 +231,7 @@ $config: (
       "600": var(--color-lime-600),
       "700": var(--color-lime-700),
       "800": var(--color-lime-800),
-      "900": var(--color-lime-900),
+      "900": var(--color-lime-900)
     ),
     "blue": (
       "100": var(--color-blue-100),
@@ -242,7 +242,7 @@ $config: (
       "600": var(--color-blue-600),
       "700": var(--color-blue-700),
       "800": var(--color-blue-800),
-      "900": var(--color-blue-900),
+      "900": var(--color-blue-900)
     ),
     "yellow": (
       "100": var(--color-yellow-100),
@@ -253,7 +253,7 @@ $config: (
       "600": var(--color-yellow-600),
       "700": var(--color-yellow-700),
       "800": var(--color-yellow-800),
-      "900": var(--color-yellow-900),
+      "900": var(--color-yellow-900)
     ),
     "orange": (
       "100": var(--color-orange-100),
@@ -264,7 +264,7 @@ $config: (
       "600": var(--color-orange-600),
       "700": var(--color-orange-700),
       "800": var(--color-orange-800),
-      "900": var(--color-orange-900),
+      "900": var(--color-orange-900)
     ),
     "amber": (
       "100": var(--color-amber-100),
@@ -275,7 +275,7 @@ $config: (
       "600": var(--color-amber-600),
       "700": var(--color-amber-700),
       "800": var(--color-amber-800),
-      "900": var(--color-amber-900),
+      "900": var(--color-amber-900)
     ),
     "brown": (
       "100": var(--color-brown-100),
@@ -286,8 +286,8 @@ $config: (
       "600": var(--color-brown-600),
       "700": var(--color-brown-700),
       "800": var(--color-brown-800),
-      "900": var(--color-brown-900),
-    ),
+      "900": var(--color-brown-900)
+    )
   ),
   "colors": (
     "primary": (
@@ -299,7 +299,7 @@ $config: (
       "border-faded": var(--color-primary-border-faded),
       "border-hovered": var(--color-primary-border-hovered),
       "foreground": var(--color-primary-foreground),
-      "foreground-on-background": var(--color-primary-foreground-on-background),
+      "foreground-on-background": var(--color-primary-foreground-on-background)
     ),
     "secondary": (
       "background": var(--color-secondary-background),
@@ -310,7 +310,7 @@ $config: (
       "border-faded": var(--color-secondary-border-faded),
       "border-hovered": var(--color-secondary-border-hovered),
       "foreground": var(--color-secondary-foreground),
-      "foreground-on-background": var(--color-secondary-foreground-on-background),
+      "foreground-on-background": var(--color-secondary-foreground-on-background)
     ),
     "neutral": (
       "background": var(--color-neutral-background),
@@ -322,7 +322,7 @@ $config: (
       "border-hovered": var(--color-neutral-border-hovered),
       "foreground": var(--color-neutral-foreground),
       "foreground-on-background": var(--color-neutral-foreground-on-background),
-      "foreground-faded": var(--color-neutral-foreground-faded),
+      "foreground-faded": var(--color-neutral-foreground-faded)
     ),
     "info": (
       "background": var(--color-info-background),
@@ -333,7 +333,7 @@ $config: (
       "border-faded": var(--color-info-border-faded),
       "border-hovered": var(--color-info-border-hovered),
       "foreground": var(--color-info-foreground),
-      "foreground-on-background": var(--color-info-foreground-on-background),
+      "foreground-on-background": var(--color-info-foreground-on-background)
     ),
     "success": (
       "background": var(--color-success-background),
@@ -344,7 +344,7 @@ $config: (
       "border-faded": var(--color-success-border-faded),
       "border-hovered": var(--color-success-border-hovered),
       "foreground": var(--color-success-foreground),
-      "foreground-on-background": var(--color-success-foreground-on-background),
+      "foreground-on-background": var(--color-success-foreground-on-background)
     ),
     "warning": (
       "background": var(--color-warning-background),
@@ -355,7 +355,7 @@ $config: (
       "border-faded": var(--color-warning-border-faded),
       "border-hovered": var(--color-warning-border-hovered),
       "foreground": var(--color-warning-foreground),
-      "foreground-on-background": var(--color-warning-foreground-on-background),
+      "foreground-on-background": var(--color-warning-foreground-on-background)
     ),
     "critical": (
       "background": var(--color-critical-background),
@@ -366,7 +366,7 @@ $config: (
       "border-faded": var(--color-critical-border-faded),
       "border-hovered": var(--color-critical-border-hovered),
       "foreground": var(--color-critical-foreground),
-      "foreground-on-background": var(--color-critical-foreground-on-background),
+      "foreground-on-background": var(--color-critical-foreground-on-background)
     ),
     "background-default": var(--color-background-default),
     "background-inverted": var(--color-background-inverted),
@@ -376,22 +376,22 @@ $config: (
     "foreground-default": var(--color-foreground-default),
     "foreground-inverted": var(--color-foreground-inverted),
     "focus": var(--color-focus),
-    "shadow": var(--color-shadow),
+    "shadow": var(--color-shadow)
   ),
   "disabled": 0.5,
   "transition": (
     "duration": (
       "quickly": var(--duration-quickly),
       "normal": var(--duration-normal),
-      "slowly": var(--duration-slowly),
+      "slowly": var(--duration-slowly)
     ),
     "timing-function": (
       "ease-in": var(--timing-ease-in),
       "ease-out": var(--timing-ease-out),
       "ease-in-out": var(--timing-ease-in-out),
-      "ease-out-back": var(--timing-ease-out-back),
-    ),
-  ),
+      "ease-out-back": var(--timing-ease-out-back)
+    )
+  )
 );
 
 /// Prefix value for CSS variables, allowing for customization and theming.

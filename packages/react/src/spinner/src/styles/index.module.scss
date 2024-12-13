@@ -35,7 +35,7 @@
       @include theme.define-var(
         (
           width: #{$value},
-          height: #{$value},
+          height: #{$value}
         )
       );
     }
@@ -45,7 +45,7 @@
   &--default {
     @include theme.define-var(
       (
-        fill: currentColor,
+        fill: currentColor
       )
     );
   }
@@ -53,7 +53,7 @@
   &--white {
     @include theme.define-var(
       (
-        fill: #{theme.get-color("white")},
+        fill: #{theme.get-color("white")}
       )
     );
   }
@@ -62,7 +62,7 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          fill: #{theme.get-color($key, "foreground")},
+          fill: #{theme.get-color($key, "foreground")}
         )
       );
     }

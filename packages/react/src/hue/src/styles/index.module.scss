@@ -25,7 +25,7 @@
           &--#{$color}-#{$shade} {
             @include theme.define-var(
               (
-                background-color: $value,
+                background-color: $value
               )
             );
           }
@@ -34,7 +34,7 @@
           &--from-#{$color}-#{$shade} {
             @include theme.define-var(
               (
-                from: $value,
+                from: $value
               )
             );
           }
@@ -43,7 +43,7 @@
           &--to-#{$color}-#{$shade} {
             @include theme.define-var(
               (
-                to: $value,
+                to: $value
               )
             );
           }
@@ -54,7 +54,7 @@
       &--#{$color} {
         @include theme.define-var(
           (
-            background-color: $shades,
+            background-color: $shades
           )
         );
       }
@@ -63,7 +63,7 @@
       &--from-#{$color} {
         @include theme.define-var(
           (
-            from: $shades,
+            from: $shades
           )
         );
       }
@@ -72,7 +72,7 @@
       &--to-#{$color} {
         @include theme.define-var(
           (
-            to: $shades,
+            to: $shades
           )
         );
       }

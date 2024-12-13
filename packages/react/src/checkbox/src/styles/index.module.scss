@@ -15,7 +15,7 @@
   @include theme.define-var(
     (
       background-color: transparent,
-      border-color: theme.get-color("neutral", "border-faded"),
+      border-color: theme.get-color("neutral", "border-faded")
     )
   );
 
@@ -27,7 +27,7 @@
     @include theme.hover {
       @include theme.define-var(
         (
-          background-color: theme.get-color("neutral", "background-faded"),
+          background-color: theme.get-color("neutral", "background-faded")
         )
       );
     }
@@ -98,7 +98,7 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          size: $value,
+          size: $value
         )
       );
     }
@@ -151,7 +151,7 @@
         @include theme.define-var(
           (
             background-color: theme.get-color($value, "background"),
-            border-color: theme.get-color($value, "border"),
+            border-color: theme.get-color($value, "border")
           )
         );
 
@@ -159,7 +159,7 @@
           @include theme.define-var(
             (
               background-color: color-mix(in srgb, theme.get-color($value, "background") 90%, black),
-              border-color: color-mix(in srgb, theme.get-color($value, "border") 90%, black),
+              border-color: color-mix(in srgb, theme.get-color($value, "border") 90%, black)
             )
           );
         }

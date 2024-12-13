@@ -12,7 +12,7 @@
   @include theme.define-var(
     (
       row-gap: theme.get-spacing("xxs"),
-      column-gap: theme.get-spacing("xxs"),
+      column-gap: theme.get-spacing("xxs")
     )
   );
 
@@ -93,7 +93,7 @@
     &:empty {
       @include theme.define-var(
         (
-          background-color: transparent,
+          background-color: transparent
         )
       );
     }
@@ -101,7 +101,7 @@
     &:hover:not(&--selected, &--locked, &--disabled, &--in-range) {
       @include theme.define-var(
         (
-          background-color: theme.get-color("neutral", "background-faded"),
+          background-color: theme.get-color("neutral", "background-faded")
         )
       );
     }
@@ -110,7 +110,7 @@
       @include theme.define-var(
         (
           background-color: theme.get-color("primary", "background-faded"),
-          color: theme.get-color("primary", "foreground"),
+          color: theme.get-color("primary", "foreground")
         )
       );
     }
@@ -118,7 +118,7 @@
     &--weekend {
       @include theme.define-var(
         (
-          color: theme.get-color("neutral", "foreground"),
+          color: theme.get-color("neutral", "foreground")
         )
       );
     }
@@ -126,7 +126,7 @@
     &--sibling-month-day {
       @include theme.define-var(
         (
-          color: theme.get-color("neutral", "foreground-faded"),
+          color: theme.get-color("neutral", "foreground-faded")
         )
       );
     }
@@ -134,7 +134,7 @@
     &--highlighted {
       @include theme.define-var(
         (
-          color: theme.get-color("secondary", "foreground"),
+          color: theme.get-color("secondary", "foreground")
         )
       );
     }
@@ -143,7 +143,7 @@
       @include theme.define-var(
         (
           color: theme.get-color("foreground-default"),
-          background-color: theme.get-color("neutral", "background-faded"),
+          background-color: theme.get-color("neutral", "background-faded")
         )
       );
     }
@@ -154,7 +154,7 @@
       @include theme.define-var(
         (
           color: white,
-          background-color: theme.get-color("primary", "background"),
+          background-color: theme.get-color("primary", "background")
         )
       );
     }
@@ -193,7 +193,7 @@
     @include theme.define-var(
       (
         row-gap: theme.get-spacing("xxs"),
-        column-gap: 0,
+        column-gap: 0
       )
     );
   }

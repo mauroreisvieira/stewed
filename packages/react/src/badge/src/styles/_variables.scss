@@ -9,18 +9,18 @@ $badge-skins: ("primary", "secondary", "neutral", "info", "success", "warning", 
 $badge-sizes: (
   "xs": (
     "font-size": theme.get-font-size("xxs"),
-    "size": 12px,
+    "size": 12px
   ),
   "sm": (
     "font-size": theme.get-font-size("xxs"),
-    "size": 16px,
+    "size": 16px
   ),
   "md": (
     "font-size": theme.get-font-size("xs"),
-    "size": 20px,
+    "size": 20px
   ),
   "lg": (
     "font-size": theme.get-font-size("xs"),
-    "size": 24px,
-  ),
+    "size": 24px
+  )
 );

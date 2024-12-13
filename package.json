@@ -8,7 +8,7 @@
     "watch": "turbo run watch",
     "lint": "turbo run lint --parallel",
     "lint:style": "stylelint '**/*.scss'",
-    "format": "prettier --write \"**/*.{ts,tsx,md,mdx}\"",
+    "format": "prettier --write \"**/*.{ts,tsx,md,mdx,scss}\"",
     "test:unit": "turbo run test:unit --parallel",
     "clean": "turbo clean && rm -rf node_modules",
     "storybook": "storybook dev -p 6006",

@@ -14,7 +14,7 @@
 
   @include theme.define-var(
     (
-      min-width: 180px,
+      min-width: 180px
     )
   );
 
@@ -67,7 +67,7 @@
       &--#{$key} {
         @include theme.define-var(
           (
-            border-color: $value,
+            border-color: $value
           )
         );
       }
@@ -78,7 +78,7 @@
       &--#{$key} {
         @include theme.define-var(
           (
-            height: $value,
+            height: $value
           )
         );
       }

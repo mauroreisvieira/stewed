@@ -18,7 +18,7 @@
 
   @include theme.define-var(
     (
-      background-color: transparent,
+      background-color: transparent
     )
   );
 
@@ -54,7 +54,7 @@
 
       @include theme.define-var(
         (
-          background-color: theme.get-color("background-default"),
+          background-color: theme.get-color("background-default")
         )
       );
     }
@@ -65,7 +65,7 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          height: $value,
+          height: $value
         )
       );
     }

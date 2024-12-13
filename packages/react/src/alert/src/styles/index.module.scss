@@ -47,7 +47,7 @@
         (
           background-color: theme.get-color($value, "background-faded"),
           border-color: theme.get-color($value, "border-faded"),
-          color: theme.get-color($value, "foreground"),
+          color: theme.get-color($value, "foreground")
         )
       );
     }
@@ -58,7 +58,7 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          padding: $value,
+          padding: $value
         )
       );
     }
@@ -69,7 +69,7 @@
     &--shadow-#{$key} {
       @include theme.define-var(
         (
-          box-shadow: $value,
+          box-shadow: $value
         )
       );
     }

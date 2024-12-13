@@ -35,7 +35,7 @@
     &--resize-#{$value} {
       @include theme.define-var(
         (
-          resize: $value,
+          resize: $value
         )
       );
     }
@@ -48,7 +48,7 @@
         (
           foreground: map.get($value, "color"),
           border-color: map.get($value, "border"),
-          background-color: map.get($value, "background-color"),
+          background-color: map.get($value, "background-color")
         )
       );
     }

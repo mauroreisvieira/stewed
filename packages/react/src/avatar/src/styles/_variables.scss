@@ -9,50 +9,50 @@ $avatar-skins: (
     "color-on-background": theme.get-color("primary", "foreground-on-background"),
     "color": theme.get-color("primary", "foreground"),
     "background-color": theme.get-color("primary", "background"),
-    "border-color": theme.get-color("primary", "border"),
+    "border-color": theme.get-color("primary", "border")
   ),
   "secondary": (
     "color-on-background": theme.get-color("secondary", "foreground-on-background"),
     "color": theme.get-color("secondary", "foreground"),
     "background-color": theme.get-color("secondary", "background"),
-    "border-color": theme.get-color("secondary", "border"),
+    "border-color": theme.get-color("secondary", "border")
   ),
   "neutral": (
     "color-on-background": theme.get-color("neutral", "foreground-on-background"),
     "color": theme.get-color("neutral", "foreground"),
     "background-color": theme.get-color("neutral", "background"),
-    "border-color": theme.get-color("neutral", "border"),
+    "border-color": theme.get-color("neutral", "border")
   ),
   "neutral-faded": (
     "color-on-background": theme.get-color("neutral", "foreground"),
     "color": theme.get-color("neutral", "foreground-faded"),
     "background-color": theme.get-color("neutral", "background-faded"),
-    "border-color": theme.get-color("neutral", "border-faded"),
+    "border-color": theme.get-color("neutral", "border-faded")
   ),
   "critical": (
     "color-on-background": theme.get-color("critical", "foreground-on-background"),
     "color": theme.get-color("critical", "foreground"),
     "background-color": theme.get-color("critical", "background"),
-    "border-color": theme.get-color("critical", "border"),
+    "border-color": theme.get-color("critical", "border")
   ),
   "success": (
     "color-on-background": theme.get-color("success", "foreground-on-background"),
     "color": theme.get-color("success", "foreground"),
     "background-color": theme.get-color("success", "background"),
-    "border-color": theme.get-color("success", "border"),
+    "border-color": theme.get-color("success", "border")
   ),
   "info": (
     "color-on-background": theme.get-color("info", "foreground-on-background"),
     "color": theme.get-color("info", "foreground"),
     "background-color": theme.get-color("info", "background"),
-    "border-color": theme.get-color("info", "border"),
+    "border-color": theme.get-color("info", "border")
   ),
   "warning": (
     "color-on-background": theme.get-color("warning", "foreground-on-background"),
     "color": theme.get-color("warning", "foreground"),
     "background-color": theme.get-color("warning", "background"),
-    "border-color": theme.get-color("warning", "border"),
-  ),
+    "border-color": theme.get-color("warning", "border")
+  )
 );
 
 /// Sizes
@@ -66,5 +66,5 @@ $avatar-sizes: (
   "3xl": 72px,
   "4xl": 80px,
   "5xl": 88px,
-  "6xl": 96px,
+  "6xl": 96px
 );

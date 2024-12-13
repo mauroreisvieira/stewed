@@ -6,5 +6,5 @@ $table-root: "table";
 $table-head-skins: (
   "default": transparent,
   "neutral-faded": theme.get-color("neutral", "background-faded"),
-  "primary-faded": theme.get-color("primary", "background-faded"),
+  "primary-faded": theme.get-color("primary", "background-faded")
 );

@@ -10,7 +10,7 @@
   @include theme.define-var(
     (
       opacity: 0,
-      background: theme.get-color("background-elevated"),
+      background: theme.get-color("background-elevated")
     )
   );
 
@@ -47,7 +47,7 @@
   &--open {
     @include theme.define-var(
       (
-        opacity: 1,
+        opacity: 1
       )
     );
   }
@@ -95,7 +95,7 @@
     &--safe-margin-#{$key} {
       @include theme.define-var(
         (
-          safe-margin: $value,
+          safe-margin: $value
         )
       );
     }
@@ -104,7 +104,7 @@
   &--safe-margin-none {
     @include theme.define-var(
       (
-        border-radius: 0,
+        border-radius: 0
       )
     );
   }
@@ -114,7 +114,7 @@
     @include theme.define-var(
       (
         width: 320px,
-        height: 320px,
+        height: 320px
       )
     );
   }
@@ -123,7 +123,7 @@
     @include theme.define-var(
       (
         width: 640px,
-        height: 640px,
+        height: 640px
       )
     );
   }

@@ -23,7 +23,7 @@
       @include theme.define-var(
         (
           color: map.get($value, "color"),
-          background-color: map.get($value, "background-color"),
+          background-color: map.get($value, "background-color")
         )
       );
     }

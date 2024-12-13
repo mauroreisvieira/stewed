@@ -6,7 +6,7 @@
 
   @include theme.define-var(
     (
-      border-radius: inherit,
+      border-radius: inherit
     )
   );
 
@@ -14,7 +14,7 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          aspect-ratio: $value,
+          aspect-ratio: $value
         )
       );
     }
@@ -25,7 +25,7 @@
     &--radius-#{$key} {
       @include theme.define-var(
         (
-          border-radius: $value,
+          border-radius: $value
         )
       );
     }

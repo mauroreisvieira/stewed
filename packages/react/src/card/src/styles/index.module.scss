@@ -13,7 +13,7 @@
 
   @include theme.define-var(
     (
-      padding: 0,
+      padding: 0
     )
   );
 
@@ -78,7 +78,7 @@
   &--sm {
     @include theme.define-var(
       (
-        padding: theme.get-spacing("md"),
+        padding: theme.get-spacing("md")
       )
     );
   }
@@ -86,7 +86,7 @@
   &--md {
     @include theme.define-var(
       (
-        padding: theme.get-spacing("xl"),
+        padding: theme.get-spacing("xl")
       )
     );
   }
@@ -94,7 +94,7 @@
   &--lg {
     @include theme.define-var(
       (
-        padding: theme.get-spacing("2xl"),
+        padding: theme.get-spacing("2xl")
       )
     );
   }
@@ -104,7 +104,7 @@
     &--padding-block-#{$key} {
       @include theme.define-var(
         (
-          padding-block: #{$value},
+          padding-block: #{$value}
         )
       );
     }
@@ -112,7 +112,7 @@
     &--padding-inline-#{$key} {
       @include theme.define-var(
         (
-          padding-inline: #{$value},
+          padding-inline: #{$value}
         )
       );
     }
@@ -123,7 +123,7 @@
     &--shadow-#{$key} {
       @include theme.define-var(
         (
-          box-shadow: $value,
+          box-shadow: $value
         )
       );
     }

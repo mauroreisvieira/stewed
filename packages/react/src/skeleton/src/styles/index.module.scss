@@ -32,7 +32,7 @@
 
     @include theme.define-var(
       (
-        border-radius: theme.get-radius("full"),
+        border-radius: theme.get-radius("full")
       )
     );
   }
@@ -41,7 +41,7 @@
     &--#{$size-name} {
       @include theme.define-var(
         (
-          size: $size-value,
+          size: $size-value
         )
       );
     }
@@ -50,7 +50,7 @@
   &--auto {
     @include theme.define-var(
       (
-        size: auto,
+        size: auto
       )
     );
   }
@@ -60,7 +60,7 @@
     &--radius-#{$size-name} {
       @include theme.define-var(
         (
-          border-radius: $size-value,
+          border-radius: $size-value
         )
       );
     }

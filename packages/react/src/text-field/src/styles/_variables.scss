@@ -7,18 +7,18 @@ $input-skins: (
   "neutral": (
     "color": theme.get-color("foreground-default"),
     "border": theme.get-color("neutral", "border-faded"),
-    "background-color": theme.get-color("neutral", "background"),
+    "background-color": theme.get-color("neutral", "background")
   ),
   "success": (
     "color": theme.get-color("success", "foreground"),
     "border": theme.get-color("success", "border"),
-    "background-color": theme.get-color("success", "background"),
+    "background-color": theme.get-color("success", "background")
   ),
   "critical": (
     "color": theme.get-color("critical", "foreground"),
     "border": theme.get-color("critical", "border"),
-    "background-color": theme.get-color("critical", "background"),
-  ),
+    "background-color": theme.get-color("critical", "background")
+  )
 );
 
 /// Sizes
@@ -26,5 +26,5 @@ $input-sizes: (
   "sm": 32px,
   "md": 40px,
   "lg": 48px,
-  "xl": 56px,
+  "xl": 56px
 );
