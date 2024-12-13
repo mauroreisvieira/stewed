@@ -35,9 +35,9 @@ export function Settings(): React.ReactElement {
       allowScroll={false}
       renderAnchor={({ ref, open, close, isOpen }) => (
         <Avatar
+          ref={ref}
           as="button"
           tabIndex={0}
-          ref={ref}
           onClick={isOpen ? close : open}
           name="Devon Lane"
           image={{

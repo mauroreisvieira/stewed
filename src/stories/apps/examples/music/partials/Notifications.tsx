@@ -1,11 +1,12 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 // UI Components
 import {
   Avatar,
   Badge,
   Box,
   Button,
-  Popover,
+  Dropdown,
+  ListBox,
   ScrollArea,
   Separator,
   Stack,
@@ -21,6 +22,8 @@ import { notifications } from "./data";
 
 export function Notifications(): React.ReactElement {
   const { createDate, formatDate } = useDateTime();
+
+  const [listNotifications, setListNotifications] = useState(notifications);
 
   const convertDatetime = useCallback(
     (date: Date) => {
@@ -56,17 +59,55 @@ export function Notifications(): React.ReactElement {
     [createDate, formatDate]
   );
 
+  const countNotifications = useMemo(() => {
+    return listNotifications.reduce((acc, cur) => {
+      if (!cur.read) {
+        return acc + 1;
+      }
+
+      return acc;
+    }, 0);
+  }, [listNotifications]);
+
+  const onHandleSetAllRead = useCallback(() => {
+    setListNotifications((prev) =>
+      prev.map((item) => ({
+        ...item,
+        read: true
+      }))
+    );
+  }, []);
+
   return (
-    <Popover<HTMLButtonElement>
+    <Dropdown<HTMLButtonElement>
       placement="bottom-end"
       allowScroll={false}
-      flip={false}
-      renderAnchor={({ ref, open, close, isOpen }) => (
-        <Badge value="3" overlap="circular" skin="critical">
+      renderAnchor={({ ref, open, close, isOpen }) => {
+        if (countNotifications) {
+          return (
+            <Badge
+              value={countNotifications ? countNotifications.toString() : undefined}
+              overlap="circular"
+              skin="critical"
+            >
+              <Button
+                ref={ref}
+                onClick={isOpen ? close : open}
+                appearance="ghost"
+                skin="secondary"
+                leftSlot={<MdNotifications size={16} />}
+                iconOnly
+              >
+                Notifications
+              </Button>
+            </Badge>
+          );
+        }
+
+        return (
           <Button
             ref={ref}
             onClick={isOpen ? close : open}
-            onBlur={close}
             appearance="ghost"
             skin="secondary"
             leftSlot={<MdNotifications size={16} />}
@@ -74,20 +115,20 @@ export function Notifications(): React.ReactElement {
           >
             Notifications
           </Button>
-        </Badge>
-      )}
+        );
+      }}
     >
       {() => (
-        <div style={{ width: 340 }}>
+        <div style={{ width: 360 }}>
           <Box padding={{ inline: "lg", block: "md" }}>
             <Stack justify="between" items="center">
               <Text weight="medium">Notifications</Text>
               <Button
-                as="a"
-                href="/"
+                as="button"
                 size="sm"
                 skin="neutral"
                 appearance="ghost"
+                onClick={onHandleSetAllRead}
                 leftSlot={<IoCheckmarkDone />}
                 iconOnly
               >
@@ -98,61 +139,61 @@ export function Notifications(): React.ReactElement {
           <Separator />
           <Stack style={{ maxHeight: 420 }}>
             <ScrollArea>
-              <Box padding={{ inline: "lg", block: "lg" }}>
-                <Stack direction="column" gap="lg">
-                  {notifications
+              <Box padding={{ block: "sm", inline: "sm" }}>
+                <ListBox>
+                  {listNotifications
                     .sort((a, b) => b.date.getTime() - a.date.getTime())
-                    .map(({ id, user, action, content, date, read }, index) => (
-                      <React.Fragment key={id}>
-                        <Stack gap="sm">
-                          {read ? (
-                            <Avatar
-                              appearance="outline"
-                              skin="neutral-faded"
-                              name={user}
-                              size="sm"
-                            />
-                          ) : (
-                            <Badge overlap="circular">
+                    .map(({ id, user, action, content, date, read }) => (
+                      <ListBox.Item as="button" key={id}>
+                        <Box padding={{ block: "sm" }}>
+                          <Stack gap="sm">
+                            {read ? (
                               <Avatar
                                 appearance="outline"
                                 skin="neutral-faded"
                                 name={user}
                                 size="sm"
                               />
-                            </Badge>
-                          )}
-                          <Box>
-                            <Text weight="medium" size="sm" space={{ y: "xs" }}>
-                              {user}{" "}
-                              <Text
-                                weight="normal"
-                                as="span"
-                                skin="neutral"
-                                space={{ x: "xs" }}
-                                inherit
-                              >
-                                {action}
+                            ) : (
+                              <Badge overlap="circular">
+                                <Avatar
+                                  appearance="outline"
+                                  skin="neutral-faded"
+                                  name={user}
+                                  size="sm"
+                                />
+                              </Badge>
+                            )}
+                            <Box>
+                              <Text weight="medium" size="sm" space={{ y: "xs" }}>
+                                {user}{" "}
+                                <Text
+                                  weight="normal"
+                                  as="span"
+                                  skin="neutral"
+                                  space={{ x: "xs" }}
+                                  inherit
+                                >
+                                  {action}
+                                </Text>
+                                <Text as="a" tabIndex={-1} href="/" inherit>
+                                  {content}
+                                </Text>
                               </Text>
-                              <Text as="a" href="/" inherit>
-                                {content}
+                              <Text size="xs" skin="neutral">
+                                {convertDatetime(date)}
                               </Text>
-                            </Text>
-                            <Text size="xs" skin="neutral">
-                              {convertDatetime(date)}
-                            </Text>
-                          </Box>
-                        </Stack>
-
-                        {index < notifications.length - 1 && <Separator skin="neutral-faded" />}
-                      </React.Fragment>
+                            </Box>
+                          </Stack>
+                        </Box>
+                      </ListBox.Item>
                     ))}
-                </Stack>
+                </ListBox>
               </Box>
             </ScrollArea>
           </Stack>
         </div>
       )}
-    </Popover>
+    </Dropdown>
   );
 }
