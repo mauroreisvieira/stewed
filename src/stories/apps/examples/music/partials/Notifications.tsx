@@ -1,3 +1,4 @@
+/* eslint-disable jsdoc/require-jsdoc */
 import React, { useCallback, useMemo, useState } from "react";
 // UI Components
 import {
@@ -82,29 +83,13 @@ export function Notifications(): React.ReactElement {
     <Dropdown<HTMLButtonElement>
       placement="bottom-end"
       allowScroll={false}
-      renderAnchor={({ ref, open, close, isOpen }) => {
-        if (countNotifications) {
-          return (
-            <Badge
-              value={countNotifications ? countNotifications.toString() : undefined}
-              overlap="circular"
-              skin="critical"
-            >
-              <Button
-                ref={ref}
-                onClick={isOpen ? close : open}
-                appearance="ghost"
-                skin="secondary"
-                leftSlot={<MdNotifications size={16} />}
-                iconOnly
-              >
-                Notifications
-              </Button>
-            </Badge>
-          );
-        }
-
-        return (
+      renderAnchor={({ ref, open, close, isOpen }) => (
+        <Badge
+          overlap="circular"
+          skin="critical"
+          value={countNotifications}
+          hidden={!countNotifications}
+        >
           <Button
             ref={ref}
             onClick={isOpen ? close : open}
@@ -115,8 +100,8 @@ export function Notifications(): React.ReactElement {
           >
             Notifications
           </Button>
-        );
-      }}
+        </Badge>
+      )}
     >
       {() => (
         <div style={{ width: 360 }}>

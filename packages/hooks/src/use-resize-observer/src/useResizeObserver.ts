@@ -1,5 +1,11 @@
 import React, { useEffect, useCallback } from "react";
 
+/**
+ * Props for configuring a resize observer hook that monitors changes in the dimensions
+ * of an element.
+ *
+ * @template T - The type of the element or data returned by the resize observer.
+ */
 interface UseResizeObserverProps<T> {
   /** A reference to the DOM element to observe. */
   elementRef: React.RefObject<T | null>;

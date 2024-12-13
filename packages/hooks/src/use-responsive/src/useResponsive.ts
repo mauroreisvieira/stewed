@@ -16,6 +16,11 @@ export type UseResponsiveProps<I> = I & {
   responsive?: { [key in Breakpoints]?: Partial<I> };
 };
 
+/**
+ * Represents the data returned by a breakpoint hook for managing responsive design.
+ *
+ * @template I The type of the media queries props.
+ */
 interface UseBreakpointData<T> {
   /** Media query list associated with the breakpoint. */
   mq: MediaQueryList;

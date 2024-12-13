@@ -44,14 +44,6 @@
     padding-bottom: theme.get-spacing("md");
   }
 
-  &--default {
-    .#{$accordion-root} {
-      &__item {
-        border-bottom: 1px solid theme.get-color("neutral", "border-faded");
-      }
-    }
-  }
-
   &--border {
     border: 1px solid theme.get-color("neutral", "border-faded");
     border-radius: theme.get-radius(md);

@@ -1,18 +1,19 @@
-const { styleLintConfig } = require("@harmonix-hub/stylelint");
+const hxh = require("@harmonix-hub/stylelint");
 
-const { rules, ...rest } = styleLintConfig;
+const { stylelintConfig } = hxh;
 
+/** @type import("stylelint").stylelint.Config */
 module.exports = {
-  ...rest,
+  ...stylelintConfig,
   rules: {
-    ...rules,
+    ...stylelintConfig.rules,
     "plugin/no-unsupported-browser-features": [
       true,
       {
         browsers: ["last 5 Chrome versions"],
         ignorePartialSupport: true,
-        severity: "warning",
-      },
-    ],
-  },
+        severity: "warning"
+      }
+    ]
+  }
 };

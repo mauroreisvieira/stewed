@@ -14,6 +14,7 @@ import { components, type Screens } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/** Represents the properties for the `Snackbar` component. */
 export interface SnackbarProps extends React.ComponentPropsWithoutRef<"div"> {
   /**
    * The placement of the notifications on the screen.
@@ -44,11 +45,12 @@ export interface SnackbarProps extends React.ComponentPropsWithoutRef<"div"> {
  * </Snackbar>
  * ```
  *
- * @remarks
- * This component extends `React.ComponentPropsWithoutRef<"div">`.
+ * @remarks This component extends `React.ComponentPropsWithoutRef<"div">`, inheriting all standard div attributes.
  *
- * @param {SnackbarProps} props - The props for the Snackbar component.
- * @returns {React.ReactElement} - The rendered Snackbar component.
+ * @see {@link SnackbarProps} for more details on the available props.
+ *
+ * @param props - The props for the Snackbar component.
+ * @returns The rendered Snackbar component.
  */
 export function Snackbar({
   placement = "top-end",
@@ -103,8 +105,10 @@ export function Snackbar({
           if (oldest) {
             clearTimeout(timeoutMap.current[oldest.id]);
           }
+
           return [...rest, notification];
         }
+
         return [...prev, notification];
       });
 
@@ -122,6 +126,7 @@ export function Snackbar({
   const entryAnimation = useMemo(() => {
     if (placement.endsWith("start")) return "slide-in-left";
     if (placement.endsWith("end")) return "slide-in-right";
+
     return placement.startsWith("bottom") ? "slide-in-bottom" : "slide-in-top";
   }, [placement]);
 
@@ -129,6 +134,7 @@ export function Snackbar({
   const exitAnimation = useMemo(() => {
     if (placement.endsWith("start")) return "slide-out-left";
     if (placement.endsWith("end")) return "slide-out-right";
+
     return placement.startsWith("bottom") ? "slide-out-bottom" : "slide-out-top";
   }, [placement]);
 
@@ -152,6 +158,7 @@ export function Snackbar({
                       setRemovingNotifications((prev) => {
                         const newSet = new Set(prev);
                         newSet.delete(id);
+
                         return newSet;
                       });
 

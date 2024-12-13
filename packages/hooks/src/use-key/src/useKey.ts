@@ -1,5 +1,6 @@
 import { useCallback, useEffect } from "react";
 
+/** Props for managing key event handlers. */
 export interface UseKeyProps {
   /**
    * A boolean flag to enable or disable the hook's functionality.

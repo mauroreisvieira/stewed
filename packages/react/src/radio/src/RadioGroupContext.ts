@@ -9,6 +9,7 @@ const definitionError = (): null => {
   throw new Error('Please make sure "<Radio.Group>" component is wrapping your component.');
 };
 
+/** Props for the context used in a `RadioGroup` component to manage state and behavior for grouped radio buttons. */
 export interface RadioGroupContextProps {
   /** The name used to reference the value of the control. */
   name: string;
@@ -22,7 +23,7 @@ export interface RadioGroupContextProps {
   /**
    * Callback fired when the checked state changes.
    *
-   * @param value The new array of selected radio values.
+   * @param value - The new array of selected radio values.
    */
   onCheckedChange?: (value: string) => void;
 }

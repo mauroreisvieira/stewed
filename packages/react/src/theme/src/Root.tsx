@@ -6,8 +6,19 @@ import { useTheme, type ThemeContextProps } from "./ThemeContext";
 // Utilities
 import { objectEntries } from "@stewed/utilities";
 
+/**
+ * Excludes the "components" property from the `Tokens` type.
+ * This creates a new type containing all properties of `Tokens` except "components".
+ */
 type TokensOnly = Exclude<Tokens, "components">;
 
+/**
+ * Transforms the `Components` type into a new structure where each key in `Components`
+ * maps to an object. Each object allows optional keys from `TokensOnly`, with string values.
+ *
+ * @template K Represents each key in the `Components` type.
+ * @template P Represents each key in the `TokensOnly` type.
+ */
 type TransformedComponents = {
   [K in keyof Components]: {
     [P in keyof TokensOnly]?: string;
@@ -50,6 +61,7 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
 
     const overrideColors = objectEntries(color).reduce((acc, [key, value]) => {
       acc[key] = color?.[value] || value;
+
       return acc;
     }, {});
 
@@ -62,10 +74,12 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
           // Safely retrieve the token value, defaulting to tokenKey if not found
           const tokenValue = tokenGroup?.[tokenKey] ?? tokenKey;
           prop[propName] = tokenValue;
+
           return prop;
         },
         {} as Record<string, string>
       );
+
       return acc;
     }, {} as TransformedComponents);
 

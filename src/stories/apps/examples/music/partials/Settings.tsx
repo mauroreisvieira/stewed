@@ -1,3 +1,4 @@
+/* eslint-disable jsdoc/require-jsdoc */
 import React from "react";
 // UI Components
 import {
@@ -37,7 +38,6 @@ export function Settings(): React.ReactElement {
         <Avatar
           ref={ref}
           as="button"
-          tabIndex={0}
           onClick={isOpen ? close : open}
           name="Devon Lane"
           image={{

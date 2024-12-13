@@ -2,6 +2,10 @@ import { useEffect, useState } from "react";
 // Utilities
 import { isIOS } from "@stewed/utilities";
 
+/**
+ * Interface representing the values returned by the `useVisualViewport` hook.
+ * Provides details about the visual viewport dimensions and position.
+ */
 interface UseVisualViewport {
   /** The height of the visual viewport. */
   height: number;
@@ -19,13 +23,21 @@ interface UseVisualViewport {
   width: number;
 }
 
-// Declare the window object to include the visualViewport property.
+/**
+ * Extends the `window` object to include the `visualViewport` property,
+ * which provides information about the visual viewport's size and position.
+ */
 declare const window: Window & {
+  /** VisualViewport properties */
   visualViewport: VisualViewport;
 };
 
+/** Interface for visual viewport props  */
 interface UseVisualViewportProps {
-  /**  Flag to enable or disable the visual viewport tracking. */
+  /**
+   * Determines whether the `useVisualViewport` hook should track changes
+   * to the visual viewport. If `false`, tracking is disabled.
+   */
   enabled: boolean;
 }
 
@@ -52,7 +64,7 @@ export const useVisualViewport = ({
     // Access the visualViewport from the window object.
     const { visualViewport } = window;
 
-    // Event handler for resizing the visual viewport.
+    /** Event handler for resizing the visual viewport. */
     const handleResize = (): void => {
       const { height, offsetLeft, offsetTop, pageLeft, pageTop, scale, width } = visualViewport;
 

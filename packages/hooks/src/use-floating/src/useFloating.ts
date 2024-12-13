@@ -15,6 +15,7 @@ export type FloatingPlacement =
   | "left-start"
   | "left-end";
 
+/** Configuration options for controlling the behavior and positioning of a floating element. */
 interface FloatingOptions {
   /**
    * The preferred placement of the floating component relative to the reference element.
@@ -30,6 +31,12 @@ interface FloatingOptions {
   isPositioned?: boolean;
 }
 
+/**
+ * Props for the `useFloating` hook, which is used to position an element relative
+ * to another element (or a floating position) in a floating UI pattern.
+ *
+ * @template R - The type of the referenced element (typically a DOM element like `HTMLElement`).
+ */
 export interface UseFloatingProps<R extends HTMLElement>
   extends Pick<FloatingOptions, "placement"> {
   /**
@@ -61,6 +68,14 @@ export interface UseFloatingProps<R extends HTMLElement>
   boundary?: HTMLElement | null;
 }
 
+/**
+ * Props for the `useFloating` hook, which is used to manage the positioning and behavior of a floating element.
+ *
+ * This interface extends `FloatingOptions` to provide configuration for floating behavior, such as alignment,
+ * offset, and other positioning logic, while also allowing customization via the generic type `T`.
+ *
+ * @template T - The type of the floating element (typically `HTMLElement` or a custom type).
+ */
 interface UseFloating<T> extends FloatingOptions {
   /** The reference to attach to the floating element. */
   floating: React.RefObject<T | null>;
@@ -114,8 +129,20 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
       referenceRect,
       floatingRect
     }: {
+      /**
+       * The placement position of the floating element, relative to the reference element.
+       * This value is typically used to define where the floating element should appear, such as 'top', 'right', 'bottom', etc.
+       */
       position: FloatingPlacement;
+      /**
+       * The DOMRect of the reference element, which provides the size and position of the reference element
+       * relative to the viewport. This is used to calculate where the floating element should be placed.
+       */
       referenceRect: DOMRect;
+      /**
+       * The DOMRect of the floating element, which provides the size and position of the floating element
+       * relative to the viewport. This is used to adjust and fine-tune the placement of the floating element.
+       */
       floatingRect: DOMRect;
     }) => {
       // Initialize x and y position values
@@ -209,6 +236,18 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
       floatingRect
     });
 
+    /**
+     * Determines if the floating element can fit in the specified placement relative to the reference element.
+     *
+     * This function checks whether the floating element, given its size and the specified placement (e.g., 'top', 'right', 'bottom', etc.),
+     * will fit within the visible viewport without overflowing. It is typically used to adjust the floating element's
+     * position to ensure it remains fully visible within the available space.
+     *
+     * @param placement - The placement of the floating element relative to the reference element.
+     *  This could be one of the values like 'top', 'right', 'bottom', 'left', etc.
+     *
+     * @returns `true` if the floating element fits within the viewport for the given placement, or `false` otherwise.
+     */
     const doesPlacementFit = (placement: FloatingPlacement): boolean => {
       // Adjust position to keep the element within the viewport or boundary
       const boundaryRect = boundary
@@ -330,7 +369,18 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
       }
     };
 
-    // Adjust the placement of the floating element to fit within the viewport
+    /**
+     * Adjusts the placement of the floating element to ensure it fits within the viewport.
+     *
+     * This function takes an initial placement (e.g., 'top', 'bottom', 'left', 'right') and determines if the floating
+     * element will overflow the viewport. If overflow is detected, the placement is adjusted accordingly to keep the element
+     * fully visible. This is commonly used to ensure that tooltips, popovers, or modals remain within the visible area of the screen.
+     *
+     * @param initialPlacement - The initial placement of the floating element relative to the reference element.
+     *  This could be one of the values like 'top', 'right', 'bottom', 'left'.
+     *
+     * @returns The adjusted placement that ensures the floating element fits within the viewport.
+     */
     const adjustPlacement = (initialPlacement: FloatingPlacement): FloatingPlacement => {
       // Define alternative placements for cases where the initial placement does not fit
       const relatedPlacements = {
@@ -534,7 +584,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
     // Create a new AbortController to manage aborting ongoing operations if needed.
     const controller = new AbortController();
 
-    // Function to recalculate position
+    /** Function to recalculate position */
     const handleResize = () => {
       updatePosition();
     };

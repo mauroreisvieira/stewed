@@ -8,6 +8,16 @@ import { ThemeContext, type ThemeContextProps } from "./ThemeContext";
 // Utilities
 import { objectKeys } from "@stewed/utilities";
 
+/**
+ * Represents the properties for a theme configuration.
+ *
+ * This interface extends a subset of `ThemeContextProps`, picking specific properties
+ * (`cssScope`, `defaultTheme`, `theme`, and `tokens`) that are necessary for defining
+ * a theme. It also supports generic customization through the `T` parameter.
+ *
+ * @template T - Represents the theme type, defaulting to `"default"`.
+ * Typically used to specify or constrain the type of theme being handled.
+ */
 export interface ThemeProps<T extends string = "default">
   extends Pick<ThemeContextProps<T>, "cssScope" | "defaultTheme" | "theme" | "tokens">,
     React.ComponentPropsWithoutRef<"div"> {}
@@ -49,6 +59,7 @@ export function Theme<T extends string>({
         ...(tokens?.["default" as T]?.[key] ?? {}),
         ...(tokens?.[theme as T]?.[key] ?? {})
       };
+
       return acc;
     }, {} as Tokens);
   }, [theme, tokens]);

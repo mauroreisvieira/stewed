@@ -1,3 +1,3 @@
 module.exports = {
-  extends: "@harmonix-hub/babel",
+  extends: "@harmonix-hub/babel"
 };

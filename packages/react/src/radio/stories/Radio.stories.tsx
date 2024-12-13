@@ -1,3 +1,4 @@
+/* eslint-disable jsdoc/require-jsdoc */
 import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // UI Components
@@ -44,6 +45,7 @@ export const Uncontrolled: Story = {
   },
   render: function Render() {
     const [isChecked, setChecked] = useToggle(false);
+
     return (
       <Radio checked={isChecked} onChange={setChecked}>
         Label

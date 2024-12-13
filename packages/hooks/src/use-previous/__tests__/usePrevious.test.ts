@@ -7,7 +7,7 @@ describe("usePrevious", () => {
     const { result } = renderHook(() => usePrevious(0));
 
     // Initially, the previous value should be undefined
-    expect(result.current).toBeUndefined();
+    expect(result.current).toBeNull();
   });
 
   it("should return the previous value after an update", () => {
@@ -16,7 +16,7 @@ describe("usePrevious", () => {
     });
 
     // Initial render, previous value should be undefined
-    expect(result.current).toBeUndefined();
+    expect(result.current).toBeNull();
 
     // Update the value to 1
     rerender({ value: 1 });

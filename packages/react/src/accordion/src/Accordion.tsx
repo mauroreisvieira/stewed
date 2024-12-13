@@ -19,7 +19,7 @@ interface AccordionProps
    * Change the visual appearance of the accordion.
    * @default default
    */
-  appearance?: "default" | "border" | "border-row";
+  appearance?: "default" | "border" | "panel";
 }
 
 /**
@@ -67,7 +67,7 @@ export function Accordion({
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ modifiers: [appearance], extraClasses: className })
+    root: getBlock({ modifiers: [appearance !== "default" && appearance], extraClasses: className })
   };
 
   // Used to manage the accordion state

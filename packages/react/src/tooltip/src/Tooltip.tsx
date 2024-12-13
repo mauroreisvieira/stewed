@@ -13,20 +13,43 @@ const SHOW_DELAY = 300;
 const HIDE_DELAY = 100;
 const HIDE_DURATION = 100;
 
+/**
+ * Represents the possible states of a Tooltip's lifecycle and its related data.
+ */
 type State = {
-  // Possible states for the Tooltip.
+  /**
+   * Describes the current stage of the Tooltip.
+   * - `hidden`: The Tooltip is not visible.
+   * - `might-show`: The Tooltip is preparing to become visible (e.g., during a delay).
+   * - `showing`: The Tooltip is visible.
+   * - `might-hide`: The Tooltip is preparing to hide (e.g., during a delay or interaction).
+   * - `hiding`: The Tooltip is hiding, potentially with an animation.
+   */
   stage: "hidden" | "might-show" | "showing" | "might-hide" | "hiding";
-  // Timer ID for controlling delays.
+
+  /**
+   * Stores the ID of the timer controlling delays, if applicable.
+   * Can be used to cancel or clear timeouts.
+   */
   timeoutId?: NodeJS.Timeout;
 };
 
+/**
+ * Defines the set of possible actions that can trigger state transitions
+ * for the Tooltip.
+ */
 type Action =
-  | "hovered"
-  | "unhovered"
-  | "show-timer-elapsed"
-  | "hide-timer-elapsed"
-  | "hide-animation-completed";
+  | "hovered" // Indicates the Tooltip was hovered over, triggering a potential show.
+  | "unhovered" // Indicates the Tooltip lost hover, triggering a potential hide.
+  | "show-timer-elapsed" // Indicates the delay for showing the Tooltip has elapsed.
+  | "hide-timer-elapsed" // Indicates the delay for hiding the Tooltip has elapsed.
+  | "hide-animation-completed"; // Indicates the hiding animation has finished.
 
+/**
+ * Represents the properties passed to the children of a Tooltip component.
+ *
+ * @template T - An optional type for additional props that the Tooltip might use.
+ */
 export interface TooltipChildrenProps<T> {
   /** Ref to attach to the Tooltip element */
   ref: React.Ref<T>;
@@ -40,6 +63,11 @@ export interface TooltipChildrenProps<T> {
   onMouseLeave: React.MouseEventHandler<T>;
 }
 
+/**
+ * Represents the properties for the Tooltip component.
+ *
+ * @template T - An optional type for additional props related to the Tooltip's children.
+ */
 export interface TooltipProps<T>
   extends Omit<React.ComponentPropsWithoutRef<"div">, "children" | "content"> {
   /**
@@ -126,6 +154,7 @@ export function Tooltip<T extends HTMLElement>({
         if (action === "unhovered") {
           return { stage: "hidden" };
         }
+
         if (action === "show-timer-elapsed") {
           return { stage: "showing" };
         }
@@ -144,6 +173,7 @@ export function Tooltip<T extends HTMLElement>({
         if (action === "hovered") {
           return { stage: "showing" };
         }
+
         if (action === "hide-timer-elapsed") {
           return {
             stage: "hiding",
@@ -189,10 +219,20 @@ export function Tooltip<T extends HTMLElement>({
     reference: tooltipRef.current
   });
 
+  /**
+   * Handles the "open" action, typically triggered by a hover event or similar interaction.
+   *
+   * This function dispatches an action to update the state to "hovered".
+   */
   const onHandleOpen = (): void => {
     dispatch("hovered");
   };
 
+  /**
+   * Handles the "close" action, typically triggered by a mouse leave or similar interaction.
+   *
+   * This function dispatches an action to update the state to "unhovered".
+   */
   const onHandleClose = (): void => {
     dispatch("unhovered");
   };

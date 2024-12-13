@@ -1,3 +1,4 @@
+/* eslint-disable jsdoc/require-jsdoc */
 import { useInput, type UseInputValue, type UseInputProps } from "../../index";
 // Utilities
 import { renderHook, act } from "@testing-library/react";

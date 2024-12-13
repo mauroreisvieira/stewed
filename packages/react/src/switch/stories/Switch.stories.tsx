@@ -1,3 +1,4 @@
+/* eslint-disable jsdoc/require-jsdoc */
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Theme, Switch } from "../../index";
@@ -44,6 +45,7 @@ export const Uncontrolled: Story = {
   },
   render: function Render() {
     const [isChecked, setChecked] = useToggle(false);
+
     return (
       <Switch checked={isChecked} onChange={setChecked}>
         Label

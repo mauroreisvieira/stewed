@@ -11,7 +11,6 @@
   "scripts": {
     "build": "vite build",
     "watch": "vite build --watch",
-    "test:unit": "jest --testPathPattern=\".test.*\" --coverage",
     "lint": "eslint .",
     "clean": "rm -rf dist node_modules"
   },
@@ -20,9 +19,9 @@
     "@stewed/utilities": "workspace:*"
   },
   "devDependencies": {
-    "@harmonix-hub/tsconfig": "^1.4.2",
-    "@harmonix-hub/babel": "^0.2.2",
-    "@harmonix-hub/testing": "^1.5.2",
+    "@harmonix-hub/tsconfig": "^1.5.0",
+    "@harmonix-hub/babel": "^0.3.0",
+    "@harmonix-hub/testing": "^1.6.0",
     "@testing-library/react": "^16.1.0",
     "@types/react": "^19.0.1",
     "jest": "^29.7.0",

@@ -5,8 +5,6 @@ import { Theme } from "@stewed/react";
 // Hooks
 import { useBem } from "../index";
 
-type Story = StoryObj<typeof useBem>;
-
 const meta: Meta<typeof useBem> = {
   title: "Hooks/useBem",
   decorators: [
@@ -20,7 +18,8 @@ const meta: Meta<typeof useBem> = {
 
 export default meta;
 
-export const Block: Story = {
+export const Block: StoryObj<typeof useBem> = {
+  /** Renders 'block' example. */
   render: function Render() {
     const { getBlock } = useBem({ block: "card" });
 
@@ -32,7 +31,8 @@ export const Block: Story = {
   }
 };
 
-export const Element: Story = {
+export const Element: StoryObj<typeof useBem> = {
+  /** Renders 'element' example */
   render: function Render() {
     const { getElement } = useBem({ block: "card" });
 
@@ -45,7 +45,8 @@ export const Element: Story = {
   }
 };
 
-export const Modifiers: Story = {
+export const Modifiers: StoryObj<typeof useBem> = {
+  /** Renders 'modifier' example .*/
   render: function Render() {
     const { getModifier } = useBem({ block: "card" });
 

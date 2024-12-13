@@ -16,6 +16,11 @@
   user-select: none;
   border-radius: theme.get-var(border-radius);
 
+  &[button]:not([aria-disabled="true"]),
+  &[href] {
+    cursor: pointer;
+  }
+
   @include theme.focus-styles;
 
   @include text.typography(
@@ -52,7 +57,7 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          size: $value,
+          size: $value
         )
       );
     }
@@ -65,7 +70,7 @@
           background-color: map.get($value, "background-color"),
           color-on-background: map.get($value, "color-on-background"),
           border-color: map.get($value, "border-color"),
-          color: map.get($value, "color"),
+          color: map.get($value, "color")
         )
       );
     }
@@ -76,7 +81,7 @@
 
     @include theme.define-var(
       (
-        color: theme.get-var(color-on-background),
+        color: theme.get-var(color-on-background)
       )
     );
   }
@@ -89,7 +94,7 @@
   &--circle {
     @include theme.define-var(
       (
-        border-radius: theme.get-radius("full"),
+        border-radius: theme.get-radius("full")
       )
     );
   }
@@ -97,7 +102,7 @@
   &--square {
     @include theme.define-var(
       (
-        border-radius: theme.get-var(radius),
+        border-radius: theme.get-var(radius)
       )
     );
   }

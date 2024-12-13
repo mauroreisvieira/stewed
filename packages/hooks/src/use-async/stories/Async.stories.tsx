@@ -5,8 +5,6 @@ import { Theme, Box, Text, Button, Stack } from "@stewed/react";
 // Hooks
 import { useAsync } from "../index";
 
-type Story = StoryObj<typeof useAsync>;
-
 const meta: Meta<typeof useAsync> = {
   title: "Hooks/useAsync",
   decorators: [
@@ -20,12 +18,18 @@ const meta: Meta<typeof useAsync> = {
 
 export default meta;
 
+/** Fetch function to get dump products */
 const fetchData = async (): Promise<string> => {
   const response = await fetch("https://620fb775ec8b2ee2834a8359.mockapi.io/product");
+
   return await response.json();
 };
 
-export const Async: Story = {
+export const Async: StoryObj<typeof useAsync> = {
+  /**
+   * Render function for the Async story.
+   * Demonstrates the use of the `useAsync` hook.
+   */
   render: function Render() {
     const { execute, status, value, error } = useAsync(fetchData, false);
 

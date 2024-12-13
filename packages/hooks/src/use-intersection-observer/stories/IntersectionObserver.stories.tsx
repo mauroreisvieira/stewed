@@ -1,3 +1,4 @@
+/* eslint-disable jsdoc/require-jsdoc */
 import React, { useRef } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // UI Components

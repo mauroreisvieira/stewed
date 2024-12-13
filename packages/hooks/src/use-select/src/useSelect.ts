@@ -1,5 +1,10 @@
 import { useCallback, useState } from "react";
 
+/**
+ * Props for managing a selection list.
+ *
+ * @template T - The type of the items being selected.
+ */
 export interface UseSelect<T> {
   /** The index of the currently selected item. */
   index: number;

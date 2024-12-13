@@ -1,8 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-/**
- * A utility type to allow a string literal type or any other string.
- */
+/** A utility type to allow a string literal type or any other string. */
 type LooseAutoComplete<T extends string> = T | Omit<string, T>;
 
 /**
@@ -11,6 +9,7 @@ type LooseAutoComplete<T extends string> = T | Omit<string, T>;
  */
 type Status = LooseAutoComplete<"loading" | "error" | "loaded" | "aborted" | "unmounted">;
 
+/** Interface for fetch response */
 interface FetchResponse<T> {
   /** The current status of the fetch operation. */
   status: Status;
@@ -20,6 +19,7 @@ interface FetchResponse<T> {
   error: Error | undefined | null;
 }
 
+/** Interface for fetch options */
 interface FetchOptions extends RequestInit {
   /** Whether the fetch request should be aborted. */
   aborted?: boolean;

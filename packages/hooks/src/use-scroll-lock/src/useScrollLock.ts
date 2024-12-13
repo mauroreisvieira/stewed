@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 
+/** Props for managing scroll locking behavior in a component. */
 interface UseScrollLockProps {
   /**
    * A boolean indicating whether the scroll lock should be active.
@@ -11,7 +12,8 @@ interface UseScrollLockProps {
 /**
  * A hook to manage scroll lock.
  *
- * @param {UseScrollLockProps} props - The props object containing configuration for scroll lock.
+ * @param props - The props object that configures the scroll lock behavior.
+ * @see {@link UseScrollLockProps} for more details on the available props.
  */
 export function useScrollLock({ enabled = true }: UseScrollLockProps) {
   // Adds class name to document body when an overlay is active

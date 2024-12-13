@@ -1,5 +1,14 @@
 import { useCallback } from "react";
 
+/**
+ * A utility type for merging multiple refs into a single ref callback.
+ *
+ * This is commonly used when you need to forward or combine multiple refs
+ * to a single element. The resulting function will call each ref with the
+ * provided value, ensuring that all refs are updated correctly.
+ *
+ * @template T - The type of the element or component being referenced.
+ */
 export type UseMergeRefs<T> = (
   refs: Array<React.Ref<T> | undefined | null>
 ) => (value: T | null) => void;
@@ -20,7 +29,6 @@ export type UseMergeRefs<T> = (
  *   <div ref={mergedRef}>Hello World</div>
  * ```
  */
-
 export function useMergeRefs<T>(): UseMergeRefs<T> {
   // Helper function to set a ref's value
   const setRef = useCallback((ref: React.Ref<T> | undefined | null, value: T | null) => {
@@ -31,7 +39,7 @@ export function useMergeRefs<T>(): UseMergeRefs<T> {
     }
   }, []);
 
-  // Returns a callback ref that synchronizes all refs with mergedRef
+  /** Returns a callback ref that synchronizes all refs with mergedRef */
   const mergeRefs = (refs: Array<React.Ref<T> | undefined | null>): ((value: T | null) => void) => {
     return (value: T | null) => {
       // Sync the refs with all the passed refs

@@ -5,8 +5,6 @@ import { Theme, Button } from "@stewed/react";
 // Hooks
 import { useToggle } from "../index";
 
-type Story = StoryObj<typeof useToggle>;
-
 const meta: Meta<typeof useToggle> = {
   title: "Hooks/useToggle",
   decorators: [
@@ -20,7 +18,11 @@ const meta: Meta<typeof useToggle> = {
 
 export default meta;
 
-export const Base: Story = {
+export const Base: StoryObj<typeof useToggle> = {
+  /**
+   * Render function for the Base story.
+   * Demonstrates the use of the `useToggle` hook to manage the toggle state of a button.
+   */
   render: function Render() {
     // Hook to handle clicks outside the floating element.
     const [isToggle, handleToggle] = useToggle(false);

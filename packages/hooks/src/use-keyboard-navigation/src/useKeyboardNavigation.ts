@@ -1,5 +1,9 @@
 import React, { useCallback, useRef, useState } from "react";
 
+/**
+ * Props for managing keyboard navigation in a component.
+ * This can be used to handle navigation through a list of items or controls using the keyboard.
+ */
 export interface UseKeyboardNavigationProps {
   /** The CSS selector string that identifies the elements to navigate. */
   target: string;
@@ -80,7 +84,7 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
   // State to track the current index of the focused or selected item within the list
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
-  // Helper function to retrieve all selectable items within the list element using the target selector.
+  /** Helper function to retrieve all selectable items within the list element using the target selector. */
   const getSelectableItems = (list: HTMLElement | null, target: string): HTMLElement[] => {
     // If the list is not available, return an empty array.
     return list ? Array.from<HTMLElement>(list.querySelectorAll(target)) : [];
@@ -94,6 +98,7 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
         // If looping is enabled, wrap around using modulo arithmetic.
         return (currentIndex + direction + itemCount) % itemCount;
       }
+
       // If looping is disabled, ensure the index stays within the valid range.
       return Math.max(0, Math.min(currentIndex + direction, itemCount - 1));
     },

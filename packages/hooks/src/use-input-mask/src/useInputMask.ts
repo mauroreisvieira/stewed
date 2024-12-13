@@ -3,6 +3,7 @@ import { useState, useCallback, useEffect } from "react";
 const MASKED_NUMBER = "XMDY";
 const MASKED_LETTER = "_";
 
+/** Props for the `useInputMask` hook to apply a mask format to an input field, such as phone numbers or dates. */
 interface UseInputMaskProps {
   /** Regular expression pattern used to validate the input. */
   pattern: RegExp;
@@ -22,6 +23,7 @@ interface UseInputMaskProps {
   charset?: boolean;
 }
 
+/** Hook to apply a mask format to an input field, ensuring the input follows a predefined pattern. */
 interface UseInputMask {
   /** Formatted value of the input based on the mask. */
   value: string;
@@ -180,9 +182,14 @@ export function useInputMask({
     [pattern, required]
   );
 
+  const onHandleSetValue = useCallback(
+    (value: string) => setMaskValue(formatValue(value)),
+    [formatValue]
+  );
+
   return {
     value: maskValue,
-    setValue: (value) => setMaskValue(formatValue(value)),
+    setValue: onHandleSetValue,
     onChange: onHandleChange,
     onBlur: onHandleBlur,
     isValid

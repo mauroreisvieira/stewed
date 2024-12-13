@@ -1,5 +1,9 @@
 import React, { useState, useEffect, useCallback } from "react";
 
+/**
+ * Props for the `useIntersectionObserver` hook, extending the native `IntersectionObserverInit`
+ * configuration with a generic type for the observed element.
+ */
 interface UseIntersectionObserverProps<T> extends IntersectionObserverInit {
   /** A reference to the DOM element to observe. Typically created using `useRef`. */
   elementRef: React.RefObject<T | null>;
@@ -15,6 +19,12 @@ interface UseIntersectionObserverProps<T> extends IntersectionObserverInit {
   freezeOnceVisible?: boolean;
 }
 
+/**
+ * Interface for configuring and tracking an intersection observer for an element.
+ *
+ * This interface is used to observe when an element enters or exits the viewport, providing information
+ * like intersection state and ratio of visibility.
+ */
 interface UseIntersectionObserver {
   /** The latest IntersectionObserverEntry for the observed element or `undefined` if no entry is available. */
   entries: IntersectionObserverEntry | undefined;

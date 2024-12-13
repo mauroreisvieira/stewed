@@ -3,6 +3,7 @@ import React, { useState, useCallback } from "react";
 /** The value type of the input field. */
 export type UseInputValue = React.HTMLAttributes<HTMLInputElement>["defaultValue"];
 
+/** A hook for handling input values with type safety, including change handling, validation, and formatting. */
 interface UseInputHandler<T> {
   /**
    * Event handler to handle input changes.
@@ -20,6 +21,7 @@ interface UseInputHandler<T> {
   isValid: boolean;
 }
 
+/** Props for the `useInput` hook, managing input value, change handling, validation, and formatting. */
 export interface UseInputProps<T> {
   /**
    * Validation function to validate the new value.

@@ -11,6 +11,12 @@ import styles from "./styles/index.module.scss";
 
 const defaultElement = "div";
 
+/**
+ * Props for a generic container component that accepts a dynamic type for its content.
+ *
+ * The `T` type parameter allows the container to hold content of any type, providing flexibility
+ * for various use cases like handling different data types or components inside the container.
+ */
 export interface ContainerProps<T>
   extends React.ComponentPropsWithRef<"div">,
     UseResponsiveProps<{
