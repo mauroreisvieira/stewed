@@ -35,12 +35,12 @@ export function Table({
   const { getBlock } = useBem({ block: components.Table, styles });
 
   // Ensure appearance is an array
-  const computedVariation = Array.isArray(appearance) ? appearance : [appearance];
+  const computedAppearance = Array.isArray(appearance) ? appearance : [appearance];
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({
-      modifiers: [...computedVariation.map((i) => i), hoverable && "hoverable"],
+      modifiers: [...computedAppearance.map((i) => i), hoverable && "hoverable"],
       extraClasses: className
     })
   };

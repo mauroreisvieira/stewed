@@ -1,3 +1,4 @@
+/* eslint-disable jsdoc/require-jsdoc */
 import React, { useState } from "react";
 // UI Components
 import { Box, Container, Segmented, Separator, Snackbar, Stack, Theme } from "@stewed/react";
@@ -52,7 +53,9 @@ export function Music(): React.ReactElement {
             "secondary-background-hovered": "#fcfcfc",
             "secondary-background-pressed": "#fcfcfc",
             "secondary-foreground": "#fff",
-            "secondary-foreground-on-background": "#121212"
+            "secondary-foreground-on-background": "#121212",
+            "critical-background-faded": "#2e0a0a",
+            "critical-border-faded": "#793335"
           }
         }
       }}
