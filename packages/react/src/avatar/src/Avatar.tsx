@@ -12,6 +12,14 @@ import styles from "./styles/index.module.scss";
 
 const defaultElement = "div";
 
+/**
+ * Props for the Avatar component.
+ *
+ * This interface extends the properties of a default HTML element (e.g., `img`)
+ * while omitting the `children` property to allow a custom rendering approach.
+ *
+ * @template T - The type of the element being used for the Avatar. Defaults to the type of `defaultElement`.
+ */
 export interface AvatarProps<T = typeof defaultElement>
   extends Omit<React.ComponentProps<typeof defaultElement>, "children"> {
   /** The name associated with the avatar. */
@@ -72,8 +80,10 @@ export interface AvatarProps<T = typeof defaultElement>
  * @remarks This component is a polymorphic component can be rendered as a different element
  * and support all native props from the element passed on `as` prop.
  *
- * @param {AvatarProps} props - The props for the Avatar component.
- * @returns {React.ReactElement} - The rendered Avatar component.
+ * @see {@link AvatarProps} for more details on the available props.
+ *
+ * @param props - The props for the Avatar component.
+ * @return The rendered Avatar component.
  */
 export const Root = fixedForwardRef(function Avatar<T extends React.ElementType>(
   {
@@ -102,7 +112,10 @@ export const Root = fixedForwardRef(function Avatar<T extends React.ElementType>
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ modifiers: [appearance, shape, size, skin], extraClasses: className }),
+    root: getBlock({
+      modifiers: [appearance, shape, size, skin, as === "button" && "button"],
+      extraClasses: className
+    }),
     img: getElement(["img"], image?.className)
   };
 

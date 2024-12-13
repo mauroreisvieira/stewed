@@ -1,3 +1,4 @@
+/* eslint-disable jsdoc/require-jsdoc */
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // Components
@@ -86,7 +87,7 @@ export const Square: Story = {
   }
 };
 
-export const Button: Story = {
+export const Button: StoryObj<typeof Avatar<"button">> = {
   args: {
     as: "button",
     skin: "neutral",

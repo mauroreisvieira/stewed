@@ -16,11 +16,6 @@
   user-select: none;
   border-radius: theme.get-var(border-radius);
 
-  &[button]:not([aria-disabled="true"]),
-  &[href] {
-    cursor: pointer;
-  }
-
   @include theme.focus-styles;
 
   @include text.typography(
@@ -31,6 +26,11 @@
       font-size: calc(theme.get-var(size) / 3)
     )
   );
+
+  &[href],
+  &--button:not([aria-disabled="true"]) {
+    cursor: pointer;
+  }
 
   &-group {
     display: flex;
