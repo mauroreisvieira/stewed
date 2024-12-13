@@ -12,14 +12,28 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Defines the appearance options for the Accordion component.
+ *
+ * - `"border"`: Applies a border to the Accordion.
+ * - `"border-row"`: Applies a border specifically to each row within the Accordion.
+ */
+type Appearance = "border" | "border-row";
+
+/**
+ * Props for the Accordion component.
+ *
+ * This interface extends `AccordionContextProps`, omitting the `open` and `setOpen`
+ * properties, and includes the standard properties of a `div` element.
+ */
 interface AccordionProps
   extends Omit<AccordionContextProps, "open" | "setOpen">,
     React.ComponentPropsWithoutRef<"div"> {
   /**
    * Change the visual appearance of the accordion.
-   * @default default
+   * @default border-row
    */
-  appearance?: "default" | "border" | "panel";
+  appearance?: "panel" | Appearance | Appearance[];
 }
 
 /**
@@ -55,7 +69,7 @@ interface AccordionProps
  */
 export function Accordion({
   multipleExpanded = false,
-  appearance = "default",
+  appearance = "border-row",
   className,
   onKeyDown,
   children,
@@ -65,9 +79,12 @@ export function Accordion({
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: components.Accordion, styles });
 
+  // Ensure appearance is an array
+  const computedAppearance = Array.isArray(appearance) ? appearance : [appearance];
+
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ modifiers: [appearance !== "default" && appearance], extraClasses: className })
+    root: getBlock({ modifiers: [...computedAppearance.map((i) => i)], extraClasses: className })
   };
 
   // Used to manage the accordion state

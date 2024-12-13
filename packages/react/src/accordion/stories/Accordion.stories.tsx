@@ -1,3 +1,4 @@
+/* eslint-disable jsdoc/require-jsdoc */
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // UI Components
@@ -84,7 +85,7 @@ export const Border: Story = {
     }
   },
   args: {
-    appearance: "border",
+    appearance: ["border", "border-row"],
     children: (
       <>
         {data.map(({ title, body }) => (
@@ -108,7 +109,7 @@ export const Border: Story = {
   }
 };
 
-export const MultipleExpanded: Story = {
+export const Panel: Story = {
   argTypes: {
     children: {
       control: false
@@ -116,7 +117,7 @@ export const MultipleExpanded: Story = {
   },
   args: {
     multipleExpanded: true,
-    appearance: "border-row",
+    appearance: "panel",
     children: (
       <>
         {data.map(({ title, body }) => (
