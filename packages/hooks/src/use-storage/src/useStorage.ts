@@ -1,4 +1,4 @@
-import { useCallback, useState, useEffect, Dispatch, SetStateAction } from "react";
+import { useCallback, useState, useEffect, type Dispatch, type SetStateAction } from "react";
 
 /**
  * Hook to manage state synced with localStorage.

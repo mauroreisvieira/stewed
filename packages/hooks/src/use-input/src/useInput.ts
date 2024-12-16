@@ -1,7 +1,7 @@
-import React, { useState, useCallback } from "react";
+import { useState, useCallback, type HTMLAttributes, type ChangeEvent } from "react";
 
 /** The value type of the input field. */
-export type UseInputValue = React.HTMLAttributes<HTMLInputElement>["defaultValue"];
+export type UseInputValue = HTMLAttributes<HTMLInputElement>["defaultValue"];
 
 /** A hook for handling input values with type safety, including change handling, validation, and formatting. */
 interface UseInputHandler<T> {
@@ -9,7 +9,7 @@ interface UseInputHandler<T> {
    * Event handler to handle input changes.
    * @params event - The change event object.
    */
-  onChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  onChange: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   /** The current value of the input field. */
   value: T;
   /**

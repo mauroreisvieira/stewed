@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from "react";
+import { useCallback, useRef, useState, type RefObject, type KeyboardEventHandler } from "react";
 
 /**
  * Props for managing keyboard navigation in a component.
@@ -34,14 +34,14 @@ interface UseKeyboardNavigation<T> {
    * Reference to the DOM element used for navigation.
    * This ref should be attached to the container element that holds the navigable items.
    */
-  ref: React.RefObject<T | null>;
+  ref: RefObject<T | null>;
   /**
    * Event handler function to navigate through keyboard interactions.
    * This function should be called within the `onKeyDown` event handler of the container element.
    *
-   * @param {React.KeyboardEvent<T>} event - The keyboard event triggered by user interaction.
+   * @param event - The keyboard event triggered by user interaction.
    */
-  onNavigate: (event: React.KeyboardEvent<T>) => void;
+  onNavigate: KeyboardEventHandler<T>;
   /**
    * Function to set the focused index of the items.
    * This is useful for programmatically changing the focus to a specific item in the list.
@@ -132,7 +132,7 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
   );
 
   // Handles keyboard navigation to move focus based on key presses.
-  const onHandleKeyDown: React.KeyboardEventHandler<T> = useCallback(
+  const onHandleKeyDown: KeyboardEventHandler<T> = useCallback(
     (event) => {
       // Get the current reference to the list element.
       const list = listRef.current;

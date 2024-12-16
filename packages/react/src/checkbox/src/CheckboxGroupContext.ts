@@ -9,6 +9,7 @@ const definitionError = (): null => {
   throw new Error('Please make sure "<Checkbox.Group>" component is wrapping your component.');
 };
 
+/** Represents the context properties for a checkbox group, including state and actions for managing checkboxes. */
 export interface CheckboxGroupContextProps {
   /**
    * Sets values of checkbox selected.
@@ -20,7 +21,7 @@ export interface CheckboxGroupContextProps {
   /**
    * Callback fired when the checked state changes.
    *
-   * @param value The new array of selected checkbox values.
+   * @param value - The new array of selected checkbox values.
    */
   onCheckedChange?: (value: string[]) => void;
 }

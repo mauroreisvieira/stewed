@@ -1,4 +1,4 @@
-import { MutableRefObject, createRef } from "react";
+import { RefObject, createRef } from "react";
 // Hooks
 import { useMergeRefs } from "../../index";
 // Utilities
@@ -8,7 +8,7 @@ describe("useMergeRefs", () => {
   it("should merge multiple refs and assign the same DOM element", () => {
     // Arrange
     const ref1 = createRef<HTMLDivElement>();
-    const ref2: MutableRefObject<HTMLDivElement | null> = { current: null };
+    const ref2: RefObject<HTMLDivElement | null> = { current: null };
 
     // Act
     const { result } = renderHook(() => useMergeRefs<HTMLDivElement>());
@@ -40,7 +40,7 @@ describe("useMergeRefs", () => {
   it("should handle null or undefined refs gracefully", () => {
     // Arrange
     const ref1 = createRef<HTMLDivElement>();
-    const ref2: MutableRefObject<HTMLDivElement | null> = { current: null };
+    const ref2: RefObject<HTMLDivElement | null> = { current: null };
 
     // Act
     const { result } = renderHook(() => useMergeRefs<HTMLDivElement>());
@@ -57,7 +57,7 @@ describe("useMergeRefs", () => {
   it("should reset refs when called with null", () => {
     // Arrange
     const ref1 = createRef<HTMLDivElement>();
-    const ref2: MutableRefObject<HTMLDivElement | null> = { current: null };
+    const ref2: RefObject<HTMLDivElement | null> = { current: null };
 
     // Act
     const { result } = renderHook(() => useMergeRefs<HTMLDivElement>());

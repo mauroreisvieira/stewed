@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, type RefObject } from "react";
 
 /**
  * Props for the `useIntersectionObserver` hook, extending the native `IntersectionObserverInit`
@@ -6,7 +6,7 @@ import React, { useState, useEffect, useCallback } from "react";
  */
 interface UseIntersectionObserverProps<T> extends IntersectionObserverInit {
   /** A reference to the DOM element to observe. Typically created using `useRef`. */
-  elementRef: React.RefObject<T | null>;
+  elementRef: RefObject<T | null>;
   /**
    * A boolean indicating whether the intersection observer is enabled.
    * @default `true`

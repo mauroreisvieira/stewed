@@ -18,6 +18,7 @@ export default [
   ...storybook.configs["flat/recommended"],
   {
     plugins: {
+      "@typescript-eslint/consistent-type-imports": ["error", { prefer: "type-imports" }],
       "react-compiler": reactCompilerPlugin
     },
     rules: {

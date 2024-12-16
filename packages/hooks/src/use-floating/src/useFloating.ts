@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer, useCallback, useRef } from "react";
+import { useState, useEffect, useReducer, useCallback, useRef, type RefObject } from "react";
 
 /** Defines the possible placements for the floating element relative to the reference element. */
 export type FloatingPlacement =
@@ -78,7 +78,7 @@ export interface UseFloatingProps<R extends HTMLElement>
  */
 interface UseFloating<T> extends FloatingOptions {
   /** The reference to attach to the floating element. */
-  floating: React.RefObject<T | null>;
+  floating: RefObject<T | null>;
   /** The x-coordinate of the floating element. */
   x: number;
   /** The y-coordinate of the floating element. */
