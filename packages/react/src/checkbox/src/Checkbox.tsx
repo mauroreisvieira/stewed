@@ -4,7 +4,7 @@ import { CheckboxGroup } from "./CheckboxGroup";
 // Context
 import { useCheckboxGroup } from "./CheckboxGroupContext";
 // UI Components
-import { Spinner, Icon } from "../../index";
+import { Spinner, Icon, type SpinnerProps } from "../../index";
 // Hooks
 import { useBem, useMergeRefs, useResponsive, type UseResponsiveProps } from "@stewed/hooks";
 import { useTheme } from "../../theme";
@@ -13,6 +13,12 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Props for a Checkbox component.
+ * Extends the default properties of an HTML `<input>` element, omitting the `size` property.
+ *
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input}
+ */
 export interface CheckboxProps
   extends Omit<React.ComponentPropsWithRef<"input">, "size">,
     UseResponsiveProps<{
@@ -35,7 +41,7 @@ export interface CheckboxProps
   /**
    * Sets the checkbox to an indeterminate state.
    * @default false
-   * @see [MDN Documentation]{@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#attr-indeterminate}
+   * @see {@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#attr-indeterminate}
    */
   indeterminate?: boolean;
   /** Displays a loading indicator on the checkbox. */
@@ -54,8 +60,9 @@ export interface CheckboxProps
  *
  * @remarks This component props extended from React.InputHTMLAttributes<HTMLInputElement>.
  *
- * @param {CheckboxProps} props - The props for the Checkbox component.
- * @returns {React.ReactElement} - The rendered Checkbox component.
+ * @see {@link CheckboxProps} for more details on the available props.
+ * @param props - The props for the Checkbox component.
+ * @returns The rendered Checkbox component.
  */
 export function Checkbox({
   ref,
@@ -153,6 +160,11 @@ export function Checkbox({
     [isChecked, checkedValues, value, onChange, onCheckedChange]
   );
 
+  const sizeSpinnerMap: Record<string, SpinnerProps["size"]> = {
+    sm: "xxs",
+    md: "xs"
+  };
+
   return (
     <label className={cssClasses.root}>
       <input
@@ -170,7 +182,7 @@ export function Checkbox({
           <Spinner
             className={cssClasses.spinner}
             skin="white"
-            size={computedProps.size === "sm" ? "xxs" : computedProps.size === "md" ? "xs" : "sm"}
+            size={sizeSpinnerMap[computedProps.size] || "sm"}
           />
         ) : (
           <>

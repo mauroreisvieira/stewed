@@ -8,6 +8,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/** Props for the NavigationButton component, used for rendering a button in a navigation context. */
 interface NavigationButtonProps {
   /** Whether the navigation button is disabled. If true, the button will be non-interactive and typically styled as disabled. */
   disabled: boolean | undefined;
@@ -15,6 +16,10 @@ interface NavigationButtonProps {
   onClick: () => void;
 }
 
+/**
+ * Props for the PageButton component, used for rendering a button that represents a specific page in a navigation context.
+ * Inherits all properties from {@link NavigationButtonProps}, with additional props specific to pagination.
+ */
 interface PageButtonProps extends NavigationButtonProps {
   /** Flag indicating whether the page button is selected (active). */
   selected: boolean;
@@ -22,6 +27,7 @@ interface PageButtonProps extends NavigationButtonProps {
   hasEllipsis: boolean;
 }
 
+/** Props for the Pagination component, used to control and display pagination controls. */
 export interface PaginationProps {
   /** Total number of pages. */
   total: number;
@@ -130,6 +136,7 @@ export function Pagination({
     }
 
     pages.push(total);
+
     return pages;
   }, [selectedPage, siblings, total]);
 
@@ -138,6 +145,7 @@ export function Pagination({
       {renderPrev ? (
         renderPrev({
           disabled: disabled || selectedPage === 1,
+          /** Function to move for previous page */
           onClick: () => onPageChange?.(selectedPage - 1)
         })
       ) : (
@@ -156,11 +164,13 @@ export function Pagination({
         const current = index + 1;
         const selected = selectedPage === page;
         const hasEllipsis = typeof page === "string";
+
         return renderPage ? (
           renderPage({
             selected,
             disabled,
             hasEllipsis,
+            /** Function to set current page */
             onClick: () => onPageChange?.(current)
           })
         ) : (
@@ -181,6 +191,7 @@ export function Pagination({
       {renderNext ? (
         renderNext({
           disabled: disabled || selectedPage === total,
+          /** Function to move for next page */
           onClick: () => onPageChange?.(selectedPage + 1)
         })
       ) : (

@@ -6,6 +6,12 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * The interface specifies the properties for a progress bar component.
+ * It extends the standard attributes of the HTML `<progress>` element.
+ *
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress}
+ * */
 export interface ProgressProps
   extends Omit<React.ComponentPropsWithoutRef<"progress">, "children"> {
   /** Change the visual style of the progress bar. */
@@ -40,8 +46,9 @@ export interface ProgressProps
  *
  * @remarks This component props extended from React.ProgressHTMLAttributes<HTMLProgressElement>.
  *
- * @param {ProgressProps} props - The props for the Progress component.
- * @returns {React.ReactElement} - The rendered Progress component.
+ * @see {@link ProgressProps} for more details on the available props.
+ * @param props - The props for the Progress component.
+ * @returns The rendered Progress component.
  */
 export function Progress({
   skin = "primary",

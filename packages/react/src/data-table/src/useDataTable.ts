@@ -4,7 +4,7 @@ import { sortData, TSortDirection } from "@stewed/utilities";
 // TYpes
 import { type TableRowProps } from "../../";
 
-// Define a type alias for the column key, which can be a key of the generic type T or a string
+/** Define a type alias for the column key, which can be a key of the generic type T or a string */
 export type TAccessorKeyKey<T> = keyof T | (string & {});
 
 interface HeadCellRenderProps<T> {
@@ -51,7 +51,17 @@ interface HeadCell<T> {
   cellNode: React.ReactNode;
 }
 
+/**
+ * Represents a row of body data in a table.
+ * Extends the standard `TableRowProps` to include specific properties for the row's body cells.
+ *
+ * @template T - The type of data for the body cells.
+ */
 interface BodyRows<T> extends TableRowProps {
+  /**
+   * A unique key for identifying the row.
+   * This is typically used for efficient rendering and reconciliation in React.
+   */
   key: string;
   /** Array of body cells in the row. */
   bodyCells: BodyCell<T>[];
@@ -215,9 +225,11 @@ export function useDataTable<T>({
       (visibleColumns || [])?.map((column) => {
         const isSortable =
           sortableColumns && sortableColumns?.includes(column?.accessorKey as keyof T);
+
         return {
           columnKey: column?.accessorKey,
           isSortable,
+          /** Callback function triggered when a sorting action occurs. */
           onSort: () => {
             setSortedColumn(column?.accessorKey as keyof T);
             setSortDirection((prev) => (prev === "ASC" ? "DESC" : "ASC"));

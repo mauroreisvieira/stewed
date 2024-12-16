@@ -1,4 +1,3 @@
-/* eslint-disable jsdoc/require-jsdoc */
 import React, { useState } from "react";
 // UI Components
 import { Box, Container, Segmented, Separator, Snackbar, Stack, Theme } from "@stewed/react";
@@ -7,9 +6,20 @@ import { Header } from "./partials/Header";
 import { Home } from "./partials/Home";
 import { Podcast } from "./partials/Podcast";
 
-// Icons
+/**
+ * Represents the available themes for the Music component.
+ *
+ * - `"default"`: The default theme for the music player.
+ * - `"dark"`: A dark theme for the music player.
+ */
 type TMusicTheme = "default" | "dark";
 
+/**
+ * Music component that renders a music player UI.
+ * The component renders a music player with different visual themes, such as the default or dark theme, based on the passed props.
+ *
+ * @returns {React.ReactElement} The rendered music player component.
+ */
 export function Music(): React.ReactElement {
   // State to manage the value of the segmented control between "music" and "podcast"
   const [segmentedValue, setSegmentedValue] = useState<"music" | "podcast">("music");

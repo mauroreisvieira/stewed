@@ -1,4 +1,3 @@
-/* eslint-disable jsdoc/require-jsdoc */
 import React from "react";
 // UI Components
 import {

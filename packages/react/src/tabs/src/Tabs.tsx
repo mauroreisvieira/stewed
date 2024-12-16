@@ -58,8 +58,26 @@ interface TabsDirectionColumn<T extends string> extends TabsBase<T> {
   alignment?: "start" | "end";
 }
 
+/**
+ * Props for the Tabs component.
+ * This type is a union of two possible configurations: `TabsDirectionRow` or `TabsDirectionColumn`.
+ * Depending on the value, the tabs will be displayed either in a horizontal row or a vertical column.
+ *
+ * @template T - The type of the tab identifiers, extending a string. This allows flexibility in specifying tab values.
+ */
 type TabsProps<T extends string> = TabsDirectionRow<T> | TabsDirectionColumn<T>;
 
+/**
+ * A functional component that renders a set of tabs for navigation.
+ * This component allows users to switch between different views or sections.
+ *
+ * @template T - The type of the tab values, extending a string. This allows you to specify a list of tab identifiers.
+ *
+ * @see {@link TabsProps} for more details on the available props.
+ *
+ * @param props - The props for the Tabs component, including the tab values, active tab, and other related settings.
+ * @returns A React element representing the tab navigation component.
+ */
 export function Tabs<T extends string>({
   value,
   defaultValue,

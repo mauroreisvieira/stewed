@@ -13,6 +13,7 @@ import type { DayOptions } from "@hello-week/hooks";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/** Represents a range of values, typically used for defining a start and end point. */
 interface Range {
   /** The start date of the range. */
   start: Date | undefined;
@@ -20,11 +21,20 @@ interface Range {
   end: Date | undefined;
 }
 
+/**  Props for the Month component, used to configure the rendering of the month view. */
 export interface MonthProps {
   /**  Additional CSS class name for the root element of the month component. */
   className?: string;
 }
 
+/**
+ * Renders a month view, displaying days and optionally allowing interaction for date selection.
+ *
+ * @see {@link MonthProps} for more details on the available props.
+ *
+ * @param props - The properties passed to the Month component.
+ * @returns The rendered Month component.
+ */
 export function Month({ className }: MonthProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: `${components.Calendar}__month`, styles });
@@ -96,11 +106,15 @@ export function Month({ className }: MonthProps): React.ReactElement {
         setSelectedDates?.((prev) => {
           if (!prev) return [date];
 
-          return multipleSelect
-            ? selected
-              ? prev.filter((val) => !isSameDay(val as Date, date))
-              : [...prev, date]
-            : [date];
+          if (multipleSelect) {
+            if (selected) {
+              return prev.filter((val) => !isSameDay(val as Date, date));
+            } else {
+              return [...prev, date];
+            }
+          }
+
+          return [date];
         });
       }
 

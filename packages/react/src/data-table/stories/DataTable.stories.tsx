@@ -198,6 +198,7 @@ export const Base: Story = {
                   : b.amount.value - a.amount.value;
               });
             }
+
             return null;
           }}
         />

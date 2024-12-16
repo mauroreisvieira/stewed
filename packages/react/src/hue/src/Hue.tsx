@@ -10,6 +10,10 @@ import { type Range } from "../..";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Props for the Child component.
+ * Defines the expected properties that can be passed to a Child component.
+ */
 interface ChildProps {
   /** Additional class name(s) to apply to the child element. */
   className?: string;
@@ -17,6 +21,10 @@ interface ChildProps {
   style?: React.CSSProperties;
 }
 
+/**
+ * Props for the Hue component.
+ * Defines the properties used to configure the Hue component, such as color and size.
+ */
 export interface HueProps {
   /** Determines the background style or gradient colors. */
   skin?:
@@ -84,6 +92,7 @@ export function Hue({ degree = 90, skin, clipText, children }: HueProps): React.
       className: classNames(children.props.className, cssClasses.root)
     });
   }
+
   // If `children` is not a valid React element, handle it appropriately
   return children;
 }

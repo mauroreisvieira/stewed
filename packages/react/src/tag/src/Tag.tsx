@@ -12,6 +12,13 @@ import styles from "./styles/index.module.scss";
 // Default HTML element type for the this component
 const defaultElement = "span";
 
+/**
+ * Props for the Tag component.
+ * Extends the default properties of a specified HTML element (default is "span").
+ *
+ * @template T - The type of the HTML element that the Tag component will render. Defaults to "span".
+ * This allows flexibility to render the tag as a different element (e.g., "div", "a", etc.).
+ */
 export interface TagProps<T = "span"> extends React.ComponentProps<typeof defaultElement> {
   /**
    * Specifies the type of element to use as the tag.
@@ -52,8 +59,9 @@ export interface TagProps<T = "span"> extends React.ComponentProps<typeof defaul
  * @remarks This component is a polymorphic component can be rendered as a different element
  * and support all native props from the element passed on `as` prop.
  *
- * @param {TagProps} props - The props for the Tag component.
- * @returns {React.ReactElement} - The rendered Tag component.
+ * @see {@link TagProps} for more details on the available props.
+ * @param props - The props for the Tag component.
+ * @returns The rendered Tag component.
  */
 export const Tag = fixedForwardRef(function Tag<T extends React.ElementType>(
   {

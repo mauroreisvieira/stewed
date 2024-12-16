@@ -7,6 +7,11 @@ import { components, type Spacings } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Interface defines the props for a separator component.
+ *
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr}
+ */
 export interface SeparatorProps
   extends React.ComponentPropsWithoutRef<"hr">,
     UseResponsiveProps<{
@@ -63,8 +68,9 @@ export interface SeparatorProps
  *
  * @remarks This component props extended from React.ComponentPropsWithoutRef<"hr">.
  *
- * @param {SeparatorProps} props - The props for the Separator component.
- * @returns {React.ReactElement} - The rendered Separator component.
+ * @see {@link SeparatorProps} for more details on the available props.
+ * @param props - The props for the Separator component.
+ * @returns The rendered Separator component.
  */
 export function Separator({
   skin = "neutral-faded",

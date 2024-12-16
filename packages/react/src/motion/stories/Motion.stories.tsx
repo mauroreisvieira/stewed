@@ -24,6 +24,7 @@ export const Zoom: Story = {
     const zooms = ["zoom-in", "zoom-out", "zoom-in-soft", "zoom-out-soft"] as const;
 
     const [animation, setAnimation] = useState<(typeof zooms)[number]>();
+
     return (
       <Stack justify="center" direction="column" items="center" gap="2xl">
         <Stack style={{ width: 120, height: 120, overflow: "hidden" }}>
@@ -61,6 +62,7 @@ export const Fade: Story = {
     const fades = ["fade-in", "fade-out"] as const;
 
     const [animation, setAnimation] = useState<(typeof fades)[number]>();
+
     return (
       <Stack justify="center" direction="column" items="center" gap="2xl">
         <Stack style={{ width: 120, height: 120, overflow: "hidden" }}>
@@ -107,6 +109,7 @@ export const Slide: Story = {
     ] as const;
 
     const [animation, setAnimation] = useState<(typeof slides)[number]>();
+
     return (
       <Stack justify="center" direction="column" items="center" gap="2xl">
         <Stack style={{ width: 120, height: 120, overflow: "hidden" }}>

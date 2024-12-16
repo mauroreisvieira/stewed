@@ -8,6 +8,12 @@ import { components, type Spacings } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Props for the List component.
+ * Extends the default properties of an HTML `<ul>` element.
+ *
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul}
+ */
 export interface ListProps extends React.ComponentPropsWithoutRef<"ul"> {
   /**
    * Type of list to display.
@@ -32,8 +38,11 @@ export interface ListProps extends React.ComponentPropsWithoutRef<"ul"> {
  * </List>
  * ```
  *
- * @param {ListProps} props - The props for the List component.
- * @returns {React.ReactElement} - The rendered List component.
+ * @remarks This component props extended from React.ComponentPropsWithoutRef<"ul">.
+ *
+ * @see {@link ListProps} for more details on the available props.
+ * @param props - The props for the List component.
+ * @returns The rendered List component.
  */
 export function List({
   type = "bullet",

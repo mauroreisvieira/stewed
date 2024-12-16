@@ -48,6 +48,7 @@ export const Uncontrolled: Story = {
   },
   render: function Render() {
     const [isChecked, setChecked] = useToggle(false);
+
     return (
       <Checkbox checked={isChecked} onChange={setChecked}>
         Label
@@ -62,6 +63,7 @@ export const Indeterminate: Story = {
   },
   render: function Render() {
     const [isChecked, setChecked] = useToggle(false);
+
     return (
       <Checkbox checked={isChecked} onChange={setChecked} indeterminate={!isChecked}>
         Label

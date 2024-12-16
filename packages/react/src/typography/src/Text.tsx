@@ -30,7 +30,7 @@ const SizeMap = {
   base: defaultElement
 } as const;
 
-// Possible variations for text styling
+/** Specifies the possible text variations for styling, including font styles, text transformation, and text decoration. */
 type TextVariation =
   | "italic"
   | "normal"
@@ -41,6 +41,11 @@ type TextVariation =
   | "overline"
   | "underline";
 
+/**
+ * Props for a text component, allowing customization of text style and content.
+ *
+ * @template T - The type for the content to be displayed. This could be a string or other relevant type based on context.
+ */
 export interface TextProps<T>
   extends Omit<React.ComponentProps<typeof defaultElement>, "hidden">,
     UseResponsiveProps<{
@@ -106,8 +111,10 @@ export interface TextProps<T>
  * @remarks This component is a polymorphic component can be rendered as a different element
  * and support all native props from the element passed on `as` prop.
  *
- * @param {TextProps} props - The props for the Text component.
- * @returns {React.ReactElement} - The rendered Text component.
+ * @see {@link TextProps} for more details on the available props.
+ *
+ * @param props - The props for the Text component.
+ * @returns The rendered Text component.
  */
 export const Text = fixedForwardRef(function Typography<T extends React.ElementType>(
   {

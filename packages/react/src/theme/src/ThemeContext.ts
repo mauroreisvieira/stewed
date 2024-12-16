@@ -37,8 +37,20 @@ export interface ThemeContextProps<T extends string> {
    * If this prop is provided, the component will reflect the current theme specified by the parent.
    */
   theme?: T | "default";
-  /** Map of theme names to tokens. */
-  tokens?: Partial<{ default: Tokens } & Record<T, Tokens>>;
+  /**
+   * Map of theme names to tokens.
+   * This property allows you to define custom tokens for different themes in the application.
+   * Each theme can have its own set of `Tokens` which represent a collection of values such as colors, fonts, or other design properties.
+   */
+  tokens?: Partial<
+    {
+      /**
+       * It supports a default theme as well as other themes that are specified by their respective names.
+       * The `default` theme will be used when no specific theme is provided.
+       */
+      default: Tokens;
+    } & Record<T, Tokens>
+  >;
   /** Currently selected token. */
   activeToken: Tokens;
   /** Setter function for updating the current active theme. */

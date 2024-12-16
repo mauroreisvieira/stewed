@@ -1,9 +1,24 @@
 import { createContext, use } from "react";
 
+/**
+ * Throws an error to indicate that the component is not wrapped correctly by an `<Accordion>` component.
+ *
+ * This function is intended to be used as a guard to ensure that a component that requires being wrapped by
+ * the `<Accordion>` component is rendered within it. If this condition is not met, an error is thrown with
+ * a descriptive message to help developers debug the issue.
+ *
+ * @throws {Error} Throws an error with the message "Please make sure '<Accordion>' component is wrapping your component."
+ *
+ * @returns {null} This function does not return any value; it simply throws an error.
+ */
 const definitionError = (): null => {
   throw new Error('Please make sure "<Accordion>" component is wrapping your component.');
 };
 
+/**
+ * The context props for the `Accordion` component.
+ * This interface defines the properties available in the `AccordionContext`.
+ */
 export interface AccordionContextProps {
   /**
    * Whether multiple items can be expanded at the same time.
@@ -43,4 +58,11 @@ export const AccordionContext = createContext<AccordionContextProps>({
   onOpenChange: definitionError
 });
 
+/**
+ * This hook provides access to the current state and properties of the `Accordion` component.
+ *
+ * @see {@link AccordionContextProps} for more details on the available props.
+ *
+ * @returns {AccordionContextProps} The context properties for the `Accordion
+ */
 export const useAccordion = (): AccordionContextProps => use(AccordionContext);

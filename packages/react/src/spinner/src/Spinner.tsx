@@ -8,6 +8,14 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * The props for the `Spinner` component.
+ *
+ * This interface extends the standard `div` element properties, allowing the use of all common `div` attributes, such as `className`, `style`, and `ref`.
+ * It can be extended further to customize the spinner component with additional specific properties for controlling its appearance or behavior.
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div
+ */
 export interface SpinnerProps extends React.ComponentPropsWithRef<"div"> {
   /** Change the visual style of the spinner. */
   skin?: "default" | "white" | "primary" | "secondary" | "neutral";

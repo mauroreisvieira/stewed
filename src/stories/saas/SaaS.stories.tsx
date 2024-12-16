@@ -1,4 +1,3 @@
-/* eslint-disable jsdoc/require-jsdoc */
 import React, { useCallback, useMemo, useState } from "react";
 import type { Meta } from "@storybook/react";
 // UI Components

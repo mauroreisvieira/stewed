@@ -24,5 +24,11 @@ export default [
     rules: {
       "react-compiler/react-compiler": "error"
     }
+  },
+  {
+    files: ["**/*.stories.tsx", "**/*.test.ts"],
+    rules: {
+      "jsdoc/require-jsdoc": "off"
+    }
   }
 ];

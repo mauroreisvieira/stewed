@@ -1,4 +1,3 @@
-/* eslint-disable jsdoc/require-jsdoc */
 import type { Blur } from "./tokens/Blur";
 import type { Radius } from "./tokens/Radius";
 import type { Shadow } from "./tokens/Shadow";

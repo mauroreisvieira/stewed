@@ -8,6 +8,7 @@ import { classNames } from "@stewed/utilities";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/** Represents the animation options or states for a component or application. */
 type TAnimation =
   | "zoom-in"
   | "zoom-out"
@@ -24,6 +25,7 @@ type TAnimation =
   | "slide-out-bottom"
   | "slide-out-left";
 
+/** Interface representing the props for a child component. */
 interface ChildProps {
   /** Additional class name(s) to apply to the child element. */
   className?: string;
@@ -33,6 +35,10 @@ interface ChildProps {
   onAnimationEnd?: () => void;
 }
 
+/**
+ * Represents the properties for motion or animation settings in a component.
+ * Use this interface to configure animations, transitions, and motion effects.
+ */
 export interface MotionProps {
   /** The animation type. */
   animation?: TAnimation;
@@ -63,8 +69,10 @@ export interface MotionProps {
  * </Motion>
  * ```
  *
- * @param {MotionProps} props - The props for the Motion component.
- * @returns {React.ReactElement} - The rendered Motion component.
+ * @see {@link MotionProps} for more details on the available props.
+ *
+ * @param props - The props for the Motion component.
+ * @returns The rendered Motion component.
  */
 export function Motion({
   animation,
@@ -85,11 +93,13 @@ export function Motion({
   if (React.isValidElement<ChildProps>(children)) {
     return React.cloneElement(children, {
       className: classNames(cssClasses.root, children.props.className),
-      onTransitionEnd: () => {
+      /** Callback function executed when the transition ends. */
+      onTransitionEnd: (): void => {
         children.props.onTransitionEnd?.();
         onDone?.();
       },
-      onAnimationEnd: () => {
+      /** Callback function executed when the animation ends. */
+      onAnimationEnd: (): void => {
         children.props.onAnimationEnd?.();
         onDone?.();
       }

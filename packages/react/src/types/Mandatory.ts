@@ -1,4 +1,4 @@
-/*
+/**
  * Used to convert a list of properties in a type from optional to required.
  *
  * @example:
@@ -9,6 +9,7 @@
  *    label?: string
  *    value: string
  *  };
+ *
  *  type DataWithRequiredIdAndLabel = MandateProps<Data, 'id' | 'label'>;
  *  ```
  */
