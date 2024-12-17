@@ -14,9 +14,10 @@ import styles from "./styles/index.module.scss";
 
 /**
  * Defines the appearance options for the Accordion component.
- *
  * - `"border"`: Applies a border to the Accordion.
  * - `"border-row"`: Applies a border specifically to each row within the Accordion.
+ *
+ * @default border-row
  */
 type Appearance = "border" | "border-row";
 

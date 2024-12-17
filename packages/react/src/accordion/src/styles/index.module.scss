@@ -41,11 +41,8 @@
   }
 
   &__body {
+    padding-top: theme.get-spacing("xs");
     padding-bottom: theme.get-spacing("md");
-  }
-
-  &--default {
-    background: red;
   }
 
   &--border-row {
@@ -61,6 +58,22 @@
     border-radius: theme.get-radius(md);
 
     .#{$accordion-root} {
+      &__item {
+        &:first-child {
+          .#{$accordion-root}__header {
+            border-top-left-radius: theme.get-radius(md);
+            border-top-right-radius: theme.get-radius(md);
+          }
+        }
+
+        &:last-child {
+          .#{$accordion-root}__header {
+            border-bottom-right-radius: theme.get-radius(md);
+            border-bottom-left-radius: theme.get-radius(md);
+          }
+        }
+      }
+
       &__header,
       &__body {
         padding-inline: theme.get-spacing("md");
@@ -70,6 +83,12 @@
 
   &--panel {
     .#{$accordion-root} {
+      &__item {
+        .#{$accordion-root}__header {
+          border-radius: theme.get-radius(md);
+        }
+      }
+
       &__header,
       &__body {
         padding-inline: theme.get-spacing("md");

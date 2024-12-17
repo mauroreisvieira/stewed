@@ -62,7 +62,6 @@ export const AccordionContext = createContext<AccordionContextProps>({
  * This hook provides access to the current state and properties of the `Accordion` component.
  *
  * @see {@link AccordionContextProps} for more details on the available props.
- *
  * @returns {AccordionContextProps} The context properties for the `Accordion
  */
 export const useAccordion = (): AccordionContextProps => use(AccordionContext);

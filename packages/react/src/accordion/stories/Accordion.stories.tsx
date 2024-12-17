@@ -54,7 +54,7 @@ export const Base: Story = {
     children: (
       <>
         {data.map(({ title, description, body }) => (
-          <Accordion.Item value={title}>
+          <Accordion.Item key={title} value={title}>
             {({ open }) => (
               <>
                 <Accordion.Header rightSlot={open ? <FiChevronUp /> : <FiChevronDown />}>
@@ -88,7 +88,7 @@ export const Border: Story = {
     children: (
       <>
         {data.map(({ title, body }) => (
-          <Accordion.Item value={title}>
+          <Accordion.Item key={title} value={title}>
             {({ open }) => (
               <>
                 <Accordion.Header rightSlot={open ? <FiMinus /> : <FiPlus />}>
@@ -120,7 +120,7 @@ export const Panel: Story = {
     children: (
       <>
         {data.map(({ title, body }) => (
-          <Accordion.Item value={title}>
+          <Accordion.Item key={title} value={title}>
             {({ open }) => (
               <>
                 <Accordion.Header rightSlot={open ? <FiMinus /> : <FiPlus />}>
