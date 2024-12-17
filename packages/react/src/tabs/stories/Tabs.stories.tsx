@@ -52,6 +52,8 @@ export const Uncontrolled: Story = {
   args: {
     defaultValue: "2",
     onValueChange: undefined,
+    keepMounted: true,
+    hiddenUntilFound: false,
     children: (
       <>
         <Tabs.List>
@@ -61,7 +63,7 @@ export const Uncontrolled: Story = {
           <Tabs.Item leftSlot={<FiBell />} value="2">
             Notifications
           </Tabs.Item>
-          <Tabs.Item leftSlot={<FiBell />} value="3" disabled>
+          <Tabs.Item leftSlot={<FiBell />} value="3">
             Team
           </Tabs.Item>
           <Tabs.Item leftSlot={<FiCalendar />} value="4">
@@ -69,16 +71,16 @@ export const Uncontrolled: Story = {
           </Tabs.Item>
         </Tabs.List>
         <Tabs.Panel value="1">
-          <Text>Panel 1</Text>
+          <Text>Panel Orders</Text>
         </Tabs.Panel>
         <Tabs.Panel value="2">
-          <Text>Panel 2</Text>
+          <Text>Panel Notifications</Text>
         </Tabs.Panel>
         <Tabs.Panel value="3">
-          <Text>Panel 3</Text>
+          <Text>Panel Team</Text>
         </Tabs.Panel>
         <Tabs.Panel value="4">
-          <Text>Panel 4</Text>
+          <Text>Panel Calendar</Text>
         </Tabs.Panel>
       </>
     )

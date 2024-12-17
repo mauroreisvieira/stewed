@@ -160,6 +160,9 @@
 
   &__panel {
     flex-grow: 1;
-    padding: theme.get-spacing("lg");
+
+    &:not([hidden]) {
+      padding: theme.get-spacing("lg");
+    }
   }
 }

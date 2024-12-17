@@ -12,6 +12,13 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Interface for the base properties of the `Tabs` component.
+ *
+ * @remarks
+ * Extends the properties of a standard `<div>` element (`React.ComponentPropsWithoutRef<"div">`),
+ * allowing the `Tabs` component to accept all native `div` attributes.
+ */
 interface TabsBase<T extends string>
   extends Omit<React.ComponentPropsWithoutRef<"div">, "defaultValue" | "defaultChecked">,
     Omit<TabsContextProps<T>, "setSelectedValue"> {
@@ -32,6 +39,12 @@ interface TabsBase<T extends string>
   appearance?: "underline";
 }
 
+/**
+ * Extends the base tabs configuration to include direction-specific properties
+ * for rendering tabs in a row layout.
+ *
+ * @template T - A string literal type representing tab values.
+ */
 interface TabsDirectionRow<T extends string> extends TabsBase<T> {
   /**
    * The direction of the tab container.
@@ -45,6 +58,12 @@ interface TabsDirectionRow<T extends string> extends TabsBase<T> {
   alignment?: "start" | "center" | "end";
 }
 
+/**
+ * Extends the base tabs configuration to include direction-specific properties
+ * for rendering tabs in a column layout.
+ *
+ * @template T - A string literal type representing tab values.
+ */
 interface TabsDirectionColumn<T extends string> extends TabsBase<T> {
   /**
    * The direction of the tab container.
@@ -84,6 +103,8 @@ export function Tabs<T extends string>({
   appearance = "underline",
   alignment = "start",
   direction = "row",
+  hiddenUntilFound,
+  keepMounted,
   className,
   children,
   onValueChange,
@@ -117,7 +138,9 @@ export function Tabs<T extends string>({
         value={{
           value: value || selectedValue,
           setSelectedValue: setSelectedValue as (value: unknown) => void,
-          onValueChange: onValueChange as (value: unknown) => void
+          onValueChange: onValueChange as (value: unknown) => void,
+          hiddenUntilFound,
+          keepMounted
         }}
       >
         {children}

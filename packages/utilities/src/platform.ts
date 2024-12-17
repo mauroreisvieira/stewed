@@ -92,3 +92,24 @@ export const isAndroid = (): boolean => testUserAgent(/Android/);
  * @returns A boolean indicating whether the current platform is touch.
  */
 export const isTouch = (): boolean => "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+/**
+ * Checks if the code is running in a client-side environment (browser).
+ *
+ * This function verifies the presence of the `window` object, `document`, and
+ * the `createElement` method, which are specific to the browser environment.
+ *
+ * @returns {boolean} `true` if the code is running on the client-side, otherwise `false`.
+ *
+ * @example
+ * if (isClient()) {
+ *   console.log("Running in the browser!");
+ * }
+ */
+export const isClient = (): boolean => {
+  return (
+    typeof window !== "undefined" &&
+    typeof window.document !== "undefined" &&
+    typeof window.document.createElement === "function"
+  );
+};

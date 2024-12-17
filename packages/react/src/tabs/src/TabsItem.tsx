@@ -75,6 +75,7 @@ export function TabsItem({
       tabIndex={isSelected ? 0 : -1}
       className={cssClasses.root}
       onClick={onHandleClick}
+      id={value}
       {...props}
     >
       {leftSlot && <div className={cssClasses.left}>{leftSlot}</div>}
