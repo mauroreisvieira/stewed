@@ -7,6 +7,12 @@ vi.mock("@stewed/utilities", () => ({
   classNames: vi.fn((...args: string[]) => args.filter(Boolean).join(" "))
 }));
 
+// Mock useCallback
+vi.mock("react", () => ({
+  ...vi.importActual("react"),
+  useCallback: vi.fn((callback) => callback)
+}));
+
 describe("useBem", () => {
   afterEach(() => {
     vi.clearAllMocks();
