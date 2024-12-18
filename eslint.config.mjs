@@ -26,7 +26,7 @@ export default [
     }
   },
   {
-    files: ["**/*.stories.tsx", "**/*.test.ts"],
+    files: ["**/*.stories.tsx", "**/*.test.ts", "src/**/*.ts", "src/**/*.tsx"],
     rules: {
       "jsdoc/require-jsdoc": "off"
     }

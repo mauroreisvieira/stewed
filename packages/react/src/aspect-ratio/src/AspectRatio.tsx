@@ -6,12 +6,18 @@ import { type Radius, components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Props for the AspectRatio component, extending the default properties of a `<div>` element.
+ *
+ * @remarks This interface allows you to specify additional styles and behavior for the AspectRatio component,
+ * while also inheriting all standard `<div>` properties.
+ */
 export interface AspectRatioProps extends React.ComponentPropsWithoutRef<"div"> {
   /**
    * Specify the aspect ratio as a string in the format "width:height"
    * @default 1:1
    */
-  ratio?: "1:1" | "2:3" | "3:2" | "4:3" | "16:9";
+  ratio?: "1:1" | "2:3" | "3:2" | "4:3" | "16:9" | "21:9";
   /**
    * Defines the border-radius of the aspect ratio children, controlling its corner rounding.
    *

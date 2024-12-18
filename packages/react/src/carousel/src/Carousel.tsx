@@ -284,6 +284,7 @@ export const Carousel = forwardRef(
         setCurrentIndex(slidesCount);
         setTransitionEnabled(false);
         if (onSlideChange) onSlideChange(slidesCount);
+
         return;
       }
 
@@ -292,6 +293,7 @@ export const Carousel = forwardRef(
         setCurrentIndex(1);
         setTransitionEnabled(false);
         if (onSlideChange) onSlideChange(1);
+
         return;
       }
 

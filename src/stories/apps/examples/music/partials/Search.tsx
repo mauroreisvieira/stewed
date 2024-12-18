@@ -15,6 +15,8 @@ import { FiSearch } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
 import { PiBrowsersFill } from "react-icons/pi";
 import { RiHistoryLine } from "react-icons/ri";
+// Data
+import { RECENT_SEARCH } from "./data";
 
 export function Search(): React.ReactElement {
   return (
@@ -55,7 +57,7 @@ export function Search(): React.ReactElement {
           <Box padding={{ block: "md", inline: "sm" }} style={{ width: `${reference?.width}px` }}>
             <ListBox>
               <ListBox.Group title="Recent searches">
-                {Array.from({ length: 6 }).map((_, index) => (
+                {RECENT_SEARCH.map((value, index) => (
                   <Hoverable key={index}>
                     {({ isHovering, isTouch }) => (
                       <ListBox.Item
@@ -76,7 +78,7 @@ export function Search(): React.ReactElement {
                           ) : undefined
                         }
                       >
-                        Daily Mix 1
+                        {value}
                       </ListBox.Item>
                     )}
                   </Hoverable>

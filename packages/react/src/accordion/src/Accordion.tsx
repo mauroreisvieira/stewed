@@ -40,10 +40,11 @@ interface AccordionProps
 /**
  * The Accordion component lets users show and hide sections of related content on a page.
  *
- * @param {AccordionProps} props - The props for the Accordion component.
- * @returns {React.ReactElement} - The rendered Accordion component.
- *
  * @remarks This component props extended from React.ComponentPropsWithoutRef<"div">.
+ *
+ * @see {@link AccordionProps} for more details on the available props.
+ * @param props - The props for the Accordion component.
+ * @returns The rendered Accordion component.
  *
  * @example
  * ```tsx
@@ -70,6 +71,7 @@ interface AccordionProps
  */
 export function Accordion({
   multipleExpanded = false,
+  hiddenUntilFound = true,
   appearance = "border-row",
   className,
   onKeyDown,
@@ -94,7 +96,8 @@ export function Accordion({
   // Define a reference to a list element
   const { ref, onNavigate } = useKeyboardNavigation<HTMLDivElement>({
     target: "summary:not([aria-disabled='true'])",
-    loop: true
+    loop: true,
+    preventDefaultOnKey: true // prevent arrow key scrolling in users browser
   });
 
   const onHandleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
@@ -106,7 +109,7 @@ export function Accordion({
   );
 
   return (
-    <AccordionContext value={{ multipleExpanded, onOpenChange, open, setOpen }}>
+    <AccordionContext value={{ hiddenUntilFound, multipleExpanded, onOpenChange, open, setOpen }}>
       <div
         ref={ref}
         role="group"

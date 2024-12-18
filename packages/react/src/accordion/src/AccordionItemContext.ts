@@ -10,10 +10,13 @@ export interface AccordionItemContextProps {
    * Used to track which accordion item is open, typically to manage the accordion's open/closed state in a collection of items.
    */
   value: string;
+  /** Indicates whether the item is disabled. */
+  disabled?: boolean;
 }
 
 export const AccordionItemContext = createContext<AccordionItemContextProps>({
-  value: ""
+  value: "",
+  disabled: false
 });
 
 /**

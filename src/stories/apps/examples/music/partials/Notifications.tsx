@@ -18,12 +18,12 @@ import { useDateTime } from "@hello-week/hooks";
 import { MdNotifications } from "react-icons/md";
 import { IoCheckmarkDone } from "react-icons/io5";
 // Data
-import { notifications } from "./data";
+import { NOTIFICATIONS } from "./data";
 
 export function Notifications(): React.ReactElement {
   const { createDate, formatDate } = useDateTime();
 
-  const [listNotifications, setListNotifications] = useState(notifications);
+  const [listNotifications, setListNotifications] = useState(NOTIFICATIONS);
 
   const convertDatetime = useCallback(
     (date: Date) => {
@@ -165,7 +165,7 @@ export function Notifications(): React.ReactElement {
                                 </Text>
                               </Text>
                               <Text size="xs" skin="neutral">
-                                {convertDatetime(date)}
+                                {convertDatetime(date)} ago
                               </Text>
                             </Box>
                           </Stack>

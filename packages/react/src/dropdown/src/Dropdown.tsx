@@ -10,7 +10,6 @@ import {
   useBem,
   useFloating,
   useClickOutside,
-  useKey,
   useKeyboardNavigation,
   useMergeRefs,
   useScrollLock,
@@ -23,6 +22,10 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Interface representing the properties provided to render a dropdown.
+ * @template T - The type of the dropdown items.
+ */
 export interface DropdownRenderProps<T> {
   /** Ref to attach to the `Dropdown` element */
   ref: React.RefObject<T | null>;
@@ -39,6 +42,10 @@ export interface DropdownRenderProps<T> {
   isOpen: boolean;
 }
 
+/**
+ * Props for a generic dropdown component.
+ * @template T - The type of the dropdown items.
+ */
 export interface DropdownProps<T>
   extends Pick<UseFloatingProps<HTMLElement>, "flip">,
     Omit<React.ComponentPropsWithoutRef<"div">, "children" | "content"> {
@@ -144,15 +151,6 @@ export function Dropdown<T extends HTMLElement>({
     handler: () => (allowClickOutside ? onClickOutside : setOpen(false))
   });
 
-  useKey({
-    enabled: !!isOpen,
-    keys: ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"],
-    /** Function to prevent arrow key scrolling in users browser */
-    handler: (event: KeyboardEvent) => {
-      event.preventDefault();
-    }
-  });
-
   // Define a reference for the list element and enable keyboard navigation within it
   const {
     ref: navigationRef,
@@ -160,7 +158,8 @@ export function Dropdown<T extends HTMLElement>({
     setFirstElementFocusable
   } = useKeyboardNavigation<HTMLDivElement>({
     target: '[tabindex="0"]:not([aria-disabled]), [role="option"]:not([aria-disabled])',
-    loop: false
+    loop: false,
+    preventDefaultOnKey: true // prevent arrow key scrolling in users browser
   });
 
   // Merge the floating reference with the navigation reference combines multiple refs into a single callback ref.
@@ -196,12 +195,12 @@ export function Dropdown<T extends HTMLElement>({
     [onNavigate, onKeyDown, onEscape]
   );
 
-  // Opens the dropdown by set the state to true.
+  /** Opens the dropdown by set the state to true. */
   const onHandleOpen = (): void => {
     setOpen(true);
   };
 
-  // Closes the dropdown by set the state to false.
+  /** Closes the dropdown by set the state to false. */
   const onHandleClose = (): void => {
     setOpen(false);
 
@@ -230,6 +229,7 @@ export function Dropdown<T extends HTMLElement>({
     <>
       {renderAnchor({
         ref: dropdownRef,
+        /** Attach internally ref with receive refs  */
         attachRefs: (ref) => mergeRefs([dropdownRef, ...ref]),
         open: onHandleOpen,
         close: onHandleClose,

@@ -20,3 +20,7 @@ npm-debug
 yarn.lock
 yarn-error.log
 .vercel
+
+# Files
+.env
+

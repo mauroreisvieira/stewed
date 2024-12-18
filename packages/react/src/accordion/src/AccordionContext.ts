@@ -21,10 +21,17 @@ const definitionError = (): null => {
  */
 export interface AccordionContextProps {
   /**
-   * Whether multiple items can be expanded at the same time.
+   * Determines whether multiple panels can be expanded at the same time.
    * @default false
    */
   multipleExpanded?: boolean;
+  /**
+   * Enables the browser's built-in page search to locate and expand panel contents.
+   * @remarks When set to `true`, this overrides the `multipleExpanded` prop and allows multiple panels
+   * to be expanded simultaneously if they are found by the browser's search functionality.
+   * @default true
+   */
+  hiddenUntilFound?: boolean;
   /**
    * Callback function triggered when the open state changes.
    * This function is called with the updated `open` array whenever the state changes.
@@ -52,6 +59,7 @@ export interface AccordionContextProps {
 }
 
 export const AccordionContext = createContext<AccordionContextProps>({
+  hiddenUntilFound: true,
   multipleExpanded: false,
   open: [],
   setOpen: definitionError,

@@ -27,6 +27,7 @@ export const Base: Story = {
       <Grid cols={10} gap="md">
         {objectKeys(Icon).map((key) => {
           const RenderIcon = Icon[key];
+
           return (
             <Tooltip<HTMLDivElement>
               renderAnchor={(props) => (

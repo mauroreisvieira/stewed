@@ -9,6 +9,12 @@
   &__item {
     display: flex;
     flex-direction: column;
+
+    &[hidden] {
+      .#{$accordion-root}__body {
+        display: none;
+      }
+    }
   }
 
   &__header {
@@ -26,6 +32,10 @@
     }
 
     @include text.typography("base", $overrides: (font-weight: theme.get-font-weight("medium")));
+
+    &--disabled {
+      @include theme.disabled-styles;
+    }
 
     &__text {
       flex-grow: 1;

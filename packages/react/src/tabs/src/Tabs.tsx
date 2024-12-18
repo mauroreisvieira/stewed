@@ -103,8 +103,7 @@ export function Tabs<T extends string>({
   appearance = "underline",
   alignment = "start",
   direction = "row",
-  hiddenUntilFound,
-  keepMounted,
+  keepMounted = false,
   className,
   children,
   onValueChange,
@@ -139,7 +138,6 @@ export function Tabs<T extends string>({
           value: value || selectedValue,
           setSelectedValue: setSelectedValue as (value: unknown) => void,
           onValueChange: onValueChange as (value: unknown) => void,
-          hiddenUntilFound,
           keepMounted
         }}
       >

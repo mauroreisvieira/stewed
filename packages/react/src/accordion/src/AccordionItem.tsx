@@ -49,6 +49,7 @@ export interface AccordionItemProps
 export function AccordionItem({
   value,
   defaultOpen = false,
+  disabled,
   children,
   className,
   ...props
@@ -57,7 +58,7 @@ export function AccordionItem({
   const { getBlock } = useBem({ block: `${components.Accordion}__item`, styles });
 
   // Importing useAccordion to manage the accordion state
-  const { setOpen, open } = useAccordion();
+  const { setOpen, open, hiddenUntilFound } = useAccordion();
 
   // Memoized check to determine if the current item is open.
   // This ensures that the component only re-renders when the `open` state or `value` changes.
@@ -77,8 +78,14 @@ export function AccordionItem({
   }, [defaultOpen, setOpen, value]);
 
   return (
-    <details className={cssClasses.root} open={isOpen} {...props}>
-      <AccordionItemContext value={{ value }}>
+    <details
+      className={cssClasses.root}
+      tabIndex={disabled ? -1 : undefined}
+      hidden={hiddenUntilFound ? undefined : !isOpen}
+      open={disabled ? defaultOpen : isOpen}
+      {...props}
+    >
+      <AccordionItemContext value={{ value, disabled }}>
         {typeof children === "function" ? children({ open: isOpen }) : children}
       </AccordionItemContext>
     </details>

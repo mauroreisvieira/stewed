@@ -1,4 +1,13 @@
-export const notifications = [
+export const RECENT_SEARCH = [
+  "Chill Vibes Only",
+  "Epic Movie Soundtracks",
+  "Rainy Day Blues",
+  "Throwback Hits: 90s & 2000s",
+  "Summer Road Trip Tunes",
+  "Electronic Chillout"
+];
+
+export const NOTIFICATIONS = [
   {
     id: "1",
     user: "Anna Smith",

@@ -54,7 +54,7 @@ export const Base: Story = {
     children: (
       <>
         {data.map(({ title, description, body }) => (
-          <Accordion.Item key={title} value={title}>
+          <Accordion.Item key={title} value={title} disabled={title === "Notifications"}>
             {({ open }) => (
               <>
                 <Accordion.Header rightSlot={open ? <FiChevronUp /> : <FiChevronDown />}>

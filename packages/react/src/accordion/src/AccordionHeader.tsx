@@ -42,11 +42,11 @@ export function AccordionHeader({
   const { setOpen, multipleExpanded, onOpenChange } = useAccordion();
 
   // Importing useAccordionItem to get the value of the accordion item
-  const { value } = useAccordionItem();
+  const { value, disabled } = useAccordionItem();
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ extraClasses: className }),
+    root: getBlock({ extraClasses: className, modifiers: [disabled && "disabled"] }),
     left: getElement(["left"]),
     right: getElement(["right"]),
     text: getElement(["text"])
@@ -63,6 +63,11 @@ export function AccordionHeader({
     (event): void => {
       // Prevent the default behavior of the details element (e.g., automatic toggle)
       event.preventDefault();
+
+      // Will prevent to close other items when click
+      if (disabled) {
+        return;
+      }
 
       // Update the `open` state based on whether the item is already open or not
       setOpen((prev) => {
@@ -91,11 +96,16 @@ export function AccordionHeader({
       // Call the optional onClick callback prop, if provided
       onClick?.(event);
     },
-    [multipleExpanded, onClick, setOpen, value, onOpenChange]
+    [multipleExpanded, onClick, setOpen, value, onOpenChange, disabled]
   );
 
   return (
-    <summary onClick={onHandleClick} className={cssClasses.root} {...props}>
+    <summary
+      onClick={onHandleClick}
+      className={cssClasses.root}
+      aria-disabled={disabled}
+      {...props}
+    >
       {leftSlot && <div className={cssClasses.left}>{leftSlot}</div>}
       <div className={cssClasses.text}>{children}</div>
       {rightSlot && <div className={cssClasses.right}>{rightSlot}</div>}
