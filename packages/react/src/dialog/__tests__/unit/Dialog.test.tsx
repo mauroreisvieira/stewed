@@ -20,7 +20,7 @@ describe("Dialog", () => {
 
     it("should renders close button component", () => {
       const { baseElement } = render(
-        <Dialog onClose={jest.fn()} open={true}>
+        <Dialog onClose={vitest.fn()} open={true}>
           <Dialog.Header>Header</Dialog.Header>
           <Dialog.Body>Body</Dialog.Body>
         </Dialog>

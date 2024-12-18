@@ -1,19 +1,19 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Pagination Snapshots should renders default component 1`] = `
+exports[`Pagination > Snapshots > should renders default component 1`] = `
 <div>
   <nav
-    class="pagination pagination--start"
+    class="_pagination_15d57b _pagination--start_15d57b"
     role="navigation"
   >
     <button
       aria-disabled="true"
       aria-label="Previous page"
-      class="button button--neutral-soft button--sm button--icon-only button--disabled"
+      class="_button_02ec15 _button--neutral-soft_02ec15 _button--sm_02ec15 _button--icon-only_02ec15 _button--disabled_02ec15"
       disabled=""
     >
       <span
-        class="button__left"
+        class="_button__left_02ec15"
       >
         <svg
           fill="none"
@@ -36,10 +36,10 @@ exports[`Pagination Snapshots should renders default component 1`] = `
       aria-current="true"
       aria-disabled="false"
       aria-selected="true"
-      class="button button--primary-filled button--sm"
+      class="_button_02ec15 _button--primary-filled_02ec15 _button--sm_02ec15"
     >
       <span
-        class="button__text"
+        class="_button__text_02ec15"
       >
         1
       </span>
@@ -48,10 +48,10 @@ exports[`Pagination Snapshots should renders default component 1`] = `
       aria-current="false"
       aria-disabled="false"
       aria-selected="false"
-      class="button button--neutral-ghost button--sm"
+      class="_button_02ec15 _button--neutral-ghost_02ec15 _button--sm_02ec15"
     >
       <span
-        class="button__text"
+        class="_button__text_02ec15"
       >
         2
       </span>
@@ -60,10 +60,10 @@ exports[`Pagination Snapshots should renders default component 1`] = `
       aria-current="false"
       aria-disabled="false"
       aria-selected="false"
-      class="button button--neutral-ghost button--sm"
+      class="_button_02ec15 _button--neutral-ghost_02ec15 _button--sm_02ec15"
     >
       <span
-        class="button__text"
+        class="_button__text_02ec15"
       >
         3
       </span>
@@ -71,10 +71,10 @@ exports[`Pagination Snapshots should renders default component 1`] = `
     <button
       aria-disabled="false"
       aria-label="Next page"
-      class="button button--neutral-soft button--sm button--icon-only"
+      class="_button_02ec15 _button--neutral-soft_02ec15 _button--sm_02ec15 _button--icon-only_02ec15"
     >
       <span
-        class="button__left"
+        class="_button__left_02ec15"
       >
         <svg
           fill="none"

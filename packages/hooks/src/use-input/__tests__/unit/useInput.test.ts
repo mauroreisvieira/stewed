@@ -4,10 +4,10 @@ import { renderHook, act } from "@testing-library/react";
 
 describe("useInput", () => {
   // Mock validate function for testing
-  const mockValidate = jest.fn(() => true);
+  const mockValidate = vi.fn(() => true);
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("should initialize with the provided initial value", () => {

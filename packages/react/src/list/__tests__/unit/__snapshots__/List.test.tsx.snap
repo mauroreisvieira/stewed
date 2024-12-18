@@ -1,12 +1,12 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`List Snapshots should apply 'bullet' skin classes 1`] = `
+exports[`List > Snapshots > should apply 'bullet' skin classes 1`] = `
 <div>
   <ul
-    class="list list--bullet list--gap-xs"
+    class="_list_05156b _list--bullet_05156b _list--gap-xs_05156b"
   >
     <li
-      class="list__item"
+      class="_list__item_05156b"
     >
       Item
     </li>
@@ -14,13 +14,13 @@ exports[`List Snapshots should apply 'bullet' skin classes 1`] = `
 </div>
 `;
 
-exports[`List Snapshots should apply 'decimal' skin classes 1`] = `
+exports[`List > Snapshots > should apply 'decimal' skin classes 1`] = `
 <div>
   <ul
-    class="list list--decimal list--gap-xs"
+    class="_list_05156b _list--decimal_05156b _list--gap-xs_05156b"
   >
     <li
-      class="list__item"
+      class="_list__item_05156b"
     >
       Item
     </li>
@@ -28,13 +28,13 @@ exports[`List Snapshots should apply 'decimal' skin classes 1`] = `
 </div>
 `;
 
-exports[`List Snapshots should apply 'none' skin classes 1`] = `
+exports[`List > Snapshots > should apply 'none' skin classes 1`] = `
 <div>
   <ul
-    class="list list--none list--gap-xs"
+    class="_list_05156b _list--none_05156b _list--gap-xs_05156b"
   >
     <li
-      class="list__item"
+      class="_list__item_05156b"
     >
       Item
     </li>
@@ -42,13 +42,13 @@ exports[`List Snapshots should apply 'none' skin classes 1`] = `
 </div>
 `;
 
-exports[`List Snapshots should render additional classes 1`] = `
+exports[`List > Snapshots > should render additional classes 1`] = `
 <div>
   <ul
-    class="list list--bullet list--gap-xs other-class"
+    class="_list_05156b _list--bullet_05156b _list--gap-xs_05156b other-class"
   >
     <li
-      class="list__item other-class"
+      class="_list__item_05156b other-class"
     >
       Item
     </li>
@@ -56,13 +56,13 @@ exports[`List Snapshots should render additional classes 1`] = `
 </div>
 `;
 
-exports[`List Snapshots should renders default component 1`] = `
+exports[`List > Snapshots > should renders default component 1`] = `
 <div>
   <ul
-    class="list list--bullet list--gap-xs"
+    class="_list_05156b _list--bullet_05156b _list--gap-xs_05156b"
   >
     <li
-      class="list__item"
+      class="_list__item_05156b"
     >
       Item
     </li>

@@ -1,12 +1,14 @@
+// Hook
 import { useKey } from "../index";
 // Utilities
 import { renderHook } from "@testing-library/react";
+import { type Mock } from "vitest";
 
 describe("useKey", () => {
-  let handler: jest.Mock;
+  let handler: Mock;
 
   beforeEach(() => {
-    handler = jest.fn();
+    handler = vi.fn();
   });
 
   it("should not call the callback when disabled", () => {

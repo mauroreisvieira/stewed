@@ -1,25 +1,25 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Accordion Snapshots should render additional classes 1`] = `
+exports[`Accordion > Snapshots > should render additional classes 1`] = `
 <div>
   <div
-    class="accordion accordion--default other-class"
+    class="_accordion_f13214 _accordion--border-row_f13214 other-class"
     role="group"
   >
     <details
-      class="accordion__item other-item-class"
+      class="_accordion__item_f13214 other-item-class"
     >
       <summary
-        class="accordion__header other-header-class"
+        class="_accordion__header_f13214 other-header-class"
       >
         <div
-          class="accordion__header__text"
+          class="_accordion__header__text_f13214"
         >
           Header
         </div>
       </summary>
       <div
-        class="accordion__body other-body-class"
+        class="_accordion__body_f13214 other-body-class"
       >
         Body
       </div>
@@ -28,31 +28,31 @@ exports[`Accordion Snapshots should render additional classes 1`] = `
 </div>
 `;
 
-exports[`Accordion Snapshots should render left slot content 1`] = `
+exports[`Accordion > Snapshots > should render left slot content 1`] = `
 <div>
   <div
-    class="accordion accordion--default"
+    class="_accordion_f13214 _accordion--border-row_f13214"
     role="group"
   >
     <details
-      class="accordion__item"
+      class="_accordion__item_f13214"
     >
       <summary
-        class="accordion__header"
+        class="_accordion__header_f13214"
       >
         <div
-          class="accordion__header__left"
+          class="_accordion__header__left_f13214"
         >
           Left slot
         </div>
         <div
-          class="accordion__header__text"
+          class="_accordion__header__text_f13214"
         >
           Header
         </div>
       </summary>
       <div
-        class="accordion__body"
+        class="_accordion__body_f13214"
       >
         Body
       </div>
@@ -61,31 +61,31 @@ exports[`Accordion Snapshots should render left slot content 1`] = `
 </div>
 `;
 
-exports[`Accordion Snapshots should render right slot content 1`] = `
+exports[`Accordion > Snapshots > should render right slot content 1`] = `
 <div>
   <div
-    class="accordion accordion--default"
+    class="_accordion_f13214 _accordion--border-row_f13214"
     role="group"
   >
     <details
-      class="accordion__item"
+      class="_accordion__item_f13214"
     >
       <summary
-        class="accordion__header"
+        class="_accordion__header_f13214"
       >
         <div
-          class="accordion__header__text"
+          class="_accordion__header__text_f13214"
         >
           Header
         </div>
         <div
-          class="accordion__header__right"
+          class="_accordion__header__right_f13214"
         >
           Right slot
         </div>
       </summary>
       <div
-        class="accordion__body"
+        class="_accordion__body_f13214"
       >
         Body
       </div>
@@ -94,26 +94,26 @@ exports[`Accordion Snapshots should render right slot content 1`] = `
 </div>
 `;
 
-exports[`Accordion Snapshots should renders default component 1`] = `
+exports[`Accordion > Snapshots > should renders default component 1`] = `
 <div>
   <div
-    class="accordion accordion--default"
+    class="_accordion_f13214 _accordion--border-row_f13214"
     role="group"
   >
     <details
-      class="accordion__item"
+      class="_accordion__item_f13214"
     >
       <summary
-        class="accordion__header"
+        class="_accordion__header_f13214"
       >
         <div
-          class="accordion__header__text"
+          class="_accordion__header__text_f13214"
         >
           Header
         </div>
       </summary>
       <div
-        class="accordion__body"
+        class="_accordion__body_f13214"
       >
         Body
       </div>

@@ -8,38 +8,42 @@ import react from "@vitejs/plugin-react-swc";
 import { libInjectCss } from "vite-plugin-lib-inject-css";
 
 const ReactCompilerConfig = {
-  target: "19", // '17' | '18' | '19'
+  target: "19" // '17' | '18' | '19'
 };
 
 export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        api: "modern-compiler", // or "modern", "legacy"
-      },
-    },
+        api: "modern-compiler" // or "modern", "legacy"
+      }
+    }
   },
   plugins: [
     react({
       babel: {
-        plugins: [["babel-plugin-react-compiler", ReactCompilerConfig]],
-      },
+        plugins: [["babel-plugin-react-compiler", ReactCompilerConfig]]
+      }
     }),
     libInjectCss(),
-    dts(),
+    dts()
   ],
+  test: {
+    globals: true,
+    environment: "jsdom"
+  },
   build: {
     copyPublicDir: false,
     lib: {
       entry: resolve(__dirname, "index.ts"),
-      formats: ["es"],
+      formats: ["es"]
     },
     rollupOptions: {
       plugins: [peerDepsExternal()],
       output: {
         assetFileNames: "assets/[name][extname]",
-        entryFileNames: "[name].js",
-      },
-    },
-  },
+        entryFileNames: "[name].js"
+      }
+    }
+  }
 });

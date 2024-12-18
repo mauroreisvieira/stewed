@@ -108,7 +108,7 @@ describe("Button", () => {
 
   describe("Events", () => {
     it("should trigger `onClick` event when clicked", async () => {
-      const handleClick = jest.fn();
+      const handleClick = vitest.fn();
 
       const { findByText } = render(<Button onClick={handleClick}>Button</Button>);
       const btn = await findByText("Button");

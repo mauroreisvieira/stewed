@@ -20,7 +20,7 @@ describe("Drawer", () => {
 
     it("should renders close button component", () => {
       const { baseElement } = render(
-        <Drawer onClose={jest.fn()} open={true}>
+        <Drawer onClose={vitest.fn()} open={true}>
           <Drawer.Header>Header</Drawer.Header>
           <Drawer.Body>Body</Drawer.Body>
         </Drawer>

@@ -1,79 +1,79 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Stack Snapshots should render additional classes 1`] = `
+exports[`Stack > Snapshots > should render additional classes 1`] = `
 <div>
   <div
-    class="stack stack--gap-none other-class"
+    class="_stack_b56052 _stack--gap-none_b56052 other-class"
   >
     Stack
   </div>
 </div>
 `;
 
-exports[`Stack Snapshots should render direction classes 1`] = `
+exports[`Stack > Snapshots > should render direction classes 1`] = `
 <div>
   <div
-    class="stack stack--column-reverse stack--gap-none"
+    class="_stack_b56052 _stack--column-reverse_b56052 _stack--gap-none_b56052"
   >
     Stack
   </div>
 </div>
 `;
 
-exports[`Stack Snapshots should render gap classes 1`] = `
+exports[`Stack > Snapshots > should render gap classes 1`] = `
 <div>
   <div
-    class="stack stack--gap-2xl"
+    class="_stack_b56052 _stack--gap-2xl_b56052"
   >
     Stack
   </div>
 </div>
 `;
 
-exports[`Stack Snapshots should render items classes 1`] = `
+exports[`Stack > Snapshots > should render items classes 1`] = `
 <div>
   <div
-    class="stack stack--gap-none stack--items-baseline"
+    class="_stack_b56052 _stack--gap-none_b56052 _stack--items-baseline_b56052"
   >
     Stack
   </div>
 </div>
 `;
 
-exports[`Stack Snapshots should render justify classes 1`] = `
+exports[`Stack > Snapshots > should render justify classes 1`] = `
 <div>
   <div
-    class="stack stack--gap-none stack--justify-around"
+    class="_stack_b56052 _stack--gap-none_b56052 _stack--justify-around_b56052"
   >
     Stack
   </div>
 </div>
 `;
 
-exports[`Stack Snapshots should render size classes 1`] = `
+exports[`Stack > Snapshots > should render size classes 1`] = `
 <div>
   <div
-    class="stack stack--gap-none stack--size-4"
+    class="_stack_b56052 _stack--gap-none_b56052 _stack--size-4_b56052"
   >
     Stack
   </div>
 </div>
 `;
 
-exports[`Stack Snapshots should renders component as main 1`] = `
+exports[`Stack > Snapshots > should renders component as main 1`] = `
 <div>
   <main
-    class="stack stack--gap-none"
+    class="_stack_b56052 _stack--gap-none_b56052"
   >
     Stack
   </main>
 </div>
 `;
 
-exports[`Stack Snapshots should renders default component 1`] = `
+exports[`Stack > Snapshots > should renders default component 1`] = `
 <div>
   <div
-    class="stack stack--gap-none"
+    class="_stack_b56052 _stack--gap-none_b56052"
   >
     Stack
   </div>

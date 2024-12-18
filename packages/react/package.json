@@ -10,7 +10,7 @@
   "license": "MIT",
   "scripts": {
     "build": "vite build",
-    "test:unit": "jest --testPathPattern=\".test.*\"",
+    "test:unit": "vitest run",
     "lint": "eslint .",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
@@ -30,13 +30,13 @@
     "@vitejs/plugin-react-swc": "^3.7.2",
     "esbuild-css-modules-plugin": "^3.1.2",
     "esbuild-sass-plugin": "^3.3.1",
-    "jest": "^29.7.0",
-    "jest-css-modules": "^2.1.0",
+    "jsdom": "^25.0.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "typescript": "^5.7.2",
     "vite": "^6.0.3",
     "vite-plugin-dts": "^4.3.0",
-    "vite-plugin-lib-inject-css": "^2.1.1"
+    "vite-plugin-lib-inject-css": "^2.1.1",
+    "vitest": "^2.1.8"
   },
   "peerDependencies": {
     "react": "^18.0 || ^19.0",

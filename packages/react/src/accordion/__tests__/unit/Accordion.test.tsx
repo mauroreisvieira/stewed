@@ -61,7 +61,7 @@ describe("Accordion", () => {
 
   describe("Events", () => {
     it("should trigger onClick event when header is clicked", async () => {
-      const handleClick = jest.fn();
+      const handleClick = vitest.fn();
 
       const { findByText } = render(
         <Accordion>
@@ -82,7 +82,7 @@ describe("Accordion", () => {
     });
 
     it("should trigger onKeyDown event when key is pressed on header", async () => {
-      const handleKeyDown = jest.fn();
+      const handleKeyDown = vi.fn();
 
       const { findByText } = render(
         <Accordion>

@@ -1,22 +1,22 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Card Snapshots should render additional classes 1`] = `
+exports[`Card > Snapshots > should render additional classes 1`] = `
 <div>
   <div
-    class="card card--column card--padding-block-xl card--padding-inline-xl card--shadow-sm other-class"
+    class="_card_382c82 _card--column_382c82 _card--padding-block-xl_382c82 _card--padding-inline-xl_382c82 _card--shadow-sm_382c82 other-class"
   >
     <div
-      class="card__header other-header-class"
+      class="_card__header_382c82 other-header-class"
     >
       Header
     </div>
     <div
-      class="card__body other-body-class"
+      class="_card__body_382c82 other-body-class"
     >
       Body
     </div>
     <div
-      class="card__footer other-footer-class"
+      class="_card__footer_382c82 other-footer-class"
     >
       Footer
     </div>
@@ -24,23 +24,23 @@ exports[`Card Snapshots should render additional classes 1`] = `
 </div>
 `;
 
-exports[`Card Snapshots should render direction classes 1`] = `
+exports[`Card > Snapshots > should render direction classes 1`] = `
 <div>
   <div
-    class="card card--row card--padding-block-xl card--padding-inline-xl card--shadow-sm"
+    class="_card_382c82 _card--row_382c82 _card--padding-block-xl_382c82 _card--padding-inline-xl_382c82 _card--shadow-sm_382c82"
   >
     <div
-      class="card__header"
+      class="_card__header_382c82"
     >
       Header
     </div>
     <div
-      class="card__body"
+      class="_card__body_382c82"
     >
       Body
     </div>
     <div
-      class="card__footer"
+      class="_card__footer_382c82"
     >
       Footer
     </div>
@@ -48,40 +48,39 @@ exports[`Card Snapshots should render direction classes 1`] = `
 </div>
 `;
 
-exports[`Card Snapshots should render media 1`] = `
+exports[`Card > Snapshots > should render media 1`] = `
 <div>
   <div
-    class="card card--row card--padding-block-xl card--padding-inline-xl card--shadow-sm"
+    class="_card_382c82 _card--row_382c82 _card--padding-block-xl_382c82 _card--padding-inline-xl_382c82 _card--shadow-sm_382c82"
   >
     <div
-      class="card__media"
+      class="_card__media_382c82"
     >
       <img
-        class="card__media__img"
-        src=""
+        class="_card__media__img_382c82"
       />
     </div>
   </div>
 </div>
 `;
 
-exports[`Card Snapshots should render padding classes 1`] = `
+exports[`Card > Snapshots > should render padding classes 1`] = `
 <div>
   <div
-    class="card card--column card--padding-block-md card--padding-inline-xl card--shadow-sm"
+    class="_card_382c82 _card--column_382c82 _card--padding-block-md_382c82 _card--padding-inline-xl_382c82 _card--shadow-sm_382c82"
   >
     <div
-      class="card__header"
+      class="_card__header_382c82"
     >
       Header
     </div>
     <div
-      class="card__body"
+      class="_card__body_382c82"
     >
       Body
     </div>
     <div
-      class="card__footer"
+      class="_card__footer_382c82"
     >
       Footer
     </div>
@@ -89,23 +88,23 @@ exports[`Card Snapshots should render padding classes 1`] = `
 </div>
 `;
 
-exports[`Card Snapshots should render shadow classes 1`] = `
+exports[`Card > Snapshots > should render shadow classes 1`] = `
 <div>
   <div
-    class="card card--column card--padding-block-xl card--padding-inline-xl card--shadow-3xl"
+    class="_card_382c82 _card--column_382c82 _card--padding-block-xl_382c82 _card--padding-inline-xl_382c82 _card--shadow-3xl_382c82"
   >
     <div
-      class="card__header"
+      class="_card__header_382c82"
     >
       Header
     </div>
     <div
-      class="card__body"
+      class="_card__body_382c82"
     >
       Body
     </div>
     <div
-      class="card__footer"
+      class="_card__footer_382c82"
     >
       Footer
     </div>
@@ -113,23 +112,23 @@ exports[`Card Snapshots should render shadow classes 1`] = `
 </div>
 `;
 
-exports[`Card Snapshots should renders default component 1`] = `
+exports[`Card > Snapshots > should renders default component 1`] = `
 <div>
   <div
-    class="card card--column card--padding-block-xl card--padding-inline-xl card--shadow-sm"
+    class="_card_382c82 _card--column_382c82 _card--padding-block-xl_382c82 _card--padding-inline-xl_382c82 _card--shadow-sm_382c82"
   >
     <div
-      class="card__header"
+      class="_card__header_382c82"
     >
       Header
     </div>
     <div
-      class="card__body"
+      class="_card__body_382c82"
     >
       Body
     </div>
     <div
-      class="card__footer"
+      class="_card__footer_382c82"
     >
       Footer
     </div>

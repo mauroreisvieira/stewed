@@ -1,19 +1,22 @@
+// Hook
 import { useMediaQuery } from "../../index";
 // Utilities
 import { renderHook, act } from "@testing-library/react";
+import { type Mock } from "vitest";
 
 describe("useMediaQuery", () => {
-  let mockMatchMedia: jest.Mock;
+  let mockMatchMedia: Mock;
 
   beforeEach(() => {
-    mockMatchMedia = jest.fn((query) => ({
+    mockMatchMedia = vi.fn((query) => ({
       matches: query.includes("min-width: 1024px"),
       media: query,
-      addListener: jest.fn(),
-      removeListener: jest.fn(),
-      addEventListener: jest.fn(),
-      removeEventListener: jest.fn()
+      addListener: vi.fn(),
+      removeListener: vi.fn(),
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn()
     }));
+
     window.matchMedia = mockMatchMedia;
   });
 
@@ -48,8 +51,8 @@ describe("useMediaQuery", () => {
   });
 
   it("updates when the media query changes", () => {
-    const mockAddEventListener = jest.fn();
-    const mockRemoveEventListener = jest.fn();
+    const mockAddEventListener = vi.fn();
+    const mockRemoveEventListener = vi.fn();
 
     mockMatchMedia.mockImplementation((query) => ({
       matches: query.includes("min-width: 1024px"),

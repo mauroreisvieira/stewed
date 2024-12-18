@@ -4,7 +4,7 @@ import { renderHook, act, waitFor } from "@testing-library/react";
 
 describe("useAsync", () => {
   it("initially sets status to 'idle' and does not call the async function if immediate is false", () => {
-    const asyncFunction = jest.fn().mockResolvedValue("Success");
+    const asyncFunction = vi.fn().mockResolvedValue("Success");
     const { result } = renderHook(() => useAsync(asyncFunction, false));
 
     expect(result.current.status).toBe("idle");
@@ -14,7 +14,7 @@ describe("useAsync", () => {
   });
 
   it("immediately calls async function and updates status/value on success when immediate is true", async () => {
-    const asyncFunction = jest.fn().mockResolvedValue("Success");
+    const asyncFunction = vi.fn().mockResolvedValue("Success");
     const { result } = renderHook(() => useAsync(asyncFunction, true));
 
     expect(result.current.status).toBe("pending");
@@ -30,7 +30,7 @@ describe("useAsync", () => {
 
   it("updates status to 'error' and sets error if async function fails", async () => {
     const error = new Error("it Error");
-    const asyncFunction = jest.fn().mockRejectedValue(error);
+    const asyncFunction = vi.fn().mockRejectedValue(error);
     const { result } = renderHook(() => useAsync(asyncFunction, true));
 
     expect(result.current.status).toBe("pending");
@@ -44,7 +44,7 @@ describe("useAsync", () => {
   });
 
   it("allows manual execution of the async function via execute method", async () => {
-    const asyncFunction = jest.fn().mockResolvedValue("Manual Success");
+    const asyncFunction = vi.fn().mockResolvedValue("Manual Success");
     const { result } = renderHook(() => useAsync(asyncFunction, false));
 
     expect(result.current.status).toBe("idle");
@@ -64,7 +64,7 @@ describe("useAsync", () => {
   });
 
   it("resets status and value each time execute is called", async () => {
-    const asyncFunction = jest
+    const asyncFunction = vi
       .fn()
       .mockResolvedValueOnce("First Success")
       .mockResolvedValueOnce("Second Success");

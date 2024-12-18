@@ -74,7 +74,7 @@ describe("Avatar", () => {
 
   describe("Events", () => {
     it("should trigger `onClick` event when clicked", async () => {
-      const handleClick = jest.fn();
+      const handleClick = vitest.fn();
 
       const { findByText } = render(<Avatar name="Emma Clark" onClick={handleClick} />);
       const btn = await findByText("EC");

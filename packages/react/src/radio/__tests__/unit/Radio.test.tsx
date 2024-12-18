@@ -45,7 +45,7 @@ describe("Radio", () => {
 
   describe("Events", () => {
     it("should trigger `onChange` event when value changes", () => {
-      const handleChange = jest.fn();
+      const handleChange = vitest.fn();
 
       // Render the Radio component
       const { getByLabelText } = render(

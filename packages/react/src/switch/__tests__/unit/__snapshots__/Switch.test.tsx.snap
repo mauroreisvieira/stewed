@@ -1,23 +1,23 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Switch Snapshots should apply 'critical' skin classes 1`] = `
+exports[`Switch > Snapshots > should apply 'critical' skin classes 1`] = `
 <div>
   <label
-    class="switch switch--critical switch--md"
+    class="_switch_b5c6ea _switch--critical_b5c6ea _switch--md_b5c6ea"
   >
     <input
-      class="switch__input"
+      class="_switch__input_b5c6ea"
       type="checkbox"
     />
     <span
-      class="switch__control"
+      class="_switch__control_b5c6ea"
     >
       <span
-        class="switch__thumb"
+        class="_switch__thumb_b5c6ea"
       />
     </span>
     <span
-      class="switch__text"
+      class="_switch__text_b5c6ea"
     >
       Switch
     </span>
@@ -25,24 +25,24 @@ exports[`Switch Snapshots should apply 'critical' skin classes 1`] = `
 </div>
 `;
 
-exports[`Switch Snapshots should apply 'lg' size classes 1`] = `
+exports[`Switch > Snapshots > should apply 'lg' size classes 1`] = `
 <div>
   <label
-    class="switch switch--primary switch--lg"
+    class="_switch_b5c6ea _switch--primary_b5c6ea _switch--lg_b5c6ea"
   >
     <input
-      class="switch__input"
+      class="_switch__input_b5c6ea"
       type="checkbox"
     />
     <span
-      class="switch__control"
+      class="_switch__control_b5c6ea"
     >
       <span
-        class="switch__thumb"
+        class="_switch__thumb_b5c6ea"
       />
     </span>
     <span
-      class="switch__text"
+      class="_switch__text_b5c6ea"
     >
       Switch
     </span>
@@ -50,24 +50,24 @@ exports[`Switch Snapshots should apply 'lg' size classes 1`] = `
 </div>
 `;
 
-exports[`Switch Snapshots should apply 'md' size classes 1`] = `
+exports[`Switch > Snapshots > should apply 'md' size classes 1`] = `
 <div>
   <label
-    class="switch switch--primary switch--md"
+    class="_switch_b5c6ea _switch--primary_b5c6ea _switch--md_b5c6ea"
   >
     <input
-      class="switch__input"
+      class="_switch__input_b5c6ea"
       type="checkbox"
     />
     <span
-      class="switch__control"
+      class="_switch__control_b5c6ea"
     >
       <span
-        class="switch__thumb"
+        class="_switch__thumb_b5c6ea"
       />
     </span>
     <span
-      class="switch__text"
+      class="_switch__text_b5c6ea"
     >
       Switch
     </span>
@@ -75,24 +75,24 @@ exports[`Switch Snapshots should apply 'md' size classes 1`] = `
 </div>
 `;
 
-exports[`Switch Snapshots should apply 'primary' skin classes 1`] = `
+exports[`Switch > Snapshots > should apply 'primary' skin classes 1`] = `
 <div>
   <label
-    class="switch switch--primary switch--md"
+    class="_switch_b5c6ea _switch--primary_b5c6ea _switch--md_b5c6ea"
   >
     <input
-      class="switch__input"
+      class="_switch__input_b5c6ea"
       type="checkbox"
     />
     <span
-      class="switch__control"
+      class="_switch__control_b5c6ea"
     >
       <span
-        class="switch__thumb"
+        class="_switch__thumb_b5c6ea"
       />
     </span>
     <span
-      class="switch__text"
+      class="_switch__text_b5c6ea"
     >
       Switch
     </span>
@@ -100,24 +100,24 @@ exports[`Switch Snapshots should apply 'primary' skin classes 1`] = `
 </div>
 `;
 
-exports[`Switch Snapshots should apply 'sm' size classes 1`] = `
+exports[`Switch > Snapshots > should apply 'sm' size classes 1`] = `
 <div>
   <label
-    class="switch switch--primary switch--sm"
+    class="_switch_b5c6ea _switch--primary_b5c6ea _switch--sm_b5c6ea"
   >
     <input
-      class="switch__input"
+      class="_switch__input_b5c6ea"
       type="checkbox"
     />
     <span
-      class="switch__control"
+      class="_switch__control_b5c6ea"
     >
       <span
-        class="switch__thumb"
+        class="_switch__thumb_b5c6ea"
       />
     </span>
     <span
-      class="switch__text"
+      class="_switch__text_b5c6ea"
     >
       Switch
     </span>
@@ -125,24 +125,24 @@ exports[`Switch Snapshots should apply 'sm' size classes 1`] = `
 </div>
 `;
 
-exports[`Switch Snapshots should apply 'success' skin classes 1`] = `
+exports[`Switch > Snapshots > should apply 'success' skin classes 1`] = `
 <div>
   <label
-    class="switch switch--success switch--md"
+    class="_switch_b5c6ea _switch--success_b5c6ea _switch--md_b5c6ea"
   >
     <input
-      class="switch__input"
+      class="_switch__input_b5c6ea"
       type="checkbox"
     />
     <span
-      class="switch__control"
+      class="_switch__control_b5c6ea"
     >
       <span
-        class="switch__thumb"
+        class="_switch__thumb_b5c6ea"
       />
     </span>
     <span
-      class="switch__text"
+      class="_switch__text_b5c6ea"
     >
       Switch
     </span>
@@ -150,24 +150,24 @@ exports[`Switch Snapshots should apply 'success' skin classes 1`] = `
 </div>
 `;
 
-exports[`Switch Snapshots should render additional classes 1`] = `
+exports[`Switch > Snapshots > should render additional classes 1`] = `
 <div>
   <label
-    class="switch switch--primary switch--md other-class"
+    class="_switch_b5c6ea _switch--primary_b5c6ea _switch--md_b5c6ea other-class"
   >
     <input
-      class="switch__input"
+      class="_switch__input_b5c6ea"
       type="checkbox"
     />
     <span
-      class="switch__control"
+      class="_switch__control_b5c6ea"
     >
       <span
-        class="switch__thumb"
+        class="_switch__thumb_b5c6ea"
       />
     </span>
     <span
-      class="switch__text"
+      class="_switch__text_b5c6ea"
     >
       Switch
     </span>
@@ -175,26 +175,26 @@ exports[`Switch Snapshots should render additional classes 1`] = `
 </div>
 `;
 
-exports[`Switch Snapshots should render loading 1`] = `
+exports[`Switch > Snapshots > should render loading 1`] = `
 <div>
   <label
-    class="switch switch--primary switch--md switch--loading"
+    class="_switch_b5c6ea _switch--primary_b5c6ea _switch--md_b5c6ea _switch--loading_b5c6ea"
   >
     <input
-      class="switch__input"
+      class="_switch__input_b5c6ea"
       type="checkbox"
     />
     <span
-      class="switch__control"
+      class="_switch__control_b5c6ea"
     >
       <span
-        class="switch__thumb"
+        class="_switch__thumb_b5c6ea"
       >
         <div
-          class="spinner spinner--default spinner--xs switch__spinner"
+          class="_spinner_c80566 _spinner--default_c80566 _spinner--xs_c80566 _switch__spinner_b5c6ea"
         >
           <svg
-            class="spinner__svg"
+            class="_spinner__svg_c80566"
             fill="currentColor"
             height="20"
             viewBox="0 0 48 48"
@@ -256,7 +256,7 @@ exports[`Switch Snapshots should render loading 1`] = `
       </span>
     </span>
     <span
-      class="switch__text"
+      class="_switch__text_b5c6ea"
     >
       Switch
     </span>
@@ -264,24 +264,24 @@ exports[`Switch Snapshots should render loading 1`] = `
 </div>
 `;
 
-exports[`Switch Snapshots should renders default component 1`] = `
+exports[`Switch > Snapshots > should renders default component 1`] = `
 <div>
   <label
-    class="switch switch--primary switch--md"
+    class="_switch_b5c6ea _switch--primary_b5c6ea _switch--md_b5c6ea"
   >
     <input
-      class="switch__input"
+      class="_switch__input_b5c6ea"
       type="checkbox"
     />
     <span
-      class="switch__control"
+      class="_switch__control_b5c6ea"
     >
       <span
-        class="switch__thumb"
+        class="_switch__thumb_b5c6ea"
       />
     </span>
     <span
-      class="switch__text"
+      class="_switch__text_b5c6ea"
     >
       Switch
     </span>

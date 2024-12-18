@@ -42,7 +42,7 @@ describe("Switch", () => {
 
   describe("Events", () => {
     it("should trigger `onChange` event when value changes", () => {
-      const handleChange = jest.fn();
+      const handleChange = vitest.fn();
 
       // Render the Switch component
       const { getByLabelText } = render(

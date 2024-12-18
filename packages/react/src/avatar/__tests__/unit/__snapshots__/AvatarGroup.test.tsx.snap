@@ -1,12 +1,12 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Avatar Group should render additional classes 1`] = `
+exports[`Avatar Group > should render additional classes 1`] = `
 <div>
   <div
-    class="avatar-group other-class"
+    class="_avatar-group_1dc355 other-class"
   >
     <div
-      class="avatar avatar--filled avatar--circle avatar--md avatar--primary"
+      class="_avatar_1dc355 _avatar--filled_1dc355 _avatar--circle_1dc355 _avatar--md_1dc355 _avatar--primary_1dc355"
     >
       EC
     </div>
@@ -14,13 +14,13 @@ exports[`Avatar Group should render additional classes 1`] = `
 </div>
 `;
 
-exports[`Avatar Group should renders default component 1`] = `
+exports[`Avatar Group > should renders default component 1`] = `
 <div>
   <div
-    class="avatar-group"
+    class="_avatar-group_1dc355"
   >
     <div
-      class="avatar avatar--filled avatar--circle avatar--md avatar--primary"
+      class="_avatar_1dc355 _avatar--filled_1dc355 _avatar--circle_1dc355 _avatar--md_1dc355 _avatar--primary_1dc355"
     >
       EC
     </div>

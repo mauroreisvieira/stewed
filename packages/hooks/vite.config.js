@@ -7,32 +7,36 @@ import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import react from "@vitejs/plugin-react-swc";
 
 const ReactCompilerConfig = {
-  target: "19", // '17' | '18' | '19'
+  target: "19" // '17' | '18' | '19'
 };
 
 export default defineConfig({
   plugins: [
     dts({
-      rollupTypes: true,
+      rollupTypes: true
     }),
     react({
       babel: {
-        plugins: [["babel-plugin-react-compiler", ReactCompilerConfig]],
-      },
-    }),
+        plugins: [["babel-plugin-react-compiler", ReactCompilerConfig]]
+      }
+    })
   ],
+  test: {
+    globals: true,
+    environment: "jsdom"
+  },
   build: {
     copyPublicDir: false,
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
-      formats: ["es"],
+      formats: ["es"]
     },
     rollupOptions: {
       plugins: [peerDepsExternal()],
       output: {
         assetFileNames: "assets/[name][extname]",
-        entryFileNames: "[name].js",
-      },
-    },
-  },
+        entryFileNames: "[name].js"
+      }
+    }
+  }
 });

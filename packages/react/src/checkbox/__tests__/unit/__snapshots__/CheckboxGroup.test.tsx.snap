@@ -1,23 +1,22 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`CheckboxGroup Snapshots should render additional classes 1`] = `
+exports[`CheckboxGroup > Snapshots > should render additional classes 1`] = `
 <div>
   <div
-    class="checkbox__group checkbox__group--horizontal other-class"
+    class="_checkbox__group_8d7086 _checkbox__group--horizontal_8d7086 other-class"
   >
     <label
-      class="checkbox checkbox--md checkbox--primary other-class"
+      class="_checkbox_8d7086 _checkbox--md_8d7086 _checkbox--primary_8d7086 other-class"
     >
       <input
-        class="checkbox__input"
+        class="_checkbox__input_8d7086"
         type="checkbox"
-        value=""
       />
       <span
-        class="checkbox__control"
+        class="_checkbox__control_8d7086"
       >
         <svg
-          class="checkbox__svg"
+          class="_checkbox__svg_8d7086"
           fill="currentColor"
           height="20"
           stroke-width="0"
@@ -31,7 +30,7 @@ exports[`CheckboxGroup Snapshots should render additional classes 1`] = `
         </svg>
       </span>
       <div
-        class="checkbox__text"
+        class="_checkbox__text_8d7086"
       >
         Checkbox
       </div>
@@ -40,24 +39,23 @@ exports[`CheckboxGroup Snapshots should render additional classes 1`] = `
 </div>
 `;
 
-exports[`CheckboxGroup Snapshots should renders default component 1`] = `
+exports[`CheckboxGroup > Snapshots > should renders default component 1`] = `
 <div>
   <div
-    class="checkbox__group checkbox__group--horizontal"
+    class="_checkbox__group_8d7086 _checkbox__group--horizontal_8d7086"
   >
     <label
-      class="checkbox checkbox--md checkbox--primary"
+      class="_checkbox_8d7086 _checkbox--md_8d7086 _checkbox--primary_8d7086"
     >
       <input
-        class="checkbox__input"
+        class="_checkbox__input_8d7086"
         type="checkbox"
-        value=""
       />
       <span
-        class="checkbox__control"
+        class="_checkbox__control_8d7086"
       >
         <svg
-          class="checkbox__svg"
+          class="_checkbox__svg_8d7086"
           fill="currentColor"
           height="20"
           stroke-width="0"
@@ -71,7 +69,7 @@ exports[`CheckboxGroup Snapshots should renders default component 1`] = `
         </svg>
       </span>
       <div
-        class="checkbox__text"
+        class="_checkbox__text_8d7086"
       >
         Checkbox
       </div>

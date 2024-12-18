@@ -1,15 +1,15 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Button Snapshots renders spinner when loading 1`] = `
+exports[`Button > Snapshots > renders spinner when loading 1`] = `
 <div>
   <button
-    class="button button--primary-filled button--md button--loading"
+    class="_button_02ec15 _button--primary-filled_02ec15 _button--md_02ec15 _button--loading_02ec15"
   >
     <div
-      class="spinner spinner--default spinner--md button__spinner"
+      class="_spinner_c80566 _spinner--default_c80566 _spinner--md_c80566 _button__spinner_02ec15"
     >
       <svg
-        class="spinner__svg"
+        class="_spinner__svg_c80566"
         fill="currentColor"
         height="20"
         viewBox="0 0 48 48"
@@ -69,7 +69,7 @@ exports[`Button Snapshots renders spinner when loading 1`] = `
       </svg>
     </div>
     <span
-      class="button__text"
+      class="_button__text_02ec15"
     >
       Button
     </span>
@@ -77,15 +77,15 @@ exports[`Button Snapshots renders spinner when loading 1`] = `
 </div>
 `;
 
-exports[`Button Snapshots should applies disabled classes 1`] = `
+exports[`Button > Snapshots > should applies disabled classes 1`] = `
 <div>
   <button
     aria-disabled="true"
-    class="button button--primary-filled button--md button--disabled"
+    class="_button_02ec15 _button--primary-filled_02ec15 _button--md_02ec15 _button--disabled_02ec15"
     disabled=""
   >
     <span
-      class="button__text"
+      class="_button__text_02ec15"
     >
       Button
     </span>
@@ -93,13 +93,13 @@ exports[`Button Snapshots should applies disabled classes 1`] = `
 </div>
 `;
 
-exports[`Button Snapshots should applies fullWidth classes 1`] = `
+exports[`Button > Snapshots > should applies fullWidth classes 1`] = `
 <div>
   <button
-    class="button button--primary-filled button--md button--full-width"
+    class="_button_02ec15 _button--primary-filled_02ec15 _button--md_02ec15 _button--full-width_02ec15"
   >
     <span
-      class="button__text"
+      class="_button__text_02ec15"
     >
       Button
     </span>
@@ -107,25 +107,25 @@ exports[`Button Snapshots should applies fullWidth classes 1`] = `
 </div>
 `;
 
-exports[`Button Snapshots should applies icon-only classes 1`] = `
+exports[`Button > Snapshots > should applies icon-only classes 1`] = `
 <div>
   <button
-    class="button button--primary-filled button--md button--icon-only"
+    class="_button_02ec15 _button--primary-filled_02ec15 _button--md_02ec15 _button--icon-only_02ec15"
   >
     <span
-      class="button__left"
+      class="_button__left_02ec15"
     >
       <i
         class="fas fa-star"
       />
     </span>
     <span
-      class="button__text"
+      class="_button__text_02ec15"
     >
       Button
     </span>
     <span
-      class="button__right"
+      class="_button__right_02ec15"
     >
       <i
         class="fas fa-star"
@@ -135,14 +135,14 @@ exports[`Button Snapshots should applies icon-only classes 1`] = `
 </div>
 `;
 
-exports[`Button Snapshots should applies pressed classes 1`] = `
+exports[`Button > Snapshots > should applies pressed classes 1`] = `
 <div>
   <button
     aria-pressed="true"
-    class="button button--primary-filled button--md button--pressed"
+    class="_button_02ec15 _button--primary-filled_02ec15 _button--md_02ec15 _button--pressed_02ec15"
   >
     <span
-      class="button__text"
+      class="_button__text_02ec15"
     >
       Button
     </span>
@@ -150,13 +150,13 @@ exports[`Button Snapshots should applies pressed classes 1`] = `
 </div>
 `;
 
-exports[`Button Snapshots should apply 'critical' skin classes 1`] = `
+exports[`Button > Snapshots > should apply 'critical' skin classes 1`] = `
 <div>
   <button
-    class="button button--critical-filled button--md"
+    class="_button_02ec15 _button--critical-filled_02ec15 _button--md_02ec15"
   >
     <span
-      class="button__text"
+      class="_button__text_02ec15"
     >
       Button
     </span>
@@ -164,13 +164,13 @@ exports[`Button Snapshots should apply 'critical' skin classes 1`] = `
 </div>
 `;
 
-exports[`Button Snapshots should apply 'filled' appearance classes 1`] = `
+exports[`Button > Snapshots > should apply 'filled' appearance classes 1`] = `
 <div>
   <button
-    class="button button--primary-filled button--md"
+    class="_button_02ec15 _button--primary-filled_02ec15 _button--md_02ec15"
   >
     <span
-      class="button__text"
+      class="_button__text_02ec15"
     >
       Button
     </span>
@@ -178,13 +178,13 @@ exports[`Button Snapshots should apply 'filled' appearance classes 1`] = `
 </div>
 `;
 
-exports[`Button Snapshots should apply 'ghost' appearance classes 1`] = `
+exports[`Button > Snapshots > should apply 'ghost' appearance classes 1`] = `
 <div>
   <button
-    class="button button--primary-ghost button--md"
+    class="_button_02ec15 _button--primary-ghost_02ec15 _button--md_02ec15"
   >
     <span
-      class="button__text"
+      class="_button__text_02ec15"
     >
       Button
     </span>
@@ -192,13 +192,13 @@ exports[`Button Snapshots should apply 'ghost' appearance classes 1`] = `
 </div>
 `;
 
-exports[`Button Snapshots should apply 'lg' size classes 1`] = `
+exports[`Button > Snapshots > should apply 'lg' size classes 1`] = `
 <div>
   <button
-    class="button button--primary-filled button--lg"
+    class="_button_02ec15 _button--primary-filled_02ec15 _button--lg_02ec15"
   >
     <span
-      class="button__text"
+      class="_button__text_02ec15"
     >
       Button
     </span>
@@ -206,13 +206,13 @@ exports[`Button Snapshots should apply 'lg' size classes 1`] = `
 </div>
 `;
 
-exports[`Button Snapshots should apply 'md' size classes 1`] = `
+exports[`Button > Snapshots > should apply 'md' size classes 1`] = `
 <div>
   <button
-    class="button button--primary-filled button--md"
+    class="_button_02ec15 _button--primary-filled_02ec15 _button--md_02ec15"
   >
     <span
-      class="button__text"
+      class="_button__text_02ec15"
     >
       Button
     </span>
@@ -220,13 +220,13 @@ exports[`Button Snapshots should apply 'md' size classes 1`] = `
 </div>
 `;
 
-exports[`Button Snapshots should apply 'neutral' skin classes 1`] = `
+exports[`Button > Snapshots > should apply 'neutral' skin classes 1`] = `
 <div>
   <button
-    class="button button--neutral-filled button--md"
+    class="_button_02ec15 _button--neutral-filled_02ec15 _button--md_02ec15"
   >
     <span
-      class="button__text"
+      class="_button__text_02ec15"
     >
       Button
     </span>
@@ -234,13 +234,13 @@ exports[`Button Snapshots should apply 'neutral' skin classes 1`] = `
 </div>
 `;
 
-exports[`Button Snapshots should apply 'outline' appearance classes 1`] = `
+exports[`Button > Snapshots > should apply 'outline' appearance classes 1`] = `
 <div>
   <button
-    class="button button--primary-outline button--md"
+    class="_button_02ec15 _button--primary-outline_02ec15 _button--md_02ec15"
   >
     <span
-      class="button__text"
+      class="_button__text_02ec15"
     >
       Button
     </span>
@@ -248,13 +248,13 @@ exports[`Button Snapshots should apply 'outline' appearance classes 1`] = `
 </div>
 `;
 
-exports[`Button Snapshots should apply 'primary' skin classes 1`] = `
+exports[`Button > Snapshots > should apply 'primary' skin classes 1`] = `
 <div>
   <button
-    class="button button--primary-filled button--md"
+    class="_button_02ec15 _button--primary-filled_02ec15 _button--md_02ec15"
   >
     <span
-      class="button__text"
+      class="_button__text_02ec15"
     >
       Button
     </span>
@@ -262,13 +262,13 @@ exports[`Button Snapshots should apply 'primary' skin classes 1`] = `
 </div>
 `;
 
-exports[`Button Snapshots should apply 'secondary' skin classes 1`] = `
+exports[`Button > Snapshots > should apply 'secondary' skin classes 1`] = `
 <div>
   <button
-    class="button button--secondary-filled button--md"
+    class="_button_02ec15 _button--secondary-filled_02ec15 _button--md_02ec15"
   >
     <span
-      class="button__text"
+      class="_button__text_02ec15"
     >
       Button
     </span>
@@ -276,13 +276,13 @@ exports[`Button Snapshots should apply 'secondary' skin classes 1`] = `
 </div>
 `;
 
-exports[`Button Snapshots should apply 'sm' size classes 1`] = `
+exports[`Button > Snapshots > should apply 'sm' size classes 1`] = `
 <div>
   <button
-    class="button button--primary-filled button--sm"
+    class="_button_02ec15 _button--primary-filled_02ec15 _button--sm_02ec15"
   >
     <span
-      class="button__text"
+      class="_button__text_02ec15"
     >
       Button
     </span>
@@ -290,13 +290,13 @@ exports[`Button Snapshots should apply 'sm' size classes 1`] = `
 </div>
 `;
 
-exports[`Button Snapshots should apply 'soft' appearance classes 1`] = `
+exports[`Button > Snapshots > should apply 'soft' appearance classes 1`] = `
 <div>
   <button
-    class="button button--primary-soft button--md"
+    class="_button_02ec15 _button--primary-soft_02ec15 _button--md_02ec15"
   >
     <span
-      class="button__text"
+      class="_button__text_02ec15"
     >
       Button
     </span>
@@ -304,13 +304,13 @@ exports[`Button Snapshots should apply 'soft' appearance classes 1`] = `
 </div>
 `;
 
-exports[`Button Snapshots should apply 'success' skin classes 1`] = `
+exports[`Button > Snapshots > should apply 'success' skin classes 1`] = `
 <div>
   <button
-    class="button button--success-filled button--md"
+    class="_button_02ec15 _button--success-filled_02ec15 _button--md_02ec15"
   >
     <span
-      class="button__text"
+      class="_button__text_02ec15"
     >
       Button
     </span>
@@ -318,13 +318,13 @@ exports[`Button Snapshots should apply 'success' skin classes 1`] = `
 </div>
 `;
 
-exports[`Button Snapshots should apply 'xl' size classes 1`] = `
+exports[`Button > Snapshots > should apply 'xl' size classes 1`] = `
 <div>
   <button
-    class="button button--primary-filled button--xl"
+    class="_button_02ec15 _button--primary-filled_02ec15 _button--xl_02ec15"
   >
     <span
-      class="button__text"
+      class="_button__text_02ec15"
     >
       Button
     </span>
@@ -332,13 +332,13 @@ exports[`Button Snapshots should apply 'xl' size classes 1`] = `
 </div>
 `;
 
-exports[`Button Snapshots should apply 'xs' size classes 1`] = `
+exports[`Button > Snapshots > should apply 'xs' size classes 1`] = `
 <div>
   <button
-    class="button button--primary-filled button--xs"
+    class="_button_02ec15 _button--primary-filled_02ec15 _button--xs_02ec15"
   >
     <span
-      class="button__text"
+      class="_button__text_02ec15"
     >
       Button
     </span>
@@ -346,13 +346,13 @@ exports[`Button Snapshots should apply 'xs' size classes 1`] = `
 </div>
 `;
 
-exports[`Button Snapshots should render additional classes 1`] = `
+exports[`Button > Snapshots > should render additional classes 1`] = `
 <div>
   <button
-    class="button button--primary-filled button--md other-class"
+    class="_button_02ec15 _button--primary-filled_02ec15 _button--md_02ec15 other-class"
   >
     <span
-      class="button__text"
+      class="_button__text_02ec15"
     >
       Button
     </span>
@@ -360,18 +360,18 @@ exports[`Button Snapshots should render additional classes 1`] = `
 </div>
 `;
 
-exports[`Button Snapshots should render left slot content 1`] = `
+exports[`Button > Snapshots > should render left slot content 1`] = `
 <div>
   <button
-    class="button button--primary-filled button--md"
+    class="_button_02ec15 _button--primary-filled_02ec15 _button--md_02ec15"
   >
     <span
-      class="button__left"
+      class="_button__left_02ec15"
     >
       Left slot
     </span>
     <span
-      class="button__text"
+      class="_button__text_02ec15"
     >
       Button
     </span>
@@ -379,18 +379,18 @@ exports[`Button Snapshots should render left slot content 1`] = `
 </div>
 `;
 
-exports[`Button Snapshots should render right slot content 1`] = `
+exports[`Button > Snapshots > should render right slot content 1`] = `
 <div>
   <button
-    class="button button--primary-filled button--md"
+    class="_button_02ec15 _button--primary-filled_02ec15 _button--md_02ec15"
   >
     <span
-      class="button__text"
+      class="_button__text_02ec15"
     >
       Button
     </span>
     <span
-      class="button__right"
+      class="_button__right_02ec15"
     >
       Right slot
     </span>
@@ -398,14 +398,14 @@ exports[`Button Snapshots should render right slot content 1`] = `
 </div>
 `;
 
-exports[`Button Snapshots should renders component as anchor 1`] = `
+exports[`Button > Snapshots > should renders component as anchor 1`] = `
 <div>
   <a
-    class="button button--primary-filled button--md"
+    class="_button_02ec15 _button--primary-filled_02ec15 _button--md_02ec15"
     href="#"
   >
     <span
-      class="button__text"
+      class="_button__text_02ec15"
     >
       Button
     </span>
@@ -413,13 +413,13 @@ exports[`Button Snapshots should renders component as anchor 1`] = `
 </div>
 `;
 
-exports[`Button Snapshots should renders default component 1`] = `
+exports[`Button > Snapshots > should renders default component 1`] = `
 <div>
   <button
-    class="button button--primary-filled button--md"
+    class="_button_02ec15 _button--primary-filled_02ec15 _button--md_02ec15"
   >
     <span
-      class="button__text"
+      class="_button__text_02ec15"
     >
       Button
     </span>

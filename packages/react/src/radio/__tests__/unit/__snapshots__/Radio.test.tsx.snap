@@ -1,20 +1,19 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Radio Snapshots should apply 'border' appearance classes 1`] = `
+exports[`Radio > Snapshots > should apply 'border' appearance classes 1`] = `
 <div>
   <label
-    class="radio radio--primary radio--border radio--md"
+    class="_radio_ec96d8 _radio--primary_ec96d8 _radio--border_ec96d8 _radio--md_ec96d8"
   >
     <input
-      class="radio__input"
+      class="_radio__input_ec96d8"
       type="radio"
-      value=""
     />
     <span
-      class="radio__control"
+      class="_radio__control_ec96d8"
     />
     <div
-      class="radio__text"
+      class="_radio__text_ec96d8"
     >
       Radio
     </div>
@@ -22,21 +21,20 @@ exports[`Radio Snapshots should apply 'border' appearance classes 1`] = `
 </div>
 `;
 
-exports[`Radio Snapshots should apply 'critical' skin classes 1`] = `
+exports[`Radio > Snapshots > should apply 'critical' skin classes 1`] = `
 <div>
   <label
-    class="radio radio--critical radio--md"
+    class="_radio_ec96d8 _radio--critical_ec96d8 _radio--md_ec96d8"
   >
     <input
-      class="radio__input"
+      class="_radio__input_ec96d8"
       type="radio"
-      value=""
     />
     <span
-      class="radio__control"
+      class="_radio__control_ec96d8"
     />
     <div
-      class="radio__text"
+      class="_radio__text_ec96d8"
     >
       Radio
     </div>
@@ -44,21 +42,20 @@ exports[`Radio Snapshots should apply 'critical' skin classes 1`] = `
 </div>
 `;
 
-exports[`Radio Snapshots should apply 'default' appearance classes 1`] = `
+exports[`Radio > Snapshots > should apply 'default' appearance classes 1`] = `
 <div>
   <label
-    class="radio radio--primary radio--md"
+    class="_radio_ec96d8 _radio--primary_ec96d8 _radio--md_ec96d8"
   >
     <input
-      class="radio__input"
+      class="_radio__input_ec96d8"
       type="radio"
-      value=""
     />
     <span
-      class="radio__control"
+      class="_radio__control_ec96d8"
     />
     <div
-      class="radio__text"
+      class="_radio__text_ec96d8"
     >
       Radio
     </div>
@@ -66,21 +63,20 @@ exports[`Radio Snapshots should apply 'default' appearance classes 1`] = `
 </div>
 `;
 
-exports[`Radio Snapshots should apply 'lg' size classes 1`] = `
+exports[`Radio > Snapshots > should apply 'lg' size classes 1`] = `
 <div>
   <label
-    class="radio radio--primary radio--lg"
+    class="_radio_ec96d8 _radio--primary_ec96d8 _radio--lg_ec96d8"
   >
     <input
-      class="radio__input"
+      class="_radio__input_ec96d8"
       type="radio"
-      value=""
     />
     <span
-      class="radio__control"
+      class="_radio__control_ec96d8"
     />
     <div
-      class="radio__text"
+      class="_radio__text_ec96d8"
     >
       Radio
     </div>
@@ -88,21 +84,20 @@ exports[`Radio Snapshots should apply 'lg' size classes 1`] = `
 </div>
 `;
 
-exports[`Radio Snapshots should apply 'md' size classes 1`] = `
+exports[`Radio > Snapshots > should apply 'md' size classes 1`] = `
 <div>
   <label
-    class="radio radio--primary radio--md"
+    class="_radio_ec96d8 _radio--primary_ec96d8 _radio--md_ec96d8"
   >
     <input
-      class="radio__input"
+      class="_radio__input_ec96d8"
       type="radio"
-      value=""
     />
     <span
-      class="radio__control"
+      class="_radio__control_ec96d8"
     />
     <div
-      class="radio__text"
+      class="_radio__text_ec96d8"
     >
       Radio
     </div>
@@ -110,21 +105,20 @@ exports[`Radio Snapshots should apply 'md' size classes 1`] = `
 </div>
 `;
 
-exports[`Radio Snapshots should apply 'primary' skin classes 1`] = `
+exports[`Radio > Snapshots > should apply 'primary' skin classes 1`] = `
 <div>
   <label
-    class="radio radio--primary radio--md"
+    class="_radio_ec96d8 _radio--primary_ec96d8 _radio--md_ec96d8"
   >
     <input
-      class="radio__input"
+      class="_radio__input_ec96d8"
       type="radio"
-      value=""
     />
     <span
-      class="radio__control"
+      class="_radio__control_ec96d8"
     />
     <div
-      class="radio__text"
+      class="_radio__text_ec96d8"
     >
       Radio
     </div>
@@ -132,21 +126,20 @@ exports[`Radio Snapshots should apply 'primary' skin classes 1`] = `
 </div>
 `;
 
-exports[`Radio Snapshots should apply 'sm' size classes 1`] = `
+exports[`Radio > Snapshots > should apply 'sm' size classes 1`] = `
 <div>
   <label
-    class="radio radio--primary radio--sm"
+    class="_radio_ec96d8 _radio--primary_ec96d8 _radio--sm_ec96d8"
   >
     <input
-      class="radio__input"
+      class="_radio__input_ec96d8"
       type="radio"
-      value=""
     />
     <span
-      class="radio__control"
+      class="_radio__control_ec96d8"
     />
     <div
-      class="radio__text"
+      class="_radio__text_ec96d8"
     >
       Radio
     </div>
@@ -154,21 +147,20 @@ exports[`Radio Snapshots should apply 'sm' size classes 1`] = `
 </div>
 `;
 
-exports[`Radio Snapshots should apply 'success' skin classes 1`] = `
+exports[`Radio > Snapshots > should apply 'success' skin classes 1`] = `
 <div>
   <label
-    class="radio radio--success radio--md"
+    class="_radio_ec96d8 _radio--success_ec96d8 _radio--md_ec96d8"
   >
     <input
-      class="radio__input"
+      class="_radio__input_ec96d8"
       type="radio"
-      value=""
     />
     <span
-      class="radio__control"
+      class="_radio__control_ec96d8"
     />
     <div
-      class="radio__text"
+      class="_radio__text_ec96d8"
     >
       Radio
     </div>
@@ -176,21 +168,20 @@ exports[`Radio Snapshots should apply 'success' skin classes 1`] = `
 </div>
 `;
 
-exports[`Radio Snapshots should render additional classes 1`] = `
+exports[`Radio > Snapshots > should render additional classes 1`] = `
 <div>
   <label
-    class="radio radio--primary radio--md other-class"
+    class="_radio_ec96d8 _radio--primary_ec96d8 _radio--md_ec96d8 other-class"
   >
     <input
-      class="radio__input"
+      class="_radio__input_ec96d8"
       type="radio"
-      value=""
     />
     <span
-      class="radio__control"
+      class="_radio__control_ec96d8"
     />
     <div
-      class="radio__text"
+      class="_radio__text_ec96d8"
     >
       Radio
     </div>
@@ -198,21 +189,20 @@ exports[`Radio Snapshots should render additional classes 1`] = `
 </div>
 `;
 
-exports[`Radio Snapshots should renders default component 1`] = `
+exports[`Radio > Snapshots > should renders default component 1`] = `
 <div>
   <label
-    class="radio radio--primary radio--md"
+    class="_radio_ec96d8 _radio--primary_ec96d8 _radio--md_ec96d8"
   >
     <input
-      class="radio__input"
+      class="_radio__input_ec96d8"
       type="radio"
-      value=""
     />
     <span
-      class="radio__control"
+      class="_radio__control_ec96d8"
     />
     <div
-      class="radio__text"
+      class="_radio__text_ec96d8"
     >
       Radio
     </div>

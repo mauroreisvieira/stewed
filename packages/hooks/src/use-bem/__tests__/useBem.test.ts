@@ -3,19 +3,13 @@ import { useBem } from "../../index";
 import { renderHook } from "@testing-library/react";
 
 // Mock classNames utility
-jest.mock("@stewed/utilities", () => ({
-  classNames: jest.fn((...args: string[]) => args.filter(Boolean).join(" "))
-}));
-
-// Mock useCallback
-jest.mock("react", () => ({
-  ...jest.requireActual("react"),
-  useCallback: jest.fn((callback) => callback)
+vi.mock("@stewed/utilities", () => ({
+  classNames: vi.fn((...args: string[]) => args.filter(Boolean).join(" "))
 }));
 
 describe("useBem", () => {
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("should generate correct class names for block", () => {

@@ -1,152 +1,152 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Tag Snapshots should apply 'critical' skin classes 1`] = `
+exports[`Tag > Snapshots > should apply 'critical' skin classes 1`] = `
 <div>
   <span
-    class="tag tag--critical-filled tag--md"
+    class="_tag_422e8e _tag--critical-filled_422e8e _tag--md_422e8e"
   >
     Tag
   </span>
 </div>
 `;
 
-exports[`Tag Snapshots should apply 'filled' appearance classes 1`] = `
+exports[`Tag > Snapshots > should apply 'filled' appearance classes 1`] = `
 <div>
   <span
-    class="tag tag--primary-filled tag--md"
+    class="_tag_422e8e _tag--primary-filled_422e8e _tag--md_422e8e"
   >
     Tag
   </span>
 </div>
 `;
 
-exports[`Tag Snapshots should apply 'ghost' appearance classes 1`] = `
+exports[`Tag > Snapshots > should apply 'ghost' appearance classes 1`] = `
 <div>
   <span
-    class="tag tag--primary-ghost tag--md"
+    class="_tag_422e8e _tag--primary-ghost_422e8e _tag--md_422e8e"
   >
     Tag
   </span>
 </div>
 `;
 
-exports[`Tag Snapshots should apply 'lg' size classes 1`] = `
+exports[`Tag > Snapshots > should apply 'lg' size classes 1`] = `
 <div>
   <span
-    class="tag tag--primary-filled tag--lg"
+    class="_tag_422e8e _tag--primary-filled_422e8e _tag--lg_422e8e"
   >
     Tag
   </span>
 </div>
 `;
 
-exports[`Tag Snapshots should apply 'md' size classes 1`] = `
+exports[`Tag > Snapshots > should apply 'md' size classes 1`] = `
 <div>
   <span
-    class="tag tag--primary-filled tag--md"
+    class="_tag_422e8e _tag--primary-filled_422e8e _tag--md_422e8e"
   >
     Tag
   </span>
 </div>
 `;
 
-exports[`Tag Snapshots should apply 'neutral' skin classes 1`] = `
+exports[`Tag > Snapshots > should apply 'neutral' skin classes 1`] = `
 <div>
   <span
-    class="tag tag--neutral-filled tag--md"
+    class="_tag_422e8e _tag--neutral-filled_422e8e _tag--md_422e8e"
   >
     Tag
   </span>
 </div>
 `;
 
-exports[`Tag Snapshots should apply 'outline' appearance classes 1`] = `
+exports[`Tag > Snapshots > should apply 'outline' appearance classes 1`] = `
 <div>
   <span
-    class="tag tag--primary-outline tag--md"
+    class="_tag_422e8e _tag--primary-outline_422e8e _tag--md_422e8e"
   >
     Tag
   </span>
 </div>
 `;
 
-exports[`Tag Snapshots should apply 'primary' skin classes 1`] = `
+exports[`Tag > Snapshots > should apply 'primary' skin classes 1`] = `
 <div>
   <span
-    class="tag tag--primary-filled tag--md"
+    class="_tag_422e8e _tag--primary-filled_422e8e _tag--md_422e8e"
   >
     Tag
   </span>
 </div>
 `;
 
-exports[`Tag Snapshots should apply 'secondary' skin classes 1`] = `
+exports[`Tag > Snapshots > should apply 'secondary' skin classes 1`] = `
 <div>
   <span
-    class="tag tag--secondary-filled tag--md"
+    class="_tag_422e8e _tag--secondary-filled_422e8e _tag--md_422e8e"
   >
     Tag
   </span>
 </div>
 `;
 
-exports[`Tag Snapshots should apply 'sm' size classes 1`] = `
+exports[`Tag > Snapshots > should apply 'sm' size classes 1`] = `
 <div>
   <span
-    class="tag tag--primary-filled tag--sm"
+    class="_tag_422e8e _tag--primary-filled_422e8e _tag--sm_422e8e"
   >
     Tag
   </span>
 </div>
 `;
 
-exports[`Tag Snapshots should apply 'soft' appearance classes 1`] = `
+exports[`Tag > Snapshots > should apply 'soft' appearance classes 1`] = `
 <div>
   <span
-    class="tag tag--primary-soft tag--md"
+    class="_tag_422e8e _tag--primary-soft_422e8e _tag--md_422e8e"
   >
     Tag
   </span>
 </div>
 `;
 
-exports[`Tag Snapshots should apply 'success' skin classes 1`] = `
+exports[`Tag > Snapshots > should apply 'success' skin classes 1`] = `
 <div>
   <span
-    class="tag tag--success-filled tag--md"
+    class="_tag_422e8e _tag--success-filled_422e8e _tag--md_422e8e"
   >
     Tag
   </span>
 </div>
 `;
 
-exports[`Tag Snapshots should apply 'xs' size classes 1`] = `
+exports[`Tag > Snapshots > should apply 'xs' size classes 1`] = `
 <div>
   <span
-    class="tag tag--primary-filled tag--xs"
+    class="_tag_422e8e _tag--primary-filled_422e8e _tag--xs_422e8e"
   >
     Tag
   </span>
 </div>
 `;
 
-exports[`Tag Snapshots should render additional classes 1`] = `
+exports[`Tag > Snapshots > should render additional classes 1`] = `
 <div>
   <span
-    class="tag tag--primary-filled tag--md other-class"
+    class="_tag_422e8e _tag--primary-filled_422e8e _tag--md_422e8e other-class"
   >
     Tag
   </span>
 </div>
 `;
 
-exports[`Tag Snapshots should render left slot content 1`] = `
+exports[`Tag > Snapshots > should render left slot content 1`] = `
 <div>
   <span
-    class="tag tag--primary-filled tag--md"
+    class="_tag_422e8e _tag--primary-filled_422e8e _tag--md_422e8e"
   >
     <span
-      class="tag__left"
+      class="_tag__left_422e8e"
     >
       Left slot
     </span>
@@ -155,14 +155,14 @@ exports[`Tag Snapshots should render left slot content 1`] = `
 </div>
 `;
 
-exports[`Tag Snapshots should render right slot content 1`] = `
+exports[`Tag > Snapshots > should render right slot content 1`] = `
 <div>
   <span
-    class="tag tag--primary-filled tag--md"
+    class="_tag_422e8e _tag--primary-filled_422e8e _tag--md_422e8e"
   >
     Tag
     <span
-      class="tag__right"
+      class="_tag__right_422e8e"
     >
       Right slot
     </span>
@@ -170,10 +170,10 @@ exports[`Tag Snapshots should render right slot content 1`] = `
 </div>
 `;
 
-exports[`Tag Snapshots should renders component as anchor 1`] = `
+exports[`Tag > Snapshots > should renders component as anchor 1`] = `
 <DocumentFragment>
   <a
-    class="tag tag--primary-filled tag--md"
+    class="_tag_422e8e _tag--primary-filled_422e8e _tag--md_422e8e"
     href="#"
   >
     Tag
@@ -181,10 +181,10 @@ exports[`Tag Snapshots should renders component as anchor 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Tag Snapshots should renders default component 1`] = `
+exports[`Tag > Snapshots > should renders default component 1`] = `
 <div>
   <span
-    class="tag tag--primary-filled tag--md"
+    class="_tag_422e8e _tag--primary-filled_422e8e _tag--md_422e8e"
   >
     Tag
   </span>

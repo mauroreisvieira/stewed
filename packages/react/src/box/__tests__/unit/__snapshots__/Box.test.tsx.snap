@@ -1,139 +1,139 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Box Snapshots should applies border-color classes 1`] = `
+exports[`Box > Snapshots > should applies border-color classes 1`] = `
 <div>
   <div
-    class="box box--radius-none box--border-color-secondary"
+    class="_box_5da439 _box--radius-none_5da439 _box--border-color-secondary_5da439"
   >
     Box
   </div>
 </div>
 `;
 
-exports[`Box Snapshots should applies border-style classes 1`] = `
+exports[`Box > Snapshots > should applies border-style classes 1`] = `
 <div>
   <div
-    class="box box--radius-none box--border-style-dashed"
+    class="_box_5da439 _box--radius-none_5da439 _box--border-style-dashed_5da439"
   >
     Box
   </div>
 </div>
 `;
 
-exports[`Box Snapshots should applies border-width classes 1`] = `
+exports[`Box > Snapshots > should applies border-width classes 1`] = `
 <div>
   <div
-    class="box box--radius-none box--border-width-2"
+    class="_box_5da439 _box--radius-none_5da439 _box--border-width-2_5da439"
   >
     Box
   </div>
 </div>
 `;
 
-exports[`Box Snapshots should applies full-screen classes 1`] = `
+exports[`Box > Snapshots > should applies full-screen classes 1`] = `
 <div>
   <div
-    class="box box--radius-none box--full-screen"
+    class="_box_5da439 _box--radius-none_5da439 _box--full-screen_5da439"
   >
     Box
   </div>
 </div>
 `;
 
-exports[`Box Snapshots should applies full-width classes 1`] = `
+exports[`Box > Snapshots > should applies full-width classes 1`] = `
 <div>
   <div
-    class="box box--radius-none box--full-width"
+    class="_box_5da439 _box--radius-none_5da439 _box--full-width_5da439"
   >
     Box
   </div>
 </div>
 `;
 
-exports[`Box Snapshots should applies radius classes 1`] = `
+exports[`Box > Snapshots > should applies radius classes 1`] = `
 <div>
   <div
-    class="box box--radius-2xl"
+    class="_box_5da439 _box--radius-2xl_5da439"
   >
     Box
   </div>
 </div>
 `;
 
-exports[`Box Snapshots should apply 'default' skin classes 1`] = `
+exports[`Box > Snapshots > should apply 'default' skin classes 1`] = `
 <div>
   <div
-    class="box box--default box--radius-none"
+    class="_box_5da439 _box--default_5da439 _box--radius-none_5da439"
   >
     Box
   </div>
 </div>
 `;
 
-exports[`Box Snapshots should apply 'neutral-faded' skin classes 1`] = `
+exports[`Box > Snapshots > should apply 'neutral-faded' skin classes 1`] = `
 <div>
   <div
-    class="box box--neutral-faded box--radius-none"
+    class="_box_5da439 _box--neutral-faded_5da439 _box--radius-none_5da439"
   >
     Box
   </div>
 </div>
 `;
 
-exports[`Box Snapshots should apply 'primary-faded' skin classes 1`] = `
+exports[`Box > Snapshots > should apply 'primary-faded' skin classes 1`] = `
 <div>
   <div
-    class="box box--primary-faded box--radius-none"
+    class="_box_5da439 _box--primary-faded_5da439 _box--radius-none_5da439"
   >
     Box
   </div>
 </div>
 `;
 
-exports[`Box Snapshots should apply 'secondary-faded' skin classes 1`] = `
+exports[`Box > Snapshots > should apply 'secondary-faded' skin classes 1`] = `
 <div>
   <div
-    class="box box--secondary-faded box--radius-none"
+    class="_box_5da439 _box--secondary-faded_5da439 _box--radius-none_5da439"
   >
     Box
   </div>
 </div>
 `;
 
-exports[`Box Snapshots should apply 'white' skin classes 1`] = `
+exports[`Box > Snapshots > should apply 'white' skin classes 1`] = `
 <div>
   <div
-    class="box box--white box--radius-none"
+    class="_box_5da439 _box--white_5da439 _box--radius-none_5da439"
   >
     Box
   </div>
 </div>
 `;
 
-exports[`Box Snapshots should render additional classes 1`] = `
+exports[`Box > Snapshots > should render additional classes 1`] = `
 <div>
   <div
-    class="box box--radius-none other-class"
+    class="_box_5da439 _box--radius-none_5da439 other-class"
   >
     Box
   </div>
 </div>
 `;
 
-exports[`Box Snapshots should renders component as main 1`] = `
+exports[`Box > Snapshots > should renders component as main 1`] = `
 <div>
   <main
-    class="box box--radius-none"
+    class="_box_5da439 _box--radius-none_5da439"
   >
     Box
   </main>
 </div>
 `;
 
-exports[`Box Snapshots should renders default component 1`] = `
+exports[`Box > Snapshots > should renders default component 1`] = `
 <div>
   <div
-    class="box box--radius-none"
+    class="_box_5da439 _box--radius-none_5da439"
   >
     Box
   </div>

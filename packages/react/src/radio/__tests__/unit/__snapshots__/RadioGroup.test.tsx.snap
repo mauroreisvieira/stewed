@@ -1,24 +1,23 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`RadioGroup Snapshots should render additional classes 1`] = `
+exports[`RadioGroup > Snapshots > should render additional classes 1`] = `
 <div>
   <div
-    class="radio__group radio__group--horizontal other-class"
+    class="_radio__group_ec96d8 _radio__group--horizontal_ec96d8 other-class"
   >
     <label
-      class="radio radio--primary radio--md other-class"
+      class="_radio_ec96d8 _radio--primary_ec96d8 _radio--md_ec96d8 other-class"
     >
       <input
-        class="radio__input"
+        class="_radio__input_ec96d8"
         name="name"
         type="radio"
-        value=""
       />
       <span
-        class="radio__control"
+        class="_radio__control_ec96d8"
       />
       <div
-        class="radio__text"
+        class="_radio__text_ec96d8"
       >
         Radio
       </div>
@@ -27,25 +26,24 @@ exports[`RadioGroup Snapshots should render additional classes 1`] = `
 </div>
 `;
 
-exports[`RadioGroup Snapshots should renders default component 1`] = `
+exports[`RadioGroup > Snapshots > should renders default component 1`] = `
 <div>
   <div
-    class="radio__group radio__group--horizontal"
+    class="_radio__group_ec96d8 _radio__group--horizontal_ec96d8"
   >
     <label
-      class="radio radio--primary radio--md"
+      class="_radio_ec96d8 _radio--primary_ec96d8 _radio--md_ec96d8"
     >
       <input
-        class="radio__input"
+        class="_radio__input_ec96d8"
         name="name"
         type="radio"
-        value=""
       />
       <span
-        class="radio__control"
+        class="_radio__control_ec96d8"
       />
       <div
-        class="radio__text"
+        class="_radio__text_ec96d8"
       >
         Radio
       </div>

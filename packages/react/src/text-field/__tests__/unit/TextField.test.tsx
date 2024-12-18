@@ -72,7 +72,7 @@ describe("TextField", () => {
 
   describe("Events", () => {
     it("should trigger `onChange` event when change value", () => {
-      const handleChange = jest.fn();
+      const handleChange = vitest.fn();
 
       const { getByLabelText } = render(<TextField aria-label="input" onChange={handleChange} />);
       const input = getByLabelText("input");

@@ -2,6 +2,7 @@
   "extends": "@harmonix-hub/tsconfig/react.json",
   "compilerOptions": {
     "outDir": "./dist",
+    "types": ["vitest/globals"]
   },
   "include": ["custom.d.ts", "index.ts", "./src/**/*", "./src/index.ts"],
   "exclude": ["dist", "src/**/stories", "src/**/__tests__", "node_modules"]

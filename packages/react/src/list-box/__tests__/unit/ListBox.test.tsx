@@ -63,7 +63,7 @@ describe("ListBox", () => {
 
   describe("Events", () => {
     it("should trigger onClick event when is clicked", async () => {
-      const handleClick = jest.fn();
+      const handleClick = vitest.fn();
 
       const { findByText } = render(
         <ListBox>

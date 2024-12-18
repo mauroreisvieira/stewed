@@ -24,7 +24,7 @@ describe("useMergeRefs", () => {
 
   it("should call ref callback with the DOM element", () => {
     // Arrange
-    const refCallback = jest.fn();
+    const refCallback = vi.fn();
 
     // Act
     const { result } = renderHook(() => useMergeRefs<HTMLDivElement>());
@@ -75,7 +75,7 @@ describe("useMergeRefs", () => {
   it("should handle mixed ref types (callback and object refs)", () => {
     // Arrange
     const ref1 = createRef<HTMLDivElement>();
-    const refCallback = jest.fn();
+    const refCallback = vi.fn();
 
     // Act
     const { result } = renderHook(() => useMergeRefs<HTMLDivElement>());

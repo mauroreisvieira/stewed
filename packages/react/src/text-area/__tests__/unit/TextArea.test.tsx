@@ -51,7 +51,7 @@ describe("TextArea", () => {
 
   describe("Events", () => {
     it("should trigger `onChange` event when change value", () => {
-      const handleChange = jest.fn();
+      const handleChange = vitest.fn();
 
       const { getByLabelText } = render(
         <TextArea aria-label="text-area" onChange={handleChange} />
