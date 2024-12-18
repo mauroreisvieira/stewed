@@ -38,7 +38,7 @@ interface FloatingOptions {
  * @template R - The type of the referenced element (typically a DOM element like `HTMLElement`).
  */
 export interface UseFloatingProps<R extends HTMLElement>
-  extends Pick<FloatingOptions, "placement"> {
+  extends Partial<Pick<FloatingOptions, "placement">> {
   /**
    * The reference element used for positioning the floating component.
    * Should be a DOM element or null.
