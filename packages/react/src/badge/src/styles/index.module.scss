@@ -20,8 +20,8 @@
 
   &__value {
     position: theme.get-var(position);
-    z-index: 11; // To be above the focus
     inset: theme.get-var(inset);
+    z-index: 11; // To be above the focus
     box-sizing: border-box;
     display: inline-flex;
     align-items: center;
