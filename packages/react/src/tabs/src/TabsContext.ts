@@ -18,15 +18,8 @@ export interface TabsContextProps<T extends string> {
   /** Sets value of tab item selected. */
   value?: T | undefined;
   /**
-   * Allows the browser’s built-in page search to find and expand the panel contents.
-   * @remarks Overrides the `keepMounted` prop and uses hidden="until-found" to hide the element without removing it from the DOM.
-   * @default false
-   */
-  hiddenUntilFound?: boolean;
-  /**
    * Whether to keep the element in the DOM while the panel is closed.
-   * @remarks This prop is ignored when `hiddenUntilFound` is used.
-   * @default true
+   * @default false
    */
   keepMounted?: boolean;
   /**
@@ -50,7 +43,7 @@ export interface TabsContextProps<T extends string> {
 function createTabsContext<T extends string>() {
   return createContext<TabsContextProps<T>>({
     value: undefined,
-    hiddenUntilFound: false,
+    keepMounted: false,
     setSelectedValue: definitionError,
     onValueChange: definitionError
   });

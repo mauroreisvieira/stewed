@@ -40,7 +40,7 @@ export function TabsList({
       ref={ref}
       className={cssClasses.root}
       role="tablist"
-      tabIndex={0}
+      tabIndex={-1}
       onKeyDown={onHandleKeyDown}
       {...props}
     >
