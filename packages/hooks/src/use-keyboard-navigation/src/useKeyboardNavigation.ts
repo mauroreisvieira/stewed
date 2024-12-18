@@ -11,12 +11,18 @@ export interface UseKeyboardNavigationProps {
    * Object that maps custom keyboard keys to their navigation directions.
    * Keys are the keyboard event key values, and values are the navigation direction (-1 for backward, 1 for forward).
    */
-  key?: Record<string, number>;
+  keys?: Record<string, number>;
   /**
    * Determines whether navigation should wrap around when reaching the start or end of the list.
    * @default true
    */
   loop?: boolean;
+  /**
+   * Specifies whether the default browser action should be prevented for the keys defined in the `key` prop.
+   * When set to `true`, `preventDefault` is applied to these keys during navigation.
+   * @default false
+   */
+  preventDefaultOnKey?: boolean;
   /**
    * A function defining the condition for the navigation.
    * @param nextIndex - Index of next focused item.
@@ -69,12 +75,13 @@ interface UseKeyboardNavigation<T> {
  */
 export function useKeyboardNavigation<T extends HTMLDivElement>({
   target,
-  key = {
+  keys = {
     ArrowUp: -1,
     ArrowLeft: -1,
     ArrowDown: 1,
     ArrowRight: 1
   },
+  preventDefaultOnKey = false,
   loop = true,
   condition = () => true
 }: UseKeyboardNavigationProps): UseKeyboardNavigation<T> {
@@ -134,6 +141,10 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
   // Handles keyboard navigation to move focus based on key presses.
   const onHandleKeyDown: KeyboardEventHandler<T> = useCallback(
     (event) => {
+      if (preventDefaultOnKey && Object.keys(keys).includes(event.key)) {
+        event.preventDefault();
+      }
+
       // Get the current reference to the list element.
       const list = listRef.current;
 
@@ -144,7 +155,7 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
       const index = items.findIndex((item) => item === document.activeElement);
 
       // Determine the navigation direction based on the pressed key using the key mapping.
-      const direction = key?.[event.key];
+      const direction = keys?.[event.key];
 
       // Proceed only if a valid index and direction are found.
       if (index >= 0 && direction !== undefined) {
@@ -158,7 +169,7 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
         }
       }
     },
-    [calculateNextIndex, condition, key, loop, setFocusedIndex, target]
+    [calculateNextIndex, condition, keys, loop, setFocusedIndex, target, preventDefaultOnKey]
   );
 
   // Sets the first focusable element based on custom criteria or defaults to the first selectable item.
