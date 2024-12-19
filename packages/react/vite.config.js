@@ -1,17 +1,18 @@
-import { defineConfig } from "vite";
+import { defineConfig as defineViteConfig, mergeConfig } from "vite";
+import { defineConfig as defineVitestConfig } from "vitest/config";
 // Node
 import { resolve } from "path";
 // Plugins
 import dts from "vite-plugin-dts";
-import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import react from "@vitejs/plugin-react-swc";
+import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import { libInjectCss } from "vite-plugin-lib-inject-css";
 
 const ReactCompilerConfig = {
   target: "19" // '17' | '18' | '19'
 };
 
-export default defineConfig({
+const viteConfig = defineViteConfig({
   css: {
     preprocessorOptions: {
       scss: {
@@ -28,10 +29,6 @@ export default defineConfig({
     libInjectCss(),
     dts()
   ],
-  test: {
-    globals: true,
-    environment: "jsdom"
-  },
   build: {
     copyPublicDir: false,
     lib: {
@@ -47,3 +44,12 @@ export default defineConfig({
     }
   }
 });
+
+const vitestConfig = defineVitestConfig({
+  test: {
+    globals: true,
+    environment: "jsdom"
+  }
+});
+
+export default mergeConfig(viteConfig, vitestConfig);

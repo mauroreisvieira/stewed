@@ -49,7 +49,7 @@ export interface CalendarContextProps<T> extends UseCalendarProps<T> {
   setSelectedDates?: React.Dispatch<React.SetStateAction<DateOrArrayDates | undefined>>;
   /**
    * Callback fired when a day is selected.
-   * @param day The day option that was selected.
+   * @param day - The day option that was selected.
    */
   onDaySelected?: (day: DayOptions<T>) => void;
   /**

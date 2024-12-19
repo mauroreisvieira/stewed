@@ -1,6 +1,6 @@
 import React from "react";
 // Components
-import { Spinner } from "../../spinner";
+import { Spinner, type SpinnerProps } from "../../spinner";
 // Hooks
 import { useBem, useResponsive, type UseResponsiveProps } from "@stewed/hooks";
 import { useTheme } from "../../theme";
@@ -87,6 +87,11 @@ export function Switch({
     spinner: getElement(["spinner"])
   };
 
+  const sizeSpinnerMap: Record<string, SpinnerProps["size"]> = {
+    sm: "xxs",
+    md: "xs"
+  };
+
   return (
     <label className={cssClasses.root}>
       <input type="checkbox" disabled={disabled} className={cssClasses.input} {...props} />
@@ -96,7 +101,7 @@ export function Switch({
             <Spinner
               className={cssClasses.spinner}
               skin="default"
-              size={size === "sm" ? "xxs" : size === "md" ? "xs" : "sm"}
+              size={sizeSpinnerMap[computedProps.size] || "sm"}
             />
           )}
         </span>

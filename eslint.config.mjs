@@ -13,7 +13,6 @@ export default [
   },
   ...hxh.tsConfigs,
   hxh.reactConfigs,
-  hxh.jestConfigs,
   prettierConfig,
   ...storybook.configs["flat/recommended"],
   {
@@ -22,7 +21,8 @@ export default [
       "react-compiler": reactCompilerPlugin
     },
     rules: {
-      "react-compiler/react-compiler": "error"
+      "react-compiler/react-compiler": "error",
+      "jsdoc/require-jsdoc": "warn"
     }
   },
   {

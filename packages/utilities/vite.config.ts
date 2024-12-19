@@ -4,27 +4,9 @@ import { defineConfig as defineVitestConfig } from "vitest/config";
 import { resolve } from "path";
 // Plugins
 import dts from "vite-plugin-dts";
-import react from "@vitejs/plugin-react-swc";
-import peerDepsExternal from "rollup-plugin-peer-deps-external";
-
-const ReactCompilerConfig = {
-  target: "19" // '17' | '18' | '19'
-};
 
 const viteConfig = defineViteConfig({
-  css: {
-    preprocessorOptions: {
-      scss: {
-        api: "modern-compiler" // or "modern", "legacy"
-      }
-    }
-  },
   plugins: [
-    react({
-      babel: {
-        plugins: [["babel-plugin-react-compiler", ReactCompilerConfig]]
-      }
-    }),
     dts({
       rollupTypes: true
     })
@@ -32,11 +14,10 @@ const viteConfig = defineViteConfig({
   build: {
     copyPublicDir: false,
     lib: {
-      entry: resolve(__dirname, "index.ts"),
+      entry: resolve(__dirname, "src/index.ts"),
       formats: ["es"]
     },
     rollupOptions: {
-      plugins: [peerDepsExternal()],
       output: {
         entryFileNames: "[name].js"
       }

@@ -23,7 +23,6 @@
   },
   "devDependencies": {
     "@harmonix-hub/babel": "^0.3.0",
-    "@harmonix-hub/testing": "^1.6.0",
     "@harmonix-hub/tsconfig": "^1.5.0",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.2",

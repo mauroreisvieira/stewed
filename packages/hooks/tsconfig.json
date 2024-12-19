@@ -5,6 +5,6 @@
     "moduleResolution": "node",
     "types": ["vitest/globals"]
   },
-  "include": ["./*.d.ts", "./src/**/*", "./src/index.ts*"],
+  "include": ["./*.d.ts", "index.ts", "./src/**/*", "./src/index.ts*"],
   "exclude": ["node_modules", "dist"]
 }

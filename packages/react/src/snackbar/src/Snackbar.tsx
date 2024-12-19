@@ -124,17 +124,11 @@ export function Snackbar({
 
   // Determine the animation type based on placement for entry
   const entryAnimation = useMemo(() => {
-    if (placement.endsWith("start")) return "slide-in-left";
-    if (placement.endsWith("end")) return "slide-in-right";
-
     return placement.startsWith("bottom") ? "slide-in-bottom" : "slide-in-top";
   }, [placement]);
 
   // Determine the animation type based on placement for exit
   const exitAnimation = useMemo(() => {
-    if (placement.endsWith("start")) return "slide-out-left";
-    if (placement.endsWith("end")) return "slide-out-right";
-
     return placement.startsWith("bottom") ? "slide-out-bottom" : "slide-out-top";
   }, [placement]);
 

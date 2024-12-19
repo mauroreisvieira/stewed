@@ -14,7 +14,7 @@
   justify-content: center;
   min-width: theme.get-var(size);
   height: theme.get-var(size);
-  padding-inline: calc(theme.get-var(padding-inline) - theme.get-var(border-width));
+  padding-inline: calc(theme.get-var(padding-inline));
   overflow: hidden;
   color: theme.get-var(color);
   text-overflow: ellipsis;

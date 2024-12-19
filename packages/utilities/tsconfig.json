@@ -1,8 +1,9 @@
 {
   "extends": "@harmonix-hub/tsconfig/library.json",
   "compilerOptions": {
-    "module": "ES2020",
     "outDir": "./dist",
+    "module": "ES2020",
+    "types": ["vitest/globals"]
   },
   "include": ["index.ts", "./src/**/*", "./src/index.ts*"],
   "exclude": ["node_modules", "dist"]
