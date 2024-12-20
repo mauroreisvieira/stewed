@@ -1,4 +1,13 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type RefObject } from "react";
+
+/** Properties for the `usePortal` hook, used to manage portal rendering and attachment. */
+export interface UsePortalProps {
+  /**
+   * The root element where the portal content should be rendered.
+   * If not provided, the portal will default to appending content to the `document.body`.
+   */
+  root?: HTMLElement | null | RefObject<HTMLElement | null>;
+}
 
 /** Hook to append a container to the DOM on mount and return the node to use for createPortal.
  * Automatically handles creating and tearing-down the root elements (no SRR
@@ -11,36 +20,52 @@ import { useEffect, useRef } from "react";
  * const target = usePortal();
  * ```
  */
-export const usePortal = (): HTMLElement => {
-  const rootElemRef = useRef<HTMLElement>(null);
+export function usePortal(props?: UsePortalProps): HTMLElement {
+  // Determine the root element for the portal.
+  // If a `root` prop is provided, use it. Otherwise, fallback to `document.body`.
+  const root = props?.root || document.body;
+
+  // Create a reference to the root element. This ref will be used to manage the DOM element for the portal.
+  const mountNodeRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    // add the detached element to body, to work in different micro services in same app.
-    if (rootElemRef.current) document.body.appendChild(rootElemRef.current);
+    // Check if the `mountNodeRef` is set (i.e., it references a DOM element).
+    // If it's not set, exit the function early.
+    if (!mountNodeRef.current) {
+      return;
+    }
+
+    // If the `root` is a React ref (i.e., it has a `current` property),
+    // append the `mountNodeRef` element to the root's current DOM element.
+    if (root && "current" in root) {
+      root.current?.appendChild(mountNodeRef.current);
+    } else {
+      // If `root` is a direct DOM element (not a ref), append the `mountNodeRef` element to it.
+      root?.appendChild(mountNodeRef.current);
+    }
 
     return () => {
-      if (rootElemRef.current) rootElemRef.current.remove();
+      mountNodeRef?.current?.remove();
     };
-  }, []);
+  }, [root]);
 
   /**
    * It's important we evaluate this lazily:
    * - We need first render to contain the DOM element, so it shouldn't happen
    *   in useEffect.
-   * - We can't do 'const rootElemRef = useRef(document.createElement('div))',
-   *   since this will run every single render (that's a lot).
-   * - We want the ref to consistently point to the same DOM element and only
-   *   ever run once.
+   * - We can't do `const mountNodeRef = useRef(document.createElement('div))`, since this will run every single render (that's a lot).
+   * - We want the ref to consistently point to the same DOM element and only ever run once.
+   *
    * @see {@link https://reactjs.org/docs/hooks-faq.html#how-to-create-expensive-objects-lazily}
    */
   function getRootElement(): HTMLElement {
-    if (!rootElemRef.current) {
-      rootElemRef.current = document.createElement("div");
+    if (!mountNodeRef.current) {
+      mountNodeRef.current = document.createElement("div");
     }
 
-    return rootElemRef.current;
+    return mountNodeRef.current;
   }
 
   // eslint-disable-next-line react-compiler/react-compiler
   return getRootElement();
-};
+}

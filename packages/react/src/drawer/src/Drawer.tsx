@@ -22,6 +22,12 @@ import { components, type Spacings } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Interface for the properties of the `Drawer` component.
+ *
+ * @remarks Extends the properties of a standard `<div>` element (`React.ComponentPropsWithoutRef<"div">`),
+ * allowing the `Drawer` component to accept all native `div` attributes.
+ */
 export interface DrawerProps
   extends React.ComponentProps<"div">,
     BackdropProps,
@@ -40,6 +46,11 @@ export interface DrawerProps
     }> {
   /** The controlled open state of the Drawer. */
   open?: boolean;
+  /**
+   * Whether to keep the element in the DOM while the drawer is closed.
+   * @default false
+   */
+  keepMounted?: boolean;
   /**
    * The preferred placement of the drawer.
    * @default "right"
@@ -75,6 +86,7 @@ export function Drawer({
   size = "md",
   safeMargin = "xl",
   placement = "left",
+  keepMounted = false,
   responsive,
   blur,
   className,
@@ -142,6 +154,7 @@ export function Drawer({
   useClickOutside({
     enabled: open,
     ignoredElements: rootRef ? [rootRef] : undefined,
+    /** Defines a handler function that invokes the `onClickOutside` callback. */
     handler: () => onClickOutside?.()
   });
 
@@ -151,7 +164,15 @@ export function Drawer({
     }
   }, [open]);
 
-  const onHandleAnimationEnd = () => {
+  /**
+   * Handles the end of the animation event for a component.
+   *
+   * This function used to clean up the component's state after an animation finishes.
+   * If the `open` state is `false`, it sets `shouldRender` to `false` to remove the component from the DOM.
+   *
+   * @returns {void}
+   */
+  const onHandleAnimationEnd = (): void => {
     if (!open) {
       setShouldRender(false);
     }
@@ -159,8 +180,8 @@ export function Drawer({
 
   return (
     <>
-      {shouldRender && (
-        <Scope elevation="navigation">
+      {(keepMounted || shouldRender) && (
+        <Scope elevation="navigation" hidden={!shouldRender}>
           <Motion animation={open ? "fade-in" : "fade-out"}>
             <Backdrop blur={blur} />
           </Motion>

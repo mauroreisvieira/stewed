@@ -22,6 +22,12 @@ import { components, type Spacings } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Interface for the properties of the `Dialog` component.
+ *
+ * @remarks Extends the properties of a standard `<div>` element (`React.ComponentPropsWithoutRef<"div">`),
+ * allowing the `Dialog` component to accept all native `div` attributes.
+ */
 export interface DialogProps
   extends React.ComponentProps<"div">,
     BackdropProps,
@@ -47,6 +53,15 @@ export interface DialogProps
     }> {
   /** The controlled open state of the dialog. */
   open?: boolean;
+  /**
+   * Whether to keep the element in the DOM while the dialog is closed.
+   * @default false
+   */
+  keepMounted?: boolean;
+  /**
+   * Whether to keep the element in the DOM while the drawer is closed.
+   * @default false
+   */
   /**
    * Allows scrolling within the viewport when content overflows.
    * @default false
@@ -87,6 +102,7 @@ export function Dialog({
   },
   responsive,
   scrollInViewport = false,
+  keepMounted = false,
   blur,
   className,
   children,
@@ -155,6 +171,7 @@ export function Dialog({
   useClickOutside({
     enabled: open,
     ignoredElements: rootRef ? [rootRef] : undefined,
+    /** Defines a handler function that invokes the `onClickOutside` callback. */
     handler: () => onClickOutside?.()
   });
 
@@ -164,7 +181,15 @@ export function Dialog({
     }
   }, [open]);
 
-  const onHandleAnimationEnd = () => {
+  /**
+   * Handles the end of the animation event for a component.
+   *
+   * This function used to clean up the component's state after an animation finishes.
+   * If the `open` state is `false`, it sets `shouldRender` to `false` to remove the component from the DOM.
+   *
+   * @returns {void}
+   */
+  const onHandleAnimationEnd = (): void => {
     if (!open) {
       setShouldRender(false);
     }
@@ -172,8 +197,8 @@ export function Dialog({
 
   return (
     <>
-      {shouldRender && (
-        <Scope elevation="popup">
+      {(keepMounted || shouldRender) && (
+        <Scope elevation="popup" hidden={!shouldRender}>
           <Motion animation={open ? "fade-in" : "fade-out"}>
             <Backdrop blur={blur} />
           </Motion>

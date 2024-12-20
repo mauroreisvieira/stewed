@@ -60,13 +60,18 @@ export interface DropdownProps<T>
    */
   allowClickOutside?: boolean;
   /**
+   * Whether to keep the element in the DOM while the dropdown is closed.
+   * @default false
+   */
+  keepMounted?: boolean;
+  /**
    * Allow the body scroll when 'Dropdown' is open.
    * @default true
    */
   allowScroll?: boolean;
   /** Callback function invoked when the escape key is pressed. */
   onEscape?: () => void;
-  /** Callback function invoked when the dialog is clicked outside. */
+  /** Callback function invoked when the dropdown is clicked outside. */
   onClickOutside?: () => void;
   /**
    * Function that returns a React element used as the anchor for the `Dropdown`.
@@ -110,6 +115,7 @@ export function Dropdown<T extends HTMLElement>({
   flip = true,
   allowScroll = true,
   allowClickOutside = false,
+  keepMounted = false,
   renderAnchor,
   onEscape,
   onClickOutside,
@@ -235,8 +241,8 @@ export function Dropdown<T extends HTMLElement>({
         close: onHandleClose,
         isOpen: !!isOpen
       })}
-      {isOpen && (
-        <Scope elevation="navigation">
+      {(isOpen || keepMounted) && (
+        <Scope elevation="navigation" hidden={!isOpen}>
           <Motion animation="fade-in">
             <div
               ref={refs}
