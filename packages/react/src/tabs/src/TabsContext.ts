@@ -19,9 +19,14 @@ export interface TabsContextProps<T extends string> {
   value?: T | undefined;
   /**
    * Whether to keep the element in the DOM while the panel is closed.
-   * @default false
+   * @default true
    */
   keepMounted?: boolean;
+  /**
+   * The direction of the tab container.
+   * @default row
+   */
+  direction?: "row" | "column";
   /**
    * A state updater function for setting the selected value internally.
    * This is typically used in uncontrolled mode.
@@ -43,7 +48,7 @@ export interface TabsContextProps<T extends string> {
 function createTabsContext<T extends string>() {
   return createContext<TabsContextProps<T>>({
     value: undefined,
-    keepMounted: false,
+    keepMounted: true,
     setSelectedValue: definitionError,
     onValueChange: definitionError
   });

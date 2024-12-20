@@ -109,5 +109,5 @@ export function Separator({
     })
   };
 
-  return <hr className={cssClasses.root} {...props} />;
+  return <hr className={cssClasses.root} aria-orientation={orientation} {...props} />;
 }

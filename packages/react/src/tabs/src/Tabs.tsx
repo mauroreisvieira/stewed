@@ -28,11 +28,6 @@ interface TabsBase<T extends string>
    */
   defaultValue?: T | undefined;
   /**
-   * The direction of the tab container.
-   * @default row
-   */
-  direction?: "row" | "column";
-  /**
    * Change the visual appearance of the tabs.
    * @default simple
    */
@@ -121,6 +116,10 @@ export function Tabs<T extends string>({
     })
   };
 
+  // Determine the orientation based on the direction.
+  // If the direction is "row", set orientation to "vertical"; otherwise, set it to "horizontal".
+  const orientation = direction === "row" ? "vertical" : "horizontal";
+
   // Ensure consistent usage of controlled or uncontrolled components
   if (value !== undefined && defaultValue !== undefined) {
     throw new Error("Please do not mix controlled and uncontrolled components.");
@@ -132,9 +131,10 @@ export function Tabs<T extends string>({
   }
 
   return (
-    <div className={cssClasses.root} {...props}>
+    <div className={cssClasses.root} aria-orientation={orientation} {...props}>
       <TabsContext
         value={{
+          direction,
           value: value || selectedValue,
           setSelectedValue: setSelectedValue as (value: unknown) => void,
           onValueChange: onValueChange as (value: unknown) => void,

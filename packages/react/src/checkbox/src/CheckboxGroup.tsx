@@ -58,7 +58,7 @@ export function CheckboxGroup({
   };
 
   return (
-    <div className={cssClasses.root} {...props}>
+    <div className={cssClasses.root} aria-orientation={orientation} {...props}>
       <CheckboxGroupContext value={{ checkedValues, onCheckedChange }}>
         {children}
       </CheckboxGroupContext>

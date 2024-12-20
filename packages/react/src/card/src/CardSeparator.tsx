@@ -21,7 +21,12 @@ export type CardSeparatorProps = Omit<
  * @returns A React element representing the separator inside the card.
  */
 export function CardSeparator({ ...props }: CardSeparatorProps): React.ReactElement {
+  // Get the current layout direction, typically "row" or "column".
   const { direction } = useCard();
 
-  return <Separator orientation={direction === "row" ? "vertical" : "horizontal"} {...props} />;
+  // Determine the orientation based on the direction.
+  // If the direction is "row", set orientation to "vertical"; otherwise, set it to "horizontal".
+  const orientation = direction === "row" ? "vertical" : "horizontal";
+
+  return <Separator orientation={orientation} aria-orientation={orientation} {...props} />;
 }

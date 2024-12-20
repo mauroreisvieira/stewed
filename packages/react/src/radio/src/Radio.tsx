@@ -96,7 +96,7 @@ export function Radio({
   // Determine the checked state: controlled or uncontrolled
   const isChecked = typeof checkedValue !== "undefined" ? checkedValue === value : checked;
 
-  // Event handler for when the radio state changes
+  /** Event handler for when the radio state changes */
   const onHandleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
     // Calculate the new checked state by toggling the current checked state
     const newChecked = !isChecked;

@@ -33,6 +33,7 @@ export const components = {
   Quantity: "quantity",
   Radio: "radio",
   Scope: "scope",
+  Slider: "slider",
   ScrollArea: "scroll-area",
   Segmented: "segmented",
   Select: "select",

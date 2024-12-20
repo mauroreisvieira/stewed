@@ -10,13 +10,13 @@
   &__content {
     box-sizing: border-box;
     display: flex;
-    flex-direction: column;
-    gap: 16px;
+    flex-direction: theme.get-var(flex-direction);
+    gap: theme.get-spacing("lg");
     align-items: theme.get-var(align-items);
     justify-content: theme.get-var(justify-content);
     width: 100%;
     height: 100%;
-    padding: 16px;
+    padding: theme.get-spacing("lg");
     pointer-events: none;
   }
 
@@ -40,6 +40,7 @@
   &--top {
     @include theme.define-var(
       (
+        flex-direction: column-reverse,
         align-items: center,
         justify-content: start
       )
@@ -49,6 +50,7 @@
   &--top-start {
     @include theme.define-var(
       (
+        flex-direction: column-reverse,
         align-items: start,
         justify-content: start
       )
@@ -58,6 +60,7 @@
   &--top-end {
     @include theme.define-var(
       (
+        flex-direction: column-reverse,
         align-items: end,
         justify-content: start
       )
@@ -67,6 +70,7 @@
   &--bottom {
     @include theme.define-var(
       (
+        flex-direction: column,
         align-items: center,
         justify-content: end
       )
@@ -76,6 +80,7 @@
   &--bottom-start {
     @include theme.define-var(
       (
+        flex-direction: column,
         align-items: start,
         justify-content: end
       )
@@ -85,6 +90,7 @@
   &--bottom-end {
     @include theme.define-var(
       (
+        flex-direction: column,
         align-items: end,
         justify-content: end
       )

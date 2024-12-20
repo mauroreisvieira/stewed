@@ -58,7 +58,7 @@ export function RadioGroup({
   };
 
   return (
-    <div className={cssClasses.root} {...props}>
+    <div className={cssClasses.root} aria-orientation={orientation} {...props}>
       <RadioGroupContext value={{ name, checkedValue, onCheckedChange }}>
         {children}
       </RadioGroupContext>

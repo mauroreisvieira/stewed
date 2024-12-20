@@ -13,6 +13,7 @@ import styles from "./styles/index.module.scss";
 // Default HTML element type for the this component
 const defaultElement = "button";
 
+/** Interface for the properties of the `Button` component. */
 export interface ButtonProps<T = typeof defaultElement>
   extends React.ComponentProps<typeof defaultElement> {
   /**
