@@ -1,0 +1,17 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+
+$slider-root: "slider";
+
+/// Skins
+$slider-skins: (
+  "primary": "primary",
+  "critical": "critical",
+  "success": "success"
+);
+
+/// Sizes
+$slider-sizes: (
+  "sm": 2px,
+  "md": 4px,
+  "lg": 6px
+);

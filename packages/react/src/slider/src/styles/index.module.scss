@@ -1,0 +1,97 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+@use "./variables" as *;
+
+@include theme.scope($slider-root) {
+  position: relative;
+  display: flex;
+  align-items: center;
+  user-select: none;
+
+  @include theme.define-var(
+    (
+      track-start: 0,
+      track-end: 0,
+      thumb-percentage: 0
+    )
+  );
+
+  &__track {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: theme.get-var(track-height);
+    overflow: hidden;
+    background-color: theme.get-color("neutral", "border-faded");
+    border-radius: theme.get-radius("full");
+  }
+
+  &__indicator {
+    position: absolute;
+    top: 0;
+    left: theme.get-var(track-start);
+    width: theme.get-var(track-end);
+    height: 100%;
+    background-color: theme.get-var(background-color);
+    transform-origin: left top;
+    will-change: transform;
+  }
+
+  &__thumb {
+    all: unset;
+    position: absolute;
+    left: theme.get-var(thumb-percentage);
+    width: calc(theme.get-var(track-height) * 4);
+    height: calc(theme.get-var(track-height) * 4);
+    touch-action: none;
+    cursor: grab;
+    background-color: #fff;
+    border: 1px solid theme.get-color("neutral", "border-faded");
+    border-radius: theme.get-radius("full");
+    box-shadow: theme.get-shadow("md");
+    transform: translateX(-50%);
+
+    @include theme.focus-styles;
+  }
+
+  &--disabled {
+    @include theme.disabled-styles;
+  }
+
+  &--single:not(.#{$slider-root}--disabled) {
+    cursor: pointer;
+  }
+
+  // Sizes
+  @each $key, $value in $slider-sizes {
+    &--#{$key} {
+      @include theme.define-var(
+        (
+          track-height: $value
+        )
+      );
+    }
+  }
+
+  // Skins
+  @each $key, $value in $slider-skins {
+    &--#{$key} {
+      @include theme.define-var(
+        (
+          background-color: theme.get-color($value, "background")
+        )
+      );
+
+      .#{$slider-root}__thumb {
+        @include theme.hover {
+          @include theme.define-var(
+            (
+              background-color: theme.get-color($value, "background-hovered")
+            )
+          );
+        }
+      }
+    }
+  }
+}
