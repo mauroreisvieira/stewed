@@ -85,7 +85,8 @@ export const Playlist = {
         tokens={{
           default: {
             color: {
-              "secondary-foreground": "#fff"
+              "secondary-foreground": "#fff",
+              "background-backdrop": "rgb(160 160 160 / 60%)"
             },
             components: {
               button: {

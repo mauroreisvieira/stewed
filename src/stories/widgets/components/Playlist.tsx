@@ -22,6 +22,7 @@ import { LuPause, LuPlay, LuShuffle, LuSkipBack, LuSkipForward, LuRepeat } from 
 import { PiQueue } from "react-icons/pi";
 // Data
 import { songs } from "./data";
+import { Separator } from "@stewed/react";
 
 export function Playlist(): React.ReactElement {
   const { data } = useFetchImages({ query: "playlist", perPage: songs.length });
@@ -77,6 +78,12 @@ export function Playlist(): React.ReactElement {
     }
   }, []);
 
+  // Define the function to handle what happens when music ends
+  const onMusicEnd = useCallback(() => {
+    setIndex(index < songs.length - 1 ? index + 1 : 0);
+    setSliderValue(0);
+  }, []);
+
   // Handle play/pause
   useEffect(() => {
     if (isPlaying) {
@@ -86,7 +93,7 @@ export function Playlist(): React.ReactElement {
             return prev + 1;
           } else {
             if (intervalRef.current) clearInterval(intervalRef.current);
-            setIsPlaying(false);
+            onMusicEnd();
             return prev;
           }
         });
@@ -107,7 +114,8 @@ export function Playlist(): React.ReactElement {
           image={{ src: data?.results[index]?.urls.raw }}
           style={{ height: 260, overflow: "hidden" }}
         >
-          <Backdrop style={{ position: "absolute" }} />
+          <Backdrop blur="xs" style={{ position: "absolute" }} />
+
           <Stack justify="end">
             <Button
               onClick={() => setShowQueue((prev) => !prev)}
@@ -126,55 +134,58 @@ export function Playlist(): React.ReactElement {
         <Hue skin={{ from: "white", to: "indigo-100" }} degree={180}>
           <div>
             {showQueue && (
-              <ScrollArea style={{ maxHeight: 320 }}>
-                <Box padding={{ block: "md" }}>
-                  <ListBox>
-                    {songs.map(({ title, genre, album, artist }, idx) => (
-                      <ListBox.Item
-                        key={idx}
-                        selected={index === idx}
-                        onDoubleClick={() => {
-                          setIndex(idx);
+              <>
+                <ScrollArea style={{ maxHeight: 320 }}>
+                  <Box padding={{ block: "md" }}>
+                    <ListBox>
+                      {songs.map(({ title, genre, album, artist }, idx) => (
+                        <ListBox.Item
+                          key={idx}
+                          selected={index === idx}
+                          onDoubleClick={() => {
+                            setIndex(idx);
 
-                          if (isPlaying) {
-                            setIsPlaying(index === idx ? false : true);
-                          } else {
-                            setIsPlaying(true);
-                          }
-                        }}
-                        leftSlot={
-                          <Avatar
-                            shape="square"
-                            name={artist}
-                            size="xl"
-                            image={{ src: data?.results[idx]?.urls.raw }}
-                          />
-                        }
-                        rightSlot={
-                          index === idx ? (
-                            index === idx && isPlaying ? (
-                              <LuPause size={18} />
-                            ) : (
-                              <LuPlay size={18} />
-                            )
-                          ) : undefined
-                        }
-                      >
-                        <Box
-                          padding={{
-                            block: "lg"
+                            if (isPlaying) {
+                              setIsPlaying(index === idx ? false : true);
+                            } else {
+                              setIsPlaying(true);
+                            }
                           }}
+                          leftSlot={
+                            <Avatar
+                              shape="square"
+                              name={artist}
+                              size="xl"
+                              image={{ src: data?.results[idx]?.urls.raw }}
+                            />
+                          }
+                          rightSlot={
+                            index === idx ? (
+                              index === idx && isPlaying ? (
+                                <LuPause size={18} />
+                              ) : (
+                                <LuPlay size={18} />
+                              )
+                            ) : undefined
+                          }
                         >
-                          <Text size="sm">{genre}</Text>
-                          <Text size="xs" skin="neutral">
-                            {title} ({album})
-                          </Text>
-                        </Box>
-                      </ListBox.Item>
-                    ))}
-                  </ListBox>
-                </Box>
-              </ScrollArea>
+                          <Box
+                            padding={{
+                              block: "lg"
+                            }}
+                          >
+                            <Text size="sm">{genre}</Text>
+                            <Text size="xs" skin="neutral">
+                              {title} ({album})
+                            </Text>
+                          </Box>
+                        </ListBox.Item>
+                      ))}
+                    </ListBox>
+                  </Box>
+                </ScrollArea>
+                <Separator />
+              </>
             )}
 
             <Card.Body>
