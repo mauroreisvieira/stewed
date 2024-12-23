@@ -5,6 +5,7 @@
   position: relative;
   display: flex;
   align-items: center;
+  width: 100%;
   user-select: none;
 
   @include theme.define-var(
@@ -75,8 +76,8 @@
   }
 
   // Skins
-  @each $key, $value in $slider-skins {
-    &--#{$key} {
+  @each $value in $slider-skins {
+    &--#{$value} {
       @include theme.define-var(
         (
           background-color: theme.get-color($value, "background")

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 // UI Components
 import {
   Theme,
@@ -18,16 +18,24 @@ import {
   FormField,
   Group,
   ListBox,
-  Hue
+  Hue,
+  Slider,
+  ScrollArea
 } from "@stewed/react";
 // Hooks
 import { useSelect, useToggle, useInputMask, useInput } from "@stewed/hooks";
 import { useDateTime } from "@hello-week/hooks";
+import { useFetchImages } from "../../api/useFetchImages";
 // Icons
 import { TbPin, TbStar, TbPlus } from "react-icons/tb";
 import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp, MdCheck } from "react-icons/md";
 import { FiCopy, FiSearch } from "react-icons/fi";
 import { FaPaypal, FaCreditCard, FaApple } from "react-icons/fa";
+import { LuRepeat, LuShuffle, LuPlay, LuSkipBack, LuSkipForward, LuPause } from "react-icons/lu";
+import { PiQueue } from "react-icons/pi";
+import { Backdrop } from "@stewed/react";
+import { Hoverable } from "@stewed/react";
+import { render } from "@testing-library/react";
 
 const meta = {
   title: "Examples/Widgets",
@@ -72,6 +80,79 @@ const team = [
     name: "Liam O'Connor",
     email: "liam.connor@example.com",
     open: false
+  }
+];
+
+const playlist = [
+  {
+    title: "Starlight Serenade",
+    artist: "Nova Echo",
+    album: "Galactic Dreams",
+    duration: "4:23",
+    genre: "Synthwave"
+  },
+  {
+    title: "Dancing Through Shadows",
+    artist: "Echoes in the Dark",
+    album: "Mystic Lights",
+    duration: "3:58",
+    genre: "Indie Pop"
+  },
+  {
+    title: "Golden Horizons",
+    artist: "Aurora Skies",
+    album: "Sunlit Dreams",
+    duration: "5:12",
+    genre: "Folk"
+  },
+  {
+    title: "Electric Reverie",
+    artist: "Neon Pulse",
+    album: "Voltage",
+    duration: "4:45",
+    genre: "Electronic"
+  },
+  {
+    title: "Whispers of Eternity",
+    artist: "Celestial Voices",
+    album: "Timeless Echoes",
+    duration: "6:04",
+    genre: "Ambient"
+  },
+  {
+    title: "Luminous Dreams",
+    artist: "Ethereal Notes",
+    album: "Moonlight Reverie",
+    duration: "4:30",
+    genre: "Dream Pop"
+  },
+  {
+    title: "Infinite Horizons",
+    artist: "Horizon Travelers",
+    album: "Endless Skies",
+    duration: "5:18",
+    genre: "Post Rock"
+  },
+  {
+    title: "Echoes of the Past",
+    artist: "Shadow Harmony",
+    album: "Mystic Whispers",
+    duration: "4:50",
+    genre: "Chillwave"
+  },
+  {
+    title: "Crimson Tide",
+    artist: "Scarlet Symphony",
+    album: "Waves of Passion",
+    duration: "5:40",
+    genre: "Symphonic Rock"
+  },
+  {
+    title: "Celestial Voyage",
+    artist: "Galaxy Wanderers",
+    album: "Beyond the Stars",
+    duration: "6:15",
+    genre: "Space Ambient"
   }
 ];
 
@@ -743,6 +824,248 @@ export const NewMessage = {
   }
 };
 
+export const Playlist = {
+  render: function Render() {
+    const { data } = useFetchImages({ query: "playlist", perPage: playlist.length });
+
+    const { item, setIndex, index } = useSelect(playlist, 1);
+    const [isPlaying, togglePlay, setIsPlaying] = useToggle();
+
+    const [showQueue, setShowQueue] = useState(false);
+
+    const [sliderValue, setSliderValue] = useState(0);
+    const intervalRef = useRef<null | ReturnType<typeof setInterval>>(null);
+
+    // Utility Functions
+    const durationToSeconds = useCallback((duration: string) => {
+      const [minutes, seconds] = duration.split(":").map(Number);
+      return (minutes || 0) * 60 + (seconds || 0);
+    }, []);
+
+    const secondsToDuration = useCallback((seconds: number) => {
+      const minutes = Math.floor(seconds / 60);
+      const remainingSeconds = seconds % 60;
+      return `${minutes}:${remainingSeconds.toString().padStart(2, "0")}`;
+    }, []);
+
+    const durationInSeconds = useMemo(
+      () => (item?.duration ? durationToSeconds(item.duration) : 0),
+      []
+    );
+
+    const onHandleSliderChange = useCallback((value: number | number[]) => {
+      const newValueInSeconds = Math.round((Array.isArray(value) ? value[0] : value) || 0);
+
+      // Update the slider value
+      setSliderValue(newValueInSeconds);
+
+      // Sync playback
+      if (isPlaying && intervalRef.current) {
+        // Clear the current interval
+        clearInterval(intervalRef.current);
+
+        // Start a new interval from the updated value
+        intervalRef.current = setInterval(() => {
+          setSliderValue((prev) => {
+            if (prev < durationInSeconds) {
+              return prev + 1;
+            } else {
+              if (intervalRef.current) clearInterval(intervalRef.current);
+              setIsPlaying(false);
+              return prev;
+            }
+          });
+        }, 1000);
+      }
+    }, []);
+
+    // Handle play/pause
+    useEffect(() => {
+      if (isPlaying) {
+        intervalRef.current = setInterval(() => {
+          setSliderValue((prev) => {
+            if (prev < durationInSeconds) {
+              return prev + 1;
+            } else {
+              if (intervalRef.current) clearInterval(intervalRef.current);
+              setIsPlaying(false);
+              return prev;
+            }
+          });
+        }, 1000);
+      } else {
+        if (intervalRef.current) clearInterval(intervalRef.current);
+      }
+
+      return () => {
+        if (intervalRef.current) clearInterval(intervalRef.current);
+      };
+    }, [isPlaying, durationInSeconds]);
+
+    return (
+      <Container screen="xs" alignment="center" padding={{ block: "7xl" }}>
+        <Card padding={{ block: "2xl", inline: "2xl" }} shadow="2xl">
+          <Card.Media
+            image={{ src: data?.results[index]?.urls.raw }}
+            style={{ height: 260, overflow: "hidden" }}
+          >
+            <Backdrop style={{ position: "absolute" }} />
+            <Stack justify="end">
+              <Button
+                onClick={() => setShowQueue((prev) => !prev)}
+                leftSlot={<PiQueue size={16} />}
+                appearance="soft"
+                size="sm"
+                skin="secondary"
+                iconOnly
+              >
+                Queue
+              </Button>
+            </Stack>
+          </Card.Media>
+
+          <Hue skin={{ from: "white", to: "indigo-100" }} degree={180}>
+            <div>
+              {showQueue && (
+                <ScrollArea style={{ maxHeight: 400 }}>
+                  <Box padding={{ block: "md" }}>
+                    <ListBox>
+                      {playlist.map(({ title, genre, album, artist }, idx) => (
+                        <Hoverable key={idx}>
+                          {({ isHovering }) => (
+                            <ListBox.Item
+                              selected={index === idx}
+                              onClick={() => {
+                                setIndex(idx);
+
+                                if (isPlaying) {
+                                  setIsPlaying(index === idx ? false : true);
+                                } else {
+                                  setIsPlaying(true);
+                                }
+                              }}
+                              leftSlot={
+                                <Avatar
+                                  shape="square"
+                                  name={artist}
+                                  size="xl"
+                                  image={{ src: data?.results[idx]?.urls.raw }}
+                                />
+                              }
+                              rightSlot={
+                                isHovering || index === idx ? (
+                                  index === idx && isPlaying ? (
+                                    <LuPause size={18} />
+                                  ) : (
+                                    <LuPlay size={18} />
+                                  )
+                                ) : undefined
+                              }
+                            >
+                              <Box
+                                padding={{
+                                  block: "lg"
+                                }}
+                              >
+                                <Text size="sm">{genre}</Text>
+                                <Text size="xs" skin="neutral">
+                                  {title} ({album})
+                                </Text>
+                              </Box>
+                            </ListBox.Item>
+                          )}
+                        </Hoverable>
+                      ))}
+                    </ListBox>
+                  </Box>
+                </ScrollArea>
+              )}
+
+              <Card.Body>
+                <Stack direction="column" gap="2xl">
+                  <Stack gap="5xl" direction="column">
+                    <Stack direction="column" gap="sm">
+                      <Text skin="primary" size="sm">
+                        {item?.genre}
+                      </Text>
+                      <Text skin="neutral" size="sm" weight="medium">
+                        {item?.title} ({item?.album})
+                      </Text>
+                      <Text size="lg" weight="medium">
+                        {item?.artist}
+                      </Text>
+                    </Stack>
+
+                    <Slider
+                      size="lg"
+                      value={sliderValue}
+                      max={durationInSeconds}
+                      onChange={onHandleSliderChange}
+                    />
+                  </Stack>
+
+                  <Stack justify="between">
+                    <Text size="xs" skin="primary">
+                      {secondsToDuration(sliderValue)}
+                    </Text>
+                    <Text size="xs" skin="neutral">
+                      {item?.duration}
+                    </Text>
+                  </Stack>
+                </Stack>
+              </Card.Body>
+            </div>
+          </Hue>
+
+          <Hue skin={{ from: "indigo-100", to: "white" }} degree={180}>
+            <Card.Footer>
+              <Stack items="center" justify="center" gap="2xl">
+                <Button appearance="ghost" leftSlot={<LuShuffle size={18} />} iconOnly>
+                  Shuffle
+                </Button>
+                <Button
+                  appearance="ghost"
+                  leftSlot={<LuSkipBack size={18} />}
+                  onClick={() => {
+                    setIndex(index === 0 ? playlist.length - 1 : index - 1);
+                    setSliderValue(0);
+                  }}
+                  iconOnly
+                >
+                  Previous
+                </Button>
+                <Button
+                  appearance="ghost"
+                  leftSlot={isPlaying ? <LuPause size={36} /> : <LuPlay size={36} />}
+                  size="xl"
+                  onClick={togglePlay}
+                  iconOnly
+                >
+                  {isPlaying ? "Pause" : "Play"}
+                </Button>
+                <Button
+                  appearance="ghost"
+                  leftSlot={<LuSkipForward size={18} />}
+                  onClick={() => {
+                    setIndex(index < playlist.length - 1 ? index + 1 : 0);
+                    setSliderValue(0);
+                  }}
+                  iconOnly
+                >
+                  Next
+                </Button>
+                <Button appearance="ghost" leftSlot={<LuRepeat size={18} />} iconOnly>
+                  Repeat
+                </Button>
+              </Stack>
+            </Card.Footer>
+          </Hue>
+        </Card>
+      </Container>
+    );
+  }
+};
+
 export const CompletedProgress = {
   render: function Render() {
     return (
@@ -758,6 +1081,7 @@ export const CompletedProgress = {
                   This widget tracks the percentage of UI components already built in relation to
                   the total project scope.
                 </Text>
+
                 <Stack gap="md" items="center">
                   <Avatar
                     image={{ src: "./images/logo/stewed.svg" }}
@@ -774,6 +1098,7 @@ export const CompletedProgress = {
                     </Text>
                   </Stack>
                 </Stack>
+
                 <Stack gap="4xl" items="center">
                   <Progress size="lg" skin="white" value={70} />
                   <Text weight="bold" skin="white">

@@ -31,7 +31,9 @@ export function MadeForYou(): React.ReactElement {
         <>
           {data?.results?.map(({ urls, user, alt_description }, index) => (
             <Card key={index} padding={{ block: "lg", inline: "md" }}>
-              <Card.Media src={`${urls.raw}&w=200&h=200&fit=crop`} alt={alt_description} />
+              <Card.Media
+                image={{ src: `${urls.raw}&w=200&h=200&fit=crop`, alt: alt_description }}
+              />
 
               <Card.Body>
                 <Text size="sm" weight="medium">
