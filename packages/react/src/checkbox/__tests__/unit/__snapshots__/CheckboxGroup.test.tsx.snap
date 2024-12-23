@@ -3,6 +3,7 @@
 exports[`CheckboxGroup > Snapshots > should render additional classes 1`] = `
 <div>
   <div
+    aria-orientation="horizontal"
     class="_checkbox__group_8d7086 _checkbox__group--horizontal_8d7086 other-class"
   >
     <label
@@ -42,6 +43,7 @@ exports[`CheckboxGroup > Snapshots > should render additional classes 1`] = `
 exports[`CheckboxGroup > Snapshots > should renders default component 1`] = `
 <div>
   <div
+    aria-orientation="horizontal"
     class="_checkbox__group_8d7086 _checkbox__group--horizontal_8d7086"
   >
     <label

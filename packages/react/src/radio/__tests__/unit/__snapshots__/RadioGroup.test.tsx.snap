@@ -3,6 +3,7 @@
 exports[`RadioGroup > Snapshots > should render additional classes 1`] = `
 <div>
   <div
+    aria-orientation="horizontal"
     class="_radio__group_ec96d8 _radio__group--horizontal_ec96d8 other-class"
   >
     <label
@@ -29,6 +30,7 @@ exports[`RadioGroup > Snapshots > should render additional classes 1`] = `
 exports[`RadioGroup > Snapshots > should renders default component 1`] = `
 <div>
   <div
+    aria-orientation="horizontal"
     class="_radio__group_ec96d8 _radio__group--horizontal_ec96d8"
   >
     <label
