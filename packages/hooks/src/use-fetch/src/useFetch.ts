@@ -9,7 +9,7 @@ type Status = "idle" | "loading" | "fetched" | "error";
  *
  * @template T The type of data being fetched.
  */
-interface FetchState<T> {
+export interface UseFetch<T> {
   /** The fetched data, or `null` if no data has been fetched yet or an error occurred. */
   data: T | null;
   /** An error object if the fetch operation failed, or `null` otherwise. */
@@ -49,7 +49,7 @@ type FetchAction<T> =
  * @param  action - The action to process.
  * @returns The updated fetch state.
  */
-type FetchReducer<T> = (state: FetchState<T>, action: FetchAction<T>) => FetchState<T>;
+type FetchReducer<T> = (state: UseFetch<T>, action: FetchAction<T>) => UseFetch<T>;
 
 /**
  * Custom hook to perform data fetching with caching and state management.
@@ -65,10 +65,10 @@ type FetchReducer<T> = (state: FetchState<T>, action: FetchAction<T>) => FetchSt
  * const { data, error, status } = useFetch<MyDataType>('https://api.example.com/data');
  * ```
  */
-export function useFetch<T>(url: string | null, options?: RequestInit): FetchState<T> {
+export function useFetch<T>(url: string | null, options?: RequestInit): UseFetch<T> {
   const cacheRef = useRef<Record<string, T>>({});
 
-  const useFetchInitialState: FetchState<T> = {
+  const useFetchInitialState: UseFetch<T> = {
     data: null,
     error: null,
     status: "idle"
