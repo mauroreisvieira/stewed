@@ -44,9 +44,8 @@ export function ScrollArea({
   const cssClasses = {
     root: getBlock({
       modifiers: [
-        insetShadow && showTopShadow && !showBottomShadow && "top-shadow",
-        insetShadow && showBottomShadow && !showTopShadow && "bottom-shadow",
-        insetShadow && showTopShadow && showBottomShadow && "both-shadow"
+        insetShadow && showTopShadow && "top-shadow",
+        insetShadow && showBottomShadow && "bottom-shadow"
       ],
       extraClasses: className
     })
