@@ -100,9 +100,6 @@ export const defaultTokens: Tokens = {
     [components.Avatar]: {
       radius: "sm"
     },
-    [components.Backdrop]: {
-      blur: "sm"
-    },
     [components.Badge]: {
       radius: "full"
     },

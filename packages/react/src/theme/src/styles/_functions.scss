@@ -198,6 +198,18 @@
   @return map.get($shadow, $value);
 }
 
+@function get-blur($value: null) {
+  @if not $value {
+    @return $blur;
+  }
+
+  @if not map.has-key($blur, $value) {
+    @error "Invalid blur's specified! #{$value} doesn't exist. Choose one of #{map.keys($blur)}";
+  }
+
+  @return map.get($blur, $value);
+}
+
 @function get-transition-duration($value: null) {
   @if not $value {
     @return $transition-duration;

@@ -1,5 +1,4 @@
 /* eslint-disable jsdoc/require-jsdoc */
-import type { Blur } from "./tokens/Blur";
 import type { Radius } from "./tokens/Radius";
 import type { Shadow } from "./tokens/Shadow";
 
@@ -57,7 +56,6 @@ export const components = {
 export type Components = {
   [components.Alert]?: { radius?: Radius; shadow?: Shadow };
   [components.Avatar]?: { radius?: Radius };
-  [components.Backdrop]?: { blur?: Blur };
   [components.Badge]?: { radius?: Radius };
   [components.Button]?: { radius?: Radius };
   [components.Calendar]?: { radius?: Radius };

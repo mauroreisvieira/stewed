@@ -6,8 +6,16 @@
   position: fixed;
   inset: 0;
   background-color: theme.get-color("background-backdrop");
+  backdrop-filter: blur(theme.get-var(blur));
 
-  &--blur {
-    backdrop-filter: blur(theme.get-var(blur));
+  // Blur
+  @each $key, $value in $backdrop-blur {
+    &--blur-#{$key} {
+      @include theme.define-var(
+        (
+          blur: $value
+        )
+      );
+    }
   }
 }

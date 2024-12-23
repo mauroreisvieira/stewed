@@ -22,6 +22,7 @@ $config: (
   ),
   "blur": (
     "none": var(--blur-none),
+    "xs": var(--blur-xs),
     "sm": var(--blur-sm),
     "md": var(--blur-md),
     "lg": var(--blur-lg)
@@ -435,6 +436,9 @@ $elevation: map.get($config, elevation);
 
 /// Defines shadows.
 $shadow: map.get($config, shadow);
+
+/// Defines blur.
+$blur: map.get($config, blur);
 
 /// Opacity value for disabled elements.
 $disabled: map.get($config, disabled);
