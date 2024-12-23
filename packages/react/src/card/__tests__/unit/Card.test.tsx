@@ -34,7 +34,7 @@ describe("Card", () => {
       const img = new Image();
       const { container } = render(
         <Card direction="row">
-          <Card.Media src={img.src} />
+          <Card.Media image={{ src: img.src }} />
         </Card>
       );
 

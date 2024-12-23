@@ -22,6 +22,7 @@
   }
 
   &__media {
+    position: relative;
     display: block;
 
     &__img {
@@ -34,6 +35,7 @@
     &__slot {
       position: absolute;
       top: 0;
+      box-sizing: border-box;
       width: 100%;
       height: 100%;
       padding-block: theme.get-var(padding-block);

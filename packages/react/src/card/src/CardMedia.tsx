@@ -7,12 +7,20 @@ import { useBem } from "@stewed/hooks";
 import styles from "./styles/index.module.scss";
 
 /**
- * The props for the `CardMedia` component, which extends the standard HTML `<img>` element props.
- * This type inherits all properties from the native `<img>` element, such as `src`, `alt`, `width`, `height`, and more.
+ * The props for the `CardMedia` component, which extends the standard HTML `<div>` element props.
  *
- * @see {@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img}
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div}
  */
-export type CardMediaProps = React.ComponentPropsWithoutRef<"img">;
+export interface CardMediaProps extends React.ComponentPropsWithoutRef<"div"> {
+  /**
+   * The props to be added on image element.
+   * @see {@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img}
+   */
+  image?: React.ComponentPropsWithoutRef<"img"> & {
+    /** The ref to attach to the `<img />` element. */
+    ref?: React.Ref<HTMLImageElement>;
+  };
+}
 
 /**
  * `CardMedia` is a component that renders an image inside a card.
@@ -26,7 +34,7 @@ export type CardMediaProps = React.ComponentPropsWithoutRef<"img">;
 export function CardMedia({
   className,
   children,
-  alt,
+  image,
   ...props
 }: CardMediaProps): React.ReactElement {
   // Importing useBem to handle BEM class names
@@ -40,8 +48,8 @@ export function CardMedia({
   };
 
   return (
-    <div className={cssClasses.root}>
-      <img className={cssClasses.img} alt={alt} {...props} />
+    <div className={cssClasses.root} {...props}>
+      <img className={cssClasses.img} {...image} />
       {children && <div className={cssClasses.slot}>{children}</div>}
     </div>
   );

@@ -65,7 +65,7 @@ export const Direction: Story = {
     direction: "row",
     children: (
       <>
-        <Card.Media src="https://placehold.co/200x200" />
+        <Card.Media image={{ src: "https://placehold.co/200x200" }} />
         <Card.Body>
           <Text>
             Pellentesque elementum diam sapien, nec ultrices risus convallis eget. Nam pharetra
