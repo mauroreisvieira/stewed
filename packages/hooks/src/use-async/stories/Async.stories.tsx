@@ -20,9 +20,16 @@ export default meta;
 
 /** Fetch function to get dump products */
 const fetchData = async (): Promise<string> => {
+  // Wait for 2 seconds before making the request
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+
   const response = await fetch("https://620fb775ec8b2ee2834a8359.mockapi.io/product");
 
-  return await response.json();
+  if (!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
+  }
+
+  return response.json();
 };
 
 export const Async: StoryObj<typeof useAsync> = {
@@ -31,7 +38,7 @@ export const Async: StoryObj<typeof useAsync> = {
    * Demonstrates the use of the `useAsync` hook.
    */
   render: function Render() {
-    const { execute, status, value, error } = useAsync(fetchData, false);
+    const { execute, status, value, error } = useAsync({ queryFn: fetchData });
 
     return (
       <Stack direction="column" gap="md">
@@ -40,16 +47,21 @@ export const Async: StoryObj<typeof useAsync> = {
         </Text>
 
         <Box>
-          <Button onClick={execute} disabled={status === "success" || status === "pending"}>
+          <Button onClick={execute} disabled={value !== null}>
             Fetch Data
           </Button>
         </Box>
 
-        {status === "idle" && <Text skin="neutral-faded">Start fetching data...</Text>}
-        {status === "pending" && <Text skin="primary">Loading...</Text>}
+        <Text skin="neutral-faded">
+          Status:{" "}
+          <Text as="span" weight="medium">
+            {status}
+          </Text>
+        </Text>
+
         {status === "error" && <Text skin="critical">Error: {error?.message}</Text>}
 
-        {status === "success" && (
+        {value && (
           <Text as="pre" skin="neutral-faded">
             {JSON.stringify(value, null, 4)}
           </Text>

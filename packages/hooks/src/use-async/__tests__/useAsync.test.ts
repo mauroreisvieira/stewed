@@ -5,7 +5,7 @@ import { renderHook, act, waitFor } from "@testing-library/react";
 describe("useAsync", () => {
   it("initially sets status to 'idle' and does not call the async function if immediate is false", () => {
     const asyncFunction = vi.fn().mockResolvedValue("Success");
-    const { result } = renderHook(() => useAsync(asyncFunction, false));
+    const { result } = renderHook(() => useAsync({ queryFn: asyncFunction, immediate: false }));
 
     expect(result.current.status).toBe("idle");
     expect(result.current.value).toBe(null);
@@ -15,7 +15,7 @@ describe("useAsync", () => {
 
   it("immediately calls async function and updates status/value on success when immediate is true", async () => {
     const asyncFunction = vi.fn().mockResolvedValue("Success");
-    const { result } = renderHook(() => useAsync(asyncFunction, true));
+    const { result } = renderHook(() => useAsync({ queryFn: asyncFunction, immediate: true }));
 
     expect(result.current.status).toBe("pending");
 
@@ -31,7 +31,7 @@ describe("useAsync", () => {
   it("updates status to 'error' and sets error if async function fails", async () => {
     const error = new Error("it Error");
     const asyncFunction = vi.fn().mockRejectedValue(error);
-    const { result } = renderHook(() => useAsync(asyncFunction, true));
+    const { result } = renderHook(() => useAsync({ queryFn: asyncFunction, immediate: true }));
 
     expect(result.current.status).toBe("pending");
 
@@ -45,7 +45,7 @@ describe("useAsync", () => {
 
   it("allows manual execution of the async function via execute method", async () => {
     const asyncFunction = vi.fn().mockResolvedValue("Manual Success");
-    const { result } = renderHook(() => useAsync(asyncFunction, false));
+    const { result } = renderHook(() => useAsync({ queryFn: asyncFunction, immediate: false }));
 
     expect(result.current.status).toBe("idle");
 
@@ -68,7 +68,7 @@ describe("useAsync", () => {
       .fn()
       .mockResolvedValueOnce("First Success")
       .mockResolvedValueOnce("Second Success");
-    const { result } = renderHook(() => useAsync(asyncFunction, false));
+    const { result } = renderHook(() => useAsync({ queryFn: asyncFunction, immediate: false }));
 
     act(() => {
       result.current.execute();
