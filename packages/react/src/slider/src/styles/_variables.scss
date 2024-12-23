@@ -3,11 +3,7 @@
 $slider-root: "slider";
 
 /// Skins
-$slider-skins: (
-  "primary": "primary",
-  "critical": "critical",
-  "success": "success"
-);
+$slider-skins: ("neutral", "secondary", "primary", "critical", "success");
 
 /// Sizes
 $slider-sizes: (

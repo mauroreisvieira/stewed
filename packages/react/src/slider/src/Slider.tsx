@@ -19,7 +19,7 @@ export interface SliderProps
    * Specifies the visual style of the slider.
    * @default primary
    */
-  skin?: "primary" | "critical" | "success";
+  skin?: "primary" | "neutral" | "secondary" | "critical" | "success";
   /** The minimum value the slider can have. */
   min?: number;
   /** The maximum value the slider can have. */
@@ -108,12 +108,12 @@ export function Slider({
   const activeValue = useMemo(() => {
     if (isControlled) {
       // If controlled, ensure value is always an array
-      return isMultiple ? value : [value];
+      return Array.isArray(value) ? value : [value];
     }
 
     // If uncontrolled, return the internal state
     return internalValue;
-  }, [internalValue, isControlled, isMultiple, value]);
+  }, [internalValue, isControlled, value]);
 
   /**
    * Finds the closest valid value to the provided one, clamping it within the range of [min, max].
@@ -314,7 +314,7 @@ export function Slider({
       // Clone the array or use single value for updates
       const updatedValue = Array.isArray(activeValue) ? [...activeValue] : [currentValue];
 
-      if (!updatedValue || !updatedValue[index]) {
+      if (!updatedValue.length || !updatedValue[index]) {
         return;
       }
 
