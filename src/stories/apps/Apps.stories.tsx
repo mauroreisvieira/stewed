@@ -1,8 +1,10 @@
-import type { Meta } from "@storybook/react";
+import React from "react";
 // Examples
-import { Music } from "./examples/music/Music";
-import { ChatAI } from "./examples/Chat";
-import { Mail } from "./examples/mail/Mail";
+import { Music as MC } from "./examples/music/Music";
+import { Chat as CT } from "./examples/chat/Chat";
+import { Mail as ML } from "./examples/mail/Mail";
+// Types
+import type { Meta } from "@storybook/react";
 
 const meta: Meta = {
   title: "Examples/Applications",
@@ -13,4 +15,20 @@ const meta: Meta = {
 
 export default meta;
 
-export { Music, ChatAI, Mail };
+export const ChatAI = {
+  render: function Render() {
+    return <CT />;
+  }
+};
+
+export const Music = {
+  render: function Render() {
+    return <MC />;
+  }
+};
+
+export const Mail = {
+  render: function Render() {
+    return <ML />;
+  }
+};

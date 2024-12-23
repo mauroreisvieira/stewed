@@ -16,9 +16,9 @@ export interface HoverableProps extends Omit<React.ComponentPropsWithoutRef<"div
    * - `isHovering` (boolean): Indicates whether the hover state is currently active.
    * - `isTouch` (boolean): Indicates whether the device is a touch device.
    *
-   * @param {Object} params - The parameters object.
-   * @param {boolean} params.isHovering - A boolean indicating if the hover state is active.
-   * @param {boolean} params.isTouch - A boolean indicating if the device is a touch device.
+   * @param {Object} props - The parameters object.
+   * @param {boolean} props.isHovering - A boolean indicating if the hover state is active.
+   * @param {boolean} props.isTouch - A boolean indicating if the device is a touch device.
    * @returns {React.ReactNode} - The React node to render based on the hover state and device type.
    */
   children: ({ isHovering, isTouch }: { isHovering: boolean; isTouch: boolean }) => React.ReactNode;

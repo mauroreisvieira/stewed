@@ -4,9 +4,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // UI Components
 import { Box, Container, Segmented, Separator, Snackbar, Stack, Theme } from "@stewed/react";
 // Partials
-import { Header } from "./partials/Header";
-import { Home } from "./partials/Home";
-import { Podcast } from "./partials/Podcast";
+import { Header } from "./components/Header";
+import { Home } from "./components/Home";
+import { Podcast } from "./components/Podcast";
 
 const queryClient = new QueryClient();
 

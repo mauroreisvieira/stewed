@@ -24,7 +24,7 @@ export function useBem({ block, styles }: UseBemProps) {
   /**
    * Retrieves a CSS class from the styles object.
    *
-   * @params value The name of the CSS class to retrieve.
+   * @param value - The name of the CSS class to retrieve.
    * @returns The CSS class if found in the styles object, otherwise throws an error.
    */
   const getClass = useCallback(
@@ -79,10 +79,10 @@ export function useBem({ block, styles }: UseBemProps) {
   /**
    * Generate class names for the block based on BEM conventions.
    *
-   * @params elements - Array of element names.
-   * @params modifiers - Array of modifier names.
-   * @params extraClasses - Additional classes to include.
-   * @returns Concatenated class names for the block.
+   * @param elements - Array of element names.
+   * @param modifiers - Array of modifier names.
+   * @param extraClasses - Additional classes to include.
+   * @return Concatenated class names for the block.
    */
   const getBlock = ({
     elements,

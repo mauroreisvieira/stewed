@@ -1,199 +1,39 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React from "react";
 // UI Components
-import {
-  Theme,
-  Card,
-  Button,
-  Box,
-  Stack,
-  Text,
-  Dropdown,
-  Container,
-  TextField,
-  Avatar,
-  Separator,
-  Switch,
-  Progress,
-  Tooltip,
-  FormField,
-  Group,
-  ListBox,
-  Hue,
-  Slider,
-  ScrollArea
-} from "@stewed/react";
-// Hooks
-import { useSelect, useToggle, useInputMask, useInput } from "@stewed/hooks";
-import { useDateTime } from "@hello-week/hooks";
-import { useFetchImages } from "../../api/useFetchImages";
-// Icons
-import { TbPin, TbStar, TbPlus } from "react-icons/tb";
-import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp, MdCheck } from "react-icons/md";
-import { FiCopy, FiSearch } from "react-icons/fi";
-import { FaPaypal, FaCreditCard, FaApple } from "react-icons/fa";
-import { LuRepeat, LuShuffle, LuPlay, LuSkipBack, LuSkipForward, LuPause } from "react-icons/lu";
-import { PiQueue } from "react-icons/pi";
-import { Backdrop } from "@stewed/react";
-import { Hoverable } from "@stewed/react";
-import { render } from "@testing-library/react";
+import { Theme } from "@stewed/react";
+// Components Patterns
+import { Suggested as SG } from "./components/Suggested";
+import { Team as TM } from "./components/Team";
+import { CompletedProgress as CP } from "./components/CompletedProgress";
+import { PaymentMethod as PM } from "./components/PaymentMethod";
+import { RecentActivity as RA } from "./components/RecentActivity";
+import { NewMessage as NM } from "./components/NewMessage";
+import { Notification as NF } from "./components/Notification";
+import { ShareSettings as SS } from "./components/ShareSettings";
+import { Playlist as PL } from "./components/Playlist";
 
 const meta = {
-  title: "Examples/Widgets",
-  decorators: [
-    (Story) => (
-      <Theme>
-        <Story />
-      </Theme>
-    )
-  ]
+  title: "Examples/Widgets"
 };
 
 export default meta;
 
-const team = [
-  {
-    id: 1,
-    name: "Sophia Chang",
-    email: "sophia.chang@example.com",
-    open: false
-  },
-  {
-    id: 2,
-    name: "Olivia Patel",
-    email: "olivia.patel@example.com",
-    open: false
-  },
-  {
-    id: 3,
-    name: "Benjamin Martinez",
-    email: "benjamin.martinez@example.com",
-    open: false
-  },
-  {
-    id: 4,
-    name: "Noah Andersen",
-    email: "noah.andersen@example.com",
-    open: false
-  },
-  {
-    id: 5,
-    name: "Liam O'Connor",
-    email: "liam.connor@example.com",
-    open: false
-  }
-];
-
-const playlist = [
-  {
-    title: "Starlight Serenade",
-    artist: "Nova Echo",
-    album: "Galactic Dreams",
-    duration: "4:23",
-    genre: "Synthwave"
-  },
-  {
-    title: "Dancing Through Shadows",
-    artist: "Echoes in the Dark",
-    album: "Mystic Lights",
-    duration: "3:58",
-    genre: "Indie Pop"
-  },
-  {
-    title: "Golden Horizons",
-    artist: "Aurora Skies",
-    album: "Sunlit Dreams",
-    duration: "5:12",
-    genre: "Folk"
-  },
-  {
-    title: "Electric Reverie",
-    artist: "Neon Pulse",
-    album: "Voltage",
-    duration: "4:45",
-    genre: "Electronic"
-  },
-  {
-    title: "Whispers of Eternity",
-    artist: "Celestial Voices",
-    album: "Timeless Echoes",
-    duration: "6:04",
-    genre: "Ambient"
-  },
-  {
-    title: "Luminous Dreams",
-    artist: "Ethereal Notes",
-    album: "Moonlight Reverie",
-    duration: "4:30",
-    genre: "Dream Pop"
-  },
-  {
-    title: "Infinite Horizons",
-    artist: "Horizon Travelers",
-    album: "Endless Skies",
-    duration: "5:18",
-    genre: "Post Rock"
-  },
-  {
-    title: "Echoes of the Past",
-    artist: "Shadow Harmony",
-    album: "Mystic Whispers",
-    duration: "4:50",
-    genre: "Chillwave"
-  },
-  {
-    title: "Crimson Tide",
-    artist: "Scarlet Symphony",
-    album: "Waves of Passion",
-    duration: "5:40",
-    genre: "Symphonic Rock"
-  },
-  {
-    title: "Celestial Voyage",
-    artist: "Galaxy Wanderers",
-    album: "Beyond the Stars",
-    duration: "6:15",
-    genre: "Space Ambient"
-  }
-];
-
-export const Team = {
+export const PaymentMethod = {
   render: function Render() {
     return (
-      <Container screen="lg" alignment="center" padding={{ block: "7xl" }}>
-        <Card>
-          <Card.Header>
-            <Text as="h5">Your team</Text>
-            <Text size="sm" skin="neutral" space={{ y: "lg" }}>
-              Invite and manage your team members.
-            </Text>
+      <Theme>
+        <PM />
+      </Theme>
+    );
+  }
+};
 
-            <Stack items="baseline" gap="lg">
-              <TextField placeholder="Email address" fullWidth />
-              <Button>Invite</Button>
-            </Stack>
-          </Card.Header>
-          <Card.Body>
-            {team.map(({ id, name, email }) => (
-              <React.Fragment key={id}>
-                <Stack items="center" justify="between">
-                  <Stack items="center" gap="md">
-                    <Avatar name={name} />
-                    <Stack direction="column" gap="xs">
-                      <Text size="sm" weight="medium">
-                        {name}
-                      </Text>
-                      <Text as="a" href="" size="xs" skin="neutral">
-                        {email}
-                      </Text>
-                    </Stack>
-                  </Stack>
-                </Stack>
-                <Separator space={{ block: "xl" }} />
-              </React.Fragment>
-            ))}
-          </Card.Body>
-        </Card>
-      </Container>
+export const NewMessage = {
+  render: function Render() {
+    return (
+      <Theme>
+        <NM />
+      </Theme>
     );
   }
 };
@@ -201,215 +41,9 @@ export const Team = {
 export const Notification = {
   render: function Render() {
     return (
-      <Container screen="sm" alignment="center" padding={{ block: "7xl" }}>
-        <Card style={{ flexGrow: 1 }}>
-          <Card.Header>
-            <Stack direction="column">
-              <Text as="h5">Notification</Text>
-              <Text size="sm" skin="neutral">
-                Manage your notification settings.
-              </Text>
-            </Stack>
-          </Card.Header>
-          <Card.Body>
-            <Stack items="baseline" justify="between" gap="md">
-              <Stack direction="column" grow={false} gap="sm">
-                <Text weight="semi-bold">Comments</Text>
-                <Text size="xs" skin="neutral">
-                  Receive notifications when someone comments on your documents or mentions you.
-                </Text>
-              </Stack>
-              <Stack gap="md" direction="column" items="baseline" grow={false}>
-                <Switch size="sm">Push</Switch>
-                <Switch size="sm">Email</Switch>
-                <Switch size="sm">Slack</Switch>
-              </Stack>
-            </Stack>
-            <Separator space={{ block: "xl" }} />
-            <Stack items="start" justify="between">
-              <Stack direction="column" gap="sm">
-                <Text weight="semi-bold">Favorites</Text>
-                <Text size="xs" skin="neutral">
-                  Receive notifications when there is activity related to your favorite items.
-                </Text>
-              </Stack>
-              <Stack gap="md" direction="column" items="baseline" grow={false}>
-                <Switch size="sm">Push</Switch>
-                <Switch size="sm">Email</Switch>
-                <Switch size="sm">Slack</Switch>
-              </Stack>
-            </Stack>
-            <Separator space={{ block: "xl" }} />
-            <Stack items="start" justify="between">
-              <Stack direction="column" gap="sm">
-                <Text weight="semi-bold">New documents</Text>
-                <Text size="xs" skin="neutral">
-                  Receive notifications whenever people on your team create new documents.
-                </Text>
-              </Stack>
-              <Stack gap="md" direction="column" items="baseline" grow={false}>
-                <Switch size="sm">Push</Switch>
-                <Switch size="sm">Email</Switch>
-                <Switch size="sm">Slack</Switch>
-              </Stack>
-            </Stack>
-          </Card.Body>
-          <Card.Footer>
-            <Button appearance="soft" fullWidth>
-              Save preferences
-            </Button>
-          </Card.Footer>
-        </Card>
-      </Container>
-    );
-  }
-};
-
-export const RecentActivity = {
-  render: function Render() {
-    const { createDate } = useDateTime();
-
-    return (
-      <Container screen="md" alignment="center" padding={{ block: "7xl" }}>
-        <Card>
-          <Card.Header>
-            <Stack items="baseline" justify="between" gap="2xl">
-              <Text as="h5">Recent activity</Text>
-              <Tooltip<HTMLButtonElement>
-                placement="top"
-                delay={1000}
-                renderAnchor={(props) => (
-                  <Button size="sm" leftSlot={<TbPin />} appearance="ghost" iconOnly {...props}>
-                    Bookmark
-                  </Button>
-                )}
-              >
-                <Text size="xs" skin="white" inherit>
-                  Pin this widget to your dashboard for quick access.
-                </Text>
-              </Tooltip>
-            </Stack>
-            <Text size="sm" skin="neutral">
-              Review what has happened over the past days.
-            </Text>
-          </Card.Header>
-          <Card.Body>
-            <Stack justify="between" gap="2xl" wrap="wrap">
-              <Stack gap="md" items="center">
-                <Avatar size="md" name="Noah Andersen" />
-                <Stack direction="column">
-                  <Text weight="medium">Noah Andersen</Text>
-                  <Text size="sm" skin="neutral">
-                    Purchased 15 office chairs and 2 drum sets
-                  </Text>
-                </Stack>
-              </Stack>
-              <Text size="xs" skin="neutral" hidden responsive={{ md: { hidden: false } }}>
-                {createDate().format({
-                  dateStyle: "medium",
-                  timeStyle: "short",
-                  hour12: true
-                })}
-              </Text>
-            </Stack>
-            <Separator space={{ block: "2xl" }} />
-            <Stack justify="between" gap="2xl" wrap="wrap">
-              <Stack gap="md" items="center">
-                <Avatar size="md" name="Olivia Patel" />
-                <Stack direction="column">
-                  <Text weight="medium">Olivia Patel</Text>
-                  <Text size="sm" skin="neutral">
-                    Updated client details for{" "}
-                    <Text as="a" size="sm" href="">
-                      Acme Co.
-                    </Text>
-                  </Text>
-                </Stack>
-              </Stack>
-              <Text size="xs" skin="neutral" hidden responsive={{ md: { hidden: false } }}>
-                {createDate().subtract(10, "days").format({
-                  dateStyle: "medium",
-                  timeStyle: "short",
-                  hour12: true
-                })}
-              </Text>
-            </Stack>
-          </Card.Body>
-        </Card>
-      </Container>
-    );
-  }
-};
-
-export const Suggested = {
-  render: function Render() {
-    const [liked, handleToggle] = useToggle(false);
-
-    return (
-      <Container screen="sm" alignment="center" padding={{ block: "7xl" }}>
-        <Card>
-          <Card.Body>
-            <Stack items="baseline">
-              <Box>
-                <Text weight="semi-bold" space={{ y: "lg" }}>
-                  @stewed/react
-                </Text>
-                <Text skin="neutral" size="sm">
-                  This is a collection of reusable React components built with SCSS, accompanied by
-                  React hooks, and a set of utilities to enhance the front-end development
-                  experience.
-                </Text>
-              </Box>
-              <Group>
-                <Button
-                  size="sm"
-                  skin="neutral"
-                  appearance={liked ? "filled" : "outline"}
-                  leftSlot={<TbStar />}
-                  onClick={handleToggle}
-                >
-                  Start
-                </Button>
-                <Dropdown<HTMLButtonElement>
-                  placement="bottom-end"
-                  renderAnchor={({ ref, isOpen, open, close }) => (
-                    <Button
-                      ref={ref}
-                      onClick={isOpen ? close : open}
-                      pressed={isOpen}
-                      size="sm"
-                      skin="neutral"
-                      appearance="outline"
-                      leftSlot={
-                        isOpen ? <MdOutlineKeyboardArrowUp /> : <MdOutlineKeyboardArrowDown />
-                      }
-                      iconOnly
-                    >
-                      Start
-                    </Button>
-                  )}
-                >
-                  {() => (
-                    <Box padding={{ inline: "sm", block: "sm" }}>
-                      <ListBox>
-                        <ListBox.Group title="Suggested list">
-                          <ListBox.Item>Future ideas</ListBox.Item>
-                          <ListBox.Item>My Stack</ListBox.Item>
-                          <ListBox.Item>Inspiration</ListBox.Item>
-                        </ListBox.Group>
-                        <Separator space={{ block: "none" }} />
-                        <ListBox.Group>
-                          <ListBox.Item leftSlot={<TbPlus />}>Create list</ListBox.Item>
-                        </ListBox.Group>
-                      </ListBox>
-                    </Box>
-                  )}
-                </Dropdown>
-              </Group>
-            </Stack>
-          </Card.Body>
-        </Card>
-      </Container>
+      <Theme>
+        <NF />
+      </Theme>
     );
   }
 };
@@ -417,651 +51,52 @@ export const Suggested = {
 export const ShareSettings = {
   render: function Render() {
     return (
-      <Container screen="sm" alignment="center" padding={{ block: "7xl" }}>
-        <Card>
-          <Card.Header>
-            <Stack items="center" gap="md">
-              <Avatar name="Acme" size="xl" shape="square" />
-              <Stack direction="column" gap="xxs">
-                <Text as="h5">Share Settings</Text>
-                <Text size="sm" skin="neutral">
-                  Manage the authorization of this workspaces
-                </Text>
-              </Stack>
-            </Stack>
-          </Card.Header>
-          <Card.Body>
-            <Stack direction="column" gap="xl">
-              <Card>
-                <Card.Body>
-                  <Stack justify="between">
-                    <div>
-                      <Text weight="medium" space={{ y: "sm" }}>
-                        Public Access
-                      </Text>
-                      <Text size="xs">Publish and share link with anyone</Text>
-                    </div>
-                    <Switch defaultChecked />
-                  </Stack>
-                </Card.Body>
-              </Card>
-
-              <Stack direction="column" gap="sm">
-                <Text weight="medium">Team members</Text>
-                <Stack justify="between" gap="lg">
-                  <TextField
-                    placeholder="Enter email"
-                    rightSlot={
-                      <Dropdown<HTMLButtonElement>
-                        placement="bottom-end"
-                        renderAnchor={({ ref, isOpen, open, close }) => (
-                          <Button
-                            ref={ref}
-                            onClick={isOpen ? close : open}
-                            size="xs"
-                            skin="neutral"
-                            appearance="ghost"
-                            rightSlot={
-                              isOpen ? <MdOutlineKeyboardArrowUp /> : <MdOutlineKeyboardArrowDown />
-                            }
-                          >
-                            Can view
-                          </Button>
-                        )}
-                      >
-                        {({ close }) => (
-                          <ListBox>
-                            <ListBox.Item onClick={close}>Can view</ListBox.Item>
-                            <ListBox.Item onClick={close}>Can edit</ListBox.Item>
-                          </ListBox>
-                        )}
-                      </Dropdown>
-                    }
-                    fullWidth
-                  />
-                  <Button>Send Invite</Button>
-                </Stack>
-              </Stack>
-            </Stack>
-
-            <Separator space={{ block: "xl" }} />
-
-            {team.map(({ id, name, email }) => (
-              <React.Fragment key={id}>
-                <Stack items="center" justify="between">
-                  <Stack items="center" gap="md">
-                    <Avatar name={name} />
-                    <Stack direction="column" gap="xs">
-                      <Text size="sm" weight="medium">
-                        {name}
-                      </Text>
-                      <Text as="a" href="" size="xs" skin="neutral">
-                        {email}
-                      </Text>
-                    </Stack>
-                  </Stack>
-                  <Dropdown<HTMLButtonElement>
-                    placement="bottom-end"
-                    renderAnchor={({ ref, isOpen, open, close }) => (
-                      <Button
-                        ref={ref}
-                        onClick={isOpen ? close : open}
-                        size="xs"
-                        skin="neutral"
-                        appearance="ghost"
-                        rightSlot={
-                          isOpen ? <MdOutlineKeyboardArrowUp /> : <MdOutlineKeyboardArrowDown />
-                        }
-                      >
-                        Can view
-                      </Button>
-                    )}
-                  >
-                    {({ close }) => (
-                      <ListBox>
-                        <ListBox.Item onClick={close}>Can view</ListBox.Item>
-                        <ListBox.Item onClick={close}>Can edit</ListBox.Item>
-                      </ListBox>
-                    )}
-                  </Dropdown>
-                </Stack>
-                <Separator space={{ block: "xl" }} />
-              </React.Fragment>
-            ))}
-
-            <FormField>
-              <FormField.Label>Copy link</FormField.Label>
-              <FormField.Control>
-                <TextField
-                  placeholder="https://figma.com/design/oobq11Zltwz0ai"
-                  rightSlot={
-                    <Button size="sm" appearance="ghost" leftSlot={<FiCopy />} iconOnly>
-                      Copy
-                    </Button>
-                  }
-                  fullWidth
-                />
-              </FormField.Control>
-            </FormField>
-          </Card.Body>
-        </Card>
-      </Container>
+      <Theme>
+        <SS />
+      </Theme>
     );
   }
 };
 
-export const PaymentMethod = {
+export const RecentActivity = {
   render: function Render() {
-    const items = [
-      {
-        name: "Card",
-        icon: <FaCreditCard size={24} />
-      },
-      {
-        name: "Paypal",
-        icon: <FaPaypal size={24} />
-      },
-      {
-        name: "Apple",
-        icon: <FaApple size={24} />
-      }
-    ];
-
-    // Using the useSelect hook to manage selection
-    const { index, setIndex } = useSelect<{ name: string; icon: React.ReactNode }>(items, 0);
-
-    const regexPatterns = {
-      name: /^[a-zA-Z ]+$/,
-      creditCard: /^\d{4}(\s?\d{4}){3}$/, // Matches 4 groups of 4 digits (e.g., 1234 5678 1234 5678)
-      cvv: /^\d{3,4}$/, // Matches 3 or 4 digits (e.g., 123 or 1234)
-      expireDate: /^(0[1-9]|1[0-2])\/\d{2}$/ // MM/YY format (e.g., 12/25)
-    };
-
-    const nameMask = useInputMask({
-      defaultValue: "Benjamin Martinez",
-      pattern: regexPatterns.name,
-      required: true
-    });
-
-    const creditCardMask = useInputMask({
-      defaultValue: "1234567812345678",
-      mask: "XXXX XXXX XXXX XXXX",
-      pattern: regexPatterns.creditCard,
-      required: true
-    });
-
-    const cvvMask = useInputMask({
-      defaultValue: "123",
-      mask: "XXX",
-      pattern: regexPatterns.cvv,
-      required: true
-    });
-
-    const expireDateMask = useInputMask({
-      defaultValue: "03/24",
-      mask: "MM/YY",
-      pattern: regexPatterns.expireDate,
-      required: true
-    });
-
     return (
-      <Container screen="sm" alignment="center" padding={{ block: "7xl" }}>
-        <Card>
-          <Card.Header>
-            <Stack gap="2xl">
-              <Text as="h5">Payment Method</Text>
-            </Stack>
-            <Text size="sm" skin="neutral">
-              Add a new payment method to your account.
-            </Text>
-          </Card.Header>
-          <Card.Body>
-            <Box space={{ y: "xl" }}>
-              <Group gap="md" fullWidth>
-                {items.map(({ name, icon }, idx) => (
-                  <Box
-                    as="button"
-                    key={name}
-                    radius="md"
-                    skin={idx === index ? "success-faded" : "white"}
-                    borderWidth={1}
-                    borderStyle="solid"
-                    aria-selected={idx === index}
-                    borderColor={idx === index ? "success" : "neutral-faded"}
-                    padding={{ inline: "lg", block: "lg" }}
-                    onClick={() => setIndex(idx)}
-                    fullWidth
-                  >
-                    <Text size="2xl" space={{ y: "sm" }} alignment="center">
-                      {icon}
-                    </Text>
-                    <Text size="sm" weight="medium" alignment="center">
-                      {name}
-                    </Text>
-                  </Box>
-                ))}
-              </Group>
-            </Box>
-            <Stack direction="column" gap="lg">
-              <FormField>
-                <FormField.Label>Name</FormField.Label>
-                <FormField.Control>
-                  <TextField
-                    id="name"
-                    type="name"
-                    skin={nameMask.isValid ? "neutral" : "critical"}
-                    value={nameMask.value}
-                    onChange={nameMask.onChange}
-                    onBlur={nameMask.onBlur}
-                    placeholder="Card name"
-                    fullWidth
-                  />
-                </FormField.Control>
-              </FormField>
-
-              <FormField>
-                <FormField.Label>Card number</FormField.Label>
-                <FormField.Control>
-                  <TextField
-                    id="card"
-                    type="text"
-                    skin={creditCardMask.isValid ? "neutral" : "critical"}
-                    value={creditCardMask.value}
-                    onChange={creditCardMask.onChange}
-                    onBlur={creditCardMask.onBlur}
-                    fullWidth
-                  />
-                </FormField.Control>
-              </FormField>
-
-              <Stack gap="xl">
-                <Stack size={8}>
-                  <FormField>
-                    <FormField.Label>Expires</FormField.Label>
-                    <FormField.Control>
-                      <TextField
-                        placeholder="Select a date"
-                        skin={expireDateMask.isValid ? "neutral" : "critical"}
-                        value={expireDateMask.value}
-                        onChange={expireDateMask.onChange}
-                        onBlur={expireDateMask.onBlur}
-                        fullWidth
-                      />
-                    </FormField.Control>
-                  </FormField>
-                </Stack>
-
-                <Stack size={4}>
-                  <FormField>
-                    <FormField.Label>CVC</FormField.Label>
-                    <FormField.Control>
-                      <TextField
-                        id="cvc"
-                        type="text"
-                        skin={cvvMask.isValid ? "neutral" : "critical"}
-                        value={cvvMask.value}
-                        onChange={cvvMask.onChange}
-                        onBlur={cvvMask.onBlur}
-                      />
-                    </FormField.Control>
-                  </FormField>
-                </Stack>
-              </Stack>
-            </Stack>
-          </Card.Body>
-          <Card.Footer>
-            <Button size="lg" appearance="soft" fullWidth>
-              Save
-            </Button>
-          </Card.Footer>
-        </Card>
-      </Container>
+      <Theme>
+        <RA />
+      </Theme>
     );
   }
 };
 
-export const NewMessage = {
+export const Team = {
   render: function Render() {
-    const [selected, setSelected] = useState<number[]>([]);
-
-    const { value, onChange } = useInput<string>("");
-
-    const filterTeam = useMemo(() => {
-      if (value) {
-        return team.filter(({ name }) => name.toUpperCase().includes(value.toUpperCase()));
-      }
-
-      return team;
-    }, [value]);
-
     return (
-      <Container screen="sm" alignment="center" padding={{ block: "7xl" }}>
-        <Card>
-          <Card.Header>
-            <Stack gap="2xl">
-              <Text as="h5">New message</Text>
-            </Stack>
-            <Text size="sm" skin="neutral">
-              Invite a user to create a new group message.
-            </Text>
-          </Card.Header>
-          <Separator />
-          <Box padding={{ inline: "md" }}>
-            <TextField
-              leftSlot={<FiSearch />}
-              appearance="ghost"
-              onChange={onChange}
-              value={value}
-              placeholder="Search a user..."
-            />
-          </Box>
-          <Separator />
-          <Card.Body>
-            <ListBox>
-              <Group direction="column" gap="xxs" fullWidth>
-                {filterTeam.length > 0 ? (
-                  <>
-                    {filterTeam.map(({ id, name, email }) => (
-                      <ListBox.Item
-                        key={id}
-                        as="button"
-                        tabIndex={selected.includes(id) ? 0 : -1}
-                        onClick={() => {
-                          setSelected((prev) => {
-                            const exists = prev.some((curr) => curr === id);
-
-                            if (exists) {
-                              return prev.filter((curr) => curr !== id);
-                            }
-
-                            return [...prev, id];
-                          });
-                        }}
-                        rightSlot={selected.includes(id) ? <MdCheck /> : ""}
-                      >
-                        <Box padding={{ block: "sm" }}>
-                          <Stack gap="lg" items="center">
-                            <Avatar name={name} />
-                            <Stack direction="column" gap="xs">
-                              <Text weight="medium">{name}</Text>
-                              <Text size="xs" skin="neutral">
-                                {email}
-                              </Text>
-                            </Stack>
-                          </Stack>
-                        </Box>
-                      </ListBox.Item>
-                    ))}
-                  </>
-                ) : (
-                  <Box padding={{ block: "4xl" }}>
-                    <Text alignment="center" skin="neutral-faded">
-                      No users found.
-                    </Text>
-                  </Box>
-                )}
-              </Group>
-            </ListBox>
-          </Card.Body>
-          <Separator />
-          <Card.Footer>
-            <Stack justify="between">
-              <Stack gap="sm">
-                <Avatar.Group>
-                  {team
-                    .filter(({ id }) => selected.includes(id))
-                    .map(({ id, name }) => (
-                      <Avatar key={id} name={name} size="sm" />
-                    ))}
-                </Avatar.Group>
-              </Stack>
-              <Button disabled={selected.length === 0}>Continue</Button>
-            </Stack>
-          </Card.Footer>
-        </Card>
-      </Container>
+      <Theme>
+        <TM />
+      </Theme>
     );
   }
 };
 
 export const Playlist = {
   render: function Render() {
-    const { data } = useFetchImages({ query: "playlist", perPage: playlist.length });
-
-    const { item, setIndex, index } = useSelect(playlist, 1);
-    const [isPlaying, togglePlay, setIsPlaying] = useToggle();
-
-    const [showQueue, setShowQueue] = useState(false);
-
-    const [sliderValue, setSliderValue] = useState(0);
-    const intervalRef = useRef<null | ReturnType<typeof setInterval>>(null);
-
-    // Utility Functions
-    const durationToSeconds = useCallback((duration: string) => {
-      const [minutes, seconds] = duration.split(":").map(Number);
-      return (minutes || 0) * 60 + (seconds || 0);
-    }, []);
-
-    const secondsToDuration = useCallback((seconds: number) => {
-      const minutes = Math.floor(seconds / 60);
-      const remainingSeconds = seconds % 60;
-      return `${minutes}:${remainingSeconds.toString().padStart(2, "0")}`;
-    }, []);
-
-    const durationInSeconds = useMemo(
-      () => (item?.duration ? durationToSeconds(item.duration) : 0),
-      []
-    );
-
-    const onHandleSliderChange = useCallback((value: number | number[]) => {
-      const newValueInSeconds = Math.round((Array.isArray(value) ? value[0] : value) || 0);
-
-      // Update the slider value
-      setSliderValue(newValueInSeconds);
-
-      // Sync playback
-      if (isPlaying && intervalRef.current) {
-        // Clear the current interval
-        clearInterval(intervalRef.current);
-
-        // Start a new interval from the updated value
-        intervalRef.current = setInterval(() => {
-          setSliderValue((prev) => {
-            if (prev < durationInSeconds) {
-              return prev + 1;
-            } else {
-              if (intervalRef.current) clearInterval(intervalRef.current);
-              setIsPlaying(false);
-              return prev;
-            }
-          });
-        }, 1000);
-      }
-    }, []);
-
-    // Handle play/pause
-    useEffect(() => {
-      if (isPlaying) {
-        intervalRef.current = setInterval(() => {
-          setSliderValue((prev) => {
-            if (prev < durationInSeconds) {
-              return prev + 1;
-            } else {
-              if (intervalRef.current) clearInterval(intervalRef.current);
-              setIsPlaying(false);
-              return prev;
-            }
-          });
-        }, 1000);
-      } else {
-        if (intervalRef.current) clearInterval(intervalRef.current);
-      }
-
-      return () => {
-        if (intervalRef.current) clearInterval(intervalRef.current);
-      };
-    }, [isPlaying, durationInSeconds]);
-
     return (
-      <Container screen="xs" alignment="center" padding={{ block: "7xl" }}>
-        <Card padding={{ block: "2xl", inline: "2xl" }} shadow="2xl">
-          <Card.Media
-            image={{ src: data?.results[index]?.urls.raw }}
-            style={{ height: 260, overflow: "hidden" }}
-          >
-            <Backdrop style={{ position: "absolute" }} />
-            <Stack justify="end">
-              <Button
-                onClick={() => setShowQueue((prev) => !prev)}
-                leftSlot={<PiQueue size={16} />}
-                appearance="soft"
-                size="sm"
-                skin="secondary"
-                iconOnly
-              >
-                Queue
-              </Button>
-            </Stack>
-          </Card.Media>
-
-          <Hue skin={{ from: "white", to: "indigo-100" }} degree={180}>
-            <div>
-              {showQueue && (
-                <ScrollArea style={{ maxHeight: 400 }}>
-                  <Box padding={{ block: "md" }}>
-                    <ListBox>
-                      {playlist.map(({ title, genre, album, artist }, idx) => (
-                        <Hoverable key={idx}>
-                          {({ isHovering }) => (
-                            <ListBox.Item
-                              selected={index === idx}
-                              onClick={() => {
-                                setIndex(idx);
-
-                                if (isPlaying) {
-                                  setIsPlaying(index === idx ? false : true);
-                                } else {
-                                  setIsPlaying(true);
-                                }
-                              }}
-                              leftSlot={
-                                <Avatar
-                                  shape="square"
-                                  name={artist}
-                                  size="xl"
-                                  image={{ src: data?.results[idx]?.urls.raw }}
-                                />
-                              }
-                              rightSlot={
-                                isHovering || index === idx ? (
-                                  index === idx && isPlaying ? (
-                                    <LuPause size={18} />
-                                  ) : (
-                                    <LuPlay size={18} />
-                                  )
-                                ) : undefined
-                              }
-                            >
-                              <Box
-                                padding={{
-                                  block: "lg"
-                                }}
-                              >
-                                <Text size="sm">{genre}</Text>
-                                <Text size="xs" skin="neutral">
-                                  {title} ({album})
-                                </Text>
-                              </Box>
-                            </ListBox.Item>
-                          )}
-                        </Hoverable>
-                      ))}
-                    </ListBox>
-                  </Box>
-                </ScrollArea>
-              )}
-
-              <Card.Body>
-                <Stack direction="column" gap="2xl">
-                  <Stack gap="5xl" direction="column">
-                    <Stack direction="column" gap="sm">
-                      <Text skin="primary" size="sm">
-                        {item?.genre}
-                      </Text>
-                      <Text skin="neutral" size="sm" weight="medium">
-                        {item?.title} ({item?.album})
-                      </Text>
-                      <Text size="lg" weight="medium">
-                        {item?.artist}
-                      </Text>
-                    </Stack>
-
-                    <Slider
-                      size="lg"
-                      value={sliderValue}
-                      max={durationInSeconds}
-                      onChange={onHandleSliderChange}
-                    />
-                  </Stack>
-
-                  <Stack justify="between">
-                    <Text size="xs" skin="primary">
-                      {secondsToDuration(sliderValue)}
-                    </Text>
-                    <Text size="xs" skin="neutral">
-                      {item?.duration}
-                    </Text>
-                  </Stack>
-                </Stack>
-              </Card.Body>
-            </div>
-          </Hue>
-
-          <Hue skin={{ from: "indigo-100", to: "white" }} degree={180}>
-            <Card.Footer>
-              <Stack items="center" justify="center" gap="2xl">
-                <Button appearance="ghost" leftSlot={<LuShuffle size={18} />} iconOnly>
-                  Shuffle
-                </Button>
-                <Button
-                  appearance="ghost"
-                  leftSlot={<LuSkipBack size={18} />}
-                  onClick={() => {
-                    setIndex(index === 0 ? playlist.length - 1 : index - 1);
-                    setSliderValue(0);
-                  }}
-                  iconOnly
-                >
-                  Previous
-                </Button>
-                <Button
-                  appearance="ghost"
-                  leftSlot={isPlaying ? <LuPause size={36} /> : <LuPlay size={36} />}
-                  size="xl"
-                  onClick={togglePlay}
-                  iconOnly
-                >
-                  {isPlaying ? "Pause" : "Play"}
-                </Button>
-                <Button
-                  appearance="ghost"
-                  leftSlot={<LuSkipForward size={18} />}
-                  onClick={() => {
-                    setIndex(index < playlist.length - 1 ? index + 1 : 0);
-                    setSliderValue(0);
-                  }}
-                  iconOnly
-                >
-                  Next
-                </Button>
-                <Button appearance="ghost" leftSlot={<LuRepeat size={18} />} iconOnly>
-                  Repeat
-                </Button>
-              </Stack>
-            </Card.Footer>
-          </Hue>
-        </Card>
-      </Container>
+      <Theme
+        tokens={{
+          default: {
+            color: {
+              "secondary-foreground": "#fff"
+            },
+            components: {
+              button: {
+                radius: "full"
+              }
+            }
+          }
+        }}
+      >
+        <PL />
+      </Theme>
     );
   }
 };
@@ -1069,47 +104,19 @@ export const Playlist = {
 export const CompletedProgress = {
   render: function Render() {
     return (
-      <Container screen="xl" alignment="center" padding={{ block: "7xl" }}>
-        <Hue skin={{ from: "indigo-600", to: "blue-900" }}>
-          <Card padding={{ block: "2xl", inline: "2xl" }} shadow="lg">
-            <Card.Body>
-              <Stack direction="column" gap="xl">
-                <Text weight="semi-bold" skin="white" space={{ y: "lg" }}>
-                  UI Component Progress
-                </Text>
-                <Text skin="white" size="3xl" weight="light" space={{ y: "2xl" }}>
-                  This widget tracks the percentage of UI components already built in relation to
-                  the total project scope.
-                </Text>
+      <Theme>
+        <CP />
+      </Theme>
+    );
+  }
+};
 
-                <Stack gap="md" items="center">
-                  <Avatar
-                    image={{ src: "./images/logo/stewed.svg" }}
-                    skin="neutral"
-                    size="2xl"
-                    name="Stewed"
-                  />
-                  <Stack direction="column">
-                    <Text weight="medium" skin="white" size="xs">
-                      Assigned to
-                    </Text>
-                    <Text weight="medium" size="lg" skin="white">
-                      Stewed React Kit
-                    </Text>
-                  </Stack>
-                </Stack>
-
-                <Stack gap="4xl" items="center">
-                  <Progress size="lg" skin="white" value={70} />
-                  <Text weight="bold" skin="white">
-                    70%
-                  </Text>
-                </Stack>
-              </Stack>
-            </Card.Body>
-          </Card>
-        </Hue>
-      </Container>
+export const Suggested = {
+  render: function Render() {
+    return (
+      <Theme>
+        <SG />
+      </Theme>
     );
   }
 };

@@ -18,10 +18,10 @@ import {
 // Hooks
 import { useSelect } from "@stewed/hooks";
 // Partials
-import { Actions } from "./partials/Actions";
-import { Sidebar } from "./partials/Sidebar";
-import { Display } from "./partials/Display";
-import { List } from "./partials/List";
+import { Actions } from "./components/Actions";
+import { Sidebar } from "./components/Sidebar";
+import { Display } from "./components/Display";
+import { List } from "./components/List";
 // Icons
 import { LuSearch, LuCheck } from "react-icons/lu";
 // Data

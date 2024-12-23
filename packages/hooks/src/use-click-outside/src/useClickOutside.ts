@@ -11,7 +11,7 @@ export interface UseClickOutsideProps extends ClickOutsideOptions {
 /**
  * Hook that detects clicks outside of specified elements and triggers a callback.
  *
- * @params props - Configuration options for the hook.
+ * @param props - Configuration options for the hook.
  */
 export const useClickOutside = ({
   enabled = false,

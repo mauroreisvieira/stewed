@@ -37,8 +37,8 @@ interface UseBreakpointData<T> {
 /**
  * A hook to manage responsive props based on breakpoints.
  *
- * @params props The props including responsive configurations.
- * @params breakpoints Breakpoints configuration.
+ * @param props - The props including responsive configurations.
+ * @param breakpoints - Breakpoints configuration.
  * @returns Computed responsive props based on the current viewport.
  */
 export function useResponsive<T>(

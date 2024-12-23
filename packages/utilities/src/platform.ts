@@ -1,7 +1,7 @@
 /**
  * Tests the given regular expression against the user agent string in the browser window.
  *
- * @params re The regular expression to test.
+ * @param re - The regular expression to test.
  * @returns A boolean indicating whether the regular expression matches the user agent string.
  */
 function testUserAgent(re: RegExp): boolean {
@@ -13,7 +13,7 @@ function testUserAgent(re: RegExp): boolean {
 /**
  * Tests the given regular expression against the platform string in the browser window.
  *
- * @params re The regular expression to test.
+ * @param re - The regular expression to test.
  * @returns A boolean indicating whether the regular expression matches the platform string.
  */
 function testPlatform(re: RegExp): boolean {

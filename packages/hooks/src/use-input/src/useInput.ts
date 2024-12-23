@@ -7,14 +7,14 @@ export type UseInputValue = HTMLAttributes<HTMLInputElement>["defaultValue"];
 interface UseInputHandler<T> {
   /**
    * Event handler to handle input changes.
-   * @params event - The change event object.
+   * @param event - The change event object.
    */
   onChange: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   /** The current value of the input field. */
   value: T;
   /**
    * Function to set a new value.
-   * @params newValue - The new value.
+   * @param newValue - The new value.
    */
   setValue: (newValue: T) => void;
   /** Indicates whether the current value is valid. */
@@ -26,8 +26,8 @@ export interface UseInputProps<T> {
   /**
    * Validation function to validate the new value.
    *
-   * @params newValue The new value being set.
-   * @params currentValue The current value of the input field.
+   * @param newValue - The new value being set.
+   * @param currentValue - The current value of the input field.
    * @returns A boolean indicating whether the new value is valid.
    */
   validate?: (newValue: T, currentValue: T) => boolean;
@@ -36,8 +36,8 @@ export interface UseInputProps<T> {
 /**
  * Hook for managing input state and validation.
  *
- * @params initialValue The initial value of the input field.
- * @params options Additional options for customizing behavior.
+ * @param initialValue - The initial value of the input field.
+ * @param options - Additional options for customizing behavior.
  * @returns An object containing event handler and value for the input field.
  */
 export function useInput<T extends UseInputValue>(

@@ -8,7 +8,7 @@ import { useEffect, useRef } from "react";
  * const previousCount = usePrevious(count);
  * ```
  *
- * @params value - The current value to track.
+ * @param value - The current value to track.
  * @returns The previous value.
  */
 export function usePrevious<T>(value: T): T | null {

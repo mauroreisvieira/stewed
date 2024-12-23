@@ -22,8 +22,6 @@ export default meta;
 function Example({ autoDismiss }: { autoDismiss?: number }) {
   const { add, remove } = useSnackbar();
 
-  console.log("Examolke");
-
   const onHandleClick = useCallback(() => {
     const idx = new Date().getTime().toString();
 

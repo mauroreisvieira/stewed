@@ -26,7 +26,7 @@ interface UseResizeObserverProps<T> {
  * Hook that observes changes in the size of an element and triggers a callback whenever the size changes.
  * It uses the `ResizeObserver` API to monitor changes to the observed element's dimensions.
  *
- * @param params - Configuration options for the resize observer.
+ * @param props - Configuration options for the resize observer.
  * @returns This hook does not return any value but invokes the provided callback when resizing occurs.
  *
  * @example

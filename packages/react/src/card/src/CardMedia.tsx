@@ -49,7 +49,7 @@ export function CardMedia({
 
   return (
     <div className={cssClasses.root} {...props}>
-      <img className={cssClasses.img} {...image} />
+      {image && <img className={cssClasses.img} src={image.src} alt={image.alt} {...image} />}
       {children && <div className={cssClasses.slot}>{children}</div>}
     </div>
   );
