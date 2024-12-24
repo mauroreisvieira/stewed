@@ -19,6 +19,44 @@ const meta: Meta<typeof Motion> = {
 
 export default meta;
 
+export const Scale: Story = {
+  render: function Render() {
+    const zooms = ["scale-in", "scale-out"] as const;
+
+    const [animation, setAnimation] = useState<(typeof zooms)[number]>();
+
+    return (
+      <Stack justify="center" direction="column" items="center" gap="2xl">
+        <Stack style={{ width: 120, height: 120, overflow: "hidden" }}>
+          <Motion
+            duration="slowly"
+            timing="ease-in-out"
+            animation={animation}
+            onDone={() => {
+              setAnimation(undefined);
+            }}
+          >
+            <Box
+              radius="md"
+              skin="primary-faded"
+              borderStyle="solid"
+              borderColor="primary-faded"
+              style={{ width: 120, height: 120 }}
+            />
+          </Motion>
+        </Stack>
+        <Stack gap="lg" wrap="wrap" items="center" justify="center">
+          {zooms.map((i) => (
+            <Button key={i} skin="neutral" onClick={() => setAnimation(i)}>
+              {i}
+            </Button>
+          ))}
+        </Stack>
+      </Stack>
+    );
+  }
+};
+
 export const Zoom: Story = {
   render: function Render() {
     const zooms = ["zoom-in", "zoom-out", "zoom-in-soft", "zoom-out-soft"] as const;

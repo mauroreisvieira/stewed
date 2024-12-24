@@ -10,6 +10,8 @@ import styles from "./styles/index.module.scss";
 
 /** Represents the animation options or states for a component or application. */
 type TAnimation =
+  | "scale-in"
+  | "scale-out"
   | "zoom-in"
   | "zoom-out"
   | "zoom-in-soft"
@@ -55,7 +57,7 @@ export interface MotionProps {
   /** Callback function that is called when the animation completes. */
   onDone?: () => void;
   /** The child element to which the animation will be applied. */
-  children: React.ReactElement;
+  children?: React.ReactNode | ((props: ChildProps) => React.ReactElement);
 }
 
 /**
@@ -89,23 +91,39 @@ export function Motion({
     root: getBlock({ modifiers: [animation, timing, duration] })
   };
 
+  const props: ChildProps = {
+    className: cssClasses.root,
+    /** Callback function executed when the transition ends. */
+    onTransitionEnd: (): void => {
+      onDone?.();
+    },
+    /** Callback function executed when the animation ends. */
+    onAnimationEnd: (): void => {
+      onDone?.();
+    }
+  };
+
+  if (typeof children === "function") {
+    return children(props);
+  }
+
   // Cloning the child element to inject className and onTransitionEnd and onAnimationEnd
   if (React.isValidElement<ChildProps>(children)) {
     return React.cloneElement(children, {
-      className: classNames(cssClasses.root, children.props.className),
+      className: classNames(props.className, children.props.className),
       /** Callback function executed when the transition ends. */
       onTransitionEnd: (): void => {
         children.props.onTransitionEnd?.();
-        onDone?.();
+        props.onTransitionEnd?.();
       },
       /** Callback function executed when the animation ends. */
       onAnimationEnd: (): void => {
         children.props.onAnimationEnd?.();
-        onDone?.();
+        props.onAnimationEnd?.();
       }
     });
   }
 
   // If `children` is not a valid React element, handle it appropriately
-  return children;
+  return children as React.ReactElement;
 }

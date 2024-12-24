@@ -10,6 +10,8 @@ $motion-timing: theme.get-transition-timing-function();
 
 /// Animations
 $motion-animation: (
+  scale-in,
+  scale-out,
   zoom-in,
   zoom-in-soft,
   zoom-out,
