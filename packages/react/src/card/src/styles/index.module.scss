@@ -130,4 +130,12 @@
       );
     }
   }
+
+  &--shadow-none {
+    .#{$card-root} {
+      &__media {
+        border-radius: theme.get-var(radius);
+      }
+    }
+  }
 }

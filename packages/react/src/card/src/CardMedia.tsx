@@ -43,13 +43,13 @@ export function CardMedia({
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({}),
-    img: getElement(["img"], className),
+    img: getElement(["img"], image?.className),
     slot: getElement(["slot"], className)
   };
 
   return (
     <div className={cssClasses.root} {...props}>
-      {image && <img className={cssClasses.img} src={image.src} alt={image.alt} {...image} />}
+      {image && <img {...image} className={cssClasses.img} src={image.src} alt={image.alt} />}
       {children && <div className={cssClasses.slot}>{children}</div>}
     </div>
   );
