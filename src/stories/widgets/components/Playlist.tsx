@@ -142,7 +142,7 @@ export function Playlist(): React.ReactElement {
                         <ListBox.Item
                           key={idx}
                           selected={index === idx}
-                          onDoubleClick={() => {
+                          onClick={() => {
                             setIndex(idx);
 
                             if (isPlaying) {
@@ -261,7 +261,7 @@ export function Playlist(): React.ReactElement {
               >
                 Next
               </Button>
-              <Button appearance="ghost" leftSlot={<LuRepeat size={18} />} iconOnly>
+              <Button appearance="ghost" leftSlot={<LuRepeat size={18} />} pressed iconOnly>
                 Repeat
               </Button>
             </Stack>
