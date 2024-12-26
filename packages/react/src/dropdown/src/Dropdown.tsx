@@ -164,7 +164,7 @@ export function Dropdown<T extends HTMLElement>({
     setFirstElementFocusable
   } = useKeyboardNavigation<HTMLDivElement>({
     target: '[tabindex="0"]:not([aria-disabled]), [role="option"]:not([aria-disabled])',
-    loop: false,
+    loop: true,
     preventDefaultOnKey: true // prevent arrow key scrolling in users browser
   });
 

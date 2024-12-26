@@ -2,6 +2,7 @@
 @use "./variables" as *;
 
 @include theme.scope($container-root) {
+  box-sizing: border-box;
   display: block;
   width: 100%;
   max-width: theme.get-var(max-width);
