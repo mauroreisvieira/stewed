@@ -8,6 +8,8 @@ interface UnsplashImage {
   alt_description: string;
   urls: {
     raw: string;
+    small: string;
+    thumb: string;
   };
   user: {
     username: string;

@@ -8,6 +8,8 @@ interface UnsplashImage {
   alt_description: string;
   urls: {
     raw: string;
+    small: string;
+    thumb: string;
   };
   user: {
     username: string;
@@ -30,6 +32,6 @@ export function useFetchImages({
 }: UseGetImagesProps): UseFetch<UnsplashResponse> {
   // Use useQuery to fetch and cache data
   return useFetch<UnsplashResponse>(
-    `https://api.unsplash.com/search/photos?query=${query}&client_id=${UNSPLASH_ACCESS_KEY}&w=150&h=150&per_page=${perPage}`
+    `https://api.unsplash.com/search/photos?query=${query}&client_id=${UNSPLASH_ACCESS_KEY}&per_page=${perPage}`
   );
 }

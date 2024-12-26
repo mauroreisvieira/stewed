@@ -6,33 +6,13 @@ import { QuickViews as QV } from "./components/QuickViews";
 import { Collections as CL } from "./components/Collections";
 
 const meta = {
-  title: "Examples/Ecommerce"
+  title: "Examples/Ecommerce",
+  parameters: {
+    layout: "fullscreen"
+  }
 };
 
 export default meta;
-
-export const QuickViews = {
-  render: function Render() {
-    return (
-      <Theme
-        tokens={{
-          default: {
-            components: {
-              group: {
-                radius: "full"
-              },
-              button: {
-                radius: "full"
-              }
-            }
-          }
-        }}
-      >
-        <QV />
-      </Theme>
-    );
-  }
-};
 
 export const Collections = {
   render: function Render() {
@@ -55,6 +35,29 @@ export const Collections = {
         }}
       >
         <CL />
+      </Theme>
+    );
+  }
+};
+
+export const QuickViews = {
+  render: function Render() {
+    return (
+      <Theme
+        tokens={{
+          default: {
+            components: {
+              group: {
+                radius: "full"
+              },
+              button: {
+                radius: "full"
+              }
+            }
+          }
+        }}
+      >
+        <QV />
       </Theme>
     );
   }

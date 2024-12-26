@@ -9,7 +9,7 @@ export function MadeForYou(): React.ReactElement {
   const { data, isLoading } = useGetImages({ query: "albums" });
 
   return (
-    <Grid cols={2} responsive={{ sm: { cols: 4 }, md: { cols: 8 } }} gap="md">
+    <Grid cols={2} responsive={{ sm: { cols: 4 }, lg: { cols: 8 } }} gap="md">
       {isLoading ? (
         <>
           {Array.from({ length: 8 }).map((_, key) => (
@@ -32,7 +32,12 @@ export function MadeForYou(): React.ReactElement {
           {data?.results?.map(({ urls, user, alt_description }, index) => (
             <Card key={index} padding={{ block: "lg", inline: "md" }}>
               <Card.Media
-                image={{ src: `${urls.raw}&w=200&h=200&fit=crop`, alt: alt_description }}
+                image={{
+                  src: urls.thumb,
+                  loading: "lazy",
+                  alt: alt_description,
+                  style: { height: 200 }
+                }}
               />
 
               <Card.Body>

@@ -38,51 +38,57 @@ export function Playlist(): React.ReactElement {
   // Utility Functions
   const durationToSeconds = useCallback((duration: string) => {
     const [minutes, seconds] = duration.split(":").map(Number);
+
     return (minutes || 0) * 60 + (seconds || 0);
   }, []);
 
   const secondsToDuration = useCallback((seconds: number) => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
+
     return `${minutes}:${remainingSeconds.toString().padStart(2, "0")}`;
   }, []);
 
   const durationInSeconds = useMemo(
     () => (item?.duration ? durationToSeconds(item.duration) : 0),
-    [item?.duration]
+    [durationToSeconds, item?.duration]
   );
 
-  const onHandleSliderChange = useCallback((value: number | number[]) => {
-    const newValueInSeconds = Math.round((Array.isArray(value) ? value[0] : value) || 0);
+  const onHandleSliderChange = useCallback(
+    (value: number | number[]) => {
+      const newValueInSeconds = Math.round((Array.isArray(value) ? value[0] : value) || 0);
 
-    // Update the slider value
-    setSliderValue(newValueInSeconds);
+      // Update the slider value
+      setSliderValue(newValueInSeconds);
 
-    // Sync playback
-    if (isPlaying && intervalRef.current) {
-      // Clear the current interval
-      clearInterval(intervalRef.current);
+      // Sync playback
+      if (isPlaying && intervalRef.current) {
+        // Clear the current interval
+        clearInterval(intervalRef.current);
 
-      // Start a new interval from the updated value
-      intervalRef.current = setInterval(() => {
-        setSliderValue((prev) => {
-          if (prev < durationInSeconds) {
-            return prev + 1;
-          } else {
-            if (intervalRef.current) clearInterval(intervalRef.current);
-            setIsPlaying(false);
-            return prev;
-          }
-        });
-      }, 1000);
-    }
-  }, []);
+        // Start a new interval from the updated value
+        intervalRef.current = setInterval(() => {
+          setSliderValue((prev) => {
+            if (prev < durationInSeconds) {
+              return prev + 1;
+            } else {
+              if (intervalRef.current) clearInterval(intervalRef.current);
+              setIsPlaying(false);
+
+              return prev;
+            }
+          });
+        }, 1000);
+      }
+    },
+    [durationInSeconds, isPlaying, setIsPlaying]
+  );
 
   // Define the function to handle what happens when music ends
   const onMusicEnd = useCallback(() => {
     setIndex(index < songs.length - 1 ? index + 1 : 0);
     setSliderValue(0);
-  }, []);
+  }, [index, setIndex]);
 
   // Handle play/pause
   useEffect(() => {
@@ -94,6 +100,7 @@ export function Playlist(): React.ReactElement {
           } else {
             if (intervalRef.current) clearInterval(intervalRef.current);
             onMusicEnd();
+
             return prev;
           }
         });
@@ -105,13 +112,13 @@ export function Playlist(): React.ReactElement {
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [isPlaying, durationInSeconds]);
+  }, [isPlaying, durationInSeconds, onMusicEnd]);
 
   return (
     <Container screen="xs" alignment="center" padding={{ block: "7xl" }}>
       <Card padding={{ block: "2xl", inline: "2xl" }} shadow="2xl">
         <Card.Media
-          image={{ src: data?.results[index]?.urls.raw }}
+          image={{ src: data?.results[index]?.urls.thumb }}
           style={{ height: 260, overflow: "hidden" }}
         >
           <Backdrop blur="xs" style={{ position: "absolute" }} />
@@ -161,7 +168,7 @@ export function Playlist(): React.ReactElement {
                           }
                           rightSlot={
                             index === idx ? (
-                              index === idx && isPlaying ? (
+                              isPlaying ? (
                                 <LuPause size={18} />
                               ) : (
                                 <LuPlay size={18} />

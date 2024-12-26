@@ -64,7 +64,7 @@ export function Playlists(): React.ReactElement {
                     <Box>
                       <Stack direction="row" items="center" justify="between" grow>
                         <Stack items="center" gap="md">
-                          <img src={`${urls.raw}&w=80&h=80&fit=crop`} alt={alt_description} />
+                          <img src={urls.thumb} width={80} height={80} alt={alt_description} />
                           <Text weight="medium">{user.name}</Text>
                         </Stack>
                         {(isHovering || isTouch) && (
