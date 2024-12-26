@@ -199,7 +199,7 @@ export function Dialog({
     <>
       {(keepMounted || shouldRender) && (
         <Scope elevation="popup" hidden={!shouldRender}>
-          <Motion animation={open ? "fade-in" : "fade-out"}>
+          <Motion animation={open ? "fade-in" : "fade-out"} asChild>
             <Backdrop blur={blur} />
           </Motion>
           <DialogContext value={{ onClose }}>
@@ -209,6 +209,7 @@ export function Dialog({
                 duration="quickly"
                 animation={open ? "zoom-in-soft" : "zoom-out-soft"}
                 onDone={onHandleAnimationEnd}
+                asChild
               >
                 <div
                   ref={setRootRef}

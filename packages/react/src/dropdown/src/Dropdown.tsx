@@ -243,7 +243,7 @@ export function Dropdown<T extends HTMLElement>({
       })}
       {(isOpen || keepMounted) && (
         <Scope elevation="navigation" hidden={!isOpen}>
-          <Motion animation="fade-in">
+          <Motion animation="fade-in" asChild>
             <div
               ref={refs}
               role="region"

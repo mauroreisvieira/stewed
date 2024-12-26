@@ -248,7 +248,7 @@ export function Tooltip<T extends HTMLElement>({
       })}
       {isVisible && (
         <Scope elevation="hint">
-          <Motion animation="zoom-in-soft">
+          <Motion animation="zoom-in-soft" asChild>
             <div
               ref={floating}
               role="tooltip"

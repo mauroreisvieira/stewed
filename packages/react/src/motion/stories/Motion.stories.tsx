@@ -35,6 +35,7 @@ export const Scale: Story = {
             onDone={() => {
               setAnimation(undefined);
             }}
+            asChild
           >
             <Box
               radius="md"
@@ -73,6 +74,7 @@ export const Zoom: Story = {
             onDone={() => {
               setAnimation(undefined);
             }}
+            asChild
           >
             <Box
               radius="md"
@@ -111,6 +113,7 @@ export const Fade: Story = {
             onDone={() => {
               setAnimation(undefined);
             }}
+            asChild
           >
             <Box
               radius="md"
@@ -158,6 +161,7 @@ export const Slide: Story = {
             onDone={() => {
               setAnimation(undefined);
             }}
+            asChild
           >
             <Box
               radius="md"

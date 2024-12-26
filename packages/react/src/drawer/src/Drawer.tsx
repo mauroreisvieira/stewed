@@ -182,7 +182,7 @@ export function Drawer({
     <>
       {(keepMounted || shouldRender) && (
         <Scope elevation="navigation" hidden={!shouldRender}>
-          <Motion animation={open ? "fade-in" : "fade-out"}>
+          <Motion animation={open ? "fade-in" : "fade-out"} asChild>
             <Backdrop blur={blur} />
           </Motion>
           <DrawerContext value={{ onClose }}>
@@ -191,6 +191,7 @@ export function Drawer({
                 animation={open ? `slide-in-${placement}` : `slide-out-${placement}`}
                 duration={open ? "normal" : "quickly"}
                 onDone={onHandleAnimationEnd}
+                asChild
               >
                 <div
                   ref={setRootRef}

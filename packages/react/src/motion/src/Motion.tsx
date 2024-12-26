@@ -56,6 +56,11 @@ export interface MotionProps {
   timing?: Timing;
   /** Callback function that is called when the animation completes. */
   onDone?: () => void;
+  /**
+   * Change the default rendered element for the one passed as a child, merging their props and behavior.
+   * @default false
+   */
+  asChild?: boolean;
   /** The child element to which the animation will be applied. */
   children?: React.ReactNode | ((props: ChildProps) => React.ReactElement);
 }
@@ -66,7 +71,7 @@ export interface MotionProps {
  *
  * @example
  * ```tsx
- * <Motion animation="slide-in-right">
+ * <Motion animation="slide-in-right" asChild>
  *   <div />
  * </Motion>
  * ```
@@ -81,6 +86,7 @@ export function Motion({
   timing = "ease-in",
   duration = "quickly",
   onDone,
+  asChild = false,
   children
 }: MotionProps): React.ReactElement {
   // Importing useBem to handle BEM class names
@@ -108,7 +114,7 @@ export function Motion({
   }
 
   // Cloning the child element to inject className and onTransitionEnd and onAnimationEnd
-  if (React.isValidElement<ChildProps>(children)) {
+  if (asChild && React.isValidElement<ChildProps>(children)) {
     return React.cloneElement(children, {
       className: classNames(props.className, children.props.className),
       /** Callback function executed when the transition ends. */
@@ -124,6 +130,5 @@ export function Motion({
     });
   }
 
-  // If `children` is not a valid React element, handle it appropriately
-  return children as React.ReactElement;
+  return <div {...props}>{children}</div>;
 }

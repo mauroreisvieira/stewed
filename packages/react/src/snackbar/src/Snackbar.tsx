@@ -160,6 +160,7 @@ export function Snackbar({
                     }
                   });
                 }}
+                asChild
               >
                 <Alert
                   shadow="xl"

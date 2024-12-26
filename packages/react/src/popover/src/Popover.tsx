@@ -203,7 +203,7 @@ export function Popover<T extends HTMLElement>({
       })}
       {isOpen && (
         <Scope elevation="navigation">
-          <Motion animation="fade-in">
+          <Motion animation="fade-in" asChild>
             <div
               ref={floating}
               role="region"
