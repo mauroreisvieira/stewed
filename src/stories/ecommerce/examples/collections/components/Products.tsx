@@ -1,6 +1,7 @@
 import React from "react";
 // UI Components
 import { Box, Grid, Stack, Text } from "@stewed/react";
+// Partials
 import { ProductItem, type ProductItemProps } from "./ProductItem";
 
 interface ProductsProps {

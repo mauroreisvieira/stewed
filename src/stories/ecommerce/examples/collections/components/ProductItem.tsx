@@ -1,4 +1,5 @@
 import React from "react";
+// UI Components
 import { Hoverable, MotionProps, Text, Card, Motion, Box, Stack, Button } from "@stewed/react";
 // Icons
 import { IoEyeOutline, IoHeartOutline, IoStar } from "react-icons/io5";

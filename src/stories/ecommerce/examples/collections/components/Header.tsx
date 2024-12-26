@@ -18,8 +18,8 @@ interface HeaderProps {
 
 export function Header({ sort, setSort }: HeaderProps): React.ReactElement {
   return (
-    <Box skin="neutral-faded" padding={{ block: "4xl", inline: "lg" }}>
-      <Container screen="xl" alignment="center" padding={{ block: "7xl" }}>
+    <Box skin="neutral-faded" padding={{ block: "4xl" }}>
+      <Container screen="xl" alignment="center" padding={{ block: "7xl", inline: "lg" }}>
         <Stack justify="between" items="baseline">
           <div>
             <Text as="h1" size="3xl" weight="medium">

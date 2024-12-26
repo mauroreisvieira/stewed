@@ -1,16 +1,15 @@
 import React, { useMemo, useReducer } from "react";
 // UI Components
-import { Text, Container, Stack, Box, Accordion, Grid, Checkbox } from "@stewed/react";
+import { Text, Container, Stack, Box, Accordion, Grid, Checkbox, Separator } from "@stewed/react";
+// Partials
 import { Products } from "./components/Products";
+import { Header } from "./components/Header";
 // Hooks
 import { useFetchImages } from "../../../../api/useFetchImages";
 // Icons
 import { HiMinusSm, HiOutlinePlusSm } from "react-icons/hi";
 // Data
 import { FILTERS, PRODUCTS } from "./components/data";
-import { Header } from "./components/Header";
-import { Separator } from "@stewed/react";
-import { Slider } from "@stewed/react";
 
 interface Filters {
   tag: string[];
