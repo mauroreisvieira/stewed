@@ -25,7 +25,11 @@ export interface BackdropProps extends React.ComponentPropsWithoutRef<"div"> {
  * @param props - The props for the Backdrop component.
  * @returns The rendered Backdrop component.
  */
-export function Backdrop({ blur = "none", className, ...props }: BackdropProps): React.ReactElement {
+export function Backdrop({
+  blur = "none",
+  className,
+  ...props
+}: BackdropProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: components.Backdrop, styles });
 

@@ -2,8 +2,8 @@ import React from "react";
 // UI Components
 import { Theme } from "@stewed/react";
 // Components Patterns
-import { QuickViews as QV } from "./components/QuickViews";
-import { Collections as CL } from "./components/Collections";
+import { QuickView as QV } from "./examples/quick-view/QuickView";
+import { Collections as CL } from "./examples/collections/Collections";
 
 const meta = {
   title: "Examples/Ecommerce",

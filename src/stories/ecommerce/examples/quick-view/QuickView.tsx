@@ -19,7 +19,7 @@ import { useInput } from "@stewed/hooks";
 // Icons
 import { HiMinusSm, HiOutlinePlusSm } from "react-icons/hi";
 
-export function QuickViews(): React.ReactElement {
+export function QuickView(): React.ReactElement {
   const productsSizes = ["XXS", "XS", "S", "M", "L", "XL", "XXL"];
   const [selectedSize, setSelectedSize] = useState("M");
 
