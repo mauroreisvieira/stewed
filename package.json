@@ -21,7 +21,7 @@
     "packages:version": "changeset version"
   },
   "dependencies": {
-    "@tanstack/react-query": "^5.62.8",
+    "@tanstack/react-query": "^5.62.11",
     "@hello-week/hooks": "^0.4.0",
     "@stewed/hooks": "workspace:*",
     "@stewed/react": "workspace:*",
@@ -49,9 +49,9 @@
     "@testing-library/react": "^16.1.0",
     "@testing-library/react-hooks": "^8.0.1",
     "@types/node": "^22.10.2",
-    "@types/react": "^19.0.1",
-    "@typescript-eslint/eslint-plugin": "^8.18.1",
-    "@typescript-eslint/parser": "^8.18.1",
+    "@types/react": "^19.0.2",
+    "@typescript-eslint/eslint-plugin": "^8.18.2",
+    "@typescript-eslint/parser": "^8.18.2",
     "changeset-conventional-commits": "^0.2.5",
     "eslint": "^9.17.0",
     "eslint-config-prettier": "^9.1.0",
@@ -64,7 +64,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.4.0",
-    "react-scan": "^0.0.50",
+    "react-scan": "^0.0.54",
     "storybook": "^8.4.7",
     "stylelint": "^16.12.0",
     "stylelint-config-prettier-scss": "^1.0.0",
@@ -80,9 +80,9 @@
     "typescript": "^5.7.2"
   },
   "optionalDependencies": {
-    "@nx/nx-linux-x64-gnu": "^20.2.2"
+    "@nx/nx-linux-x64-gnu": "^20.3.0"
   },
-  "packageManager": "pnpm@9.15.0",
+  "packageManager": "pnpm@9.15.1",
   "engines": {
     "node": ">=20"
   }

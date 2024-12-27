@@ -31,9 +31,16 @@
     }
   }
 
-  &:not(:empty) > * {
-    display: block;
-    aspect-ratio: theme.get-var(aspect-ratio);
-    border-radius: theme.get-var(border-radius);
+  &:not(:empty) > {
+    * {
+      display: block;
+      aspect-ratio: theme.get-var(aspect-ratio);
+      border-radius: theme.get-var(border-radius);
+    }
+
+    [src] {
+      width: 100%;
+      object-fit: cover;
+    }
   }
 }
