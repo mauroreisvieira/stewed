@@ -9,7 +9,10 @@ export interface ProductItemProps {
   name: string;
   image: string | undefined;
   category: string;
-  price: string;
+  price: {
+    value: number;
+    currency: string;
+  };
   rate: number;
 }
 
@@ -70,7 +73,10 @@ export function ProductItem({
                 {category}
               </Text>
               <Stack justify="between" items="center" gap="md">
-                <Text weight="semi-bold">{price}</Text>
+                <Text weight="semi-bold">
+                  {price.value}
+                  {price.currency}
+                </Text>
                 <Stack items="center" justify="end" gap="xxs">
                   <Text size="xs">{rate} </Text>
                   <Text as="span" skin="warning">

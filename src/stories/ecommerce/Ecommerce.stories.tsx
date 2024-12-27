@@ -4,6 +4,7 @@ import { Theme } from "@stewed/react";
 // Components Patterns
 import { QuickView as QV } from "./examples/quick-view/QuickView";
 import { Collections as CL } from "./examples/collections/Collections";
+import { Details as DT } from "./examples/collections/Details";
 
 const meta = {
   title: "Examples/Ecommerce",
@@ -40,6 +41,26 @@ export const Collections = {
   }
 };
 
+export const Details = {
+  render: function Render() {
+    return (
+      <Theme
+        tokens={{
+          default: {
+            components: {
+              group: {
+                radius: "sm"
+              }
+            }
+          }
+        }}
+      >
+        <DT />
+      </Theme>
+    );
+  }
+};
+
 export const QuickViews = {
   render: function Render() {
     return (
@@ -48,10 +69,7 @@ export const QuickViews = {
           default: {
             components: {
               group: {
-                radius: "full"
-              },
-              button: {
-                radius: "full"
+                radius: "sm"
               }
             }
           }

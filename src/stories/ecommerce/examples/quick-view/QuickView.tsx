@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 // UI Components
 import {
   Text,
@@ -11,70 +11,123 @@ import {
   Button,
   TextField,
   Separator,
-  Accordion,
-  List
+  Tag
 } from "@stewed/react";
 // Hooks
 import { useInput } from "@stewed/hooks";
 // Icons
-import { HiMinusSm, HiOutlinePlusSm } from "react-icons/hi";
+import { HiMinusSm, HiOutlinePlusSm, HiStar } from "react-icons/hi";
+// Data
+import { PRODUCTS, SIZES } from "../data";
 
 export function QuickView(): React.ReactElement {
-  const productsSizes = ["XXS", "XS", "S", "M", "L", "XL", "XXL"];
-  const [selectedSize, setSelectedSize] = useState("M");
+  // State to manage the selected size of the product
+  const [selectedSize, setSelectedSize] = useState("");
 
-  const { value, setValue, onChange } = useInput<number>(1, {
-    validate: (newValue) => {
-      return newValue >= 0 && newValue <= 100;
-    }
-  });
+  // State to manage the selected color of the product
+  const [selectedColor, setSelectedColor] = useState("");
+
+  // This prevents unnecessary recalculations when the component re-renders.
+  const product = useMemo(() => PRODUCTS.find(({ discount }) => discount), []);
+
+  // Using a custom hook `useInput` to manage the input value for the quantity.
+  const { value, setValue, onChange } = useInput<number>(1);
 
   return (
     <Container screen="md" alignment="center" padding={{ block: "7xl" }}>
       <Drawer placement="right" open>
-        <Drawer.Header>
-          <Text as="h3">Herman Crossbody Bag</Text>
-        </Drawer.Header>
-
         <Drawer.Body>
+          <Text as="h3" space={{ y: "md" }}>
+            {product?.name}
+          </Text>
+
+          <Text size="sm" skin="neutral" space={{ y: "2xl" }}>
+            {product?.category} / {product?.tag}
+          </Text>
+
           <Stack direction="column" gap="2xl">
-            <Stack gap="lg" items="center">
-              <Stack gap="sm" grow>
-                <Text size="3xl" weight="medium" variation="line-through" skin="neutral-faded">
-                  €120
+            <Stack gap="sm" grow>
+              {product?.discount && (
+                <Text size="3xl" weight="light" variation="line-through" skin="neutral-faded">
+                  {(product.price.value * product?.discount) / 100}
+                  {product.price.currency}
                 </Text>
-                <Text size="3xl" weight="medium">
-                  €89,95
+              )}
+
+              <Text size="3xl" weight="semi-bold">
+                {product?.price.value}
+                {product?.price.currency}
+              </Text>
+
+              {product?.discount && <Tag size="xs">{product.discount}% of discount</Tag>}
+            </Stack>
+
+            {product?.rate && (
+              <Stack items="center" gap="lg">
+                <Stack direction="row">
+                  {Array.from({ length: 5 }).map((_, index) => (
+                    <Text
+                      key={index}
+                      as="div"
+                      skin={index + 1 <= Math.floor(product?.rate) ? "warning" : "neutral-faded"}
+                    >
+                      <HiStar size={24} />
+                    </Text>
+                  ))}
+                </Stack>
+
+                <Text skin="neutral" size="sm">
+                  ({product.rate}){" "}
+                  {product?.reviews > 1000 ? `${product?.reviews / 1000}k` : product?.reviews}{" "}
+                  reviews
                 </Text>
               </Stack>
-            </Stack>
+            )}
+
+            <Text as="div" size="sm" whiteSpace="pre-wrap">
+              {product?.description}
+            </Text>
 
             <FormField>
               <FormField.Label htmlFor="group">Size</FormField.Label>
               <FormField.Control>
-                <Box
-                  radius="full"
-                  borderColor="neutral-faded"
-                  borderStyle="solid"
-                  borderWidth={1}
-                  padding={{ block: "xxs", inline: "xxs" }}
-                >
-                  <Group focusOnSelected>
-                    {productsSizes.map((value) => (
-                      <Button
-                        key={value}
-                        size="sm"
-                        tabIndex={value === selectedSize ? 0 : -1}
-                        pressed={value === selectedSize}
-                        skin={value === selectedSize ? "primary" : "neutral"}
-                        appearance={value === selectedSize ? "filled" : "soft"}
-                        onClick={() => setSelectedSize(value)}
-                      >
-                        {value}
-                      </Button>
-                    ))}
-                  </Group>
-                </Box>
+                <Group gap="sm">
+                  {SIZES.map((value) => (
+                    <Button
+                      key={value}
+                      size="sm"
+                      disabled={!product?.sizes.includes(value)}
+                      tabIndex={value === selectedSize ? 0 : -1}
+                      pressed={value === selectedSize}
+                      skin={value === selectedSize ? "primary" : "neutral"}
+                      appearance={value === selectedSize ? "filled" : "outline"}
+                      onClick={() => setSelectedSize(value)}
+                    >
+                      {value}
+                    </Button>
+                  ))}
+                </Group>
+              </FormField.Control>
+            </FormField>
+
+            <FormField>
+              <FormField.Label htmlFor="group">Pick Color</FormField.Label>
+              <FormField.Control>
+                <Group gap="sm">
+                  {product?.color.map((value) => (
+                    <Button
+                      key={value}
+                      size="sm"
+                      tabIndex={value === selectedColor ? 0 : -1}
+                      pressed={value === selectedColor}
+                      skin={value === selectedColor ? "primary" : "neutral"}
+                      appearance={value === selectedColor ? "filled" : "outline"}
+                      onClick={() => setSelectedColor(value)}
+                    >
+                      {value}
+                    </Button>
+                  ))}
+                </Group>
               </FormField.Control>
             </FormField>
 
@@ -82,7 +135,7 @@ export function QuickView(): React.ReactElement {
               <FormField.Label htmlFor="quantity">Quantity</FormField.Label>
               <FormField.Control>
                 <Box
-                  radius="full"
+                  radius="sm"
                   borderColor="neutral-faded"
                   borderStyle="solid"
                   borderWidth={1}
@@ -90,12 +143,12 @@ export function QuickView(): React.ReactElement {
                 >
                   <Group gap="xxs">
                     <Button
-                      appearance="soft"
                       size="sm"
                       skin="neutral"
+                      appearance="soft"
                       leftSlot={<HiMinusSm size={16} />}
                       onClick={() => setValue(Number(value) - 1)}
-                      disabled={value === 0}
+                      disabled={value <= 1}
                       iconOnly
                     >
                       Decrease
@@ -103,25 +156,25 @@ export function QuickView(): React.ReactElement {
 
                     <TextField
                       id="quantity"
-                      skin="neutral"
+                      skin={value > (product?.stock || 0) ? "critical" : "neutral"}
                       size="sm"
                       appearance="ghost"
                       name="quantity"
                       value={value}
                       onChange={onChange}
-                      maxChars={3}
+                      maxChars={Number(product?.stock).toString().length}
                       alignment="center"
                       pattern="\d*"
                       autoComplete="off"
                     />
 
                     <Button
-                      appearance="soft"
-                      skin="neutral"
                       size="sm"
+                      skin="neutral"
+                      appearance="soft"
                       leftSlot={<HiOutlinePlusSm size={16} />}
                       onClick={() => setValue(Number(value) + 1)}
-                      disabled={value === 10}
+                      disabled={value === product?.stock}
                       iconOnly
                     >
                       Increase
@@ -130,134 +183,6 @@ export function QuickView(): React.ReactElement {
                 </Box>
               </FormField.Control>
             </FormField>
-
-            <Stack gap="lg" direction="column">
-              <Text weight="medium">Description</Text>
-              <Text size="sm" skin="neutral">
-                The Basic tee is an honest new take on a classic. The tee uses super soft,
-                pre-shrunk cotton for true comfort and a dependable fit. They are hand cut and sewn
-                locally, with a special dye technique that gives each tee its own look.
-              </Text>
-
-              <Text size="sm" skin="neutral">
-                Looking to stock your closet? The Basic tee also comes in a 3-pack or 5-pack at a
-                bundle discount.
-              </Text>
-
-              <Separator space={{ block: "xl" }} />
-
-              <Accordion>
-                <Accordion.Item value="1">
-                  {({ open }) => (
-                    <>
-                      <Accordion.Header
-                        rightSlot={open ? <HiMinusSm size={20} /> : <HiOutlinePlusSm size={20} />}
-                      >
-                        <Text weight="medium">Fabric & Fit</Text>
-                      </Accordion.Header>
-
-                      <Accordion.Body>
-                        <List>
-                          <List.Item>
-                            <Text size="sm" skin="neutral">
-                              Only the best materials
-                            </Text>
-                          </List.Item>
-                          <List.Item>
-                            <Text size="sm" skin="neutral">
-                              Ethically and locally made
-                            </Text>
-                          </List.Item>
-                          <List.Item>
-                            <Text size="sm" skin="neutral">
-                              Pre-washed and pre-shrunk
-                            </Text>
-                          </List.Item>
-                          <List.Item>
-                            <Text size="sm" skin="neutral">
-                              Machine wash cold with similar colors
-                            </Text>
-                          </List.Item>
-                        </List>
-                      </Accordion.Body>
-                    </>
-                  )}
-                </Accordion.Item>
-
-                <Accordion.Item value="2">
-                  {({ open }) => (
-                    <>
-                      <Accordion.Header
-                        rightSlot={open ? <HiMinusSm size={20} /> : <HiOutlinePlusSm size={20} />}
-                      >
-                        <Text weight="medium">Care Guide</Text>
-                      </Accordion.Header>
-                      <Accordion.Body>
-                        <List>
-                          <List.Item>
-                            <Text size="sm" skin="neutral">
-                              Only the best materials
-                            </Text>
-                          </List.Item>
-                          <List.Item>
-                            <Text size="sm" skin="neutral">
-                              Ethically and locally made
-                            </Text>
-                          </List.Item>
-                          <List.Item>
-                            <Text size="sm" skin="neutral">
-                              Pre-washed and pre-shrunk
-                            </Text>
-                          </List.Item>
-                          <List.Item>
-                            <Text size="sm" skin="neutral">
-                              Machine wash cold with similar colors
-                            </Text>
-                          </List.Item>
-                        </List>
-                      </Accordion.Body>
-                    </>
-                  )}
-                </Accordion.Item>
-
-                <Accordion.Item value="3">
-                  {({ open }) => (
-                    <>
-                      <Accordion.Header
-                        rightSlot={open ? <HiMinusSm size={20} /> : <HiOutlinePlusSm size={20} />}
-                      >
-                        <Text weight="medium">Size Guide</Text>
-                      </Accordion.Header>
-
-                      <Accordion.Body>
-                        <List>
-                          <List.Item>
-                            <Text size="sm" skin="neutral">
-                              Only the best materials
-                            </Text>
-                          </List.Item>
-                          <List.Item>
-                            <Text size="sm" skin="neutral">
-                              Ethically and locally made
-                            </Text>
-                          </List.Item>
-                          <List.Item>
-                            <Text size="sm" skin="neutral">
-                              Pre-washed and pre-shrunk
-                            </Text>
-                          </List.Item>
-                          <List.Item>
-                            <Text size="sm" skin="neutral">
-                              Machine wash cold with similar colors
-                            </Text>
-                          </List.Item>
-                        </List>
-                      </Accordion.Body>
-                    </>
-                  )}
-                </Accordion.Item>
-              </Accordion>
-            </Stack>
           </Stack>
         </Drawer.Body>
         <Separator />

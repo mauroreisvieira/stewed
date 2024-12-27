@@ -9,7 +9,7 @@ import { useFetchImages } from "../../../../api/useFetchImages";
 // Icons
 import { HiMinusSm, HiOutlinePlusSm } from "react-icons/hi";
 // Data
-import { FILTERS, PRODUCTS } from "./components/data";
+import { FILTERS, PRODUCTS } from "../data";
 
 interface Filters {
   tag: string[];
@@ -23,7 +23,7 @@ interface Sort {
 }
 
 export function Collections(): React.ReactElement {
-  const { data } = useFetchImages({ query: "bag", perPage: PRODUCTS.length });
+  const { data } = useFetchImages({ query: "fashion", perPage: PRODUCTS.length });
 
   // Reducer to update the filters, merging the previous state with the new state
   const [filters, setFilters] = useReducer(
@@ -42,10 +42,9 @@ export function Collections(): React.ReactElement {
 
   const productsList = useMemo(() => {
     // If no filters are applied, return all products
-    const filteredProducts = PRODUCTS.map((product, index) => ({
+    const filteredProducts = PRODUCTS.map((product) => ({
       ...product,
-      id: index,
-      image: data?.results[index]?.urls.small
+      image: data?.results[product.id]?.urls.small
     })).filter(({ category, color, tag }) => {
       // Check if the product matches the Tag filter (only if filters.tag is not empty)
       const matchesTag = filters.tag.length === 0 || filters.tag.includes(tag);
@@ -64,11 +63,11 @@ export function Collections(): React.ReactElement {
     if (sort.price) {
       filteredProducts.sort((a, b) => {
         if (sort.price === "high") {
-          return parseFloat(b.price.replace("€", "")) - parseFloat(a.price.replace("€", ""));
+          return b.price?.value - a.price.value;
         }
 
         if (sort.price === "low") {
-          return parseFloat(a.price.replace("€", "")) - parseFloat(b.price.replace("€", ""));
+          return a.price.value - b.price.value;
         }
 
         return 0;

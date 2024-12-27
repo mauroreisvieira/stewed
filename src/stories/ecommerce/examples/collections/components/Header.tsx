@@ -4,7 +4,7 @@ import { Box, Text, Container, Stack, Dropdown, ListBox } from "@stewed/react";
 // Icons
 import { LuCheck } from "react-icons/lu";
 // Data
-import { SORT, PRICE } from "./data";
+import { SORT, PRICE } from "../../data";
 
 export interface Sort {
   price: "high" | "low" | undefined;
