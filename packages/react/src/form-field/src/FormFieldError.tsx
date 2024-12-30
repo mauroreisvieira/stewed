@@ -20,14 +20,14 @@ interface FormFieldErrorProps {
 export function FormFieldError({
   hidden,
   className,
-  children,
+  children
 }: FormFieldErrorProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: `${components.FormField}__error`, styles });
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ extraClasses: className, modifiers: [hidden && "hidden"] }),
+    root: getBlock({ extraClasses: className, modifiers: [hidden && "hidden"] })
   };
 
   return (

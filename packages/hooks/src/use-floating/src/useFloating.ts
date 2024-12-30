@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer, useCallback, useRef } from "react";
+import { useState, useEffect, useReducer, useCallback, useRef, type RefObject } from "react";
 
 /** Defines the possible placements for the floating element relative to the reference element. */
 export type FloatingPlacement =
@@ -15,6 +15,7 @@ export type FloatingPlacement =
   | "left-start"
   | "left-end";
 
+/** Configuration options for controlling the behavior and positioning of a floating element. */
 interface FloatingOptions {
   /**
    * The preferred placement of the floating component relative to the reference element.
@@ -30,7 +31,14 @@ interface FloatingOptions {
   isPositioned?: boolean;
 }
 
-interface UseFloatingProps<R extends HTMLElement> extends Pick<FloatingOptions, "placement"> {
+/**
+ * Props for the `useFloating` hook, which is used to position an element relative
+ * to another element (or a floating position) in a floating UI pattern.
+ *
+ * @template R - The type of the referenced element (typically a DOM element like `HTMLElement`).
+ */
+export interface UseFloatingProps<R extends HTMLElement>
+  extends Partial<Pick<FloatingOptions, "placement">> {
   /**
    * The reference element used for positioning the floating component.
    * Should be a DOM element or null.
@@ -60,9 +68,17 @@ interface UseFloatingProps<R extends HTMLElement> extends Pick<FloatingOptions, 
   boundary?: HTMLElement | null;
 }
 
+/**
+ * Props for the `useFloating` hook, which is used to manage the positioning and behavior of a floating element.
+ *
+ * This interface extends `FloatingOptions` to provide configuration for floating behavior, such as alignment,
+ * offset, and other positioning logic, while also allowing customization via the generic type `T`.
+ *
+ * @template T - The type of the floating element (typically `HTMLElement` or a custom type).
+ */
 interface UseFloating<T> extends FloatingOptions {
   /** The reference to attach to the floating element. */
-  floating: React.RefObject<T>;
+  floating: RefObject<T | null>;
   /** The x-coordinate of the floating element. */
   x: number;
   /** The y-coordinate of the floating element. */
@@ -86,7 +102,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
   offset = 0,
   flip = true,
   boundary,
-  open,
+  open
 }: UseFloatingProps<R>): UseFloating<F> {
   // Reference to the floating element, initially set to null
   const floating = useRef<F>(null);
@@ -95,15 +111,15 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
   const [floatingPosition, setFloatingPosition] = useState({
     x: 0,
     y: 0,
-    reference: {} as DOMRect,
+    reference: {} as DOMRect
   });
 
   // Reducer to update the options, merging the previous state with the new state
   const [options, setOptions] = useReducer(
-    (prev: FloatingOptions, next: FloatingOptions) => {
+    (prev: FloatingOptions, next: Partial<FloatingOptions>) => {
       return { ...prev, ...next };
     },
-    { placement, isPositioned: false }, // Initial state with placement and whether the element is positioned
+    { placement, isPositioned: false } // Initial state with placement and whether the element is positioned
   );
 
   // Calculate the floating element's position
@@ -111,10 +127,22 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
     ({
       position,
       referenceRect,
-      floatingRect,
+      floatingRect
     }: {
+      /**
+       * The placement position of the floating element, relative to the reference element.
+       * This value is typically used to define where the floating element should appear, such as 'top', 'right', 'bottom', etc.
+       */
       position: FloatingPlacement;
+      /**
+       * The DOMRect of the reference element, which provides the size and position of the reference element
+       * relative to the viewport. This is used to calculate where the floating element should be placed.
+       */
       referenceRect: DOMRect;
+      /**
+       * The DOMRect of the floating element, which provides the size and position of the floating element
+       * relative to the viewport. This is used to adjust and fine-tune the placement of the floating element.
+       */
       floatingRect: DOMRect;
     }) => {
       // Initialize x and y position values
@@ -189,7 +217,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
 
       return { x, y };
     },
-    [offset],
+    [offset]
   );
 
   // Function to update the position of the floating element based on the reference element's position and size
@@ -201,85 +229,317 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
     const referenceRect = reference.getBoundingClientRect();
     const floatingRect = floating.current.getBoundingClientRect();
 
-    // let previousPlacement = options.placement;
-
     // Get the initial x and y coordinates
     let { x, y } = calculateFloatingPosition({
       position: options.placement,
       referenceRect,
-      floatingRect,
+      floatingRect
     });
 
-    // Adjust position to keep the element within the viewport or boundary
-    const boundaryRect = boundary
-      ? boundary.getBoundingClientRect()
-      : { height: window.innerHeight, width: window.innerWidth, top: 0, left: 0 };
-
-    // Get the current scroll position of the boundary or the window
-    const { scrollTop, scrollLeft } = boundary ? boundary : document.documentElement;
-
-    // Check if the floating element exceeds the boundary or viewport
-    const exceedsRight =
-      x + floatingRect.width > boundaryRect.left + boundaryRect.width + scrollLeft;
-    const exceedsBottom =
-      y + floatingRect.height > boundaryRect.top + boundaryRect.height + scrollTop;
-
-    const exceedsLeft = x < boundaryRect.left + window.scrollX + scrollLeft;
-    const exceedsTop = y < boundaryRect.top + window.scrollY + scrollTop;
-
-    // Check if a given placement fits within the viewport
+    /**
+     * Determines if the floating element can fit in the specified placement relative to the reference element.
+     *
+     * This function checks whether the floating element, given its size and the specified placement (e.g., 'top', 'right', 'bottom', etc.),
+     * will fit within the visible viewport without overflowing. It is typically used to adjust the floating element's
+     * position to ensure it remains fully visible within the available space.
+     *
+     * @param placement - The placement of the floating element relative to the reference element.
+     *  This could be one of the values like 'top', 'right', 'bottom', 'left', etc.
+     *
+     * @returns `true` if the floating element fits within the viewport for the given placement, or `false` otherwise.
+     */
     const doesPlacementFit = (placement: FloatingPlacement): boolean => {
+      // Adjust position to keep the element within the viewport or boundary
+      const boundaryRect = boundary
+        ? boundary.getBoundingClientRect()
+        : { height: window.innerHeight, width: window.innerWidth, top: 0, left: 0 };
+
+      const { width: floatingWidth, height: floatingHeight } = floatingRect;
+
+      // Adjust boundaryRect to include scroll offsets
+      const {
+        left: boundaryLeft,
+        top: boundaryTop,
+        width: boundaryWidth,
+        height: boundaryHeight
+      } = boundaryRect;
+
+      const scrollTop = boundary?.scrollTop || 0;
+      const scrollLeft = boundary?.scrollLeft || 0;
+
+      const adjustedBoundaryTop = boundaryTop + scrollTop;
+      const adjustedBoundaryLeft = boundaryLeft + scrollLeft;
+
+      // Adjust referenceRect to include scroll offsets
+      const {
+        left: referenceLeft,
+        top: referenceTop,
+        width: referenceWidth,
+        height: referenceHeight
+      } = referenceRect;
+
+      const adjustedReferenceTop = referenceTop + scrollTop;
+      const adjustedReferenceLeft = referenceLeft + scrollLeft;
+
       switch (placement) {
-        case "top":
-          return !exceedsTop;
         case "bottom":
-          return !exceedsBottom;
-        case "right":
-          return !exceedsRight && !exceedsTop && !exceedsBottom;
-        case "left":
-          return !exceedsLeft && !exceedsTop && !exceedsBottom;
-        case "top-start":
-          return !exceedsTop && !exceedsRight;
-        case "top-end":
-          return !exceedsTop && !exceedsLeft;
+          return (
+            adjustedReferenceTop + referenceHeight + floatingHeight <=
+              adjustedBoundaryTop + boundaryHeight && // Space at the bottom
+            adjustedReferenceLeft + floatingWidth / 2 <= adjustedBoundaryLeft + boundaryWidth && // Space on the right
+            adjustedReferenceLeft - floatingWidth / 2 >= adjustedBoundaryLeft // Space on the left
+          );
+
         case "bottom-start":
-          return !exceedsBottom && !exceedsRight;
+          return (
+            adjustedReferenceTop + referenceHeight + floatingHeight <=
+              adjustedBoundaryTop + boundaryHeight && // Space at the bottom
+            adjustedReferenceLeft + floatingWidth <= adjustedBoundaryLeft + boundaryWidth // Space on the right
+          );
+
         case "bottom-end":
-          return !exceedsBottom && !exceedsLeft;
-        case "right-start":
-          return !exceedsRight && !exceedsBottom;
-        case "right-end":
-          return !exceedsRight && !exceedsTop;
+          return (
+            adjustedReferenceTop + referenceHeight + floatingHeight <=
+              adjustedBoundaryTop + boundaryHeight && // Space at the bottom
+            adjustedReferenceLeft + referenceWidth - floatingWidth >= adjustedBoundaryLeft // Space on the left
+          );
+
+        case "top":
+          return (
+            adjustedReferenceTop - floatingHeight >= adjustedBoundaryTop && // Space at the top
+            adjustedReferenceLeft + floatingWidth / 2 <= adjustedBoundaryLeft + boundaryWidth && // Space on the right
+            adjustedReferenceLeft - floatingWidth / 2 >= adjustedBoundaryLeft // Space on the left
+          );
+
+        case "top-start":
+          return (
+            adjustedReferenceTop - floatingHeight >= adjustedBoundaryTop && // Space at the top
+            adjustedReferenceLeft + floatingWidth <= adjustedBoundaryLeft + boundaryWidth // Space on the right
+          );
+
+        case "top-end":
+          return (
+            adjustedReferenceTop - floatingHeight >= adjustedBoundaryTop && // Space at the top
+            adjustedReferenceLeft + referenceWidth - floatingWidth >= adjustedBoundaryLeft // Space on the left
+          );
+
+        case "left":
+          return (
+            adjustedReferenceLeft - floatingWidth >= adjustedBoundaryLeft && // Space on the left
+            adjustedReferenceTop + floatingHeight / 2 <= adjustedBoundaryTop + boundaryHeight && // Space at the bottom
+            adjustedReferenceTop - floatingHeight / 2 >= adjustedBoundaryTop // Space at the top
+          );
+
         case "left-start":
-          return !exceedsLeft && !exceedsBottom;
+          return (
+            adjustedReferenceLeft - floatingWidth >= adjustedBoundaryLeft && // Space on the left
+            adjustedReferenceTop + floatingHeight <= adjustedBoundaryTop + boundaryHeight // Space at the bottom
+          );
+
         case "left-end":
-          return !exceedsLeft && !exceedsTop;
+          return (
+            adjustedReferenceLeft - floatingWidth >= adjustedBoundaryLeft && // Space on the left
+            adjustedReferenceTop + referenceHeight - floatingHeight >= adjustedBoundaryTop // Space at the top
+          );
+
+        case "right":
+          return (
+            adjustedReferenceLeft + referenceWidth + floatingWidth <=
+              adjustedBoundaryLeft + boundaryWidth && // Space on the right
+            adjustedReferenceTop + floatingHeight / 2 <= adjustedBoundaryTop + boundaryHeight && // Space at the bottom
+            adjustedReferenceTop - floatingHeight / 2 >= adjustedBoundaryTop // Space at the top
+          );
+
+        case "right-start":
+          return (
+            adjustedReferenceLeft + referenceWidth + floatingWidth <=
+              adjustedBoundaryLeft + boundaryWidth && // Space on the right
+            adjustedReferenceTop + floatingHeight <= adjustedBoundaryTop + boundaryHeight // Space at the bottom
+          );
+
+        case "right-end":
+          return (
+            adjustedReferenceLeft + referenceWidth + floatingWidth <=
+              adjustedBoundaryLeft + boundaryWidth && // Space on the right
+            adjustedReferenceTop + referenceHeight - floatingHeight >= adjustedBoundaryTop // Space at the top
+          );
+
         default:
-          return true; // Default case, assume it fits
+          return true; // Assume it fits if placement is unrecognized
       }
     };
 
-    // Adjust the placement of the floating element to fit within the viewport
+    /**
+     * Adjusts the placement of the floating element to ensure it fits within the viewport.
+     *
+     * This function takes an initial placement (e.g., 'top', 'bottom', 'left', 'right') and determines if the floating
+     * element will overflow the viewport. If overflow is detected, the placement is adjusted accordingly to keep the element
+     * fully visible. This is commonly used to ensure that tooltips, popovers, or modals remain within the visible area of the screen.
+     *
+     * @param initialPlacement - The initial placement of the floating element relative to the reference element.
+     *  This could be one of the values like 'top', 'right', 'bottom', 'left'.
+     *
+     * @returns The adjusted placement that ensures the floating element fits within the viewport.
+     */
     const adjustPlacement = (initialPlacement: FloatingPlacement): FloatingPlacement => {
-      // First, check if the initial placement fits
-      if (doesPlacementFit(initialPlacement)) {
-        return initialPlacement;
-      }
-
       // Define alternative placements for cases where the initial placement does not fit
       const relatedPlacements = {
-        "top": ["top-start", "top-end", "bottom", "bottom-start", "bottom-end"],
-        "bottom": ["bottom-start", "bottom-end", "top", "top-start", "top-end"],
-        "left": ["left-start", "left-end", "right", "right-start", "right-end"],
-        "right": ["right-start", "right-end", "left", "left-start", "left-end"],
-        "top-start": ["top", "top-end", "bottom-start", "bottom", "bottom-end"],
-        "top-end": ["top", "top-start", "bottom-end", "bottom", "bottom-start"],
-        "bottom-start": ["bottom", "bottom-end", "top-start", "top", "top-end"],
-        "bottom-end": ["bottom", "bottom-start", "top-end", "top", "top-start"],
-        "left-start": ["left", "left-end", "right-start", "right", "right-end"],
-        "left-end": ["left", "left-start", "right-end", "right", "right-start"],
-        "right-start": ["right", "right-end", "left-start", "left", "left-end"],
-        "right-end": ["right", "right-start", "left-end", "left", "left-start"],
+        top: [
+          "top-start",
+          "top-end", // Variations on top
+          "bottom",
+          "bottom-start",
+          "bottom-end", // Opposite placements on the bottom
+          "left",
+          "left-start",
+          "left-end", // Left variations
+          "right",
+          "right-start",
+          "right-end" // Right variations
+        ],
+        bottom: [
+          "bottom-start",
+          "bottom-end", // Variations on bottom
+          "top",
+          "top-start",
+          "top-end", // Opposite placements on the top
+          "left",
+          "left-start",
+          "left-end", // Left variations
+          "right",
+          "right-start",
+          "right-end" // Right variations
+        ],
+        left: [
+          "left-start",
+          "left-end", // Variations on left
+          "right",
+          "right-start",
+          "right-end", // Opposite placements on the right
+          "top",
+          "top-start",
+          "top-end", // Top variations
+          "bottom",
+          "bottom-start",
+          "bottom-end" // Bottom variations
+        ],
+        right: [
+          "right-start",
+          "right-end", // Variations on right
+          "left",
+          "left-start",
+          "left-end", // Opposite placements on the left
+          "top",
+          "top-start",
+          "top-end", // Top variations
+          "bottom",
+          "bottom-start",
+          "bottom-end" // Bottom variations
+        ],
+        "top-start": [
+          "top",
+          "top-end", // Variations on top
+          "bottom-start",
+          "bottom",
+          "bottom-end", // Opposite placements on the bottom
+          "left-start",
+          "left",
+          "left-end", // Left variations
+          "right-start",
+          "right",
+          "right-end" // Right variations
+        ],
+        "top-end": [
+          "top",
+          "top-start", // Variations on top
+          "bottom-end",
+          "bottom",
+          "bottom-start", // Opposite placements on the bottom
+          "left-end",
+          "left",
+          "left-start", // Left variations
+          "right-end",
+          "right",
+          "right-start" // Right variations
+        ],
+        "bottom-start": [
+          "bottom",
+          "bottom-end", // Variations on bottom
+          "top-start",
+          "top",
+          "top-end", // Opposite placements on the top
+          "left-start",
+          "left",
+          "left-end", // Left variations
+          "right-start",
+          "right",
+          "right-end" // Right variations
+        ],
+        "bottom-end": [
+          "bottom",
+          "bottom-start", // Variations on bottom
+          "top-end",
+          "top",
+          "top-start", // Opposite placements on the top
+          "left-end",
+          "left",
+          "left-start", // Left variations
+          "right-end",
+          "right",
+          "right-start" // Right variations
+        ],
+        "left-start": [
+          "left",
+          "left-end", // Variations on left
+          "right-start",
+          "right",
+          "right-end", // Opposite placements on the right
+          "top-start",
+          "top",
+          "top-end", // Top variations
+          "bottom-start",
+          "bottom",
+          "bottom-end" // Bottom variations
+        ],
+        "left-end": [
+          "left",
+          "left-start", // Variations on left
+          "right-end",
+          "right",
+          "right-start", // Opposite placements on the right
+          "top-end",
+          "top",
+          "top-start", // Top variations
+          "bottom-end",
+          "bottom",
+          "bottom-start" // Bottom variations
+        ],
+        "right-start": [
+          "right",
+          "right-end", // Variations on right
+          "left-start",
+          "left",
+          "left-end", // Opposite placements on the left
+          "top-start",
+          "top",
+          "top-end", // Top variations
+          "bottom-start",
+          "bottom",
+          "bottom-end" // Bottom variations
+        ],
+        "right-end": [
+          "right",
+          "right-start", // Variations on right
+          "left-end",
+          "left",
+          "left-start", // Opposite placements on the left
+          "bottom-end",
+          "bottom",
+          "bottom-start", // Bottom variations
+          "top-end",
+          "top",
+          "top-start" // Top variations
+        ]
       } as const;
 
       // Try the related placements to see if they fit
@@ -294,7 +554,7 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
     };
 
     // If fit is enabled, adjust the position to keep the element within the viewport
-    if (flip) {
+    if (flip && !doesPlacementFit(placement)) {
       // Adjust the placement based on some criteria (e.g., screen boundaries or available space)
       const newPlacement = adjustPlacement(placement);
 
@@ -304,27 +564,27 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
         ({ x, y } = calculateFloatingPosition({
           position: newPlacement,
           referenceRect,
-          floatingRect,
+          floatingRect
         }));
       }
     }
 
-    // Update the options with the new placement
-    setOptions({ placement: options.placement, isPositioned: true });
-
     // Update floating element position with calculated x and y coordinates
     setFloatingPosition({ x, y, reference: referenceRect });
+
+    // Update the options with the new placement
+    setOptions({ isPositioned: true });
   }, [boundary, calculateFloatingPosition, flip, options.placement, placement, reference]);
 
   useEffect(() => {
     // Check if the options require positioning and if the reference element and flip behavior are defined.
     // If any of these conditions are not met, exit early to avoid unnecessary processing.
-    if (!reference || !flip || !open) return;
+    if (!reference || !open) return;
 
     // Create a new AbortController to manage aborting ongoing operations if needed.
     const controller = new AbortController();
 
-    // Function to recalculate position
+    /** Function to recalculate position */
     const handleResize = () => {
       updatePosition();
     };
@@ -339,10 +599,18 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
 
     // Cleanup function
     return () => {
+      setOptions({ placement, isPositioned: false });
       resizeObserver.disconnect();
       controller.abort();
     };
-  }, [reference, updatePosition, flip, open]);
+  }, [reference, updatePosition, open, placement]);
+
+  // Make sure to call updatePosition when the floating element is ready, for cases when the width of the floating element change
+  useEffect(() => {
+    if (options.isPositioned) {
+      updatePosition();
+    }
+  }, [options.isPositioned, updatePosition]);
 
   return { floating, ...floatingPosition, ...options };
 }

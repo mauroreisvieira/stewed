@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, use } from "react";
 
 const definitionError = (): null => {
   throw new Error('Please make sure "<Drawer>" component is wrapping your component.');
@@ -13,7 +13,7 @@ export interface DrawerContextProps {
 }
 
 export const DrawerContext = createContext<DrawerContextProps>({
-  onClose: definitionError,
+  onClose: definitionError
 });
 
-export const useDrawer = (): DrawerContextProps => useContext(DrawerContext);
+export const useDrawer = (): DrawerContextProps => use(DrawerContext);

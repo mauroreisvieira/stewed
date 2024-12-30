@@ -7,7 +7,7 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-interface WeekProps {
+export interface WeekProps {
   /**  Additional CSS class name for the root element of the week component. */
   className?: string;
 }
@@ -21,7 +21,7 @@ export function Week({ className }: WeekProps): React.ReactElement {
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({ extraClasses: className }),
-    day: getElement(["day"]),
+    day: getElement(["day"])
   };
 
   return (

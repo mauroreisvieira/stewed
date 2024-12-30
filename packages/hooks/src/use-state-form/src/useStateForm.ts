@@ -2,10 +2,16 @@ import React, { useMemo, useReducer, SyntheticEvent } from "react";
 // Utilities
 import { objectKeys } from "@stewed/utilities";
 
+/** Represents native change events for common form elements. */
 type NativeChangeEvents = React.ChangeEvent<
   HTMLInputElement & HTMLTextAreaElement & HTMLSelectElement
 >;
 
+/**
+ * Represents a collection of validation functions for each field in a form.
+ *
+ * @template T - The type of the form's data object, where each key represents a field name.
+ */
 type FormValidators<T> = {
   /** Defines a validator for a specific form field. */
   [key in keyof T]?: {
@@ -16,6 +22,7 @@ type FormValidators<T> = {
   };
 };
 
+/**  Interface for UseStateForm hook  */
 interface UseStateFormProps<T> {
   /** Initial values for the form fields. */
   initialValues: T;
@@ -47,9 +54,34 @@ interface UseStateFormProps<T> {
   validators?: (data: Partial<T>) => FormValidators<T>;
 }
 
+/**
+ * Represents the state of a single form field.
+ *
+ * @template T - The type of the form's data object, where each key represents a field name.
+ */
+interface FormData<T> {
+  /** The current value of the form field. */
+  value: T[keyof T];
+  /**
+   * Indicates whether the field is valid.
+   * Can be `true` for valid, `false` for invalid, or `undefined` if not yet validated.
+   */
+  valid: boolean | undefined;
+  /**
+   * An optional error message associated with the field.
+   * This is typically populated when the field fails validation.
+   */
+  error?: string;
+}
+
+/**
+ * Represents the state and operations for managing a form.
+ *
+ * @template T - The type of the form's data object, where each key represents a field name.
+ */
 interface UseStateForm<T> {
   /** Represents the current state of the form. */
-  formData: { [key in keyof T]: { value: T[keyof T]; valid: boolean | undefined; error?: string } };
+  formData: { [key in keyof T]: FormData<T> };
   /** Function to update the form data state */
   setFormData: React.Dispatch<Partial<T>>;
   /** Event handler for form field changes. */
@@ -79,18 +111,19 @@ export function useStateForm<T>({
   validators,
   onSubmit,
   onReset,
-  onChange,
+  onChange
 }: UseStateFormProps<T>): UseStateForm<T> {
   const [formData, setFormData] = useReducer((prev: T, next: Partial<T>) => {
     return { ...prev, ...next };
   }, initialValues);
 
-  // Handle form input change
+  /** Handle form input change */
   const onHandleChange = (event: NativeChangeEvents) => {
     const { name, value, checked } = event.target;
 
     if (["checkbox", "radio"].includes(event.target.type)) {
       setFormData({ ...formData, [name]: checked });
+
       return;
     }
 
@@ -98,13 +131,13 @@ export function useStateForm<T>({
     onChange?.(event);
   };
 
-  // Handle form submission
+  /** Handle form submission */
   const onHandleSubmit = (event: SyntheticEvent) => {
     event.preventDefault();
     if (onSubmit) onSubmit(formData);
   };
 
-  // Handle form reset
+  /** Handle form reset */
   const onHandleReset = () => {
     setFormData(initialValues);
     onReset?.(formData, initialValues);
@@ -120,13 +153,14 @@ export function useStateForm<T>({
             valid: validators?.(formData)[key]?.condition
               ? validators?.(formData)[key]?.condition?.()
               : true,
-            error: validators?.(formData)[key]?.description,
+            error: validators?.(formData)[key]?.description
           };
+
           return acc;
         },
-        {} as UseStateForm<T>["formData"],
+        {} as UseStateForm<T>["formData"]
       ),
-    [formData, validators],
+    [formData, validators]
   );
 
   return {
@@ -134,6 +168,6 @@ export function useStateForm<T>({
     setFormData,
     onFormChange: onHandleChange,
     onFormSubmit: onHandleSubmit,
-    onFormReset: onHandleReset,
+    onFormReset: onHandleReset
   };
 }

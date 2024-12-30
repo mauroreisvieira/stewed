@@ -1,10 +1,10 @@
-import React, { forwardRef, useCallback, useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 // Compound Component
 import { CheckboxGroup } from "./CheckboxGroup";
 // Context
 import { useCheckboxGroup } from "./CheckboxGroupContext";
-// Components
-import { Spinner } from "../../spinner";
+// UI Components
+import { Spinner, Icon, type SpinnerProps } from "../../index";
 // Hooks
 import { useBem, useMergeRefs, useResponsive, type UseResponsiveProps } from "@stewed/hooks";
 import { useTheme } from "../../theme";
@@ -13,6 +13,12 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Props for a Checkbox component.
+ * Extends the default properties of an HTML `<input>` element, omitting the `size` property.
+ *
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input}
+ */
 export interface CheckboxProps
   extends Omit<React.ComponentPropsWithRef<"input">, "size">,
     UseResponsiveProps<{
@@ -28,9 +34,14 @@ export interface CheckboxProps
    */
   skin?: "primary" | "critical" | "success";
   /**
+   * Change the visual appearance of the checkbox input.
+   * @default default
+   */
+  appearance?: "default" | "border";
+  /**
    * Sets the checkbox to an indeterminate state.
    * @default false
-   * @see [MDN Documentation]{@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#attr-indeterminate}
+   * @see {@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#attr-indeterminate}
    */
   indeterminate?: boolean;
   /** Displays a loading indicator on the checkbox. */
@@ -49,147 +60,144 @@ export interface CheckboxProps
  *
  * @remarks This component props extended from React.InputHTMLAttributes<HTMLInputElement>.
  *
- * @param {CheckboxProps} props - The props for the Checkbox component.
- * @returns {React.ReactElement} - The rendered Checkbox component.
+ * @see {@link CheckboxProps} for more details on the available props.
+ * @param props - The props for the Checkbox component.
+ * @returns The rendered Checkbox component.
  */
-const Root = forwardRef(
-  (
+export function Checkbox({
+  ref,
+  skin = "primary",
+  size = "md",
+  appearance = "default",
+  className,
+  disabled,
+  indeterminate = false,
+  loading,
+  value,
+  checked,
+  children,
+  onChange,
+  ...props
+}: CheckboxProps): React.ReactElement {
+  // Create a ref for the input element, initialized to null
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  // This allows both refs to point to the same DOM element, enabling multiple components or hooks to interact with the same element.
+  const mergeRefs = useMergeRefs();
+  // eslint-disable-next-line react-compiler/react-compiler
+  const mergedRefs = mergeRefs([ref, inputRef]);
+
+  // Importing useBem to handle BEM class names
+  const { getBlock, getElement } = useBem({ block: components.Checkbox, styles });
+
+  // Retrieve values from the current theme context
+  const { activeToken } = useTheme();
+
+  // Compute responsive props based on current theme and screen sizes
+  const computedProps = useResponsive(
     {
-      skin = "primary",
-      size = "md",
-      className,
-      disabled,
-      indeterminate = false,
-      loading,
-      value,
-      checked,
-      children,
-      onChange,
-      ...props
-    }: CheckboxProps,
-    ref: React.Ref<HTMLInputElement>,
-  ): React.ReactElement => {
-    // Create a ref for the input element, initialized to null
-    const inputRef = useRef<HTMLInputElement>(null);
+      size
+    },
+    activeToken.breakpoints
+  );
 
-    // This allows both refs to point to the same DOM element, enabling multiple components or hooks to interact with the same element.
-    const mergedRefs = useMergeRefs([ref, inputRef]);
+  // Use the custom hook useCheckboxGroup to access functions and state related to checkbox management
+  const { onCheckedChange, checkedValues } = useCheckboxGroup();
 
-    // Importing useBem to handle BEM class names
-    const { getBlock, getElement } = useBem({ block: components.Checkbox, styles });
+  // Generating CSS classes based on component props and styles
+  const cssClasses = {
+    root: getBlock({
+      modifiers: [
+        disabled && "disabled",
+        loading && "loading",
+        computedProps.size,
+        skin,
+        appearance !== "default" && appearance
+      ],
+      extraClasses: className
+    }),
+    svg: getElement(["svg"]),
+    input: getElement(["input"]),
+    control: getElement(["control"]),
+    text: getElement(["text"]),
+    spinner: getElement(["spinner"])
+  };
 
-    // Retrieve values from the current theme context
-    const { activeToken } = useTheme();
+  // Effect to handle the indeterminate state of the checkbox
+  useEffect(() => {
+    const node = inputRef.current;
 
-    // Compute responsive props based on current theme and screen sizes
-    const computedProps = useResponsive(
-      {
-        size,
-      },
-      activeToken.breakpoints,
-    );
+    if (node) {
+      node.indeterminate = indeterminate;
+    }
+  }, [indeterminate]);
 
-    // Use the custom hook useCheckboxGroup to access functions and state related to checkbox management
-    const { onCheckedChange, checkedValues } = useCheckboxGroup();
+  // Determine the checked state: controlled or uncontrolled
+  const isChecked =
+    typeof checkedValues !== "undefined"
+      ? !!(value && checkedValues.includes(value.toString()))
+      : checked;
 
-    // Generating CSS classes based on component props and styles
-    const cssClasses = {
-      root: getBlock({
-        modifiers: [disabled && "disabled", loading && "loading", computedProps.size, skin],
-        extraClasses: className,
-      }),
-      svg: getElement(["svg"]),
-      input: getElement(["input"]),
-      control: getElement(["control"]),
-      text: getElement(["text"]),
-      spinner: getElement(["spinner"]),
-    };
+  // Event handler for when the checkbox state changes
+  const onHandleChange: React.ChangeEventHandler<HTMLInputElement> = useCallback(
+    (event) => {
+      // Trigger the external onChange handler if provided
+      onChange?.(event);
 
-    // Effect to handle the indeterminate state of the checkbox
-    useEffect(() => {
-      const node = inputRef.current;
+      // Calculate the new checked state by toggling the current checked state
+      const newChecked = !isChecked;
 
-      if (node) {
-        node.indeterminate = indeterminate;
+      if (value) {
+        // Manage checkedValues if value is defined
+        const newCheckedValues = newChecked
+          ? [...(checkedValues || []), value.toString()]
+          : checkedValues?.filter((checkedValue) => checkedValue !== value);
+
+        // Update the parent component's checkedValues if onCheckedChange is provided
+        onCheckedChange?.(newCheckedValues || []);
       }
-    }, [indeterminate]);
+    },
+    [isChecked, checkedValues, value, onChange, onCheckedChange]
+  );
 
-    // Determine the checked state: controlled or uncontrolled
-    const isChecked =
-      typeof checkedValues !== "undefined"
-        ? !!(value && checkedValues.includes(value.toString()))
-        : checked;
+  const sizeSpinnerMap: Record<string, SpinnerProps["size"]> = {
+    sm: "xxs",
+    md: "xs"
+  };
 
-    // Event handler for when the checkbox state changes
-    const onHandleChange: React.ChangeEventHandler<HTMLInputElement> = useCallback(
-      (event) => {
-        // Trigger the external onChange handler if provided
-        onChange?.(event);
-
-        // Calculate the new checked state by toggling the current checked state
-        const newChecked = !isChecked;
-
-        if (value) {
-          // Manage checkedValues if value is defined
-          const newCheckedValues = newChecked
-            ? [...(checkedValues || []), value.toString()]
-            : checkedValues?.filter((checkedValue) => checkedValue !== value);
-
-          // Update the parent component's checkedValues if onCheckedChange is provided
-          onCheckedChange?.(newCheckedValues || []);
-        }
-      },
-      [isChecked, checkedValues, value, onChange, onCheckedChange],
-    );
-
-    return (
-      <label className={cssClasses.root}>
-        <input
-          ref={mergedRefs}
-          type="checkbox"
-          disabled={disabled}
-          checked={isChecked}
-          value={value}
-          className={cssClasses.input}
-          onChange={onHandleChange}
-          {...props}
-        />
-        <span className={cssClasses.control}>
-          {loading ? (
-            <Spinner
-              className={cssClasses.spinner}
-              skin="default"
-              size={computedProps.size === "sm" ? "xxs" : computedProps.size === "md" ? "xs" : "sm"}
-            />
-          ) : (
-            <>
-              {indeterminate ? (
-                <svg
-                  className={cssClasses.svg}
-                  viewBox="0 0 24 24"
-                  focusable="false"
-                  aria-hidden="true">
-                  <path d="M18 12.75H6c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h12c.41 0 .75.34.75.75s-.34.75-.75.75Z" />
-                </svg>
-              ) : (
-                <svg
-                  className={cssClasses.svg}
-                  viewBox="0 0 20 20"
-                  focusable="false"
-                  aria-hidden="true">
-                  <path d="M14.723 6.237a.94.94 0 0 1 .053 1.277l-5.366 6.193a.834.834 0 0 1-.611.293.83.83 0 0 1-.622-.264l-2.927-3.097a.94.94 0 0 1 0-1.278.82.82 0 0 1 1.207 0l2.297 2.43 4.763-5.498a.821.821 0 0 1 1.206-.056Z" />
-                </svg>
-              )}
-            </>
-          )}
-        </span>
-        {children && <div className={cssClasses.text}>{children}</div>}
-      </label>
-    );
-  },
-);
+  return (
+    <label className={cssClasses.root}>
+      <input
+        ref={mergedRefs}
+        type="checkbox"
+        disabled={disabled}
+        checked={isChecked}
+        value={value}
+        className={cssClasses.input}
+        onChange={onHandleChange}
+        {...props}
+      />
+      <span className={cssClasses.control}>
+        {loading ? (
+          <Spinner
+            className={cssClasses.spinner}
+            skin="white"
+            size={sizeSpinnerMap[computedProps.size] || "sm"}
+          />
+        ) : (
+          <>
+            {indeterminate ? (
+              <Icon.Minus className={cssClasses.svg} />
+            ) : (
+              <Icon.Check className={cssClasses.svg} />
+            )}
+          </>
+        )}
+      </span>
+      {children && <div className={cssClasses.text}>{children}</div>}
+    </label>
+  );
+}
 
 // Compound component composition
-export const Checkbox = Object.assign(Root, {
-  Group: CheckboxGroup,
-});
+Checkbox.Group = CheckboxGroup;

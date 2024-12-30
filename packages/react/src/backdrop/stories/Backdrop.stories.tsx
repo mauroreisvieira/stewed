@@ -11,14 +11,15 @@ const meta: Meta<typeof Backdrop> = {
   decorators: [
     (Story) => (
       <Theme>
+        <div style={{ height: 200 }} />
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
 
 export const Base: Story = {
-  args: {},
+  args: {}
 };

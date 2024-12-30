@@ -2,9 +2,10 @@ import { useCallback } from "react";
 // Utilities
 import { classNames } from "@stewed/utilities";
 
-// Define type for classNames parameters
+/** Define type for classNames parameters */
 type ClassNamesParams = Parameters<typeof classNames>;
 
+/** Interface declaration for UseBem properties */
 interface UseBemProps {
   /** The block name or identifier for the BEM structure. */
   block: string;
@@ -23,7 +24,7 @@ export function useBem({ block, styles }: UseBemProps) {
   /**
    * Retrieves a CSS class from the styles object.
    *
-   * @param value The name of the CSS class to retrieve.
+   * @param value - The name of the CSS class to retrieve.
    * @returns The CSS class if found in the styles object, otherwise throws an error.
    */
   const getClass = useCallback(
@@ -37,10 +38,10 @@ export function useBem({ block, styles }: UseBemProps) {
       }
 
       throw new Error(
-        `Oops! The CSS class named '${value}' isn't found in the styles. Please review your styles object to ensure it's properly defined.`,
+        `Oops! The CSS class named '${value}' isn't found in the styles. Please review your styles object to ensure it's properly defined.`
       );
     },
-    [styles],
+    [styles]
   );
 
   /**
@@ -55,6 +56,7 @@ export function useBem({ block, styles }: UseBemProps) {
       ?.filter(Boolean)
       .map((element) => getClass(`${block}__${element}`))
       .join(" ");
+
     return classNames(elementClasses, extraClasses);
   };
 
@@ -70,6 +72,7 @@ export function useBem({ block, styles }: UseBemProps) {
       ?.filter(Boolean)
       .map((mod) => getClass(`${block}--${mod}`))
       .join(" ");
+
     return classNames(modifierClasses, extraClasses);
   };
 
@@ -79,15 +82,18 @@ export function useBem({ block, styles }: UseBemProps) {
    * @param elements - Array of element names.
    * @param modifiers - Array of modifier names.
    * @param extraClasses - Additional classes to include.
-   * @returns Concatenated class names for the block.
+   * @return Concatenated class names for the block.
    */
   const getBlock = ({
     elements,
     modifiers,
-    extraClasses,
+    extraClasses
   }: {
+    /** Array of element names. */
     elements?: ClassNamesParams;
+    /** Array of modifier names. */
     modifiers?: ClassNamesParams;
+    /** Additional classes to include. */
     extraClasses?: string;
   }): string => {
     return classNames(getClass(block), getElement(elements), getModifier(modifiers), extraClasses);
@@ -96,6 +102,6 @@ export function useBem({ block, styles }: UseBemProps) {
   return {
     getBlock,
     getElement,
-    getModifier,
+    getModifier
   };
 }

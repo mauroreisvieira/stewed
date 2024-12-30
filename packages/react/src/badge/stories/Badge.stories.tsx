@@ -15,8 +15,8 @@ const meta: Meta<typeof Badge> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -24,48 +24,48 @@ export default meta;
 export const Base: Story = {
   argTypes: {
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
     position: "top-right",
     skin: "primary",
-    value: "+999",
-  },
+    value: "+999"
+  }
 };
 
 export const Size: Story = {
   argTypes: {
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
     size: "lg",
     skin: "info",
-    value: "7",
-  },
+    value: "7"
+  }
 };
 
 export const Outline: Story = {
   argTypes: {
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
     position: "top-right",
     appearance: "outline",
     skin: "primary",
-    value: "+999",
-  },
+    value: "+999"
+  }
 };
 
 export const Children: Story = {
   argTypes: {
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
     position: "top-right",
@@ -76,6 +76,6 @@ export const Children: Story = {
       <Button skin="neutral" leftSlot={<IoIosNotificationsOutline />} iconOnly>
         Notifications
       </Button>
-    ),
-  },
+    )
+  }
 };

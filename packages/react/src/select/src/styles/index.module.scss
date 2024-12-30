@@ -21,10 +21,6 @@
     @include theme.disabled-styles;
   }
 
-  &:hover:not(&--disabled) {
-    border-color: theme.get-var(border-color-hover);
-  }
-
   &__left,
   &__right {
     position: relative;
@@ -47,6 +43,7 @@
     display: flex;
     align-items: center;
     width: 100%;
+    height: 100%;
     padding-inline: theme.get-spacing("md");
     touch-action: manipulation;
 
@@ -64,12 +61,14 @@
     width: theme.get-font-size("md");
   }
 
+  // Skins
   @each $key, $value in $select-skins {
     &--#{$key} {
       @include theme.define-var(
         (
+          foreground: map.get($value, "color"),
           border-color: map.get($value, "border"),
-          border-color-hover: map.get($value, "border-hover"),
+          background-color: map.get($value, "background-color")
         )
       );
     }
@@ -80,10 +79,24 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          height: $value,
+          height: $value
         )
       );
     }
+  }
+
+  &--outline {
+    border: 1px solid theme.get-var(border-color);
+  }
+
+  &--ghost {
+    color: theme.get-var(foreground);
+    border-color: transparent;
+  }
+
+  &--soft {
+    background-color: color-mix(in srgb, theme.get-var(background-color), transparent 95%);
+    border-color: transparent;
   }
 
   &--full-width {

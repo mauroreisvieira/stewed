@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 /**
  * Hook that returns the previous value.
@@ -8,15 +8,16 @@ import { useRef, useEffect } from "react";
  * const previousCount = usePrevious(count);
  * ```
  *
- * @param value The current value to track.
+ * @param value - The current value to track.
  * @returns The previous value.
  */
-export function usePrevious<T>(value: T): T | undefined {
-  const ref = useRef<T>();
+export function usePrevious<T>(value: T): T | null {
+  const ref = useRef<T>(null);
 
   useEffect(() => {
     ref.current = value;
   }, [value]);
 
+  // eslint-disable-next-line react-compiler/react-compiler
   return ref.current;
 }

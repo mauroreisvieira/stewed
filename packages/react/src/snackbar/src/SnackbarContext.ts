@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, use } from "react";
 // Types
 import type { AlertProps } from "../../../";
 
@@ -19,7 +19,7 @@ export interface SnackbarNotification
    * Duration in milliseconds after which the notification will automatically dismiss itself.
    * @remark If not specified, the item will not auto-dismiss.
    */
-  dismissDuration?: number;
+  autoDismiss?: number;
 }
 
 export interface SnackbarContextProps {
@@ -42,7 +42,7 @@ export interface SnackbarContextProps {
 export const SnackbarContext = createContext<SnackbarContextProps>({
   notifications: [],
   add: definitionError,
-  remove: definitionError,
+  remove: definitionError
 });
 
-export const useSnackbar = (): SnackbarContextProps => useContext(SnackbarContext);
+export const useSnackbar = (): SnackbarContextProps => use(SnackbarContext);

@@ -14,8 +14,8 @@ const meta: Meta<typeof Switch> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -25,13 +25,13 @@ export default meta;
  */
 export const Controlled: Story = {
   argTypes: {
-    onChange: { action: "change" },
+    onChange: { action: "change" }
   },
   args: {
     children: "Label",
     disabled: false,
-    defaultChecked: true,
-  },
+    defaultChecked: true
+  }
 };
 
 /**
@@ -40,36 +40,37 @@ export const Controlled: Story = {
  **/
 export const Uncontrolled: Story = {
   args: {
-    children: "Label",
+    children: "Label"
   },
   render: function Render() {
     const [isChecked, setChecked] = useToggle(false);
+
     return (
       <Switch checked={isChecked} onChange={setChecked}>
         Label
       </Switch>
     );
-  },
+  }
 };
 
 export const Loading: Story = {
   argTypes: {
-    onChange: { action: "change" },
+    onChange: { action: "change" }
   },
   args: {
     loading: true,
     size: "lg",
-    children: "Label",
-  },
+    children: "Label"
+  }
 };
 
 export const Error: Story = {
   argTypes: {
-    onChange: { action: "change" },
+    onChange: { action: "change" }
   },
   args: {
     skin: "critical",
     defaultChecked: true,
-    children: "Label",
-  },
+    children: "Label"
+  }
 };

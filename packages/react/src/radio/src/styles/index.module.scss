@@ -12,8 +12,8 @@
 
   @include theme.define-var(
     (
-      background-color: theme.get-color("neutral", "100"),
-      border-color: theme.get-color("neutral", "300"),
+      background-color: transparent,
+      border-color: theme.get-color("neutral", "border-faded")
     )
   );
 
@@ -27,10 +27,18 @@
     @include theme.hover {
       @include theme.define-var(
         (
-          background-color: theme.get-color("neutral", "200"),
+          background-color: theme.get-color("neutral", "background-faded")
         )
       );
     }
+  }
+
+  &--border {
+    box-sizing: border-box;
+    height: calc(theme.get-var(size) * 2);
+    padding-inline: theme.get-spacing("md");
+    border: 1px solid theme.get-var(border-color);
+    border-radius: theme.get-var(radius);
   }
 
   &__input {
@@ -87,11 +95,28 @@
     align-items: start;
 
     &--horizontal {
-      flex-direction: column;
+      flex-flow: wrap;
+      flex-direction: row;
+
+      &.#{$radio-root}__group--full-width {
+        .#{$radio-root} {
+          flex: 1;
+        }
+      }
     }
 
     &--vertical {
-      flex-direction: row;
+      flex-direction: column;
+    }
+
+    &--full-width {
+      width: 100%;
+
+      .#{$radio-root} {
+        box-sizing: border-box;
+        justify-content: start;
+        width: 100%;
+      }
     }
   }
 
@@ -100,7 +125,7 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          size: $value,
+          size: $value
         )
       );
     }
@@ -109,13 +134,22 @@
   // Skins
   @each $key, $value in $radio-skins {
     &--#{$key} {
-      .#{$radio-root}__input:checked + .radio__control {
+      &:has(input:checked) {
         @include theme.define-var(
           (
-            background-color: theme.get-color($value, "500"),
-            border-color: theme.get-color($value, "500"),
+            background-color: theme.get-color($value, "background"),
+            border-color: theme.get-color($value, "border")
           )
         );
+
+        @include theme.hover {
+          @include theme.define-var(
+            (
+              background-color: theme.get-color($value, "background"),
+              border-color: theme.get-color($value, "border")
+            )
+          );
+        }
       }
     }
   }

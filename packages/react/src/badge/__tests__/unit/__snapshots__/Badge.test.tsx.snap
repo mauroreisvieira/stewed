@@ -1,0 +1,94 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Badge > Snapshots > should applies appearance classes 1`] = `
+<div>
+  <span
+    class="_badge_8758fd _badge--primary-outline_8758fd _badge--sm_8758fd _badge--rectangular_8758fd _badge--top-right_8758fd"
+  >
+    Badge
+    <span
+      class="_badge__value_8758fd"
+    />
+  </span>
+</div>
+`;
+
+exports[`Badge > Snapshots > should applies correct position classes 1`] = `
+<div>
+  <span
+    class="_badge_8758fd _badge--primary-filled_8758fd _badge--sm_8758fd _badge--rectangular_8758fd _badge--bottom-right_8758fd"
+  >
+    Badge
+    <span
+      class="_badge__value_8758fd"
+    />
+  </span>
+</div>
+`;
+
+exports[`Badge > Snapshots > should applies correct size classes 1`] = `
+<div>
+  <span
+    class="_badge_8758fd _badge--primary-filled_8758fd _badge--md_8758fd _badge--rectangular_8758fd _badge--top-right_8758fd"
+  >
+    Badge
+    <span
+      class="_badge__value_8758fd"
+    />
+  </span>
+</div>
+`;
+
+exports[`Badge > Snapshots > should applies critical skin 1`] = `
+<div>
+  <span
+    class="_badge_8758fd _badge--critical-filled_8758fd _badge--sm_8758fd _badge--rectangular_8758fd _badge--top-right_8758fd"
+  >
+    Badge
+    <span
+      class="_badge__value_8758fd"
+    />
+  </span>
+</div>
+`;
+
+exports[`Badge > Snapshots > should render additional classes 1`] = `
+<div>
+  <span
+    class="_badge_8758fd _badge--primary-filled_8758fd _badge--sm_8758fd _badge--rectangular_8758fd _badge--top-right_8758fd other-class"
+  >
+    Badge
+    <span
+      class="_badge__value_8758fd"
+    />
+  </span>
+</div>
+`;
+
+exports[`Badge > Snapshots > should renders default component 1`] = `
+<div>
+  <span
+    class="_badge_8758fd _badge--primary-filled_8758fd _badge--sm_8758fd _badge--rectangular_8758fd _badge--top-right_8758fd"
+  >
+    Badge
+    <span
+      class="_badge__value_8758fd"
+    />
+  </span>
+</div>
+`;
+
+exports[`Badge > Snapshots > should renders value 1`] = `
+<div>
+  <span
+    class="_badge_8758fd _badge--primary-filled_8758fd _badge--sm_8758fd _badge--rectangular_8758fd _badge--top-right_8758fd"
+  >
+    Badge
+    <span
+      class="_badge__value_8758fd"
+    >
+      1
+    </span>
+  </span>
+</div>
+`;

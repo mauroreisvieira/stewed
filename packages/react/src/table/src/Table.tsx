@@ -17,7 +17,7 @@ type TableAppearance = "border" | "border-rows" | "border-columns" | "striped-ro
 export interface TableProps extends React.ComponentPropsWithoutRef<"table"> {
   /**
    * Change the visual appearance of the table.
-   * @default border
+   * @default default
    */
   appearance?: "default" | TableAppearance | TableAppearance[];
   /** Enable a hover state on table rows within */
@@ -35,14 +35,14 @@ export function Table({
   const { getBlock } = useBem({ block: components.Table, styles });
 
   // Ensure appearance is an array
-  const computedVariation = Array.isArray(appearance) ? appearance : [appearance];
+  const computedAppearance = Array.isArray(appearance) ? appearance : [appearance];
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({
-      modifiers: [...computedVariation.map((i) => i), hoverable && "hoverable"],
-      extraClasses: className,
-    }),
+      modifiers: [...computedAppearance.map((i) => i), hoverable && "hoverable"],
+      extraClasses: className
+    })
   };
 
   return (

@@ -1,4 +1,4 @@
-import React, { useContext, createContext } from "react";
+import React, { use, createContext } from "react";
 // Types
 import type { DateOrArrayDates, DayOptions, UseCalendarProps } from "@hello-week/hooks";
 
@@ -49,7 +49,7 @@ export interface CalendarContextProps<T> extends UseCalendarProps<T> {
   setSelectedDates?: React.Dispatch<React.SetStateAction<DateOrArrayDates | undefined>>;
   /**
    * Callback fired when a day is selected.
-   * @param day The day option that was selected.
+   * @param day - The day option that was selected.
    */
   onDaySelected?: (day: DayOptions<T>) => void;
   /**
@@ -99,7 +99,7 @@ function createCalendarContext<T>() {
     setSelectedDates: definitionError,
     onDaySelected: definitionError,
     onNext: definitionError,
-    onPrev: definitionError,
+    onPrev: definitionError
   });
 }
 
@@ -117,5 +117,5 @@ export const CalendarContext = createCalendarContext();
  * @returns Calendar context values.
  */
 export function useCalendarContext<T>() {
-  return useContext(CalendarContext as unknown as React.Context<CalendarContextProps<T>>);
+  return use(CalendarContext as unknown as React.Context<CalendarContextProps<T>>);
 }

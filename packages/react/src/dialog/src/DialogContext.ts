@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, use } from "react";
 
 const definitionError = (): null => {
   throw new Error('Please make sure "<Dialog>" component is wrapping your component.');
@@ -13,7 +13,7 @@ export interface DialogContextProps {
 }
 
 export const DialogContext = createContext<DialogContextProps>({
-  onClose: definitionError,
+  onClose: definitionError
 });
 
-export const useDialog = (): DialogContextProps => useContext(DialogContext);
+export const useDialog = (): DialogContextProps => use(DialogContext);

@@ -1,7 +1,9 @@
 import { useEffect, useRef } from "react";
+// Utilities
 import { ClickOutside, type ClickOutsideOptions } from "@stewed/utilities";
 
-export interface UseClickOutside extends ClickOutsideOptions {
+/** Interface for click outside hook */
+export interface UseClickOutsideProps extends ClickOutsideOptions {
   /** Whether the hook is active and listening for outside clicks. */
   enabled?: boolean;
 }
@@ -10,16 +12,13 @@ export interface UseClickOutside extends ClickOutsideOptions {
  * Hook that detects clicks outside of specified elements and triggers a callback.
  *
  * @param props - Configuration options for the hook.
- * @param props.enabled - Determines if the hook is active. Default is false.
- * @param props.ignoredElements - Array of elements to ignore clicks on.
- * @param props.onClickOutside - Callback function to trigger on outside click.
  */
 export const useClickOutside = ({
   enabled = false,
   ignoredElements,
-  onClickOutside,
-}: UseClickOutside): void => {
-  const clickOutside = useRef<ClickOutside>();
+  handler
+}: UseClickOutsideProps): void => {
+  const clickOutside = useRef<ClickOutside>(null);
 
   useEffect(() => {
     clickOutside.current = new ClickOutside();
@@ -34,17 +33,18 @@ export const useClickOutside = ({
 
     clickOutside.current.update({
       ignoredElements,
-      onClickOutside,
+      handler
     });
 
     if (enabled) {
       clickOutside.current.activate({
         ignoredElements,
-        onClickOutside,
+        handler
       });
+
       return;
     }
 
     clickOutside.current.deactivate();
-  }, [enabled, onClickOutside, ignoredElements]);
+  }, [enabled, handler, ignoredElements]);
 };

@@ -1,4 +1,4 @@
-import React, { useContext, createContext } from "react";
+import React, { use, createContext } from "react";
 
 /**
  * Dummy function to throw an error when tab is not provided by a TabsProvider.
@@ -16,7 +16,22 @@ const definitionError = (): null => {
  */
 export interface TabsContextProps<T extends string> {
   /** Sets value of tab item selected. */
-  value: T | undefined;
+  value?: T | undefined;
+  /**
+   * Whether to keep the element in the DOM while the panel is closed.
+   * @default true
+   */
+  keepMounted?: boolean;
+  /**
+   * The direction of the tab container.
+   * @default row
+   */
+  direction?: "row" | "column";
+  /**
+   * A state updater function for setting the selected value internally.
+   * This is typically used in uncontrolled mode.
+   */
+  setSelectedValue?: React.Dispatch<React.SetStateAction<T | undefined>>;
   /** Callback fired when the value changes. */
   onValueChange?: (value: T) => void;
 }
@@ -33,7 +48,9 @@ export interface TabsContextProps<T extends string> {
 function createTabsContext<T extends string>() {
   return createContext<TabsContextProps<T>>({
     value: undefined,
-    onValueChange: definitionError,
+    keepMounted: true,
+    setSelectedValue: definitionError,
+    onValueChange: definitionError
   });
 }
 
@@ -51,5 +68,5 @@ export const TabsContext = createTabsContext();
  * @returns Tabs context values.
  */
 export function useTabs<T extends string>() {
-  return useContext(TabsContext as unknown as React.Context<TabsContextProps<T>>);
+  return use(TabsContext as unknown as React.Context<TabsContextProps<T>>);
 }

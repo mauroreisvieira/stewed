@@ -1,3 +1,6 @@
 @use "@stewed/react/src/theme/src/styles" as theme;
 
 $backdrop-root: "backdrop";
+
+/// Blur
+$backdrop-blur: theme.get-blur();

@@ -4,7 +4,21 @@ import { Table, type TableProps } from "../../";
 // Hooks
 import { useDataTable, type UseDataTableProps } from "./useDataTable";
 
-export interface DataTableProps<T> extends TableProps, UseDataTableProps<T> {}
+export interface DataTableProps<T> extends Omit<TableProps, "children">, UseDataTableProps<T> {
+  /**
+   * A React element to display when there are no results to show in the table.
+   *
+   * @example
+   * <DataTable
+   *   data={[]}
+   *   columns={columns}
+   *   emptyState={<div>No data available</div>}
+   * />
+   *
+   * @default undefined - No element is rendered when there are no results unless this prop is provided.
+   */
+  emptyState?: React.ReactElement;
+}
 
 /**
  * The Data Table component is a powerful and flexible tool for displaying and managing tabular data.
@@ -58,6 +72,7 @@ export function DataTable<T>({
   orderColumns,
   sortableColumns,
   bodyRowProps,
+  emptyState,
   ...props
 }: DataTableProps<T>): React.ReactElement {
   // Access to table head, body and footer props
@@ -72,7 +87,7 @@ export function DataTable<T>({
     onSort,
     orderColumns,
     sortableColumns,
-    bodyRowProps,
+    bodyRowProps
   });
 
   return (
@@ -83,21 +98,30 @@ export function DataTable<T>({
             <Table.Cell
               as="th"
               key={`head-${columnKey?.toString()}`}
-              onClick={isSortable ? onSort : undefined}>
+              onClick={isSortable ? onSort : undefined}
+            >
               {cellNode}
             </Table.Cell>
           ))}
         </Table.Row>
       </Table.Head>
-      <Table.Body>
-        {bodyRows.map(({ bodyCells, key, ...bodyRowProps }) => (
-          <Table.Row key={key} {...bodyRowProps}>
-            {bodyCells.map(({ columnKey, cellNode }) => (
-              <Table.Cell key={`${key}-${columnKey as string}`}>{cellNode}</Table.Cell>
-            ))}
+      {bodyRows.length ? (
+        <Table.Body>
+          {bodyRows.map(({ bodyCells, key, ...bodyRowProps }) => (
+            <Table.Row key={key} {...bodyRowProps}>
+              {bodyCells.map(({ columnKey, cellNode }) => (
+                <Table.Cell key={`${key}-${columnKey as string}`}>{cellNode}</Table.Cell>
+              ))}
+            </Table.Row>
+          ))}
+        </Table.Body>
+      ) : (
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell colSpan={headCells.length}>{emptyState}</Table.Cell>
           </Table.Row>
-        ))}
-      </Table.Body>
+        </Table.Body>
+      )}
       {footCells.length > 0 && (
         <Table.Foot>
           <Table.Row>

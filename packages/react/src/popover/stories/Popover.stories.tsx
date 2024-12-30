@@ -12,7 +12,7 @@ import {
   FormField,
   TextField,
   Card,
-  Separator,
+  Separator
 } from "../../index";
 
 type Story = StoryObj<typeof Popover>;
@@ -29,8 +29,8 @@ const meta: Meta<typeof Popover> = {
           </Stack>
         </Box>
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -47,21 +47,21 @@ const placements = [
   "bottom-end",
   "left",
   "left-start",
-  "left-end",
+  "left-end"
 ];
 
 export const Base: Story = {
   args: {
     placement: "bottom",
-    offset: 10,
+    offset: 10
   },
   argTypes: {
     renderAnchor: {
-      control: false,
+      control: false
     },
     placement: {
-      options: placements,
-    },
+      options: placements
+    }
   },
   render: (args) => {
     return (
@@ -71,7 +71,8 @@ export const Base: Story = {
           <Button ref={ref} onClick={isOpen ? close : open}>
             Open popover
           </Button>
-        )}>
+        )}
+      >
         {() => {
           return (
             <Card shadow="none">
@@ -88,7 +89,7 @@ export const Base: Story = {
                     { label: "Width", defaultValue: "100%" },
                     { label: "Max width", defaultValue: "300px" },
                     { label: "Height", defaultValue: "25px" },
-                    { label: "Max height", defaultValue: "auto" },
+                    { label: "Max height", defaultValue: "auto" }
                   ].map(({ label, defaultValue }) => (
                     <FormField key={label}>
                       <Stack items="center">
@@ -110,7 +111,7 @@ export const Base: Story = {
         }}
       </Popover>
     );
-  },
+  }
 };
 
 /**
@@ -124,15 +125,15 @@ export const Base: Story = {
 export const Boundary: Story = {
   args: {
     placement: "bottom",
-    offset: 10,
+    offset: 10
   },
   argTypes: {
     renderAnchor: {
-      control: false,
+      control: false
     },
     placement: {
-      options: placements,
-    },
+      options: placements
+    }
   },
   render: function Render(args) {
     const [ref, setRef] = useState<HTMLDivElement | null>(null);
@@ -148,10 +149,11 @@ export const Boundary: Story = {
                 <Button ref={ref} onClick={isOpen ? close : open}>
                   Open popover
                 </Button>
-              )}>
+              )}
+            >
               {() => {
                 return (
-                  <Box skin="neutral">
+                  <Box skin="primary-faded">
                     <div style={{ width: 100, height: 100 }} />
                   </Box>
                 );
@@ -161,5 +163,5 @@ export const Boundary: Story = {
         </Card.Body>
       </Card>
     );
-  },
+  }
 };

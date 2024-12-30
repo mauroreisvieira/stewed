@@ -1,28 +1,29 @@
 import { useBem } from "../../index";
+// Utilities
 import { renderHook } from "@testing-library/react";
 
 // Mock classNames utility
-jest.mock("@stewed/utilities", () => ({
-  classNames: jest.fn((...args: string[]) => args.filter(Boolean).join(" ")),
+vi.mock("@stewed/utilities", () => ({
+  classNames: vi.fn((...args: string[]) => args.filter(Boolean).join(" "))
 }));
 
 // Mock useCallback
-jest.mock("react", () => ({
-  ...jest.requireActual("react"),
-  useCallback: jest.fn((callback) => callback),
+vi.mock("react", () => ({
+  ...vi.importActual("react"),
+  useCallback: vi.fn((callback) => callback)
 }));
 
 describe("useBem", () => {
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("should generate correct class names for block", () => {
     const { result } = renderHook(() =>
       useBem({
         block: "button",
-        styles: { "button": "button", "button--primary": "primary" },
-      }),
+        styles: { button: "button", "button--primary": "primary" }
+      })
     );
 
     expect(result.current.getBlock({})).toBe("button");
@@ -33,8 +34,8 @@ describe("useBem", () => {
     const { result } = renderHook(() =>
       useBem({
         block: "button",
-        styles: { button: "button", button__icon: "icon" },
-      }),
+        styles: { button: "button", button__icon: "icon" }
+      })
     );
 
     expect(result.current.getElement(["icon"])).toBe("icon");
@@ -45,8 +46,8 @@ describe("useBem", () => {
     const { result } = renderHook(() =>
       useBem({
         block: "button",
-        styles: { "button": "button", "button--primary": "primary" },
-      }),
+        styles: { button: "button", "button--primary": "primary" }
+      })
     );
 
     expect(result.current.getModifier(["primary"])).toBe("primary");

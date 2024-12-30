@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // UI Components
-import { Theme, Checkbox, Text, Separator } from "../../index";
+import { Theme, Checkbox, Text, Separator, type CheckboxGroupProps } from "../../index";
 // Hooks
 import { useToggle } from "@stewed/hooks";
 
@@ -11,15 +11,15 @@ const meta: Meta<typeof Checkbox> = {
   title: "Components/Checkbox",
   component: Checkbox,
   subcomponents: {
-    Group: Checkbox.Group as React.FC<unknown>,
+    "Checkbox.Group": Checkbox.Group as React.FC<unknown>
   },
   decorators: [
     (Story) => (
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -29,13 +29,13 @@ export default meta;
  */
 export const Controlled: Story = {
   argTypes: {
-    onChange: { action: "change" },
+    onChange: { action: "change" }
   },
   args: {
     disabled: false,
     defaultChecked: true,
-    children: "Label",
-  },
+    children: "Label"
+  }
 };
 
 /**
@@ -44,58 +44,60 @@ export const Controlled: Story = {
  **/
 export const Uncontrolled: Story = {
   args: {
-    children: "Label",
+    children: "Label"
   },
   render: function Render() {
     const [isChecked, setChecked] = useToggle(false);
+
     return (
       <Checkbox checked={isChecked} onChange={setChecked}>
         Label
       </Checkbox>
     );
-  },
+  }
 };
 
 export const Indeterminate: Story = {
   args: {
-    children: "Label",
+    children: "Label"
   },
   render: function Render() {
     const [isChecked, setChecked] = useToggle(false);
+
     return (
       <Checkbox checked={isChecked} onChange={setChecked} indeterminate={!isChecked}>
         Label
       </Checkbox>
     );
-  },
+  }
 };
 
 export const Loading: Story = {
   argTypes: {
-    onChange: { action: "change" },
+    onChange: { action: "change" }
   },
   args: {
     loading: true,
     size: "lg",
     defaultChecked: true,
-    children: "Label",
-  },
+    children: "Label"
+  }
 };
 
 export const Error: Story = {
   argTypes: {
-    onChange: { action: "change" },
+    onChange: { action: "change" }
   },
   args: {
     skin: "critical",
     defaultChecked: true,
-    children: "Label",
-  },
+    children: "Label"
+  }
 };
 
 export const Custom: Story = {
   argTypes: {
-    onChange: { action: "change" },
+    onChange: { action: "change" }
   },
   args: {
     defaultChecked: true,
@@ -108,23 +110,33 @@ export const Custom: Story = {
           You can manage your mobile notifications in the mobile settings page.
         </Text>
       </>
-    ),
-  },
+    )
+  }
 };
 
 /**
  * If `checkedValues` is undefined, this component will act as an uncontrolled input.
  * To avoid this, ensure `checkedValues` is either consistently controlled (always defined) or managed properly to handle potential undefined cases.
  */
-export const Group: Story = {
-  render: function Render() {
+export const Group: StoryObj<CheckboxGroupProps> = {
+  argTypes: {
+    orientation: {
+      control: "select",
+      options: ["vertical", "horizontal"]
+    }
+  },
+  args: {
+    orientation: "vertical",
+    fullWidth: true
+  },
+  render: function Render({ ...args }) {
     const [checkedValues, setCheckedValues] = useState<string[]>();
 
     return (
       <>
-        <Checkbox.Group checkedValues={checkedValues} onCheckedChange={setCheckedValues}>
+        <Checkbox.Group checkedValues={checkedValues} onCheckedChange={setCheckedValues} {...args}>
           {["Red", "Blue", "Green", "Orange", "Pink"].map((color) => (
-            <Checkbox key={color} value={color}>
+            <Checkbox key={color} appearance="border" value={color}>
               {color}
             </Checkbox>
           ))}
@@ -140,5 +152,5 @@ export const Group: Story = {
         </Text>
       </>
     );
-  },
+  }
 };

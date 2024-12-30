@@ -15,62 +15,41 @@ const meta: Meta<typeof Button> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
 
 export const Base: Story = {
   args: {
-    disabled: false,
-    size: "md",
-    skin: "primary",
-    appearance: "filled",
-    children: "Button",
-  },
+    children: "Button"
+  }
+};
+
+export const Skin: Story = {
+  args: {
+    skin: "neutral",
+    children: "Button"
+  }
 };
 
 export const LeftSlot: Story = {
   argTypes: {
     leftSlot: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
     leftSlot: <FiSearch />,
-    children: "Button",
-  },
-};
-
-export const IconOnly: Story = {
-  argTypes: {
-    leftSlot: {
-      control: false,
-    },
-  },
-  args: {
-    appearance: "filled",
-    skin: "primary",
-    size: "sm",
-    iconOnly: true,
-    leftSlot: <FiSearch />,
-    children: "Button",
-  },
-};
-
-export const Polymorphic: Story = {
-  args: {
-    as: "span",
-    role: "button",
-    children: "Button",
-  },
+    children: "Button"
+  }
 };
 
 export const Loading: Story = {
   args: {
     children: "",
     size: "md",
-    loading: true,
-  },
+    loading: true
+  }
 };

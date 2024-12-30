@@ -12,13 +12,13 @@
   height: theme.get-var(height);
   padding-inline: 2px;
   user-select: none;
-  background-color: theme.get-color("neutral", "100");
-  border: 1px solid theme.get-color("neutral", "300");
+  background-color: theme.get-color("neutral", "background-faded");
+  border: 1px solid theme.get-color("neutral", "border-faded");
   border-radius: theme.get-var(radius);
 
   @include theme.define-var(
     (
-      background-color: transparent,
+      background-color: transparent
     )
   );
 
@@ -50,10 +50,11 @@
     }
 
     &--selected {
-      box-shadow: theme.get-shadow("md");
+      box-shadow: theme.get-var(shadow);
+
       @include theme.define-var(
         (
-          background-color: theme.get-color("background-elevated"),
+          background-color: theme.get-color("background-default")
         )
       );
     }
@@ -64,7 +65,7 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          height: $value,
+          height: $value
         )
       );
     }

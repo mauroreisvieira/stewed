@@ -14,8 +14,8 @@ const meta: Meta<typeof useInput> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -26,7 +26,7 @@ export const Base: Story = {
     const { value, onChange } = useInput<string>("", {
       validate: (newValue: string) => {
         return newValue.length <= 9;
-      },
+      }
     });
 
     return (
@@ -41,5 +41,5 @@ export const Base: Story = {
         <Text>Current Value: {value}</Text>
       </div>
     );
-  },
+  }
 };

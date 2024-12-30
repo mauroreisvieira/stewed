@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback } from "react";
+import React from "react";
 // Context
 import { useRadioGroup } from "./RadioGroupContext";
 // Compound Component
@@ -25,6 +25,11 @@ export interface RadioProps
    * @default primary
    */
   skin?: "primary" | "critical" | "success";
+  /**
+   * Change the visual appearance of the radio input.
+   * @default default
+   */
+  appearance?: "default" | "border";
   /** Content to be rendered within the radio, usually used for labels. */
   children?: React.ReactNode;
 }
@@ -42,94 +47,89 @@ export interface RadioProps
  * @param {RadioProps} props - The props for the Radio component.
  * @returns {React.ReactElement} - The rendered Radio component.
  */
-const Root = forwardRef(
-  (
+export function Radio({
+  skin = "primary",
+  size = "md",
+  appearance = "default",
+  className,
+  disabled,
+  name,
+  value,
+  checked,
+  children,
+  onChange,
+  ...props
+}: RadioProps): React.ReactElement {
+  // Importing useBem to handle BEM class names
+  const { getBlock, getElement } = useBem({ block: components.Radio, styles });
+
+  // Retrieve values from the current theme context
+  const { activeToken } = useTheme();
+
+  // Compute responsive props based on current theme and screen sizes
+  const computedProps = useResponsive(
     {
-      skin = "primary",
-      size = "md",
-      className,
-      disabled,
-      name,
-      value,
-      checked,
-      children,
-      onChange,
-      ...props
-    }: RadioProps,
-    ref: React.Ref<HTMLInputElement>,
-  ): React.ReactElement => {
-    // Importing useBem to handle BEM class names
-    const { getBlock, getElement } = useBem({ block: components.Radio, styles });
+      size
+    },
+    activeToken.breakpoints
+  );
 
-    // Retrieve values from the current theme context
-    const { activeToken } = useTheme();
+  // Use the custom hook useCheckboxGroup to access functions and state related to radio management
+  const { onCheckedChange, checkedValue, name: groupName } = useRadioGroup();
 
-    // Compute responsive props based on current theme and screen sizes
-    const computedProps = useResponsive(
-      {
-        size,
-      },
-      activeToken.breakpoints,
-    );
+  // Generating CSS classes based on component props and styles
+  const cssClasses = {
+    root: getBlock({
+      modifiers: [
+        skin,
+        appearance !== "default" && appearance,
+        computedProps.size,
+        disabled && "disabled"
+      ],
+      extraClasses: className
+    }),
+    input: getElement(["input"]),
+    control: getElement(["control"]),
+    text: getElement(["text"])
+  };
 
-    // Use the custom hook useCheckboxGroup to access functions and state related to radio management
-    const { onCheckedChange, checkedValue, name: groupName } = useRadioGroup();
+  // Determine the checked state: controlled or uncontrolled
+  const isChecked = typeof checkedValue !== "undefined" ? checkedValue === value : checked;
 
-    // Generating CSS classes based on component props and styles
-    const cssClasses = {
-      root: getBlock({
-        modifiers: [skin, computedProps.size, disabled && "disabled"],
-        extraClasses: className,
-      }),
-      input: getElement(["input"]),
-      control: getElement(["control"]),
-      text: getElement(["text"]),
-    };
+  /** Event handler for when the radio state changes */
+  const onHandleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+    // Calculate the new checked state by toggling the current checked state
+    const newChecked = !isChecked;
 
-    // Determine the checked state: controlled or uncontrolled
-    const isChecked = typeof checkedValue !== "undefined" ? checkedValue === value : checked;
+    if (value) {
+      // Manage checkedValues if value is defined
+      const newCheckedValue = newChecked ? value.toString() : "";
 
-    // Event handler for when the radio state changes
-    const onHandleChange: React.ChangeEventHandler<HTMLInputElement> = useCallback(
-      (event) => {
-        // Trigger the external onChange handler if provided
-        onChange?.(event);
+      // Update the parent component's checkedValues if onCheckedChange is provided
+      onCheckedChange?.(newCheckedValue);
+    }
 
-        // Calculate the new checked state by toggling the current checked state
-        const newChecked = !isChecked;
+    // Trigger the external onChange handler if provided
+    onChange?.(event);
+  };
 
-        if (value) {
-          // Manage checkedValues if value is defined
-          const newCheckedValue = newChecked ? value.toString() : "";
-
-          // Update the parent component's checkedValues if onCheckedChange is provided
-          onCheckedChange?.(newCheckedValue);
-        }
-      },
-      [isChecked, value, onChange, onCheckedChange],
-    );
-
-    return (
-      <label className={cssClasses.root}>
-        <input
-          ref={ref}
-          type="radio"
-          className={cssClasses.input}
-          name={groupName || name}
-          value={value}
-          checked={isChecked}
-          disabled={disabled}
-          onChange={onHandleChange}
-          {...props}
-        />
-        <span className={cssClasses.control} />
-        {children && <div className={cssClasses.text}>{children}</div>}
-      </label>
-    );
-  },
-);
+  return (
+    <label className={cssClasses.root}>
+      <input
+        type="radio"
+        className={cssClasses.input}
+        name={groupName || name}
+        value={value}
+        checked={isChecked}
+        disabled={disabled}
+        onChange={onHandleChange}
+        {...props}
+      />
+      <span className={cssClasses.control} />
+      {children && <div className={cssClasses.text}>{children}</div>}
+    </label>
+  );
+}
 
 // Compound component composition
-export const Radio = Object.assign(Root, {
-  Group: RadioGroup,
-});
+Radio.Group = RadioGroup;

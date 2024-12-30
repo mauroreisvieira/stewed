@@ -1,0 +1,31 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+@use "./variables" as *;
+
+@include theme.scope($scroll-area-root) {
+  overflow: hidden scroll;
+
+  &--top-shadow,
+  &--bottom-shadow {
+    &::before,
+    &::after {
+      position: sticky;
+      display: block;
+      width: 100%;
+      content: "";
+    }
+  }
+
+  &--top-shadow {
+    &::before {
+      top: 0;
+      box-shadow: 0 0 6px 6px theme.get-color("shadow");
+    }
+  }
+
+  &--bottom-shadow {
+    &::after {
+      bottom: 0;
+      box-shadow: 0 2px 6px 2px theme.get-color("shadow");
+    }
+  }
+}

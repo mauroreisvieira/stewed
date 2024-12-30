@@ -1,0 +1,181 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Separator > Snapshots > should apply 'black' skin classes 1`] = `
+<div>
+  <hr
+    aria-orientation="horizontal"
+    class="_separator_2d7787 _separator--black_2d7787 _separator--horizontal_2d7787 _separator--space-block-none_2d7787 _separator--space-inline-none_2d7787"
+  />
+</div>
+`;
+
+exports[`Separator > Snapshots > should apply 'critical' skin classes 1`] = `
+<div>
+  <hr
+    aria-orientation="horizontal"
+    class="_separator_2d7787 _separator--critical_2d7787 _separator--horizontal_2d7787 _separator--space-block-none_2d7787 _separator--space-inline-none_2d7787"
+  />
+</div>
+`;
+
+exports[`Separator > Snapshots > should apply 'critical-faded' skin classes 1`] = `
+<div>
+  <hr
+    aria-orientation="horizontal"
+    class="_separator_2d7787 _separator--critical-faded_2d7787 _separator--horizontal_2d7787 _separator--space-block-none_2d7787 _separator--space-inline-none_2d7787"
+  />
+</div>
+`;
+
+exports[`Separator > Snapshots > should apply 'info' skin classes 1`] = `
+<div>
+  <hr
+    aria-orientation="horizontal"
+    class="_separator_2d7787 _separator--info_2d7787 _separator--horizontal_2d7787 _separator--space-block-none_2d7787 _separator--space-inline-none_2d7787"
+  />
+</div>
+`;
+
+exports[`Separator > Snapshots > should apply 'info-faded' skin classes 1`] = `
+<div>
+  <hr
+    aria-orientation="horizontal"
+    class="_separator_2d7787 _separator--info-faded_2d7787 _separator--horizontal_2d7787 _separator--space-block-none_2d7787 _separator--space-inline-none_2d7787"
+  />
+</div>
+`;
+
+exports[`Separator > Snapshots > should apply 'neutral' skin classes 1`] = `
+<div>
+  <hr
+    aria-orientation="horizontal"
+    class="_separator_2d7787 _separator--neutral_2d7787 _separator--horizontal_2d7787 _separator--space-block-none_2d7787 _separator--space-inline-none_2d7787"
+  />
+</div>
+`;
+
+exports[`Separator > Snapshots > should apply 'neutral-faded' skin classes 1`] = `
+<div>
+  <hr
+    aria-orientation="horizontal"
+    class="_separator_2d7787 _separator--neutral-faded_2d7787 _separator--horizontal_2d7787 _separator--space-block-none_2d7787 _separator--space-inline-none_2d7787"
+  />
+</div>
+`;
+
+exports[`Separator > Snapshots > should apply 'primary' skin classes 1`] = `
+<div>
+  <hr
+    aria-orientation="horizontal"
+    class="_separator_2d7787 _separator--primary_2d7787 _separator--horizontal_2d7787 _separator--space-block-none_2d7787 _separator--space-inline-none_2d7787"
+  />
+</div>
+`;
+
+exports[`Separator > Snapshots > should apply 'primary-faded' skin classes 1`] = `
+<div>
+  <hr
+    aria-orientation="horizontal"
+    class="_separator_2d7787 _separator--primary-faded_2d7787 _separator--horizontal_2d7787 _separator--space-block-none_2d7787 _separator--space-inline-none_2d7787"
+  />
+</div>
+`;
+
+exports[`Separator > Snapshots > should apply 'secondary' skin classes 1`] = `
+<div>
+  <hr
+    aria-orientation="horizontal"
+    class="_separator_2d7787 _separator--secondary_2d7787 _separator--horizontal_2d7787 _separator--space-block-none_2d7787 _separator--space-inline-none_2d7787"
+  />
+</div>
+`;
+
+exports[`Separator > Snapshots > should apply 'secondary-faded' skin classes 1`] = `
+<div>
+  <hr
+    aria-orientation="horizontal"
+    class="_separator_2d7787 _separator--secondary-faded_2d7787 _separator--horizontal_2d7787 _separator--space-block-none_2d7787 _separator--space-inline-none_2d7787"
+  />
+</div>
+`;
+
+exports[`Separator > Snapshots > should apply 'success' skin classes 1`] = `
+<div>
+  <hr
+    aria-orientation="horizontal"
+    class="_separator_2d7787 _separator--success_2d7787 _separator--horizontal_2d7787 _separator--space-block-none_2d7787 _separator--space-inline-none_2d7787"
+  />
+</div>
+`;
+
+exports[`Separator > Snapshots > should apply 'success-faded' skin classes 1`] = `
+<div>
+  <hr
+    aria-orientation="horizontal"
+    class="_separator_2d7787 _separator--success-faded_2d7787 _separator--horizontal_2d7787 _separator--space-block-none_2d7787 _separator--space-inline-none_2d7787"
+  />
+</div>
+`;
+
+exports[`Separator > Snapshots > should apply 'warning' skin classes 1`] = `
+<div>
+  <hr
+    aria-orientation="horizontal"
+    class="_separator_2d7787 _separator--warning_2d7787 _separator--horizontal_2d7787 _separator--space-block-none_2d7787 _separator--space-inline-none_2d7787"
+  />
+</div>
+`;
+
+exports[`Separator > Snapshots > should apply 'warning-faded' skin classes 1`] = `
+<div>
+  <hr
+    aria-orientation="horizontal"
+    class="_separator_2d7787 _separator--warning-faded_2d7787 _separator--horizontal_2d7787 _separator--space-block-none_2d7787 _separator--space-inline-none_2d7787"
+  />
+</div>
+`;
+
+exports[`Separator > Snapshots > should apply 'white' skin classes 1`] = `
+<div>
+  <hr
+    aria-orientation="horizontal"
+    class="_separator_2d7787 _separator--white_2d7787 _separator--horizontal_2d7787 _separator--space-block-none_2d7787 _separator--space-inline-none_2d7787"
+  />
+</div>
+`;
+
+exports[`Separator > Snapshots > should orientation classes 1`] = `
+<div>
+  <hr
+    aria-orientation="vertical"
+    class="_separator_2d7787 _separator--neutral-faded_2d7787 _separator--vertical_2d7787 _separator--space-block-none_2d7787 _separator--space-inline-none_2d7787"
+  />
+</div>
+`;
+
+exports[`Separator > Snapshots > should render additional classes 1`] = `
+<div>
+  <hr
+    aria-orientation="horizontal"
+    class="_separator_2d7787 _separator--neutral-faded_2d7787 _separator--horizontal_2d7787 _separator--space-block-none_2d7787 _separator--space-inline-none_2d7787 other-class"
+  />
+</div>
+`;
+
+exports[`Separator > Snapshots > should renders default component 1`] = `
+<div>
+  <hr
+    aria-orientation="horizontal"
+    class="_separator_2d7787 _separator--neutral-faded_2d7787 _separator--horizontal_2d7787 _separator--space-block-none_2d7787 _separator--space-inline-none_2d7787"
+  />
+</div>
+`;
+
+exports[`Separator > Snapshots > should space classes 1`] = `
+<div>
+  <hr
+    aria-orientation="horizontal"
+    class="_separator_2d7787 _separator--neutral-faded_2d7787 _separator--horizontal_2d7787 _separator--space-block-lg_2d7787 _separator--space-inline-5xl_2d7787"
+  />
+</div>
+`;

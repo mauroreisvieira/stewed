@@ -1,0 +1,141 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Progress > Snapshots > should applies appearance classes 1`] = `
+<div>
+  <div
+    class="_progress_aff0c6 _progress--primary_aff0c6 _progress--sm_aff0c6 _progress--squared_aff0c6"
+  >
+    <progress
+      class="_progress__control_aff0c6"
+      max="100"
+    />
+  </div>
+</div>
+`;
+
+exports[`Progress > Snapshots > should applies correct size classes 1`] = `
+<div>
+  <div
+    class="_progress_aff0c6 _progress--primary_aff0c6 _progress--md_aff0c6 _progress--rounded_aff0c6"
+  >
+    <progress
+      class="_progress__control_aff0c6"
+      max="100"
+    />
+  </div>
+</div>
+`;
+
+exports[`Progress > Snapshots > should applies critical skin 1`] = `
+<div>
+  <div
+    class="_progress_aff0c6 _progress--critical_aff0c6 _progress--sm_aff0c6 _progress--rounded_aff0c6"
+  >
+    <progress
+      class="_progress__control_aff0c6"
+      max="100"
+    />
+  </div>
+</div>
+`;
+
+exports[`Progress > Snapshots > should render additional classes 1`] = `
+<div>
+  <div
+    class="_progress_aff0c6 _progress--primary_aff0c6 _progress--sm_aff0c6 _progress--rounded_aff0c6 other-class"
+  >
+    <progress
+      class="_progress__control_aff0c6"
+      max="100"
+    />
+  </div>
+</div>
+`;
+
+exports[`Progress > Snapshots > should render steps 1`] = `
+<div>
+  <div
+    class="_progress_aff0c6 _progress--primary_aff0c6 _progress--sm_aff0c6 _progress--rounded_aff0c6"
+  >
+    <progress
+      class="_progress__control_aff0c6"
+      max="100"
+    />
+    <div
+      class="_progress__wrapper_aff0c6"
+    >
+      <span
+        class="_progress__step_aff0c6"
+        style="left: 0%;"
+      />
+      <span
+        class="_progress__step_aff0c6"
+        style="left: 10%;"
+      />
+      <span
+        class="_progress__step_aff0c6"
+        style="left: 20%;"
+      />
+      <span
+        class="_progress__step_aff0c6"
+        style="left: 30%;"
+      />
+      <span
+        class="_progress__step_aff0c6"
+        style="left: 40%;"
+      />
+      <span
+        class="_progress__step_aff0c6"
+        style="left: 50%;"
+      />
+      <span
+        class="_progress__step_aff0c6"
+        style="left: 60%;"
+      />
+      <span
+        class="_progress__step_aff0c6"
+        style="left: 70%;"
+      />
+      <span
+        class="_progress__step_aff0c6"
+        style="left: 80%;"
+      />
+      <span
+        class="_progress__step_aff0c6"
+        style="left: 90%;"
+      />
+      <span
+        class="_progress__step_aff0c6"
+        style="left: 100%;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Progress > Snapshots > should renders default component 1`] = `
+<div>
+  <div
+    class="_progress_aff0c6 _progress--primary_aff0c6 _progress--sm_aff0c6 _progress--rounded_aff0c6"
+  >
+    <progress
+      class="_progress__control_aff0c6"
+      max="100"
+    />
+  </div>
+</div>
+`;
+
+exports[`Progress > Snapshots > should renders value 1`] = `
+<div>
+  <div
+    class="_progress_aff0c6 _progress--primary_aff0c6 _progress--sm_aff0c6 _progress--rounded_aff0c6"
+  >
+    <progress
+      class="_progress__control_aff0c6"
+      max="100"
+      value="50"
+    />
+  </div>
+</div>
+`;

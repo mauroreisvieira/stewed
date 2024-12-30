@@ -13,31 +13,36 @@ const meta: Meta<typeof Motion> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
 
-export const Zoom: Story = {
+export const Scale: Story = {
   render: function Render() {
-    const zooms = ["zoom-in", "zoom-out", "zoom-in-soft", "zoom-out-soft"] as const;
+    const zooms = ["scale-in", "scale-out"] as const;
 
     const [animation, setAnimation] = useState<(typeof zooms)[number]>();
+
     return (
       <Stack justify="center" direction="column" items="center" gap="2xl">
-        <Stack style={{ width: 200, height: 200, overflow: "hidden" }}>
+        <Stack style={{ width: 120, height: 120, overflow: "hidden" }}>
           <Motion
             duration="slowly"
             timing="ease-in-out"
             animation={animation}
             onDone={() => {
               setAnimation(undefined);
-            }}>
+            }}
+            asChild
+          >
             <Box
-              padding={{ block: "9xl", inline: "9xl" }}
-              skin="primary"
-              style={{ width: 200, height: 200 }}
+              radius="md"
+              skin="primary-faded"
+              borderStyle="solid"
+              borderColor="primary-faded"
+              style={{ width: 120, height: 120 }}
             />
           </Motion>
         </Stack>
@@ -50,7 +55,46 @@ export const Zoom: Story = {
         </Stack>
       </Stack>
     );
-  },
+  }
+};
+
+export const Zoom: Story = {
+  render: function Render() {
+    const zooms = ["zoom-in", "zoom-out", "zoom-in-soft", "zoom-out-soft"] as const;
+
+    const [animation, setAnimation] = useState<(typeof zooms)[number]>();
+
+    return (
+      <Stack justify="center" direction="column" items="center" gap="2xl">
+        <Stack style={{ width: 120, height: 120, overflow: "hidden" }}>
+          <Motion
+            duration="slowly"
+            timing="ease-in-out"
+            animation={animation}
+            onDone={() => {
+              setAnimation(undefined);
+            }}
+            asChild
+          >
+            <Box
+              radius="md"
+              skin="primary-faded"
+              borderStyle="solid"
+              borderColor="primary-faded"
+              style={{ width: 120, height: 120 }}
+            />
+          </Motion>
+        </Stack>
+        <Stack gap="lg" wrap="wrap" items="center" justify="center">
+          {zooms.map((i) => (
+            <Button key={i} skin="neutral" onClick={() => setAnimation(i)}>
+              {i}
+            </Button>
+          ))}
+        </Stack>
+      </Stack>
+    );
+  }
 };
 
 export const Fade: Story = {
@@ -58,20 +102,25 @@ export const Fade: Story = {
     const fades = ["fade-in", "fade-out"] as const;
 
     const [animation, setAnimation] = useState<(typeof fades)[number]>();
+
     return (
       <Stack justify="center" direction="column" items="center" gap="2xl">
-        <Stack style={{ width: 200, height: 200, overflow: "hidden" }}>
+        <Stack style={{ width: 120, height: 120, overflow: "hidden" }}>
           <Motion
             duration="slowly"
             timing="ease-in-out"
             animation={animation}
             onDone={() => {
               setAnimation(undefined);
-            }}>
+            }}
+            asChild
+          >
             <Box
-              padding={{ block: "9xl", inline: "9xl" }}
-              skin="primary"
-              style={{ width: 200, height: 200 }}
+              radius="md"
+              skin="primary-faded"
+              borderStyle="solid"
+              borderColor="primary-faded"
+              style={{ width: 120, height: 120 }}
             />
           </Motion>
         </Stack>
@@ -84,7 +133,7 @@ export const Fade: Story = {
         </Stack>
       </Stack>
     );
-  },
+  }
 };
 
 export const Slide: Story = {
@@ -97,24 +146,29 @@ export const Slide: Story = {
       "slide-in-bottom",
       "slide-out-bottom",
       "slide-in-left",
-      "slide-out-left",
+      "slide-out-left"
     ] as const;
 
     const [animation, setAnimation] = useState<(typeof slides)[number]>();
+
     return (
       <Stack justify="center" direction="column" items="center" gap="2xl">
-        <Stack style={{ width: 200, height: 200, overflow: "hidden" }}>
+        <Stack style={{ width: 120, height: 120, overflow: "hidden" }}>
           <Motion
             duration="slowly"
             timing="ease-in-out"
             animation={animation}
             onDone={() => {
               setAnimation(undefined);
-            }}>
+            }}
+            asChild
+          >
             <Box
-              padding={{ block: "9xl", inline: "9xl" }}
-              skin="primary"
-              style={{ width: 200, height: 200 }}
+              radius="md"
+              skin="primary-faded"
+              borderStyle="solid"
+              borderColor="primary-faded"
+              style={{ width: 120, height: 120 }}
             />
           </Motion>
         </Stack>
@@ -127,5 +181,5 @@ export const Slide: Story = {
         </Stack>
       </Stack>
     );
-  },
+  }
 };

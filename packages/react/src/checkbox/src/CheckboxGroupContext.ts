@@ -1,7 +1,7 @@
-import { useContext, createContext } from "react";
+import { use, createContext } from "react";
 
 /**
- * Dummy function to throw an error when checkbox is not provided by a CheckboxGroupProvider.
+ * Dummy function to throw an error when checkbox is not provided by a Checkbox Group.
  *
  * @returns Always throws an error.
  */
@@ -9,6 +9,7 @@ const definitionError = (): null => {
   throw new Error('Please make sure "<Checkbox.Group>" component is wrapping your component.');
 };
 
+/** Represents the context properties for a checkbox group, including state and actions for managing checkboxes. */
 export interface CheckboxGroupContextProps {
   /**
    * Sets values of checkbox selected.
@@ -20,7 +21,7 @@ export interface CheckboxGroupContextProps {
   /**
    * Callback fired when the checked state changes.
    *
-   * @param value The new array of selected checkbox values.
+   * @param value - The new array of selected checkbox values.
    */
   onCheckedChange?: (value: string[]) => void;
 }
@@ -36,7 +37,7 @@ export interface CheckboxGroupContextProps {
 function createCheckboxGroupContext() {
   return createContext<CheckboxGroupContextProps>({
     checkedValues: undefined,
-    onCheckedChange: definitionError,
+    onCheckedChange: definitionError
   });
 }
 
@@ -54,5 +55,5 @@ export const CheckboxGroupContext = createCheckboxGroupContext();
  * @returns CheckboxGroup context value.
  */
 export function useCheckboxGroup() {
-  return useContext(CheckboxGroupContext);
+  return use(CheckboxGroupContext);
 }

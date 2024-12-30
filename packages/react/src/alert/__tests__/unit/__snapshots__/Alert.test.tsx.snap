@@ -1,0 +1,358 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Alert > Snapshots > should applies correct size classes 1`] = `
+<div>
+  <div
+    class="_alert_102996 _alert--primary_102996 _alert--md_102996 _alert--shadow-none_102996"
+    role="alert"
+  >
+    <div
+      class="_alert__wrapper_102996"
+    >
+      <div
+        class="_alert__body_102996"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert > Snapshots > should apply '2xl' shadow classes 1`] = `
+<div>
+  <div
+    class="_alert_102996 _alert--primary_102996 _alert--md_102996 _alert--shadow-2xl_102996"
+    role="alert"
+  >
+    <div
+      class="_alert__wrapper_102996"
+    >
+      <div
+        class="_alert__body_102996"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert > Snapshots > should apply '3xl' shadow classes 1`] = `
+<div>
+  <div
+    class="_alert_102996 _alert--primary_102996 _alert--md_102996 _alert--shadow-3xl_102996"
+    role="alert"
+  >
+    <div
+      class="_alert__wrapper_102996"
+    >
+      <div
+        class="_alert__body_102996"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert > Snapshots > should apply 'critical' skin classes 1`] = `
+<div>
+  <div
+    class="_alert_102996 _alert--critical_102996 _alert--md_102996 _alert--shadow-none_102996"
+    role="alert"
+  >
+    <div
+      class="_alert__wrapper_102996"
+    >
+      <div
+        class="_alert__body_102996"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert > Snapshots > should apply 'lg' shadow classes 1`] = `
+<div>
+  <div
+    class="_alert_102996 _alert--primary_102996 _alert--md_102996 _alert--shadow-lg_102996"
+    role="alert"
+  >
+    <div
+      class="_alert__wrapper_102996"
+    >
+      <div
+        class="_alert__body_102996"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert > Snapshots > should apply 'md' shadow classes 1`] = `
+<div>
+  <div
+    class="_alert_102996 _alert--primary_102996 _alert--md_102996 _alert--shadow-md_102996"
+    role="alert"
+  >
+    <div
+      class="_alert__wrapper_102996"
+    >
+      <div
+        class="_alert__body_102996"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert > Snapshots > should apply 'neutral' skin classes 1`] = `
+<div>
+  <div
+    class="_alert_102996 _alert--neutral_102996 _alert--md_102996 _alert--shadow-none_102996"
+    role="alert"
+  >
+    <div
+      class="_alert__wrapper_102996"
+    >
+      <div
+        class="_alert__body_102996"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert > Snapshots > should apply 'none' shadow classes 1`] = `
+<div>
+  <div
+    class="_alert_102996 _alert--primary_102996 _alert--md_102996 _alert--shadow-none_102996"
+    role="alert"
+  >
+    <div
+      class="_alert__wrapper_102996"
+    >
+      <div
+        class="_alert__body_102996"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert > Snapshots > should apply 'primary' skin classes 1`] = `
+<div>
+  <div
+    class="_alert_102996 _alert--primary_102996 _alert--md_102996 _alert--shadow-none_102996"
+    role="alert"
+  >
+    <div
+      class="_alert__wrapper_102996"
+    >
+      <div
+        class="_alert__body_102996"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert > Snapshots > should apply 'secondary' skin classes 1`] = `
+<div>
+  <div
+    class="_alert_102996 _alert--secondary_102996 _alert--md_102996 _alert--shadow-none_102996"
+    role="alert"
+  >
+    <div
+      class="_alert__wrapper_102996"
+    >
+      <div
+        class="_alert__body_102996"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert > Snapshots > should apply 'sm' shadow classes 1`] = `
+<div>
+  <div
+    class="_alert_102996 _alert--primary_102996 _alert--md_102996 _alert--shadow-sm_102996"
+    role="alert"
+  >
+    <div
+      class="_alert__wrapper_102996"
+    >
+      <div
+        class="_alert__body_102996"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert > Snapshots > should apply 'success' skin classes 1`] = `
+<div>
+  <div
+    class="_alert_102996 _alert--success_102996 _alert--md_102996 _alert--shadow-none_102996"
+    role="alert"
+  >
+    <div
+      class="_alert__wrapper_102996"
+    >
+      <div
+        class="_alert__body_102996"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert > Snapshots > should apply 'xl' shadow classes 1`] = `
+<div>
+  <div
+    class="_alert_102996 _alert--primary_102996 _alert--md_102996 _alert--shadow-xl_102996"
+    role="alert"
+  >
+    <div
+      class="_alert__wrapper_102996"
+    >
+      <div
+        class="_alert__body_102996"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert > Snapshots > should render additional classes 1`] = `
+<div>
+  <div
+    class="_alert_102996 _alert--primary_102996 _alert--md_102996 _alert--shadow-none_102996 other-class"
+    role="alert"
+  >
+    <div
+      class="_alert__wrapper_102996"
+    >
+      <div
+        class="_alert__body_102996"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert > Snapshots > should render left slot content 1`] = `
+<div>
+  <div
+    class="_alert_102996 _alert--primary_102996 _alert--md_102996 _alert--shadow-none_102996"
+    role="alert"
+  >
+    <div
+      class="_alert__left_102996"
+    >
+      Left slot
+    </div>
+    <div
+      class="_alert__wrapper_102996"
+    >
+      <div
+        class="_alert__body_102996"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert > Snapshots > should render right slot content 1`] = `
+<div>
+  <div
+    class="_alert_102996 _alert--primary_102996 _alert--md_102996 _alert--shadow-none_102996"
+    role="alert"
+  >
+    <div
+      class="_alert__wrapper_102996"
+    >
+      <div
+        class="_alert__body_102996"
+      >
+        Alert
+      </div>
+    </div>
+    <div
+      class="_alert__right_102996"
+    >
+      Right slot
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert > Snapshots > should renders default component 1`] = `
+<div>
+  <div
+    class="_alert_102996 _alert--primary_102996 _alert--md_102996 _alert--shadow-none_102996"
+    role="alert"
+  >
+    <div
+      class="_alert__wrapper_102996"
+    >
+      <div
+        class="_alert__body_102996"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert > Snapshots > should renders title 1`] = `
+<div>
+  <div
+    class="_alert_102996 _alert--primary_102996 _alert--md_102996 _alert--shadow-none_102996"
+    role="alert"
+  >
+    <div
+      class="_alert__wrapper_102996"
+    >
+      <div
+        class="_alert__title_102996"
+      >
+        Title
+      </div>
+      <div
+        class="_alert__body_102996"
+      >
+        Alert
+      </div>
+    </div>
+  </div>
+</div>
+`;

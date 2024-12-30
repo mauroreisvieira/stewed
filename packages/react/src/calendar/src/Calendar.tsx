@@ -13,6 +13,29 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Props for handling month and year changes.
+ * Used for components that manage or display month and year information.
+ */
+interface MonthChangeProps {
+  /**
+   * The selected month, represented as a string (e.g., "January", "February").
+   * May be undefined if no month is selected.
+   */
+  month: string | undefined;
+  /**
+   * The selected year, represented as a string (e.g., "2024").
+   * May be undefined if no year is selected.
+   */
+  year: string | undefined;
+}
+
+/**
+ * Props for the Calendar component.
+ * Provides configuration options for rendering and interacting with the calendar.
+ *
+ * @template T - The type of data to be used for each date (e.g., event, note, etc.).
+ */
 export interface CalendarProps<T>
   extends Omit<
     CalendarContextProps<T>,
@@ -26,9 +49,11 @@ export interface CalendarProps<T>
    * Callback fired when the month changes, is called whenever the calendar's month or year is updated, allowing
    * the parent component to respond to changes in the calendar view.
    *
-   * @param props - An object containing:
+   * @see {@link MonthChangeProps} for more details on the available props.
+   *
+   * @param props - An object containing
    */
-  onMonthChange?: (props: { month: string | undefined; year: string | undefined }) => void;
+  onMonthChange?: (props: MonthChangeProps) => void;
   /** Slot for children components.  */
   children?: React.ReactNode;
 }
@@ -39,8 +64,8 @@ export interface CalendarProps<T>
  *
  * @template T The type of the data for each date.
  *
- * @param {CalendarProps<T>} props The properties for the calendar.
- * @returns {React.ReactElement} The rendered calendar component.
+ * @param props - The properties for the calendar.
+ * @returns The rendered calendar component.
  *
  * @example
  * ```tsx
@@ -89,7 +114,7 @@ export function Calendar<T>({
   weekStart,
   onMonthChange,
   onDaySelected,
-  children,
+  children
 }: CalendarProps<T>): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock, getElement } = useBem({ block: components.Calendar, styles });
@@ -98,17 +123,17 @@ export function Calendar<T>({
   const cssClasses = {
     root: getBlock({
       modifiers: [rtl && "rtl", locked && "locked", allowRange && "range"],
-      extraClasses: className,
+      extraClasses: className
     }),
     week: getElement(["week"]),
-    month: getElement(["month"]),
+    month: getElement(["month"])
   };
 
   // Create a default date using useMemo to avoid unnecessary recalculations.
   // If the initialDate is a valid Date instance, use it, otherwise, default to the current date.
   const defaultDate = useMemo(
     () => (initialDate instanceof Date ? initialDate : new Date()),
-    [initialDate],
+    [initialDate]
   );
 
   // Call the useCalendar hook to get calendar data and navigation functions.
@@ -126,7 +151,7 @@ export function Calendar<T>({
     locked,
     maxDate,
     minDate,
-    weekStart,
+    weekStart
   });
 
   // Effect to handle month change callback.
@@ -159,7 +184,7 @@ export function Calendar<T>({
 
   return (
     <div className={cssClasses.root}>
-      <CalendarContext.Provider
+      <CalendarContext
         value={{
           locked,
           readOnly,
@@ -173,10 +198,11 @@ export function Calendar<T>({
           weekDays: data?.weekDays,
           days: data?.days,
           onPrev: onHandlePrevMonth,
-          onNext: onHandleNextMonth,
-        }}>
+          onNext: onHandleNextMonth
+        }}
+      >
         {children}
-      </CalendarContext.Provider>
+      </CalendarContext>
     </div>
   );
 }

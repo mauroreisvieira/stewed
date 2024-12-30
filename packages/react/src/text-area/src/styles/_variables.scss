@@ -4,27 +4,19 @@ $textarea-root: "text-area";
 
 /// Skins
 $textarea-skins: (
-  "neutral-faded": (
-    "border": theme.get-color("neutral", "300"),
-    "border-hover": theme.get-color("neutral", "400"),
-    "background-color": theme.get-color("neutral", "500"),
-  ),
   "neutral": (
-    "border": theme.get-color("neutral", "500"),
-    "border-hover": theme.get-color("neutral", "600"),
-    "background-color": theme.get-color("neutral", "500"),
+    "color": theme.get-color("foreground-default"),
+    "border": theme.get-color("neutral", "border-faded"),
+    "background-color": theme.get-color("neutral", "background")
   ),
   "success": (
-    "border": theme.get-color("success", "500"),
-    "border-hover": theme.get-color("success", "600"),
-    "background-color": theme.get-color("success", "500"),
+    "color": theme.get-color("success", "foreground"),
+    "border": theme.get-color("success", "border"),
+    "background-color": theme.get-color("success", "background")
   ),
   "critical": (
-    "border": theme.get-color("critical", "500"),
-    "border-hover": theme.get-color("critical", "600"),
-    "background-color": theme.get-color("critical", "500"),
-  ),
+    "color": theme.get-color("critical", "foreground"),
+    "border": theme.get-color("critical", "border"),
+    "background-color": theme.get-color("critical", "background")
+  )
 );
-
-// Spacing's
-$textarea-spacings: theme.get-spacing("md");

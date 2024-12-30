@@ -30,8 +30,8 @@ export function TableRow({
   const cssClasses = {
     root: getBlock({
       modifiers: [selected && "selected", skin !== "default" && skin],
-      extraClasses: className,
-    }),
+      extraClasses: className
+    })
   };
 
   return (

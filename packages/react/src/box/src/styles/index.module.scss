@@ -2,6 +2,7 @@
 @use "./variables" as *;
 
 @include theme.scope($box-root) {
+  all: unset;
   position: relative;
   box-sizing: border-box;
   display: block;
@@ -12,6 +13,8 @@
   border-radius: theme.get-var(border-radius);
   box-shadow: theme.get-var(box-shadow);
 
+  @include theme.focus-styles;
+
   @include theme.define-var(
     (
       display: block,
@@ -19,14 +22,14 @@
       border-color: transparent,
       border-width: inherit,
       border-radius: inherit,
-      box-shadow: none,
+      box-shadow: none
     )
   );
 
   &--hidden {
     @include theme.define-var(
       (
-        display: none,
+        display: none
       )
     );
   }
@@ -36,7 +39,7 @@
     &--radius-#{$key} {
       @include theme.define-var(
         (
-          border-radius: $value,
+          border-radius: $value
         )
       );
     }
@@ -47,7 +50,7 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          background-color: $value,
+          background-color: $value
         )
       );
     }
@@ -58,7 +61,7 @@
     &--border-width-#{$i} {
       @include theme.define-var(
         (
-          border-width: #{$i}px,
+          border-width: #{$i}px
         )
       );
     }
@@ -68,7 +71,7 @@
   &--border-style-solid {
     @include theme.define-var(
       (
-        border-style: solid,
+        border-style: solid
       )
     );
   }
@@ -76,7 +79,7 @@
   &--border-style-dashed {
     @include theme.define-var(
       (
-        border-style: dashed,
+        border-style: dashed
       )
     );
   }
@@ -86,7 +89,7 @@
     &--border-color-#{$key} {
       @include theme.define-var(
         (
-          border-color: $value,
+          border-color: $value
         )
       );
     }
@@ -119,5 +122,14 @@
 
   &--full-width {
     width: 100%;
+  }
+
+  &--full-height {
+    height: 100%;
+  }
+
+  &--full-screen {
+    width: 100vw;
+    min-height: 100vh;
   }
 }

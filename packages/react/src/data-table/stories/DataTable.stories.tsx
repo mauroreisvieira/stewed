@@ -11,7 +11,7 @@ import {
   Grid,
   type TagProps,
   type ColumnsDef,
-  Stack,
+  Stack
 } from "../../index";
 // Hooks
 import { useSelect } from "@stewed/hooks";
@@ -28,8 +28,8 @@ const meta: Meta<typeof DataTable> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -51,52 +51,52 @@ const data: Payment[] = [
     id: "1",
     amount: {
       value: 1000,
-      currency: "€",
+      currency: "€"
     },
     status: "pending",
-    email: "olivia.patel@example.com",
+    email: "olivia.patel@example.com"
   },
   {
     id: "2",
     amount: {
       value: 2100,
-      currency: "€",
+      currency: "€"
     },
     status: "success",
-    email: "sophia.chang@example.com",
+    email: "sophia.chang@example.com"
   },
   {
     id: "3",
     amount: {
       value: 3000,
-      currency: "€",
+      currency: "€"
     },
     status: "failed",
-    email: "noah.andersen@example.com",
+    email: "noah.andersen@example.com"
   },
   {
     id: "4",
     amount: {
       value: 2000,
-      currency: "€",
+      currency: "€"
     },
     status: "processing",
-    email: "benjamin.martinez@example.com",
+    email: "benjamin.martinez@example.com"
   },
   {
     id: "5",
     amount: {
       value: 1500,
-      currency: "€",
+      currency: "€"
     },
     status: "success",
-    email: "liam.connor@example.com",
-  },
+    email: "liam.connor@example.com"
+  }
 ];
 
 export const Base: Story = {
   argTypes: {
-    hiddenColumns: { control: "check", options: ["id", "amount", "email", "status"] },
+    hiddenColumns: { control: "check", options: ["id", "amount", "email", "status"] }
   },
   render: function Render(args): React.ReactElement {
     const columns: ColumnsDef<Payment>[] = [
@@ -104,12 +104,12 @@ export const Base: Story = {
         accessorKey: "id",
         bodyCell: ({ id }) => id,
         headCell: () => "ID",
-        footCell: () => <Text weight="semi-bold">Total</Text>,
+        footCell: () => <Text weight="semi-bold">Total</Text>
       },
       {
         accessorKey: "email",
         bodyCell: ({ email }) => email,
-        headCell: () => "Email",
+        headCell: () => "Email"
       },
       {
         accessorKey: "status",
@@ -118,16 +118,22 @@ export const Base: Story = {
             failed: "critical",
             processing: "warning",
             success: "success",
-            pending: "neutral",
+            pending: "neutral"
           };
 
           return (
-            <Tag skin={skins[status] as TagProps<"span">["skin"]} appearance="soft" size="sm">
+            <Tag
+              as="a"
+              skin={skins[status] as TagProps["skin"]}
+              appearance="soft"
+              size="md"
+              href="/"
+            >
               {status}
             </Tag>
           );
         },
-        headCell: () => "Status",
+        headCell: () => "Status"
       },
       {
         accessorKey: "amount",
@@ -142,8 +148,8 @@ export const Base: Story = {
             )}
           </Stack>
         ),
-        footCell: () => `${data.reduce((acc, curr) => (acc = acc + curr.amount.value), 0)}€`,
-      },
+        footCell: () => `${data.reduce((acc, curr) => (acc = acc + curr.amount.value), 0)}€`
+      }
     ];
 
     // Example data
@@ -192,10 +198,11 @@ export const Base: Story = {
                   : b.amount.value - a.amount.value;
               });
             }
+
             return null;
           }}
         />
       </>
     );
-  },
+  }
 };

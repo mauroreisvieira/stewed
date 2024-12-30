@@ -1,3 +1,4 @@
+/* eslint-disable react-compiler/react-compiler */
 import React, { useCallback, useEffect, useRef, useState } from "react";
 // UI Components
 import { Motion, Scope } from "../..";
@@ -7,7 +8,10 @@ import {
   useFloating,
   useClickOutside,
   useKey,
-  type FloatingPlacement,
+  useMergeRefs,
+  type UseMergeRefs,
+  type UseFloatingProps,
+  useScrollLock
 } from "@stewed/hooks";
 // Tokens
 import { components } from "@stewed/tokens";
@@ -16,7 +20,12 @@ import styles from "./styles/index.module.scss";
 
 export interface PopoverRenderProps<T> {
   /** Ref to attach to the `Popover` element */
-  ref: React.RefObject<T>;
+  ref: React.RefObject<T | null>;
+  /**
+   * A function that allows multiple refs to be merged into a single callback ref.
+   * This is useful when you need to attach multiple refs to the same element.
+   */
+  attachRefs: UseMergeRefs<T>;
   /** Callback to open the Popover */
   open: () => void;
   /** Callback to close Popover  */
@@ -28,29 +37,20 @@ export interface PopoverRenderProps<T> {
 }
 
 export interface PopoverProps<T>
-  extends Omit<React.ComponentPropsWithoutRef<"div">, "children" | "content"> {
-  /**
-   * Specifies the preferred placement of the `Popover` relative to its trigger.
-   * @example "top", "bottom", "left", "right"
-   */
-  placement?: FloatingPlacement;
+  extends Pick<UseFloatingProps<HTMLElement>, "placement" | "flip" | "offset" | "boundary">,
+    Omit<React.ComponentPropsWithoutRef<"div">, "children" | "content"> {
   /**
    * Allows the `Popover` to remain open even when clicking outside of it.
    * @default false
    */
   allowClickOutside?: boolean;
+  /**
+   * Allow the body scroll when 'Popover' is open.
+   * @default true
+   */
+  allowScroll?: boolean;
   /** Callback function invoked when the escape key is pressed. */
   onEscape?: () => void;
-  /**
-   * The distance in pixels from the anchor.
-   * @default 4
-   */
-  offset?: number;
-  /**
-   * The boundary element that will be checked for overflow relative to.
-   * @default window
-   */
-  boundary?: HTMLElement | null;
   /** Callback function invoked when the dialog is clicked outside. */
   onClickOutside?: () => void;
   /**
@@ -58,12 +58,14 @@ export interface PopoverProps<T>
    * @param props - Render props for the `Popover` component, including the necessary event handlers.
    * @returns A React element that serves as the anchor for the `Popover`.
    */
-  renderAnchor: (props: PopoverRenderProps<T>) => React.ReactElement;
+  renderAnchor: (props: Omit<PopoverRenderProps<T>, "reference">) => React.ReactElement;
   /**
    * The content to be displayed in the Popover
    * or function that returns a React element with events to trigger `Popover` position and visibility.
    */
-  children: React.ReactNode | ((props: Omit<PopoverRenderProps<T>, "ref">) => React.ReactElement);
+  children:
+    | React.ReactNode
+    | ((props: Omit<PopoverRenderProps<T>, "ref" | "attachRefs">) => React.ReactElement);
 }
 
 /**
@@ -87,12 +89,14 @@ export interface PopoverProps<T>
  */
 export function Popover<T extends HTMLElement>({
   placement = "bottom",
+  flip,
   className,
   style,
   boundary,
   offset = 8,
   renderAnchor,
   allowClickOutside = false,
+  allowScroll = true,
   onEscape,
   onClickOutside,
   onKeyDown,
@@ -104,7 +108,7 @@ export function Popover<T extends HTMLElement>({
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ extraClasses: className }),
+    root: getBlock({ extraClasses: className })
   };
 
   // Create a reference to manage the Popover element
@@ -115,28 +119,39 @@ export function Popover<T extends HTMLElement>({
 
   // Floating position calculation hook
   const { floating, x, y, isPositioned, reference } = useFloating<T, HTMLDivElement>({
-    boundary,
     open: isOpen,
-    placement,
     reference: popoverRef.current,
+    boundary,
+    placement,
     offset,
+    flip
   });
+
+  // Lock scrolling when dropdown is open
+  useScrollLock({ enabled: isPositioned && !allowScroll });
 
   // Hook to handle clicks outside the floating element.
   useClickOutside({
     enabled: isOpen,
     ignoredElements: [popoverRef.current as Element, floating.current as Element],
-    onClickOutside: () => (allowClickOutside ? onClickOutside : setOpen(false)),
+    /** Function to close the dropdown when click outside */
+    handler: () => (allowClickOutside ? onClickOutside : setOpen(false))
   });
 
   // Disable arrow key scrolling in users browser
   useKey({
     enabled: !!isOpen,
-    keys: ["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"],
-    callback: (event: KeyboardEvent) => {
+    keys: ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"],
+    /** Function to prevent arrow key scrolling in users browser */
+    handler: (event: KeyboardEvent) => {
       event.preventDefault();
-    },
+    }
   });
+
+  // Merge the floating reference with the navigation reference combines multiple refs into a single callback ref.
+  // It is particularly useful when you need to attach several refs to a single element, allowing the component to
+  // manage references more efficiently and flexibly.
+  const mergeRefs = useMergeRefs();
 
   // Handles the `keydown` event on a specific HTML element.
   const onHandleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
@@ -155,15 +170,15 @@ export function Popover<T extends HTMLElement>({
         event.stopPropagation();
       }
     },
-    [onKeyDown, onEscape, setOpen],
+    [onKeyDown, onEscape, setOpen]
   );
 
-  // Opens the popover by set the state to true.
+  /** Function opens the popover by set the state to true. */
   const onHandleOpen = (): void => {
     setOpen(true);
   };
 
-  // Closes the popover by set the state to false.
+  /** Function closes the popover by set the state to false. */
   const onHandleClose = (): void => {
     setOpen(false);
   };
@@ -180,13 +195,15 @@ export function Popover<T extends HTMLElement>({
     <>
       {renderAnchor({
         ref: popoverRef,
+        /** Function will merge all references  */
+        attachRefs: (ref) => mergeRefs([popoverRef, ...ref]),
         open: onHandleOpen,
         close: onHandleClose,
-        isOpen: !!isOpen,
+        isOpen: !!isOpen
       })}
       {isOpen && (
         <Scope elevation="navigation">
-          <Motion animation="fade-in">
+          <Motion animation="fade-in" asChild>
             <div
               ref={floating}
               role="region"
@@ -195,16 +212,16 @@ export function Popover<T extends HTMLElement>({
               style={{
                 ...style,
                 visibility: isPositioned ? "visible" : "hidden",
-                left: `${x}px`,
-                top: `${y}px`,
+                transform: `translate(${x}px, ${y}px)`
               }}
-              {...props}>
+              {...props}
+            >
               {typeof children === "function"
                 ? children({
                     open: onHandleOpen,
                     close: onHandleClose,
                     isOpen: !!isOpen,
-                    reference,
+                    reference
                   })
                 : children}
             </div>

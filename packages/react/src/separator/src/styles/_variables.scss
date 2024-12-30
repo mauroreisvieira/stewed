@@ -5,14 +5,21 @@ $separator-root: "separator";
 /// Skins
 $separator-skins: (
   "white": theme.get-color("white"),
-  "neutral": theme.get-color("neutral", "500"),
-  "neutral-faded": theme.get-color("neutral", "300"),
-  "primary": theme.get-color("primary", "500"),
-  "primary-faded": theme.get-color("primary", "300"),
-  "secondary": theme.get-color("secondary", "500"),
-  "secondary-faded": theme.get-color("secondary", "300"),
-  "critical": theme.get-color("critical", "500"),
-  "critical-border": theme.get-color("critical", "300"),
+  "black": theme.get-color("black"),
+  "primary": theme.get-color("primary", "border"),
+  "primary-faded": theme.get-color("primary", "border-faded"),
+  "secondary": theme.get-color("secondary", "border"),
+  "secondary-faded": theme.get-color("secondary", "border-faded"),
+  "neutral": theme.get-color("neutral", "border"),
+  "neutral-faded": theme.get-color("neutral", "border-faded"),
+  "critical": theme.get-color("critical", "border"),
+  "critical-faded": theme.get-color("critical", "border-faded"),
+  "success": theme.get-color("success", "border"),
+  "success-faded": theme.get-color("success", "border-faded"),
+  "info": theme.get-color("info", "border"),
+  "info-border": theme.get-color("info", "border-faded"),
+  "warning": theme.get-color("warning", "border"),
+  "warning-faded": theme.get-color("warning", "border-faded")
 );
 
 /// Space

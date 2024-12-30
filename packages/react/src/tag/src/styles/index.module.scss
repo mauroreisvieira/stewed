@@ -22,7 +22,7 @@
     (
       border-width: 1px,
       border-color: transparent,
-      gap: theme.get-spacing("sm"),
+      gap: theme.get-spacing("sm")
     )
   );
 
@@ -37,12 +37,16 @@
     font-size: inherit;
   }
 
+  &--disabled {
+    @include theme.disabled-styles;
+  }
+
   &--xs {
     @include theme.define-var(
       (
         height: 18px,
         padding-inline: theme.get-spacing("xs"),
-        font-size: theme.get-font-size("xxs"),
+        font-size: theme.get-font-size("xxs")
       )
     );
   }
@@ -52,7 +56,7 @@
       (
         height: 20px,
         padding-inline: theme.get-spacing("sm"),
-        font-size: theme.get-font-size("xxs"),
+        font-size: theme.get-font-size("xxs")
       )
     );
   }
@@ -62,7 +66,7 @@
       (
         height: 22px,
         padding-inline: theme.get-spacing("md"),
-        font-size: theme.get-font-size("xs"),
+        font-size: theme.get-font-size("xs")
       )
     );
   }
@@ -72,7 +76,7 @@
       (
         height: 28px,
         padding-inline: theme.get-spacing("lg"),
-        font-size: theme.get-font-size("sm"),
+        font-size: theme.get-font-size("sm")
       )
     );
   }
@@ -82,23 +86,23 @@
       &-filled {
         @include theme.define-var(
           (
-            background-color: theme.get-color($value, "500"),
-            color: theme.get-color("white"),
+            background-color: theme.get-color($value, "background"),
+            color: theme.get-color($value, "foreground-on-background")
           )
         );
 
-        &[href]:hover {
+        &[href]:hover:not([aria-disabled="true"]) {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "600"),
+              background-color: theme.get-color($value, "background")
             )
           );
         }
 
-        &[href]:active {
+        &[href]:not([aria-disabled="true"]):active {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "500"),
+              background-color: theme.get-color($value, "background")
             )
           );
         }
@@ -107,23 +111,23 @@
       &-ghost {
         @include theme.define-var(
           (
-            color: theme.get-color($value, "500"),
-            background-color: transparent,
+            color: theme.get-color($value, "foreground"),
+            background-color: transparent
           )
         );
 
-        &[href]:hover {
+        &[href]:hover:not([aria-disabled="true"]) {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "100"),
+              background-color: theme.get-color($value, "background-faded")
             )
           );
         }
 
-        &[href]:active {
+        &[href]:not([aria-disabled="true"]):active {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "200"),
+              background-color: theme.get-color($value, "background-faded")
             )
           );
         }
@@ -134,22 +138,22 @@
           (
             background-color: transparent,
             border-color: currentColor,
-            color: theme.get-color($value, "500"),
+            color: theme.get-color($value, "foreground")
           )
         );
 
-        &[href]:hover {
+        &[href]:hover:not([aria-disabled="true"]) {
           @include theme.define-var(
             (
-              color: theme.get-color($value, "600"),
+              color: theme.get-color($value, "foreground")
             )
           );
         }
 
-        &[href]:active {
+        &[href]:active:not([aria-disabled="true"]) {
           @include theme.define-var(
             (
-              color: theme.get-color($value, "500"),
+              color: theme.get-color($value, "foreground")
             )
           );
         }
@@ -158,23 +162,35 @@
       &-soft {
         @include theme.define-var(
           (
-            color: theme.get-color($value, "600"),
-            background-color: color-mix(in srgb, theme.get-color($value, "500"), transparent 95%),
+            color: theme.get-color($value, "foreground"),
+            background-color: color-mix(
+                in srgb,
+                theme.get-color($value, "background"),
+                transparent 95%
+              )
           )
         );
 
-        &[href]:hover {
+        &[href]:not([aria-disabled="true"]):hover {
           @include theme.define-var(
             (
-              color: theme.get-color($value, "500"),
+              background-color: color-mix(
+                  in srgb,
+                  theme.get-color($value, "background"),
+                  transparent 90%
+                )
             )
           );
         }
 
-        &[href]:active {
+        &[href]:not([aria-disabled="true"]):active {
           @include theme.define-var(
             (
-              color: theme.get-color($value, "500"),
+              background-color: color-mix(
+                  in srgb,
+                  theme.get-color($value, "background"),
+                  transparent 85%
+                )
             )
           );
         }

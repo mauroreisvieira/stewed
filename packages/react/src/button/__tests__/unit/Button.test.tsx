@@ -1,63 +1,123 @@
 import React from "react";
 // UI Components
-import { Button } from "../../index";
+import { Button, type ButtonProps } from "../../index";
 // Utilities
-import { render } from "@testing-library/react";
+import { render, act, fireEvent } from "@testing-library/react";
 
 describe("Button", () => {
-  it("renders children correctly", () => {
-    const { asFragment } = render(<Button>Click me</Button>);
+  describe("Snapshots", () => {
+    it("should renders default component", () => {
+      const { container } = render(<Button>Button</Button>);
 
-    expect(asFragment()).toMatchSnapshot();
-  });
+      expect(container).toMatchSnapshot();
+    });
 
-  it("applies correct skin and appearance classes", () => {
-    const { asFragment } = render(
-      <Button skin="primary" appearance="filled">
-        Primary Filled
-      </Button>,
+    it("should renders component as anchor", () => {
+      const { container } = render(
+        <Button as="a" href="#">
+          Button
+        </Button>
+      );
+
+      expect(container).toMatchSnapshot();
+    });
+
+    it("should render additional classes", () => {
+      const { container } = render(<Button className="other-class">Button</Button>);
+
+      expect(container).toMatchSnapshot();
+    });
+
+    it.each<ButtonProps["skin"]>(["primary", "secondary", "neutral", "critical", "success"])(
+      "should apply '%s' skin classes",
+      (skin) => {
+        const { container } = render(<Button skin={skin}>Button</Button>);
+
+        expect(container).toMatchSnapshot();
+      }
     );
 
-    expect(asFragment()).toMatchSnapshot();
-  });
+    it.each<ButtonProps["appearance"]>(["filled", "ghost", "outline", "soft"])(
+      "should apply '%s' appearance classes",
+      (appearance) => {
+        const { container } = render(<Button appearance={appearance}>Button</Button>);
 
-  it("applies correct size class", () => {
-    const { asFragment } = render(<Button size="md">Medium Button</Button>);
-
-    expect(asFragment()).toMatchSnapshot();
-  });
-
-  it("renders loading spinner when loading prop is true", () => {
-    const { asFragment } = render(<Button loading>Loading...</Button>);
-
-    expect(asFragment()).toMatchSnapshot();
-  });
-
-  it("applies disabled class when disabled prop is true", () => {
-    const { asFragment } = render(<Button disabled>Disabled Button</Button>);
-
-    expect(asFragment()).toMatchSnapshot();
-  });
-
-  it("applies icon-only class when iconOnly prop is true", () => {
-    const { asFragment } = render(
-      <Button iconOnly>
-        <i className="fas fa-star" />
-      </Button>,
+        expect(container).toMatchSnapshot();
+      }
     );
 
-    expect(asFragment()).toMatchSnapshot();
+    it.each<ButtonProps["size"]>(["xs", "sm", "md", "lg", "xl"])(
+      "should apply '%s' size classes",
+      (size) => {
+        const { container } = render(<Button size={size}>Button</Button>);
+
+        expect(container).toMatchSnapshot();
+      }
+    );
+
+    it("should render left slot content", () => {
+      const { container } = render(<Button leftSlot="Left slot">Button</Button>);
+
+      expect(container).toMatchSnapshot();
+    });
+
+    it("should render right slot content", () => {
+      const { container } = render(<Button rightSlot="Right slot">Button</Button>);
+
+      expect(container).toMatchSnapshot();
+    });
+
+    it("renders spinner when loading", () => {
+      const { container } = render(<Button loading>Button</Button>);
+
+      expect(container).toMatchSnapshot();
+    });
+
+    it("should applies disabled classes", () => {
+      const { container } = render(<Button disabled>Button</Button>);
+
+      expect(container).toMatchSnapshot();
+    });
+
+    it("should applies icon-only classes", () => {
+      const { container } = render(
+        <Button
+          leftSlot={<i className="fas fa-star" />}
+          rightSlot={<i className="fas fa-star" />}
+          iconOnly
+        >
+          Button
+        </Button>
+      );
+
+      expect(container).toMatchSnapshot();
+    });
+
+    it("should applies fullWidth classes", () => {
+      const { container } = render(<Button fullWidth>Button</Button>);
+
+      expect(container).toMatchSnapshot();
+    });
+
+    it("should applies pressed classes", () => {
+      const { container } = render(<Button pressed>Button</Button>);
+
+      expect(container).toMatchSnapshot();
+    });
   });
 
-  it("applies fullWidth class when fullWidth prop is true", () => {
-    const { asFragment } = render(<Button fullWidth>Full Width Button</Button>);
+  describe("Events", () => {
+    it("should trigger `onClick` event when clicked", async () => {
+      const handleClick = vitest.fn();
 
-    expect(asFragment()).toMatchSnapshot();
-  });
+      const { findByText } = render(<Button onClick={handleClick}>Button</Button>);
+      const btn = await findByText("Button");
 
-  it("applies pressed class when pressed prop is true", () => {
-    const { asFragment } = render(<Button pressed>Pressed Button</Button>);
+      act(() => {
+        fireEvent.click(btn);
+      });
 
-    expect(asFragment()).toMatchSnapshot();
+      expect(handleClick).toHaveBeenCalledTimes(1);
+    });
   });
 });

@@ -4,10 +4,11 @@ import React, {
   useEffect,
   useMemo,
   useImperativeHandle,
-  useCallback,
+  useCallback
 } from "react";
+// UI Components
+import { Button, Icon } from "../../index";
 // Sub Components
-import { CarouselNavigation } from "./CarouselNavigation";
 import { CarouselSlide } from "./CarouselSlide";
 // Tokens
 import { components, type Spacings } from "@stewed/tokens";
@@ -17,8 +18,17 @@ import { useTheme } from "../../theme";
 // Style
 import styles from "./styles/index.module.scss";
 
+interface NavigationButtonProps {
+  /** The class name to be applied to the navigation button for styling purposes. */
+  className: string;
+  /** Whether the navigation button is disabled. If true, the button will be non-interactive and typically styled as disabled. */
+  disabled: boolean;
+  /** Function to handle the click event for the navigation button. */
+  onClick: () => void;
+}
+
 export interface CarouselProps
-  extends React.ComponentPropsWithRef<"div">,
+  extends React.ComponentPropsWithoutRef<"div">,
     UseResponsiveProps<{
       /**
        * The gap between box children's.
@@ -36,10 +46,23 @@ export interface CarouselProps
        */
       loop?: boolean;
       /**
-       * Will show/hide prev and next button
+       * Controls the visibility of the previous and next navigation buttons.
        * @default true
        */
       showNavigation?: boolean;
+      /** An object that allows custom rendering of the previous and next navigation buttons. */
+      navigation?: {
+        /**
+         * A callback function for rendering the previous button.
+         * @param props - The properties for rendering, including `onClick` and `disabled`.
+         */
+        renderPrev: (props: NavigationButtonProps) => React.ReactNode;
+        /**
+         * A callback function for rendering the next button.
+         * @param props - The properties for rendering, including `onClick` and `disabled`.
+         */
+        renderNext: (props: NavigationButtonProps) => React.ReactNode;
+      };
       /**
        * Number of slides to display
        * @default 1
@@ -88,9 +111,10 @@ export const Carousel = forwardRef(
       children,
       onSlideChange,
       responsive,
+      navigation,
       ...props
     }: CarouselProps,
-    ref: React.Ref<CarouselRef>,
+    ref: React.Ref<CarouselRef>
   ): React.ReactElement => {
     // Importing useBem to handle BEM class names
     const { getBlock, getElement } = useBem({ block: components.Carousel, styles });
@@ -107,8 +131,9 @@ export const Carousel = forwardRef(
         loop,
         showNavigation,
         responsive,
+        navigation
       },
-      activeToken.breakpoints,
+      activeToken.breakpoints
     );
 
     // Number of slider per view
@@ -118,7 +143,7 @@ export const Carousel = forwardRef(
     const cssClasses = {
       root: getBlock({
         modifiers: [show > 1 && computedProps.gap && `gap-${computedProps.gap}`],
-        extraClasses: className,
+        extraClasses: className
       }),
       wrapper: getElement(["wrapper"]),
       content: getElement(["content"]),
@@ -126,6 +151,8 @@ export const Carousel = forwardRef(
       item: getElement(["item"]),
       slide: getElement(["slide"]),
       bottom: getElement(["bottom"]),
+      prev: getElement(["prev"], className),
+      next: getElement(["next"], className)
     };
 
     // Total Slides
@@ -134,7 +161,7 @@ export const Carousel = forwardRef(
     // The carousel repeating it's item
     const loopingEffect = useMemo(
       () => computedProps.loop && slidesCount > show,
-      [computedProps.loop, show, slidesCount],
+      [computedProps.loop, show, slidesCount]
     );
 
     // Current Index Item of the Carousel
@@ -257,6 +284,7 @@ export const Carousel = forwardRef(
         setCurrentIndex(slidesCount);
         setTransitionEnabled(false);
         if (onSlideChange) onSlideChange(slidesCount);
+
         return;
       }
 
@@ -265,6 +293,7 @@ export const Carousel = forwardRef(
         setCurrentIndex(1);
         setTransitionEnabled(false);
         if (onSlideChange) onSlideChange(1);
+
         return;
       }
 
@@ -292,24 +321,27 @@ export const Carousel = forwardRef(
         React.Children.map(children, (child, index) => (
           <CarouselSlide key={index}>{child}</CarouselSlide>
         )),
-      [children],
+      [children]
     );
+
+    const isPrevDisabled = !loopingEffect && currentIndex === 0;
+    const isNextDisabled = !loopingEffect && currentIndex === slidesCount - show;
+
+    const computedStyles = {
+      "--carousel-slides": show,
+      transform: `translateX(-${currentIndex * (100 / show)}%)`,
+      transition: !transitionEnabled ? "none" : undefined
+    };
 
     useImperativeHandle(
       ref,
       () => ({
         prev: onHandleClickPrev,
         next: onHandleClickNext,
-        goTo: moveTo,
+        goTo: moveTo
       }),
-      [onHandleClickPrev, onHandleClickNext, moveTo],
+      [onHandleClickPrev, onHandleClickNext, moveTo]
     );
-
-    const computedStyles = {
-      "--carousel-slides": show,
-      "transform": `translateX(-${currentIndex * (100 / show)}%)`,
-      "transition": !transitionEnabled ? "none" : undefined,
-    };
 
     return (
       <div className={cssClasses.root} {...props}>
@@ -317,11 +349,13 @@ export const Carousel = forwardRef(
           <div
             className={cssClasses.content}
             onTouchStart={onHandleTouchStart}
-            onTouchMove={onHandleTouchMove}>
+            onTouchMove={onHandleTouchMove}
+          >
             <div
               className={cssClasses.track}
               style={computedStyles}
-              onTransitionEnd={onHandleTransitionEnd}>
+              onTransitionEnd={onHandleTransitionEnd}
+            >
               {slidesCount > show && loopingEffect && renderExtraPreviousSlides}
               {renderSlides}
               {slidesCount > show && loopingEffect && renderExtraNextSlides}
@@ -329,20 +363,49 @@ export const Carousel = forwardRef(
           </div>
           {computedProps.showNavigation && (
             <>
-              <CarouselNavigation
-                direction="prev"
-                onClick={onHandleClickPrev}
-                disabled={!loopingEffect && currentIndex === 0}
-              />
-              <CarouselNavigation
-                direction="next"
-                onClick={onHandleClickNext}
-                disabled={!loopingEffect && currentIndex === slidesCount - show}
-              />
+              {/** Prev button */}
+              {computedProps.navigation?.renderPrev ? (
+                computedProps.navigation.renderPrev({
+                  className: cssClasses.prev,
+                  onClick: onHandleClickPrev,
+                  disabled: isPrevDisabled
+                })
+              ) : (
+                <Button
+                  skin="neutral"
+                  appearance="ghost"
+                  iconOnly
+                  onClick={onHandleClickPrev}
+                  disabled={isPrevDisabled}
+                  aria-label="Prev slide"
+                  className={cssClasses.prev}
+                  leftSlot={<Icon.ChevronLeft />}
+                />
+              )}
+
+              {/** Next button */}
+              {computedProps.navigation?.renderNext ? (
+                computedProps.navigation.renderNext({
+                  className: cssClasses.next,
+                  onClick: onHandleClickNext,
+                  disabled: isNextDisabled
+                })
+              ) : (
+                <Button
+                  skin="neutral"
+                  appearance="ghost"
+                  iconOnly
+                  onClick={onHandleClickNext}
+                  disabled={isNextDisabled}
+                  aria-label="Next slide"
+                  className={cssClasses.next}
+                  leftSlot={<Icon.ChevronRight />}
+                />
+              )}
             </>
           )}
         </div>
       </div>
     );
-  },
+  }
 );

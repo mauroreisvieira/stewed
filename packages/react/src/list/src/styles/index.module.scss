@@ -5,20 +5,26 @@
 @include theme.scope($list-root) {
   display: flex;
   flex-direction: column;
-  padding-left: theme.get-spacing("xl");
-  margin-top: 0;
-  margin-bottom: 0;
+  padding: 0;
+  margin-block: 0;
 
   &__item {
     @include text.typography(base);
   }
 
+  // Type
   &--bullet {
+    padding-left: theme.get-spacing("xl");
     list-style: disc none outside;
   }
 
   &--decimal {
+    padding-left: theme.get-spacing("xl");
     list-style: decimal none outside;
+  }
+
+  &--none {
+    list-style: none;
   }
 
   // Gap

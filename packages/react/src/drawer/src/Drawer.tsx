@@ -1,12 +1,13 @@
 import React, { useState, useCallback, useEffect } from "react";
 // UI Components
-import { Backdrop, Motion, Scope, useTheme } from "../..";
+import { Backdrop, Motion, Scope, useTheme, type BackdropProps } from "../..";
 // Context
 import { DrawerContext, type DrawerContextProps } from "./DrawerContext";
 // Compound Component
 import { DrawerBody } from "./DrawerBody";
 import { DrawerHeader } from "./DrawerHeader";
 import { DrawerFooter } from "./DrawerFooter";
+import { DrawerSeparator } from "./DrawerSeparator";
 // Hooks
 import {
   useBem,
@@ -14,15 +15,22 @@ import {
   useResponsive,
   useScrollLock,
   useFocusTrap,
-  type UseResponsiveProps,
+  type UseResponsiveProps
 } from "@stewed/hooks";
 // Tokens
 import { components, type Spacings } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Interface for the properties of the `Drawer` component.
+ *
+ * @remarks Extends the properties of a standard `<div>` element (`React.ComponentPropsWithoutRef<"div">`),
+ * allowing the `Drawer` component to accept all native `div` attributes.
+ */
 export interface DrawerProps
   extends React.ComponentProps<"div">,
+    BackdropProps,
     DrawerContextProps,
     UseResponsiveProps<{
       /**
@@ -38,6 +46,11 @@ export interface DrawerProps
     }> {
   /** The controlled open state of the Drawer. */
   open?: boolean;
+  /**
+   * Whether to keep the element in the DOM while the drawer is closed.
+   * @default false
+   */
+  keepMounted?: boolean;
   /**
    * The preferred placement of the drawer.
    * @default "right"
@@ -72,8 +85,10 @@ export function Drawer({
   open,
   size = "md",
   safeMargin = "xl",
-  responsive,
   placement = "left",
+  keepMounted = false,
+  responsive,
+  blur,
   className,
   children,
   onClose,
@@ -95,7 +110,7 @@ export function Drawer({
   // Trap focus within the Drawer when open and rootRef is available
   useFocusTrap({
     root: rootRef,
-    enabled: !!open && !!rootRef,
+    enabled: !!open && !!rootRef
   });
 
   // Retrieve values from the current theme context
@@ -106,9 +121,9 @@ export function Drawer({
     {
       size,
       safeMargin,
-      responsive,
+      responsive
     },
-    activeToken.breakpoints,
+    activeToken.breakpoints
   );
 
   // Generating CSS classes based on component props and styles
@@ -118,11 +133,11 @@ export function Drawer({
         computedProps.size,
         placement,
         open && "open",
-        safeMargin && `safe-margin-${safeMargin}`,
+        safeMargin && `safe-margin-${safeMargin}`
       ],
-      extraClasses: className,
+      extraClasses: className
     }),
-    surface: getElement([`surface`]),
+    surface: getElement([`surface`])
   };
 
   const onHandleKeydown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
@@ -132,14 +147,15 @@ export function Drawer({
         event.stopPropagation();
       }
     },
-    [onEscape],
+    [onEscape]
   );
 
   // Hook to handle clicks outside the floating element.
   useClickOutside({
     enabled: open,
     ignoredElements: rootRef ? [rootRef] : undefined,
-    onClickOutside: () => onClickOutside?.(),
+    /** Defines a handler function that invokes the `onClickOutside` callback. */
+    handler: () => onClickOutside?.()
   });
 
   useEffect(() => {
@@ -148,7 +164,15 @@ export function Drawer({
     }
   }, [open]);
 
-  const onHandleAnimationEnd = () => {
+  /**
+   * Handles the end of the animation event for a component.
+   *
+   * This function used to clean up the component's state after an animation finishes.
+   * If the `open` state is `false`, it sets `shouldRender` to `false` to remove the component from the DOM.
+   *
+   * @returns {void}
+   */
+  const onHandleAnimationEnd = (): void => {
     if (!open) {
       setShouldRender(false);
     }
@@ -156,25 +180,30 @@ export function Drawer({
 
   return (
     <>
-      {shouldRender && (
-        <Scope elevation="navigation">
-          <Backdrop blur />
-          <DrawerContext.Provider value={{ onClose }}>
+      {(keepMounted || shouldRender) && (
+        <Scope elevation="navigation" hidden={!shouldRender}>
+          <Motion animation={open ? "fade-in" : "fade-out"} asChild>
+            <Backdrop blur={blur} />
+          </Motion>
+          <DrawerContext value={{ onClose }}>
             <div className={cssClasses.root} {...props}>
               <Motion
                 animation={open ? `slide-in-${placement}` : `slide-out-${placement}`}
                 duration={open ? "normal" : "quickly"}
-                onDone={onHandleAnimationEnd}>
+                onDone={onHandleAnimationEnd}
+                asChild
+              >
                 <div
                   ref={setRootRef}
                   onKeyDown={onHandleKeydown}
                   role="region"
-                  className={cssClasses.surface}>
+                  className={cssClasses.surface}
+                >
                   {children}
                 </div>
               </Motion>
             </div>
-          </DrawerContext.Provider>
+          </DrawerContext>
         </Scope>
       )}
     </>
@@ -185,3 +214,4 @@ export function Drawer({
 Drawer.Body = DrawerBody;
 Drawer.Header = DrawerHeader;
 Drawer.Footer = DrawerFooter;
+Drawer.Separator = DrawerSeparator;

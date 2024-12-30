@@ -8,30 +8,20 @@
 
   &__item {
     display: flex;
+    flex-direction: column;
 
-    &::details-content {
-      height: 0;
-      opacity: 0;
-      transition-behavior: allow-discrete;
-      transition: content-visibility, opacity, height;
-      transition-duration: theme.get-transition-duration("normal");
+    &[hidden] {
+      .#{$accordion-root}__body {
+        display: none;
+      }
     }
-
-    &[open]::details-content {
-      height: calc-size(auto);
-      opacity: 1;
-    }
-  }
-
-  &__header,
-  &__body {
-    padding-block: theme.get-spacing("lg");
   }
 
   &__header {
     display: flex;
     gap: theme.get-spacing("lg");
-    align-items: baseline;
+    align-items: center;
+    padding-block: theme.get-spacing("md");
     appearance: auto;
     cursor: pointer;
 
@@ -41,10 +31,11 @@
       display: none;
     }
 
-    @include text.typography(
-      "display-6",
-      $overrides: (font-weight: theme.get-font-weight("medium"))
-    );
+    @include text.typography("base", $overrides: (font-weight: theme.get-font-weight("medium")));
+
+    &--disabled {
+      @include theme.disabled-styles;
+    }
 
     &__text {
       flex-grow: 1;
@@ -56,6 +47,71 @@
       display: flex;
       flex-shrink: 0;
       align-items: center;
+    }
+  }
+
+  &__body {
+    padding-top: theme.get-spacing("xs");
+    padding-bottom: theme.get-spacing("md");
+  }
+
+  &--border-row {
+    .#{$accordion-root} {
+      &__item:not(:last-child) {
+        border-bottom: 1px solid theme.get-color("neutral", "border-faded");
+      }
+    }
+  }
+
+  &--border {
+    border: 1px solid theme.get-color("neutral", "border-faded");
+    border-radius: theme.get-radius(md);
+
+    .#{$accordion-root} {
+      &__item {
+        &:first-child {
+          .#{$accordion-root}__header {
+            border-top-left-radius: theme.get-radius(md);
+            border-top-right-radius: theme.get-radius(md);
+          }
+        }
+
+        &:last-child {
+          .#{$accordion-root}__header {
+            border-bottom-right-radius: theme.get-radius(md);
+            border-bottom-left-radius: theme.get-radius(md);
+          }
+        }
+      }
+
+      &__header,
+      &__body {
+        padding-inline: theme.get-spacing("md");
+      }
+    }
+  }
+
+  &--panel {
+    .#{$accordion-root} {
+      &__item {
+        .#{$accordion-root}__header {
+          border-radius: theme.get-radius(md);
+        }
+      }
+
+      &__header,
+      &__body {
+        padding-inline: theme.get-spacing("md");
+      }
+
+      &__item {
+        border: 1px solid theme.get-color("neutral", "border-faded");
+        border-radius: theme.get-radius(md);
+
+        &:not(:last-child) {
+          margin-bottom: theme.get-spacing("sm");
+        }
+      }
     }
   }
 }

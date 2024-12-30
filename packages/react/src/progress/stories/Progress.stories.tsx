@@ -14,8 +14,8 @@ const meta: Meta<typeof Progress> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -24,8 +24,8 @@ export const Base: Story = {
   args: {
     skin: "primary",
     size: "md",
-    value: 50,
-  },
+    value: 50
+  }
 };
 
 export const Steps: Story = {
@@ -33,6 +33,6 @@ export const Steps: Story = {
     skin: "neutral",
     size: "lg",
     value: 30,
-    steps: 10,
-  },
+    steps: 10
+  }
 };

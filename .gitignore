@@ -13,9 +13,14 @@ Thumbs.db
 node_modules/
 storybook-static
 dist/
+coverage/
 
 # Generated files
 npm-debug
 yarn.lock
 yarn-error.log
 .vercel
+
+# Files
+.env
+

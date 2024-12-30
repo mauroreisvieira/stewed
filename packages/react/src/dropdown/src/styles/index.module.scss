@@ -1,12 +1,92 @@
 @use "@stewed/react/src/theme/src/styles" as theme;
+@use "@stewed/react/src/typography/src/styles" as text;
 @use "./variables" as *;
 
 @include theme.scope($dropdown-root) {
   position: absolute;
-  min-width: 180px;
-  padding: theme.get-spacing("sm");
+  box-sizing: border-box;
+  min-width: theme.get-var(min-width);
+  overflow: hidden;
   background-color: theme.get-color("background-elevated");
-  border: 1px solid theme.get-color("neutral", "300");
+  border: 1px solid theme.get-color("neutral", "border-faded");
   border-radius: theme.get-var(radius);
   box-shadow: theme.get-var(shadow);
+
+  @include theme.define-var(
+    (
+      min-width: 180px
+    )
+  );
+
+  &__button {
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    gap: theme.get-spacing("md");
+    align-items: center;
+    height: theme.get-var(height);
+    padding-block: theme.get-spacing("sm");
+    padding-inline: theme.get-spacing("md");
+    text-overflow: ellipsis;
+    text-transform: inherit;
+    white-space: nowrap;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid theme.get-var(border-color);
+    border-radius: theme.get-var(radius);
+
+    &__left {
+      display: flex;
+      font-size: inherit;
+    }
+
+    &__content {
+      flex: 1;
+
+      @include text.typography(base, $overrides: (color: currentColor));
+    }
+
+    &__spinner,
+    &__icon {
+      flex-shrink: 0;
+    }
+
+    @include theme.focus-styles;
+
+    &--disabled {
+      @include theme.disabled-styles;
+    }
+
+    &--full-width {
+      width: 100%;
+    }
+
+    // Skins
+    @each $key, $value in $dropdown-button-skins {
+      &--#{$key} {
+        @include theme.define-var(
+          (
+            border-color: $value
+          )
+        );
+      }
+    }
+
+    // Sizes
+    @each $key, $value in $dropdown-button-sizes {
+      &--#{$key} {
+        @include theme.define-var(
+          (
+            height: $value
+          )
+        );
+      }
+    }
+  }
+
+  &__scrollable {
+    max-height: 320px;
+    overflow-y: auto;
+  }
 }

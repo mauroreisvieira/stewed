@@ -22,7 +22,9 @@ export function useDebouncedValue<T>(value: T, setValue: (val: T) => void): T {
     // Update the debounced value after a delay if the value changes.
     if (debouncedValue !== value) {
       const timeoutId = setTimeout(() => setValue(debouncedValue), 250);
-      return () => clearTimeout(timeoutId); // Clear timeout on cleanup to prevent memory leaks.
+
+      // Clear timeout on cleanup to prevent memory leaks.
+      return () => clearTimeout(timeoutId);
     }
 
     // Cleanup function for when dependency values are unchanged.

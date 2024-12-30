@@ -11,6 +11,12 @@ import styles from "./styles/index.module.scss";
 
 const defaultElement = "div";
 
+/**
+ * Props for a generic container component that accepts a dynamic type for its content.
+ *
+ * The `T` type parameter allows the container to hold content of any type, providing flexibility
+ * for various use cases like handling different data types or components inside the container.
+ */
 export interface ContainerProps<T>
   extends React.ComponentPropsWithRef<"div">,
     UseResponsiveProps<{
@@ -53,57 +59,55 @@ export interface ContainerProps<T>
  * @param {ContainerProps} props - The props for the Container component.
  * @returns {React.ReactElement} - The rendered Container component.
  */
-export const Container = fixedForwardRef(
-  <T extends React.ElementType>(
+export const Container = fixedForwardRef(function Container<T extends React.ElementType>(
+  {
+    as,
+    screen = "full",
+    alignment = "default",
+    padding,
+    className,
+    children,
+    ...props
+  }: ContainerProps<T> &
+    DistributiveOmit<
+      React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
+      "as"
+    >,
+  ref: React.ForwardedRef<unknown>
+): React.ReactElement {
+  // Component to render based on the 'as' prop
+  const Comp = as || defaultElement;
+
+  // Retrieve values from the current theme context
+  const { activeToken } = useTheme();
+
+  // Compute responsive props based on current theme and screen sizes
+  const computedProps = useResponsive(
     {
-      as,
-      screen = "full",
-      alignment = "default",
-      padding,
-      className,
-      children,
-      ...props
-    }: ContainerProps<T> &
-      DistributiveOmit<
-        React.ComponentPropsWithRef<React.ElementType extends T ? typeof defaultElement : T>,
-        "as"
-      >,
-    ref: React.ForwardedRef<unknown>,
-  ): React.ReactElement => {
-    // Component to render based on the 'as' prop
-    const Comp = as || defaultElement;
+      padding
+    },
+    activeToken.breakpoints
+  );
 
-    // Retrieve values from the current theme context
-    const { activeToken } = useTheme();
+  // Importing useBem to handle BEM class names
+  const { getBlock } = useBem({ block: components.Container, styles });
 
-    // Compute responsive props based on current theme and screen sizes
-    const computedProps = useResponsive(
-      {
-        padding,
-      },
-      activeToken.breakpoints,
-    );
+  // Generating CSS classes based on component props and styles
+  const cssClasses = {
+    root: getBlock({
+      modifiers: [
+        alignment !== "default" && alignment,
+        computedProps.padding?.block && `padding-block-${computedProps.padding.block}`,
+        computedProps.padding?.inline && `padding-inline-${computedProps.padding.inline}`,
+        screen && `screen-${screen}`
+      ],
+      extraClasses: className
+    })
+  };
 
-    // Importing useBem to handle BEM class names
-    const { getBlock } = useBem({ block: components.Container, styles });
-
-    // Generating CSS classes based on component props and styles
-    const cssClasses = {
-      root: getBlock({
-        modifiers: [
-          alignment !== "default" && alignment,
-          computedProps.padding?.block && `padding-block-${computedProps.padding.block}`,
-          computedProps.padding?.inline && `padding-inline-${computedProps.padding.inline}`,
-          screen && `screen-${screen}`,
-        ],
-        extraClasses: className,
-      }),
-    };
-
-    return (
-      <Comp ref={ref} className={cssClasses.root} {...props}>
-        {children}
-      </Comp>
-    );
-  },
-);
+  return (
+    <Comp ref={ref} className={cssClasses.root} {...props}>
+      {children}
+    </Comp>
+  );
+});

@@ -23,7 +23,7 @@ export function FormFieldLabel({ className, ...props }: FormFieldLabelProps): Re
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ extraClasses: className }),
+    root: getBlock({ extraClasses: className })
   };
 
   return <Text as="label" size="sm" className={cssClasses.root} {...props} />;

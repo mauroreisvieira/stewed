@@ -24,7 +24,7 @@
     @if $value {
       @include theme.define-var(
         (
-          $key: $value,
+          $key: $value
         )
       );
     }

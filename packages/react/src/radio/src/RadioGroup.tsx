@@ -9,13 +9,15 @@ import { useBem } from "@stewed/hooks";
 import styles from "./styles/index.module.scss";
 
 export interface RadioGroupProps
-  extends React.ComponentPropsWithoutRef<"div">,
+  extends React.ComponentPropsWithRef<"div">,
     RadioGroupContextProps {
   /**
    * Specifies the orientation of the radio group.
    * @default horizontal
    */
   orientation?: "vertical" | "horizontal";
+  /** Sets the radio group to use the full width of its container. */
+  fullWidth?: boolean;
 }
 
 /**
@@ -39,6 +41,7 @@ export function RadioGroup({
   checkedValue,
   onCheckedChange,
   orientation = "horizontal",
+  fullWidth,
   className,
   children,
   ...props
@@ -49,16 +52,16 @@ export function RadioGroup({
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({
-      modifiers: [orientation],
-      extraClasses: className,
-    }),
+      modifiers: [orientation, fullWidth && "full-width"],
+      extraClasses: className
+    })
   };
 
   return (
-    <div className={cssClasses.root} {...props}>
-      <RadioGroupContext.Provider value={{ name, checkedValue, onCheckedChange }}>
+    <div className={cssClasses.root} aria-orientation={orientation} {...props}>
+      <RadioGroupContext value={{ name, checkedValue, onCheckedChange }}>
         {children}
-      </RadioGroupContext.Provider>
+      </RadioGroupContext>
     </div>
   );
 }

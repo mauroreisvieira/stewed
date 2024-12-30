@@ -28,7 +28,7 @@ export function TabsItem({
   ...props
 }: TabsItemProps): React.ReactElement {
   // Get tab context value and functions.
-  const { onValueChange, value: selectedValue } = useTabs();
+  const { value: selectedValue, setSelectedValue, onValueChange } = useTabs();
 
   // Check the tab item selected
   const isSelected = value === selectedValue;
@@ -40,19 +40,29 @@ export function TabsItem({
   const cssClasses = {
     root: getBlock({
       modifiers: [isSelected && "selected", disabled && "disabled"],
-      extraClasses: className,
+      extraClasses: className
     }),
     left: getElement(["left"]),
-    right: getElement(["right"]),
+    right: getElement(["right"])
   };
 
   const onHandleClick: React.MouseEventHandler<HTMLButtonElement> = useCallback(
     (event) => {
+      // If the button is disabled, prevent further actions
       if (disabled) return;
-      onValueChange?.(value);
+
+      // If `onValueChange` is provided, use it to update the parent-controlled state
+      if (onValueChange) {
+        onValueChange(value);
+      } else {
+        // Otherwise, update the local state if the setter is available
+        setSelectedValue?.(value);
+      }
+
+      // Trigger the provided `onClick` handler, if defined
       onClick?.(event);
     },
-    [disabled, onClick, onValueChange, value],
+    [disabled, onClick, onValueChange, setSelectedValue, value]
   );
 
   return (
@@ -65,7 +75,9 @@ export function TabsItem({
       tabIndex={isSelected ? 0 : -1}
       className={cssClasses.root}
       onClick={onHandleClick}
-      {...props}>
+      id={value}
+      {...props}
+    >
       {leftSlot && <div className={cssClasses.left}>{leftSlot}</div>}
       {children}
       {rightSlot && <div className={cssClasses.right}>{rightSlot}</div>}

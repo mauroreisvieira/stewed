@@ -14,8 +14,8 @@ const meta: Meta<typeof usePrevious> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -37,5 +37,5 @@ export const Base: Story = {
         <Text>Previous Count: {previousCount}</Text>
       </div>
     );
-  },
+  }
 };

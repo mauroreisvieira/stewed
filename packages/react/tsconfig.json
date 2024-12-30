@@ -1,10 +1,9 @@
 {
   "extends": "@harmonix-hub/tsconfig/react.json",
   "compilerOptions": {
-    "jsx": "react-jsx",
     "outDir": "./dist",
-    "moduleResolution": "node"
+    "types": ["vitest/globals"]
   },
-  "include": ["./index.d.ts", "./src/**/*"],
-  "exclude": ["dist", "src/**/stories", "node_modules"]
+  "include": ["custom.d.ts", "index.ts", "./src/**/*", "./src/index.ts"],
+  "exclude": ["node_modules", "dist", "src/**/stories", "src/**/__tests__"]
 }

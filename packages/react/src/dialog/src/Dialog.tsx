@@ -1,12 +1,13 @@
 import React, { useState, useCallback, useEffect } from "react";
 // UI Components
-import { Backdrop, Motion, Scope, useTheme } from "../..";
+import { Backdrop, Motion, Scope, useTheme, type BackdropProps } from "../..";
 // Context
 import { DialogContext, type DialogContextProps } from "./DialogContext";
 // Compound Component
 import { DialogBody } from "./DialogBody";
 import { DialogHeader } from "./DialogHeader";
 import { DialogFooter } from "./DialogFooter";
+import { DialogSeparator } from "./DialogSeparator";
 // Hooks
 import {
   useBem,
@@ -14,15 +15,22 @@ import {
   useResponsive,
   useScrollLock,
   useFocusTrap,
-  type UseResponsiveProps,
+  type UseResponsiveProps
 } from "@stewed/hooks";
 // Tokens
 import { components, type Spacings } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Interface for the properties of the `Dialog` component.
+ *
+ * @remarks Extends the properties of a standard `<div>` element (`React.ComponentPropsWithoutRef<"div">`),
+ * allowing the `Dialog` component to accept all native `div` attributes.
+ */
 export interface DialogProps
   extends React.ComponentProps<"div">,
+    BackdropProps,
     DialogContextProps,
     UseResponsiveProps<{
       /**
@@ -35,9 +43,25 @@ export interface DialogProps
        * @default md
        */
       size?: "sm" | "md" | "lg" | "xl";
+      /** Padding options for horizontal and vertical orientation. */
+      padding?: {
+        /** Adds padding in the block direction (e.g., top and bottom for vertical orientation). */
+        block?: Spacings;
+        /** Adds padding in the inline direction (e.g., left and right for vertical orientation). */
+        inline?: Spacings;
+      };
     }> {
   /** The controlled open state of the dialog. */
   open?: boolean;
+  /**
+   * Whether to keep the element in the DOM while the dialog is closed.
+   * @default false
+   */
+  keepMounted?: boolean;
+  /**
+   * Whether to keep the element in the DOM while the drawer is closed.
+   * @default false
+   */
   /**
    * Allows scrolling within the viewport when content overflows.
    * @default false
@@ -72,8 +96,14 @@ export function Dialog({
   open,
   size = "md",
   safeMargin = "xl",
+  padding = {
+    block: "xl",
+    inline: "xl"
+  },
   responsive,
   scrollInViewport = false,
+  keepMounted = false,
+  blur,
   className,
   children,
   onClose,
@@ -95,7 +125,7 @@ export function Dialog({
   // Trap focus within the dialog when open and rootRef is available
   useFocusTrap({
     root: rootRef,
-    enabled: !!open && !!rootRef,
+    enabled: !!open && !!rootRef
   });
 
   // Retrieve values from the current theme context
@@ -106,9 +136,9 @@ export function Dialog({
     {
       size,
       safeMargin,
-      responsive,
+      responsive
     },
-    activeToken.breakpoints,
+    activeToken.breakpoints
   );
 
   // Generating CSS classes based on component props and styles
@@ -119,10 +149,12 @@ export function Dialog({
         open && "open",
         scrollInViewport && "scroll-in-viewport",
         safeMargin && `safe-margin-${safeMargin}`,
+        padding?.block && `padding-block-${padding.block}`,
+        padding?.inline && `padding-inline-${padding.inline}`
       ],
-      extraClasses: className,
+      extraClasses: className
     }),
-    surface: getElement([`surface`]),
+    surface: getElement([`surface`])
   };
 
   const onHandleKeydown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
@@ -132,14 +164,15 @@ export function Dialog({
         event.stopPropagation();
       }
     },
-    [onEscape],
+    [onEscape]
   );
 
   // Hook to handle clicks outside the floating element.
   useClickOutside({
     enabled: open,
     ignoredElements: rootRef ? [rootRef] : undefined,
-    onClickOutside: () => onClickOutside?.(),
+    /** Defines a handler function that invokes the `onClickOutside` callback. */
+    handler: () => onClickOutside?.()
   });
 
   useEffect(() => {
@@ -148,7 +181,15 @@ export function Dialog({
     }
   }, [open]);
 
-  const onHandleAnimationEnd = () => {
+  /**
+   * Handles the end of the animation event for a component.
+   *
+   * This function used to clean up the component's state after an animation finishes.
+   * If the `open` state is `false`, it sets `shouldRender` to `false` to remove the component from the DOM.
+   *
+   * @returns {void}
+   */
+  const onHandleAnimationEnd = (): void => {
     if (!open) {
       setShouldRender(false);
     }
@@ -156,26 +197,32 @@ export function Dialog({
 
   return (
     <>
-      {shouldRender && (
-        <Scope elevation="navigation">
-          <Backdrop blur />
-          <DialogContext.Provider value={{ onClose }}>
+      {(keepMounted || shouldRender) && (
+        <Scope elevation="popup" hidden={!shouldRender}>
+          <Motion animation={open ? "fade-in" : "fade-out"} asChild>
+            <Backdrop blur={blur} />
+          </Motion>
+          <DialogContext value={{ onClose }}>
             <div className={cssClasses.root} {...props}>
               <Motion
-                duration={open ? "normal" : "quickly"}
+                timing="ease-out-back"
+                duration="quickly"
                 animation={open ? "zoom-in-soft" : "zoom-out-soft"}
-                onDone={onHandleAnimationEnd}>
+                onDone={onHandleAnimationEnd}
+                asChild
+              >
                 <div
                   ref={setRootRef}
                   role="dialog"
                   aria-modal="true"
                   onKeyDown={onHandleKeydown}
-                  className={cssClasses.surface}>
+                  className={cssClasses.surface}
+                >
                   {children}
                 </div>
               </Motion>
             </div>
-          </DialogContext.Provider>
+          </DialogContext>
         </Scope>
       )}
     </>
@@ -186,3 +233,4 @@ export function Dialog({
 Dialog.Body = DialogBody;
 Dialog.Header = DialogHeader;
 Dialog.Footer = DialogFooter;
+Dialog.Separator = DialogSeparator;

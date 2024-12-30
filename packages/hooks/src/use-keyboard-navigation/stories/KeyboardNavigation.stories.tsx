@@ -14,8 +14,8 @@ const meta: Meta<typeof useKeyboardNavigation> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -24,7 +24,7 @@ export const Base: Story = {
   render: function Render() {
     const { ref, currentIndex, setFocusedIndex, onNavigate } =
       useKeyboardNavigation<HTMLDivElement>({
-        target: "input",
+        target: "input"
       });
 
     return (
@@ -47,5 +47,5 @@ export const Base: Story = {
         </Grid>
       </>
     );
-  },
+  }
 };

@@ -1,11 +1,11 @@
 /**
  * Tests the given regular expression against the user agent string in the browser window.
  *
- * @param re The regular expression to test.
+ * @param re - The regular expression to test.
  * @returns A boolean indicating whether the regular expression matches the user agent string.
  */
 function testUserAgent(re: RegExp): boolean {
-  return typeof window !== "undefined" && window.navigator != null
+  return typeof window !== "undefined" && window.navigator !== null
     ? re.test(window.navigator.userAgent)
     : false;
 }
@@ -13,11 +13,11 @@ function testUserAgent(re: RegExp): boolean {
 /**
  * Tests the given regular expression against the platform string in the browser window.
  *
- * @param re The regular expression to test.
+ * @param re - The regular expression to test.
  * @returns A boolean indicating whether the regular expression matches the platform string.
  */
 function testPlatform(re: RegExp): boolean {
-  return typeof window !== "undefined" && window.navigator != null
+  return typeof window !== "undefined" && window.navigator !== null
     ? re.test(window.navigator.platform)
     : false;
 }
@@ -92,3 +92,24 @@ export const isAndroid = (): boolean => testUserAgent(/Android/);
  * @returns A boolean indicating whether the current platform is touch.
  */
 export const isTouch = (): boolean => "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+/**
+ * Checks if the code is running in a client-side environment (browser).
+ *
+ * This function verifies the presence of the `window` object, `document`, and
+ * the `createElement` method, which are specific to the browser environment.
+ *
+ * @returns {boolean} `true` if the code is running on the client-side, otherwise `false`.
+ *
+ * @example
+ * if (isClient()) {
+ *   console.log("Running in the browser!");
+ * }
+ */
+export const isClient = (): boolean => {
+  return (
+    typeof window !== "undefined" &&
+    typeof window.document !== "undefined" &&
+    typeof window.document.createElement === "function"
+  );
+};

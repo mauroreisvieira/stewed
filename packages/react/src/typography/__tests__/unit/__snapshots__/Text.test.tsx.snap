@@ -1,0 +1,142 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Text > Snapshots > should applies correct alignment classes 1`] = `
+<div>
+  <p
+    class="_typography_c1c91b _typography--base_c1c91b _typography--default_c1c91b _typography--alignment-center_c1c91b"
+  >
+    Text
+  </p>
+</div>
+`;
+
+exports[`Text > Snapshots > should applies correct font family classes 1`] = `
+<div>
+  <p
+    class="_typography_c1c91b _typography--base_c1c91b _typography--mono_c1c91b _typography--default_c1c91b"
+  >
+    Text
+  </p>
+</div>
+`;
+
+exports[`Text > Snapshots > should applies correct hidden classes 1`] = `
+<div>
+  <p
+    class="_typography_c1c91b _typography--base_c1c91b _typography--default_c1c91b _typography--hidden_c1c91b"
+  >
+    Text
+  </p>
+</div>
+`;
+
+exports[`Text > Snapshots > should applies correct line clamp classes 1`] = `
+<div>
+  <p
+    class="_typography_c1c91b _typography--base_c1c91b _typography--default_c1c91b _typography--line-clamp-2_c1c91b"
+  >
+    Text
+  </p>
+</div>
+`;
+
+exports[`Text > Snapshots > should applies correct size classes 1`] = `
+<div>
+  <p
+    class="_typography_c1c91b _typography--base_c1c91b _typography--default_c1c91b _typography--md_c1c91b"
+  >
+    Text
+  </p>
+</div>
+`;
+
+exports[`Text > Snapshots > should applies correct skin classes 1`] = `
+<div>
+  <p
+    class="_typography_c1c91b _typography--base_c1c91b _typography--primary_c1c91b"
+  >
+    Text
+  </p>
+</div>
+`;
+
+exports[`Text > Snapshots > should applies correct space classes 1`] = `
+<div>
+  <p
+    class="_typography_c1c91b _typography--base_c1c91b _typography--default_c1c91b _typography--space-x-md_c1c91b _typography--space-y-xl_c1c91b"
+  >
+    Text
+  </p>
+</div>
+`;
+
+exports[`Text > Snapshots > should applies correct variation classes 1`] = `
+<div>
+  <p
+    class="_typography_c1c91b _typography--base_c1c91b _typography--default_c1c91b _typography--italic_c1c91b _typography--uppercase_c1c91b"
+  >
+    Text
+  </p>
+</div>
+`;
+
+exports[`Text > Snapshots > should applies correct weight classes 1`] = `
+<div>
+  <p
+    class="_typography_c1c91b _typography--base_c1c91b _typography--default_c1c91b _typography--extra-bold_c1c91b"
+  >
+    Text
+  </p>
+</div>
+`;
+
+exports[`Text > Snapshots > should applies correct white space classes 1`] = `
+<div>
+  <p
+    class="_typography_c1c91b _typography--base_c1c91b _typography--default_c1c91b _typography--white-space-nowrap_c1c91b"
+  >
+    Text
+  </p>
+</div>
+`;
+
+exports[`Text > Snapshots > should render additional classes 1`] = `
+<div>
+  <p
+    class="_typography_c1c91b _typography--base_c1c91b _typography--default_c1c91b other-class"
+  >
+    Text
+  </p>
+</div>
+`;
+
+exports[`Text > Snapshots > should renders component as anchor 1`] = `
+<div>
+  <a
+    class="_typography_c1c91b _typography--link_c1c91b _typography--default_c1c91b"
+    href="#"
+  >
+    Text
+  </a>
+</div>
+`;
+
+exports[`Text > Snapshots > should renders component as heading 1`] = `
+<div>
+  <h1
+    class="_typography_c1c91b _typography--display-1_c1c91b _typography--default_c1c91b"
+  >
+    Text
+  </h1>
+</div>
+`;
+
+exports[`Text > Snapshots > should renders default component 1`] = `
+<div>
+  <p
+    class="_typography_c1c91b _typography--base_c1c91b _typography--default_c1c91b"
+  >
+    Text
+  </p>
+</div>
+`;

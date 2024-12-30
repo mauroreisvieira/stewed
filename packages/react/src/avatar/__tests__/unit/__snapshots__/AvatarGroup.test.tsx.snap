@@ -1,0 +1,29 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Avatar Group > should render additional classes 1`] = `
+<div>
+  <div
+    class="_avatar-group_1dc355 other-class"
+  >
+    <div
+      class="_avatar_1dc355 _avatar--filled_1dc355 _avatar--circle_1dc355 _avatar--md_1dc355 _avatar--primary_1dc355"
+    >
+      EC
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Avatar Group > should renders default component 1`] = `
+<div>
+  <div
+    class="_avatar-group_1dc355"
+  >
+    <div
+      class="_avatar_1dc355 _avatar--filled_1dc355 _avatar--circle_1dc355 _avatar--md_1dc355 _avatar--primary_1dc355"
+    >
+      EC
+    </div>
+  </div>
+</div>
+`;

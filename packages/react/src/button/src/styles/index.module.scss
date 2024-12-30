@@ -4,6 +4,7 @@
 @use "./variables" as *;
 
 @include theme.scope($button-root) {
+  all: unset;
   position: relative;
   box-sizing: border-box;
   display: inline-flex;
@@ -13,7 +14,7 @@
   justify-content: center;
   min-width: theme.get-var(size);
   height: theme.get-var(size);
-  padding-inline: calc(theme.get-var(padding-inline) - theme.get-var(border-width));
+  padding-inline: calc(theme.get-var(padding-inline));
   overflow: hidden;
   color: theme.get-var(color);
   text-overflow: ellipsis;
@@ -29,7 +30,7 @@
   @include theme.define-var(
     (
       border-width: 1px,
-      border-color: transparent,
+      border-color: transparent
     )
   );
 
@@ -52,24 +53,24 @@
       &-filled {
         @include theme.define-var(
           (
-            background-color: theme.get-color($value, "500"),
-            color: #fff,
+            background-color: theme.get-color($value, "background"),
+            color: theme.get-color($value, "foreground-on-background")
           )
         );
 
-        &:hover:not([aria-disabled="true"]) {
+        &:hover:not([aria-disabled="true"], [aria-pressed="true"]) {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "600"),
+              background-color: theme.get-color($value, "background-hovered")
             )
           );
         }
 
         &.#{$button-root}--pressed,
-        &:active {
+        &:active:not([aria-disabled="true"]) {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "700"),
+              background-color: theme.get-color($value, "background-pressed")
             )
           );
         }
@@ -78,24 +79,32 @@
       &-ghost {
         @include theme.define-var(
           (
-            color: theme.get-color($value, "500"),
-            background-color: transparent,
+            color: theme.get-color($value, "foreground"),
+            background-color: transparent
           )
         );
 
-        &:hover:not([aria-disabled="true"]) {
+        &:hover:not([aria-disabled="true"], [aria-pressed="true"]) {
           @include theme.define-var(
             (
-              background-color: color-mix(in srgb, theme.get-color($value, "500"), transparent 95%),
+              background-color: color-mix(
+                  in srgb,
+                  theme.get-color($value, "background"),
+                  theme.get-color("background-default") 95%
+                )
             )
           );
         }
 
         &.#{$button-root}--pressed,
-        &:active {
+        &:active:not([aria-disabled="true"]) {
           @include theme.define-var(
             (
-              background-color: color-mix(in srgb, theme.get-color($value, "500"), transparent 90%),
+              background-color: color-mix(
+                  in srgb,
+                  theme.get-color($value, "background"),
+                  theme.get-color("background-default") 90%
+                )
             )
           );
         }
@@ -106,23 +115,61 @@
           (
             background-color: transparent,
             border-color: currentColor,
-            color: theme.get-color($value, "500"),
+            color: theme.get-color($value, "border")
           )
         );
 
-        &:hover:not([aria-disabled="true"]) {
+        &:hover:not([aria-disabled="true"], [aria-pressed="true"]) {
           @include theme.define-var(
             (
-              color: theme.get-color($value, "600"),
+              color: theme.get-color($value, "border-hovered")
             )
           );
         }
 
         &.#{$button-root}--pressed,
-        &:active {
+        &:active:not([aria-disabled="true"]) {
           @include theme.define-var(
             (
-              color: theme.get-color($value, "700"),
+              color: theme.get-color($value, "background-pressed")
+            )
+          );
+        }
+      }
+
+      &-soft {
+        @include theme.define-var(
+          (
+            color: theme.get-color($value, "foreground"),
+            background-color: color-mix(
+                in srgb,
+                theme.get-color($value, "background"),
+                transparent 95%
+              )
+          )
+        );
+
+        &:hover:not([aria-disabled="true"], [aria-pressed="true"]) {
+          @include theme.define-var(
+            (
+              background-color: color-mix(
+                  in srgb,
+                  theme.get-color($value, "background"),
+                  transparent 90%
+                )
+            )
+          );
+        }
+
+        &.#{$button-root}--pressed,
+        &:active:not([aria-disabled="true"]) {
+          @include theme.define-var(
+            (
+              background-color: color-mix(
+                  in srgb,
+                  theme.get-color($value, "background"),
+                  transparent 85%
+                )
             )
           );
         }
@@ -141,15 +188,6 @@
     );
   }
 
-  &__left,
-  &__right {
-    /* stylelint-disable-next-line selector-max-type */
-    svg {
-      width: theme.get-var(text-line-height);
-      height: theme.get-var(text-line-height);
-    }
-  }
-
   &__spinner,
   &__left,
   &__right {
@@ -166,7 +204,7 @@
       &__text {
         @include theme.define-var(
           (
-            text-font-size: 0,
+            text-font-size: 0
           )
         );
       }
@@ -179,7 +217,7 @@
         size: map.get($button-sizes, "xs"),
         padding-inline: theme.get-spacing("xs"),
         text-line-height: theme.get-line-height("xs"),
-        text-font-size: theme.get-font-size("xxs"),
+        text-font-size: theme.get-font-size("xxs")
       )
     );
   }
@@ -190,7 +228,7 @@
         size: map.get($button-sizes, "sm"),
         padding-inline: theme.get-spacing("md"),
         text-line-height: theme.get-line-height("sm"),
-        text-font-size: theme.get-font-size("xs"),
+        text-font-size: theme.get-font-size("xs")
       )
     );
   }
@@ -201,7 +239,7 @@
         size: map.get($button-sizes, "md"),
         padding-inline: theme.get-spacing("lg"),
         text-line-height: theme.get-line-height("sm"),
-        text-font-size: theme.get-font-size("sm"),
+        text-font-size: theme.get-font-size("sm")
       )
     );
   }
@@ -212,7 +250,7 @@
         size: map.get($button-sizes, "lg"),
         padding-inline: theme.get-spacing("xl"),
         text-line-height: theme.get-line-height("md"),
-        text-font-size: theme.get-font-size("md"),
+        text-font-size: theme.get-font-size("md")
       )
     );
   }
@@ -223,7 +261,7 @@
         size: map.get($button-sizes, "xl"),
         padding-inline: theme.get-spacing("2xl"),
         text-line-height: theme.get-line-height("md"),
-        text-font-size: theme.get-font-size("lg"),
+        text-font-size: theme.get-font-size("lg")
       )
     );
   }

@@ -14,8 +14,8 @@ const meta: Meta<typeof useClickOutside> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -30,9 +30,9 @@ export const Outside: Story = {
     useClickOutside({
       enabled: true,
       ignoredElements: [containerRef.current as Element],
-      onClickOutside: () => {
+      handler: () => {
         setClicks((prev) => prev + 1);
-      },
+      }
     });
 
     return (
@@ -44,5 +44,5 @@ export const Outside: Story = {
         </Stack>
       </>
     );
-  },
+  }
 };

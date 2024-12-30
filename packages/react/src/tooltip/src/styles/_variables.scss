@@ -6,22 +6,22 @@ $tooltip-root: "tooltip";
 $tooltip-skins: (
   "default": (
     "background-color": theme.get-color("background-inverted"),
-    "color": theme.get-color("text-inverted"),
+    "color": theme.get-color("foreground-inverted")
   ),
   "neutral": (
-    "background-color": theme.get-color("neutral", "500"),
-    "color": theme.get-color("white"),
+    "background-color": theme.get-color("neutral", "background"),
+    "color": theme.get-color("neutral", "foreground-on-background")
   ),
   "neutral-faded": (
-    "background-color": theme.get-color("neutral", "100"),
-    "color": theme.get-color("black"),
+    "background-color": theme.get-color("neutral", "background-faded"),
+    "color": theme.get-color("black")
   ),
   "primary": (
-    "background-color": theme.get-color("primary", "500"),
-    "color": theme.get-color("white"),
+    "background-color": theme.get-color("primary", "background"),
+    "color": theme.get-color("primary", "foreground-on-background")
   ),
   "primary-faded": (
-    "background-color": theme.get-color("primary", "100"),
-    "color": theme.get-color("black"),
-  ),
+    "background-color": theme.get-color("primary", "background-faded"),
+    "color": theme.get-color("black")
+  )
 );

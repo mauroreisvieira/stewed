@@ -1,10 +1,12 @@
+/** Interface with ClickOutside options */
 export interface ClickOutsideOptions {
   /** Array of elements that will be ignored on click. */
   ignoredElements?: (Element | null)[];
   /** A callback function triggered on click outside the elements associated. */
-  onClickOutside?: () => void;
+  handler?: () => void;
 }
 
+/** Interface with  public methods of ClickOutside */
 interface ClickOutside {
   /**
    * Activates the ClickOutside function with the specified options.
@@ -17,6 +19,7 @@ interface ClickOutside {
 
 /** Represents the combined type for ClickOutside instance and its options. */
 type ClickOutsideStackType = {
+  /** Instance of ClickOutside */
   instance: ClickOutside;
 } & ClickOutsideOptions;
 
@@ -36,6 +39,7 @@ export class ClickOutsideManager {
     if (ClickOutsideManager.instance === null) {
       ClickOutsideManager.instance = new ClickOutsideManager();
     }
+
     return ClickOutsideManager.instance;
   }
 
@@ -83,7 +87,7 @@ export class ClickOutsideManager {
   }
 
   /**
-   * Handles the mousedown event to trigger onClickOutside.
+   * Handles the mousedown event to trigger handler.
    *
    * @param event - The MouseEvent object.
    */
@@ -93,13 +97,13 @@ export class ClickOutsideManager {
 
     if (!latestStackItem) return;
 
-    const { ignoredElements, onClickOutside } = latestStackItem;
+    const { ignoredElements, handler } = latestStackItem;
 
-    if (!onClickOutside) return;
+    if (!handler) return;
 
     if (target instanceof Node) {
       if (!ignoredElements?.some((el) => this.elementContainsTarget(target, el))) {
-        onClickOutside();
+        handler();
       }
     }
   };
@@ -137,7 +141,7 @@ export class ClickOutsideManager {
    */
   public updateStack(options: ClickOutsideStackType): void {
     this.stack = this.stack.map((i) =>
-      i.instance === options.instance && i !== options ? options : i,
+      i.instance === options.instance && i !== options ? options : i
     );
   }
 }

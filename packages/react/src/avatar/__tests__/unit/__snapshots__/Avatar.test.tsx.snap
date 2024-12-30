@@ -1,0 +1,186 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Avatar > Snapshots > should apply 'circle' shape classes 1`] = `
+<div>
+  <div
+    class="_avatar_1dc355 _avatar--filled_1dc355 _avatar--circle_1dc355 _avatar--md_1dc355 _avatar--primary_1dc355"
+  >
+    EC
+  </div>
+</div>
+`;
+
+exports[`Avatar > Snapshots > should apply 'critical' skin classes 1`] = `
+<div>
+  <div
+    class="_avatar_1dc355 _avatar--filled_1dc355 _avatar--circle_1dc355 _avatar--md_1dc355 _avatar--critical_1dc355"
+  >
+    EC
+  </div>
+</div>
+`;
+
+exports[`Avatar > Snapshots > should apply 'filled' appearance classes 1`] = `
+<div>
+  <div
+    class="_avatar_1dc355 _avatar--filled_1dc355 _avatar--circle_1dc355 _avatar--md_1dc355 _avatar--primary_1dc355"
+  >
+    EC
+  </div>
+</div>
+`;
+
+exports[`Avatar > Snapshots > should apply 'lg' size classes 1`] = `
+<div>
+  <div
+    class="_avatar_1dc355 _avatar--filled_1dc355 _avatar--circle_1dc355 _avatar--lg_1dc355 _avatar--primary_1dc355"
+  >
+    EC
+  </div>
+</div>
+`;
+
+exports[`Avatar > Snapshots > should apply 'md' size classes 1`] = `
+<div>
+  <div
+    class="_avatar_1dc355 _avatar--filled_1dc355 _avatar--circle_1dc355 _avatar--md_1dc355 _avatar--primary_1dc355"
+  >
+    EC
+  </div>
+</div>
+`;
+
+exports[`Avatar > Snapshots > should apply 'neutral' skin classes 1`] = `
+<div>
+  <div
+    class="_avatar_1dc355 _avatar--filled_1dc355 _avatar--circle_1dc355 _avatar--md_1dc355 _avatar--neutral_1dc355"
+  >
+    EC
+  </div>
+</div>
+`;
+
+exports[`Avatar > Snapshots > should apply 'outline' appearance classes 1`] = `
+<div>
+  <div
+    class="_avatar_1dc355 _avatar--outline_1dc355 _avatar--circle_1dc355 _avatar--md_1dc355 _avatar--primary_1dc355"
+  >
+    EC
+  </div>
+</div>
+`;
+
+exports[`Avatar > Snapshots > should apply 'primary' skin classes 1`] = `
+<div>
+  <div
+    class="_avatar_1dc355 _avatar--filled_1dc355 _avatar--circle_1dc355 _avatar--md_1dc355 _avatar--primary_1dc355"
+  >
+    EC
+  </div>
+</div>
+`;
+
+exports[`Avatar > Snapshots > should apply 'secondary' skin classes 1`] = `
+<div>
+  <div
+    class="_avatar_1dc355 _avatar--filled_1dc355 _avatar--circle_1dc355 _avatar--md_1dc355 _avatar--secondary_1dc355"
+  >
+    EC
+  </div>
+</div>
+`;
+
+exports[`Avatar > Snapshots > should apply 'sm' size classes 1`] = `
+<div>
+  <div
+    class="_avatar_1dc355 _avatar--filled_1dc355 _avatar--circle_1dc355 _avatar--sm_1dc355 _avatar--primary_1dc355"
+  >
+    EC
+  </div>
+</div>
+`;
+
+exports[`Avatar > Snapshots > should apply 'square' shape classes 1`] = `
+<div>
+  <div
+    class="_avatar_1dc355 _avatar--filled_1dc355 _avatar--square_1dc355 _avatar--md_1dc355 _avatar--primary_1dc355"
+  >
+    EC
+  </div>
+</div>
+`;
+
+exports[`Avatar > Snapshots > should apply 'success' skin classes 1`] = `
+<div>
+  <div
+    class="_avatar_1dc355 _avatar--filled_1dc355 _avatar--circle_1dc355 _avatar--md_1dc355 _avatar--success_1dc355"
+  >
+    EC
+  </div>
+</div>
+`;
+
+exports[`Avatar > Snapshots > should apply 'xl' size classes 1`] = `
+<div>
+  <div
+    class="_avatar_1dc355 _avatar--filled_1dc355 _avatar--circle_1dc355 _avatar--xl_1dc355 _avatar--primary_1dc355"
+  >
+    EC
+  </div>
+</div>
+`;
+
+exports[`Avatar > Snapshots > should apply 'xs' size classes 1`] = `
+<div>
+  <div
+    class="_avatar_1dc355 _avatar--filled_1dc355 _avatar--circle_1dc355 _avatar--xs_1dc355 _avatar--primary_1dc355"
+  >
+    EC
+  </div>
+</div>
+`;
+
+exports[`Avatar > Snapshots > should render additional classes 1`] = `
+<div>
+  <div
+    class="_avatar_1dc355 _avatar--filled_1dc355 _avatar--circle_1dc355 _avatar--md_1dc355 _avatar--primary_1dc355 other-class"
+  >
+    EC
+  </div>
+</div>
+`;
+
+exports[`Avatar > Snapshots > should render image 1`] = `
+<div>
+  <div
+    class="_avatar_1dc355 _avatar--filled_1dc355 _avatar--circle_1dc355 _avatar--md_1dc355 _avatar--primary_1dc355"
+  >
+    <img
+      alt="Emma Clark"
+      class="_avatar__img_1dc355"
+      src="path/to/image.jpg"
+    />
+  </div>
+</div>
+`;
+
+exports[`Avatar > Snapshots > should renders component as anchor 1`] = `
+<div>
+  <a
+    class="_avatar_1dc355 _avatar--filled_1dc355 _avatar--circle_1dc355 _avatar--md_1dc355 _avatar--primary_1dc355"
+    href="#"
+  >
+    EC
+  </a>
+</div>
+`;
+
+exports[`Avatar > Snapshots > should renders default component 1`] = `
+<div>
+  <div
+    class="_avatar_1dc355 _avatar--filled_1dc355 _avatar--circle_1dc355 _avatar--md_1dc355 _avatar--primary_1dc355"
+  >
+    EC
+  </div>
+</div>
+`;

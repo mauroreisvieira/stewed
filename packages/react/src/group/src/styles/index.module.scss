@@ -5,27 +5,70 @@
 
 @include theme.scope($group-root) {
   display: inline-flex;
-  align-items: center;
+  gap: theme.get-var(gap);
 
   @include theme.define-var(
     (
-      border-radius: theme.get-var(radius),
+      border-radius: theme.get-var(radius)
     )
   );
 
-  :not(:first-child) {
-    margin-left: -1px;
-    border-radius: 0;
+  &:where(&--gap-none) {
+    :not(:first-child) {
+      margin-left: -1px;
+      border-radius: 0;
+    }
+
+    :not(:first-child, :last-child) {
+      position: relative;
+      z-index: 1;
+    }
+
+    :first-child {
+      border-radius: 0;
+      border-top-left-radius: theme.get-var(border-radius);
+      border-bottom-left-radius: theme.get-var(border-radius);
+    }
+
+    :last-child {
+      border-top-right-radius: theme.get-var(border-radius);
+      border-bottom-right-radius: theme.get-var(border-radius);
+    }
   }
 
-  :first-child {
-    border-radius: 0;
-    border-top-left-radius: theme.get-var(border-radius);
-    border-bottom-left-radius: theme.get-var(border-radius);
+  & > :where([aria-selected="true"], [aria-checked="true"]) {
+    position: relative;
+    z-index: 2;
   }
 
-  :last-child {
-    border-top-right-radius: theme.get-var(border-radius);
-    border-bottom-right-radius: theme.get-var(border-radius);
+  & > :where([aria-selected], [aria-checked]):not([aria-disabled="true"]) {
+    cursor: pointer;
+  }
+
+  [aria-disabled="true"] {
+    @include theme.disabled-styles;
+  }
+
+  &--row {
+    flex-direction: row;
+  }
+
+  &--column {
+    flex-direction: column;
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+
+  // Gap
+  @each $key, $value in $group-gap {
+    &--gap-#{$key} {
+      @include theme.define-var(
+        (
+          gap: $value
+        )
+      );
+    }
   }
 }

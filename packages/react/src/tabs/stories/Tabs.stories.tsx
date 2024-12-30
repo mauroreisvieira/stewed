@@ -1,97 +1,172 @@
-import React from "react";
+import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // UI Components
-import { Theme, Tabs } from "../../index";
+import { Theme, Tabs, Text } from "../../index";
 // Icons
-import { FiPackage, FiBell, FiCalendar } from "react-icons/fi";
-
-type Story = StoryObj<typeof Tabs>;
+import { FiPackage, FiBell, FiCalendar, FiUsers } from "react-icons/fi";
 
 const meta: Meta<typeof Tabs> = {
   title: "Components/Tabs",
   component: Tabs,
+  subcomponents: {
+    "Tabs.List": Tabs.List as React.FC<unknown>,
+    "Tabs.Item": Tabs.Item as React.FC<unknown>,
+    "Tabs.Panel": Tabs.Panel as React.FC<unknown>
+  },
+  argTypes: {
+    onValueChange: {
+      control: false
+    },
+    children: {
+      control: false
+    }
+  },
+  args: {
+    onValueChange: undefined
+  },
   decorators: [
     (Story) => (
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
 
-export const Base: Story = {
+const tabs = [
+  {
+    title: "Orders",
+    icon: <FiPackage />,
+    value: "orders",
+    content: "Panel Orders"
+  },
+  {
+    title: "Notifications",
+    icon: <FiBell />,
+    value: "notifications",
+    content: "Panel Notifications"
+  },
+  {
+    title: "Team",
+    icon: <FiUsers />,
+    value: "team",
+    content: "Panel Team"
+  },
+  {
+    title: "Calendar",
+    icon: <FiCalendar />,
+    value: "calendar",
+    content: "Panel Calendar"
+  }
+];
+
+type TabValue = "orders" | "notifications" | "team" | "calendar";
+
+export const Uncontrolled: StoryObj<typeof Tabs<TabValue>> = {
   argTypes: {
-    children: {
-      control: false,
+    value: {
+      control: false
     },
     direction: {
-      control: false,
+      control: false
     },
     alignment: {
-      control: "select",
-      options: ["start", "center", "end"],
-    },
+      control: false
+    }
   },
   args: {
-    value: "2",
-    alignment: "center",
+    defaultValue: "orders",
+    onValueChange: undefined,
+    keepMounted: true,
     children: (
       <>
         <Tabs.List>
-          <Tabs.Item leftSlot={<FiPackage />} value="1">
-            Orders
-          </Tabs.Item>
-          <Tabs.Item leftSlot={<FiBell />} value="2">
-            Notifications
-          </Tabs.Item>
-          <Tabs.Item leftSlot={<FiBell />} value="3" disabled>
-            Team
-          </Tabs.Item>
-          <Tabs.Item leftSlot={<FiCalendar />} value="4">
-            Calendar
-          </Tabs.Item>
+          {tabs.map(({ value, icon, title }) => (
+            <Tabs.Item key={value} leftSlot={icon} value={value}>
+              {title}
+            </Tabs.Item>
+          ))}
         </Tabs.List>
+
+        {tabs.map(({ value, content }) => (
+          <Tabs.Panel key={value} value={value}>
+            <Text>{content}</Text>
+          </Tabs.Panel>
+        ))}
       </>
-    ),
-  },
+    )
+  }
 };
 
-export const Direction: Story = {
+export const Controlled: StoryObj<typeof Tabs<TabValue>> = {
   argTypes: {
+    defaultValue: {
+      control: false
+    },
     children: {
-      control: false,
+      control: false
     },
     direction: {
-      control: false,
+      control: false
     },
     alignment: {
-      control: "select",
-      options: ["start", "end"],
-    },
+      control: false
+    }
+  },
+  args: {
+    value: "notifications"
+  },
+  render: function Render({ value, ...args }): React.ReactElement {
+    const [tab, setTab] = useState<TabValue | undefined>(value);
+
+    return (
+      <Tabs {...args} value={tab} onValueChange={(checked) => setTab(checked)}>
+        <Tabs.List>
+          {tabs.map(({ value, icon, title }) => (
+            <Tabs.Item key={value} leftSlot={icon} value={value}>
+              {title}
+            </Tabs.Item>
+          ))}
+        </Tabs.List>
+
+        {tabs.map(({ value, content }) => (
+          <Tabs.Panel key={value} value={value}>
+            <Text>{content}</Text>
+          </Tabs.Panel>
+        ))}
+      </Tabs>
+    );
+  }
+};
+
+export const Direction: StoryObj<typeof Tabs<TabValue>> = {
+  argTypes: {
+    children: {
+      control: false
+    }
   },
   args: {
     alignment: "end",
     direction: "column",
-    value: "2",
+    defaultValue: "team",
     children: (
       <>
         <Tabs.List>
-          <Tabs.Item leftSlot={<FiPackage />} value="1">
-            Orders
-          </Tabs.Item>
-          <Tabs.Item leftSlot={<FiBell />} value="2">
-            Notifications
-          </Tabs.Item>
-          <Tabs.Item leftSlot={<FiBell />} value="3" disabled>
-            Team
-          </Tabs.Item>
-          <Tabs.Item leftSlot={<FiCalendar />} value="4">
-            Calendar
-          </Tabs.Item>
+          {tabs.map(({ value, icon, title }) => (
+            <Tabs.Item key={value} leftSlot={icon} value={value}>
+              {title}
+            </Tabs.Item>
+          ))}
         </Tabs.List>
+
+        {tabs.map(({ value, content }) => (
+          <Tabs.Panel key={value} value={value}>
+            <Text>{content}</Text>
+          </Tabs.Panel>
+        ))}
       </>
-    ),
-  },
+    )
+  }
 };

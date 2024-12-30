@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Drawer > Snapshots > should applies correct placement classes 1`] = `null`;
+
+exports[`Drawer > Snapshots > should applies correct size classes 1`] = `null`;
+
+exports[`Drawer > Snapshots > should render additional classes 1`] = `null`;
+
+exports[`Drawer > Snapshots > should renders close button component 1`] = `null`;
+
+exports[`Drawer > Snapshots > should renders default component 1`] = `null`;

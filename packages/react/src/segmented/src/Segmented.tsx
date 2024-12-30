@@ -39,13 +39,13 @@ export function Segmented<T extends string>({
   const cssClasses = {
     root: getBlock({
       modifiers: [size, fullWidth && "full-width"],
-      extraClasses: className,
-    }),
+      extraClasses: className
+    })
   };
 
   // Define a reference to a tab list element
   const { ref, onNavigate } = useKeyboardNavigation<HTMLDivElement>({
-    target: '[role="tab"]:not([aria-disabled])',
+    target: '[role="tab"]:not([aria-disabled])'
   });
 
   const onHandleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
@@ -53,15 +53,15 @@ export function Segmented<T extends string>({
       onNavigate(event);
       onKeyDown?.(event);
     },
-    [onKeyDown, onNavigate],
+    [onKeyDown, onNavigate]
   );
 
   return (
+    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <div ref={ref} role="group" className={cssClasses.root} onKeyDown={onHandleKeyDown} {...props}>
-      <SegmentedContext.Provider
-        value={{ value, onValueChange: onValueChange as (value: unknown) => void }}>
+      <SegmentedContext value={{ value, onValueChange: onValueChange as (value: unknown) => void }}>
         {children}
-      </SegmentedContext.Provider>
+      </SegmentedContext>
     </div>
   );
 }

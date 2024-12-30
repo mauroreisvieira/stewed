@@ -1,0 +1,137 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Card > Snapshots > should render additional classes 1`] = `
+<div>
+  <div
+    class="_card_382c82 _card--column_382c82 _card--padding-block-xl_382c82 _card--padding-inline-xl_382c82 _card--shadow-sm_382c82 other-class"
+  >
+    <div
+      class="_card__header_382c82 other-header-class"
+    >
+      Header
+    </div>
+    <div
+      class="_card__body_382c82 other-body-class"
+    >
+      Body
+    </div>
+    <div
+      class="_card__footer_382c82 other-footer-class"
+    >
+      Footer
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Card > Snapshots > should render direction classes 1`] = `
+<div>
+  <div
+    class="_card_382c82 _card--row_382c82 _card--padding-block-xl_382c82 _card--padding-inline-xl_382c82 _card--shadow-sm_382c82"
+  >
+    <div
+      class="_card__header_382c82"
+    >
+      Header
+    </div>
+    <div
+      class="_card__body_382c82"
+    >
+      Body
+    </div>
+    <div
+      class="_card__footer_382c82"
+    >
+      Footer
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Card > Snapshots > should render media 1`] = `
+<div>
+  <div
+    class="_card_382c82 _card--row_382c82 _card--padding-block-xl_382c82 _card--padding-inline-xl_382c82 _card--shadow-sm_382c82"
+  >
+    <div
+      class="_card__media_382c82"
+    >
+      <img
+        class="_card__media__img_382c82"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Card > Snapshots > should render padding classes 1`] = `
+<div>
+  <div
+    class="_card_382c82 _card--column_382c82 _card--padding-block-md_382c82 _card--padding-inline-xl_382c82 _card--shadow-sm_382c82"
+  >
+    <div
+      class="_card__header_382c82"
+    >
+      Header
+    </div>
+    <div
+      class="_card__body_382c82"
+    >
+      Body
+    </div>
+    <div
+      class="_card__footer_382c82"
+    >
+      Footer
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Card > Snapshots > should render shadow classes 1`] = `
+<div>
+  <div
+    class="_card_382c82 _card--column_382c82 _card--padding-block-xl_382c82 _card--padding-inline-xl_382c82 _card--shadow-3xl_382c82"
+  >
+    <div
+      class="_card__header_382c82"
+    >
+      Header
+    </div>
+    <div
+      class="_card__body_382c82"
+    >
+      Body
+    </div>
+    <div
+      class="_card__footer_382c82"
+    >
+      Footer
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Card > Snapshots > should renders default component 1`] = `
+<div>
+  <div
+    class="_card_382c82 _card--column_382c82 _card--padding-block-xl_382c82 _card--padding-inline-xl_382c82 _card--shadow-sm_382c82"
+  >
+    <div
+      class="_card__header_382c82"
+    >
+      Header
+    </div>
+    <div
+      class="_card__body_382c82"
+    >
+      Body
+    </div>
+    <div
+      class="_card__footer_382c82"
+    >
+      Footer
+    </div>
+  </div>
+</div>
+`;

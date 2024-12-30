@@ -1,0 +1,81 @@
+@use "sass:meta";
+@use "@stewed/react/src/theme/src/styles" as theme;
+@use "./variables" as *;
+
+@include theme.scope($hue-root) {
+  background-clip: inherit;
+
+  &--solid {
+    background-color: theme.get-var(background-color);
+  }
+
+  &--gradient {
+    background-image: linear-gradient(theme.get-var(deg), theme.get-var(from), theme.get-var(to));
+  }
+
+  &--clip-text {
+    background-clip: text;
+  }
+
+  @each $color, $shades in $hue-palette {
+    @if meta.type-of($shades) == "map" {
+      @each $shade, $value in $shades {
+        @if $shade != NULL {
+          // Solid Background
+          &--#{$color}-#{$shade} {
+            @include theme.define-var(
+              (
+                background-color: $value
+              )
+            );
+          }
+
+          // Gradient From
+          &--from-#{$color}-#{$shade} {
+            @include theme.define-var(
+              (
+                from: $value
+              )
+            );
+          }
+
+          // Gradient From
+          &--to-#{$color}-#{$shade} {
+            @include theme.define-var(
+              (
+                to: $value
+              )
+            );
+          }
+        }
+      }
+    } @else {
+      // Solid Background
+      &--#{$color} {
+        @include theme.define-var(
+          (
+            background-color: $shades
+          )
+        );
+      }
+
+      // Gradient From
+      &--from-#{$color} {
+        @include theme.define-var(
+          (
+            from: $shades
+          )
+        );
+      }
+
+      // Gradient To
+      &--to-#{$color} {
+        @include theme.define-var(
+          (
+            to: $shades
+          )
+        );
+      }
+    }
+  }
+}

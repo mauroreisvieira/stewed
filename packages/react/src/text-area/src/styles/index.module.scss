@@ -4,54 +4,73 @@
 @use "./variables" as *;
 
 @include theme.scope($textarea-root) {
+  all: unset;
   position: relative;
   box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: $textarea-spacings;
+  padding: theme.get-spacing("md");
   touch-action: manipulation;
+  resize: theme.get-var(resize);
   border: 1px solid transparent;
   border-radius: theme.get-var(radius);
 
   @include text.typography(base, $overrides: (font-size: theme.get-font-size("md")));
-  @include theme.focus-styles;
+
+  &:-internal-autofill-selected,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    background-clip: text;
+    -webkit-text-fill-color: theme.get-color("foreground-default");
+  }
 
   &--disabled {
     @include theme.disabled-styles;
   }
 
-  @each $key, $value in $textarea-skins {
-    &--#{$key} {
+  // Resize
+  @each $value in ("both", "horizontal", "vertical", "none") {
+    &--resize-#{$value} {
       @include theme.define-var(
         (
-          border-color: map.get($value, "border"),
-          border-color-hover: map.get($value, "border-hover"),
-          background-color: map.get($value, "background-color"),
+          resize: $value
         )
       );
     }
   }
 
-  &--outline {
-    border: 1px solid theme.get-var(border-color);
-
-    &:hover:has(:not([disabled])) {
-      border-color: theme.get-var(border-color-hover);
+  // Skins
+  @each $key, $value in $textarea-skins {
+    &--#{$key} {
+      @include theme.define-var(
+        (
+          foreground: map.get($value, "color"),
+          border-color: map.get($value, "border"),
+          background-color: map.get($value, "background-color")
+        )
+      );
     }
   }
 
+  &--outline,
+  &--soft {
+    @include theme.focus-styles;
+  }
+
+  &--outline {
+    border: 1px solid theme.get-var(border-color);
+  }
+
   &--ghost {
+    color: theme.get-var(foreground);
     border-color: transparent;
   }
 
   &--soft {
     background-color: color-mix(in srgb, theme.get-var(background-color), transparent 95%);
     border-color: transparent;
-
-    &:hover:has(:not([disabled])) {
-      background-color: color-mix(in srgb, theme.get-var(background-color), transparent 90%);
-    }
   }
 
   &--auto-height {

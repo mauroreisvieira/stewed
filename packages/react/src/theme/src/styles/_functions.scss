@@ -26,6 +26,28 @@
   @return var($var);
 }
 
+@function get-palette($value: null) {
+  @if not $value {
+    @return $palette;
+  }
+
+  @if not map.has-key($palette, $value) {
+    @error "Invalid color specified! #{$value} doesn't exist. Choose one of #{map.keys($palette)}";
+  }
+
+  @if not $level {
+    @return map.get($palette, $value);
+  }
+
+  $levels: map.get($palette, $value);
+
+  @if not map.has-key($levels, $level) {
+    @error "Invalid level specified! #{$level} doesn't exist. Choose one of #{map.keys($levels)}";
+  }
+
+  @return map.get($levels, $level);
+}
+
 @function get-color($value: null, $level: null) {
   @if not $value {
     @return $colors;
@@ -174,6 +196,18 @@
   }
 
   @return map.get($shadow, $value);
+}
+
+@function get-blur($value: null) {
+  @if not $value {
+    @return $blur;
+  }
+
+  @if not map.has-key($blur, $value) {
+    @error "Invalid blur's specified! #{$value} doesn't exist. Choose one of #{map.keys($blur)}";
+  }
+
+  @return map.get($blur, $value);
 }
 
 @function get-transition-duration($value: null) {

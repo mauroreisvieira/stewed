@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 // UI Components
-import { Button, type ButtonProps } from "../../button";
+import { Button, Icon } from "../../index";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
@@ -8,26 +8,39 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/** Props for the NavigationButton component, used for rendering a button in a navigation context. */
+interface NavigationButtonProps {
+  /** Whether the navigation button is disabled. If true, the button will be non-interactive and typically styled as disabled. */
+  disabled: boolean | undefined;
+  /** Function to handle the click event for the navigation button. */
+  onClick: () => void;
+}
+
+/**
+ * Props for the PageButton component, used for rendering a button that represents a specific page in a navigation context.
+ * Inherits all properties from {@link NavigationButtonProps}, with additional props specific to pagination.
+ */
+interface PageButtonProps extends NavigationButtonProps {
+  /** Flag indicating whether the page button is selected (active). */
+  selected: boolean;
+  /** Flag indicating whether the button displays an ellipsis (`...`) as a placeholder. */
+  hasEllipsis: boolean;
+}
+
+/** Props for the Pagination component, used to control and display pagination controls. */
 export interface PaginationProps {
   /** Total number of pages. */
   total: number;
-  /** Current active page. */
-  currentPage: number;
+  /**
+   * Current active page.
+   * @default 1
+   */
+  currentPage?: number;
   /**
    * Number of pages visible before and after current page.
    * @default 1
    */
   siblings?: number;
-  /**
-   * Skin of the pagination buttons.
-   * @default primary
-   */
-  skin?: Extract<ButtonProps<"button">["skin"], "primary" | "secondary" | "neutral">;
-  /**
-   * Size of the pagination buttons.
-   * @default sm
-   */
-  size?: ButtonProps<"button">["size"];
   /**
    * Allow possibility to change alignment of tabs.
    * @default start
@@ -38,21 +51,20 @@ export interface PaginationProps {
   /** Additional class name(s) for custom styling. */
   className?: string;
   /**
-   * Label for the previous page button.
-   * @default "previous"
+   * A callback function for rendering the previous button.
+   * @param props - The properties for rendering, including `onClick` and `disabled`.
    */
-  previousLabel?: string;
+  renderPrev?: (props: NavigationButtonProps) => React.ReactNode;
   /**
-   * Label for the next page button.
-   * @default "next"
+   * A callback function for rendering the next button.
+   * @param props - The properties for rendering, including `onClick` and `disabled`.
    */
-  nextLabel?: string;
+  renderNext?: (props: NavigationButtonProps) => React.ReactNode;
   /**
-   * Function to generate custom page labels.
-   * @param page - The page number.
-   * @returns The label for the specified page.
+   * A callback function for rendering the previous button.
+   * @param props - The properties for rendering, including `onClick` and `disabled`.
    */
-  pageLabel?: ({ page }: { page: number }) => string;
+  renderPage?: (props: PageButtonProps) => React.ReactNode;
   /**
    * Callback function invoked when the active page changes.
    * @param page - The new active page.
@@ -73,17 +85,15 @@ export interface PaginationProps {
  */
 export function Pagination({
   total,
-  currentPage,
+  currentPage = 1,
   siblings = 1,
-  skin = "primary",
-  size = "sm",
   alignment = "start",
   disabled,
   className,
-  pageLabel,
-  previousLabel = "previous",
-  nextLabel = "next",
-  onPageChange,
+  renderPrev,
+  renderPage,
+  renderNext,
+  onPageChange
 }: PaginationProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: components.Pagination, styles });
@@ -92,8 +102,8 @@ export function Pagination({
   const cssClasses = {
     root: getBlock({
       modifiers: [alignment],
-      extraClasses: className,
-    }),
+      extraClasses: className
+    })
   };
 
   const selectedPage = Math.max(1, Math.min(currentPage, total));
@@ -113,7 +123,7 @@ export function Pagination({
     let minPage = Math.max(maxEllipsis, selectedPage - maxPivotPages);
     const maxPage = Math.min(
       total - 1,
-      selectedPage + maxPivotPages * 2 - (selectedPage - minPage),
+      selectedPage + maxPivotPages * 2 - (selectedPage - minPage)
     );
     minPage = Math.max(maxEllipsis, minPage - (maxPivotPages * 2 - (maxPage - minPage)));
 
@@ -126,72 +136,76 @@ export function Pagination({
     }
 
     pages.push(total);
+
     return pages;
   }, [selectedPage, siblings, total]);
 
   return (
     <nav role="navigation" className={cssClasses.root}>
-      <Button
-        size={size}
-        skin="neutral"
-        appearance="ghost"
-        disabled={disabled || selectedPage === 1}
-        leftSlot={
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={2}
-            strokeLinecap="round"
-            strokeLinejoin="round">
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
-        }
-        onClick={() => onPageChange?.(selectedPage - 1)}
-        iconOnly>
-        {previousLabel}
-      </Button>
+      {renderPrev ? (
+        renderPrev({
+          disabled: disabled || selectedPage === 1,
+          /** Function to move for previous page */
+          onClick: () => onPageChange?.(selectedPage - 1)
+        })
+      ) : (
+        <Button
+          size="sm"
+          skin="neutral"
+          appearance="soft"
+          disabled={disabled || selectedPage === 1}
+          leftSlot={<Icon.ChevronLeft size={14} />}
+          onClick={() => onPageChange?.(selectedPage - 1)}
+          aria-label="Previous page"
+          iconOnly
+        />
+      )}
       {totalPages.map((page, index) => {
         const current = index + 1;
         const selected = selectedPage === page;
-        const isEllipsis = typeof page === "string";
-        return (
+        const hasEllipsis = typeof page === "string";
+
+        return renderPage ? (
+          renderPage({
+            selected,
+            disabled,
+            hasEllipsis,
+            /** Function to set current page */
+            onClick: () => onPageChange?.(current)
+          })
+        ) : (
           <Button
             key={index}
-            size={size}
-            skin={selected ? skin : "neutral"}
+            size="sm"
+            skin={selected ? "primary" : "neutral"}
             appearance={selected ? "filled" : "ghost"}
-            disabled={disabled || isEllipsis}
-            aria-current={isEllipsis ? undefined : selected}
-            aria-selected={isEllipsis ? undefined : selected}
-            aria-label={isEllipsis ? undefined : pageLabel?.({ page: current })}
-            onClick={isEllipsis ? undefined : () => onPageChange?.(current)}>
+            disabled={disabled || hasEllipsis}
+            aria-current={hasEllipsis ? undefined : selected}
+            aria-selected={hasEllipsis ? undefined : selected}
+            onClick={hasEllipsis ? undefined : () => onPageChange?.(current)}
+          >
             {page}
           </Button>
         );
       })}
-      <Button
-        size={size}
-        skin="neutral"
-        appearance="ghost"
-        disabled={disabled || selectedPage === total}
-        leftSlot={
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={2}
-            strokeLinecap="round"
-            strokeLinejoin="round">
-            <polyline points="9 18 15 12 9 6" />
-          </svg>
-        }
-        onClick={() => onPageChange?.(selectedPage + 1)}
-        iconOnly>
-        {nextLabel}
-      </Button>
+      {renderNext ? (
+        renderNext({
+          disabled: disabled || selectedPage === total,
+          /** Function to move for next page */
+          onClick: () => onPageChange?.(selectedPage + 1)
+        })
+      ) : (
+        <Button
+          size="sm"
+          skin="neutral"
+          appearance="soft"
+          disabled={disabled || selectedPage === total}
+          leftSlot={<Icon.ChevronRight size={14} />}
+          onClick={() => onPageChange?.(selectedPage + 1)}
+          aria-label="Next page"
+          iconOnly
+        />
+      )}
     </nav>
   );
 }

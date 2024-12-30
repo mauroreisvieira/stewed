@@ -8,12 +8,6 @@
   flex-direction: column;
   width: 100%;
 
-  @include theme.define-var(
-    (
-      radius: 0,
-    )
-  );
-
   &__control {
     position: relative;
     width: 100%;
@@ -65,7 +59,7 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          height: #{$value},
+          height: #{$value}
         )
       );
     }
@@ -75,7 +69,7 @@
   &--white {
     @include theme.define-var(
       (
-        background-color: #{theme.get-color("white")},
+        background-color: #{theme.get-color("white")}
       )
     );
   }
@@ -84,16 +78,24 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          background-color: #{theme.get-color($key, "500")},
+          background-color: #{theme.get-color($key, "background")}
         )
       );
     }
   }
 
+  &--squared {
+    @include theme.define-var(
+      (
+        radius: 0
+      )
+    );
+  }
+
   &--rounded {
     @include theme.define-var(
       (
-        radius: theme.get-radius("xl"),
+        radius: theme.get-radius("xl")
       )
     );
   }

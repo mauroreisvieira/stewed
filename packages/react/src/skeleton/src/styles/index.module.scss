@@ -8,7 +8,7 @@
 }
 
 @include theme.scope($skeleton-root) {
-  background-color: color-mix(in srgb, theme.get-color("neutral", "500"), transparent 90%);
+  background-color: color-mix(in srgb, theme.get-color("neutral", "background"), transparent 90%);
   border-radius: theme.get-var("border-radius");
   animation: pulse 2s linear infinite;
 
@@ -32,7 +32,7 @@
 
     @include theme.define-var(
       (
-        border-radius: theme.get-radius("full"),
+        border-radius: theme.get-radius("full")
       )
     );
   }
@@ -41,7 +41,7 @@
     &--#{$size-name} {
       @include theme.define-var(
         (
-          size: $size-value,
+          size: $size-value
         )
       );
     }
@@ -50,7 +50,7 @@
   &--auto {
     @include theme.define-var(
       (
-        size: auto,
+        size: auto
       )
     );
   }
@@ -60,7 +60,7 @@
     &--radius-#{$size-name} {
       @include theme.define-var(
         (
-          border-radius: $size-value,
+          border-radius: $size-value
         )
       );
     }

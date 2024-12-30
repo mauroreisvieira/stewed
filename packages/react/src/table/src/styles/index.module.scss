@@ -14,8 +14,8 @@
   @include theme.define-var(
     (
       border-radius: theme.get-radius(md),
-      background-color: theme.get-color("neutral", "100"),
-      border-color: theme.get-color("neutral", "300"),
+      background-color: theme.get-color("neutral", "background-faded"),
+      border-color: theme.get-color("neutral", "border-faded")
     )
   );
 
@@ -30,7 +30,7 @@
       @include text.typography(
         base,
         $overrides: (
-          color: theme.get-color("neutral", "500"),
+          color: theme.get-color("neutral", "background"),
           font-size: theme.get-font-size("sm"),
           line-height: 1
         )
@@ -50,7 +50,7 @@
       &--#{$key} {
         @include theme.define-var(
           (
-            background-color-head: $value,
+            background-color-head: $value
           )
         );
       }
@@ -66,7 +66,7 @@
 
     .#{$table-root}__row--selected {
       .#{$table-root}__cell {
-        background-color: theme.get-color("primary", "100");
+        background-color: theme.get-color("primary", "background-faded");
       }
     }
 
@@ -110,7 +110,7 @@
 
     &--critical {
       .#{$table-root}__cell {
-        background-color: theme.get-color("critical", "100");
+        background-color: theme.get-color("critical", "background-faded");
       }
     }
   }
@@ -253,7 +253,11 @@
         position: relative;
         .#{$table-root}__cell {
           cursor: pointer;
-          background-color: color-mix(in srgb, theme.get-color("primary", "500"), transparent 95%);
+          background-color: color-mix(
+            in srgb,
+            theme.get-color("primary", "background"),
+            transparent 95%
+          );
         }
       }
     }

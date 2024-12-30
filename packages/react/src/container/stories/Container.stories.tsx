@@ -13,8 +13,8 @@ const meta: Meta<typeof Container> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -22,11 +22,11 @@ export default meta;
 export const Base: Story = {
   argTypes: {
     as: {
-      control: false,
+      control: false
     },
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
     screen: "xl",
@@ -39,6 +39,6 @@ export const Base: Story = {
           </Card.Body>
         </Card>
       </>
-    ),
-  },
+    )
+  }
 };

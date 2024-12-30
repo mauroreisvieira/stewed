@@ -1,0 +1,6 @@
+@use "@stewed/react/src/theme/src/styles" as theme;
+
+$hue-root: "hue";
+
+/// Palette
+$hue-palette: theme.get-palette();

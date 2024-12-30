@@ -13,8 +13,8 @@ const meta: Meta<typeof Box> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -22,19 +22,20 @@ export default meta;
 export const Base: Story = {
   argTypes: {
     as: {
-      control: false,
+      control: false
     },
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
+    borderStyle: "solid",
     borderColor: "neutral-faded",
     radius: "md",
     padding: {
       block: "2xl",
-      inline: "2xl",
+      inline: "2xl"
     },
-    children: <Text alignment="center">Box</Text>,
-  },
+    children: <Text alignment="center">Box</Text>
+  }
 };

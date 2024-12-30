@@ -14,7 +14,7 @@
       background-color: theme.get-color("background-elevated"),
       border-radius: theme.get-var(radius),
       height: 100%,
-      padding-block: 0,
+      padding-block: 0
     )
   );
 
@@ -48,13 +48,14 @@
   &__header,
   &__body,
   &__footer {
-    padding: theme.get-spacing("xl");
+    padding-block: theme.get-var(padding-block);
+    padding-inline: theme.get-var(padding-inline);
   }
 
   &--open {
     @include theme.define-var(
       (
-        opacity: 1,
+        opacity: 1
       )
     );
   }
@@ -65,7 +66,7 @@
     @include theme.define-var(
       (
         height: calc(100% - theme.get-var(safe-margin)),
-        padding-block: calc(theme.get-var(safe-margin) / 2),
+        padding-block: calc(theme.get-var(safe-margin) / 2)
       )
     );
 
@@ -85,7 +86,26 @@
     &--safe-margin-#{$key} {
       @include theme.define-var(
         (
-          safe-margin: $value,
+          safe-margin: $value
+        )
+      );
+    }
+  }
+
+  // Padding
+  @each $key, $value in $dialog-padding {
+    &--padding-block-#{$key} {
+      @include theme.define-var(
+        (
+          padding-block: #{$value}
+        )
+      );
+    }
+
+    &--padding-inline-#{$key} {
+      @include theme.define-var(
+        (
+          padding-inline: #{$value}
         )
       );
     }
@@ -95,7 +115,7 @@
   &--sm {
     @include theme.define-var(
       (
-        width: 380px,
+        width: 380px
       )
     );
   }
@@ -103,7 +123,7 @@
   &--md {
     @include theme.define-var(
       (
-        width: 760px,
+        width: 760px
       )
     );
   }
@@ -111,7 +131,7 @@
   &--lg {
     @include theme.define-var(
       (
-        width: 1024px,
+        width: 1024px
       )
     );
   }
@@ -119,7 +139,7 @@
   &--xl {
     @include theme.define-var(
       (
-        width: 1440px,
+        width: 1440px
       )
     );
   }

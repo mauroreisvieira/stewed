@@ -1,0 +1,7 @@
+{
+  "compileOnSave": false,
+  "extends": "@harmonix-hub/tsconfig/react.json",
+  "compilerOptions": {
+    "types": ["vite/client"]
+  }
+}

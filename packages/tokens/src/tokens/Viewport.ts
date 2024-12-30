@@ -6,7 +6,8 @@ export const viewport = {
   vh: "100vh",
   svh: "100svh",
   lvh: "100lvh",
-  dvh: "100dvh",
+  dvh: "100dvh"
 };
 
+/** Type representing the keys of the `viewport` object. */
 export type Viewport = keyof typeof viewport;

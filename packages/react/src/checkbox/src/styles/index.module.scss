@@ -10,24 +10,35 @@
   justify-content: center;
   cursor: pointer;
 
+  @include theme.focus-styles($target: ":focus-within .#{$checkbox-root}__control");
+
   @include theme.define-var(
     (
-      background-color: theme.get-color("neutral", "100"),
-      border-color: theme.get-color("neutral", "300"),
+      background-color: transparent,
+      border-color: theme.get-color("neutral", "border-faded")
     )
   );
 
-  @include theme.focus-styles($target: ":focus-within .#{$checkbox-root}__control");
-  @include theme.disabled-styles;
+  &--disabled {
+    @include theme.disabled-styles;
+  }
 
   &:not(&--disabled) {
     @include theme.hover {
       @include theme.define-var(
         (
-          background-color: theme.get-color("neutral", "200"),
+          background-color: theme.get-color("neutral", "background-faded")
         )
       );
     }
+  }
+
+  &--border {
+    box-sizing: border-box;
+    height: calc(theme.get-var(size) * 2);
+    padding-inline: theme.get-spacing("md");
+    border: 1px solid theme.get-var(border-color);
+    border-radius: theme.get-var(radius);
   }
 
   &__input {
@@ -42,12 +53,8 @@
 
     &:indeterminate,
     &:checked {
-      + .checkbox__control {
-        color: #fff;
-
-        .checkbox__svg {
-          scale: 1;
-        }
+      + .checkbox__control .checkbox__svg {
+        scale: 1;
       }
     }
   }
@@ -91,7 +98,7 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          size: $value,
+          size: $value
         )
       );
     }
@@ -103,11 +110,28 @@
     align-items: start;
 
     &--horizontal {
-      flex-direction: column;
+      flex-flow: wrap;
+      flex-direction: row;
+
+      &.#{$checkbox-root}__group--full-width {
+        .#{$checkbox-root} {
+          flex: 1;
+        }
+      }
     }
 
     &--vertical {
-      flex-direction: row;
+      flex-direction: column;
+    }
+
+    &--full-width {
+      width: 100%;
+
+      .#{$checkbox-root} {
+        box-sizing: border-box;
+        justify-content: start;
+        width: 100%;
+      }
     }
   }
 
@@ -123,22 +147,21 @@
   // Skins
   @each $key, $value in $checkbox-skins {
     &--#{$key} {
-      .#{$checkbox-root}__input:is(:indeterminate, :checked) {
-        + .checkbox__control {
+      &:has(input:indeterminate, input:checked) {
+        @include theme.define-var(
+          (
+            background-color: theme.get-color($value, "background"),
+            border-color: theme.get-color($value, "border")
+          )
+        );
+
+        @include theme.hover {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "500"),
-              border-color: theme.get-color($value, "500"),
+              background-color: color-mix(in srgb, theme.get-color($value, "background") 90%, black),
+              border-color: color-mix(in srgb, theme.get-color($value, "border") 90%, black)
             )
           );
-
-          @include theme.hover {
-            @include theme.define-var(
-              (
-                background-color: theme.get-color($value, "600"),
-              )
-            );
-          }
         }
       }
     }

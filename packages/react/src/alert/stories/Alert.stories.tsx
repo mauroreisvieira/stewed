@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // Components
-import { Theme, Alert } from "../../index";
+import { Theme, Alert, Text } from "../../index";
 // Icons
 import { TiWarning } from "react-icons/ti";
 
@@ -15,8 +15,8 @@ const meta: Meta<typeof Alert> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -26,37 +26,28 @@ export const Base: Story = {
     skin: "info",
     title: "Are you absolutely sure?",
     children:
-      "This action cannot be undone. This will permanently delete your account and remove your data from our servers.",
-  },
+      "This action cannot be undone. This will permanently delete your account and remove your data from our servers."
+  }
 };
 
 export const LeftSlot: Story = {
   argTypes: {
     leftSlot: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
     skin: "warning",
     title: "Cannot connect to the database",
     leftSlot: <TiWarning size={24} />,
-    children: "We are unable to save any progress at this time.",
-  },
+    children: "We are unable to save any progress at this time."
+  }
 };
 
 export const Small: Story = {
   args: {
-    size: "sm",
+    size: "xs",
     skin: "success",
-    title: "Here is a gentle confirmation that your action was successful.",
-  },
-};
-
-export const Shadow: Story = {
-  args: {
-    skin: "critical",
-    title: "Unexpected error happened",
-    children: "We have encountered an error while making a request. Please try again later.",
-    shadow: "xl",
-  },
+    children: <Text size="sm">Here is a gentle confirmation that your action was successful.</Text>
+  }
 };

@@ -1,8 +1,11 @@
+@use "sass:map";
 @use "@stewed/react/src/theme/src/styles" as theme;
 @use "@stewed/react/src/typography/src/styles" as text;
 @use "./variables" as *;
 
 @include theme.scope($avatar-root) {
+  all: unset;
+  position: relative;
   display: inline-flex;
   flex-shrink: 0;
   align-items: center;
@@ -11,26 +14,34 @@
   height: theme.get-var(size);
   overflow: hidden;
   user-select: none;
-  background-color: theme.get-var(background-color);
   border-radius: theme.get-var(border-radius);
+
+  @include theme.focus-styles;
 
   @include text.typography(
     base,
     $overrides: (
-      color: theme.get-color("white"),
+      color: theme.get-var("color"),
       font-weight: theme.get-font-weight("medium"),
       font-size: calc(theme.get-var(size) / 3)
     )
   );
 
+  &[href],
+  &--button:not([aria-disabled="true"]) {
+    cursor: pointer;
+  }
+
   &-group {
     display: flex;
 
     > .#{$avatar-root} {
-      box-shadow: 0 0 0 1px currentcolor;
-
       + .#{$avatar-root} {
         margin-left: calc(theme.get-var(size) / -3);
+      }
+
+      &--filled {
+        box-shadow: 0 0 0 1px theme.get-color("background-surface");
       }
     }
   }
@@ -46,7 +57,7 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          size: $value,
+          size: $value
         )
       );
     }
@@ -56,16 +67,34 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          background-color: theme.get-color($key, "500"),
+          background-color: map.get($value, "background-color"),
+          color-on-background: map.get($value, "color-on-background"),
+          border-color: map.get($value, "border-color"),
+          color: map.get($value, "color")
         )
       );
     }
   }
 
+  &--filled {
+    background-color: theme.get-var(background-color);
+
+    @include theme.define-var(
+      (
+        color: theme.get-var(color-on-background)
+      )
+    );
+  }
+
+  &--outline {
+    background-color: theme.get-color("background-surface");
+    border: 1px solid theme.get-var(border-color);
+  }
+
   &--circle {
     @include theme.define-var(
       (
-        border-radius: theme.get-radius("full"),
+        border-radius: theme.get-radius("full")
       )
     );
   }
@@ -73,7 +102,7 @@
   &--square {
     @include theme.define-var(
       (
-        border-radius: theme.get-var(radius),
+        border-radius: theme.get-var(radius)
       )
     );
   }

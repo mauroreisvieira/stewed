@@ -5,8 +5,6 @@ import { Theme } from "@stewed/react";
 // Hooks
 import { useBem } from "../index";
 
-type Story = StoryObj<typeof useBem>;
-
 const meta: Meta<typeof useBem> = {
   title: "Hooks/useBem",
   decorators: [
@@ -14,45 +12,48 @@ const meta: Meta<typeof useBem> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
 
-export const Block: Story = {
+export const Block: StoryObj<typeof useBem> = {
+  /** Renders 'block' example. */
   render: function Render() {
     const { getBlock } = useBem({ block: "card" });
 
     const cssClasses = {
-      root: getBlock({ modifiers: ["mod"], extraClasses: "extra" }),
+      root: getBlock({ modifiers: ["mod"], extraClasses: "extra" })
     };
 
     return <pre>{JSON.stringify(cssClasses, null, 4)}</pre>;
-  },
+  }
 };
 
-export const Element: Story = {
+export const Element: StoryObj<typeof useBem> = {
+  /** Renders 'element' example */
   render: function Render() {
     const { getElement } = useBem({ block: "card" });
 
     const cssClasses = {
       body: getElement(["body"]),
-      footer: getElement(["footer"]),
+      footer: getElement(["footer"])
     };
 
     return <pre>{JSON.stringify(cssClasses, null, 4)}</pre>;
-  },
+  }
 };
 
-export const Modifiers: Story = {
+export const Modifiers: StoryObj<typeof useBem> = {
+  /** Renders 'modifier' example .*/
   render: function Render() {
     const { getModifier } = useBem({ block: "card" });
 
     const cssClasses = {
-      primary: getModifier(["primary"]),
+      primary: getModifier(["primary"])
     };
 
     return <pre>{JSON.stringify(cssClasses, null, 4)}</pre>;
-  },
+  }
 };

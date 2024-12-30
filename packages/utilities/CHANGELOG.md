@@ -1,10 +1,12 @@
 # @stewed/utilities
 
-## 1.0.0
+## 0.3.2
 
-### Major Changes
+### Patch Changes
 
-- d5c33d6: first release
+- test: add unit test for hooks
+- chore: update harmonix version of tsconfig and babel
+- chore: simplify tsconfig configuration file
 
 ## 0.3.1
 
@@ -38,4 +40,4 @@
 
 ### Minor Changes
 
-- a302a43: Update all packages
+- initial implementation

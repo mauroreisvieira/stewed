@@ -18,7 +18,7 @@ export function CarouselSlide({ children }: CarouselSlideProps): React.ReactElem
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     item: getElement(["item"]),
-    slide: getElement(["slide"]),
+    slide: getElement(["slide"])
   };
 
   return (

@@ -1,24 +1,39 @@
+/* eslint-disable react-compiler/react-compiler */
 import React, { useCallback, useEffect, useRef, useState } from "react";
 // UI Components
 import { Motion, Scope } from "../..";
+// Compound Component
+import { DropdownScrollable } from "./DropdownScrollable";
+import { DropdownButton } from "./DropdownButton";
 // Hooks
 import {
   useBem,
   useFloating,
   useClickOutside,
-  useKey,
   useKeyboardNavigation,
   useMergeRefs,
+  useScrollLock,
+  type UseMergeRefs,
   type FloatingPlacement,
+  type UseFloatingProps
 } from "@stewed/hooks";
 // Tokens
 import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Interface representing the properties provided to render a dropdown.
+ * @template T - The type of the dropdown items.
+ */
 export interface DropdownRenderProps<T> {
   /** Ref to attach to the `Dropdown` element */
-  ref: React.RefObject<T>;
+  ref: React.RefObject<T | null>;
+  /**
+   * A function that allows multiple refs to be merged into a single callback ref.
+   * This is useful when you need to attach multiple refs to the same element.
+   */
+  attachRefs: UseMergeRefs<T>;
   /** Callback to open the dropdown */
   open: () => void;
   /** Callback to close dropdown  */
@@ -27,21 +42,36 @@ export interface DropdownRenderProps<T> {
   isOpen: boolean;
 }
 
+/**
+ * Props for a generic dropdown component.
+ * @template T - The type of the dropdown items.
+ */
 export interface DropdownProps<T>
-  extends Omit<React.ComponentPropsWithoutRef<"div">, "children" | "content"> {
+  extends Pick<UseFloatingProps<HTMLElement>, "flip">,
+    Omit<React.ComponentPropsWithoutRef<"div">, "children" | "content"> {
   /**
    * Specifies the preferred placement of the `Dropdown` relative to its trigger.
    * @example "top", "bottom", "left", "right"
    */
-  placement?: FloatingPlacement;
+  placement?: FloatingPlacement | "top-fit" | "bottom-fit";
   /**
    * Allows the `Dropdown` to remain open even when clicking outside of it.
    * @default false
    */
   allowClickOutside?: boolean;
+  /**
+   * Whether to keep the element in the DOM while the dropdown is closed.
+   * @default false
+   */
+  keepMounted?: boolean;
+  /**
+   * Allow the body scroll when 'Dropdown' is open.
+   * @default true
+   */
+  allowScroll?: boolean;
   /** Callback function invoked when the escape key is pressed. */
   onEscape?: () => void;
-  /** Callback function invoked when the dialog is clicked outside. */
+  /** Callback function invoked when the dropdown is clicked outside. */
   onClickOutside?: () => void;
   /**
    * Function that returns a React element used as the anchor for the `Dropdown`.
@@ -53,7 +83,9 @@ export interface DropdownProps<T>
    * The content to be displayed in the dropdown
    * or function that returns a React element with events to trigger `Dropdown` position and visibility.
    */
-  children: React.ReactNode | ((props: Omit<DropdownRenderProps<T>, "ref">) => React.ReactElement);
+  children:
+    | React.ReactNode
+    | ((props: Omit<DropdownRenderProps<T>, "ref" | "attachRefs">) => React.ReactElement);
 }
 
 /**
@@ -80,8 +112,11 @@ export function Dropdown<T extends HTMLElement>({
   placement = "bottom-start",
   className,
   style,
-  renderAnchor,
+  flip = true,
+  allowScroll = true,
   allowClickOutside = false,
+  keepMounted = false,
+  renderAnchor,
   onEscape,
   onClickOutside,
   onKeyDown,
@@ -93,7 +128,7 @@ export function Dropdown<T extends HTMLElement>({
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ extraClasses: className }),
+    root: getBlock({ extraClasses: className })
   };
 
   // Create a reference to manage the dropdown element
@@ -103,40 +138,44 @@ export function Dropdown<T extends HTMLElement>({
   const [isOpen, setOpen] = useState(false);
 
   // Floating position calculation hook
-  const { floating, x, y, isPositioned } = useFloating<T, HTMLDivElement>({
+  const { floating, x, y, isPositioned, reference } = useFloating<T, HTMLDivElement>({
     open: isOpen,
-    placement,
+    placement: placement.replace("-fit", "") as FloatingPlacement,
     reference: dropdownRef.current,
     offset: 4,
+    flip
   });
+
+  // Lock scrolling when dropdown is open
+  useScrollLock({ enabled: isPositioned && !allowScroll });
 
   // Hook to handle clicks outside the floating element.
   useClickOutside({
     enabled: isOpen,
     ignoredElements: [dropdownRef.current as Element, floating.current as Element],
-    onClickOutside: () => (allowClickOutside ? onClickOutside : setOpen(false)),
-  });
-
-  // Disable arrow key scrolling in users browser
-  useKey({
-    enabled: !!isOpen,
-    keys: ["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"],
-    callback: (event: KeyboardEvent) => {
-      event.preventDefault();
-    },
+    /** Function to close the dropdown when click outside */
+    handler: () => (allowClickOutside ? onClickOutside : setOpen(false))
   });
 
   // Define a reference for the list element and enable keyboard navigation within it
   const {
     ref: navigationRef,
     onNavigate,
-    setFirstElementFocusable,
+    setFirstElementFocusable
   } = useKeyboardNavigation<HTMLDivElement>({
     target: '[tabindex="0"]:not([aria-disabled]), [role="option"]:not([aria-disabled])',
+    loop: true,
+    preventDefaultOnKey: true // prevent arrow key scrolling in users browser
   });
 
-  // Merge the floating reference (likely for a floating UI element) with the navigation reference
-  const mergedRefs = useMergeRefs([floating, navigationRef]);
+  // Merge the floating reference with the navigation reference combines multiple refs into a single callback ref.
+  // It is particularly useful when you need to attach several refs to a single element, allowing the component to
+  // manage references more efficiently and flexibly.
+  const mergeRefs = useMergeRefs();
+
+  // Combine the `floating` reference  and the `navigationRef` into one merged reference.
+  // This ensures that both refs are updated with the same element without interfering with each other.
+  const refs = mergeRefs([floating, navigationRef]);
 
   // Handles the `keydown` event on a specific HTML element.
   const onHandleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
@@ -152,31 +191,37 @@ export function Dropdown<T extends HTMLElement>({
         // Close the dropdown component.
         setOpen(false);
 
+        // Callback for when press "Escape" key
         onEscape?.();
 
         // Stop the event from bubbling up to other elements.
         event.stopPropagation();
       }
     },
-    [onNavigate, onKeyDown, onEscape],
+    [onNavigate, onKeyDown, onEscape]
   );
 
-  // Opens the dropdown by set the state to true.
+  /** Opens the dropdown by set the state to true. */
   const onHandleOpen = (): void => {
     setOpen(true);
   };
 
-  // Closes the dropdown by set the state to false.
+  /** Closes the dropdown by set the state to false. */
   const onHandleClose = (): void => {
     setOpen(false);
+
+    // Reset focus to reference element
+    dropdownRef.current?.focus();
   };
 
   useEffect(() => {
     // Set the first element as focusable when the floating element is mounted or updated
-    if (floating.current) {
-      setFirstElementFocusable();
+    if (navigationRef && isPositioned) {
+      requestAnimationFrame(() => {
+        setFirstElementFocusable();
+      });
     }
-  }, [floating, setFirstElementFocusable]);
+  }, [navigationRef, setFirstElementFocusable, isPositioned]);
 
   useEffect(() => {
     // Cleanup function to run when the component unmounts or the effect is re-run
@@ -190,27 +235,39 @@ export function Dropdown<T extends HTMLElement>({
     <>
       {renderAnchor({
         ref: dropdownRef,
+        /** Attach internally ref with receive refs  */
+        attachRefs: (ref) => mergeRefs([dropdownRef, ...ref]),
         open: onHandleOpen,
         close: onHandleClose,
-        isOpen: !!isOpen,
+        isOpen: !!isOpen
       })}
-      {isOpen && (
-        <Scope elevation="navigation">
-          <Motion animation="fade-in">
+      {(isOpen || keepMounted) && (
+        <Scope elevation="navigation" hidden={!isOpen}>
+          <Motion animation="fade-in" asChild>
             <div
-              ref={mergedRefs}
+              ref={refs}
               role="region"
               className={cssClasses.root}
               onKeyDown={onHandleKeyDown}
-              style={{
-                ...style,
-                visibility: isPositioned ? "visible" : "hidden",
-                left: `${x}px`,
-                top: `${y}px`,
-              }}
-              {...props}>
+              style={
+                {
+                  "--dropdown-min-width": placement.includes("fit")
+                    ? `${reference.width}px`
+                    : undefined,
+                  visibility: isPositioned ? "visible" : "hidden",
+                  left: `${x}px`,
+                  top: `${y}px`,
+                  ...style
+                } as React.CSSProperties
+              }
+              {...props}
+            >
               {typeof children === "function"
-                ? children({ open: onHandleOpen, close: onHandleClose, isOpen: !!isOpen })
+                ? children({
+                    open: onHandleOpen,
+                    close: onHandleClose,
+                    isOpen: !!isOpen
+                  })
                 : children}
             </div>
           </Motion>
@@ -219,3 +276,7 @@ export function Dropdown<T extends HTMLElement>({
     </>
   );
 }
+
+// Compound component composition
+Dropdown.Button = DropdownButton;
+Dropdown.Scrollable = DropdownScrollable;

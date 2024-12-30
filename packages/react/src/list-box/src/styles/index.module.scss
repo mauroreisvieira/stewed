@@ -9,6 +9,7 @@
   width: 100%;
 
   &__item {
+    all: unset;
     position: relative;
     box-sizing: border-box;
     display: flex;
@@ -26,7 +27,7 @@
     @include theme.define-var(
       (
         background-color: transparent,
-        color: inherit,
+        color: inherit
       )
     );
 
@@ -48,7 +49,7 @@
     &:hover:not([aria-disabled]) {
       @include theme.define-var(
         (
-          background-color: theme.get-color("neutral", "100"),
+          background-color: theme.get-color("neutral", "background-faded")
         )
       );
     }
@@ -56,7 +57,7 @@
     &:active {
       @include theme.define-var(
         (
-          background-color: theme.get-color("neutral", "200"),
+          background-color: theme.get-color("neutral", "background-faded")
         )
       );
     }
@@ -78,14 +79,14 @@
         @include theme.define-var(
           (
             background-color: transparent,
-            color: theme.get-color($value, "600"),
+            color: theme.get-color($value, "foreground")
           )
         );
 
         &:hover:not([aria-disabled]) {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "100"),
+              background-color: theme.get-color($value, "background-faded")
             )
           );
         }
@@ -93,7 +94,7 @@
         &:active {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "200"),
+              background-color: theme.get-color($value, "background-faded")
             )
           );
         }
@@ -101,7 +102,7 @@
         &.#{$list-box-root}__item--selected {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "100"),
+              background-color: theme.get-color($value, "background-faded")
             )
           );
         }
@@ -113,12 +114,13 @@
     padding-block: theme.get-spacing("xxs");
 
     &__title {
-      margin-bottom: 8px;
+      margin-bottom: theme.get-spacing("sm");
+      margin-left: theme.get-spacing("md");
 
       @include text.typography(
         base,
         $overrides: (
-          color: theme.get-color("neutral", "500"),
+          color: theme.get-color("neutral", "foreground"),
           font-size: theme.get-font-size("xs"),
           line-height: theme.get-line-height("sm")
         )

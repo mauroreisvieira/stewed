@@ -6,17 +6,15 @@ import { useBem } from "@stewed/hooks";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export function DialogBody({
-  className,
-  children,
-  ...props
-}: React.ComponentPropsWithoutRef<"div">): React.ReactElement {
+export type DialogBodyProps = React.ComponentPropsWithoutRef<"div">;
+
+export function DialogBody({ className, children, ...props }: DialogBodyProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: `${components.Dialog}__body`, styles });
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ extraClasses: className }),
+    root: getBlock({ extraClasses: className })
   };
 
   return (

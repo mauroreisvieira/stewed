@@ -10,13 +10,11 @@
   align-items: center;
   justify-content: center;
   height: theme.get-var(height);
-  padding-inline: theme.get-spacing("md");
   overflow: hidden;
   border: 1px solid transparent;
   border-radius: theme.get-var(radius);
 
   @include text.typography(base, $overrides: (font-size: theme.get-font-size("md")));
-  @include theme.focus-styles($target: ":has(input:focus-visible)");
 
   &--disabled {
     @include theme.disabled-styles;
@@ -27,14 +25,22 @@
     box-sizing: border-box;
     flex-grow: 1;
     width: 100%;
-    padding-block: theme.get-spacing("md");
+    height: 100%;
+    padding-inline: theme.get-spacing("md");
     touch-action: manipulation;
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      margin: 0;
+      appearance: none;
+    }
 
     &:-internal-autofill-selected,
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus,
     &:-webkit-autofill:active {
       background-clip: text;
+      -webkit-text-fill-color: theme.get-color("foreground-default");
     }
   }
 
@@ -47,23 +53,11 @@
   }
 
   &__left {
-    padding-inline-end: theme.get-spacing("md");
-  }
-
-  &__right {
     padding-inline-start: theme.get-spacing("md");
   }
 
-  @each $key, $value in $input-skins {
-    &--#{$key} {
-      @include theme.define-var(
-        (
-          border-color: map.get($value, "border"),
-          border-color-hover: map.get($value, "border-hover"),
-          background-color: map.get($value, "background-color"),
-        )
-      );
-    }
+  &__right {
+    padding-inline-end: theme.get-spacing("md");
   }
 
   // Sizes
@@ -71,31 +65,42 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          height: $value,
+          height: $value
         )
       );
     }
   }
 
-  &--outline {
-    border: 1px solid theme.get-var(border-color);
-
-    &:hover:has(:not([disabled])) {
-      border-color: theme.get-var(border-color-hover);
+  // Skins
+  @each $key, $value in $input-skins {
+    &--#{$key} {
+      @include theme.define-var(
+        (
+          foreground: map.get($value, "color"),
+          border-color: map.get($value, "border"),
+          background-color: map.get($value, "background-color")
+        )
+      );
     }
   }
 
+  &--outline,
+  &--soft {
+    @include theme.focus-styles($target: ":has(input:focus-visible)");
+  }
+
+  &--outline {
+    border: 1px solid theme.get-var(border-color);
+  }
+
   &--ghost {
+    color: theme.get-var(foreground);
     border-color: transparent;
   }
 
   &--soft {
     background-color: color-mix(in srgb, theme.get-var(background-color), transparent 95%);
     border-color: transparent;
-
-    &:hover:has(:not([disabled])) {
-      background-color: color-mix(in srgb, theme.get-var(background-color), transparent 90%);
-    }
   }
 
   &--start {
@@ -112,14 +117,5 @@
 
   &--full-width {
     width: 100%;
-  }
-
-  &--sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(1px, 1px, 1px, 1px);
-    white-space: nowrap;
   }
 }

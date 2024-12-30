@@ -26,12 +26,13 @@ jobs:
       - name: 🥡 Setup PNPM 8
         uses: pnpm/action-setup@v3
         with:
-          version: 8
+          version: 9
 
       - name: 🟢 Setup Node
         uses: actions/setup-node@v4
         with:
           cache: pnpm
+          node-version: 20
 
       - name: 🧩 Install Dependencies
         id: install-dependencies
@@ -41,15 +42,15 @@ jobs:
         run: pnpm run build
 
       - name: 📋 Changelog
-        run: pnpm run changelog
+        run: pnpm run changelog:conventional
 
       - name: 📣 Create Release Pull Request or Publish to NPM
         id: changesets
         uses: changesets/action@v1
         with:
           title: "chore(release): version packages"
-          version: pnpm version:packages
-          publish: pnpm publish:packages
+          version: pnpm packages:version
+          publish: pnpm packages:publish
           commit: "chore(release): version packages"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

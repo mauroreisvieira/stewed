@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // Components
-import { Theme, Hoverable } from "../../index";
+import { Theme, Hoverable, Text } from "../../index";
 // Icons
 
 type Story = StoryObj<typeof Hoverable>;
@@ -14,8 +14,8 @@ const meta: Meta = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -24,18 +24,18 @@ export const Base: Story = {
   render: function Render() {
     return (
       <Hoverable>
-        {({ isHovering }) => <div>{isHovering ? "Hovering" : "Not Hovering"}</div>}
+        {({ isHovering }) => <Text>{isHovering ? "Hovering" : "Not Hovering"}</Text>}
       </Hoverable>
     );
-  },
+  }
 };
 
 export const Touch: Story = {
   render: function Render() {
     return (
       <Hoverable>
-        {({ isTouch }) => <div>{isTouch ? "Touch device" : "Not touch device"}</div>}
+        {({ isTouch }) => <Text>{isTouch ? "Touch device" : "Not touch device"}</Text>}
       </Hoverable>
     );
-  },
+  }
 };

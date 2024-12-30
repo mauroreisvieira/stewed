@@ -40,10 +40,10 @@ export function SegmentedItem({
   const cssClasses = {
     root: getBlock({
       modifiers: [isSelected && "selected", disabled && "disabled"],
-      extraClasses: className,
+      extraClasses: className
     }),
     left: getElement(["left"]),
-    right: getElement(["right"]),
+    right: getElement(["right"])
   };
 
   // Handle click event to change the current item selected
@@ -53,7 +53,7 @@ export function SegmentedItem({
       onValueChange?.(value);
       onClick?.(event);
     },
-    [disabled, onClick, onValueChange, value],
+    [disabled, onClick, onValueChange, value]
   );
 
   return (
@@ -66,7 +66,8 @@ export function SegmentedItem({
       tabIndex={isSelected ? 0 : -1}
       className={cssClasses.root}
       onClick={onHandleClick}
-      {...props}>
+      {...props}
+    >
       {leftSlot && <div className={cssClasses.left}>{leftSlot}</div>}
       {children}
       {rightSlot && <div className={cssClasses.right}>{rightSlot}</div>}

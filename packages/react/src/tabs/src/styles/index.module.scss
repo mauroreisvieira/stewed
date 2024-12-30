@@ -3,14 +3,14 @@
 @use "./variables" as *;
 
 @include theme.scope($tabs-root) {
-  box-sizing: border-box;
-  display: inline-flex;
+  display: flex;
+  width: 100%;
 
   @include theme.define-var(
     (
       flex-direction: row,
       justify-content: center,
-      border-color: transparent,
+      border-color: transparent
     )
   );
 
@@ -18,7 +18,7 @@
     @include theme.define-var(
       (
         justify-content: start,
-        align-items: start,
+        align-items: start
       )
     );
   }
@@ -27,7 +27,7 @@
     @include theme.define-var(
       (
         justify-content: center,
-        align-items: start,
+        align-items: start
       )
     );
   }
@@ -36,12 +36,13 @@
     @include theme.define-var(
       (
         justify-content: end,
-        align-items: end,
+        align-items: end
       )
     );
   }
 
   &--row {
+    flex-direction: column;
     width: 100%;
 
     .#{$tabs-root}__list {
@@ -53,7 +54,7 @@
         bottom: 0;
         width: 100%;
         content: "";
-        border-bottom: 1px solid theme.get-color("neutral", "300");
+        border-bottom: 1px solid theme.get-color("neutral", "border-faded");
       }
     }
   }
@@ -61,7 +62,7 @@
   &--column {
     @include theme.define-var(
       (
-        flex-direction: column,
+        flex-direction: column
       )
     );
   }
@@ -77,20 +78,26 @@
     &:where(.#{$tabs-root}--column) {
       &.#{$tabs-root} {
         &--start {
-          border-left: 1px solid theme.get-color("neutral", "300");
+          flex-direction: row-reverse;
 
-          .#{$tabs-root}__item {
-            left: -1px;
-            border-left: 2px solid theme.get-var(border-color);
+          .#{$tabs-root}__list {
+            border-left: 1px solid theme.get-color("neutral", "border-faded");
+
+            .#{$tabs-root}__item {
+              left: -1px;
+              border-left: 2px solid theme.get-var(border-color);
+            }
           }
         }
 
         &--end {
-          border-right: 1px solid theme.get-color("neutral", "300");
+          .#{$tabs-root}__list {
+            border-right: 1px solid theme.get-color("neutral", "border-faded");
 
-          .#{$tabs-root}__item {
-            right: -1px;
-            border-right: 2px solid theme.get-var(border-color);
+            .#{$tabs-root}__item {
+              right: -1px;
+              border-right: 2px solid theme.get-var(border-color);
+            }
           }
         }
       }
@@ -128,7 +135,7 @@
     &:hover:not([disabled]) {
       @include theme.define-var(
         (
-          color: theme.get-color("primary", "500"),
+          color: theme.get-color("primary", "background")
         )
       );
     }
@@ -144,10 +151,18 @@
       z-index: 1;
       @include theme.define-var(
         (
-          color: theme.get-color("primary", "500"),
-          border-color: theme.get-color("primary", "500"),
+          color: theme.get-color("primary", "background"),
+          border-color: theme.get-color("primary", "background")
         )
       );
+    }
+  }
+
+  &__panel {
+    flex-grow: 1;
+
+    &:not([hidden]) {
+      padding: theme.get-spacing("lg");
     }
   }
 }

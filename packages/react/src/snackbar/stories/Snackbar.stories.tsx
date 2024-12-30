@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // Components
-import { Theme, Snackbar, Button, useSnackbar } from "../../index";
+import { Theme, Snackbar, Button, Icon, useSnackbar } from "../../index";
 
 type Story = StoryObj<typeof Snackbar>;
 
@@ -13,13 +13,13 @@ const meta: Meta<typeof Snackbar> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
 
-function Example({ dismissDuration }: { dismissDuration?: number }) {
+function Example({ autoDismiss }: { autoDismiss?: number }) {
   const { add, remove } = useSnackbar();
 
   const onHandleClick = useCallback(() => {
@@ -30,21 +30,23 @@ function Example({ dismissDuration }: { dismissDuration?: number }) {
       size: "md",
       title: "You're watching this issue",
       content: "We'll notify you when there's activity on it.",
-      skin: "neutral",
-      dismissDuration,
-      rightSlot: dismissDuration ? undefined : (
-        <Button skin="neutral" appearance="ghost" size="xs" onClick={() => remove(idx)}>
+      autoDismiss,
+      rightSlot: (
+        <Button
+          leftSlot={<Icon.Cross size={14} />}
+          appearance="soft"
+          skin="neutral"
+          size="xs"
+          iconOnly
+          onClick={() => remove(idx)}
+        >
           UNDO
         </Button>
-      ),
+      )
     });
-  }, [add, dismissDuration, remove]);
+  }, [add, autoDismiss, remove]);
 
-  return (
-    <Button skin="neutral" appearance="ghost" onClick={onHandleClick}>
-      Show Snackbar
-    </Button>
-  );
+  return <Button onClick={onHandleClick}>Show Snackbar</Button>;
 }
 
 export const Base: Story = {
@@ -55,7 +57,7 @@ export const Base: Story = {
         <Example />
       </Snackbar>
     );
-  },
+  }
 };
 
 export const AutomaticDismiss: Story = {
@@ -63,20 +65,20 @@ export const AutomaticDismiss: Story = {
     docs: {
       description: {
         story:
-          "Use the `dismissDuration` prop to automatically hide the notification after a set period of time (in milliseconds).",
-      },
-    },
+          "Use the `autoDismiss` prop to automatically hide the notification after a set period of time (in milliseconds)."
+      }
+    }
   },
   args: {
     max: 5,
     screen: "sm",
-    placement: "bottom-start",
+    placement: "bottom-start"
   },
   render: function Render(args) {
     return (
       <Snackbar {...args}>
-        <Example dismissDuration={5000} />
+        <Example autoDismiss={5000} />
       </Snackbar>
     );
-  },
+  }
 };

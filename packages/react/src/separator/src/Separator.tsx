@@ -7,7 +7,12 @@ import { components, type Spacings } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
-interface SeparatorProps
+/**
+ * Interface defines the props for a separator component.
+ *
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr}
+ */
+export interface SeparatorProps
   extends React.ComponentPropsWithoutRef<"hr">,
     UseResponsiveProps<{
       /** Adds space between separators on the horizontal and vertical axes. */
@@ -35,14 +40,21 @@ interface SeparatorProps
    */
   skin?:
     | "white"
-    | "neutral"
-    | "neutral-faded"
+    | "black"
     | "primary"
     | "primary-faded"
     | "secondary"
     | "secondary-faded"
+    | "neutral"
+    | "neutral-faded"
     | "critical"
-    | "critical-faded";
+    | "critical-faded"
+    | "success"
+    | "success-faded"
+    | "info"
+    | "info-faded"
+    | "warning"
+    | "warning-faded";
 }
 
 /**
@@ -56,8 +68,9 @@ interface SeparatorProps
  *
  * @remarks This component props extended from React.ComponentPropsWithoutRef<"hr">.
  *
- * @param {SeparatorProps} props - The props for the Separator component.
- * @returns {React.ReactElement} - The rendered Separator component.
+ * @see {@link SeparatorProps} for more details on the available props.
+ * @param props - The props for the Separator component.
+ * @returns The rendered Separator component.
  */
 export function Separator({
   skin = "neutral-faded",
@@ -75,9 +88,9 @@ export function Separator({
     {
       space,
       orientation,
-      responsive,
+      responsive
     },
-    activeToken.breakpoints,
+    activeToken.breakpoints
   );
 
   // Importing useBem to handle BEM class names
@@ -90,11 +103,11 @@ export function Separator({
         skin,
         computedProps.orientation,
         computedProps.space?.block && `space-block-${computedProps.space.block}`,
-        computedProps.space?.inline && `space-inline-${computedProps.space.inline}`,
+        computedProps.space?.inline && `space-inline-${computedProps.space.inline}`
       ],
-      extraClasses: className,
-    }),
+      extraClasses: className
+    })
   };
 
-  return <hr className={cssClasses.root} {...props} />;
+  return <hr className={cssClasses.root} aria-orientation={orientation} {...props} />;
 }

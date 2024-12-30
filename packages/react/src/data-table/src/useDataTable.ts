@@ -4,6 +4,9 @@ import { sortData, TSortDirection } from "@stewed/utilities";
 // TYpes
 import { type TableRowProps } from "../../";
 
+/** Define a type alias for the column key, which can be a key of the generic type T or a string */
+export type TAccessorKeyKey<T> = keyof T | (string & {});
+
 interface HeadCellRenderProps<T> {
   /** Determines if the column is sortable. If true, the column can be sorted by clicking on the header. */
   isSortable: boolean | undefined;
@@ -18,7 +21,7 @@ interface HeadCellRenderProps<T> {
 
 export interface ColumnsDef<T> {
   /** Key to access the column value from the data object. */
-  accessorKey: keyof T;
+  accessorKey: TAccessorKeyKey<T>;
   /**
    * A function or string used to render the header cell content.
    *
@@ -32,14 +35,14 @@ export interface ColumnsDef<T> {
    * @param data - The data object for the current row.
    * @returns A React element, string, or number representing the content of the body cell.
    */
-  bodyCell: (data: T) => React.ReactElement | string | number;
+  bodyCell?: (data: T) => React.ReactElement | string | number;
   /** Function or string to render the footer cell. */
   footCell?: () => React.ReactElement | string | number;
 }
 
 interface HeadCell<T> {
   /** Key to access the cell value from the data object. */
-  columnKey: keyof T | undefined;
+  columnKey: TAccessorKeyKey<T> | undefined;
   /** Indicates if the column is sortable. */
   isSortable: boolean | undefined;
   /** Function to handle sorting. */
@@ -48,7 +51,17 @@ interface HeadCell<T> {
   cellNode: React.ReactNode;
 }
 
+/**
+ * Represents a row of body data in a table.
+ * Extends the standard `TableRowProps` to include specific properties for the row's body cells.
+ *
+ * @template T - The type of data for the body cells.
+ */
 interface BodyRows<T> extends TableRowProps {
+  /**
+   * A unique key for identifying the row.
+   * This is typically used for efficient rendering and reconciliation in React.
+   */
   key: string;
   /** Array of body cells in the row. */
   bodyCells: BodyCell<T>[];
@@ -56,14 +69,14 @@ interface BodyRows<T> extends TableRowProps {
 
 interface BodyCell<T> {
   /** Key to access the cell value from the data object. */
-  columnKey: keyof T | undefined;
+  columnKey: TAccessorKeyKey<T> | undefined;
   /** The content to be rendered inside the body cell. */
   cellNode: React.ReactNode;
 }
 
 interface FootCell<T> {
   /** Key to access the cell value from the data object. */
-  columnKey: keyof T | undefined;
+  columnKey: TAccessorKeyKey<T> | undefined;
   /** The content to be rendered inside the footer cell. */
   cellNode: React.ReactNode;
 }
@@ -136,11 +149,11 @@ export function useDataTable<T>({
   itemKeySelector,
   bodyRowProps,
   onFilter,
-  onSort,
+  onSort
 }: UseDataTableProps<T>): UseDataTable<T> {
   // Initially set to the default sorting direction.
   const [sortDirection, setSortDirection] = useState<TSortDirection>(
-    defaultColumnDirection || "ASC",
+    defaultColumnDirection || "ASC"
   );
 
   // Initially set to the default sorted column.
@@ -157,7 +170,7 @@ export function useDataTable<T>({
     const sorted = onSort?.({
       column: sortedColumn,
       direction: sortDirection === "ASC" ? "ASC" : "DESC",
-      items: data,
+      items: data
     });
 
     // If the user-defined sorting function returns a non-empty array, use it.
@@ -169,7 +182,7 @@ export function useDataTable<T>({
     return sortData<T>({
       items: data,
       column: sortedColumn,
-      direction: sortDirection,
+      direction: sortDirection
     });
   }, [data, sortedColumn, sortDirection, onSort]);
 
@@ -181,11 +194,13 @@ export function useDataTable<T>({
 
       // Map order columns to corresponding columns.
       const mapOrderedColumns = orderColumns.map((key) =>
-        columns.find((column) => column.accessorKey === key),
+        columns.find((column) => column.accessorKey === key)
       );
 
       // Filter out columns not present in order columns.
-      const remainingColumns = columns.filter((column) => !orderedKeysSet.has(column.accessorKey));
+      const remainingColumns = columns.filter(
+        (column) => !orderedKeysSet.has(column.accessorKey as keyof T)
+      );
 
       // Concatenate ordered columns with remaining columns.
       return mapOrderedColumns.concat(remainingColumns);
@@ -198,9 +213,9 @@ export function useDataTable<T>({
   const visibleColumns = useMemo(
     () =>
       orderedColumns?.filter(
-        (column) => column?.accessorKey && !hiddenColumns?.includes(column.accessorKey),
+        (column) => column?.accessorKey && !hiddenColumns?.includes(column.accessorKey as keyof T)
       ),
-    [orderedColumns, hiddenColumns],
+    [orderedColumns, hiddenColumns]
   );
 
   // Array to store head cells of the table.
@@ -210,21 +225,23 @@ export function useDataTable<T>({
       (visibleColumns || [])?.map((column) => {
         const isSortable =
           sortableColumns && sortableColumns?.includes(column?.accessorKey as keyof T);
+
         return {
           columnKey: column?.accessorKey,
           isSortable,
+          /** Callback function triggered when a sorting action occurs. */
           onSort: () => {
-            setSortedColumn(column?.accessorKey);
+            setSortedColumn(column?.accessorKey as keyof T);
             setSortDirection((prev) => (prev === "ASC" ? "DESC" : "ASC"));
           },
           cellNode: column?.headCell?.({
             isSortable,
             sortDirection,
-            sortedColumn,
-          }),
+            sortedColumn
+          })
         };
       }),
-    [sortDirection, sortableColumns, sortedColumn, visibleColumns],
+    [sortDirection, sortableColumns, sortedColumn, visibleColumns]
   );
 
   // Generate an array of body rows based on sorted items and ordered columns.
@@ -239,9 +256,9 @@ export function useDataTable<T>({
       key: itemKeySelector(item),
       bodyCells: columns.map((column) => ({
         columnKey: column?.accessorKey,
-        cellNode: column?.bodyCell?.(item),
+        cellNode: column?.bodyCell?.(item)
       })),
-      ...bodyRowProps?.(item),
+      ...bodyRowProps?.(item)
     })) as BodyRows<T>[];
   }, [sortedItems, visibleColumns, onFilter, itemKeySelector, bodyRowProps]);
 
@@ -250,9 +267,9 @@ export function useDataTable<T>({
     (): FootCell<T>[] =>
       (visibleColumns || [])?.map((column) => ({
         columnKey: column?.accessorKey,
-        cellNode: column?.footCell?.(),
+        cellNode: column?.footCell?.()
       })),
-    [visibleColumns],
+    [visibleColumns]
   );
 
   // Flag indicating whether there are any cell node present in the foot cells.
@@ -264,6 +281,6 @@ export function useDataTable<T>({
   return {
     headCells: displayHead ? headCells : [],
     bodyRows,
-    footCells: displayFoot ? footCells : [],
+    footCells: displayFoot ? footCells : []
   };
 }

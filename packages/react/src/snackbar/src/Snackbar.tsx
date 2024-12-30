@@ -3,7 +3,7 @@ import React, { useCallback, useMemo, useRef, useState } from "react";
 import {
   SnackbarContext,
   type SnackbarContextProps,
-  type SnackbarNotification,
+  type SnackbarNotification
 } from "./SnackbarContext";
 // UI Components
 import { Scope, Alert, Motion } from "../..";
@@ -14,6 +14,7 @@ import { components, type Screens } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/** Represents the properties for the `Snackbar` component. */
 export interface SnackbarProps extends React.ComponentPropsWithoutRef<"div"> {
   /**
    * The placement of the notifications on the screen.
@@ -44,11 +45,12 @@ export interface SnackbarProps extends React.ComponentPropsWithoutRef<"div"> {
  * </Snackbar>
  * ```
  *
- * @remarks
- * This component extends `React.ComponentPropsWithoutRef<"div">`.
+ * @remarks This component extends `React.ComponentPropsWithoutRef<"div">`, inheriting all standard div attributes.
  *
- * @param {SnackbarProps} props - The props for the Snackbar component.
- * @returns {React.ReactElement} - The rendered Snackbar component.
+ * @see {@link SnackbarProps} for more details on the available props.
+ *
+ * @param props - The props for the Snackbar component.
+ * @returns The rendered Snackbar component.
  */
 export function Snackbar({
   placement = "top-end",
@@ -58,85 +60,113 @@ export function Snackbar({
   children,
   ...props
 }: SnackbarProps): React.ReactElement {
-  // Importing useBem to handle BEM class names
+  // Import BEM utilities to generate class names based on block and element styles
   const { getBlock, getElement } = useBem({ block: components.Snackbar, styles });
 
-  // A map to store timeouts for each notification, allowing for auto-dismissal
+  // Map to store timeout references for notifications, enabling auto-dismiss functionality
   const timeoutMap = useRef<Record<string, ReturnType<typeof setTimeout>>>({});
 
-  // State to hold the list of currently displayed snackbar notifications.
-  // This state array will be updated to add or remove snackbar notifications as needed.
+  // State to hold currently displayed notifications
   const [notifications, setNotifications] = useState<SnackbarNotification[]>([]);
 
-  // Generating CSS classes based on component props and styles
+  // Separate state to track notifications being removed for exit animations
+  const [removingNotifications, setRemovingNotifications] = useState<Set<string>>(new Set());
+
+  // CSS classes for the Snackbar components
   const cssClasses = {
     root: getBlock({
       modifiers: [placement, screen && `screen-${screen}`],
-      extraClasses: className,
+      extraClasses: className
     }),
     content: getElement(["content"]),
-    notification: getElement(["notification"]),
+    notification: getElement(["notification"])
   };
 
   /**
-   * Removes a notification by its ID and clears its associated timeout.
+   * Removes a notification by its ID, triggering an exit animation.
    *
    * @param {string} id - The ID of the notification to remove.
    */
   const remove = useCallback<SnackbarContextProps["remove"]>((id) => {
-    clearTimeout(timeoutMap.current[id]);
-    setNotifications((prev) => prev.filter((notification) => notification.id !== id));
+    // Add the notification ID to the removing state for the exit animation
+    setRemovingNotifications((prev) => new Set(prev).add(id));
   }, []);
 
   /**
-   * Adds a new notifications to the list.
-   * If the maximum number of notifications is reached, the oldest notifications is removed.
-   * Sets up auto-dismissal for the new notifications if specified.
+   * Adds a new notification to the list. Removes the oldest notification if max limit is reached.
    *
-   * @param {SnackbarNotification} notifications - The notifications to add.
+   * @param {SnackbarNotification} notification - The notification to add.
    */
   const add = useCallback<SnackbarContextProps["add"]>(
     (notification) => {
       setNotifications((prev) => {
-        // Remove the oldest notifications if the max limit is reached
         if (max && prev.length >= max) {
           const [oldest, ...rest] = prev;
           if (oldest) {
             clearTimeout(timeoutMap.current[oldest.id]);
           }
+
           return [...rest, notification];
         }
+
         return [...prev, notification];
       });
 
-      // Set up auto-dismissal for the notifications if specified
-      if (notification?.dismissDuration) {
+      // Set up auto-dismissal if specified
+      if (notification?.autoDismiss) {
         timeoutMap.current[notification.id] = setTimeout(() => {
           remove(notification.id);
-        }, notification.dismissDuration);
+        }, notification.autoDismiss);
       }
     },
-    [max, remove],
+    [max, remove]
   );
 
-  const animation = useMemo(() => {
-    if (placement.endsWith("start")) return "slide-in-left";
-    if (placement.endsWith("end")) return "slide-in-right";
-
+  // Determine the animation type based on placement for entry
+  const entryAnimation = useMemo(() => {
     return placement.startsWith("bottom") ? "slide-in-bottom" : "slide-in-top";
   }, [placement]);
 
+  // Determine the animation type based on placement for exit
+  const exitAnimation = useMemo(() => {
+    return placement.startsWith("bottom") ? "slide-out-bottom" : "slide-out-top";
+  }, [placement]);
+
   return (
-    <SnackbarContext.Provider value={{ add, remove, notifications }}>
+    <SnackbarContext value={{ add, remove, notifications }}>
       {notifications.length > 0 && (
         <Scope elevation="notification" className={cssClasses.root} role="region">
           <div className={cssClasses.content} {...props}>
             {notifications.map(({ id, content, leftSlot, rightSlot, size, skin, title }) => (
-              <Motion animation={animation} key={id}>
+              <Motion
+                animation={removingNotifications.has(id) ? exitAnimation : entryAnimation}
+                key={id}
+                onDone={() => {
+                  requestAnimationFrame(() => {
+                    // Ensure cleanup for notifications already in removing state
+                    if (removingNotifications.has(id)) {
+                      setNotifications((prev) =>
+                        prev.filter((notification) => notification.id !== id)
+                      );
+
+                      setRemovingNotifications((prev) => {
+                        const newSet = new Set(prev);
+                        newSet.delete(id);
+
+                        return newSet;
+                      });
+
+                      clearTimeout(timeoutMap.current[id]);
+                    }
+                  });
+                }}
+                asChild
+              >
                 <Alert
                   shadow="xl"
                   className={cssClasses.notification}
-                  {...{ leftSlot, rightSlot, size, skin, title }}>
+                  {...{ leftSlot, rightSlot, size, skin, title }}
+                >
                   {content}
                 </Alert>
               </Motion>
@@ -145,6 +175,6 @@ export function Snackbar({
         </Scope>
       )}
       {children}
-    </SnackbarContext.Provider>
+    </SnackbarContext>
   );
 }

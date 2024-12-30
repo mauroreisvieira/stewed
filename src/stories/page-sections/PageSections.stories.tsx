@@ -11,10 +11,11 @@ import {
   Accordion,
   Separator,
   Box,
-  Avatar,
+  Avatar
 } from "@stewed/react";
 // Icons
 import { FiPlus, FiMinus } from "react-icons/fi";
+import { GoArrowRight } from "react-icons/go";
 
 const meta = {
   title: "Examples/Page Sections",
@@ -23,8 +24,8 @@ const meta = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -37,18 +38,18 @@ export const PricingPlans = {
       {
         title: "Freelancer",
         description: "Perfect for getting your business off the ground!",
-        price: 12,
+        price: 12
       },
       {
         title: "Startup",
         description: "Tailored for propelling your business to success!",
-        price: 24,
+        price: 24
       },
       {
         title: "Enterprise",
         description: "Comprehensive features for growing your business!",
-        price: 36,
-      },
+        price: 36
+      }
     ];
 
     return (
@@ -60,7 +61,8 @@ export const PricingPlans = {
             alignment="center"
             weight="bold"
             skin="primary"
-            space={{ y: "xs" }}>
+            space={{ y: "xs" }}
+          >
             Teams for all sizes
           </Text>
 
@@ -86,20 +88,28 @@ export const PricingPlans = {
               items="center"
               responsive={{
                 xs: {
-                  wrap: "wrap",
+                  wrap: "wrap"
                 },
                 md: {
-                  wrap: "nowrap",
-                },
-              }}>
+                  wrap: "nowrap"
+                }
+              }}
+            >
               {plans.map(({ title, description, price }, index) => (
-                <Box key={index} borderColor={index === 1 ? "primary" : undefined} radius="md">
+                <Box
+                  key={index}
+                  borderStyle="solid"
+                  borderColor={index === 1 ? "primary" : undefined}
+                  radius="md"
+                  fullWidth
+                >
                   <Card
                     padding={{
                       block: index === 1 ? "2xl" : "xl",
-                      inline: "xl",
+                      inline: "xl"
                     }}
-                    shadow={index === 1 ? "2xl" : undefined}>
+                    shadow={index === 1 ? "2xl" : undefined}
+                  >
                     <Card.Header>
                       <Text as="h4">{title}</Text>
                     </Card.Header>
@@ -127,7 +137,7 @@ export const PricingPlans = {
         </Stack>
       </Container>
     );
-  },
+  }
 };
 
 export const CTASection = {
@@ -146,7 +156,7 @@ export const CTASection = {
             </Text>
             <Stack justify="center" gap="lg">
               <Button>Get started</Button>
-              <Button appearance="ghost" rightSlot="→">
+              <Button appearance="ghost" rightSlot={<GoArrowRight />}>
                 Learn more
               </Button>
             </Stack>
@@ -154,7 +164,7 @@ export const CTASection = {
         </Container>
       </Stack>
     );
-  },
+  }
 };
 
 export const Testimonials = {
@@ -168,18 +178,19 @@ export const Testimonials = {
             gap="4xl"
             responsive={{
               md: {
-                direction: "row",
-              },
-            }}>
+                direction: "row"
+              }
+            }}
+          >
             <Stack direction="column" gap="2xl" grow>
               <Text size="xl" weight="light" space={{ y: "2xl" }}>
-                <Text size="3xl" skin="primary" as="span">
+                <Text size="3xl" skin="primary" as="span" family="serif">
                   “
                 </Text>
                 Amet amet eget scelerisque tellus sit neque faucibus non eleifend. Integer eu
                 praesent at a. Ornare arcu gravida natoque erat et cursus tortor consequat at.
                 Vulputate gravida sociis enim nullam ultricies habitant malesuada lorem ac.
-                <Text size="3xl" skin="primary" as="span">
+                <Text size="3xl" skin="primary" as="span" family="serif">
                   ”
                 </Text>
               </Text>
@@ -188,7 +199,7 @@ export const Testimonials = {
                   skin="neutral"
                   size="xl"
                   image={{
-                    src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
+                    src: "https://images.unsplash.com/photo-1701615004837-40d8573b6652"
                   }}
                 />
                 <Stack direction="column">
@@ -207,20 +218,20 @@ export const Testimonials = {
                   orientation: "vertical",
                   space: {
                     inline: "7xl",
-                    block: "none",
-                  },
-                },
+                    block: "none"
+                  }
+                }
               }}
             />
             <Stack direction="column" gap="2xl" grow>
               <Text size="xl" weight="light" space={{ y: "2xl" }}>
-                <Text size="3xl" skin="primary" as="span">
+                <Text size="3xl" skin="primary" as="span" family="serif">
                   “
                 </Text>
-                “Excepteur veniam labore ullamco eiusmod. Pariatur consequat proident duis dolore
+                Excepteur veniam labore ullamco eiusmod. Pariatur consequat proident duis dolore
                 nulla veniam reprehenderit nisi officia voluptate incididunt exercitation
                 exercitation elit. Nostrud veniam sint dolor nisi ullamco.
-                <Text size="3xl" skin="primary" as="span">
+                <Text size="3xl" skin="primary" as="span" family="serif">
                   ”
                 </Text>
               </Text>
@@ -229,7 +240,7 @@ export const Testimonials = {
                   skin="neutral"
                   size="xl"
                   image={{
-                    src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
+                    src: "https://images.unsplash.com/photo-1633332755192-727a05c4013d"
                   }}
                 />
                 <Stack direction="column">
@@ -244,7 +255,7 @@ export const Testimonials = {
         </Container>
       </Stack>
     );
-  },
+  }
 };
 
 export const FAQ = {
@@ -258,7 +269,7 @@ export const FAQ = {
             </Text>
             <Stack grow gap="lg">
               <Accordion>
-                <Accordion.Item>
+                <Accordion.Item value="1">
                   {({ open }) => (
                     <>
                       <Accordion.Header rightSlot={open ? <FiMinus /> : <FiPlus />}>
@@ -273,7 +284,8 @@ export const FAQ = {
                     </>
                   )}
                 </Accordion.Item>
-                <Accordion.Item open>
+
+                <Accordion.Item value="2" defaultOpen>
                   {({ open }) => (
                     <>
                       <Accordion.Header rightSlot={open ? <FiMinus /> : <FiPlus />}>
@@ -289,7 +301,8 @@ export const FAQ = {
                     </>
                   )}
                 </Accordion.Item>
-                <Accordion.Item>
+
+                <Accordion.Item value="3">
                   {({ open }) => (
                     <>
                       <Accordion.Header rightSlot={open ? <FiMinus /> : <FiPlus />}>
@@ -311,5 +324,5 @@ export const FAQ = {
         </Container>
       </Stack>
     );
-  },
+  }
 };

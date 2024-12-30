@@ -1,0 +1,102 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TextArea > Snapshots > should applies disabled classes 1`] = `
+<div>
+  <textarea
+    class="_text-area_a6f3c8 _text-area--disabled_a6f3c8 _text-area--full-width_a6f3c8 _text-area--resize-both_a6f3c8 _text-area--outline_a6f3c8 _text-area--neutral_a6f3c8"
+    disabled=""
+  >
+    TextArea
+  </textarea>
+</div>
+`;
+
+exports[`TextArea > Snapshots > should applies fullWidth classes 1`] = `
+<div>
+  <textarea
+    class="_text-area_a6f3c8 _text-area--full-width_a6f3c8 _text-area--resize-both_a6f3c8 _text-area--outline_a6f3c8 _text-area--neutral_a6f3c8"
+  >
+    TextArea
+  </textarea>
+</div>
+`;
+
+exports[`TextArea > Snapshots > should apply 'critical' skin classes 1`] = `
+<div>
+  <textarea
+    class="_text-area_a6f3c8 _text-area--full-width_a6f3c8 _text-area--resize-both_a6f3c8 _text-area--outline_a6f3c8 _text-area--critical_a6f3c8"
+  >
+    TextArea
+  </textarea>
+</div>
+`;
+
+exports[`TextArea > Snapshots > should apply 'ghost' appearance classes 1`] = `
+<div>
+  <textarea
+    class="_text-area_a6f3c8 _text-area--full-width_a6f3c8 _text-area--resize-both_a6f3c8 _text-area--ghost_a6f3c8 _text-area--neutral_a6f3c8"
+  >
+    TextArea
+  </textarea>
+</div>
+`;
+
+exports[`TextArea > Snapshots > should apply 'neutral' skin classes 1`] = `
+<div>
+  <textarea
+    class="_text-area_a6f3c8 _text-area--full-width_a6f3c8 _text-area--resize-both_a6f3c8 _text-area--outline_a6f3c8 _text-area--neutral_a6f3c8"
+  >
+    TextArea
+  </textarea>
+</div>
+`;
+
+exports[`TextArea > Snapshots > should apply 'outline' appearance classes 1`] = `
+<div>
+  <textarea
+    class="_text-area_a6f3c8 _text-area--full-width_a6f3c8 _text-area--resize-both_a6f3c8 _text-area--outline_a6f3c8 _text-area--neutral_a6f3c8"
+  >
+    TextArea
+  </textarea>
+</div>
+`;
+
+exports[`TextArea > Snapshots > should apply 'soft' appearance classes 1`] = `
+<div>
+  <textarea
+    class="_text-area_a6f3c8 _text-area--full-width_a6f3c8 _text-area--resize-both_a6f3c8 _text-area--soft_a6f3c8 _text-area--neutral_a6f3c8"
+  >
+    TextArea
+  </textarea>
+</div>
+`;
+
+exports[`TextArea > Snapshots > should apply 'success' skin classes 1`] = `
+<div>
+  <textarea
+    class="_text-area_a6f3c8 _text-area--full-width_a6f3c8 _text-area--resize-both_a6f3c8 _text-area--outline_a6f3c8 _text-area--success_a6f3c8"
+  >
+    TextArea
+  </textarea>
+</div>
+`;
+
+exports[`TextArea > Snapshots > should render additional classes 1`] = `
+<div>
+  <textarea
+    class="_text-area_a6f3c8 _text-area--full-width_a6f3c8 _text-area--resize-both_a6f3c8 _text-area--outline_a6f3c8 _text-area--neutral_a6f3c8 other-class"
+  >
+    TextArea
+  </textarea>
+</div>
+`;
+
+exports[`TextArea > Snapshots > should renders default component 1`] = `
+<div>
+  <textarea
+    class="_text-area_a6f3c8 _text-area--full-width_a6f3c8 _text-area--resize-both_a6f3c8 _text-area--outline_a6f3c8 _text-area--neutral_a6f3c8"
+  >
+    TextArea
+  </textarea>
+</div>
+`;

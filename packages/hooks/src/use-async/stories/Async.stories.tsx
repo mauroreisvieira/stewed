@@ -1,11 +1,9 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // UI Components
-import { Theme } from "@stewed/react";
+import { Theme, Box, Text, Button, Stack } from "@stewed/react";
 // Hooks
 import { useAsync } from "../index";
-
-type Story = StoryObj<typeof useAsync>;
 
 const meta: Meta<typeof useAsync> = {
   title: "Hooks/useAsync",
@@ -14,35 +12,61 @@ const meta: Meta<typeof useAsync> = {
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
 
+/** Fetch function to get dump products */
 const fetchData = async (): Promise<string> => {
+  // Wait for 2 seconds before making the request
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+
   const response = await fetch("https://620fb775ec8b2ee2834a8359.mockapi.io/product");
-  return await response.json();
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
+  }
+
+  return response.json();
 };
 
-export const Async: Story = {
+export const Async: StoryObj<typeof useAsync> = {
+  /**
+   * Render function for the Async story.
+   * Demonstrates the use of the `useAsync` hook.
+   */
   render: function Render() {
-    const { execute, status, value, error } = useAsync(fetchData, false);
+    const { execute, status, value, error } = useAsync({ queryFn: fetchData });
 
     return (
-      <div>
-        <h1>Async Data Fetcher</h1>
+      <Stack direction="column" gap="md">
+        <Text as="h1" space={{ y: "lg" }}>
+          Async Data Fetcher
+        </Text>
 
-        {status === "idle" && <p>Start fetching data...</p>}
-        {status === "pending" && <p>Loading...</p>}
-        {status === "error" && <p>Error: {error?.message}</p>}
+        <Box>
+          <Button onClick={execute} disabled={value !== null}>
+            Fetch Data
+          </Button>
+        </Box>
 
-        <button onClick={execute} disabled={status === "pending"}>
-          Fetch Data
-        </button>
+        <Text skin="neutral-faded">
+          Status:{" "}
+          <Text as="span" weight="medium">
+            {status}
+          </Text>
+        </Text>
 
-        {status === "success" && <pre>{JSON.stringify(value, null, 4)}</pre>}
-      </div>
+        {status === "error" && <Text skin="critical">Error: {error?.message}</Text>}
+
+        {value && (
+          <Text as="pre" skin="neutral-faded">
+            {JSON.stringify(value, null, 4)}
+          </Text>
+        )}
+      </Stack>
     );
-  },
+  }
 };

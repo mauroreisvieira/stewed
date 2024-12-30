@@ -2,29 +2,25 @@ import React, { useEffect, useMemo, useState } from "react";
 // UI Components
 import { Root } from "./Root";
 // Tokens
-import { type Tokens, defaultTokens } from "@stewed/tokens";
+import { defaultTokens, type Tokens } from "@stewed/tokens";
 // Context
 import { ThemeContext, type ThemeContextProps } from "./ThemeContext";
 // Utilities
 import { objectKeys } from "@stewed/utilities";
 
+/**
+ * Represents the properties for a theme configuration.
+ *
+ * This interface extends a subset of `ThemeContextProps`, picking specific properties
+ * (`cssScope`, `defaultTheme`, `theme`, and `tokens`) that are necessary for defining
+ * a theme. It also supports generic customization through the `T` parameter.
+ *
+ * @template T - Represents the theme type, defaulting to `"default"`.
+ * Typically used to specify or constrain the type of theme being handled.
+ */
 export interface ThemeProps<T extends string = "default">
-  extends React.ComponentPropsWithoutRef<"div"> {
-  /**
-   * Set the default theme to be used when no theme is set.
-   * @remarks This prop is uncontrolled, meaning the component will manage its own internal state for the default theme.
-   * If you provide a value, it will be used as the initial default theme.
-   */
-  defaultTheme?: ThemeContextProps<T>["defaultTheme"];
-  /**
-   * Set the current active theme.
-   * @remarks This prop is controlled, meaning the parent component manages the theme state by providing the 'theme' value.
-   * If this prop is provided, the component will reflect the current theme specified by the parent.
-   */
-  theme?: ThemeContextProps<T>["theme"];
-  /** Map of theme names to tokens. */
-  tokens?: ThemeContextProps<T>["tokens"];
-}
+  extends Pick<ThemeContextProps<T>, "cssScope" | "defaultTheme" | "theme" | "tokens">,
+    React.ComponentPropsWithoutRef<"div"> {}
 
 /**
  * A Theme component allows you to manage various objects that define your application's colors, spacing, fonts, and more in a coherent and organized manner.
@@ -34,7 +30,8 @@ export interface ThemeProps<T extends string = "default">
  * @returns {React.ReactElement} - React element representing the themed application.
  */
 export function Theme<T extends string>({
-  defaultTheme,
+  cssScope,
+  defaultTheme = "default",
   theme: activeTheme,
   tokens: currentTokens,
   ...props
@@ -51,34 +48,36 @@ export function Theme<T extends string>({
     if (!activeTheme) return;
 
     // If `activeTheme` is present, then the `setTheme` function is called with `activeTheme`.
-    setTheme(activeTheme); //
+    setTheme(activeTheme);
   }, [activeTheme]);
 
   // Merge default tokens with theme-specific tokens
-  const activeToken = useMemo(
-    () =>
-      objectKeys(defaultTokens).reduce((acc, key) => {
-        acc[key] = {
-          ...defaultTokens[key],
-          ...(tokens?.[theme as T]?.[key] ?? {}),
-        };
-        return acc;
-      }, {} as Tokens),
-    [theme, tokens],
-  );
+  const activeToken = useMemo(() => {
+    return objectKeys(defaultTokens).reduce((acc, key) => {
+      acc[key] = {
+        ...defaultTokens[key],
+        ...(tokens?.["default" as T]?.[key] ?? {}),
+        ...(tokens?.[theme as T]?.[key] ?? {})
+      };
+
+      return acc;
+    }, {} as Tokens);
+  }, [theme, tokens]);
 
   return (
-    <ThemeContext.Provider
+    <ThemeContext
       value={{
+        cssScope,
         defaultTheme,
         activeToken,
         theme,
         setTheme,
         tokens,
-        setTokens,
-      }}>
+        setTokens
+      }}
+    >
       {/* Root component to which the themed styles are applied */}
       <Root {...props} />
-    </ThemeContext.Provider>
+    </ThemeContext>
   );
 }

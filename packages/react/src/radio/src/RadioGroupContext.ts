@@ -1,7 +1,7 @@
-import { useContext, createContext } from "react";
+import { use, createContext } from "react";
 
 /**
- * Dummy function to throw an error when radio is not provided by a RadioGroupProvider.
+ * Dummy function to throw an error when radio is not provided by a RadioGroup.
  *
  * @returns Always throws an error.
  */
@@ -9,6 +9,7 @@ const definitionError = (): null => {
   throw new Error('Please make sure "<Radio.Group>" component is wrapping your component.');
 };
 
+/** Props for the context used in a `RadioGroup` component to manage state and behavior for grouped radio buttons. */
 export interface RadioGroupContextProps {
   /** The name used to reference the value of the control. */
   name: string;
@@ -22,7 +23,7 @@ export interface RadioGroupContextProps {
   /**
    * Callback fired when the checked state changes.
    *
-   * @param value The new array of selected radio values.
+   * @param value - The new array of selected radio values.
    */
   onCheckedChange?: (value: string) => void;
 }
@@ -39,7 +40,7 @@ function createRadioGroupContext() {
   return createContext<RadioGroupContextProps>({
     name: "",
     checkedValue: undefined,
-    onCheckedChange: definitionError,
+    onCheckedChange: definitionError
   });
 }
 
@@ -57,5 +58,5 @@ export const RadioGroupContext = createRadioGroupContext();
  * @returns RadioGroup context value.
  */
 export function useRadioGroup() {
-  return useContext(RadioGroupContext);
+  return use(RadioGroupContext);
 }

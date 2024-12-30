@@ -14,13 +14,14 @@
       padding-inline: 0,
       position: relative,
       transform: none,
-      inset: 0,
+      inset: 0
     )
   );
 
   &__value {
     position: theme.get-var(position);
     inset: theme.get-var(inset);
+    z-index: 11; // To be above the focus
     box-sizing: border-box;
     display: inline-flex;
     align-items: center;
@@ -43,22 +44,33 @@
       @include theme.define-var(
         (
           size: theme.get-spacing("sm"),
-          padding-inline: 0,
+          padding-inline: 0
         )
       );
     }
   }
 
   // Skins
-  @each $key, $value in $badge-skins {
-    &--#{$key} {
-      @include theme.define-var(
-        (
-          background-color: theme.get-color($key, "500"),
-          border-color: theme.get-color($key, "500"),
-          color: theme.get-color($key, "500"),
-        )
-      );
+  @each $value in $badge-skins {
+    &--#{$value} {
+      &-filled {
+        @include theme.define-var(
+          (
+            background-color: theme.get-color($value, "background"),
+            color: theme.get-color($value, "foreground-on-background")
+          )
+        );
+      }
+
+      &-outline {
+        @include theme.define-var(
+          (
+            background-color: transparent,
+            border-color: currentColor,
+            color: theme.get-color($value, "foreground")
+          )
+        );
+      }
     }
   }
 
@@ -68,7 +80,7 @@
       @include theme.define-var(
         (
           font-size: map.get($value, "font-size"),
-          size: map.get($value, "size"),
+          size: map.get($value, "size")
         )
       );
     }
@@ -78,7 +90,7 @@
   &--filled {
     @include theme.define-var(
       (
-        color: white,
+        color: white
       )
     );
   }
@@ -86,7 +98,7 @@
   &--outline {
     @include theme.define-var(
       (
-        background-color: transparent,
+        background-color: transparent
       )
     );
   }
@@ -94,7 +106,7 @@
   &--padded {
     @include theme.define-var(
       (
-        padding-inline: theme.get-spacing("xs"),
+        padding-inline: theme.get-spacing("xs")
       )
     );
   }
@@ -105,7 +117,7 @@
   &--bottom-right {
     @include theme.define-var(
       (
-        position: absolute,
+        position: absolute
       )
     );
   }
@@ -113,36 +125,96 @@
   &--top-left {
     @include theme.define-var(
       (
-        inset: 0 auto auto 0,
-        transform: translate(-50%, -50%),
+        transform: translate(-50%, -50%)
       )
     );
+
+    &.#{$badge-root}--rectangular {
+      @include theme.define-var(
+        (
+          inset: 0 auto auto 0
+        )
+      );
+    }
+
+    &.#{$badge-root}--circular {
+      @include theme.define-var(
+        (
+          inset: calc(theme.get-spacing("sm") * 0.5) auto auto calc(theme.get-spacing("sm") * 0.75)
+        )
+      );
+    }
   }
 
   &--top-right {
     @include theme.define-var(
       (
-        inset: 0 0 auto auto,
-        transform: translate(50%, -50%),
+        transform: translate(50%, -50%)
       )
     );
+
+    &.#{$badge-root}--rectangular {
+      @include theme.define-var(
+        (
+          inset: 0 0 auto auto
+        )
+      );
+    }
+
+    &.#{$badge-root}--circular {
+      @include theme.define-var(
+        (
+          inset: calc(theme.get-spacing("sm") * 0.5) calc(theme.get-spacing("sm") * 0.75) auto auto
+        )
+      );
+    }
   }
 
   &--bottom-left {
     @include theme.define-var(
       (
-        inset: auto auto 0 0,
-        transform: translate(-50%, 50%),
+        transform: translate(-50%, 50%)
       )
     );
+
+    &.#{$badge-root}--rectangular {
+      @include theme.define-var(
+        (
+          inset: auto auto 0 0
+        )
+      );
+    }
+
+    &.#{$badge-root}--circular {
+      @include theme.define-var(
+        (
+          inset: auto auto calc(theme.get-spacing("sm") * 0.5) calc(theme.get-spacing("sm") * 0.75)
+        )
+      );
+    }
   }
 
   &--bottom-right {
     @include theme.define-var(
       (
-        inset: auto 0 0 auto,
-        transform: translate(50%, 50%),
+        transform: translate(50%, 50%)
       )
     );
+
+    &.#{$badge-root}--rectangular {
+      @include theme.define-var(
+        (
+          inset: auto 0 0 auto
+        )
+      );
+    }
+
+    &.#{$badge-root}--circular {
+      @include theme.define-var(
+        (
+          inset: auto calc(theme.get-spacing("sm") * 0.75) calc(theme.get-spacing("sm") * 0.5) auto
+        )
+      );
+    }
   }
 }

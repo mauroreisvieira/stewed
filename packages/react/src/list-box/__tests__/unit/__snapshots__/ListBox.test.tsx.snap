@@ -1,0 +1,131 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ListBox > Snapshots > should render additional classes 1`] = `
+<div>
+  <div
+    class="_list-box_b243e6 other-class"
+    role="listbox"
+  >
+    <div
+      class="_list-box__group_b243e6 other-group-class"
+      role="group"
+    >
+      <div
+        class="_list-box__item_b243e6 other-item-class"
+        role="option"
+        tabindex="-1"
+      >
+        <div
+          class="_list-box__item__text_b243e6"
+        >
+          Item
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ListBox > Snapshots > should render left slot content 1`] = `
+<div>
+  <div
+    class="_list-box_b243e6"
+    role="listbox"
+  >
+    <div
+      class="_list-box__item_b243e6"
+      role="option"
+      tabindex="-1"
+    >
+      <div
+        class="_list-box__item__left_b243e6"
+      >
+        Left slot
+      </div>
+      <div
+        class="_list-box__item__text_b243e6"
+      >
+        Item
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ListBox > Snapshots > should render right slot content 1`] = `
+<div>
+  <div
+    class="_list-box_b243e6"
+    role="listbox"
+  >
+    <div
+      class="_list-box__item_b243e6"
+      role="option"
+      tabindex="-1"
+    >
+      <div
+        class="_list-box__item__text_b243e6"
+      >
+        Item
+      </div>
+      <div
+        class="_list-box__item__right_b243e6"
+      >
+        Right slot
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ListBox > Snapshots > should renders default component 1`] = `
+<div>
+  <div
+    class="_list-box_b243e6"
+    role="listbox"
+  >
+    <div
+      class="_list-box__item_b243e6"
+      role="option"
+      tabindex="-1"
+    >
+      <div
+        class="_list-box__item__text_b243e6"
+      >
+        Item
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ListBox > Snapshots > should renders group component 1`] = `
+<div>
+  <div
+    class="_list-box_b243e6"
+    role="listbox"
+  >
+    <div
+      class="_list-box__group_b243e6"
+      role="group"
+    >
+      <div
+        class="_list-box__group__title_b243e6"
+      >
+        Group
+      </div>
+      <div
+        class="_list-box__item_b243e6"
+        role="option"
+        tabindex="-1"
+      >
+        <div
+          class="_list-box__item__text_b243e6"
+        >
+          Item
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

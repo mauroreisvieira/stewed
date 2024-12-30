@@ -58,8 +58,8 @@ export function Skeleton({
   const cssClasses = {
     root: getBlock({
       modifiers: [shape, size, shape !== "circle" && `radius-${radius}`],
-      extraClasses: className,
-    }),
+      extraClasses: className
+    })
   };
 
   return <div {...nativeProps} className={cssClasses.root} />;

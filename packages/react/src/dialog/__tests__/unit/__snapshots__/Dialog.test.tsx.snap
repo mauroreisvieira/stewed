@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Dialog > Snapshots > should applies correct size classes 1`] = `null`;
+
+exports[`Dialog > Snapshots > should render additional classes 1`] = `null`;
+
+exports[`Dialog > Snapshots > should renders close button component 1`] = `null`;
+
+exports[`Dialog > Snapshots > should renders default component 1`] = `null`;

@@ -6,7 +6,7 @@
 
   @include theme.define-var(
     (
-      border-radius: inherit,
+      border-radius: inherit
     )
   );
 
@@ -14,7 +14,7 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          aspect-ratio: $value,
+          aspect-ratio: $value
         )
       );
     }
@@ -25,15 +25,22 @@
     &--radius-#{$key} {
       @include theme.define-var(
         (
-          border-radius: $value,
+          border-radius: $value
         )
       );
     }
   }
 
-  &:not(:empty) > * {
-    display: block;
-    aspect-ratio: theme.get-var(aspect-ratio);
-    border-radius: theme.get-var(border-radius);
+  &:not(:empty) > {
+    * {
+      display: block;
+      aspect-ratio: theme.get-var(aspect-ratio);
+      border-radius: theme.get-var(border-radius);
+    }
+
+    [src] {
+      width: 100%;
+      object-fit: cover;
+    }
   }
 }

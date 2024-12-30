@@ -1,9 +1,12 @@
-import React, { forwardRef } from "react";
+import React from "react";
+// Context
+import { CardContext, type CardContextProps } from "./CardContext";
 // Compound Component
 import { CardBody } from "./CardBody";
 import { CardHeader } from "./CardHeader";
 import { CardFooter } from "./CardFooter";
 import { CardMedia } from "./CardMedia";
+import { CardSeparator } from "./CardSeparator";
 // Tokens
 import { components, type Shadow, type Spacings } from "@stewed/tokens";
 // Hooks
@@ -11,14 +14,12 @@ import { useBem } from "@stewed/hooks";
 // Styles
 import styles from "./styles/index.module.scss";
 
-export interface CardProps extends React.ComponentPropsWithRef<"div"> {
-  /** The direction of the card. */
-  direction?: "row" | "column";
+export interface CardProps extends CardContextProps, React.ComponentPropsWithRef<"div"> {
   /**
-   * Change the visual style of the card.
-   * @default default
+   * The direction of the card.
+   * @default column
    */
-  skin?: "default" | "neutral" | "neutral-faded" | "primary" | "primary-faded";
+  direction?: "row" | "column";
   /** Padding options for horizontal and vertical orientation. */
   padding?: {
     /** Adds padding in the block direction (e.g., top and bottom for vertical orientation). */
@@ -51,51 +52,46 @@ export interface CardProps extends React.ComponentPropsWithRef<"div"> {
  * @param {CardProps} props - The props for the Card component.
  * @returns {React.ReactElement} - The rendered Card component.
  */
-const Root = forwardRef(
-  (
-    {
-      direction = "column",
-      skin = "default",
-      shadow = "sm",
-      padding = {
-        block: "xl",
-        inline: "xl",
-      },
-      className,
-      children,
-      ...props
-    }: CardProps,
-    ref: React.Ref<HTMLDivElement>,
-  ): React.ReactElement => {
-    // Importing useBem to handle BEM class names
-    const { getBlock } = useBem({ block: components.Card, styles });
+export function Card({
+  ref,
+  direction = "column",
+  shadow = "sm",
+  padding = {
+    block: "xl",
+    inline: "xl"
+  },
+  className,
+  children,
+  ...props
+}: CardProps): React.ReactElement {
+  // Importing useBem to handle BEM class names
+  const { getBlock } = useBem({ block: components.Card, styles });
 
-    // Generating CSS classes based on component props and styles
-    const cssClasses = {
-      root: getBlock({
-        modifiers: [
-          skin,
-          direction,
-          padding?.block && `padding-block-${padding.block}`,
-          padding?.inline && `padding-inline-${padding.inline}`,
-          shadow && `shadow-${shadow}`,
-        ],
-        extraClasses: className,
-      }),
-    };
+  // Generating CSS classes based on component props and styles
+  const cssClasses = {
+    root: getBlock({
+      modifiers: [
+        direction,
+        padding?.block && `padding-block-${padding.block}`,
+        padding?.inline && `padding-inline-${padding.inline}`,
+        shadow && `shadow-${shadow}`
+      ],
+      extraClasses: className
+    })
+  };
 
-    return (
+  return (
+    <CardContext value={{ direction }}>
       <div ref={ref} className={cssClasses.root} {...props}>
         {children}
       </div>
-    );
-  },
-);
+    </CardContext>
+  );
+}
 
 // Compound component composition
-export const Card = Object.assign(Root, {
-  Body: CardBody,
-  Media: CardMedia,
-  Header: CardHeader,
-  Footer: CardFooter,
-});
+Card.Body = CardBody;
+Card.Media = CardMedia;
+Card.Header = CardHeader;
+Card.Footer = CardFooter;
+Card.Separator = CardSeparator;

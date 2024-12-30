@@ -78,52 +78,35 @@
     white-space: nowrap;
   }
 
+  &--white-space-pre-wrap {
+    white-space: pre-wrap;
+  }
+
   &--white-space-normal {
     white-space: normal;
-  }
-
-  // Skins
-  &--inherit {
-    @include theme.define-var(
-      (
-        color: inherit,
-      )
-    );
-  }
-
-  &--white {
-    @include theme.define-var(
-      (
-        color: theme.get-color("white"),
-      )
-    );
-  }
-
-  &--black {
-    @include theme.define-var(
-      (
-        color: theme.get-color("black"),
-      )
-    );
-  }
-
-  &--text-base {
-    @include theme.define-var(
-      (
-        color: theme.get-color("text-base"),
-      )
-    );
   }
 
   &--hidden {
     display: none;
   }
 
+  &--inherit {
+    @include theme.define-var(
+      (
+        color: inherit,
+        font-size: inherit,
+        font-weight: inherit,
+        font-family: inherit
+      )
+    );
+  }
+
+  // Skins
   @each $key, $value in $typography-skins {
     &--#{$key} {
       @include theme.define-var(
         (
-          color: theme.get-color($key, "500"),
+          color: $value
         )
       );
     }
@@ -134,7 +117,7 @@
       display: -webkit-box;
       -webkit-box-orient: vertical;
       overflow: hidden;
-      line-clamp: $value;
+      -webkit-line-clamp: $value;
     }
   }
 
@@ -143,7 +126,7 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          font-size: $value,
+          font-size: $value
         )
       );
     }
@@ -154,7 +137,7 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          font-family: $value,
+          font-family: $value
         )
       );
     }
@@ -165,7 +148,7 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          font-weight: $value,
+          font-weight: $value
         )
       );
     }

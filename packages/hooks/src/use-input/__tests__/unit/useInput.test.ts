@@ -1,13 +1,13 @@
-import { useInput, type UseInputValue, type UseInputOptions } from "../../index";
+import { useInput, type UseInputValue, type UseInputProps } from "../../index";
 // Utilities
 import { renderHook, act } from "@testing-library/react";
 
 describe("useInput", () => {
   // Mock validate function for testing
-  const mockValidate = jest.fn(() => true);
+  const mockValidate = vi.fn(() => true);
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("should initialize with the provided initial value", () => {
@@ -21,15 +21,15 @@ describe("useInput", () => {
     const initialValue = "initial";
     const newValue = "new value";
 
-    const validateOptions: UseInputOptions<UseInputValue> = {
-      validate: mockValidate,
+    const validateOptions: UseInputProps<UseInputValue> = {
+      validate: mockValidate
     };
 
     const { result } = renderHook(() => useInput(initialValue, validateOptions));
 
     act(() => {
       result.current.onChange({
-        target: { value: newValue },
+        target: { value: newValue }
       } as React.ChangeEvent<HTMLInputElement>);
     });
 
@@ -41,15 +41,15 @@ describe("useInput", () => {
     const initialValue = "initial";
     const invalidValue = "new value";
 
-    const validateOptions: UseInputOptions<UseInputValue> = {
-      validate: () => false,
+    const validateOptions: UseInputProps<UseInputValue> = {
+      validate: () => false
     };
 
     const { result } = renderHook(() => useInput(initialValue, validateOptions));
 
     act(() => {
       result.current.onChange({
-        target: { value: invalidValue },
+        target: { value: invalidValue }
       } as React.ChangeEvent<HTMLInputElement>);
     });
 
@@ -60,8 +60,8 @@ describe("useInput", () => {
     const { result, rerender } = renderHook(
       (props: { initialValue: UseInputValue }) => useInput(props.initialValue),
       {
-        initialProps: { initialValue: "initial" },
-      },
+        initialProps: { initialValue: "initial" }
+      }
     );
 
     expect(result.current.value).toBe("initial");

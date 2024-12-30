@@ -10,14 +10,14 @@
   gap: theme.get-spacing("lg");
   padding: theme.get-var(padding);
   background-color: theme.get-var(background-color);
+  border: 1px solid theme.get-var(border-color);
   border-radius: theme.get-var(radius);
   box-shadow: theme.get-var(box-shadow);
 
   &__title {
     @include text.typography(
-      "display-6",
+      "base",
       $overrides: (
-        color: inherit,
         font-size: theme.get-font-size("md"),
         font-weight: theme.get-font-weight("medium")
       )
@@ -31,10 +31,9 @@
     gap: theme.get-spacing("sm");
   }
 
-  &__title,
   &__left,
   &__right {
-    color: theme.get-var(color);
+    color: theme.get-var("color");
   }
 
   &__body {
@@ -46,8 +45,9 @@
     &--#{$value} {
       @include theme.define-var(
         (
-          background-color: theme.get-color($value, "100"),
-          color: theme.get-color($value, "900"),
+          background-color: theme.get-color($value, "background-faded"),
+          border-color: theme.get-color($value, "border-faded"),
+          color: theme.get-color($value, "foreground")
         )
       );
     }
@@ -58,7 +58,7 @@
     &--#{$key} {
       @include theme.define-var(
         (
-          padding: $value,
+          padding: $value
         )
       );
     }
@@ -69,7 +69,7 @@
     &--shadow-#{$key} {
       @include theme.define-var(
         (
-          box-shadow: $value,
+          box-shadow: $value
         )
       );
     }

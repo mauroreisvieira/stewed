@@ -11,13 +11,17 @@ type Story = StoryObj<typeof ListBox>;
 const meta: Meta<typeof ListBox> = {
   title: "Components/List Box",
   component: ListBox,
+  subcomponents: {
+    "ListBox.Group": ListBox.Group as React.FC<unknown>,
+    "ListBox.Item": ListBox.Item as React.FC<unknown>
+  },
   decorators: [
     (Story) => (
       <Theme>
         <Story />
       </Theme>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;
@@ -25,8 +29,8 @@ export default meta;
 export const Base: Story = {
   argTypes: {
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
     children: (
@@ -48,17 +52,20 @@ export const Base: Story = {
               <Button leftSlot={<FiLock />} size="xs" appearance="ghost" skin="critical" iconOnly>
                 Remove
               </Button>
-            }>
+            }
+          >
             Trash
           </ListBox.Item>
         </ListBox.Group>
+        <ListBox.Separator />
         <ListBox.Group title="Pinned messages">
           <ListBox.Item
             rightSlot={
               <Button leftSlot={<FaMapPin />} size="xs" appearance="ghost" skin="neutral" iconOnly>
                 Remove
               </Button>
-            }>
+            }
+          >
             Lee Evans new tour
           </ListBox.Item>
           <ListBox.Item>Individual errors coast</ListBox.Item>
@@ -67,21 +74,21 @@ export const Base: Story = {
           <ListBox.Item>Top of mind</ListBox.Item>
         </ListBox.Group>
       </>
-    ),
-  },
+    )
+  }
 };
 
 export const MultiLine: Story = {
   argTypes: {
     children: {
-      control: false,
-    },
+      control: false
+    }
   },
   args: {
     children: (
       <>
         <ListBox.Group>
-          <ListBox.Item leftSlot={<Avatar name="A" />}>
+          <ListBox.Item as={"button"} leftSlot={<Avatar name="A" />}>
             <Box padding={{ block: "lg" }}>
               <Text size="sm">Headline</Text>
               <Text skin="neutral" size="xs">
@@ -91,6 +98,6 @@ export const MultiLine: Story = {
           </ListBox.Item>
         </ListBox.Group>
       </>
-    ),
-  },
+    )
+  }
 };
