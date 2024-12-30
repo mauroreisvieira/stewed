@@ -2,7 +2,7 @@ import React from "react";
 // UI Components
 import { Theme } from "@stewed/react";
 // Components Patterns
-import { QuickView as QV } from "./examples/quick-view/QuickView";
+import { QuickView as QV } from "./examples/collections/QuickView";
 import { Collections as CL } from "./examples/collections/Collections";
 import { Details as DT } from "./examples/collections/Details";
 
