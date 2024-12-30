@@ -10,18 +10,17 @@ const meta = {
   title: "Examples/Ecommerce",
   parameters: {
     layout: "fullscreen"
-  }
-};
-
-export default meta;
-
-export const Collections = {
-  render: function Render() {
-    return (
+  },
+  decorators: [
+    (Story) => (
       <Theme
         tokens={{
           default: {
             color: {
+              "primary-background": "slate-900",
+              "primary-background-hovered": "slate-800",
+              "primary-background-pressed": "slate-800",
+              "primary-foreground-on-background": "#fff",
               "secondary-background": "slate-100",
               "secondary-background-hovered": "slate-200",
               "secondary-background-pressed": "slate-200",
@@ -29,54 +28,34 @@ export const Collections = {
             },
             components: {
               button: {
-                radius: "full"
+                radius: "md"
               }
             }
           }
         }}
       >
-        <CL />
+        <Story />
       </Theme>
-    );
-  }
+    )
+  ]
 };
 
-export const Details = {
+export default meta;
+
+export const Collections = {
   render: function Render() {
-    return (
-      <Theme
-        tokens={{
-          default: {
-            components: {
-              group: {
-                radius: "sm"
-              }
-            }
-          }
-        }}
-      >
-        <DT />
-      </Theme>
-    );
+    return <CL />;
   }
 };
 
 export const QuickViews = {
   render: function Render() {
-    return (
-      <Theme
-        tokens={{
-          default: {
-            components: {
-              group: {
-                radius: "sm"
-              }
-            }
-          }
-        }}
-      >
-        <QV />
-      </Theme>
-    );
+    return <QV />;
+  }
+};
+
+export const Details = {
+  render: function Render() {
+    return <DT />;
   }
 };

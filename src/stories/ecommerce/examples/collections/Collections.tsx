@@ -44,7 +44,7 @@ export function Collections(): React.ReactElement {
     // If no filters are applied, return all products
     const filteredProducts = PRODUCTS.map((product) => ({
       ...product,
-      image: data?.results[product.id]?.urls.small
+      image: data?.results[product.id - 1]?.urls.small
     })).filter(({ category, color, tag }) => {
       // Check if the product matches the Tag filter (only if filters.tag is not empty)
       const matchesTag = filters.tag.length === 0 || filters.tag.includes(tag);

@@ -1,9 +1,114 @@
-export const PRODUCTS = [
+export const REVIEWS = [
+  {
+    name: "Alice Johnson",
+    reviewRate: 5,
+    review:
+      "Absolutely loved the product! The craftsmanship is outstanding, and it arrived well-packaged. Highly recommend it to anyone looking for quality and reliability."
+  },
+  {
+    name: "Michael Smith",
+    reviewRate: 4,
+    review:
+      "Very good overall. The product met my expectations, but shipping took a bit longer than expected. Customer service was helpful in tracking my order, which made the delay more bearable."
+  },
+  {
+    name: "Samantha Brown",
+    reviewRate: 3,
+    review:
+      "The product is decent but not exactly as described. Some features were missing, but it still works fine for basic needs. For the price, I expected a little more attention to detail."
+  },
+  {
+    name: "David Wilson",
+    reviewRate: 2,
+    review:
+      "Not very satisfied. The item arrived damaged, and while the company did offer a replacement, the process was slow and frustrating. I expected better quality control."
+  },
+  {
+    name: "Jessica Lee",
+    reviewRate: 1,
+    review:
+      "Terrible experience. The product broke within days of using it, and customer service was unhelpful. I wouldn't recommend this to anyone."
+  },
+  {
+    name: "Olivia Martinez",
+    reviewRate: 5,
+    review:
+      "This product exceeded my expectations! The design is sleek, and it works perfectly. I've already recommended it to my friends and family. Great job!"
+  },
+  {
+    name: "John Evans",
+    reviewRate: 4,
+    review:
+      "Good value for the money. The product does what it says, but the instructions were a bit unclear. Once I figured it out, everything worked as advertised."
+  },
+  {
+    name: "Emily Clark",
+    reviewRate: 3,
+    review:
+      "Average experience. While the product works, it's not as user-friendly as I hoped. I had to contact support multiple times to understand how to use it effectively."
+  },
+  {
+    name: "Daniel Turner",
+    reviewRate: 5,
+    review:
+      "Fantastic product! I've been using it for weeks now, and it still performs like it's brand new. The attention to detail and durability is impressive."
+  },
+  {
+    name: "Sophia Harris",
+    reviewRate: 2,
+    review:
+      "Disappointed with this purchase. The product feels cheap and doesn't perform as advertised. I might try another brand next time."
+  },
+  {
+    name: "Liam Baker",
+    reviewRate: 4,
+    review:
+      "Happy with the purchase overall. The product is well-built and functional, but it could use a few improvements in terms of design and usability."
+  },
+  {
+    name: "Isabella Wright",
+    reviewRate: 1,
+    review:
+      "Worst purchase I've ever made. The product stopped working within a week, and I couldn't get a refund. Save your money and buy something else."
+  },
+  {
+    name: "Matthew Green",
+    reviewRate: 5,
+    review:
+      "I’m so impressed with this product! It’s exactly what I needed, and the performance is top-notch. I couldn’t be happier with my purchase. Definitely worth the investment!"
+  },
+  {
+    name: "Charlotte King",
+    reviewRate: 5,
+    review:
+      "This product has completely transformed the way I do things! It’s easy to use, reliable, and works exactly as described. I highly recommend it to anyone looking for a high-quality product."
+  },
+  {
+    name: "Ethan Taylor",
+    reviewRate: 5,
+    review:
+      "Incredible! The product exceeded my expectations in every way. It’s built to last, and the functionality is unmatched. Definitely a 5-star product. I’m recommending it to everyone I know."
+  },
+  {
+    name: "Ava Morgan",
+    reviewRate: 5,
+    review:
+      "I’ve been using this for a few weeks now, and it’s still performing perfectly. The attention to detail is remarkable, and the design is modern and sleek. I would buy it again in a heartbeat!"
+  },
+  {
+    name: "Lucas Scott",
+    reviewRate: 5,
+    review:
+      "I’m honestly amazed by this product! It’s worth every penny and more. The quality is exceptional, and it has made my life so much easier. If you're considering buying it, don't hesitate!"
+  }
+];
+
+export const PRODUCTS: Product[] = [
   {
     id: 1,
     name: "Chic Midi Dress",
     category: "Dresses",
-    rate: 4.3,
+    rate: REVIEWS.reduce((total, review) => total + review.reviewRate, 0) / REVIEWS.length,
     color: ["Black", "Red"],
     description:
       "A timeless midi dress with a flattering silhouette, perfect for any occasion, from casual outings to evening events. The soft fabric feels luxurious and drapes beautifully, making it a versatile wardrobe staple.\n\nThe dress can be dressed up or down depending on the occasion, providing an effortless yet elegant look. Ideal for cocktail parties, dinners, or a day out with friends.\n\nIts versatility and comfort make it a must-have piece for your wardrobe.",
@@ -16,7 +121,7 @@ export const PRODUCTS = [
     stock: 120,
     sizes: ["S", "M", "L"],
     discount: 15,
-    reviews: 1200
+    reviews: REVIEWS.length
   },
   {
     id: 2,
@@ -292,7 +397,7 @@ export const PRODUCTS = [
   }
 ];
 
-export const SIZES = ["XXS", "XS", "S", "M", "L", "XL", "XXL"];
+export const SIZES = ["XXS", "XS", "S", "M", "L", "XL", "XXL"] as const;
 
 export const CATEGORIES = [...new Set(PRODUCTS.map((product) => product.category))];
 
@@ -343,3 +448,22 @@ export const SORT = [
     key: "newest"
   }
 ];
+
+export interface Product {
+  id: number;
+  name: string;
+  category: string;
+  tag: string;
+  description: string;
+  sales: number;
+  color: string[];
+  price: {
+    value: number;
+    currency: string;
+  };
+  sizes: string[];
+  discount?: number;
+  stock: number;
+  rate: number;
+  reviews: number;
+}

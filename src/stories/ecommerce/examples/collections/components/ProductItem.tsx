@@ -3,17 +3,11 @@ import React from "react";
 import { Hoverable, MotionProps, Text, Card, Motion, Box, Stack, Button } from "@stewed/react";
 // Icons
 import { IoEyeOutline, IoHeartOutline, IoStar } from "react-icons/io5";
+// Types
+import type { Product } from "../../data";
 
-export interface ProductItemProps {
-  id: number;
-  name: string;
+export interface ProductItemProps extends Product {
   image: string | undefined;
-  category: string;
-  price: {
-    value: number;
-    currency: string;
-  };
-  rate: number;
 }
 
 export function ProductItem({
@@ -25,7 +19,7 @@ export function ProductItem({
 }: ProductItemProps): React.ReactElement {
   return (
     <Hoverable>
-      {({ status }) => {
+      {({ status, isTouch }) => {
         let animation: MotionProps["animation"] = "zoom-in-soft";
 
         if (status === "enter") {
@@ -38,7 +32,7 @@ export function ProductItem({
 
         return (
           <Card shadow="none" padding={{ inline: "none", block: "md" }}>
-            <Motion animation={animation}>
+            <Motion animation={isTouch ? undefined : animation}>
               {({ className }) => (
                 <Card.Media
                   style={{ height: 200, overflow: "hidden" }}

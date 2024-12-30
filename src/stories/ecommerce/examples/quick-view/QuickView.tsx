@@ -63,7 +63,7 @@ export function QuickView(): React.ReactElement {
             </Stack>
 
             {product?.rate && (
-              <Stack items="center" gap="lg">
+              <Stack items="center" gap="sm">
                 <Stack direction="row">
                   {Array.from({ length: 5 }).map((_, index) => (
                     <Text
@@ -76,10 +76,8 @@ export function QuickView(): React.ReactElement {
                   ))}
                 </Stack>
 
-                <Text skin="neutral" size="sm">
-                  ({product.rate}){" "}
-                  {product?.reviews > 1000 ? `${product?.reviews / 1000}k` : product?.reviews}{" "}
-                  reviews
+                <Text as="a" href="/" skin="neutral" size="xs">
+                  ({product?.reviews} reviews)
                 </Text>
               </Stack>
             )}
@@ -135,7 +133,7 @@ export function QuickView(): React.ReactElement {
               <FormField.Label htmlFor="quantity">Quantity</FormField.Label>
               <FormField.Control>
                 <Box
-                  radius="sm"
+                  radius="md"
                   borderColor="neutral-faded"
                   borderStyle="solid"
                   borderWidth={1}
