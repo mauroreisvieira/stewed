@@ -1,6 +1,6 @@
-import React, { useMemo, useState } from "react";
+import { useMemo, useState, type ReactElement } from "react";
 // Utilities
-import { sortData, TSortDirection } from "@stewed/utilities";
+import { sortData, type TSortDirection } from "@stewed/utilities";
 // TYpes
 import { type TableRowProps } from "../../";
 
@@ -28,7 +28,7 @@ export interface ColumnsDef<T> {
    * @param props - The properties passed to the function for rendering the header cell.
    * @returns A React element or a string representing the content of the header cell.
    */
-  headCell?: (props: HeadCellRenderProps<T>) => React.ReactElement | string;
+  headCell?: (props: HeadCellRenderProps<T>) => ReactElement | string;
   /**
    * A function used to render the content of a body cell.
    *

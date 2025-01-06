@@ -1,4 +1,4 @@
-import React, { use, createContext } from "react";
+import { use, createContext, type Context, type Dispatch, type SetStateAction } from "react";
 
 /**
  * Dummy function to throw an error when tab is not provided by a TabsProvider.
@@ -31,7 +31,7 @@ export interface TabsContextProps<T extends string> {
    * A state updater function for setting the selected value internally.
    * This is typically used in uncontrolled mode.
    */
-  setSelectedValue?: React.Dispatch<React.SetStateAction<T | undefined>>;
+  setSelectedValue?: Dispatch<SetStateAction<T | undefined>>;
   /** Callback fired when the value changes. */
   onValueChange?: (value: T) => void;
 }
@@ -68,5 +68,5 @@ export const TabsContext = createTabsContext();
  * @returns Tabs context values.
  */
 export function useTabs<T extends string>() {
-  return use(TabsContext as unknown as React.Context<TabsContextProps<T>>);
+  return use(TabsContext as unknown as Context<TabsContextProps<T>>);
 }

@@ -1,5 +1,5 @@
 // Hook
-import { useKey } from "../index";
+import { useKey } from "../../index";
 // Utilities
 import { renderHook } from "@testing-library/react";
 import { type Mock } from "vitest";

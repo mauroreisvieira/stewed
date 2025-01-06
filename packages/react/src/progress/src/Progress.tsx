@@ -79,7 +79,7 @@ export function Progress({
           {Array.from({ length: steps + 1 }).map((_, index) => (
             <span
               className={cssClasses.step}
-              key={index}
+              key={crypto.randomUUID()}
               style={{ left: `${(100 / steps) * index}%` }}
             />
           ))}

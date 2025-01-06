@@ -1,4 +1,4 @@
-import { ClickOutsideManager, type ClickOutsideOptions } from "./clickOutsideManager";
+import { ClickOutsideManager, type ClickOutsideOptions } from "./click-outside-manager";
 
 /** This class describes a click outside. */
 export class ClickOutside {

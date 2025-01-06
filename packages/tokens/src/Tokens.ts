@@ -1,20 +1,20 @@
 // Tokens
-import { blur } from "./tokens/Blur";
-import { breakpoints } from "./tokens/Breakpoints";
-import { color, skin, type Color, type Skin } from "./tokens/Color";
-import { components, type Components } from "./Components";
-import { duration, timing } from "./tokens/Transition";
-import { elevation } from "./tokens/Elevation";
-import { fontFamily } from "./tokens/FontFamily";
-import { fontSize } from "./tokens/FontSize";
-import { fontWeight } from "./tokens/FontWeight";
-import { lineHeight } from "./tokens/LineHeight";
-import { palette, type Palette } from "./tokens/Palette";
-import { radius } from "./tokens/Radius";
-import { screens } from "./tokens/Screens";
-import { shadow } from "./tokens/Shadow";
-import { spacings } from "./tokens/Spacings";
-import { viewport } from "./tokens/Viewport";
+import { blur } from "./tokens/blur";
+import { breakpoints } from "./tokens/breakpoints";
+import { color, skin, type Color, type Skin } from "./tokens/color";
+import { components, type Components } from "./components";
+import { duration, timing } from "./tokens/transition";
+import { elevation } from "./tokens/elevation";
+import { fontFamily } from "./tokens/font-family";
+import { fontSize } from "./tokens/font-size";
+import { fontWeight } from "./tokens/font-weight";
+import { lineHeight } from "./tokens/line-height";
+import { palette, type Palette } from "./tokens/palette";
+import { radius } from "./tokens/radius";
+import { screens } from "./tokens/screens";
+import { shadow } from "./tokens/shadow";
+import { spacings } from "./tokens/spacings";
+import { viewport } from "./tokens/viewport";
 
 /**
  * LooseAutoComplete is a utility type that allows either a specific set of

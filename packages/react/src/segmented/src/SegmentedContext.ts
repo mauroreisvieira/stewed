@@ -1,4 +1,4 @@
-import React, { use, createContext } from "react";
+import { use, createContext, type Context } from "react";
 
 /**
  * Dummy function to throw an error when segmented is not provided by a SegmentedProvider.
@@ -51,5 +51,5 @@ export const SegmentedContext = createSegmentedContext();
  * @returns Segmented context values.
  */
 export function useSegmented<T extends string>() {
-  return use(SegmentedContext as unknown as React.Context<SegmentedContextProps<T>>);
+  return use(SegmentedContext as unknown as Context<SegmentedContextProps<T>>);
 }

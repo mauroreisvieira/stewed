@@ -5,7 +5,7 @@ import { Theme, useTheme } from "../..";
 // Hooks
 import { useBem, usePortal, type UsePortalProps } from "@stewed/hooks";
 // Tokens
-import { Elevation, components } from "@stewed/tokens";
+import { components, type Elevation } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 

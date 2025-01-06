@@ -1,3 +1,4 @@
+import { mergeConfig, type InlineConfig } from "vite";
 import type { StorybookConfig } from "@storybook/react-vite";
 
 const config: StorybookConfig = {
@@ -37,6 +38,16 @@ const config: StorybookConfig = {
   },
   docs: {
     autodocs: "tag"
+  },
+  async viteFinal(config: InlineConfig): InlineConfig {
+    config.plugins = config.plugins!.filter((plugin) => plugin!.name !== "vite:dts");
+    const newConfig: InlineConfig = mergeConfig(config, {
+      build: {
+        chunkSizeWarningLimit: 1800
+      }
+    });
+
+    return newConfig;
   }
 };
 

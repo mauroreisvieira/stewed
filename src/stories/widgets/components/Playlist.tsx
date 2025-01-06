@@ -23,6 +23,7 @@ import { PiQueue } from "react-icons/pi";
 // Data
 import { songs } from "./data";
 import { Separator } from "@stewed/react";
+import { title } from "process";
 
 export function Playlist(): React.ReactElement {
   const { data } = useFetchImages({ query: "playlist", perPage: songs.length });
@@ -147,7 +148,7 @@ export function Playlist(): React.ReactElement {
                     <ListBox>
                       {songs.map(({ title, genre, album, artist }, idx) => (
                         <ListBox.Item
-                          key={idx}
+                          key={title}
                           selected={index === idx}
                           onClick={() => {
                             setIndex(idx);
@@ -167,13 +168,14 @@ export function Playlist(): React.ReactElement {
                             />
                           }
                           rightSlot={
+                            // eslint-disable-next-line no-nested-ternary
                             index === idx ? (
                               isPlaying ? (
                                 <LuPause size={18} />
                               ) : (
                                 <LuPlay size={18} />
                               )
-                            ) : undefined
+                            ) : null
                           }
                         >
                           <Box

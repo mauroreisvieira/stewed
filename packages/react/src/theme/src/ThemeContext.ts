@@ -1,4 +1,4 @@
-import React, { use, createContext } from "react";
+import { use, createContext, type Dispatch, type Context, type SetStateAction } from "react";
 // Types
 import type { Tokens } from "@stewed/tokens";
 
@@ -54,9 +54,9 @@ export interface ThemeContextProps<T extends string> {
   /** Currently selected token. */
   activeToken: Tokens;
   /** Setter function for updating the current active theme. */
-  setTheme: React.Dispatch<React.SetStateAction<ThemeContextProps<T>["theme"]>>;
+  setTheme: Dispatch<SetStateAction<ThemeContextProps<T>["theme"]>>;
   /** Setter function for updating the theme tokens. */
-  setTokens: React.Dispatch<React.SetStateAction<ThemeContextProps<T>["tokens"] | undefined>>;
+  setTokens: Dispatch<SetStateAction<ThemeContextProps<T>["tokens"] | undefined>>;
 }
 
 /**
@@ -93,5 +93,5 @@ export const ThemeContext = createThemeContext<string>();
  * @returns Theme context values.
  */
 export function useTheme<T extends string>() {
-  return use(ThemeContext as React.Context<ThemeContextProps<T>>);
+  return use(ThemeContext as Context<ThemeContextProps<T>>);
 }

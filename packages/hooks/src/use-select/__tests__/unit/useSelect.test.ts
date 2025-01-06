@@ -1,4 +1,4 @@
-import { useSelect } from "../index";
+import { useSelect } from "../../index";
 // Utilities
 import { renderHook, act } from "@testing-library/react";
 

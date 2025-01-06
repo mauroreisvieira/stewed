@@ -8,7 +8,7 @@ describe("Dialog", () => {
   describe("Snapshots", () => {
     it("should renders default component", () => {
       const { baseElement } = render(
-        <Dialog open={true}>
+        <Dialog open>
           <Dialog.Header>Header</Dialog.Header>
           <Dialog.Body>Body</Dialog.Body>
           <Dialog.Footer>Footer</Dialog.Footer>
@@ -20,7 +20,7 @@ describe("Dialog", () => {
 
     it("should renders close button component", () => {
       const { baseElement } = render(
-        <Dialog onClose={vitest.fn()} open={true}>
+        <Dialog onClose={vitest.fn()} open>
           <Dialog.Header>Header</Dialog.Header>
           <Dialog.Body>Body</Dialog.Body>
         </Dialog>
@@ -31,7 +31,7 @@ describe("Dialog", () => {
 
     it("should applies correct size classes", () => {
       const { baseElement } = render(
-        <Dialog size="xl" open={true}>
+        <Dialog size="xl" open>
           <Dialog.Header className="other-header-class">Header</Dialog.Header>
           <Dialog.Body className="other-body-class">Body</Dialog.Body>
           <Dialog.Footer className="other-footer-class">Footer</Dialog.Footer>
@@ -43,7 +43,7 @@ describe("Dialog", () => {
 
     it("should render additional classes", () => {
       const { baseElement } = render(
-        <Dialog className="other-class" open={true}>
+        <Dialog className="other-class" open>
           <Dialog.Header className="other-header-class">Header</Dialog.Header>
           <Dialog.Body className="other-body-class">Body</Dialog.Body>
           <Dialog.Footer className="other-footer-class">Footer</Dialog.Footer>

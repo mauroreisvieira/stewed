@@ -1,11 +1,9 @@
-import React, { useMemo, useReducer, SyntheticEvent } from "react";
+import { useMemo, useReducer, type ChangeEvent, type Dispatch, type SyntheticEvent } from "react";
 // Utilities
 import { objectKeys } from "@stewed/utilities";
 
 /** Represents native change events for common form elements. */
-type NativeChangeEvents = React.ChangeEvent<
-  HTMLInputElement & HTMLTextAreaElement & HTMLSelectElement
->;
+type NativeChangeEvents = ChangeEvent<HTMLInputElement & HTMLTextAreaElement & HTMLSelectElement>;
 
 /**
  * Represents a collection of validation functions for each field in a form.
@@ -83,7 +81,7 @@ interface UseStateForm<T> {
   /** Represents the current state of the form. */
   formData: { [key in keyof T]: FormData<T> };
   /** Function to update the form data state */
-  setFormData: React.Dispatch<Partial<T>>;
+  setFormData: Dispatch<Partial<T>>;
   /** Event handler for form field changes. */
   onFormChange: (event: NativeChangeEvents) => void;
   /** Event handler for form submission. */

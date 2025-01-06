@@ -2,7 +2,7 @@ import React from "react";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
-import { components, Duration, Timing } from "@stewed/tokens";
+import { components, type Duration, type Timing } from "@stewed/tokens";
 // Utilities
 import { classNames } from "@stewed/utilities";
 // Styles

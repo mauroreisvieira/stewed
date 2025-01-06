@@ -1,4 +1,4 @@
-import { useAsync } from "../index";
+import { useAsync } from "../../index";
 // Utilities
 import { renderHook, act, waitFor } from "@testing-library/react";
 

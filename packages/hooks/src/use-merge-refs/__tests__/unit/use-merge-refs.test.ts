@@ -1,4 +1,4 @@
-import { RefObject, createRef } from "react";
+import { createRef, type RefObject } from "react";
 // Hooks
 import { useMergeRefs } from "../../index";
 // Utilities

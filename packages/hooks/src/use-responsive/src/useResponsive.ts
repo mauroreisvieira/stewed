@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 // Tokens
-import { defaultTokens, type Breakpoints } from "@stewed/tokens";
+import type { defaultTokens, Breakpoints } from "@stewed/tokens";
 // Hooks
 import { useMounted } from "../../use-mounted";
 

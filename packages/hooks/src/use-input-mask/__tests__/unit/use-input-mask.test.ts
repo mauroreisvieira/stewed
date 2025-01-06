@@ -1,5 +1,6 @@
-import { renderHook, act } from "@testing-library/react";
 import { useInputMask } from "../../index";
+// Utilities
+import { renderHook, act } from "@testing-library/react";
 
 describe("useInputMask", () => {
   it("should initialize with default value and format it correctly if mask is provided", () => {

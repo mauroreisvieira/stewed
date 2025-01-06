@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import { useEffect, useCallback, type RefObject } from "react";
 
 /**
  * Props for configuring a resize observer hook that monitors changes in the dimensions
@@ -8,7 +8,7 @@ import React, { useEffect, useCallback } from "react";
  */
 interface UseResizeObserverProps<T> {
   /** A reference to the DOM element to observe. */
-  elementRef: React.RefObject<T | null>;
+  elementRef: RefObject<T | null>;
   /**
    * A boolean indicating whether the resize observer is enabled.
    * When set to `false`, the observer will not track size changes for the element.

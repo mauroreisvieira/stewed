@@ -1,4 +1,4 @@
-import { useMounted } from "../index";
+import { useMounted } from "../../index";
 // Utilities
 import { renderHook, act } from "@testing-library/react";
 

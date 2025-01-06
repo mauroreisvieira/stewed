@@ -24,8 +24,8 @@ export function ListenNow(): React.ReactElement {
         }}
         gap="md"
       >
-        {Array.from({ length: 4 }).map((_, key) => (
-          <AspectRatio key={key} ratio="2:3" radius="md">
+        {Array.from({ length: 4 }).map(() => (
+          <AspectRatio key={crypto.randomUUID()} ratio="2:3" radius="md">
             <Skeleton size="auto" />
           </AspectRatio>
         ))}
@@ -55,8 +55,8 @@ export function ListenNow(): React.ReactElement {
       }}
       loop={false}
     >
-      {data?.results?.map(({ urls, user, alt_description }, index) => (
-        <Card key={index} shadow="none" padding={{ block: "lg", inline: "md" }}>
+      {data?.results?.map(({ urls, user, alt_description }) => (
+        <Card key={user.username} shadow="none" padding={{ block: "lg", inline: "md" }}>
           <Card.Media image={{ src: `${urls.raw}&w=300&h=500&fit=crop`, alt: alt_description }} />
           <Card.Body>
             <Text size="sm" weight="medium">
