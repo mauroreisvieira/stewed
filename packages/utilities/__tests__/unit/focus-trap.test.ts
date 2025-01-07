@@ -1,4 +1,4 @@
-import { FocusTrap } from "../index";
+import { FocusTrap } from "../../index";
 // Utilities
 import { fireEvent } from "@testing-library/react";
 

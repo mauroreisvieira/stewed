@@ -8,7 +8,7 @@ import {
   isChrome,
   isWebKit,
   isAndroid
-} from "../index";
+} from "../../index";
 
 describe("Platform and Browser Detection", () => {
   beforeEach(() => {

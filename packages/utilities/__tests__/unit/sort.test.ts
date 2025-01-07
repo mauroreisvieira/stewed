@@ -1,4 +1,4 @@
-import { sortData, SortDirection } from "../index";
+import { sortData, SortDirection } from "../../index";
 
 interface Item {
   id: number;

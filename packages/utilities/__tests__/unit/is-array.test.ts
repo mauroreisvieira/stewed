@@ -1,4 +1,4 @@
-import { isArray } from "../index";
+import { isArray } from "../../index";
 
 describe("isArray", () => {
   it("should return true for an array of numbers", () => {
