@@ -9,7 +9,7 @@ import { classNames } from "@stewed/utilities";
 import styles from "./styles/index.module.scss";
 
 /** Represents the animation options or states for a component or application. */
-type TAnimation =
+type MotionAnimation =
   | "scale-in"
   | "scale-out"
   | "zoom-in"
@@ -43,7 +43,7 @@ interface ChildProps {
  */
 export interface MotionProps {
   /** The animation type. */
-  animation?: TAnimation;
+  animation?: MotionAnimation;
   /**
    * The duration of the animation.
    * @default quickly

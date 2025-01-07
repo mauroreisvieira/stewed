@@ -1,6 +1,6 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect, useMemo } from "react";
 // UI Components
-import { Backdrop, Motion, Scope, useTheme, type BackdropProps } from "../..";
+import { Backdrop, Motion, MotionProps, Scope, useTheme, type BackdropProps } from "../..";
 // Context
 import { DialogContext, type DialogContextProps } from "./DialogContext";
 // Compound Component
@@ -59,6 +59,11 @@ export interface DialogProps
    */
   keepMounted?: boolean;
   /**
+   * The preferred placement of the dialog.
+   * @default "center"
+   */
+  placement?: "top" | "center" | "bottom";
+  /**
    * Whether to keep the element in the DOM while the drawer is closed.
    * @default false
    */
@@ -100,6 +105,7 @@ export function Dialog({
     block: "xl",
     inline: "xl"
   },
+  placement = "center",
   responsive,
   scrollInViewport = false,
   keepMounted = false,
@@ -146,6 +152,7 @@ export function Dialog({
     root: getBlock({
       modifiers: [
         computedProps.size,
+        placement,
         open && "open",
         scrollInViewport && "scroll-in-viewport",
         safeMargin && `safe-margin-${safeMargin}`,
@@ -195,6 +202,22 @@ export function Dialog({
     }
   };
 
+  // Determine the animation class based on the placement and open state.
+  const animation = useMemo(() => {
+    // For "top" placement, use sliding animations from/to the top.
+    if (placement === "top") {
+      return open ? "slide-in-top" : "slide-out-top";
+    }
+
+    // For "bottom" placement, use sliding animations from/to the bottom.
+    if (placement === "bottom") {
+      return open ? "slide-in-bottom" : "slide-out-bottom";
+    }
+
+    // Default animation for other placements: a soft zoom effect.
+    return open ? "zoom-in-soft" : "zoom-out-soft";
+  }, [open, placement]);
+
   return (
     <>
       {(keepMounted || shouldRender) && (
@@ -204,13 +227,7 @@ export function Dialog({
           </Motion>
           <DialogContext value={{ onClose }}>
             <div className={cssClasses.root} {...props}>
-              <Motion
-                timing="ease-out-back"
-                duration="quickly"
-                animation={open ? "zoom-in-soft" : "zoom-out-soft"}
-                onDone={onHandleAnimationEnd}
-                asChild
-              >
+              <Motion animation={animation} onDone={onHandleAnimationEnd} asChild>
                 <div
                   ref={setRootRef}
                   role="dialog"

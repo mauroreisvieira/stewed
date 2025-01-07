@@ -86,7 +86,7 @@ export const HugeContent: Story = {
           </Dialog.Header>
           <Dialog.Separator />
           <Dialog.Body>
-            {Array.from({ length: 100 }).map(() => (
+            {Array.from({ length: 50 }).map(() => (
               <Text key={crypto.randomUUID()}>
                 Pellentesque elementum diam sapien, nec ultrices risus convallis eget. Nam pharetra
                 dolor at dictum tempor. Quisque ut est a ligula hendrerit sodales. Curabitur ornare

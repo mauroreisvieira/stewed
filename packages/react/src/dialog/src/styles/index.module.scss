@@ -3,7 +3,9 @@
 
 @include theme.scope($dialog-root) {
   position: fixed;
+  box-sizing: border-box;
   display: flex;
+  justify-content: center;
   width: 100%;
   height: theme.get-var(height);
   padding-block: theme.get-var(padding-block);
@@ -22,10 +24,10 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    width: calc(100% - theme.get-var(safe-margin));
+    width: 100%;
     max-width: theme.get-var(width);
-    max-height: calc(100% - theme.get-var(safe-margin));
-    margin: auto;
+    height: max-content;
+    max-height: 100%;
     background-color: theme.get-var(background-color);
     border-radius: theme.get-var(border-radius);
     box-shadow: theme.get-var(shadow);
@@ -79,6 +81,18 @@
         overflow-y: unset;
       }
     }
+  }
+
+  &--center {
+    align-items: center;
+  }
+
+  &--top {
+    align-items: start;
+  }
+
+  &--bottom {
+    align-items: end;
   }
 
   // Safe Margin
