@@ -25,8 +25,7 @@ const config: StorybookConfig = {
       // Makes union prop types like variant and size appear as select controls
       shouldExtractLiteralValuesFromEnum: true,
       // Makes string and boolean types that can be undefined appear as inputs and switches
-      shouldRemoveUndefinedFromOptional: true,
-      propFilter: () => true
+      shouldRemoveUndefinedFromOptional: true
     }
   },
   core: {
@@ -39,15 +38,20 @@ const config: StorybookConfig = {
   docs: {
     autodocs: "tag"
   },
+  /**
+   * Function used to change chunk size limit.
+   *
+   * @param      {InlineConfig}  config  The configuration
+   * @return     {InlineConfig}  The inline configuration.
+   */
   async viteFinal(config: InlineConfig): InlineConfig {
     config.plugins = config.plugins!.filter((plugin) => plugin!.name !== "vite:dts");
-    const newConfig: InlineConfig = mergeConfig(config, {
+
+    return mergeConfig(config, {
       build: {
         chunkSizeWarningLimit: 1800
       }
     });
-
-    return newConfig;
   }
 };
 
