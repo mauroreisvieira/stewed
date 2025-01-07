@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  height: theme.get-var(height);
+  height: 100%;
   padding-block: theme.get-var(padding-block);
 
   @include theme.define-var(
@@ -15,7 +15,6 @@
       opacity: 0,
       background-color: theme.get-color("background-elevated"),
       border-radius: theme.get-var(radius),
-      height: 100%,
       padding-block: 0
     )
   );
@@ -26,8 +25,8 @@
     flex-direction: column;
     width: 100%;
     max-width: theme.get-var(width);
-    height: max-content;
     max-height: 100%;
+    margin: auto;
     background-color: theme.get-var(background-color);
     border-radius: theme.get-var(border-radius);
     box-shadow: theme.get-var(shadow);
@@ -67,7 +66,6 @@
 
     @include theme.define-var(
       (
-        height: calc(100% - theme.get-var(safe-margin)),
         padding-block: calc(theme.get-var(safe-margin) / 2)
       )
     );
@@ -81,18 +79,6 @@
         overflow-y: unset;
       }
     }
-  }
-
-  &--center {
-    align-items: center;
-  }
-
-  &--top {
-    align-items: start;
-  }
-
-  &--bottom {
-    align-items: end;
   }
 
   // Safe Margin
@@ -126,10 +112,18 @@
   }
 
   // Sizes
-  &--sm {
+  &--xs {
     @include theme.define-var(
       (
         width: 380px
+      )
+    );
+  }
+
+  &--sm {
+    @include theme.define-var(
+      (
+        width: 640px
       )
     );
   }

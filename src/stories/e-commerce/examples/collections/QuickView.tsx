@@ -189,7 +189,7 @@ export function QuickView(): React.ReactElement {
             <Button skin="primary" fullWidth>
               Checkout now
             </Button>
-            <Button skin="neutral" appearance="outline" fullWidth>
+            <Button appearance="outline" fullWidth>
               Add to cart
             </Button>
           </Stack>

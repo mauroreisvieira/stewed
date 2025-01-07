@@ -41,6 +41,7 @@
   &__header,
   &__body,
   &__footer {
+    box-sizing: border-box;
     padding: theme.get-spacing("xl");
   }
 

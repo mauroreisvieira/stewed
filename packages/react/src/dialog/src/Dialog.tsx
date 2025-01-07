@@ -1,6 +1,6 @@
-import React, { useState, useCallback, useEffect, useMemo } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 // UI Components
-import { Backdrop, Motion, MotionProps, Scope, useTheme, type BackdropProps } from "../..";
+import { Backdrop, Motion, Scope, useTheme, type BackdropProps } from "../..";
 // Context
 import { DialogContext, type DialogContextProps } from "./DialogContext";
 // Compound Component
@@ -42,7 +42,7 @@ export interface DialogProps
        * Changes the size of the dialog, will specify the width of the element.
        * @default md
        */
-      size?: "sm" | "md" | "lg" | "xl";
+      size?: "xs" | "sm" | "md" | "lg" | "xl";
       /** Padding options for horizontal and vertical orientation. */
       padding?: {
         /** Adds padding in the block direction (e.g., top and bottom for vertical orientation). */
@@ -58,11 +58,6 @@ export interface DialogProps
    * @default false
    */
   keepMounted?: boolean;
-  /**
-   * The preferred placement of the dialog.
-   * @default "center"
-   */
-  placement?: "top" | "center" | "bottom";
   /**
    * Whether to keep the element in the DOM while the drawer is closed.
    * @default false
@@ -105,7 +100,6 @@ export function Dialog({
     block: "xl",
     inline: "xl"
   },
-  placement = "center",
   responsive,
   scrollInViewport = false,
   keepMounted = false,
@@ -152,7 +146,6 @@ export function Dialog({
     root: getBlock({
       modifiers: [
         computedProps.size,
-        placement,
         open && "open",
         scrollInViewport && "scroll-in-viewport",
         safeMargin && `safe-margin-${safeMargin}`,
@@ -202,22 +195,6 @@ export function Dialog({
     }
   };
 
-  // Determine the animation class based on the placement and open state.
-  const animation = useMemo(() => {
-    // For "top" placement, use sliding animations from/to the top.
-    if (placement === "top") {
-      return open ? "slide-in-top" : "slide-out-top";
-    }
-
-    // For "bottom" placement, use sliding animations from/to the bottom.
-    if (placement === "bottom") {
-      return open ? "slide-in-bottom" : "slide-out-bottom";
-    }
-
-    // Default animation for other placements: a soft zoom effect.
-    return open ? "zoom-in-soft" : "zoom-out-soft";
-  }, [open, placement]);
-
   return (
     <>
       {(keepMounted || shouldRender) && (
@@ -227,7 +204,11 @@ export function Dialog({
           </Motion>
           <DialogContext value={{ onClose }}>
             <div className={cssClasses.root} {...props}>
-              <Motion animation={animation} onDone={onHandleAnimationEnd} asChild>
+              <Motion
+                animation={open ? "zoom-in-soft" : "zoom-out-soft"}
+                onDone={onHandleAnimationEnd}
+                asChild
+              >
                 <div
                   ref={setRootRef}
                   role="dialog"

@@ -17,14 +17,17 @@ const meta = {
         tokens={{
           default: {
             color: {
+              "primary-foreground-on-background": "#fff",
               "primary-background": "slate-900",
               "primary-background-hovered": "slate-800",
               "primary-background-pressed": "slate-800",
-              "primary-foreground-on-background": "#fff",
+              "primary-border": "slate-900",
+              "primary-border-hovered": "slate-800",
               "secondary-background": "slate-100",
               "secondary-background-hovered": "slate-200",
               "secondary-background-pressed": "slate-200",
-              "secondary-foreground-on-background": "slate-800"
+              "secondary-foreground-on-background": "slate-800",
+              focus: "slate-900"
             },
             components: {
               button: {
