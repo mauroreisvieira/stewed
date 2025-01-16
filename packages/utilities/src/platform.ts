@@ -11,18 +11,6 @@ function testUserAgent(re: RegExp): boolean {
 }
 
 /**
- * Tests the given regular expression against the platform string in the browser window.
- *
- * @param re - The regular expression to test.
- * @returns A boolean indicating whether the regular expression matches the platform string.
- */
-function testPlatform(re: RegExp): boolean {
-  return typeof window !== "undefined" && window.navigator
-    ? re.test(window.navigator.platform)
-    : false;
-}
-
-/**
  * Checks if the code is running in a browser environment.
  *
  * @returns A boolean indicating whether the code is running in a browser environment.
@@ -34,14 +22,14 @@ export const isBrowser = (): boolean => typeof window !== "undefined";
  *
  * @returns A boolean indicating whether the current platform is macOS.
  */
-export const isMac = (): boolean => testPlatform(/^Mac/);
+export const isMac = (): boolean => testUserAgent(/^Mac/);
 
 /**
  * Checks if the current platform is iPhone.
  *
  * @returns A boolean indicating whether the current platform is iPhone.
  */
-export const isIPhone = (): boolean => testPlatform(/^iPhone/);
+export const isIPhone = (): boolean => testUserAgent(/^iPhone/);
 
 /**
  * Checks if the current platform is iPad.
@@ -49,7 +37,7 @@ export const isIPhone = (): boolean => testPlatform(/^iPhone/);
  * @returns A boolean indicating whether the current platform is iPad.
  */
 export const isIPad = (): boolean =>
-  testPlatform(/^iPad/) || (isMac() && navigator.maxTouchPoints > 1);
+  testUserAgent(/^iPad/) || (isMac() && navigator.maxTouchPoints > 1);
 
 /**
  * Checks if the current platform is iOS.
