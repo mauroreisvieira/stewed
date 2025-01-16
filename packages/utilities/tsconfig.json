@@ -3,7 +3,7 @@
   "compilerOptions": {
     "outDir": "./dist",
     "module": "ES2020",
-    "types": ["vitest/globals"]
+    "types": ["vitest", "node"]
   },
   "include": ["index.ts", "./src/**/*", "./src/index.ts*"],
   "exclude": ["node_modules", "dist"]

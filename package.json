@@ -78,7 +78,8 @@
     "stylelint-prettier": "^5.0.2",
     "stylelint-scss": "^6.10.0",
     "turbo": "^2.3.3",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "@types/jest": "^29.5.14"
   },
   "optionalDependencies": {
     "@nx/nx-linux-x64-gnu": "^20.3.0"
