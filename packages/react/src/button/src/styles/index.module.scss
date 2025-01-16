@@ -46,6 +46,18 @@
 
   &--loading {
     pointer-events: none;
+
+    .#{$button-root} {
+      &__spinner {
+        position: absolute;
+      }
+
+      &__left,
+      &__right,
+      &__text {
+        visibility: hidden;
+      }
+    }
   }
 
   @each $value in $button-skins {

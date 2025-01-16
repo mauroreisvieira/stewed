@@ -16,7 +16,7 @@ const defaultElement = "div";
  * Props for the Box component.
  * Extends the default properties of a specified HTML element (default is "div").
  *
- * @template E - The type of the HTML element that the Box component will render. 
+ * @template E - The type of the HTML element that the Box component will render.
  * This allows flexibility to render the tag as a different element (e.g., "span", "a", etc.).
  */
 export type BoxProps<E extends React.ElementType = React.ElementType> = CombinedProps<
