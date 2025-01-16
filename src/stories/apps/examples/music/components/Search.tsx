@@ -57,8 +57,8 @@ export function Search(): React.ReactElement {
           <Box padding={{ block: "md", inline: "sm" }} style={{ width: `${reference?.width}px` }}>
             <ListBox>
               <ListBox.Group title="Recent searches">
-                {RECENT_SEARCH.map((value, index) => (
-                  <Hoverable key={index}>
+                {RECENT_SEARCH.map((value) => (
+                  <Hoverable key={crypto.randomUUID()}>
                     {({ isHovering, isTouch }) => (
                       <ListBox.Item
                         as="a"

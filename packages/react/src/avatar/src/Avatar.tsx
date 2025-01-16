@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useState, type ElementType } from "react";
+import React, { forwardRef, useCallback, useState } from "react";
 // Compound Component
 import { AvatarGroup } from "./AvatarGroup";
 // Hooks
@@ -19,15 +19,15 @@ const defaultElement = "div";
  * This interface extends the properties of a default HTML element (e.g., `img`)
  * while omitting the `children` property to allow a custom rendering approach.
  *
- * @template T - The type of the element being used for the Avatar.
+ * @template E - The type of the element being used for the Avatar.
  */
-type AvatarProps<T extends ElementType = ElementType> = CombinedProps<
+export type AvatarProps<E extends React.ElementType = React.ElementType> = CombinedProps<
   {
     /**
      * Specifies the type of element to use as the avatar.
      * @default div
      */
-    as?: T;
+    as?: E;
     /** The name associated with the avatar. */
     name?: string;
     /**
@@ -68,7 +68,7 @@ type AvatarProps<T extends ElementType = ElementType> = CombinedProps<
     /** Slot for an SVG icon, a possible alternative to using an image. */
     svgIcon?: React.ComponentPropsWithoutRef<"svg">;
   },
-  T
+  E
 >;
 
 /**
@@ -157,7 +157,9 @@ const Root = forwardRef(
       </Comp>
     );
   }
-) as <T extends ElementType = typeof defaultElement>(props: AvatarProps<T>) => React.ReactElement;
+) as <E extends React.ElementType = typeof defaultElement>(
+  props: AvatarProps<E>
+) => React.ReactElement;
 
 // Compound component composition
 export const Avatar = Object.assign(Root, {

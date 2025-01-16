@@ -48,8 +48,9 @@ export const LeftSlot: Story = {
 
 export const Loading: Story = {
   args: {
-    children: "",
+    children: "Child",
     size: "md",
-    loading: true
+    loading: true,
+    iconOnly: true
   }
 };

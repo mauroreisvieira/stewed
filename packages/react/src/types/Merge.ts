@@ -13,7 +13,7 @@ export type Merge<T, U> = Omit<T, keyof U> & U;
 /**
  * Represents the intrinsic attributes for a given element type.
  *
- * This type combines the intrinsic attributes of a JSX element or a React
+ * This type combines the intrinsic attributes of a `JSX` element or a `React`
  * component constructor with the props that can be passed to it.
  *
  * @template E - The type of the element, which can be a key of JSX.IntrinsicElements or a React component constructor.
@@ -25,9 +25,8 @@ export type IntrinsicAttributes<
 /**
  * Combines custom props with intrinsic attributes for a flexible component.
  *
- * This type allows a component to accept both its own props and the intrinsic
- * attributes of the element it renders as. It omits any keys from the intrinsic
- * attributes that are already defined in the custom props to avoid conflicts.
+ * This type allows a component to accept both its own props and the intrinsic attributes of the element it renders as.
+ * It omits any keys from the intrinsic attributes that are already defined in the custom props to avoid conflicts.
  *
  * @template I - The type of the custom props for the component.
  * @template E - The type of the element that the component can render as.

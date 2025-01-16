@@ -25,7 +25,7 @@ import { HiStar, HiMinusSm, HiOutlinePlusSm } from "react-icons/hi";
 import { PRODUCTS, SIZES } from "../data";
 
 export function Details(): React.ReactElement {
-  const { data } = useFetchImages({ query: "fashion", perPage: 5 });
+  const { data } = useFetchImages({ query: "fashion", perPage: 6 });
 
   // This prevents unnecessary recalculations when the component re-renders.
   const product = useMemo(() => PRODUCTS.find(({ discount }) => discount), []);
