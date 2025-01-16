@@ -21,9 +21,10 @@ function mockNavigator(userAgent: string) {
   });
 }
 
-// Restore global `window` to its original state
+// Simulate a non-browser environment
 function restoreWindow() {
-  global.window = window; // Reassign it to the default window object
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (global as any).window = undefined; // Set `window` to `undefined`
 }
 
 // Helper to restore the default navigator
