@@ -1,5 +1,11 @@
 # @stewed/utilities
 
+## 0.3.3
+
+### Patch Changes
+
+- 27184d7: Update `isTouch` function on `platform.ts` utility
+
 ## 0.3.2
 
 ### Patch Changes
