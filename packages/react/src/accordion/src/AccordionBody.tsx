@@ -18,6 +18,8 @@ export type AccordionBodyProps = React.ComponentPropsWithoutRef<"div">;
  *
  * @param props - The props for the `AccordionBody` component.
  * @returns The rendered `AccordionBody` component.
+ *
+ * @see {@link AccordionBodyProps} for the complete list of props.
  */
 export function AccordionBody({
   className,

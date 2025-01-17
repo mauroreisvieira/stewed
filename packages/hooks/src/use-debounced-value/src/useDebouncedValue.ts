@@ -3,17 +3,17 @@ import { useState, useEffect } from "react";
 /**
  * Hook that debounces a value before updating it.
  *
- * @example
- * ```ts
- *  const [inputValue, setInputValue] = useState("");
- *  const debouncedValue = useDebouncedValue(inputValue, setInputValue);
- * ```
- *
  * @template T - The type of the value being debounced.
  *
  * @param value - The current value that needs to be debounced.
  * @param setValue - The function to update the debounced value after the delay.
  * @returns The debounced value.
+ *
+ * @example
+ * ```ts
+ *  const [inputValue, setInputValue] = useState("");
+ *  const debouncedValue = useDebouncedValue(inputValue, setInputValue);
+ * ```
  */
 export function useDebouncedValue<T>(value: T, setValue: (val: T) => void): T {
   const [debouncedValue, setDebouncedValue] = useState(value);

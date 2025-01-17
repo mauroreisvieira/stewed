@@ -49,13 +49,7 @@ export default [
       "check-file/folder-naming-convention": [
         "error",
         {
-          "packages/**/": "KEBAB_CASE"
-        }
-      ],
-      "check-file/folder-match-with-fex": [
-        "error",
-        {
-          "*.test.{js,jsx,ts,tsx}": "**/__tests__/unit/"
+          "packages/**/!(__tests|mocks__)": "KEBAB_CASE"
         }
       ]
     }

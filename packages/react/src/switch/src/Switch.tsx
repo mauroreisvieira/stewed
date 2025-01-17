@@ -9,6 +9,10 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Props for the Switch component.
+ * Extends the standard input element props while omitting the "size" property.
+ */
 export interface SwitchProps
   extends Omit<React.ComponentPropsWithRef<"input">, "size">,
     UseResponsiveProps<{
@@ -41,8 +45,10 @@ export interface SwitchProps
  *
  * @remarks This component props extended from React.InputHTMLAttributes<HTMLInputElement>.
  *
- * @param {SwitchProps} props - The props for the Switch component.
- * @returns {React.ReactElement} - The rendered Switch component.
+ * @param props - The props for the Switch component.
+ * @returns The rendered Switch component.
+ *
+ * @see {@link SwitchProps} for the complete list of props.
  */
 export function Switch({
   skin = "primary",

@@ -48,13 +48,15 @@ export interface BadgeProps extends Omit<React.ComponentPropsWithoutRef<"span">,
  * This component displays an badge component.
  * Badge consists of a small circle notification element.
  *
+ * @param props - The props for the Badge component.
+ * @returns The rendered Badge component.
+ *
+ * @see {@link BadgeProps} for the complete list of props.
+ *
  * @example
  * ```tsx
  * <Badge value="10" skin="neutral" />
  * ```
- *
- * @param {BadgeProps} props - The props for the Badge component.
- * @returns {React.ReactElement} - The rendered Badge component.
  */
 export function Badge({
   skin = "primary",

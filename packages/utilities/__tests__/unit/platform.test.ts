@@ -1,5 +1,3 @@
-// eslint-disable-next-line check-file/folder-naming-convention
-import { describe, it, expect, afterEach } from "vitest";
 import {
   testUserAgent,
   isBrowser,
@@ -12,6 +10,8 @@ import {
   isTouch,
   isClient
 } from "../../index";
+// Utilities
+import { describe, it, expect, afterEach } from "vitest";
 
 // Helper to mock `window.navigator.userAgent`
 function mockNavigator(userAgent: string) {
@@ -35,7 +35,7 @@ function restoreNavigator() {
   });
 }
 
-describe("Utilities", () => {
+describe("Platform", () => {
   afterEach(() => {
     restoreNavigator();
   });

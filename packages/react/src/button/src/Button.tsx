@@ -67,16 +67,18 @@ export type ButtonProps<E extends React.ElementType = React.ElementType> = Combi
  * Button component is used to trigger an action or event, such as submitting a form, opening a Dialog, canceling an action,
  * or performing a delete operation.
  *
+ * @remarks This component is a polymorphic component can be rendered as a different element
+ * and support all native props from the element passed on `as` prop.
+ *
+ * @param props - The props for the Button component.
+ * @returnsThe rendered Button component.
+ *
+ * @see {@link ButtonProps} for the complete list of props.
+ *
  * @example
  * ```tsx
  * <Button skin="neutral">Button</Button>
  * ```
- *
- * @remarks This component is a polymorphic component can be rendered as a different element
- * and support all native props from the element passed on `as` prop.
- *
- * @param {ButtonProps} props - The props for the Button component.
- * @returns {React.ReactElement} - The rendered Button component.
  */
 export const Button = forwardRef(
   (

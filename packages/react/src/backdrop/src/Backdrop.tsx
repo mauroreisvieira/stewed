@@ -6,6 +6,10 @@ import { components, type Blur } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Props for the Backdrop component.
+ * Extends the standard div element props to allow for additional customization.
+ */
 export interface BackdropProps extends React.ComponentPropsWithoutRef<"div"> {
   /** Whether to apply a blur effect to the backdrop. */
   blur?: Blur;
@@ -14,16 +18,18 @@ export interface BackdropProps extends React.ComponentPropsWithoutRef<"div"> {
 /**
  * Backdrop component to provide a overlay behind other content.
  *
- * @example
- * ```tsx
- * <Backdrop blur="md" />
- * ```
- *
  * @remarks
  * This component extends `React.ComponentPropsWithoutRef<"div">`.
  *
  * @param props - The props for the Backdrop component.
  * @returns The rendered Backdrop component.
+ *
+ * @see {@link BackdropProps} for the complete list of props.
+ *
+ * @example
+ * ```tsx
+ * <Backdrop blur="md" />
+ * ```
  */
 export function Backdrop({
   blur = "none",

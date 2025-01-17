@@ -8,6 +8,10 @@ import { useBem } from "@stewed/hooks";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Props for the CheckboxGroup component.
+ * Extends the standard div element props and includes context properties for managing checkbox states.
+ */
 export interface CheckboxGroupProps
   extends React.ComponentPropsWithoutRef<"div">,
     CheckboxGroupContextProps {
@@ -24,6 +28,11 @@ export interface CheckboxGroupProps
  * Use checkbox group to allow users to select multiple items from a list of individual items,
  * or to mark one individual item as selected.
  *
+ * @remarks This component props extended from React.InputHTMLAttributes<HTMLDIvElement>.
+ *
+ * @param {CheckboxGroupProps} props - The props for the Checkbox Group component.
+ * @returns {React.ReactElement} - The rendered Checkbox component.
+ *
  * @example
  * ```tsx
  * <Checkbox.Group checkedValues={values} onCheckedChange={handleSetCheckedValues}>
@@ -31,11 +40,6 @@ export interface CheckboxGroupProps
  *   <Checkbox name="Blue">Blue</Checkbox>
  * <Checkbox.Group>
  * ```
- *
- * @remarks This component props extended from React.InputHTMLAttributes<HTMLDIvElement>.
- *
- * @param {CheckboxGroupProps} props - The props for the Checkbox Group component.
- * @returns {React.ReactElement} - The rendered Checkbox component.
  */
 export function CheckboxGroup({
   checkedValues,

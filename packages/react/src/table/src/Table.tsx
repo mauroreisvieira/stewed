@@ -12,8 +12,20 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Defines the appearance options for the Table component.
+ *
+ * - "border": A table with borders around all cells.
+ * - "border-rows": A table with borders only on the rows.
+ * - "border-columns": A table with borders only on the columns.
+ * - "striped-rows": A table with alternating row colors for better readability.
+ */
 type TableAppearance = "border" | "border-rows" | "border-columns" | "striped-rows";
 
+/**
+ * Props for the Table component.
+ * Extends the standard table element props to allow for additional customization.
+ */
 export interface TableProps extends React.ComponentPropsWithoutRef<"table"> {
   /**
    * Change the visual appearance of the table.
@@ -24,6 +36,15 @@ export interface TableProps extends React.ComponentPropsWithoutRef<"table"> {
   hoverable?: boolean;
 }
 
+/**
+ * Table component that renders a customizable table element.
+ *
+ * @param props - The properties for the Table component.
+ * @returns The rendered Table component.
+ *
+ * @see {@link TableProps} for the complete list of props.
+ * @see {@link TableAppearance} for the available appearance options.
+ */
 export function Table({
   appearance = "default",
   hoverable,

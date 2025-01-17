@@ -13,9 +13,7 @@ const SHOW_DELAY = 300;
 const HIDE_DELAY = 100;
 const HIDE_DURATION = 100;
 
-/**
- * Represents the possible states of a Tooltip's lifecycle and its related data.
- */
+/** Represents the possible states of a Tooltip's lifecycle and its related data. */
 type State = {
   /**
    * Describes the current stage of the Tooltip.
@@ -114,6 +112,8 @@ export interface TooltipProps<T>
  *
  * @param props - The props for the Tooltip component.
  * @returns The rendered Tooltip component.
+ *
+ * @see {@link TooltipProps} for more details on the available props.
  */
 export function Tooltip<T extends HTMLElement>({
   skin = "default",

@@ -75,18 +75,18 @@ export type AvatarProps<E extends React.ElementType = React.ElementType> = Combi
  * This component displays an avatar component.
  * When the image source is unavailable or the source is unspecified, the avatar component will display a default image.
  *
+ * @remarks This component is a polymorphic component can be rendered as a different element
+ * and support all native props from the element passed on `as` prop.
+ *
+ * @param props - The props for the Avatar component.
+ * @return The rendered Avatar component.
+ *
+ * @see {@link AvatarProps} for more details on the available props.
+ *
  * @example
  * ```tsx
  * <Avatar shape="square" name="Noah Andersen" size="3xl" skin="neutral" />
  * ```
- *
- * @remarks This component is a polymorphic component can be rendered as a different element
- * and support all native props from the element passed on `as` prop.
- *
- * @see {@link AvatarProps} for more details on the available props.
- *
- * @param props - The props for the Avatar component.
- * @return The rendered Avatar component.
  */
 const Root = forwardRef(
   (

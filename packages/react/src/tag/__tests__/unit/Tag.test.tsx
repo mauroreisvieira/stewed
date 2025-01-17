@@ -3,6 +3,7 @@ import React from "react";
 import { Tag, type TagProps } from "../../index";
 // Utilities
 import { render } from "@testing-library/react";
+import { describe, it, expect } from "vitest";
 
 describe("Tag", () => {
   describe("Snapshots", () => {

@@ -8,6 +8,10 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Props for the TabsItem component.
+ * Extends the standard button element props to allow for additional customization.
+ */
 export interface TabsItemProps extends React.ComponentPropsWithoutRef<"button"> {
   /** Sets or retrieves the value of a tab list. */
   value: string;
@@ -17,6 +21,14 @@ export interface TabsItemProps extends React.ComponentPropsWithoutRef<"button"> 
   rightSlot?: React.ReactNode;
 }
 
+/**
+ * TabsItem component that represents an individual tab in a tabbed interface.
+ *
+ * @param props - The properties for the TabsItem component.
+ * @returns {React.ReactElement} The rendered TabsItem component.
+ *
+ * @see {@link TabsItemProps} for the complete list of props.
+ */
 export function TabsItem({
   value,
   disabled,

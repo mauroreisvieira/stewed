@@ -45,6 +45,8 @@ export interface AccordionItemProps
  *
  * @param props - The props for the `AccordionItem` component.
  * @returns The rendered `AccordionItem` component.
+ *
+ * @see {@link AccordionItemProps} for the complete list of props.
  */
 export function AccordionItem({
   value,

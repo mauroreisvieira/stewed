@@ -87,10 +87,10 @@ type TabsProps<T extends string> = TabsDirectionRow<T> | TabsDirectionColumn<T>;
  *
  * @template T - The type of the tab values, extending a string. This allows you to specify a list of tab identifiers.
  *
- * @see {@link TabsProps} for more details on the available props.
- *
  * @param props - The props for the Tabs component, including the tab values, active tab, and other related settings.
  * @returns A React element representing the tab navigation component.
+ *
+ * @see {@link TabsProps} for more details on the available props.
  */
 export function Tabs<T extends string>({
   value,

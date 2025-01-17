@@ -6,6 +6,10 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Props for the TableHead component.
+ * Extends the standard `thead` element props to allow for additional customization.
+ */
 export interface TableHeadProps extends React.ComponentPropsWithoutRef<"thead"> {
   /**
    * Change the visual style of the table head.
@@ -14,6 +18,14 @@ export interface TableHeadProps extends React.ComponentPropsWithoutRef<"thead"> 
   skin?: "default" | "neutral-faded" | "primary-faded";
 }
 
+/**
+ * TableHead component that renders a thead element for a table.
+ *
+ * @param props - The properties for the TableHead component.
+ * @returns The rendered TableHead component.
+ *
+ * @see {@link TableHeadProps} for the complete list of props.
+ */
 export function TableHead({
   skin = "neutral-faded",
   className,

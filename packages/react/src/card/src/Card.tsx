@@ -14,6 +14,10 @@ import { useBem } from "@stewed/hooks";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Props for the Card component.
+ * Extends the standard div element props and includes context properties for managing card state.
+ */
 export interface CardProps extends CardContextProps, React.ComponentPropsWithRef<"div"> {
   /**
    * The direction of the card.
@@ -38,6 +42,13 @@ export interface CardProps extends CardContextProps, React.ComponentPropsWithRef
  * This component displays an card component.
  * Cards component are used to communicate a state that affects a system, feature or page.
  *
+ * @remarks This component props extended from React.ComponentPropsWithRef<"div">.
+ *
+ * @param props - The props for the Card component.
+ * @returns The rendered Card component.
+ *
+ * @see {@link CardProps} for the complete list of props.
+ *
  * @example
  * ```tsx
  * <Card>
@@ -46,11 +57,6 @@ export interface CardProps extends CardContextProps, React.ComponentPropsWithRef
  *    </Card.Body>
  * </Card>
  * ```
- *
- * @remarks This component props extended from React.ComponentPropsWithRef<"div">.
- *
- * @param {CardProps} props - The props for the Card component.
- * @returns {React.ReactElement} - The rendered Card component.
  */
 export function Card({
   ref,

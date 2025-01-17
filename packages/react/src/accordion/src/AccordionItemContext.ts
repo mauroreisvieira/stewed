@@ -14,6 +14,10 @@ export interface AccordionItemContextProps {
   disabled?: boolean;
 }
 
+/**
+ * Context for managing the state of accordion items.
+ * Provides the current value and disabled state for the accordion item.
+ */
 export const AccordionItemContext = createContext<AccordionItemContextProps>({
   value: "",
   disabled: false
@@ -22,8 +26,8 @@ export const AccordionItemContext = createContext<AccordionItemContextProps>({
 /**
  * This hook provides access to the current state and properties of the `AccordionItem` component.
  *
- * @see {@link AccordionItemContextProps} for more details on the available props.
+ * @returns The context properties for the `AccordionItem
  *
- * @returns {AccordionItemContextProps} The context properties for the `AccordionItem
+ * @see {@link AccordionItemContextProps} for more details on the available props.
  */
 export const useAccordionItem = (): AccordionItemContextProps => use(AccordionItemContext);

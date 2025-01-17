@@ -67,6 +67,8 @@ export interface CalendarProps<T>
  * @param props - The properties for the calendar.
  * @returns The rendered calendar component.
  *
+ * @see {@link CalendarProps} for the complete list of props.
+ *
  * @example
  * ```tsx
  * const [selectedDates, setSelectedDates] = useState<DateOrArrayDates>([]);

@@ -6,6 +6,10 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Props for the TextArea component.
+ * Extends the standard textarea element props to allow for additional customization.
+ */
 export interface TextAreaProps extends React.ComponentPropsWithRef<"textarea"> {
   /**
    * Change the visual appearance of the text area.
@@ -46,8 +50,10 @@ export interface TextAreaProps extends React.ComponentPropsWithRef<"textarea"> {
  *
  * @remarks This component support all native props from the `HTMLTextAreaElement`.
  *
- * @param {TextAreaProps} props - The props for the TextArea component.
- * @returns {React.ReactElement} - The rendered TextArea component.
+ * @param props - The props for the TextArea component.
+ * @returns The rendered TextArea component.
+ *
+ * @see {@link TextAreaProps} for more details on the available props.
  */
 export function TextArea({
   skin = "neutral",

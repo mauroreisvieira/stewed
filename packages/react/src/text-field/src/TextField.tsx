@@ -6,6 +6,10 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Props for the TextField component.
+ * Extends the standard input element props while omitting the "size" property.
+ */
 export interface TextFieldProps extends Omit<React.ComponentPropsWithRef<"input">, "size"> {
   /** The ref to attach to the root wrapper `div` element. */
   rootRef?: React.Ref<HTMLDivElement>;
@@ -50,8 +54,10 @@ export interface TextFieldProps extends Omit<React.ComponentPropsWithRef<"input"
  *
  * @remarks This component support all native props from the `HTMLInputElement`.
  *
- * @param {TextFieldProps} props - The props for the TextField component.
- * @returns {React.ReactElement} - The rendered TextField component.
+ * @param props - The props for the TextField component.
+ * @returns The rendered TextField component.
+ *
+ * @see {@link TextFieldProps} for more details on the available props.
  */
 export function TextField({
   rootRef,

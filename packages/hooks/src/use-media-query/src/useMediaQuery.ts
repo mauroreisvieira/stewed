@@ -21,6 +21,7 @@ interface UseMediaQueryProps {
  * @returns {boolean} - `true` if the media query matches, otherwise `false`.
  *
  * @example
+ * ```ts
  * const isLargeScreen = useMediaQuery({ query: "(min-width: 1024px)" });
  *
  * if (isLargeScreen) {
@@ -28,6 +29,7 @@ interface UseMediaQueryProps {
  * } else {
  *   // Render for small screens
  * }
+ * ```
  */
 export function useMediaQuery({ query, defaultValue = false }: UseMediaQueryProps): boolean {
   const queries = useMemo(() => (Array.isArray(query) ? query : [query]), [query]);

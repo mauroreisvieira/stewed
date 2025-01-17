@@ -61,10 +61,10 @@ export type TagProps<E extends React.ElementType = React.ElementType> = Combined
  * @remarks This component is a polymorphic component can be rendered as a different element
  * and support all native props from the element passed on `as` prop.
  *
- * @see {@link TagProps} for more details on the available props.
- *
  * @param props - The props for the Tag component.
  * @returns The rendered Tag component.
+ *
+ * @see {@link TagProps} for more details on the available props.
  */
 export const Tag = forwardRef(
   (

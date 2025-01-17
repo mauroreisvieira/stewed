@@ -6,16 +6,29 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Props for the TableRow component.
+ * Extends the standard `tr` element props to allow for additional customization.
+ */
 export interface TableRowProps extends React.ComponentPropsWithoutRef<"tr"> {
   /**
    * Specifies the visual style of the table row.
    * @default default
    */
   skin?: "default" | "critical";
+
   /** Indicates whether the item is selected. */
   selected?: boolean;
 }
 
+/**
+ * TableRow component that renders a tr element for a table.
+ *
+ * @param props - The properties for the TableRow component.
+ * @returns The rendered TableRow component.
+ *
+ * @see {@link TableRowProps} for the complete list of props.
+ */
 export function TableRow({
   selected = false,
   skin = "default",
