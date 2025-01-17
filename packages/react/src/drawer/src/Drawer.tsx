@@ -35,7 +35,7 @@ export interface DrawerProps
     UseResponsiveProps<{
       /**
        * Specifies the margin around the drawer to ensure safe spacing from the viewport edges.
-       * @default xl
+       * @default none
        */
       safeMargin?: Spacings;
       /**
@@ -43,6 +43,13 @@ export interface DrawerProps
        * @default md
        */
       size?: "sm" | "md";
+      /** Padding options for horizontal and vertical orientation. */
+      padding?: {
+        /** Adds padding in the block direction (e.g., top and bottom for vertical orientation). */
+        block?: Spacings;
+        /** Adds padding in the inline direction (e.g., left and right for vertical orientation). */
+        inline?: Spacings;
+      };
     }> {
   /** The controlled open state of the Drawer. */
   open?: boolean;
@@ -66,6 +73,13 @@ export interface DrawerProps
  * The `Drawer` component displays a modal Drawer.
  * Drawers appear in front of the main content to provide critical information or an actionable piece of content.
  *
+ * @remarks This component extends `ReactDrawerHTMLAttributes<HTMLDivElement>`.
+ *
+ * @param props - The props for the Drawer component.
+ * @returns The rendered Drawer component.
+ *
+ * @see {@link DrawerProps} for more details on the available props.
+ *
  * @example
  * ```tsx
  * <Drawer placement="left" open>
@@ -74,18 +88,16 @@ export interface DrawerProps
  *   </Drawer.Body>
  * </Drawer>
  * ```
- *
- * @remarks
- * This component extends `ReactDrawerHTMLAttributes<HTMLDivElement>`.
- *
- * @param {DrawerProps} props - The props for the Drawer component.
- * @returns {React.ReactElement} - The rendered Drawer component.
  */
 export function Drawer({
   open,
   size = "md",
-  safeMargin = "xl",
+  safeMargin = "none",
   placement = "left",
+  padding = {
+    block: "xl",
+    inline: "xl"
+  },
   keepMounted = false,
   responsive,
   blur,
@@ -133,7 +145,9 @@ export function Drawer({
         computedProps.size,
         placement,
         open && "open",
-        safeMargin && `safe-margin-${safeMargin}`
+        safeMargin && `safe-margin-${safeMargin}`,
+        padding?.block && `padding-block-${padding.block}`,
+        padding?.inline && `padding-inline-${padding.inline}`
       ],
       extraClasses: className
     }),

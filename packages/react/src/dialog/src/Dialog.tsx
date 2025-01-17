@@ -77,6 +77,13 @@ export interface DialogProps
  * The `Dialog` component displays a modal dialog.
  * Dialogs appear in front of the main content to provide critical information or an actionable piece of content.
  *
+ * @remarks This component extends `ReactDialogHTMLAttributes<HTMLDivElement>`.
+ *
+ * @param props - The props for the Dialog component.
+ * @returnsThe rendered Dialog component.
+ *
+ * @see {@link DialogProps} for more details on the available props.
+ *
  * @example
  * ```tsx
  * <Dialog open>
@@ -85,12 +92,6 @@ export interface DialogProps
  *   </Dialog.Body>
  * </Dialog>
  * ```
- *
- * @remarks
- * This component extends `ReactDialogHTMLAttributes<HTMLDivElement>`.
- *
- * @param {DialogProps} props - The props for the Dialog component.
- * @returns {React.ReactElement} - The rendered Dialog component.
  */
 export function Dialog({
   open,

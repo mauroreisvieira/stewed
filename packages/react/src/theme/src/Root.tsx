@@ -118,6 +118,8 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
 
     // Use a Map to keep track of style tags for scoped elements
     const scopedElements = Array.from(document.querySelectorAll(`.${cssScope}`));
+
+    // Map for style tag
     const styleTag = new Map();
 
     // Update styles for all scoped elements

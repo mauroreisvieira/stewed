@@ -12,9 +12,9 @@ interface UseScrollLockProps {
 /**
  * A hook to manage scroll lock.
  *
- * @see {@link UseScrollLockProps} for more details on the available props.
- *
  * @param props - The props object that configures the scroll lock behavior.
+ *
+ * @see {@link UseScrollLockProps} for more details on the available props.
  */
 export function useScrollLock({ enabled = true }: UseScrollLockProps) {
   // Adds class name to document body when an overlay is active

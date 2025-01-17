@@ -3,6 +3,7 @@
 
 @include theme.scope($drawer-root) {
   position: fixed;
+  box-sizing: border-box;
   display: flex;
   width: 100%;
   height: 100%;
@@ -19,6 +20,7 @@
     display: flex;
     flex-direction: column;
     margin: auto;
+    overflow: hidden;
     background-color: theme.get-var(background);
     box-shadow: theme.get-var(shadow);
   }
@@ -41,8 +43,8 @@
   &__header,
   &__body,
   &__footer {
-    box-sizing: border-box;
-    padding: theme.get-spacing("xl");
+    padding-block: theme.get-var(padding-block);
+    padding-inline: theme.get-var(padding-inline);
   }
 
   &--open {
@@ -54,19 +56,19 @@
   }
 
   // Placement
-
   &--right,
   &--left {
     .#{$drawer-root}__surface {
-      width: calc(100% - theme.get-var(safe-margin));
+      inset-block: 0;
+      width: calc(100% - calc(theme.get-var(safe-margin) * 2));
       max-width: theme.get-var(width);
-      height: 100%;
+      height: calc(100% - calc(theme.get-var(safe-margin) * 2));
     }
   }
 
   &--right {
     .#{$drawer-root}__surface {
-      right: 0;
+      right: theme.get-var(safe-margin);
       border-top-left-radius: theme.get-var(radius);
       border-bottom-left-radius: theme.get-var(radius);
     }
@@ -74,7 +76,7 @@
 
   &--left {
     .#{$drawer-root}__surface {
-      left: 0;
+      left: theme.get-var(safe-margin);
       border-top-right-radius: theme.get-var(radius);
       border-bottom-right-radius: theme.get-var(radius);
     }
@@ -82,12 +84,18 @@
 
   &--bottom {
     .#{$drawer-root}__surface {
-      bottom: 0;
-      width: 100%;
-      height: calc(100% - theme.get-var(safe-margin));
-      max-height: theme.get-var(height);
+      inset-inline: 0;
+      bottom: theme.get-var(safe-margin);
+      width: calc(100% - calc(theme.get-var(safe-margin) * 2));
+      max-height: calc(theme.get-var(height) - calc(theme.get-var(safe-margin) * 2));
       border-top-left-radius: theme.get-var(radius);
       border-top-right-radius: theme.get-var(radius);
+    }
+  }
+
+  &:not(.#{$drawer-root}--safe-margin-none) {
+    .#{$drawer-root}__surface {
+      border-radius: theme.get-var(radius);
     }
   }
 
@@ -102,12 +110,23 @@
     }
   }
 
-  &--safe-margin-none {
-    @include theme.define-var(
-      (
-        border-radius: 0
-      )
-    );
+  // Padding
+  @each $key, $value in $drawer-padding {
+    &--padding-block-#{$key} {
+      @include theme.define-var(
+        (
+          padding-block: #{$value}
+        )
+      );
+    }
+
+    &--padding-inline-#{$key} {
+      @include theme.define-var(
+        (
+          padding-inline: #{$value}
+        )
+      );
+    }
   }
 
   // Sizes
