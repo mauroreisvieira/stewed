@@ -88,9 +88,6 @@ importers:
       '@testing-library/react-hooks':
         specifier: ^8.0.1
         version: 8.0.1(@types/react@19.0.3)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@types/jest':
-        specifier: ^29.5.14
-        version: 29.5.14
       '@types/node':
         specifier: ^22.10.5
         version: 22.10.5
