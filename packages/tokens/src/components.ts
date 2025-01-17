@@ -1,6 +1,6 @@
 /* eslint-disable jsdoc/require-jsdoc */
-import type { Radius } from "./tokens/Radius";
-import type { Shadow } from "./tokens/Shadow";
+import type { Radius } from "./tokens/radius";
+import type { Shadow } from "./tokens/shadow";
 
 export const components = {
   Accordion: "accordion",

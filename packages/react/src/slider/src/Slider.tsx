@@ -376,7 +376,7 @@ export function Slider({
       </span>
       {activeValue.map((val, index) => (
         <button
-          key={index}
+          key={val}
           className={cssClasses.thumb}
           style={{ "--slider-thumb-percentage": `${valueToPercent(val)}%` } as React.CSSProperties}
           role="slider"

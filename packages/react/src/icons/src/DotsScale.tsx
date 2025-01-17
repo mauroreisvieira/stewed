@@ -2,6 +2,12 @@ import React from "react";
 // Types
 import type { IconProps } from "./types";
 
+/**
+ * A DotsScale icon component.
+ *
+ * @param props - The properties for the DotsScale icon component.
+ * @returns A React element representing the DotsScale icon.
+ */
 export const DotsScale: React.FC<IconProps> = ({
   size = "20",
   color = "currentColor",

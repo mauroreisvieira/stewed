@@ -60,9 +60,10 @@ export interface CheckboxProps
  *
  * @remarks This component props extended from React.InputHTMLAttributes<HTMLInputElement>.
  *
- * @see {@link CheckboxProps} for more details on the available props.
  * @param props - The props for the Checkbox component.
  * @returns The rendered Checkbox component.
+ *
+ * @see {@link CheckboxProps} for more details on the available props.
  */
 export function Checkbox({
   ref,

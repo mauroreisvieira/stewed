@@ -1,5 +1,6 @@
-import { FocusTrap } from "../index";
+import { FocusTrap } from "../../index";
 // Utilities
+import { describe, it, expect, beforeEach, afterEach } from "vitest";
 import { fireEvent } from "@testing-library/react";
 
 // Mock DOM setup

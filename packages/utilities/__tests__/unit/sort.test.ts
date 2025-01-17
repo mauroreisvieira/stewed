@@ -1,4 +1,6 @@
-import { sortData, SortDirection } from "../index";
+import { sortData, SortDirection } from "../../index";
+// Utilities
+import { describe, it, expect } from "vitest";
 
 interface Item {
   id: number;
@@ -6,7 +8,7 @@ interface Item {
   createdAt: Date;
 }
 
-describe("sortData", () => {
+describe("Sort", () => {
   const items: Item[] = [
     { id: 3, name: "Charlie", createdAt: new Date("2023-03-01") },
     { id: 1, name: "Alice", createdAt: new Date("2023-01-01") },

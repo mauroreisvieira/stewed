@@ -27,7 +27,7 @@ export const Base: Story = {
   },
   args: {
     children: Array.from({ length: 4 }).map((_, index) => (
-      <Hue skin="slate-100" key={index}>
+      <Hue skin="slate-100" key={crypto.randomUUID()}>
         <Card shadow="none" padding={{ block: "7xl", inline: "7xl" }}>
           <Card.Body>
             <Text alignment="center" size="8xl">
@@ -60,7 +60,7 @@ export const PerView: Story = {
       }
     },
     children: Array.from({ length: 12 }).map((_, index) => (
-      <Hue skin="slate-100" key={index}>
+      <Hue skin="slate-100" key={crypto.randomUUID()}>
         <Card shadow="none" padding={{ block: "7xl", inline: "7xl" }}>
           <Card.Body>
             <Text alignment="center" size="8xl">

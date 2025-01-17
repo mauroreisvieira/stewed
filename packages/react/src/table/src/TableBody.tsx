@@ -6,8 +6,20 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Props for the TableBody component.
+ * Extends the standard `tbody` element props to allow for additional customization.
+ */
 export type TableBodyProps = React.ComponentPropsWithoutRef<"tbody">;
 
+/**
+ * TableBody component that renders a tbody element for a table.
+ *
+ * @param props - The properties for the TableBody component.
+ * @returns The rendered TableBody component.
+ *
+ * @see {@link TableBodyProps} for the complete list of props.
+ */
 export function TableBody({ className, children, ...props }: TableBodyProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: `${components.Table}__body`, styles });

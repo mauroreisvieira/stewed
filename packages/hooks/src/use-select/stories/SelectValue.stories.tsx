@@ -41,7 +41,7 @@ export const Base: Story = {
         <Separator space={{ block: "xl" }} />
         <Select value={index} onChange={handleSelectChange}>
           {items.map((item, idx) => (
-            <Select.Option key={idx} value={idx}>
+            <Select.Option key={item} value={idx}>
               {item}
             </Select.Option>
           ))}

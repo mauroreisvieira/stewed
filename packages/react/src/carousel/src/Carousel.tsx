@@ -305,21 +305,21 @@ export const Carousel = forwardRef(
     const renderExtraPreviousSlides = useMemo(() => {
       return React.Children.toArray(children)
         .slice(-1) // Get the last item
-        .map((child, index) => <CarouselSlide key={index}>{child}</CarouselSlide>);
+        .map((child) => <CarouselSlide key={crypto.randomUUID()}>{child}</CarouselSlide>);
     }, [children]);
 
     // Render additional slides following the last item
     const renderExtraNextSlides = useMemo(() => {
       return React.Children.toArray(children)
         .slice(0, 1) // Get the first item
-        .map((child, index) => <CarouselSlide key={index}>{child}</CarouselSlide>);
+        .map((child) => <CarouselSlide key={crypto.randomUUID()}>{child}</CarouselSlide>);
     }, [children]);
 
     // Render slides
     const renderSlides = useMemo(
       () =>
-        React.Children.map(children, (child, index) => (
-          <CarouselSlide key={index}>{child}</CarouselSlide>
+        React.Children.map(children, (child) => (
+          <CarouselSlide key={crypto.randomUUID()}>{child}</CarouselSlide>
         )),
       [children]
     );

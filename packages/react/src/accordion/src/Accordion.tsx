@@ -42,9 +42,10 @@ interface AccordionProps
  *
  * @remarks This component props extended from React.ComponentPropsWithoutRef<"div">.
  *
- * @see {@link AccordionProps} for more details on the available props.
  * @param props - The props for the Accordion component.
  * @returns The rendered Accordion component.
+ *
+ * @see {@link AccordionProps} for more details on the available props.
  *
  * @example
  * ```tsx

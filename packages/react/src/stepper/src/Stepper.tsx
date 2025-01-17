@@ -10,12 +10,25 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Properties for the Stepper component.
+ *
+ * @extends {React.ComponentPropsWithoutRef<"div">} - Inherits all div element props
+ * @extends {Omit<StepperContextProps, "steps">} - Inherits Stepper context props except 'steps'
+ */
 export interface StepperProps
   extends React.ComponentPropsWithoutRef<"div">,
     Omit<StepperContextProps, "steps"> {}
 
 /**
  * Stepper is used to indicate the user's progress through a multi-step process.
+ *
+ * @remarks This component props extended from React.ComponentPropsWithRef<"div">.
+ *
+ * @param props - The props for the Stepper component.
+ * @returns The rendered Stepper component.
+ *
+ * @see {@link StepperProps} for the complete list of props.
  *
  * @example
  * ```tsx
@@ -25,11 +38,6 @@ export interface StepperProps
  *   <Stepper.Item value="3" title="Step 3" />
  * </Stepper>
  * ```
- *
- * @remarks This component props extended from React.ComponentPropsWithRef<"div">.
- *
- * @param {CardProps} props - The props for the Stepper component.
- * @returns {React.ReactElement} - The rendered Stepper component.
  */
 export function Stepper({
   selectedValue,

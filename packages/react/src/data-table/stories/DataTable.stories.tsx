@@ -168,7 +168,7 @@ export const Base: Story = {
         <Grid cols={3}>
           <Select value={index} onChange={handleSelectChange}>
             {items.map((item, idx) => (
-              <Select.Option key={idx} value={idx}>
+              <Select.Option key={item} value={idx}>
                 {item}
               </Select.Option>
             ))}

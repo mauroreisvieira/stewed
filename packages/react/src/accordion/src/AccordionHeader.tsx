@@ -26,6 +26,8 @@ export interface AccordionHeaderProps extends React.ComponentPropsWithoutRef<"di
  *
  * @param props - The props for the AccordionHeader component.
  * @returns The rendered AccordionHeader component.
+ *
+ * @see {@link AccordionHeaderProps} for the complete list of props.
  */
 export function AccordionHeader({
   leftSlot,

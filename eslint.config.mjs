@@ -2,6 +2,7 @@ import hxh from "@harmonix-hub/eslint";
 import storybook from "eslint-plugin-storybook";
 import prettierConfig from "eslint-plugin-prettier/recommended";
 import reactCompilerPlugin from "eslint-plugin-react-compiler";
+import checkFile from "eslint-plugin-check-file";
 
 /** @type import("eslint").Linter.Config */
 export default [
@@ -13,6 +14,7 @@ export default [
   },
   ...hxh.tsConfigs,
   hxh.reactConfigs,
+  hxh.jestConfigs,
   prettierConfig,
   ...storybook.configs["flat/recommended"],
   {
@@ -29,6 +31,27 @@ export default [
     files: ["**/*.stories.tsx", "**/*.test.ts", "src/**/*.ts", "src/**/*.tsx"],
     rules: {
       "jsdoc/require-jsdoc": "off"
+    }
+  },
+  {
+    files: ["packages/**/*"],
+    plugins: {
+      "check-file": checkFile
+    },
+    rules: {
+      "check-file/filename-naming-convention": [
+        "error",
+        {
+          "**/*.{ts}": "KEBAB_CASE",
+          "**/*.{tsx}": "PASCAL_CASE"
+        }
+      ],
+      "check-file/folder-naming-convention": [
+        "error",
+        {
+          "packages/**/!(__tests|mocks__)": "KEBAB_CASE"
+        }
+      ]
     }
   }
 ];

@@ -9,6 +9,10 @@ import { Icon } from "../../index";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Props interface for the StepperItem component.
+ * Extends the base div element props while adding specific functionality for stepper items.
+ */
 export interface StepperItemProps extends React.ComponentPropsWithoutRef<"div"> {
   /** Unique identifier or label for the stepper item. */
   value: string | number;
@@ -26,6 +30,12 @@ export interface StepperItemProps extends React.ComponentPropsWithoutRef<"div"> 
   completed?: boolean;
 }
 
+/**
+ * StepperItem component renders a single step in a stepper navigation.
+ *
+ * @param props - The component props
+ * @returns React element representing the step
+ */
 export function StepperItem({
   value,
   title,

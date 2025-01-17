@@ -65,8 +65,8 @@ export const DataTable: Story = {
       <Table appearance={["border", "border-rows", "border-columns"]}>
         <Table.Head>
           <Table.Row>
-            {Array.from({ length: 4 }).map((_, cellIndex) => (
-              <Table.Cell key={cellIndex} as="th">
+            {Array.from({ length: 4 }).map(() => (
+              <Table.Cell key={crypto.randomUUID()} as="th">
                 <Skeleton size="md" />
               </Table.Cell>
             ))}
@@ -74,10 +74,10 @@ export const DataTable: Story = {
         </Table.Head>
 
         <Table.Body>
-          {Array.from({ length: 6 }).map((_, rowIndex) => (
-            <Table.Row key={rowIndex}>
-              {Array.from({ length: 4 }).map((_, cellIndex) => (
-                <Table.Cell key={cellIndex}>
+          {Array.from({ length: 6 }).map(() => (
+            <Table.Row key={crypto.randomUUID()}>
+              {Array.from({ length: 4 }).map(() => (
+                <Table.Cell key={crypto.randomUUID()}>
                   <Skeleton size="sm" style={{ width: "50%" }} />
                 </Table.Cell>
               ))}

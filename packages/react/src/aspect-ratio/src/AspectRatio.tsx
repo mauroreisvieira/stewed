@@ -29,17 +29,19 @@ export interface AspectRatioProps extends React.ComponentPropsWithoutRef<"div"> 
 /**
  * A React component that enforces a specific aspect ratio for its children.
  *
+ * @remarks This component props extended from React.ComponentPropsWithoutRef<"div">.
+ *
+ * @param props - The props for the AspectRatio component.
+ * @returns The rendered AspectRatio component.
+ *
+ * @see {@link AspectRatioProps} for the complete list of props.
+ *
  * @example
  * ```tsx
  * <AspectRatio ratio="16:9">
  *   <img src="your-image.jpg" alt="Your Image" />
  * </AspectRatio>
  * ```
- *
- * @remarks This component props extended from React.ComponentPropsWithoutRef<"div">.
- *
- * @param {AspectRatioProps} props - The props for the AspectRatio component.
- * @returns {React.ReactElement} - The rendered AspectRatio component.
  */
 export function AspectRatio({
   ratio = "1:1",

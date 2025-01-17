@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // Components
-import { Theme, Calendar, DateOrArrayDates, Stack, Button, Text, Icon } from "../../index";
+import { Theme, Calendar, Stack, Button, Text, Icon, type DateOrArrayDates } from "../../index";
 
 const now = new Date();
 

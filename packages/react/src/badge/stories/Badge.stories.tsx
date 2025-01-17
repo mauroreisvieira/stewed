@@ -73,7 +73,7 @@ export const Children: Story = {
     value: "7",
     size: "lg",
     children: (
-      <Button skin="neutral" leftSlot={<IoIosNotificationsOutline />} iconOnly>
+      <Button skin="neutral" leftSlot={<IoIosNotificationsOutline size={20} />} iconOnly>
         Notifications
       </Button>
     )

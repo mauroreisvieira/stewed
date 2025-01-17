@@ -8,7 +8,7 @@ describe("Drawer", () => {
   describe("Snapshots", () => {
     it("should renders default component", () => {
       const { baseElement } = render(
-        <Drawer open={true}>
+        <Drawer open>
           <Drawer.Header>Header</Drawer.Header>
           <Drawer.Body>Body</Drawer.Body>
           <Drawer.Footer>Footer</Drawer.Footer>
@@ -20,7 +20,7 @@ describe("Drawer", () => {
 
     it("should renders close button component", () => {
       const { baseElement } = render(
-        <Drawer onClose={vitest.fn()} open={true}>
+        <Drawer onClose={vitest.fn()} open>
           <Drawer.Header>Header</Drawer.Header>
           <Drawer.Body>Body</Drawer.Body>
         </Drawer>
@@ -31,7 +31,7 @@ describe("Drawer", () => {
 
     it("should applies correct size classes", () => {
       const { baseElement } = render(
-        <Drawer size="sm" open={true}>
+        <Drawer size="sm" open>
           <Drawer.Header className="other-header-class">Header</Drawer.Header>
           <Drawer.Body className="other-body-class">Body</Drawer.Body>
           <Drawer.Footer className="other-footer-class">Footer</Drawer.Footer>
@@ -43,7 +43,7 @@ describe("Drawer", () => {
 
     it("should applies correct placement classes", () => {
       const { baseElement } = render(
-        <Drawer placement="bottom" open={true}>
+        <Drawer placement="bottom" open>
           <Drawer.Header className="other-header-class">Header</Drawer.Header>
           <Drawer.Body className="other-body-class">Body</Drawer.Body>
           <Drawer.Footer className="other-footer-class">Footer</Drawer.Footer>
@@ -55,7 +55,7 @@ describe("Drawer", () => {
 
     it("should render additional classes", () => {
       const { baseElement } = render(
-        <Drawer className="other-class" open={true}>
+        <Drawer className="other-class" open>
           <Drawer.Header className="other-header-class">Header</Drawer.Header>
           <Drawer.Body className="other-body-class">Body</Drawer.Body>
           <Drawer.Footer className="other-footer-class">Footer</Drawer.Footer>

@@ -30,7 +30,7 @@ export const Buttons: Story = {
         </Button>
         <Button skin="neutral">Button</Button>
         <Button skin="neutral">Button</Button>
-        <Button skin="neutral" pressed={true}>
+        <Button skin="neutral" pressed>
           Button
         </Button>
         <Button skin="neutral">Button</Button>

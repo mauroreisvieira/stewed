@@ -6,7 +6,7 @@ import { components, type Palette } from "@stewed/tokens";
 // Utilities
 import { classNames } from "@stewed/utilities";
 // Types
-import { type Range } from "../..";
+import type { Range } from "../..";
 // Styles
 import styles from "./styles/index.module.scss";
 
@@ -53,15 +53,17 @@ export interface HueProps {
  * A React component that manages the color stops in background gradients for its children.
  * It allows you to define and control the gradient transitions, providing flexible styling for backgrounds within your components.
  *
+ * @param props - The props for the Hue component.
+ * @returns The rendered Hue component.
+ *
+ * @see {@link HueProps} for the complete list of props.
+ *
  * @example
  * ```tsx
  * <Hue skin={{ from: "indigo-500", to: "pink-800" }}>
  *   <div />
  * </Hue>
  * ```
- *
- * @param {HueProps} props - The props for the Hue component.
- * @returns {React.ReactElement} - The rendered Hue component.
  */
 export function Hue({ degree = 90, skin, clipText, children }: HueProps): React.ReactElement {
   // Importing useBem to handle BEM class names

@@ -41,11 +41,13 @@ interface UseIntersectionObserver {
  * @returns The latest `IntersectionObserverEntry` for the observed element or `undefined` if no entry is available.
  *
  * @example
+ * ```ts
  * const elementRef = useRef<HTMLDivElement>(null);
  * const entry = useIntersectionObserver({
  *   elementRef,
  *   freezeOnceVisible: true // Stop observing after element is visible
  * });
+ * ```
  */
 export function useIntersectionObserver<T extends HTMLElement>({
   elementRef,

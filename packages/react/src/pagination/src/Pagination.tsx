@@ -175,7 +175,7 @@ export function Pagination({
           })
         ) : (
           <Button
-            key={index}
+            key={page}
             size="sm"
             skin={selected ? "primary" : "neutral"}
             appearance={selected ? "filled" : "ghost"}

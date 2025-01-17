@@ -1,11 +1,12 @@
 import React, { useCallback } from "react";
+// Context
+import { useTabs } from "./TabsContext";
 // Hooks
 import { useBem, useKeyboardNavigation } from "@stewed/hooks";
 // Tokens
 import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
-import { useTabs } from "./TabsContext";
 
 /**
  * Props for the TabsList component.
@@ -20,6 +21,8 @@ export type TabsListProps = React.ComponentPropsWithoutRef<"div">;
  *
  * @param props - The properties for the TabsList component.
  * @returns A element rendering a styled container for tabs.
+ *
+ * @see {@link TabsListProps} for the complete list of props.
  */
 export function TabsList({
   className,

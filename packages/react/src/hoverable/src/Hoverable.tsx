@@ -47,6 +47,11 @@ export interface HoverableProps extends Omit<React.ComponentPropsWithoutRef<"div
  * Hoverable component provides a simple interface for handling hover transitions.
  * It supports both mouse and touch events to accommodate a wide range of devices.
  *
+ * @param props - The props for the `Hoverable` component.
+ * @returns The rendered `Hoverable` component.
+ *
+ * @see {@link HoverableProps} for the complete list of props.
+ *
  * @example
  * ```tsx
  * <Hoverable>
@@ -55,9 +60,6 @@ export interface HoverableProps extends Omit<React.ComponentPropsWithoutRef<"div
  *   )}
  * </Hoverable>
  * ```
- *
- * @param {HoverableProps} props - The props for the `Hoverable` component.
- * @returns {React.ReactElement} - The rendered `Hoverable` component.
  */
 export function Hoverable({
   enabledTouch = true,

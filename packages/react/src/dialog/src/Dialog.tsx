@@ -42,7 +42,7 @@ export interface DialogProps
        * Changes the size of the dialog, will specify the width of the element.
        * @default md
        */
-      size?: "sm" | "md" | "lg" | "xl";
+      size?: "xs" | "sm" | "md" | "lg" | "xl";
       /** Padding options for horizontal and vertical orientation. */
       padding?: {
         /** Adds padding in the block direction (e.g., top and bottom for vertical orientation). */
@@ -205,8 +205,6 @@ export function Dialog({
           <DialogContext value={{ onClose }}>
             <div className={cssClasses.root} {...props}>
               <Motion
-                timing="ease-out-back"
-                duration="quickly"
                 animation={open ? "zoom-in-soft" : "zoom-out-soft"}
                 onDone={onHandleAnimationEnd}
                 asChild

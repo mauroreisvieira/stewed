@@ -1,4 +1,4 @@
-import { usePrevious } from "../index";
+import { usePrevious } from "../../index";
 // Utilities
 import { renderHook } from "@testing-library/react";
 

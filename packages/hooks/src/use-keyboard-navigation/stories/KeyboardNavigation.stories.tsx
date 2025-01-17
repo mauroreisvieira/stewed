@@ -38,7 +38,7 @@ export const Base: Story = {
           {Array.from({ length: 4 }).map((_, idx) => (
             <TextField
               type="number"
-              key={idx}
+              key={crypto.randomUUID()}
               onChange={() => {
                 setFocusedIndex(idx + 1);
               }}

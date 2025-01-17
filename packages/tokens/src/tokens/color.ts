@@ -1,4 +1,4 @@
-import { palette } from "./Palette";
+import { palette } from "./palette";
 
 export const skin = {
   // Primary -------------------------------------------------------------------

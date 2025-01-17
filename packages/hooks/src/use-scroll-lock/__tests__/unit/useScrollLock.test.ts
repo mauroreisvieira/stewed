@@ -1,4 +1,4 @@
-import { useScrollLock } from "../index";
+import { useScrollLock } from "../../index";
 // Utilities
 import { renderHook } from "@testing-library/react";
 

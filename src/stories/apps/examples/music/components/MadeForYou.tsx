@@ -12,8 +12,8 @@ export function MadeForYou(): React.ReactElement {
     <Grid cols={2} responsive={{ sm: { cols: 4 }, lg: { cols: 8 } }} gap="md">
       {isLoading ? (
         <>
-          {Array.from({ length: 8 }).map((_, key) => (
-            <Card key={key}>
+          {Array.from({ length: 8 }).map(() => (
+            <Card key={crypto.randomUUID()}>
               <AspectRatio ratio="3:2">
                 <Skeleton radius="none" size="auto" />
               </AspectRatio>
@@ -29,8 +29,8 @@ export function MadeForYou(): React.ReactElement {
         </>
       ) : (
         <>
-          {data?.results?.map(({ urls, user, alt_description }, index) => (
-            <Card key={index} padding={{ block: "lg", inline: "md" }}>
+          {data?.results?.map(({ urls, user, alt_description }) => (
+            <Card key={user.username} padding={{ block: "lg", inline: "md" }}>
               <Card.Media
                 image={{
                   src: urls.thumb,

@@ -2,14 +2,14 @@ import React from "react";
 // Hooks
 import { useBem } from "@stewed/hooks";
 // Tokens
-import { components, Duration, Timing } from "@stewed/tokens";
+import { components, type Duration, type Timing } from "@stewed/tokens";
 // Utilities
 import { classNames } from "@stewed/utilities";
 // Styles
 import styles from "./styles/index.module.scss";
 
 /** Represents the animation options or states for a component or application. */
-type TAnimation =
+type MotionAnimation =
   | "scale-in"
   | "scale-out"
   | "zoom-in"
@@ -43,7 +43,7 @@ interface ChildProps {
  */
 export interface MotionProps {
   /** The animation type. */
-  animation?: TAnimation;
+  animation?: MotionAnimation;
   /**
    * The duration of the animation.
    * @default quickly
@@ -69,17 +69,17 @@ export interface MotionProps {
  * Component that provides animation capabilities to its child element.
  * It allows configuration of animation duration, timing function, and type, as well as handling completion via a callback function.
  *
+ * @param props - The props for the Motion component.
+ * @returns The rendered Motion component.
+ *
+ * @see {@link MotionProps} for more details on the available props.
+ *
  * @example
  * ```tsx
  * <Motion animation="slide-in-right" asChild>
  *   <div />
  * </Motion>
  * ```
- *
- * @see {@link MotionProps} for more details on the available props.
- *
- * @param props - The props for the Motion component.
- * @returns The rendered Motion component.
  */
 export function Motion({
   animation,

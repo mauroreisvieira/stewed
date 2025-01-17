@@ -26,8 +26,8 @@ export function Week({ className }: WeekProps): React.ReactElement {
 
   return (
     <div className={cssClasses.root}>
-      {weekDays?.map((week, index) => (
-        <div key={`week-${index}`} className={cssClasses.day}>
+      {weekDays?.map((week) => (
+        <div key={week} className={cssClasses.day}>
           {week}
         </div>
       ))}

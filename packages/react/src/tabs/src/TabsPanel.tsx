@@ -5,10 +5,13 @@ import { useTabs } from "./TabsContext";
 import { useBem } from "@stewed/hooks";
 // Tokens
 import { components } from "@stewed/tokens";
-
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Props for the TabsPanel component.
+ * Extends the standard div element props to allow for additional customization.
+ */
 export interface TabsPanelProps extends React.ComponentPropsWithoutRef<"div"> {
   /** Sets or retrieves the value of a tab panel. */
   value: string;
@@ -19,6 +22,8 @@ export interface TabsPanelProps extends React.ComponentPropsWithoutRef<"div"> {
  *
  * @param props - The properties to configure the TabsPanel.
  * @returns The rendered tab panel or `null` if not visible and unmounted.
+ *
+ * @see {@link TabsPanelProps} for the complete list of props.
  */
 export function TabsPanel({
   value,

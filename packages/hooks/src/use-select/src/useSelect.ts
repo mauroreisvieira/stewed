@@ -22,6 +22,13 @@ export interface UseSelect<T> {
 /**
  * Hook for managing selection within a list of items.
  *
+ * @template T - The type of items in the list.
+ *
+ * @param list - The array of items to select from.
+ * @param initialIndex - The initial index of the selected item. Defaults to 0.
+ * @param condition - A function to compare two items for equality. Defaults to strict equality (`a === b`).
+ * @returns An object containing the current selected item, its index, and functions to update the selection.
+ *
  * @example
  * ```ts
  * const { item, index, setItem } = useSelect(["Apple", "Banana", "Cherry"]);
@@ -36,13 +43,6 @@ export interface UseSelect<T> {
  * setItem({ name: "Cherry" }); // Selects the object with name "Cherry"
  * console.log(item); // Outputs: { name: "Cherry" }
  * ```
- *
- * @template T - The type of items in the list.
- *
- * @param list - The array of items to select from.
- * @param initialIndex - The initial index of the selected item. Defaults to 0.
- * @param condition - A function to compare two items for equality. Defaults to strict equality (`a === b`).
- * @returns An object containing the current selected item, its index, and functions to update the selection.
  */
 export function useSelect<T>(
   list: T[],

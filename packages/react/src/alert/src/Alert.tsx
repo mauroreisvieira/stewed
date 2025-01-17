@@ -41,6 +41,13 @@ export interface AlertProps extends React.ComponentPropsWithoutRef<"div"> {
  * This component displays an alert component.
  * Alerts component are used to communicate a state that affects a system, feature or page.
  *
+ * @remarks This component props extended from React.ComponentPropsWithoutRef<"div">.
+ *
+ * @param props - The props for the Alert component.
+ * @returns The rendered Alert component.
+ *
+ * @see {@link AlertProps} for the complete list of props.
+ *
  * @example
  * ```tsx
  * <Alert
@@ -49,11 +56,6 @@ export interface AlertProps extends React.ComponentPropsWithoutRef<"div"> {
  *     This action cannot be undone...
  * </Alert>
  * ```
- *
- * @remarks This component props extended from React.ComponentPropsWithoutRef<"div">.
- *
- * @param {AlertProps} props - The props for the Alert component.
- * @returns {React.ReactElement} - The rendered Alert component.
  */
 export function Alert({
   title,

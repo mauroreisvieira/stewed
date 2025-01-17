@@ -1,4 +1,6 @@
-import { classNames } from "../index";
+import { classNames } from "../../index";
+// Utilities
+import { describe, it, expect } from "vitest";
 
 describe("classNames function", () => {
   it("should return an empty string if all arguments are falsy", () => {

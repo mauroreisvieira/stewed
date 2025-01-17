@@ -1,10 +1,16 @@
 import { use, createContext } from "react";
 
+/**
+ * Interface representing a single step in a stepper component.
+ */
 interface Steps {
   /** The unique identifier or label for the step. */
   value: string | number;
 }
 
+/**
+ * Props interface for the Stepper context component.
+ */
 export interface StepperContextProps {
   /** An optional array of steps, each containing a unique value. */
   steps?: Steps[];

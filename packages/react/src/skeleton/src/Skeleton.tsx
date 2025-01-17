@@ -6,8 +6,16 @@ import { type Radius, type Spacings, components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Represents the size options for the Skeleton component.
+ * It can be a predefined spacing value or "auto".
+ */
 type Size = Spacings | "auto";
 
+/**
+ * Props for the Skeleton component.
+ * Extends the standard div element props to allow for additional customization.
+ */
 interface SkeletonProps extends React.ComponentPropsWithoutRef<"div"> {
   /**
    * Defines the shape of the skeleton placeholder.

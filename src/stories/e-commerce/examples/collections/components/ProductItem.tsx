@@ -72,7 +72,7 @@ export function ProductItem({
                   {price.currency}
                 </Text>
                 <Stack items="center" justify="end" gap="xxs">
-                  <Text size="xs">{rate} </Text>
+                  <Text size="xs">{rate.toFixed(1)}</Text>
                   <Text as="span" skin="warning">
                     <IoStar size={14} />
                   </Text>

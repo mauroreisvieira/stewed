@@ -21,7 +21,7 @@
     "packages:version": "changeset version"
   },
   "dependencies": {
-    "@tanstack/react-query": "^5.62.11",
+    "@tanstack/react-query": "^5.62.15",
     "@hello-week/hooks": "^0.4.0",
     "@stewed/hooks": "workspace:*",
     "@stewed/react": "workspace:*",
@@ -32,10 +32,10 @@
     "@changesets/cli": "^2.27.11",
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
-    "@harmonix-hub/eslint": "^2.0.0",
-    "@harmonix-hub/prettier": "^1.4.0",
-    "@harmonix-hub/stylelint": "^1.4.0",
-    "@harmonix-hub/tsconfig": "^1.5.0",
+    "@harmonix-hub/eslint": "^2.0.4",
+    "@harmonix-hub/prettier": "^1.5.0",
+    "@harmonix-hub/stylelint": "^1.5.0",
+    "@harmonix-hub/tsconfig": "^1.6.0",
     "@storybook/addon-docs": "^8.4.7",
     "@storybook/addon-essentials": "^8.4.7",
     "@storybook/addon-interactions": "^8.4.7",
@@ -48,16 +48,17 @@
     "@storybook/testing-library": "^0.2.2",
     "@testing-library/react": "^16.1.0",
     "@testing-library/react-hooks": "^8.0.1",
-    "@types/node": "^22.10.2",
-    "@types/react": "^19.0.2",
-    "@typescript-eslint/eslint-plugin": "^8.18.2",
-    "@typescript-eslint/parser": "^8.18.2",
+    "@types/node": "^22.10.5",
+    "@types/react": "^19.0.3",
+    "@typescript-eslint/eslint-plugin": "^8.19.0",
+    "@typescript-eslint/parser": "^8.19.0",
     "changeset-conventional-commits": "^0.2.5",
     "eslint": "^9.17.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react-compiler": "19.0.0-beta-df7b47d-20241124",
-    "eslint-plugin-storybook": "^0.11.1",
+    "eslint-plugin-storybook": "^0.11.2",
+    "eslint-plugin-check-file": "^2.8.0",
     "husky": "^9.1.7",
     "prettier": "^3.4.2",
     "prop-types": "^15.8.1",
@@ -82,7 +83,7 @@
   "optionalDependencies": {
     "@nx/nx-linux-x64-gnu": "^20.3.0"
   },
-  "packageManager": "pnpm@9.15.1",
+  "packageManager": "pnpm@9.15.3",
   "engines": {
     "node": ">=20"
   }

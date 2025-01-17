@@ -1,4 +1,4 @@
 export * from "./Grid";
 
 // Types
-export type { GridProps, GridSize } from "./GridItem";
+export type { GridItemProps, GridSize } from "./GridItem";

@@ -1,5 +1,10 @@
 import { useState } from "react";
 
+/**
+ * Properties for initializing and working with the `UseArray` hook or utility.
+ *
+ * @template T - The type of elements stored in the array.
+ */
 export interface UseArrayProps<T> {
   /** The initial array value. */
   defaultValue: T[];
@@ -7,6 +12,11 @@ export interface UseArrayProps<T> {
   comparator?: (a: T, b: T) => boolean;
 }
 
+/**
+ * A utility interface for working with arrays, providing methods for manipulation and inspection.
+ *
+ * @template T - The type of elements stored in the array.
+ */
 export interface UseArray<T> {
   /** The current state of the array. */
   array: T[];
