@@ -11,6 +11,9 @@ import { Icon } from "../../index";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Props interface for the Select component, extending React's select props but omitting the 'size' prop.
+ */
 export interface SelectProps extends Omit<React.ComponentPropsWithRef<"select">, "size"> {
   /**
    * Change the visual appearance of the select.
@@ -40,6 +43,11 @@ export interface SelectProps extends Omit<React.ComponentPropsWithRef<"select">,
 /**
  * Select component lets you choose a single value from a list of options.
  *
+ * @param props - The props for the Select component.
+ * @returns The rendered Select component.
+ *
+ * @see {@link SelectProps} for the complete list of props.
+ *
  * @example
  * ```tsx
  * <Select skin="default">
@@ -48,9 +56,6 @@ export interface SelectProps extends Omit<React.ComponentPropsWithRef<"select">,
  *    <Select.Option value={3}>Option 3</Select.Option>
  * </Select>
  * ```
- *
- * @param {SelectProps} props - The props for the Select component.
- * @returns {React.ReactElement} - The rendered Select component.
  */
 export function Select({
   skin = "neutral",

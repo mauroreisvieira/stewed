@@ -2,6 +2,12 @@ import React from "react";
 // Types
 import type { IconProps } from "./types";
 
+/**
+ * A Cross icon component.
+ *
+ * @param props - The properties for the Cross icon component.
+ * @returns A React element representing the Cross icon.
+ */
 export const Cross: React.FC<IconProps> = ({
   size = "20",
   color = "currentColor",

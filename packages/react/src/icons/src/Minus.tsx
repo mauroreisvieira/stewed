@@ -2,6 +2,12 @@ import React from "react";
 // Types
 import type { IconProps } from "./types";
 
+/**
+ * A Minus icon component.
+ *
+ * @param props - The properties for the Minus icon component.
+ * @returns A React element representing the Minus icon.
+ */
 export const Minus: React.FC<IconProps> = ({
   size = "20",
   color = "currentColor",

@@ -30,10 +30,11 @@ export interface MonthProps {
 /**
  * Renders a month view, displaying days and optionally allowing interaction for date selection.
  *
- * @see {@link MonthProps} for more details on the available props.
  *
  * @param props - The properties passed to the Month component.
  * @returns The rendered Month component.
+ * 
+ * @see {@link MonthProps} for more details on the available props.
  */
 export function Month({ className }: MonthProps): React.ReactElement {
   // Importing useBem to handle BEM class names

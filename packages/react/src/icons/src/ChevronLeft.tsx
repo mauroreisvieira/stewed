@@ -2,6 +2,12 @@ import React from "react";
 // Types
 import type { IconProps } from "./types";
 
+/**
+ * A ChevronLeft icon component.
+ *
+ * @param props - The properties for the ChevronLeft icon component.
+ * @returns A React element representing the ChevronLeft icon.
+ */
 export const ChevronLeft: React.FC<IconProps> = ({
   size = "20",
   color = "currentColor",

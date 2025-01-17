@@ -62,18 +62,18 @@ export type StackProps<E extends React.ElementType = React.ElementType> = Combin
 /**
  * Component that implements the CSS flex box.
  *
- * @example
- * ```tsx
- * <Stack direction="column" gap="sm"></Stack>
- * ```
- *
  * @remarks This component is a polymorphic component can be rendered as a different element
  * and support all native props from the element passed on `as` prop.
  *
- * @see {@link StackProps} for more details on the available props.
- *
  * @param props - The props for the Stack component.
  * @returns The rendered Stack component.
+
+ * @see {@link StackProps} for more details on the available props.
+ *
+ * @example
+ * ```tsx
+ * <Stack as="main" direction="column" gap="sm"></Stack>
+ * ```
  */
 export const Stack = forwardRef(
   (

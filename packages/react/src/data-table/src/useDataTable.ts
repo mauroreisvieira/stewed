@@ -7,6 +7,11 @@ import { type TableRowProps } from "../../";
 /** Define a type alias for the column key, which can be a key of the generic type T or a string */
 export type TAccessorKeyKey<T> = keyof T | (string & {});
 
+/**
+ * Props for rendering a head cell in a table.
+ *
+ * @template T - The type of the data being represented in the table.
+ */
 interface HeadCellRenderProps<T> {
   /** Determines if the column is sortable. If true, the column can be sorted by clicking on the header. */
   isSortable: boolean | undefined;
@@ -19,6 +24,11 @@ interface HeadCellRenderProps<T> {
   sortDirection: TSortDirection;
 }
 
+/**
+ * Definition of a column in a table.
+ *
+ * @template T - The type of the data being represented in the table.
+ */
 export interface ColumnsDef<T> {
   /** Key to access the column value from the data object. */
   accessorKey: TAccessorKeyKey<T>;
@@ -40,6 +50,11 @@ export interface ColumnsDef<T> {
   footCell?: () => React.ReactElement | string | number;
 }
 
+/**
+ * Represents a head cell in a table.
+ *
+ * @template T - The type of the data being represented in the table.
+ */
 interface HeadCell<T> {
   /** Key to access the cell value from the data object. */
   columnKey: TAccessorKeyKey<T> | undefined;
@@ -67,6 +82,11 @@ interface BodyRows<T> extends TableRowProps {
   bodyCells: BodyCell<T>[];
 }
 
+/**
+ * Represents a body cell in a table.
+ *
+ * @template T - The type of the data being represented in the table.
+ */
 interface BodyCell<T> {
   /** Key to access the cell value from the data object. */
   columnKey: TAccessorKeyKey<T> | undefined;
@@ -74,6 +94,11 @@ interface BodyCell<T> {
   cellNode: React.ReactNode;
 }
 
+/**
+ * Represents a foot cell in a table.
+ *
+ * @template T - The type of the data being represented in the table.
+ */
 interface FootCell<T> {
   /** Key to access the cell value from the data object. */
   columnKey: TAccessorKeyKey<T> | undefined;
@@ -81,6 +106,11 @@ interface FootCell<T> {
   cellNode: React.ReactNode;
 }
 
+/**
+ * Hook for managing data table state and behavior.
+ *
+ * @template T - The type of the data being represented in the table.
+ */
 interface UseDataTable<T> {
   /** Array of header cells. */
   headCells: HeadCell<T>[];
@@ -135,7 +165,17 @@ export interface UseDataTableProps<T> {
    * @param props - Sorting properties including the column to sort by, sorting direction, and items to sort.
    * @returns A sorted array of items of type T, or null if sorting is not applied.
    */
-  onSort?: (props: { column: keyof T; direction: TSortDirection; items: T[] }) => T[] | null;
+  onSort?: (props: {
+    /** The key of the column to sort by. */
+    column: keyof T;
+    /**
+     * The direction of the sort.
+     * Can be either 'ASC' for ascending or 'DESC' for descending.
+     */
+    direction: TSortDirection;
+    /** The array of items to be sorted. */
+    items: T[];
+  }) => T[] | null;
 }
 
 export function useDataTable<T>({

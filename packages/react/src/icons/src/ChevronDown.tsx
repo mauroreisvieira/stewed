@@ -2,6 +2,12 @@ import React from "react";
 // Types
 import type { IconProps } from "./types";
 
+/**
+ * A ChevronDown icon component.
+ *
+ * @param props - The properties for the ChevronDown icon component.
+ * @returns A React element representing the ChevronDown icon.
+ */
 export const ChevronDown: React.FC<IconProps> = ({
   size = "20",
   color = "currentColor",

@@ -6,6 +6,11 @@ import { components } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Props for the Day component.
+ *
+ * @extends React.ComponentPropsWithoutRef - Inherits all props from the button element.
+ */
 export interface DayProps extends React.ComponentPropsWithoutRef<"button"> {
   /** Indicates whether this day is today. */
   today?: boolean;

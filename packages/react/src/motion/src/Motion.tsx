@@ -69,17 +69,17 @@ export interface MotionProps {
  * Component that provides animation capabilities to its child element.
  * It allows configuration of animation duration, timing function, and type, as well as handling completion via a callback function.
  *
+ * @param props - The props for the Motion component.
+ * @returns The rendered Motion component.
+ *
+ * @see {@link MotionProps} for more details on the available props.
+ *
  * @example
  * ```tsx
  * <Motion animation="slide-in-right" asChild>
  *   <div />
  * </Motion>
  * ```
- *
- * @see {@link MotionProps} for more details on the available props.
- *
- * @param props - The props for the Motion component.
- * @returns The rendered Motion component.
  */
 export function Motion({
   animation,
