@@ -20,14 +20,14 @@
     "@stewed/utilities": "workspace:*"
   },
   "devDependencies": {
-    "@harmonix-hub/tsconfig": "^1.5.0",
-    "@harmonix-hub/babel": "^0.3.0",
-    "@testing-library/react": "^16.1.0",
-    "@types/react": "^19.0.1",
-    "vite": "^6.0.3",
-    "vitest": "^2.1.8",
+    "@harmonix-hub/tsconfig": "^1.6.0",
+    "@harmonix-hub/babel": "^0.4.0",
+    "@testing-library/react": "^16.2.0",
+    "@types/react": "^19.0.7",
+    "vite": "^6.0.7",
+    "vitest": "^3.0.2",
     "@vitejs/plugin-react-swc": "^3.7.2",
-    "vite-plugin-dts": "^4.3.0",
+    "vite-plugin-dts": "^4.5.0",
     "rollup-plugin-peer-deps-external": "^2.2.4"
   },
   "peerDependencies": {

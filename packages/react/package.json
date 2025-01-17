@@ -22,20 +22,20 @@
     "@stewed/utilities": "workspace:*"
   },
   "devDependencies": {
-    "@harmonix-hub/babel": "^0.3.0",
-    "@harmonix-hub/tsconfig": "^1.5.0",
-    "@types/react": "^19.0.1",
-    "@types/react-dom": "^19.0.2",
+    "@harmonix-hub/babel": "^0.4.0",
+    "@harmonix-hub/tsconfig": "^1.6.0",
+    "@types/react": "^19.0.7",
+    "@types/react-dom": "^19.0.3",
     "@vitejs/plugin-react-swc": "^3.7.2",
-    "esbuild-css-modules-plugin": "^3.1.2",
+    "esbuild-css-modules-plugin": "^3.1.4",
     "esbuild-sass-plugin": "^3.3.1",
-    "jsdom": "^25.0.1",
+    "jsdom": "^26.0.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
-    "typescript": "^5.7.2",
-    "vite": "^6.0.3",
-    "vite-plugin-dts": "^4.3.0",
-    "vite-plugin-lib-inject-css": "^2.1.1",
-    "vitest": "^2.1.8"
+    "typescript": "^5.7.3",
+    "vite": "^6.0.7",
+    "vite-plugin-dts": "^4.5.0",
+    "vite-plugin-lib-inject-css": "^2.2.1",
+    "vitest": "^3.0.2"
   },
   "peerDependencies": {
     "react": "^18.0 || ^19.0",
@@ -45,6 +45,6 @@
     "access": "public"
   },
   "overrides": {
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.3"
   }
 }
