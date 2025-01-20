@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 // Storybook
 import type { Meta, StoryObj } from "@storybook/react";
 // Packages
-import { Text, Box, Theme, Table, Grid, Stack, Button } from "../../index";
+import { Text, Box, Theme, Table, Grid, Stack, Button, Dialog } from "../../index";
 // Tokens
 import {
   skin,
@@ -462,8 +462,33 @@ export const Timing: Story = {
   }
 };
 
+function DialogActions({ onClick }: { onClick: () => void }): React.ReactElement {
+  return (
+    <Theme
+      cssScope="third-scope"
+      tokens={{
+        default: {
+          color: {
+            "primary-background": "lime-500",
+            "primary-background-hovered": "lime-600",
+            "primary-background-pressed": "lime-600",
+            "primary-background-faded": "lime-100",
+            focus: "lime-500"
+          }
+        }
+      }}
+    >
+      <Button onClick={onClick} fullWidth>
+        Close
+      </Button>
+    </Theme>
+  );
+}
+
 export const ThemeScope: Story = {
   render: function Render(): React.ReactElement {
+    const [open, setOpen] = useState(false);
+
     return (
       <Theme cssScope="first-scope">
         <Box
@@ -503,7 +528,35 @@ export const ThemeScope: Story = {
                 skin="primary-faded"
                 padding={{ block: "lg", inline: "lg" }}
               >
-                <Button>Primary</Button>
+                <Button onClick={() => setOpen(true)}>Primary</Button>
+                <Dialog
+                  open={open}
+                  size="xs"
+                  onEscape={() => setOpen(false)}
+                  onClickOutside={() => setOpen(false)}
+                >
+                  <Dialog.Body>
+                    <Text>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur distinctio
+                      labore blanditiis soluta ipsam ratione earum perspiciatis omnis fugit
+                      consectetur repellendus rem reprehenderit neque cupiditate corporis temporibus
+                      natus corrupti vel aliquid fuga laudantium autem, exercitationem!
+                    </Text>
+                    <Text space={{ y: "2xl" }}>
+                      Ipsum nobis, deserunt, culpa ex aliquam nemo. Omnis ut, cupiditate culpa eos.
+                      Quibusdam minima aspernatur quidem voluptates, quaerat, quas. Veritatis nam
+                      dolor delectus rerum esse error optio libero nobis sunt corrupti aliquid quos
+                      fugit, reiciendis perspiciatis? Nostrum laborum reprehenderit, magnam placeat
+                      velit fuga exercitationem aspernatur, vero eveniet consequuntur culpa. Iure,
+                      nisi, soluta! Minima repellendus, nesciunt, nostrum corrupti omnis ratione
+                      cupiditate maiores facilis dolorum provident? Fugiat eos corrupti, recusandae
+                      delectus quas sequi eligendi porro hic expedita temporibus ullam repellat
+                      mollitia. Quia ea expedita, iure debitis? Fugit.
+                    </Text>
+
+                    <DialogActions onClick={() => setOpen(false)} />
+                  </Dialog.Body>
+                </Dialog>
               </Box>
             </Theme>
           </Stack>

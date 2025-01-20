@@ -52,14 +52,19 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
   // Theme and tokens from the context
   const { theme = "default", cssScope, activeToken } = useTheme();
 
+  // Transformed tokens to optimize performance
   const transformedTokens: OutputTokens = useMemo(() => {
+    // access `activeToken` to extract components, color, and other tokens
     const { components, color, ...otherTokens } = activeToken;
 
+    // If there are no components, return the other tokens directly
     if (!components) {
       return otherTokens;
     }
 
+    // Create an object to override colors based on the color tokens
     const overrideColors = objectEntries(color).reduce((acc, [key, value]) => {
+      // Map each color key to its corresponding value or fallback to the key itself
       acc[key] = color?.[value] || value;
 
       return acc;
@@ -116,27 +121,31 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
     // CSS scope class and added to the theme element.
     themeRef.current.classList.add(cssScope);
 
-    // Use a Map to keep track of style tags for scoped elements
-    const scopedElements = Array.from(document.querySelectorAll(`.${cssScope}`));
-
     // Map for style tag
     const styleTag = new Map();
 
-    // Update styles for all scoped elements
-    scopedElements.forEach((element) => {
-      // Avoid unnecessary DOM queries by checking the Map first
-      let cssRules = styleTag.get(element);
+    // This function is called to update styles for elements with a specific CSS scope.
+    // It ensures that the updates happen in the next repaint cycle for better performance.
+    requestAnimationFrame(() => {
+      // Use a Map to keep track of style tags for scoped elements
+      const scopedElements = Array.from(document.querySelectorAll(`.${cssScope}`));
 
-      if (!cssRules) {
-        // If no style tag exists, create a new one
-        cssRules = document.createElement("style");
-        cssRules.setAttribute("data-scope", cssScope);
-        element.insertAdjacentElement("afterbegin", cssRules);
-        styleTag.set(element, cssRules);
-      }
+      // Update styles for all scoped elements
+      scopedElements.forEach((element) => {
+        // Avoid unnecessary DOM queries by checking the Map first
+        let cssRules = styleTag.get(element);
 
-      // Update the styles of the style tag
-      cssRules.innerHTML = `@scope (.${cssScope}) { \n :scope { ${computedStyles}\n}}`;
+        if (!cssRules) {
+          // If no style tag exists, create a new one
+          cssRules = document.createElement("style");
+          cssRules.setAttribute("data-scope", cssScope);
+          element.insertAdjacentElement("afterbegin", cssRules);
+          styleTag.set(element, cssRules);
+        }
+
+        // Update the styles of the style tag
+        cssRules.innerHTML = `@scope (.${cssScope}) { \n :scope { ${computedStyles}\n}}`;
+      });
     });
 
     // Cleanup by remove only the created style tags
