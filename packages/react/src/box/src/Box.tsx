@@ -86,6 +86,8 @@ export type BoxProps<E extends React.ElementType = React.ElementType> = Combined
     };
     /** Boolean indicating whether the element should be hidden. */
     hidden?: boolean;
+    /** Boolean indicating whether the element should be inline. */
+    inline?: boolean;
   }>,
   E
 >;
@@ -115,6 +117,7 @@ export const Box = forwardRef(
       padding,
       space,
       hidden,
+      inline,
       responsive,
       radius = "none",
       borderColor,
@@ -162,6 +165,7 @@ export const Box = forwardRef(
           computedProps.space?.x && `space-x-${computedProps.space.x}`,
           computedProps.space?.y && `space-y-${computedProps.space.y}`,
           hidden && "hidden",
+          inline && "inline",
           fullHeight && "full-height",
           fullWidth && "full-width",
           fullScreen && "full-screen"

@@ -5,7 +5,7 @@
   all: unset;
   position: relative;
   box-sizing: border-box;
-  display: block;
+  display: theme.get-var(display);
   background-color: theme.get-var(background-color);
   border-color: theme.get-var(border-color);
   border-style: theme.get-var(border-style);
@@ -30,6 +30,14 @@
     @include theme.define-var(
       (
         display: none
+      )
+    );
+  }
+
+  &--inline {
+    @include theme.define-var(
+      (
+        display: inline-block
       )
     );
   }
