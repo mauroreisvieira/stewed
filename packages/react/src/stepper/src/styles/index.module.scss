@@ -4,7 +4,6 @@
 @use "./variables" as *;
 
 @include theme.scope($stepper-root) {
-  display: flex;
   gap: theme.get-spacing("md");
 
   @include theme.define-var(
@@ -15,6 +14,28 @@
       foreground: theme.get-color("neutral", "foreground")
     )
   );
+
+  &--row {
+    display: flex;
+    flex-direction: row;
+
+    .#{$stepper-root}__connecter {
+      width: 100%;
+      height: 1px;
+      transform: translateY(calc(theme.get-var(size) / 2));
+    }
+  }
+
+  &--column {
+    display: inline-flex;
+    flex-direction: column;
+
+    .#{$stepper-root}__connecter {
+      width: 1px;
+      height: 100%;
+      margin: auto;
+    }
+  }
 
   &__item {
     display: flex;
@@ -93,9 +114,6 @@
   &__connecter {
     display: flex;
     flex: 1;
-    width: 100%;
-    height: 1px;
     background: theme.get-color("neutral", "border-faded");
-    transform: translateY(calc(theme.get-var(size) / 2));
   }
 }
