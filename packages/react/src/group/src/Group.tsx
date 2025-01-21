@@ -6,6 +6,12 @@ import { components, type Spacings } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Interface for the properties of the `Group` component.
+ *
+ * @extends React.ComponentPropsWithoutRef<"div">
+ * @extends Pick<UseKeyboardNavigationProps, "loop">
+ */
 export interface GroupProps
   extends React.ComponentPropsWithoutRef<"div">,
     Pick<UseKeyboardNavigationProps, "loop"> {
