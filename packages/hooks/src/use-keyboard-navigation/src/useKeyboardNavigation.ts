@@ -194,9 +194,9 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
         "[href]", // Links.
         "button", // Buttons.
         "input", // Inputs (e.g., text fields).
-        "select", // Dropdowns.
+        "select", // Select.
         "textarea", // Text areas.
-        "[tabindex]", // Any element with a tabindex.
+        "[tabindex]", // Any element with a tab-index.
         "[controls]" // Elements with `controls` attribute (e.g., video/audio players).
       ].join(", ");
 

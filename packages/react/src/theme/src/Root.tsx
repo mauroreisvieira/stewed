@@ -1,10 +1,16 @@
 import React, { useEffect, useInsertionEffect, useMemo, useRef } from "react";
 // Tokens
-import { type Tokens, type Components } from "@stewed/tokens";
+import type { Tokens, Components } from "@stewed/tokens";
 // Hooks
 import { useTheme, type ThemeContextProps } from "./ThemeContext";
 // Utilities
-import { objectEntries } from "@stewed/utilities";
+import { classNames, objectEntries } from "@stewed/utilities";
+
+/** Interface representing the props for a child component. */
+interface ChildProps {
+  /** Additional class name(s) to apply to the child element. */
+  className?: string;
+}
 
 /**
  * Excludes the "components" property from the `Tokens` type.
@@ -37,20 +43,39 @@ type OutputTokens = TokensOnly & TransformedComponents;
  *
  * @template T - A generic string type constraint that extends to theming properties specified in ThemeContextProps.
  */
-type RootProps<T extends string> = React.ComponentPropsWithoutRef<"div"> &
-  Omit<ThemeContextProps<T>, "setTheme" | "setTokens" | "theme" | "activeToken">;
+export interface RootProps<T extends string>
+  extends Pick<ThemeContextProps<T>, "cssScope">,
+    ChildProps {
+  /**
+   * Change the default rendered element for the one passed as a child, merging their props and behavior.
+   * @default false
+   */
+  asChild?: boolean;
+  /** Slot for children components.  */
+  children?: React.ReactNode;
+}
 
 /**
  * Root component for applying themed styles to its children based on the current theme.
  *
- * @param {RootProps} props - Props for the Root component.
- * @returns {React.ReactElement} - React element representing the root component with themed styles applied.
+ * @param props - Props for the Root component.
+ * @returns React element representing the root component with themed styles applied.
+ *
+ * @see {@link RootProps} for more details on the available props.
  */
-export function Root<T extends string>({ children, ...props }: RootProps<T>): React.ReactElement {
+export function Root<T extends string>({
+  className,
+  children,
+  asChild = false
+}: RootProps<T>): React.ReactElement {
+  // A reference to the theme container element.
   const themeRef = useRef<HTMLDivElement>(null);
 
   // Theme and tokens from the context
-  const { theme = "default", cssScope, activeToken } = useTheme();
+  const { cssScope, activeToken, tokens } = useTheme();
+
+  console.log("tokens", tokens);
+  console.log("activeToken", activeToken);
 
   // Transformed tokens to optimize performance
   const transformedTokens: OutputTokens = useMemo(() => {
@@ -116,10 +141,7 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
   );
 
   useEffect(() => {
-    if (!themeRef.current || !cssScope) return;
-
-    // CSS scope class and added to the theme element.
-    themeRef.current.classList.add(cssScope);
+    if (!cssScope) return;
 
     // Map for style tag
     const styleTag = new Map();
@@ -161,7 +183,7 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
 
   useInsertionEffect(() => {
     // Ensure theme is not undefined or empty before proceeding
-    if (!theme || cssScope) {
+    if (cssScope) {
       return;
     }
 
@@ -178,11 +200,18 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
     // Update the inner HTML of the existing or newly created <style> tag with the computed styles
     cssRules.innerHTML = `:scope {${computedStyles}\n}`;
 
-    // Note: No need to remove the style tag, as this is managed by the component lifecycle
-  }, [computedStyles, theme]);
+    // Note: No need to remove the style tag, as this is managed by the component life-cycle
+  }, [computedStyles]);
+
+  // Cloning the child element to inject className
+  if (asChild && React.isValidElement<ChildProps>(children)) {
+    return React.cloneElement(children, {
+      className: classNames(cssScope, className, children.props.className)
+    });
+  }
 
   return (
-    <div ref={themeRef} {...props}>
+    <div ref={themeRef} className={classNames(cssScope, className)}>
       {children}
     </div>
   );

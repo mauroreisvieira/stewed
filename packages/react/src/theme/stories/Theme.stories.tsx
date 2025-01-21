@@ -490,7 +490,7 @@ export const ThemeScope: Story = {
     const [open, setOpen] = useState(false);
 
     return (
-      <Theme cssScope="first-scope">
+      <Theme>
         <Box
           radius="md"
           borderStyle="solid"

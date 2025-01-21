@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 // UI Components
-import { Root } from "./Root";
+import { Root, type RootProps } from "./Root";
 // Tokens
 import { defaultTokens, type Tokens } from "@stewed/tokens";
 // Context
@@ -20,7 +20,7 @@ import { objectKeys } from "@stewed/utilities";
  */
 export interface ThemeProps<T extends string = "default">
   extends Pick<ThemeContextProps<T>, "cssScope" | "defaultTheme" | "theme" | "tokens">,
-    React.ComponentPropsWithoutRef<"div"> {}
+    RootProps<T> {}
 
 /**
  * A Theme component allows you to manage various objects that define your application's colors, spacing, fonts, and more in a coherent and organized manner.
@@ -34,7 +34,9 @@ export function Theme<T extends string>({
   defaultTheme = "default",
   theme: activeTheme,
   tokens: currentTokens,
-  ...props
+  className,
+  asChild,
+  children
 }: ThemeProps<T>): React.ReactElement {
   // State for managing the current theme
   const [theme, setTheme] = useState<string | undefined>(activeTheme || defaultTheme);
@@ -56,8 +58,7 @@ export function Theme<T extends string>({
     return objectKeys(defaultTokens).reduce((acc, key) => {
       acc[key] = {
         ...defaultTokens[key],
-        ...(tokens?.["default" as T]?.[key] ?? {}),
-        ...(tokens?.[theme as T]?.[key] ?? {})
+        ...(tokens?.[(theme || "default") as T]?.[key] ?? {})
       };
 
       return acc;
@@ -77,7 +78,9 @@ export function Theme<T extends string>({
       }}
     >
       {/* Root component to which the themed styles are applied */}
-      <Root {...props} />
+      <Root asChild={asChild} className={className}>
+        {children}
+      </Root>
     </ThemeContext>
   );
 }
