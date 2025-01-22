@@ -121,7 +121,7 @@ export function Notifications(): React.ReactElement {
             </Stack>
           </Box>
           <Separator />
-          <Stack style={{ maxHeight: 420 }}>
+          <Stack style={{ height: 420 }}>
             <ScrollArea>
               <Box padding={{ block: "sm", inline: "sm" }}>
                 <ListBox>

@@ -2,6 +2,7 @@
 @use "./variables" as *;
 
 @include theme.scope($scroll-area-root) {
+  height: 100%;
   overflow: hidden scroll;
 
   &--top-shadow,
