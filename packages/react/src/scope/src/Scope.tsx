@@ -26,19 +26,15 @@ interface ScopeProps extends UsePortalProps, React.ComponentPropsWithoutRef<"div
  *
  * @param props - The props for the Scope component.
  * @returns The rendered Scope component.
+ *
+ * @see {@link ScopeProps} for more details on the available props.
  */
-export function Scope({
-  root,
-  elevation,
-  className,
-  children,
-  ...props
-}: ScopeProps): React.ReactElement {
+export function Scope({ root, elevation, className, ...props }: ScopeProps): React.ReactElement {
   // Importing useBem to handle BEM class names
   const { getBlock } = useBem({ block: components.Scope, styles });
 
   // Access current theme and tokens
-  const { theme, tokens, cssScope } = useTheme();
+  const { theme, tokens } = useTheme();
 
   // Managing portals
   const target = usePortal({ root });
@@ -52,14 +48,8 @@ export function Scope({
   };
 
   const content = (
-    <Theme
-      defaultTheme={theme}
-      tokens={tokens}
-      className={cssClasses.root}
-      cssScope={cssScope}
-      {...props}
-    >
-      {children}
+    <Theme defaultTheme={theme} tokens={tokens} cssScope={`scope-${crypto.randomUUID()}`} asChild>
+      <div className={cssClasses.root} {...props} />
     </Theme>
   );
 
