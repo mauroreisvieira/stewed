@@ -1655,7 +1655,7 @@ export const AddStaff = {
                             "Inlays and Onlays",
                             "Dental implants"
                           ].map((value) => (
-                            <Checkbox key={value} defaultChecked={true} appearance="border">
+                            <Checkbox key={value} appearance="border" defaultChecked>
                               {value}
                             </Checkbox>
                           ))}
@@ -1820,7 +1820,7 @@ export const AddStaff = {
                             {({ close }) => (
                               <Box padding={{ block: "sm", inline: "sm" }}>
                                 <Calendar
-                                  siblingMonthDays={true}
+                                  siblingMonthDays
                                   formatDate={{
                                     day: "numeric",
                                     month: "long",
@@ -1884,9 +1884,6 @@ export const AddStaff = {
                 <Separator />
                 <Card.Footer>
                   <Stack justify="end" gap="md">
-                    <Button skin="neutral" appearance="ghost">
-                      Cancel
-                    </Button>
                     <Button>Add</Button>
                   </Stack>
                 </Card.Footer>
@@ -1917,24 +1914,29 @@ export const AddStaff = {
           </>
         )}
 
-        <Stack justify="end" gap="md">
-          <Button skin="neutral" appearance="ghost">
-            Cancel
-          </Button>
-          {Number(selectedStep) > 1 && (
-            <Button leftSlot={<FaArrowLeft />} appearance="outline" onClick={prevStep}>
-              Prev Step
-            </Button>
-          )}
-
-          {Number(selectedStep) < steps.length ? (
+        {selectedStep === "1" ? (
+          <Stack justify="end">
             <Button rightSlot={<FaArrowRight />} onClick={nextStep}>
               Next Step
             </Button>
-          ) : (
-            <Button>Save</Button>
-          )}
-        </Stack>
+          </Stack>
+        ) : (
+          <Stack justify="between" gap="md">
+            {Number(selectedStep) > 1 && (
+              <Button leftSlot={<FaArrowLeft />} appearance="outline" onClick={prevStep}>
+                Prev Step
+              </Button>
+            )}
+
+            {Number(selectedStep) < steps.length ? (
+              <Button rightSlot={<FaArrowRight />} onClick={nextStep}>
+                Next Step
+              </Button>
+            ) : (
+              <Button>Save</Button>
+            )}
+          </Stack>
+        )}
       </Container>
     );
   }
