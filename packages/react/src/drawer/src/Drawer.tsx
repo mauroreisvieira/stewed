@@ -93,7 +93,7 @@ export function Drawer({
   open,
   size = "md",
   safeMargin = "none",
-  placement = "left",
+  placement = "right",
   padding = {
     block: "xl",
     inline: "xl"
