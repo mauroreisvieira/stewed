@@ -45,8 +45,16 @@ export interface ThemeContextProps<T extends string> {
   tokens?: Partial<
     {
       /**
-       * It supports a default theme as well as other themes that are specified by their respective names.
-       * The `default` theme will be used when no specific theme is provided.
+       * Supports a default theme and additional themes defined by their respective names.
+       *
+       * - The `default` theme is used when no specific theme is provided.
+       * - New tokens extend from the `default` theme, inheriting all properties unless explicitly overridden.
+       *
+       * @remarks
+       * If the `default` theme specifies a button with full radius corners, and a "dark" theme overrides only the color properties, the "dark" theme
+       * will inherit the button's full radius corners from the `default` theme.
+       *
+       * This design ensures flexible theming while maintaining consistent shared properties.
        */
       default: Tokens;
     } & Record<T, Tokens>

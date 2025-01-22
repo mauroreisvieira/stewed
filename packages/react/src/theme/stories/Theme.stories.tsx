@@ -474,9 +474,15 @@ function DialogActions({ onClick }: { onClick: () => void }): React.ReactElement
             "primary-background-pressed": "lime-600",
             "primary-background-faded": "lime-100",
             focus: "lime-500"
+          },
+          components: {
+            button: {
+              radius: "none"
+            }
           }
         }
       }}
+      extendsParentTokens={false}
     >
       <Button onClick={onClick} fullWidth>
         Close
@@ -520,6 +526,8 @@ export const ThemeScope: Story = {
                   }
                 }
               }}
+              extendsParentTokens={false}
+              asChild
             >
               <Box
                 radius="md"

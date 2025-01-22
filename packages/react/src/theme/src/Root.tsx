@@ -1,6 +1,6 @@
-import React, { useEffect, useInsertionEffect, useMemo, useRef } from "react";
+import React, { useEffect, useInsertionEffect, useMemo, useRef, useState } from "react";
 // Tokens
-import type { Tokens, Components } from "@stewed/tokens";
+import { defaultTokens, type Tokens, type Components } from "@stewed/tokens";
 // Hooks
 import { useTheme, type ThemeContextProps } from "./ThemeContext";
 // Utilities
@@ -72,10 +72,7 @@ export function Root<T extends string>({
   const themeRef = useRef<HTMLDivElement>(null);
 
   // Theme and tokens from the context
-  const { cssScope, activeToken, tokens } = useTheme();
-
-  console.log("tokens", tokens);
-  console.log("activeToken", activeToken);
+  const { cssScope, activeToken } = useTheme();
 
   // Transformed tokens to optimize performance
   const transformedTokens: OutputTokens = useMemo(() => {
@@ -90,24 +87,30 @@ export function Root<T extends string>({
     // Create an object to override colors based on the color tokens
     const overrideColors = objectEntries(color).reduce((acc, [key, value]) => {
       // Map each color key to its corresponding value or fallback to the key itself
-      acc[key] = color?.[value] || value;
+      acc[key] = color?.[value] || defaultTokens?.color?.[value] || value;
 
       return acc;
     }, {});
 
+    // Transform components by mapping their properties to corresponding token values
     const transformedComponents = objectEntries(components).reduce((acc, [name, props]) => {
+      // Initialize an object for each component's transformed properties
       acc[name] = objectEntries(props).reduce(
         (prop, [propName, tokenKey]) => {
-          // Cache the token group to avoid repeated lookups
-          const tokenGroup = otherTokens?.[propName];
+          // Determine the token group to use: prefer otherTokens, fallback to defaultTokens
+          const tokenGroup = Object.keys(otherTokens?.[propName] || {}).length
+            ? otherTokens?.[propName] // Use otherTokens if available
+            : defaultTokens?.[propName]; // Fallback to defaultTokens
 
-          // Safely retrieve the token value, defaulting to tokenKey if not found
-          const tokenValue = tokenGroup?.[tokenKey] ?? tokenKey;
+          // Safely retrieve the token value; if not found, use the tokenKey as default
+          const tokenValue = tokenGroup?.[tokenKey] || tokenKey;
+
+          // Assign the resolved token value to the property
           prop[propName] = tokenValue;
 
-          return prop;
+          return prop; // Return the accumulated properties for the current component
         },
-        {} as Record<string, string>
+        {} as Record<string, string> // Initialize the accumulator as an empty object
       );
 
       return acc;
@@ -195,10 +198,10 @@ export function Root<T extends string>({
       cssRules = document.createElement("style");
       cssRules.setAttribute("data-global-styles", "true"); // Set a data attribute for unique identification
       document.head.appendChild(cssRules);
-    }
 
-    // Update the inner HTML of the existing or newly created <style> tag with the computed styles
-    cssRules.innerHTML = `:scope {${computedStyles}\n}`;
+      // Update the inner HTML of the existing or newly created <style> tag with the computed styles
+      cssRules.innerHTML = `:scope {${computedStyles}\n}`;
+    }
 
     // Note: No need to remove the style tag, as this is managed by the component life-cycle
   }, [computedStyles]);
