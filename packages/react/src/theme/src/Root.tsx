@@ -192,10 +192,10 @@ export function Root<T extends string>({
       cssRules = document.createElement("style");
       cssRules.setAttribute("data-global-styles", "true"); // Set a data attribute for unique identification
       document.head.appendChild(cssRules);
-
-      // Update the inner HTML of the existing or newly created <style> tag with the computed styles
-      cssRules.innerHTML = `:scope {${computedStyles}\n}`;
     }
+
+    // Update the inner HTML of the existing or newly created <style> tag with the computed styles
+    cssRules.innerHTML = `:scope {${computedStyles}\n}`;
 
     // Note: No need to remove the style tag, as this is managed by the component life-cycle
   }, [computedStyles]);
