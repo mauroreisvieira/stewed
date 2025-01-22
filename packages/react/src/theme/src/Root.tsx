@@ -1,4 +1,4 @@
-import React, { useEffect, useInsertionEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useInsertionEffect, useMemo } from "react";
 // Tokens
 import { defaultTokens, type Tokens, type Components } from "@stewed/tokens";
 // Hooks
@@ -43,9 +43,7 @@ type OutputTokens = TokensOnly & TransformedComponents;
  *
  * @template T - A generic string type constraint that extends to theming properties specified in ThemeContextProps.
  */
-export interface RootProps<T extends string>
-  extends Pick<ThemeContextProps<T>, "cssScope">,
-    ChildProps {
+export interface RootProps<T extends string> extends Pick<ThemeContextProps<T>, "cssScope"> {
   /**
    * Change the default rendered element for the one passed as a child, merging their props and behavior.
    * @default false
@@ -64,13 +62,9 @@ export interface RootProps<T extends string>
  * @see {@link RootProps} for more details on the available props.
  */
 export function Root<T extends string>({
-  className,
   children,
   asChild = false
 }: RootProps<T>): React.ReactElement {
-  // A reference to the theme container element.
-  const themeRef = useRef<HTMLDivElement>(null);
-
   // Theme and tokens from the context
   const { cssScope, activeToken } = useTheme();
 
@@ -144,7 +138,7 @@ export function Root<T extends string>({
   );
 
   useEffect(() => {
-    if (!cssScope) return;
+    if (!cssScope || !Object.keys(computedStyles).length) return;
 
     // Map for style tag
     const styleTag = new Map();
@@ -166,10 +160,10 @@ export function Root<T extends string>({
           cssRules.setAttribute("data-scope", cssScope);
           element.insertAdjacentElement("afterbegin", cssRules);
           styleTag.set(element, cssRules);
-        }
 
-        // Update the styles of the style tag
-        cssRules.innerHTML = `@scope (.${cssScope}) { \n :scope { ${computedStyles}\n}}`;
+          // Update the styles of the style tag
+          cssRules.innerHTML = `@scope (.${cssScope}) { \n :scope { ${computedStyles}\n}}`;
+        }
       });
     });
 
@@ -209,13 +203,9 @@ export function Root<T extends string>({
   // Cloning the child element to inject className
   if (asChild && React.isValidElement<ChildProps>(children)) {
     return React.cloneElement(children, {
-      className: classNames(cssScope, className, children.props.className)
+      className: classNames(cssScope, children.props.className)
     });
   }
 
-  return (
-    <div ref={themeRef} className={classNames(cssScope, className)}>
-      {children}
-    </div>
-  );
+  return <div className={classNames(cssScope)}>{children}</div>;
 }

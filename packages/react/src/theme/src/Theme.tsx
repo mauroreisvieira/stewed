@@ -50,10 +50,9 @@ export function Theme<T extends string>({
   defaultTheme = "default",
   theme: activeTheme,
   tokens: currentTokens,
-  className,
   extendsParentTokens = true,
   asChild,
-  children
+  ...props
 }: ThemeProps<T>): React.ReactElement {
   // State for managing the current theme
   const [theme, setTheme] = useState<string | undefined>(activeTheme || defaultTheme);
@@ -79,7 +78,7 @@ export function Theme<T extends string>({
     return objectKeys(defaultTokens).reduce((acc, key) => {
       // Merge the default token with any overrides from the tokens object
       acc[key] = {
-        ...(extendsParentTokens ? parentToken?.[key] || defaultTokens[key] : {}),
+        ...(extendsParentTokens ? { ...defaultTokens[key], ...parentToken?.[key] } : {}),
         ...(tokens?.["default" as T]?.[key] ?? {}), // Merge default overrides
         ...(tokens?.[theme as T]?.[key] ?? {}) // Merge theme-specific overrides
       };
@@ -101,9 +100,7 @@ export function Theme<T extends string>({
       }}
     >
       {/* Root component to which the themed styles are applied */}
-      <Root asChild={asChild} className={className}>
-        {children}
-      </Root>
+      <Root asChild={asChild} {...props} />
     </ThemeContext>
   );
 }
