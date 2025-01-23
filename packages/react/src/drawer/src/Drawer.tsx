@@ -60,7 +60,7 @@ export interface DrawerProps
   keepMounted?: boolean;
   /**
    * The preferred placement of the drawer.
-   * @default "right"
+   * @default "left"
    */
   placement?: "left" | "right" | "bottom";
   /** Callback function invoked when the escape key is pressed. */
@@ -93,7 +93,7 @@ export function Drawer({
   open,
   size = "md",
   safeMargin = "none",
-  placement = "right",
+  placement = "left",
   padding = {
     block: "xl",
     inline: "xl"

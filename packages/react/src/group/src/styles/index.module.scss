@@ -14,10 +14,6 @@
     )
   );
 
-  &:not(&--gap-none) {
-    flex-wrap: wrap;
-  }
-
   &:where(&--gap-none) {
     :not(:first-child) {
       margin-left: -1px;
@@ -64,6 +60,10 @@
 
   &--full-width {
     width: 100%;
+  }
+
+  &--wrap {
+    flex-wrap: wrap;
   }
 
   // Gap

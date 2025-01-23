@@ -22,18 +22,17 @@ export default meta;
 
 export const Buttons: Story = {
   args: {
+    gap: "sm",
     focusOnSelected: true,
     children: (
       <>
-        <Button skin="neutral" disabled>
+        <Button appearance="soft">Button</Button>
+        <Button appearance="soft">Button</Button>
+        <Button appearance="soft">Button</Button>
+        <Button appearance="soft" pressed>
           Button
         </Button>
-        <Button skin="neutral">Button</Button>
-        <Button skin="neutral">Button</Button>
-        <Button skin="neutral" pressed>
-          Button
-        </Button>
-        <Button skin="neutral">Button</Button>
+        <Button appearance="soft">Button</Button>
       </>
     )
   }
@@ -43,6 +42,8 @@ export const TextFields: Story = {
   args: {
     children: (
       <>
+        <TextField appearance="outline" defaultValue={"Input field..."} />
+        <TextField appearance="outline" defaultValue={"Input field..."} />
         <TextField appearance="outline" defaultValue={"Input field..."} />
         <TextField appearance="outline" defaultValue={"Input field..."} />
       </>
