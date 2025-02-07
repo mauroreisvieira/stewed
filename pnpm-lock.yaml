@@ -193,6 +193,9 @@ importers:
       react:
         specifier: ^18.0 || ^19.0
         version: 19.0.0
+      react-dom:
+        specifier: ^18.0 || ^19.0
+        version: 19.0.0(react@19.0.0)
     devDependencies:
       '@harmonix-hub/babel':
         specifier: ^0.4.0
@@ -206,6 +209,9 @@ importers:
       '@types/react':
         specifier: ^19.0.7
         version: 19.0.7
+      '@types/react-dom':
+        specifier: ^19.0.3
+        version: 19.0.3(@types/react@19.0.7)
       '@vitejs/plugin-react-swc':
         specifier: ^3.7.2
         version: 3.7.2(vite@6.0.7(@types/node@22.10.7)(jiti@2.4.2)(lightningcss@1.28.2)(sass-embedded@1.83.0)(sass@1.83.0)(tsx@4.19.2))

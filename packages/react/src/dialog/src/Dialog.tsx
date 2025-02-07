@@ -187,8 +187,6 @@ export function Dialog({
    *
    * This function used to clean up the component's state after an animation finishes.
    * If the `open` state is `false`, it sets `shouldRender` to `false` to remove the component from the DOM.
-   *
-   * @returns {void}
    */
   const onHandleAnimationEnd = (): void => {
     if (!open) {
