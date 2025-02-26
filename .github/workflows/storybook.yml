@@ -33,7 +33,7 @@ jobs:
               run: pnpm install
 
             - name: Build Storybook
-              run: pnpm run build-storybook
+              run: pnpm run storybook:build
 
             - name: Upload Storybook to GitHub Pages
               uses: actions/upload-pages-artifact@v1
