@@ -22,10 +22,8 @@ jobs:
         id: checkout
         uses: actions/checkout@v4
 
-      - name: 🥡 Setup PNPM 9
+      - name: 🥡 Setup PNPM
         uses: pnpm/action-setup@v4
-        with:
-          version: 9
 
       - name: 🟢 Setup Node
         uses: actions/setup-node@v4
