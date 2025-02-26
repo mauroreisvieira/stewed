@@ -35,7 +35,7 @@ jobs:
         run: pnpm run build-storybook
 
       - name: Upload Storybook Preview
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./storybook-static
           destination: pr-previews/${{ github.event.pull_request.number }}
@@ -49,10 +49,10 @@ jobs:
 
     steps:
       - name: Deploy Preview to GitHub Pages
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
 
       - name: Comment on Pull Request
-        uses: thollander/actions-comment-pull-request@v2
+        uses: thollander/actions-comment-pull-request@v3
         with:
           message: |
             🚀 Preview available: [Storybook Preview](https://mauroreisvieira.github.io/stewed/pr-previews/${{ github.event.pull_request.number }})
