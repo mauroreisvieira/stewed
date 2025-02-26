@@ -18,10 +18,10 @@ jobs:
       - name: ⬇️ Checkout
         uses: actions/checkout@v4
 
-      - name: 🥡 Setup PNPM 8
+      - name: 🥡 Setup PNPM 9
         uses: pnpm/action-setup@v4
         with:
-          version: 8
+          version: 9
 
       - name: 🟢 Setup Node
         uses: actions/setup-node@v4
