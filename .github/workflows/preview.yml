@@ -32,7 +32,7 @@ jobs:
         run: pnpm install
 
       - name: Build Storybook
-        run: pnpm run build-storybook
+        run: pnpm run storybook:build
 
       - name: Upload Storybook Preview
         uses: actions/upload-pages-artifact@v3
