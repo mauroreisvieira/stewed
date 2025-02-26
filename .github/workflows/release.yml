@@ -8,6 +8,7 @@ on:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
+
 jobs:
   release:
     name: 🚀 Release
@@ -22,16 +23,16 @@ jobs:
         id: checkout
         uses: actions/checkout@v4
 
+      - name: 🥡 Setup PNPM 8
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
       - name: 🟢 Setup Node
         uses: actions/setup-node@v4
         with:
           cache: pnpm
           node-version: 20
-
-      - name: 🥡 Setup PNPM 8
-        uses: pnpm/action-setup@v3
-        with:
-          version: 9
 
       - name: 🧩 Install Dependencies
         id: install-dependencies
