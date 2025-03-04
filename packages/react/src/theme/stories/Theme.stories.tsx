@@ -465,7 +465,7 @@ export const Timing: Story = {
 function DialogActions({ onClick }: { onClick: () => void }): React.ReactElement {
   return (
     <Theme
-      cssScope="third-scope"
+      cssScope="actions-scope"
       tokens={{
         default: {
           color: {
@@ -477,6 +477,7 @@ function DialogActions({ onClick }: { onClick: () => void }): React.ReactElement
           }
         }
       }}
+      extendsParentTokens={false}
     >
       <Button onClick={onClick} fullWidth>
         Close
@@ -490,78 +491,121 @@ export const ThemeScope: Story = {
     const [open, setOpen] = useState(false);
 
     return (
-      <Theme cssScope="first-scope">
-        <Box
-          radius="md"
-          borderStyle="solid"
-          borderColor="neutral-faded"
-          skin="primary-faded"
-          padding={{ block: "lg", inline: "lg" }}
-        >
-          <Stack direction="column" gap="lg">
-            <div>
-              <Button>Primary</Button>
-            </div>
-            <Theme
-              cssScope="second-scope"
-              tokens={{
-                default: {
-                  color: {
-                    "primary-background": "purple-500",
-                    "primary-background-hovered": "purple-600",
-                    "primary-background-pressed": "purple-600",
-                    "primary-background-faded": "purple-100",
-                    focus: "purple-500"
-                  },
-                  components: {
-                    button: {
-                      radius: "full"
+      <>
+        <Theme>
+          <Box
+            radius="md"
+            borderStyle="solid"
+            borderColor="neutral-faded"
+            skin="primary-faded"
+            padding={{ block: "lg", inline: "lg" }}
+          >
+            <Stack direction="column" gap="lg">
+              <div>
+                <Button>Primary</Button>
+              </div>
+              <Theme
+                cssScope="second-scope"
+                tokens={{
+                  default: {
+                    color: {
+                      "primary-background": "purple-500",
+                      "primary-background-hovered": "purple-600",
+                      "primary-background-pressed": "purple-600",
+                      "primary-background-faded": "purple-100",
+                      focus: "purple-500"
+                    },
+                    components: {
+                      button: {
+                        radius: "none"
+                      }
                     }
                   }
-                }
-              }}
-            >
-              <Box
-                radius="md"
-                borderStyle="solid"
-                borderColor="neutral-faded"
-                skin="primary-faded"
-                padding={{ block: "lg", inline: "lg" }}
+                }}
+                extendsParentTokens={false}
+                asChild
               >
-                <Button onClick={() => setOpen(true)}>Primary</Button>
-                <Dialog
-                  open={open}
-                  size="xs"
-                  onEscape={() => setOpen(false)}
-                  onClickOutside={() => setOpen(false)}
+                <Box
+                  radius="md"
+                  borderStyle="solid"
+                  borderColor="neutral-faded"
+                  skin="primary-faded"
+                  padding={{ block: "lg", inline: "lg" }}
                 >
-                  <Dialog.Body>
-                    <Text>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur distinctio
-                      labore blanditiis soluta ipsam ratione earum perspiciatis omnis fugit
-                      consectetur repellendus rem reprehenderit neque cupiditate corporis temporibus
-                      natus corrupti vel aliquid fuga laudantium autem, exercitationem!
-                    </Text>
-                    <Text space={{ y: "2xl" }}>
-                      Ipsum nobis, deserunt, culpa ex aliquam nemo. Omnis ut, cupiditate culpa eos.
-                      Quibusdam minima aspernatur quidem voluptates, quaerat, quas. Veritatis nam
-                      dolor delectus rerum esse error optio libero nobis sunt corrupti aliquid quos
-                      fugit, reiciendis perspiciatis? Nostrum laborum reprehenderit, magnam placeat
-                      velit fuga exercitationem aspernatur, vero eveniet consequuntur culpa. Iure,
-                      nisi, soluta! Minima repellendus, nesciunt, nostrum corrupti omnis ratione
-                      cupiditate maiores facilis dolorum provident? Fugiat eos corrupti, recusandae
-                      delectus quas sequi eligendi porro hic expedita temporibus ullam repellat
-                      mollitia. Quia ea expedita, iure debitis? Fugit.
-                    </Text>
+                  <Stack direction="column" gap="lg">
+                    <div>
+                      <Button onClick={() => setOpen(true)}>Open Dialog</Button>
+                    </div>
 
-                    <DialogActions onClick={() => setOpen(false)} />
-                  </Dialog.Body>
-                </Dialog>
-              </Box>
-            </Theme>
-          </Stack>
-        </Box>
-      </Theme>
+                    <Dialog
+                      open={open}
+                      size="xs"
+                      onEscape={() => setOpen(false)}
+                      onClickOutside={() => setOpen(false)}
+                    >
+                      <Dialog.Body>
+                        <Text>
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
+                          distinctio labore blanditiis soluta ipsam ratione earum perspiciatis omnis
+                          fugit consectetur repellendus rem reprehenderit neque cupiditate corporis
+                          temporibus natus corrupti vel aliquid fuga laudantium autem,
+                          exercitationem!
+                        </Text>
+                        <Text space={{ y: "2xl" }}>
+                          Ipsum nobis, deserunt, culpa ex aliquam nemo. Omnis ut, cupiditate culpa
+                          eos. Quibusdam minima aspernatur quidem voluptates, quaerat, quas.
+                          Veritatis nam dolor delectus rerum esse error optio libero nobis sunt
+                          corrupti aliquid quos fugit, reiciendis perspiciatis? Nostrum laborum
+                          reprehenderit, magnam placeat velit fuga exercitationem aspernatur, vero
+                          eveniet consequuntur culpa. Iure, nisi, soluta! Minima repellendus,
+                          nesciunt, nostrum corrupti omnis ratione cupiditate maiores facilis
+                          dolorum provident? Fugiat eos corrupti, recusandae delectus quas sequi
+                          eligendi porro hic expedita temporibus ullam repellat mollitia. Quia ea
+                          expedita, iure debitis? Fugit.
+                        </Text>
+
+                        <DialogActions onClick={() => setOpen(false)} />
+                      </Dialog.Body>
+                    </Dialog>
+
+                    <Theme
+                      cssScope="third-scope"
+                      tokens={{
+                        default: {
+                          color: {
+                            "primary-background": "orange-500",
+                            "primary-background-hovered": "orange-600",
+                            "primary-background-pressed": "orange-600",
+                            "primary-background-faded": "orange-100",
+                            focus: "orange-500"
+                          },
+                          components: {
+                            button: {
+                              radius: "full"
+                            }
+                          }
+                        }
+                      }}
+                      extendsParentTokens={false}
+                      asChild
+                    >
+                      <Box
+                        radius="md"
+                        borderStyle="solid"
+                        borderColor="neutral-faded"
+                        skin="primary-faded"
+                        padding={{ block: "lg", inline: "lg" }}
+                      >
+                        <Button>Primary</Button>
+                      </Box>
+                    </Theme>
+                  </Stack>
+                </Box>
+              </Theme>
+            </Stack>
+          </Box>
+        </Theme>
+      </>
     );
   }
 };

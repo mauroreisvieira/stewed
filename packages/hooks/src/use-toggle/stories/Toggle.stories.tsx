@@ -25,12 +25,12 @@ export const Base: StoryObj<typeof useToggle> = {
    */
   render: function Render() {
     // Hook to handle clicks outside the floating element.
-    const [isToggle, handleToggle] = useToggle(false);
+    const { isOn, toggle } = useToggle(false);
 
     return (
       <>
-        <Button skin="primary" appearance={isToggle ? "filled" : "outline"} onClick={handleToggle}>
-          Button: {isToggle ? "On" : "Off"}
+        <Button skin="primary" appearance={isOn ? "filled" : "outline"} onClick={toggle}>
+          Button: {isOn ? "On" : "Off"}
         </Button>
       </>
     );

@@ -1,3 +1,4 @@
+export * from "./use-animations-finished";
 export * from "./use-array";
 export * from "./use-async";
 export * from "./use-bem";

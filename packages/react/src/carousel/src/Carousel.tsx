@@ -18,6 +18,7 @@ import { useTheme } from "../../theme";
 // Style
 import styles from "./styles/index.module.scss";
 
+/** Props for the NavigationButton component. */
 interface NavigationButtonProps {
   /** The class name to be applied to the navigation button for styling purposes. */
   className: string;
@@ -27,6 +28,10 @@ interface NavigationButtonProps {
   onClick: () => void;
 }
 
+/**
+ * Props for the Carousel component.
+ * Extends the default props of a div element and includes responsive properties.
+ */
 export interface CarouselProps
   extends React.ComponentPropsWithoutRef<"div">,
     UseResponsiveProps<{
@@ -73,6 +78,10 @@ export interface CarouselProps
   onSlideChange?: (slide: number) => void;
 }
 
+/**
+ * Ref interface for the Carousel component.
+ * This interface defines the methods and properties that can be accessed when using a ref to the Carousel component.
+ */
 export interface CarouselRef {
   /** Change current slide to next slide */
   next: () => void;

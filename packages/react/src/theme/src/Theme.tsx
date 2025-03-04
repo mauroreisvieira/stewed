@@ -1,10 +1,10 @@
 import React, { useEffect, useMemo, useState } from "react";
 // UI Components
-import { Root } from "./Root";
+import { Root, type RootProps } from "./Root";
 // Tokens
 import { defaultTokens, type Tokens } from "@stewed/tokens";
 // Context
-import { ThemeContext, type ThemeContextProps } from "./ThemeContext";
+import { ThemeContext, useTheme, type ThemeContextProps } from "./ThemeContext";
 // Utilities
 import { objectKeys } from "@stewed/utilities";
 
@@ -20,20 +20,38 @@ import { objectKeys } from "@stewed/utilities";
  */
 export interface ThemeProps<T extends string = "default">
   extends Pick<ThemeContextProps<T>, "cssScope" | "defaultTheme" | "theme" | "tokens">,
-    React.ComponentPropsWithoutRef<"div"> {}
+    RootProps<T> {
+  /**
+   * Determines whether to extend the parent theme's tokens.
+   *
+   * - When `extendsParentTokens` is `true`, all parent/default tokens are duplicated
+   *   into the new theme scope, making all tokens readily available.
+   *
+   * - When `extendsParentTokens` is `false`, only tokens explicitly defined in the new theme scope are written.
+   *   Parent tokens are used as fallback, reducing redundancy and potentially enhancing performance in cases where only partial overrides are needed.
+   *
+   * @default true
+   */
+  extendsParentTokens?: boolean;
+}
 
 /**
  * A Theme component allows you to manage various objects that define your application's colors, spacing, fonts, and more in a coherent and organized manner.
  *
  * @template T - The type of theme to be used.
- * @param {ThemeProps<T>} props - Props for the Theme component.
- * @returns {React.ReactElement} - React element representing the themed application.
+ *
+ * @param props - Props for the Theme component.
+ * @returns React element representing the themed application.
+ *
+ * @see {@link ThemeProps} for more details on the available props.
  */
 export function Theme<T extends string>({
   cssScope,
   defaultTheme = "default",
   theme: activeTheme,
   tokens: currentTokens,
+  extendsParentTokens = true,
+  asChild,
   ...props
 }: ThemeProps<T>): React.ReactElement {
   // State for managing the current theme
@@ -41,6 +59,8 @@ export function Theme<T extends string>({
 
   // State for managing tokens
   const [tokens, setTokens] = useState<ThemeContextProps<T>["tokens"]>(currentTokens);
+
+  const { activeToken: parentToken } = useTheme();
 
   // Updates the theme state to the currently active theme.
   useEffect(() => {
@@ -52,17 +72,20 @@ export function Theme<T extends string>({
   }, [activeTheme]);
 
   // Merge default tokens with theme-specific tokens
+  // which combines default tokens with any overrides from the provided tokens.
   const activeToken = useMemo(() => {
+    // Reduce the keys of defaultTokens into a new object
     return objectKeys(defaultTokens).reduce((acc, key) => {
+      // Merge the default token with any overrides from the tokens object
       acc[key] = {
-        ...defaultTokens[key],
-        ...(tokens?.["default" as T]?.[key] ?? {}),
-        ...(tokens?.[theme as T]?.[key] ?? {})
+        ...(extendsParentTokens ? { ...defaultTokens[key], ...parentToken?.[key] } : {}),
+        ...(tokens?.["default" as T]?.[key] ?? {}), // Merge default overrides
+        ...(tokens?.[theme as T]?.[key] ?? {}) // Merge theme-specific overrides
       };
 
       return acc;
     }, {} as Tokens);
-  }, [theme, tokens]);
+  }, [theme, tokens, extendsParentTokens, parentToken]);
 
   return (
     <ThemeContext
@@ -77,7 +100,7 @@ export function Theme<T extends string>({
       }}
     >
       {/* Root component to which the themed styles are applied */}
-      <Root {...props} />
+      <Root asChild={asChild} {...props} />
     </ThemeContext>
   );
 }

@@ -2,6 +2,7 @@
 @use "./variables" as *;
 
 @include theme.scope($scroll-area-root) {
+  height: 100%;
   overflow: hidden scroll;
 
   &--top-shadow,
@@ -9,6 +10,7 @@
     &::before,
     &::after {
       position: sticky;
+      z-index: 9;
       display: block;
       width: 100%;
       content: "";
@@ -18,14 +20,14 @@
   &--top-shadow {
     &::before {
       top: 0;
-      box-shadow: 0 0 6px 6px theme.get-color("shadow");
+      box-shadow: 0 0 4px 4px theme.get-color("shadow");
     }
   }
 
   &--bottom-shadow {
     &::after {
       bottom: 0;
-      box-shadow: 0 2px 6px 2px theme.get-color("shadow");
+      box-shadow: 0 0 4px 4px theme.get-color("shadow");
     }
   }
 }

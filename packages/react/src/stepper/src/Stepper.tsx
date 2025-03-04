@@ -18,7 +18,13 @@ import styles from "./styles/index.module.scss";
  */
 export interface StepperProps
   extends React.ComponentPropsWithoutRef<"div">,
-    Omit<StepperContextProps, "steps"> {}
+    Omit<StepperContextProps, "steps"> {
+  /**
+   * The direction of the stepper.
+   * @default row
+   */
+  direction?: "row" | "column";
+}
 
 /**
  * Stepper is used to indicate the user's progress through a multi-step process.
@@ -41,6 +47,7 @@ export interface StepperProps
  */
 export function Stepper({
   selectedValue,
+  direction = "row",
   className,
   children,
   ...props
@@ -51,6 +58,7 @@ export function Stepper({
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({
+      modifiers: [direction],
       extraClasses: className
     }),
     connecter: getElement(["connecter"])

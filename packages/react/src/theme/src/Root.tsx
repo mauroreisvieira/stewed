@@ -1,10 +1,16 @@
-import React, { useEffect, useInsertionEffect, useMemo, useRef } from "react";
+import React, { useEffect, useInsertionEffect, useMemo } from "react";
 // Tokens
-import { type Tokens, type Components } from "@stewed/tokens";
+import { defaultTokens, type Tokens, type Components } from "@stewed/tokens";
 // Hooks
 import { useTheme, type ThemeContextProps } from "./ThemeContext";
 // Utilities
-import { objectEntries } from "@stewed/utilities";
+import { classNames, objectEntries } from "@stewed/utilities";
+
+/** Interface representing the props for a child component. */
+interface ChildProps {
+  /** Additional class name(s) to apply to the child element. */
+  className?: string;
+}
 
 /**
  * Excludes the "components" property from the `Tokens` type.
@@ -37,20 +43,30 @@ type OutputTokens = TokensOnly & TransformedComponents;
  *
  * @template T - A generic string type constraint that extends to theming properties specified in ThemeContextProps.
  */
-type RootProps<T extends string> = React.ComponentPropsWithoutRef<"div"> &
-  Omit<ThemeContextProps<T>, "setTheme" | "setTokens" | "theme" | "activeToken">;
+export interface RootProps<T extends string> extends Pick<ThemeContextProps<T>, "cssScope"> {
+  /**
+   * Change the default rendered element for the one passed as a child, merging their props and behavior.
+   * @default false
+   */
+  asChild?: boolean;
+  /** Slot for children components.  */
+  children?: React.ReactNode;
+}
 
 /**
  * Root component for applying themed styles to its children based on the current theme.
  *
- * @param {RootProps} props - Props for the Root component.
- * @returns {React.ReactElement} - React element representing the root component with themed styles applied.
+ * @param props - Props for the Root component.
+ * @returns React element representing the root component with themed styles applied.
+ *
+ * @see {@link RootProps} for more details on the available props.
  */
-export function Root<T extends string>({ children, ...props }: RootProps<T>): React.ReactElement {
-  const themeRef = useRef<HTMLDivElement>(null);
-
+export function Root<T extends string>({
+  children,
+  asChild = false
+}: RootProps<T>): React.ReactElement {
   // Theme and tokens from the context
-  const { theme = "default", cssScope, activeToken } = useTheme();
+  const { cssScope, activeToken } = useTheme();
 
   // Transformed tokens to optimize performance
   const transformedTokens: OutputTokens = useMemo(() => {
@@ -65,24 +81,30 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
     // Create an object to override colors based on the color tokens
     const overrideColors = objectEntries(color).reduce((acc, [key, value]) => {
       // Map each color key to its corresponding value or fallback to the key itself
-      acc[key] = color?.[value] || value;
+      acc[key] = color?.[value] || defaultTokens?.color?.[value] || value;
 
       return acc;
     }, {});
 
+    // Transform components by mapping their properties to corresponding token values
     const transformedComponents = objectEntries(components).reduce((acc, [name, props]) => {
+      // Initialize an object for each component's transformed properties
       acc[name] = objectEntries(props).reduce(
         (prop, [propName, tokenKey]) => {
-          // Cache the token group to avoid repeated lookups
-          const tokenGroup = otherTokens?.[propName];
+          // Determine the token group to use: prefer otherTokens, fallback to defaultTokens
+          const tokenGroup = Object.keys(otherTokens?.[propName] || {}).length
+            ? otherTokens?.[propName] // Use otherTokens if available
+            : defaultTokens?.[propName]; // Fallback to defaultTokens
 
-          // Safely retrieve the token value, defaulting to tokenKey if not found
-          const tokenValue = tokenGroup?.[tokenKey] ?? tokenKey;
+          // Safely retrieve the token value; if not found, use the tokenKey as default
+          const tokenValue = tokenGroup?.[tokenKey] || tokenKey;
+
+          // Assign the resolved token value to the property
           prop[propName] = tokenValue;
 
-          return prop;
+          return prop; // Return the accumulated properties for the current component
         },
-        {} as Record<string, string>
+        {} as Record<string, string> // Initialize the accumulator as an empty object
       );
 
       return acc;
@@ -116,10 +138,7 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
   );
 
   useEffect(() => {
-    if (!themeRef.current || !cssScope) return;
-
-    // CSS scope class and added to the theme element.
-    themeRef.current.classList.add(cssScope);
+    if (!cssScope || !Object.keys(computedStyles).length) return;
 
     // Map for style tag
     const styleTag = new Map();
@@ -141,10 +160,10 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
           cssRules.setAttribute("data-scope", cssScope);
           element.insertAdjacentElement("afterbegin", cssRules);
           styleTag.set(element, cssRules);
-        }
 
-        // Update the styles of the style tag
-        cssRules.innerHTML = `@scope (.${cssScope}) { \n :scope { ${computedStyles}\n}}`;
+          // Update the styles of the style tag
+          cssRules.innerHTML = `@scope (.${cssScope}) { \n :scope { ${computedStyles}\n}}`;
+        }
       });
     });
 
@@ -161,7 +180,7 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
 
   useInsertionEffect(() => {
     // Ensure theme is not undefined or empty before proceeding
-    if (!theme || cssScope) {
+    if (cssScope) {
       return;
     }
 
@@ -178,12 +197,15 @@ export function Root<T extends string>({ children, ...props }: RootProps<T>): Re
     // Update the inner HTML of the existing or newly created <style> tag with the computed styles
     cssRules.innerHTML = `:scope {${computedStyles}\n}`;
 
-    // Note: No need to remove the style tag, as this is managed by the component lifecycle
-  }, [computedStyles, theme]);
+    // Note: No need to remove the style tag, as this is managed by the component life-cycle
+  }, [computedStyles]);
 
-  return (
-    <div ref={themeRef} {...props}>
-      {children}
-    </div>
-  );
+  // Cloning the child element to inject className
+  if (asChild && React.isValidElement<ChildProps>(children)) {
+    return React.cloneElement(children, {
+      className: classNames(cssScope, children.props.className)
+    });
+  }
+
+  return <div className={classNames(cssScope)}>{children}</div>;
 }

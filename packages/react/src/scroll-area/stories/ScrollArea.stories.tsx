@@ -26,7 +26,7 @@ export const Base: Story = {
     }
   },
   args: {
-    style: { maxHeight: 500 },
+    style: { maxHeight: 400 },
     children: (
       <>
         <Text space={{ y: "md" }}>

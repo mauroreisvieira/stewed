@@ -6,6 +6,12 @@ import { components, type Spacings } from "@stewed/tokens";
 // Styles
 import styles from "./styles/index.module.scss";
 
+/**
+ * Interface for the properties of the `Group` component.
+ *
+ * @extends React.ComponentPropsWithoutRef<"div">
+ * @extends Pick<UseKeyboardNavigationProps, "loop">
+ */
 export interface GroupProps
   extends React.ComponentPropsWithoutRef<"div">,
     Pick<UseKeyboardNavigationProps, "loop"> {
@@ -19,6 +25,13 @@ export interface GroupProps
    * @default row
    */
   direction?: "row" | "column";
+  /**
+   * Determines if the content should wrap within its container.
+   *
+   * @default false
+   */
+  wrap?: boolean;
+
   /** Determines if should expand to use the full width. */
   fullWidth?: boolean;
   /**
@@ -50,6 +63,7 @@ export function Group({
   fullWidth,
   gap = "none",
   direction = "row",
+  wrap = false,
   focusOnSelected = false,
   loop,
   className,
@@ -63,7 +77,7 @@ export function Group({
   // Generating CSS classes based on component props and styles
   const cssClasses = {
     root: getBlock({
-      modifiers: [fullWidth && "full-width", direction, gap && `gap-${gap}`],
+      modifiers: [fullWidth && "full-width", wrap && "wrap", direction, gap && `gap-${gap}`],
       extraClasses: className
     })
   };

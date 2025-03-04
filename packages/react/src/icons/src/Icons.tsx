@@ -6,6 +6,7 @@ import { ChevronUpDown } from "./ChevronUpDown";
 import { Cross } from "./Cross";
 import { DotsScale } from "./DotsScale";
 import { Minus } from "./Minus";
+import { Plus } from "./Plus";
 
 export const Icon = {
   Check,
@@ -15,5 +16,6 @@ export const Icon = {
   ChevronDown,
   Cross,
   DotsScale,
-  Minus
+  Minus,
+  Plus
 };

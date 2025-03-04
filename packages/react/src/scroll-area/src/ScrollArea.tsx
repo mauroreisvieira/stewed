@@ -21,8 +21,10 @@ export interface ScrollAreaProps extends React.ComponentPropsWithoutRef<"div"> {
  *
  * @remarks This component props extended from React.ComponentPropsWithoutRef<"div">.
  *
- * @param {ScrollAreaProps} props - The props for the ScrollArea component.
- * @returns {React.ReactElement} The rendered scrollable area component.
+ * @param props - The props for the ScrollArea component.
+ * @returns The rendered scrollable area component.
+ *
+ * @see {@link ScrollAreaProps} for more details on the available props.
  */
 export function ScrollArea({
   insetShadow = true,
