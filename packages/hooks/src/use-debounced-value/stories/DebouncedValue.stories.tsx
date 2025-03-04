@@ -23,9 +23,9 @@ export default meta;
 export const Base: Story = {
   render: function Render() {
     const [inputValue, setInputValue] = useState("");
-    const debouncedValue = useDebouncedValue(inputValue, setInputValue);
+    const debouncedValue = useDebouncedValue({ value: inputValue });
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const onHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       const { value } = event.target;
       setInputValue(value);
     };
@@ -35,7 +35,7 @@ export const Base: Story = {
         <TextField
           type="text"
           value={inputValue}
-          onChange={handleChange}
+          onChange={onHandleChange}
           placeholder="Type something..."
         />
         <Separator space={{ block: "2xl" }} />

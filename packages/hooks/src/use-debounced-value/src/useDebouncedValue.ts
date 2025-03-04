@@ -1,40 +1,47 @@
 import { useState, useEffect } from "react";
 
 /**
+ * Interface for the properties used in the `useDebouncedValue` hook.
+ *
+ * @template T - The type of the value being debounced.
+ */
+export interface IUseDebouncedValueProps<T> {
+  /** The value to be debounced. */
+  value: T;
+  /**
+   * The delay in milliseconds before updating the debounced value.
+   * @default 150
+   */
+  delayMs?: number;
+}
+
+/**
  * Hook that debounces a value before updating it.
  *
  * @template T - The type of the value being debounced.
  *
- * @param value - The current value that needs to be debounced.
- * @param setValue - The function to update the debounced value after the delay.
+ * @param {IUseDebouncedValueProps<T>} props - The debounce configuration object.
  * @returns The debounced value.
  *
  * @example
  * ```ts
  *  const [inputValue, setInputValue] = useState("");
- *  const debouncedValue = useDebouncedValue(inputValue, setInputValue);
+ *  const debouncedValue = useDebouncedValue({ value: inputValue});
  * ```
  */
-export function useDebouncedValue<T>(value: T, setValue: (val: T) => void): T {
+export function useDebouncedValue<T>({ value, delayMs = 150 }: IUseDebouncedValueProps<T>): T {
+  // Debounce value state will be
   const [debouncedValue, setDebouncedValue] = useState(value);
 
   useEffect(() => {
-    // Update the debounced value after a delay if the value changes.
-    if (debouncedValue !== value) {
-      const timeoutId = setTimeout(() => setValue(debouncedValue), 250);
+    const timeoutId = setTimeout(() => {
+      // Update the debounced value after a delay if the value changes.
+      setDebouncedValue(value);
+    }, delayMs);
 
-      // Clear timeout on cleanup to prevent memory leaks.
-      return () => clearTimeout(timeoutId);
-    }
-
-    // Cleanup function for when dependency values are unchanged.
-    return undefined;
-  }, [debouncedValue, setValue, value]);
-
-  // Update the debounced value whenever the original value changes.
-  useEffect(() => {
-    setDebouncedValue(value);
-  }, [value]);
+    // Clear timeout on cleanup to prevent memory leaks.
+    return () => clearTimeout(timeoutId);
+  }, [value, delayMs]);
 
   return debouncedValue;
 }
