@@ -3,7 +3,7 @@ import { useMemo, useReducer, type ChangeEvent, type Dispatch, type SyntheticEve
 import { objectKeys } from "@stewed/utilities";
 
 /** Represents native change events for common form elements. */
-type NativeChangeEvents = ChangeEvent<HTMLInputElement & HTMLTextAreaElement & HTMLSelectElement>;
+type FormChangeEvents = ChangeEvent<HTMLInputElement & HTMLTextAreaElement & HTMLSelectElement>;
 
 /**
  * Represents a collection of validation functions for each field in a form.
@@ -33,9 +33,9 @@ interface UseStateFormProps<T> {
   /**
    * Callback function triggered when a form change event occurs.
    *
-   * @param {NativeChangeEvents} event - The change event object.
+   * @param {FormChangeEvents} event - The change event object.
    */
-  onChange?: (event: NativeChangeEvents) => void;
+  onChange?: (event: FormChangeEvents) => void;
   /**
    * Callback function triggered when the form is reset.
    *
@@ -83,7 +83,7 @@ interface UseStateForm<T> {
   /** Function to update the form data state */
   setFormData: Dispatch<Partial<T>>;
   /** Event handler for form field changes. */
-  onFormChange: (event: NativeChangeEvents) => void;
+  onFormChange: (event: FormChangeEvents) => void;
   /** Event handler for form submission. */
   onFormSubmit: (event: SyntheticEvent) => void;
   /** Event handler for form reset. */
@@ -112,36 +112,41 @@ export function useStateForm<T>({
   onChange
 }: UseStateFormProps<T>): UseStateForm<T> {
   const [formData, setFormData] = useReducer((prev: T, next: Partial<T>) => {
+    // Merge the previous form state with the new state updates
     return { ...prev, ...next };
   }, initialValues);
 
   /** Handle form input change */
-  const onHandleChange = (event: NativeChangeEvents) => {
-    const { name, value, checked } = event.target;
+  const onHandleChange = (event: FormChangeEvents) => {
+    const { name, value, checked, type } = event.target;
 
-    if (["checkbox", "radio"].includes(event.target.type)) {
-      setFormData({ ...formData, [name]: checked });
+    // Get value of form element
+    const newValue = ["checkbox", "radio"].includes(type) ? checked : value;
 
-      return;
-    }
+    // Update the form state with the new value
+    setFormData({ ...formData, [name]: newValue });
 
-    setFormData({ ...formData, [name]: value });
+    // Call onChange callback
     onChange?.(event);
   };
 
-  /** Handle form submission */
+  /**
+   * Handle form submission, preventing default behavior and passing form data to onSubmit.
+   */
   const onHandleSubmit = (event: SyntheticEvent) => {
     event.preventDefault();
     if (onSubmit) onSubmit(formData);
   };
 
-  /** Handle form reset */
+  /**
+   * Handle form reset, resetting to initial values and triggering the onReset callback.
+   */
   const onHandleReset = () => {
     setFormData(initialValues);
     onReset?.(formData, initialValues);
   };
 
-  // Memoize form data to optimize performance
+  // Map form data, applying field validation if defined.
   const data = useMemo(
     () =>
       objectKeys(formData).reduce(
