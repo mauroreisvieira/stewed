@@ -1,4 +1,5 @@
 import React, { useCallback, useMemo, useRef, useState } from "react";
+import { flushSync } from "react-dom";
 // Context
 import {
   SnackbarContext,
@@ -25,7 +26,7 @@ export interface SnackbarProps extends React.ComponentPropsWithoutRef<"div"> {
   /**
    * Maximum number of notification that can be displayed at once.
    * Older items are removed when the limit is reached.
-   * @default 5
+   * @default 8
    */
   max?: number;
   /**
@@ -55,7 +56,7 @@ export interface SnackbarProps extends React.ComponentPropsWithoutRef<"div"> {
 export function Snackbar({
   placement = "top-end",
   screen = "sm",
-  max = 5,
+  max = 8,
   className,
   children,
   ...props
@@ -68,9 +69,6 @@ export function Snackbar({
 
   // State to hold currently displayed notifications
   const [notifications, setNotifications] = useState<SnackbarNotification[]>([]);
-
-  // Separate state to track notifications being removed for exit animations
-  const [removingNotifications, setRemovingNotifications] = useState<Set<string>>(new Set());
 
   // CSS classes for the Snackbar components
   const cssClasses = {
@@ -88,8 +86,12 @@ export function Snackbar({
    * @param {string} id - The ID of the notification to remove.
    */
   const remove = useCallback<SnackbarContextProps["remove"]>((id) => {
-    // Add the notification ID to the removing state for the exit animation
-    setRemovingNotifications((prev) => new Set(prev).add(id));
+    document.startViewTransition(() => {
+      flushSync(() => {
+        setNotifications((prev) => prev.filter((notification) => notification.id !== id));
+        clearTimeout(timeoutMap.current[id]);
+      });
+    });
   }, []);
 
   /**
@@ -100,10 +102,11 @@ export function Snackbar({
   const add = useCallback<SnackbarContextProps["add"]>(
     (notification) => {
       setNotifications((prev) => {
-        if (max && prev.length >= max) {
+        if (prev.length >= max) {
           const [oldest, ...rest] = prev;
+
           if (oldest) {
-            clearTimeout(timeoutMap.current[oldest.id]);
+            remove(oldest.id);
           }
 
           return [...rest, notification];
@@ -112,24 +115,19 @@ export function Snackbar({
         return [...prev, notification];
       });
 
-      // Set up auto-dismissal if specified
-      if (notification?.autoDismiss) {
+      // set up auto-dismiss if specified
+      if (notification.autoDismiss) {
         timeoutMap.current[notification.id] = setTimeout(() => {
           remove(notification.id);
         }, notification.autoDismiss);
       }
     },
-    [max, remove]
+    [max, remove] // `notifications` isn't needed in deps since it's handled inside `setNotifications`
   );
 
   // Determine the animation type based on placement for entry
   const entryAnimation = useMemo(() => {
     return placement.startsWith("bottom") ? "slide-in-bottom" : "slide-in-top";
-  }, [placement]);
-
-  // Determine the animation type based on placement for exit
-  const exitAnimation = useMemo(() => {
-    return placement.startsWith("bottom") ? "slide-out-bottom" : "slide-out-top";
   }, [placement]);
 
   return (
@@ -139,27 +137,9 @@ export function Snackbar({
           <div className={cssClasses.content} {...props}>
             {notifications.map(({ id, content, leftSlot, rightSlot, size, skin, title }) => (
               <Motion
-                animation={removingNotifications.has(id) ? exitAnimation : entryAnimation}
                 key={id}
-                onDone={() => {
-                  requestAnimationFrame(() => {
-                    // Ensure cleanup for notifications already in removing state
-                    if (removingNotifications.has(id)) {
-                      setNotifications((prev) =>
-                        prev.filter((notification) => notification.id !== id)
-                      );
-
-                      setRemovingNotifications((prev) => {
-                        const newSet = new Set(prev);
-                        newSet.delete(id);
-
-                        return newSet;
-                      });
-
-                      clearTimeout(timeoutMap.current[id]);
-                    }
-                  });
-                }}
+                animation={entryAnimation}
+                transitionName={`notification-${id}`}
                 asChild
               >
                 <Alert

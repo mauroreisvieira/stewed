@@ -29,6 +29,8 @@ type MotionAnimation =
 
 /** Interface representing the props for a child component. */
 interface ChildProps {
+  /** CSS styles to be applied to the child element. */
+  style?: React.CSSProperties;
   /** Additional class name(s) to apply to the child element. */
   className?: string;
   /** Callback triggered when a CSS transition on the element ends. */
@@ -54,13 +56,18 @@ export interface MotionProps {
    * @default ease-in
    */
   timing?: Timing;
-  /** Callback function that is called when the animation completes. */
-  onDone?: () => void;
   /**
    * Change the default rendered element for the one passed as a child, merging their props and behavior.
    * @default false
    */
   asChild?: boolean;
+  /**
+   * The name of the view transition to be applied to the element.
+   * Used for view transition API.
+   */
+  transitionName?: string;
+  /** Callback function that is called when the animation completes. */
+  onDone?: () => void;
   /** The child element to which the animation will be applied. */
   children?: React.ReactNode | ((props: ChildProps) => React.ReactElement);
 }
@@ -85,8 +92,9 @@ export function Motion({
   animation,
   timing = "ease-in",
   duration = "quickly",
-  onDone,
   asChild = false,
+  transitionName,
+  onDone,
   children
 }: MotionProps): React.ReactElement {
   // Importing useBem to handle BEM class names
@@ -98,6 +106,9 @@ export function Motion({
   };
 
   const props: ChildProps = {
+    style: {
+      viewTransitionName: transitionName
+    },
     className: cssClasses.root,
     /** Callback function executed when the transition ends. */
     onTransitionEnd: (): void => {
@@ -116,6 +127,7 @@ export function Motion({
   // Cloning the child element to inject className and onTransitionEnd and onAnimationEnd
   if (asChild && React.isValidElement<ChildProps>(children)) {
     return React.cloneElement(children, {
+      style: { viewTransitionName: transitionName, ...children.props.style },
       className: classNames(props.className, children.props.className),
       /** Callback function executed when the transition ends. */
       onTransitionEnd: (): void => {
