@@ -27,14 +27,14 @@ function Example({ autoDismiss }: { autoDismiss?: number }) {
 
     add({
       id: idx,
-      size: "md",
       title: "You're watching this issue",
+      skin: "neutral",
       content: "We'll notify you when there's activity on it.",
       autoDismiss,
       rightSlot: (
         <Button
-          leftSlot={<Icon.Cross size={14} />}
-          appearance="soft"
+          leftSlot={<Icon.Cross size={16} />}
+          appearance="ghost"
           skin="neutral"
           size="xs"
           iconOnly
@@ -60,15 +60,8 @@ export const Base: Story = {
   }
 };
 
+/** Use the `autoDismiss` prop to automatically hide the notification after a set period of time (in milliseconds). */
 export const AutomaticDismiss: Story = {
-  parameters: {
-    docs: {
-      description: {
-        story:
-          "Use the `autoDismiss` prop to automatically hide the notification after a set period of time (in milliseconds)."
-      }
-    }
-  },
   args: {
     max: 5,
     screen: "sm",

@@ -10,7 +10,7 @@
   &__content {
     box-sizing: border-box;
     display: flex;
-    flex-direction: theme.get-var(flex-direction);
+    flex-direction: column;
     gap: theme.get-spacing("lg");
     align-items: theme.get-var(align-items);
     justify-content: theme.get-var(justify-content);
@@ -37,12 +37,20 @@
     }
   }
 
+  &--top,
+  &--top-start,
+  &--top-end {
+    @include theme.define-var(
+      (
+        justify-content: start
+      )
+    );
+  }
+
   &--top {
     @include theme.define-var(
       (
-        flex-direction: column-reverse,
-        align-items: center,
-        justify-content: start
+        align-items: center
       )
     );
   }
@@ -50,9 +58,7 @@
   &--top-start {
     @include theme.define-var(
       (
-        flex-direction: column-reverse,
-        align-items: start,
-        justify-content: start
+        align-items: start
       )
     );
   }
@@ -60,9 +66,17 @@
   &--top-end {
     @include theme.define-var(
       (
-        flex-direction: column-reverse,
-        align-items: end,
-        justify-content: start
+        align-items: end
+      )
+    );
+  }
+
+  &--bottom,
+  &--bottom-start,
+  &--bottom-end {
+    @include theme.define-var(
+      (
+        justify-content: end
       )
     );
   }
@@ -70,9 +84,7 @@
   &--bottom {
     @include theme.define-var(
       (
-        flex-direction: column,
-        align-items: center,
-        justify-content: end
+        align-items: center
       )
     );
   }
@@ -80,9 +92,7 @@
   &--bottom-start {
     @include theme.define-var(
       (
-        flex-direction: column,
-        align-items: start,
-        justify-content: end
+        align-items: start
       )
     );
   }
@@ -90,9 +100,7 @@
   &--bottom-end {
     @include theme.define-var(
       (
-        flex-direction: column,
-        align-items: end,
-        justify-content: end
+        align-items: end
       )
     );
   }
