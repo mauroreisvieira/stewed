@@ -43,10 +43,10 @@ export const Uncontrolled: Story = {
     children: "Label"
   },
   render: function Render() {
-    const [isChecked, setChecked] = useToggle(false);
+    const { isOn, toggle } = useToggle(false);
 
     return (
-      <Radio checked={isChecked} onChange={setChecked}>
+      <Radio checked={isOn} onChange={toggle}>
         Label
       </Radio>
     );

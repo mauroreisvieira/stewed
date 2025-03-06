@@ -19,7 +19,7 @@ import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icon
 import { TbStar, TbPlus } from "react-icons/tb";
 
 export function Suggested(): React.ReactElement {
-  const [liked, handleToggle] = useToggle(false);
+  const { isOn, toggle } = useToggle(false);
 
   return (
     <Container screen="sm" alignment="center" padding={{ block: "7xl" }}>
@@ -39,9 +39,9 @@ export function Suggested(): React.ReactElement {
               <Button
                 size="sm"
                 skin="neutral"
-                appearance={liked ? "filled" : "outline"}
+                appearance={isOn ? "filled" : "outline"}
                 leftSlot={<TbStar />}
-                onClick={handleToggle}
+                onClick={toggle}
               >
                 Start
               </Button>

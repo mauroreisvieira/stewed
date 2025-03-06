@@ -23,13 +23,13 @@ import { PiQueue } from "react-icons/pi";
 // Data
 import { songs } from "./data";
 import { Separator } from "@stewed/react";
-import { title } from "process";
 
 export function Playlist(): React.ReactElement {
   const { data } = useFetchImages({ query: "playlist", perPage: songs.length });
 
   const { item, setIndex, index } = useSelect(songs, 1);
-  const [isPlaying, togglePlay, setIsPlaying] = useToggle();
+
+  const { isOn: isPlaying, toggle: togglePlay, set: setIsPlaying } = useToggle(false);
 
   const [showQueue, setShowQueue] = useState(false);
 

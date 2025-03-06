@@ -47,10 +47,10 @@ export const Uncontrolled: Story = {
     children: "Label"
   },
   render: function Render() {
-    const [isChecked, setChecked] = useToggle(false);
+    const { isOn, toggle } = useToggle(false);
 
     return (
-      <Checkbox checked={isChecked} onChange={setChecked}>
+      <Checkbox checked={isOn} onChange={toggle}>
         Label
       </Checkbox>
     );
@@ -62,10 +62,10 @@ export const Indeterminate: Story = {
     children: "Label"
   },
   render: function Render() {
-    const [isChecked, setChecked] = useToggle(false);
+    const { isOn, toggle } = useToggle(false);
 
     return (
-      <Checkbox checked={isChecked} onChange={setChecked} indeterminate={!isChecked}>
+      <Checkbox checked={isOn} onChange={toggle} indeterminate={!isOn}>
         Label
       </Checkbox>
     );

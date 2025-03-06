@@ -33,18 +33,18 @@ export const Base: Story = {
     }
   },
   render: function Render({ ...args }): React.ReactElement {
-    const [open, toggleOpen] = useToggle();
+    const { isOn, toggle } = useToggle(false);
 
     return (
       <>
-        <Button onClick={toggleOpen}>Open</Button>
+        <Button onClick={toggle}>Open</Button>
         <Dialog
           size="sm"
-          open={open}
+          open={isOn}
           {...args}
-          onClose={toggleOpen}
-          onEscape={toggleOpen}
-          onClickOutside={toggleOpen}
+          onClose={toggle}
+          onEscape={toggle}
+          onClickOutside={toggle}
         >
           <Dialog.Header>
             <Text as="h4">Dialog Header</Text>
@@ -69,18 +69,12 @@ export const HugeContent: Story = {
     }
   },
   render: function Render({ ...args }): React.ReactElement {
-    const [open, toggleOpen] = useToggle();
+    const { isOn, toggle } = useToggle(false);
 
     return (
       <>
-        <Button onClick={toggleOpen}>Open</Button>
-        <Dialog
-          open={open}
-          {...args}
-          onClose={toggleOpen}
-          onEscape={toggleOpen}
-          onClickOutside={toggleOpen}
-        >
+        <Button onClick={toggle}>Open</Button>
+        <Dialog open={isOn} {...args} onClose={toggle} onEscape={toggle} onClickOutside={toggle}>
           <Dialog.Header>
             <Text as="h4">Dialog Header</Text>
           </Dialog.Header>

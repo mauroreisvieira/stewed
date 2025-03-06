@@ -27,7 +27,7 @@ import { TbMenuDeep, TbMicrophone2 } from "react-icons/tb";
 
 export function Header(): React.ReactElement {
   // State to manage the visibility of a drawer (a toggle state)
-  const [drawerState, onHandleDrawer] = useToggle(false);
+  const { isOn, toggle } = useToggle(false);
 
   return (
     <>
@@ -39,7 +39,7 @@ export function Header(): React.ReactElement {
                 leftSlot={<TbMenuDeep size={16} />}
                 skin="secondary"
                 appearance="ghost"
-                onClick={onHandleDrawer}
+                onClick={toggle}
                 iconOnly
               >
                 Menu
@@ -74,13 +74,7 @@ export function Header(): React.ReactElement {
           </Grid>
         </Box>
       </Container>
-      <Drawer
-        size="sm"
-        onClose={onHandleDrawer}
-        onClickOutside={onHandleDrawer}
-        onEscape={onHandleDrawer}
-        open={drawerState}
-      >
+      <Drawer size="sm" onClose={toggle} onClickOutside={toggle} onEscape={toggle} open={isOn}>
         <Drawer.Header>
           <Text size="lg" weight="semi-bold">
             Your Library

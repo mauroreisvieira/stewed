@@ -8,7 +8,7 @@ import { MdOutlinePodcasts } from "react-icons/md";
 
 export function Podcast(): React.ReactElement {
   // State to manage the visibility of the podcast dialog (a toggle state)
-  const [podcastDialogState, onHandlePodcastDialog] = useToggle(false);
+  const { isOn, toggle } = useToggle(false);
 
   return (
     <>
@@ -39,19 +39,14 @@ export function Podcast(): React.ReactElement {
             <Text skin="neutral" size="sm">
               You have not added any podcasts. Add one below.
             </Text>
-            <Button size="md" skin="secondary" onClick={onHandlePodcastDialog}>
+            <Button size="md" skin="secondary" onClick={toggle}>
               Add Podcast
             </Button>
           </Stack>
         </Box>
       </Stack>
 
-      <Dialog
-        size="md"
-        onClose={onHandlePodcastDialog}
-        onClickOutside={onHandlePodcastDialog}
-        open={podcastDialogState}
-      >
+      <Dialog size="md" onClose={toggle} onClickOutside={toggle} open={isOn}>
         <Dialog.Header>
           <Text as="h5">Add Podcast</Text>
           <Text size="sm" skin="secondary">
