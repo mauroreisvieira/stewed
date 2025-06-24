@@ -304,6 +304,76 @@ importers:
         specifier: ^1.6.0
         version: 1.6.0
 
+  packages/ui:
+    dependencies:
+      '@hello-week/hooks':
+        specifier: ^0.4.0
+        version: 0.4.0(react@19.0.0)
+      '@hello-week/utilities':
+        specifier: ^0.2.0
+        version: 0.2.0
+      '@stewed/hooks':
+        specifier: workspace:*
+        version: link:../hooks
+      '@stewed/react':
+        specifier: workspace:*
+        version: link:../react
+      '@stewed/tokens':
+        specifier: workspace:*
+        version: link:../tokens
+      '@stewed/utilities':
+        specifier: workspace:*
+        version: link:../utilities
+      react:
+        specifier: ^18.0 || ^19.0
+        version: 19.0.0
+      react-dom:
+        specifier: ^18.0 || ^19.0
+        version: 19.0.0(react@19.0.0)
+    devDependencies:
+      '@harmonix-hub/babel':
+        specifier: ^0.4.0
+        version: 0.4.0
+      '@harmonix-hub/tsconfig':
+        specifier: ^1.6.0
+        version: 1.6.0
+      '@types/react':
+        specifier: ^19.0.7
+        version: 19.0.7
+      '@types/react-dom':
+        specifier: ^19.0.3
+        version: 19.0.3(@types/react@19.0.7)
+      '@vitejs/plugin-react-swc':
+        specifier: ^3.7.2
+        version: 3.7.2(vite@6.0.7(@types/node@22.10.7)(jiti@2.4.2)(lightningcss@1.28.2)(sass-embedded@1.83.0)(sass@1.83.0)(tsx@4.19.2))
+      esbuild-css-modules-plugin:
+        specifier: ^3.1.4
+        version: 3.1.4(esbuild@0.24.2)
+      esbuild-sass-plugin:
+        specifier: ^3.3.1
+        version: 3.3.1(esbuild@0.24.2)(sass-embedded@1.83.0)
+      jsdom:
+        specifier: ^26.0.0
+        version: 26.0.0
+      rollup-plugin-peer-deps-external:
+        specifier: ^2.2.4
+        version: 2.2.4(rollup@4.28.1)
+      typescript:
+        specifier: ^5.7.3
+        version: 5.7.3
+      vite:
+        specifier: ^6.0.7
+        version: 6.0.7(@types/node@22.10.7)(jiti@2.4.2)(lightningcss@1.28.2)(sass-embedded@1.83.0)(sass@1.83.0)(tsx@4.19.2)
+      vite-plugin-dts:
+        specifier: ^4.5.0
+        version: 4.5.0(@types/node@22.10.7)(rollup@4.28.1)(typescript@5.7.3)(vite@6.0.7(@types/node@22.10.7)(jiti@2.4.2)(lightningcss@1.28.2)(sass-embedded@1.83.0)(sass@1.83.0)(tsx@4.19.2))
+      vite-plugin-lib-inject-css:
+        specifier: ^2.2.1
+        version: 2.2.1(vite@6.0.7(@types/node@22.10.7)(jiti@2.4.2)(lightningcss@1.28.2)(sass-embedded@1.83.0)(sass@1.83.0)(tsx@4.19.2))
+      vitest:
+        specifier: ^3.0.2
+        version: 3.0.2(@types/node@22.10.7)(jiti@2.4.2)(jsdom@26.0.0)(lightningcss@1.28.2)(sass-embedded@1.83.0)(sass@1.83.0)(tsx@4.19.2)
+
   packages/utilities:
     devDependencies:
       '@harmonix-hub/babel':
@@ -3444,9 +3514,6 @@ packages:
   es-iterator-helpers@1.2.0:
     resolution: {integrity: sha512-tpxqxncxnpw3c93u8n3VOzACmRFoVmWJqbWXvX/JfKbkhBw1oslgPrUfeSt2psuqyEJFD6N/9lg5i7bsKpoq+Q==}
     engines: {node: '>= 0.4'}
-
-  es-module-lexer@1.5.4:
-    resolution: {integrity: sha512-MVNK56NiMrOwitFB7cqDwq0CQutbw+0BvLshJSse0MUNU+y1FC3bUS/AQg7oUng+/wKrrki7JfmwtVHkVfPLlw==}
 
   es-module-lexer@1.6.0:
     resolution: {integrity: sha512-qqnD1yMU6tk/jnaMosogGySTZP8YtUgAffA9nMN+E/rjxcfRQ6IEk7IiozUjgxKoFHBGjTLnrHB/YC45r/59EQ==}
@@ -7300,7 +7367,7 @@ snapshots:
       '@commitlint/types': 19.5.0
       git-raw-commits: 4.0.0
       minimist: 1.2.8
-      tinyexec: 0.3.1
+      tinyexec: 0.3.2
 
   '@commitlint/resolve-extends@19.5.0':
     dependencies:
@@ -9844,8 +9911,6 @@ snapshots:
       iterator.prototype: 1.1.4
       safe-array-concat: 1.1.3
 
-  es-module-lexer@1.5.4: {}
-
   es-module-lexer@1.6.0: {}
 
   es-object-atoms@1.0.0:
@@ -11525,7 +11590,7 @@ snapshots:
 
   parse-imports@2.2.1:
     dependencies:
-      es-module-lexer: 1.5.4
+      es-module-lexer: 1.6.0
       slashes: 3.0.12
 
   parse-json@5.2.0:

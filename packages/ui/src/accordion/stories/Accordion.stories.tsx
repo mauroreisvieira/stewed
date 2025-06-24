@@ -1,14 +1,15 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // UI Components
-import { Theme, Accordion, Text } from "../../index";
+import { Theme, Text } from "@stewed/react";
+import { Accordion } from "../../index";
 // Icons
 import { FiPlus, FiMinus, FiChevronDown, FiChevronUp } from "react-icons/fi";
 
 type Story = StoryObj<typeof Accordion>;
 
 const meta: Meta<typeof Accordion> = {
-  title: "Components/Accordion",
+  title: "Ui/Accordion",
   component: Accordion,
   subcomponents: {
     "Accordion.Item": Accordion.Item as React.FC<unknown>,

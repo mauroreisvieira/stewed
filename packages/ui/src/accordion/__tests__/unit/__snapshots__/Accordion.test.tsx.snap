@@ -1,0 +1,123 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Accordion > Snapshots > should render additional classes 1`] = `
+<div>
+  <div
+    class="_accordion_f13214 _accordion--border-row_f13214 other-class"
+    role="group"
+  >
+    <details
+      class="_accordion__item_f13214 other-item-class"
+    >
+      <summary
+        class="_accordion__header_f13214 other-header-class"
+      >
+        <div
+          class="_accordion__header__text_f13214"
+        >
+          Header
+        </div>
+      </summary>
+      <div
+        class="_accordion__body_f13214 other-body-class"
+      >
+        Body
+      </div>
+    </details>
+  </div>
+</div>
+`;
+
+exports[`Accordion > Snapshots > should render left slot content 1`] = `
+<div>
+  <div
+    class="_accordion_f13214 _accordion--border-row_f13214"
+    role="group"
+  >
+    <details
+      class="_accordion__item_f13214"
+    >
+      <summary
+        class="_accordion__header_f13214"
+      >
+        <div
+          class="_accordion__header__left_f13214"
+        >
+          Left slot
+        </div>
+        <div
+          class="_accordion__header__text_f13214"
+        >
+          Header
+        </div>
+      </summary>
+      <div
+        class="_accordion__body_f13214"
+      >
+        Body
+      </div>
+    </details>
+  </div>
+</div>
+`;
+
+exports[`Accordion > Snapshots > should render right slot content 1`] = `
+<div>
+  <div
+    class="_accordion_f13214 _accordion--border-row_f13214"
+    role="group"
+  >
+    <details
+      class="_accordion__item_f13214"
+    >
+      <summary
+        class="_accordion__header_f13214"
+      >
+        <div
+          class="_accordion__header__text_f13214"
+        >
+          Header
+        </div>
+        <div
+          class="_accordion__header__right_f13214"
+        >
+          Right slot
+        </div>
+      </summary>
+      <div
+        class="_accordion__body_f13214"
+      >
+        Body
+      </div>
+    </details>
+  </div>
+</div>
+`;
+
+exports[`Accordion > Snapshots > should renders default component 1`] = `
+<div>
+  <div
+    class="_accordion_f13214 _accordion--border-row_f13214"
+    role="group"
+  >
+    <details
+      class="_accordion__item_f13214"
+    >
+      <summary
+        class="_accordion__header_f13214"
+      >
+        <div
+          class="_accordion__header__text_f13214"
+        >
+          Header
+        </div>
+      </summary>
+      <div
+        class="_accordion__body_f13214"
+      >
+        Body
+      </div>
+    </details>
+  </div>
+</div>
+`;

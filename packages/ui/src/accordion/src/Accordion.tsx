@@ -1,12 +1,28 @@
-import React, { useCallback, useState } from "react";
-// Context
-import { AccordionContext, type AccordionContextProps } from "./AccordionContext";
+import React from "react";
+// Base
+import {
+  Accordion as Unstyled_Accordion,
+  type AccordionProps as Unstyled_AccordionProps
+} from "@stewed/react";
 // Compound Component
 import { AccordionBody } from "./AccordionBody";
 import { AccordionHeader } from "./AccordionHeader";
 import { AccordionItem } from "./AccordionItem";
 // Hooks
-import { useKeyboardNavigation } from "@stewed/hooks";
+import { useBem } from "@stewed/hooks";
+// Tokens
+import { components } from "@stewed/tokens";
+// Styles
+import styles from "./styles/index.module.scss";
+
+/**
+ * Defines the appearance options for the Accordion component.
+ * - `"border"`: Applies a border to the Accordion.
+ * - `"border-row"`: Applies a border specifically to each row within the Accordion.
+ *
+ * @default border-row
+ */
+type Appearance = "border" | "border-row";
 
 /**
  * Props for the Accordion component.
@@ -14,8 +30,13 @@ import { useKeyboardNavigation } from "@stewed/hooks";
  * This interface extends `AccordionContextProps`, omitting the `open` and `setOpen`
  * properties, and includes the standard properties of a `div` element.
  */
-export type AccordionProps = Omit<AccordionContextProps, "open" | "setOpen"> &
-  React.ComponentPropsWithoutRef<"div">;
+interface AccordionProps extends Unstyled_AccordionProps {
+  /**
+   * Change the visual appearance of the accordion.
+   * @default border-row
+   */
+  appearance?: "panel" | Appearance | Appearance[];
+}
 
 /**
  * The Accordion component lets users show and hide sections of related content on a page.
@@ -51,37 +72,26 @@ export type AccordionProps = Omit<AccordionContextProps, "open" | "setOpen"> &
  * ```
  */
 export function Accordion({
-  multipleExpanded = false,
-  hiddenUntilFound = true,
-  onKeyDown,
+  appearance = "border-row",
+  className,
   children,
-  onOpenChange,
   ...props
 }: AccordionProps): React.ReactElement {
-  // Used to manage the accordion state
-  const [open, setOpen] = useState<string[]>([]);
+  // Importing useBem to handle BEM class names
+  const { getBlock } = useBem({ block: components.Accordion, styles });
 
-  // Define a reference to a list element
-  const { ref, onNavigate } = useKeyboardNavigation<HTMLDivElement>({
-    target: "summary:not([aria-disabled='true'])",
-    loop: true,
-    preventDefaultOnKey: true // prevent arrow key scrolling in users browser
-  });
+  // Ensure appearance is an array
+  const computedAppearance = Array.isArray(appearance) ? appearance : [appearance];
 
-  const onHandleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = useCallback(
-    (event) => {
-      onNavigate(event);
-      onKeyDown?.(event);
-    },
-    [onKeyDown, onNavigate]
-  );
+  // Generating CSS classes based on component props and styles
+  const cssClasses = {
+    root: getBlock({ modifiers: [...computedAppearance.map((i) => i)], extraClasses: className })
+  };
 
   return (
-    <AccordionContext value={{ hiddenUntilFound, multipleExpanded, onOpenChange, open, setOpen }}>
-      <div ref={ref} role="group" onKeyDown={onHandleKeyDown} {...props}>
-        {children}
-      </div>
-    </AccordionContext>
+    <Unstyled_Accordion className={cssClasses.root} {...props}>
+      {children}
+    </Unstyled_Accordion>
   );
 }
 

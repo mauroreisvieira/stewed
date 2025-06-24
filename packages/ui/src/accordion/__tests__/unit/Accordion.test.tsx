@@ -19,12 +19,25 @@ describe("Accordion", () => {
       expect(container).toMatchSnapshot();
     });
 
-    it("should render additional classes", () => {
+    it("should render left slot content", () => {
       const { container } = render(
-        <Accordion className="other-class">
-          <Accordion.Item value="1" className="other-item-class">
-            <Accordion.Header className="other-header-class">Header</Accordion.Header>
-            <Accordion.Body className="other-body-class">Body</Accordion.Body>
+        <Accordion>
+          <Accordion.Item value="1">
+            <Accordion.Header leftSlot="Left slot">Header</Accordion.Header>
+            <Accordion.Body>Body</Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
+      );
+
+      expect(container).toMatchSnapshot();
+    });
+
+    it("should render right slot content", () => {
+      const { container } = render(
+        <Accordion>
+          <Accordion.Item value="1">
+            <Accordion.Header rightSlot="Right slot">Header</Accordion.Header>
+            <Accordion.Body>Body</Accordion.Body>
           </Accordion.Item>
         </Accordion>
       );

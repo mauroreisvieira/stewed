@@ -2,12 +2,6 @@ import React, { useEffect, useMemo } from "react";
 // Context
 import { useAccordion } from "./AccordionContext";
 import { AccordionItemContext, type AccordionItemContextProps } from "./AccordionItemContext";
-// Hooks
-import { useBem } from "@stewed/hooks";
-// Tokens
-import { components } from "@stewed/tokens";
-// Styles
-import styles from "./styles/index.module.scss";
 
 /**
  * Props for the `AccordionItem` component.
@@ -53,23 +47,14 @@ export function AccordionItem({
   defaultOpen = false,
   disabled,
   children,
-  className,
   ...props
 }: AccordionItemProps): React.ReactElement {
-  // Importing useBem to handle BEM class names
-  const { getBlock } = useBem({ block: `${components.Accordion}__item`, styles });
-
   // Importing useAccordion to manage the accordion state
   const { setOpen, open, hiddenUntilFound } = useAccordion();
 
   // Memoized check to determine if the current item is open.
   // This ensures that the component only re-renders when the `open` state or `value` changes.
   const isOpen = useMemo(() => open.includes(value), [open, value]);
-
-  // Generating CSS classes based on component props and styles
-  const cssClasses = {
-    root: getBlock({ extraClasses: className })
-  };
 
   // Effect hook to set the initial open state of the accordion item.
   // This effect runs only once after the component is mounted, and it will add the `value` to the `open` state if `defaultOpen` is true.
@@ -81,7 +66,6 @@ export function AccordionItem({
 
   return (
     <details
-      className={cssClasses.root}
       tabIndex={disabled ? -1 : undefined}
       hidden={hiddenUntilFound ? undefined : !isOpen}
       open={disabled ? defaultOpen : isOpen}

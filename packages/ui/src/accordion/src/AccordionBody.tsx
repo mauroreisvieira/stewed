@@ -1,0 +1,47 @@
+import React from "react";
+// Base
+import {
+  Accordion as Unstyled_Accordion,
+  type AccordionBodyProps as Unstyled_AccordionBodyProps
+} from "@stewed/react";
+// Hooks
+import { useBem } from "@stewed/hooks";
+// Tokens
+import { components } from "@stewed/tokens";
+// Styles
+import styles from "./styles/index.module.scss";
+
+/**
+ * Props for the `AccordionBody` component.
+ * Inherits the standard props of a `div` element, allowing you to pass any props a `div` would accept.
+ */
+export type AccordionBodyProps = Unstyled_AccordionBodyProps;
+
+/**
+ * Component used to display the body content of an accordion item.
+ * It allows any valid `div` props to be passed, such as `className`, `style`, etc.
+ *
+ * @param props - The props for the `AccordionBody` component.
+ * @returns The rendered `AccordionBody` component.
+ *
+ * @see {@link AccordionBodyProps} for the complete list of props.
+ */
+export function AccordionBody({
+  className,
+  children,
+  ...props
+}: AccordionBodyProps): React.ReactElement {
+  // Importing useBem to handle BEM class names
+  const { getBlock } = useBem({ block: `${components.Accordion}__body`, styles });
+
+  // Generating CSS classes based on component props and styles
+  const cssClasses = {
+    root: getBlock({ extraClasses: className })
+  };
+
+  return (
+    <Unstyled_Accordion.Body className={cssClasses.root} {...props}>
+      {children}
+    </Unstyled_Accordion.Body>
+  );
+}
