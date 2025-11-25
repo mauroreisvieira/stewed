@@ -11,6 +11,7 @@ export * from "./calendar";
 export * from "./card";
 export * from "./carousel";
 export * from "./checkbox";
+export * from "./collapse";
 export * from "./container";
 export * from "./data-table";
 export * from "./dialog";
