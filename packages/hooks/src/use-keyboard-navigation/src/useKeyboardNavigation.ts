@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState, type RefObject, type KeyboardEventHandler } from "react";
+import { useCallback, useRef, useState, type KeyboardEventHandler } from "react";
 
 /**
  * Props for managing keyboard navigation in a component.
@@ -7,6 +7,12 @@ import { useCallback, useRef, useState, type RefObject, type KeyboardEventHandle
 export interface UseKeyboardNavigationProps {
   /** The CSS selector string that identifies the elements to navigate. */
   target: string;
+  /**
+   * A list of CSS selectors used to determine which elements are focusable/selectable within the navigation container.
+   *
+   * @default [[href]", "button", "input", "select", "textarea", "[tabindex]", "[controls]"]
+   */
+  matchSelectors?: string[];
   /**
    * Object that maps custom keyboard keys to their navigation directions.
    * Keys are the keyboard event key values, and values are the navigation direction (-1 for backward, 1 for forward).
@@ -18,11 +24,24 @@ export interface UseKeyboardNavigationProps {
    */
   loop?: boolean;
   /**
+   * Automatically calls `scrollIntoView` on the focused item during navigation.
+   * Set to `false` to manage scrolling manually or avoid layout shifts.
+   * @default true
+   */
+  autoScroll?: boolean;
+  /**
    * Specifies whether the default browser action should be prevented for the keys defined in the `key` prop.
    * When set to `true`, `preventDefault` is applied to these keys during navigation.
    * @default false
    */
   preventDefaultOnKey?: boolean;
+  /**
+   * Enables virtual focus management within the combobox.
+   * When `true`, focus is tracked virtually (e.g., with `aria-activedescendant`) instead of moving DOM focus.
+   * Useful for screen reader compatibility in custom listbox implementations.
+   * @default true
+   */
+  virtualFocus?: boolean;
   /**
    * A function defining the condition for the navigation.
    * @param nextIndex - Index of next focused item.
@@ -35,12 +54,12 @@ export interface UseKeyboardNavigationProps {
  *
  * @template T - The type of the DOM element to be navigated (e.g., HTMLDivElement, HTMLUListElement).
  */
-interface UseKeyboardNavigation<T> {
+interface IUseKeyboardNavigation<T> {
   /**
    * Reference to the DOM element used for navigation.
    * This ref should be attached to the container element that holds the navigable items.
    */
-  ref: RefObject<T | null>;
+  ref: React.RefObject<T>;
   /**
    * Event handler function to navigate through keyboard interactions.
    * This function should be called within the `onKeyDown` event handler of the container element.
@@ -56,10 +75,15 @@ interface UseKeyboardNavigation<T> {
    */
   setFocusedIndex: (index: number) => void;
   /**
-   * Function to set the first focusable element within the container as focused.
-   * Typically used to ensure that the first item in the list is focused when the component is initialized.
+   * Focuses the first focusable element within the container.
+   * Useful for initializing focus to the top of a list or group on mount or open.
    */
   setFirstElementFocusable: () => void;
+  /**
+   * Focuses the last focusable element within the container.
+   * Useful for reverse navigation or setting focus to the bottom of a list or group.
+   */
+  setLastElementFocusable: () => void;
   /**
    * The current focused item's index.
    * This reflects the index of the item that is currently focused within the list.
@@ -71,7 +95,7 @@ interface UseKeyboardNavigation<T> {
  * Hook for keyboard navigation within a specified target element.
  *
  * @param {UseKeyboardNavigationProps} props - The props for the hook.
- * @returns {UseKeyboardNavigation<T>} - Returns an object containing the ref and onNavigate function.
+ * @returns {IUseKeyboardNavigation<T>} - Returns an object containing the ref and onNavigate function.
  */
 export function useKeyboardNavigation<T extends HTMLDivElement>({
   target,
@@ -82,9 +106,21 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
     ArrowRight: 1
   },
   preventDefaultOnKey = false,
+  autoScroll = true,
   loop = true,
+  virtualFocus = true,
+  matchSelectors = [
+    "[role='option']", // Option role
+    "[href]", // Links.
+    "button", // Buttons.
+    "input", // Inputs (e.g., text fields).
+    "select", // Select.
+    "textarea", // Text areas.
+    "[tabindex]", // Any element with a tab-index.
+    "[controls]" // Elements with `controls` attribute (e.g., video/audio players).
+  ],
   condition = () => true
-}: UseKeyboardNavigationProps): UseKeyboardNavigation<T> {
+}: UseKeyboardNavigationProps): IUseKeyboardNavigation<T> {
   // Create a reference to the list element, where `T` is a generic type representing the element type (e.g., HTMLUListElement, HTMLDivElement)
   const listRef = useRef<T>(null);
 
@@ -92,10 +128,10 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   /** Helper function to retrieve all selectable items within the list element using the target selector. */
-  const getSelectableItems = (list: HTMLElement | null, target: string): HTMLElement[] => {
+  const getSelectableItems = useCallback((): HTMLElement[] => {
     // If the list is not available, return an empty array.
-    return list ? Array.from<HTMLElement>(list.querySelectorAll(target)) : [];
-  };
+    return listRef.current ? Array.from<HTMLElement>(listRef.current.querySelectorAll(target)) : [];
+  }, [target]);
 
   // Helper function to calculate the next index for focus navigation.
   // Handles looping (wrapping around) or clamping within bounds if looping is disabled.
@@ -115,14 +151,13 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
   // Sets focus on the item at the specified index, updating the state and handling looping if enabled.
   const setFocusedIndex = useCallback(
     (index: number) => {
-      // Get the current reference to the list element.
-      const list = listRef.current;
-
       // Retrieve all selectable items using the helper function.
-      const items = getSelectableItems(list, target);
+      const items = getSelectableItems();
 
       // If no items are found, exit early.
-      if (items.length === 0) return;
+      if (items.length === 0) {
+        return;
+      }
 
       // Calculate the next index based on the provided index and looping settings.
       const nextIndex = loop
@@ -132,10 +167,25 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
       // Update the current index state.
       setCurrentIndex(nextIndex);
 
-      // Focus the item at the calculated index, if it exists.
-      items[nextIndex]?.focus();
+      // Get the item at the target index
+      const el = items[nextIndex];
+
+      // Bail if item doesn't exist
+      if (!el) {
+        return;
+      }
+
+      if (!virtualFocus) {
+        // Move actual DOM focus to the item if not using virtual focus
+        el.focus();
+      }
+
+      if (autoScroll) {
+        // Ensure the item is visible within the scrollable container
+        el.scrollIntoView({ block: "nearest", inline: "nearest" });
+      }
     },
-    [target, loop]
+    [getSelectableItems, loop, virtualFocus, autoScroll]
   );
 
   // Handles keyboard navigation to move focus based on key presses.
@@ -146,13 +196,17 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
       }
 
       // Get the current reference to the list element.
-      const list = listRef.current;
+      if (!listRef) {
+        return;
+      }
 
       // Retrieve all selectable items using the helper function.
-      const items = getSelectableItems(list, target);
+      const items = getSelectableItems();
 
       // Find the index of the currently focused element in the items array.
-      const index = items.findIndex((item) => item === document.activeElement);
+      const index = virtualFocus
+        ? (currentIndex ?? -1)
+        : items.findIndex((item) => item === document.activeElement);
 
       // Determine the navigation direction based on the pressed key using the key mapping.
       const direction = keys?.[event.key];
@@ -169,52 +223,76 @@ export function useKeyboardNavigation<T extends HTMLDivElement>({
         }
       }
     },
-    [calculateNextIndex, condition, keys, loop, setFocusedIndex, target, preventDefaultOnKey]
+    [
+      preventDefaultOnKey,
+      keys,
+      getSelectableItems,
+      virtualFocus,
+      currentIndex,
+      calculateNextIndex,
+      loop,
+      condition,
+      setFocusedIndex
+    ]
   );
 
-  // Sets the first focusable element based on custom criteria or defaults to the first selectable item.
+  // Finds the index of the first or last focusable element within a list of items.
+  const findFocusableIndex = useCallback(
+    (direction: "first" | "last"): number => {
+      // Retrieve all selectable items using the helper function.
+      const items = getSelectableItems();
+
+      const len = items.length;
+
+      const isDisabled = (el: HTMLElement) =>
+        el.hasAttribute("disabled") || el.getAttribute("aria-disabled") === "true";
+
+      const isFocusable = (item: HTMLElement) =>
+        !isDisabled(item) && item.matches(matchSelectors.join(", "));
+
+      const step = direction === "first" ? 1 : -1;
+      let i = direction === "first" ? 0 : len - 1;
+
+      while (i >= 0 && i < len) {
+        const item = items[i];
+        if (item && isFocusable(item)) {
+          return i;
+        }
+
+        i += step;
+      }
+
+      return -1;
+    },
+    [matchSelectors, getSelectableItems]
+  );
+
+  // Sets focus to the first focusable item within the target container.
+  // Priority is given to selected/pressed/checked elements; falls back to default focusables.
   const setFirstElementFocusable = useCallback(() => {
-    // Get the current reference to the list element.
-    const list = listRef.current;
+    const index = findFocusableIndex("first");
 
-    // Retrieve all selectable items using the helper function.
-    const items = getSelectableItems(list, target);
-
-    // Find the index of the first item with `aria-selected="true"` or `aria-checked="true"`.
-    let selectedIndex = items.findIndex(
-      (item) =>
-        item.getAttribute("aria-selected") === "true" ||
-        item.getAttribute("aria-pressed") === "true" ||
-        item.getAttribute("aria-checked") === "true"
-    );
-
-    // If no such item is found, default to the first selectable item using predefined selectors.
-    if (selectedIndex === -1) {
-      const selectableSelectors = [
-        "[href]", // Links.
-        "button", // Buttons.
-        "input", // Inputs (e.g., text fields).
-        "select", // Select.
-        "textarea", // Text areas.
-        "[tabindex]", // Any element with a tab-index.
-        "[controls]" // Elements with `controls` attribute (e.g., video/audio players).
-      ].join(", ");
-
-      // Find the index of the first element matching the selectable selectors.
-      selectedIndex = items.findIndex((item) => item.matches(selectableSelectors));
+    if (condition?.(index) && index !== -1) {
+      setFocusedIndex(index);
     }
+  }, [findFocusableIndex, condition, setFocusedIndex]);
 
-    // If a valid item is found, set its index as the focused index.
-    if (selectedIndex !== -1) {
-      setFocusedIndex(selectedIndex);
+  // Sets focus to the last focusable item within the target container.
+  // Priority is given to selected/pressed/checked elements; falls back to default focusables.
+  const setLastElementFocusable = useCallback(() => {
+    const index = findFocusableIndex("last");
+
+    if (condition?.(index) && index !== -1) {
+      setFocusedIndex(index);
     }
-  }, [target, setFocusedIndex]);
+  }, [setFocusedIndex, condition, findFocusableIndex]);
 
   return {
     ref: listRef,
     onNavigate: onHandleKeyDown,
     setFocusedIndex,
     currentIndex,
-    setFirstElementFocusable
+    setFirstElementFocusable,
+    setLastElementFocusable
   };
 }
