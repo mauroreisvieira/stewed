@@ -17,6 +17,9 @@ importers:
       '@stewed/react':
         specifier: workspace:*
         version: link:packages/react
+      '@stewed/tokens':
+        specifier: workspace:*
+        version: link:packages/tokens
       '@stewed/utilities':
         specifier: workspace:*
         version: link:packages/utilities
@@ -26,10 +29,6 @@ importers:
       babel-plugin-react-compiler:
         specifier: 19.0.0-beta-e552027-20250112
         version: 19.0.0-beta-e552027-20250112
-    optionalDependencies:
-      '@nx/nx-linux-x64-gnu':
-        specifier: ^20.3.1
-        version: 20.3.1
     devDependencies:
       '@changesets/cli':
         specifier: ^2.27.11
@@ -84,7 +83,7 @@ importers:
         version: 0.2.2
       '@testing-library/react':
         specifier: ^16.2.0
-        version: 16.2.0(@testing-library/dom@9.3.4)(@types/react-dom@19.0.3(@types/react@19.0.7))(@types/react@19.0.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 16.2.0(@testing-library/dom@10.4.0)(@types/react-dom@19.0.3(@types/react@19.0.7))(@types/react@19.0.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@testing-library/react-hooks':
         specifier: ^8.0.1
         version: 8.0.1(@types/react@19.0.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -175,9 +174,6 @@ importers:
       stylelint-scss:
         specifier: ^6.10.1
         version: 6.10.1(stylelint@16.13.2(typescript@5.7.3))
-      turbo:
-        specifier: ^2.3.3
-        version: 2.3.3
       typescript:
         specifier: ^5.7.3
         version: 5.7.3
@@ -269,10 +265,10 @@ importers:
         version: 3.7.2(vite@6.0.7(@types/node@22.10.7)(jiti@2.4.2)(lightningcss@1.28.2)(sass-embedded@1.83.0)(sass@1.83.0)(tsx@4.19.2))
       esbuild-css-modules-plugin:
         specifier: ^3.1.4
-        version: 3.1.4(esbuild@0.24.2)
+        version: 3.1.4(esbuild@0.24.0)
       esbuild-sass-plugin:
         specifier: ^3.3.1
-        version: 3.3.1(esbuild@0.24.2)(sass-embedded@1.83.0)
+        version: 3.3.1(esbuild@0.24.0)(sass-embedded@1.83.0)
       jsdom:
         specifier: ^26.0.0
         version: 26.0.0
@@ -1900,12 +1896,6 @@ packages:
   '@nodelib/fs.walk@1.2.8':
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
-
-  '@nx/nx-linux-x64-gnu@20.3.1':
-    resolution: {integrity: sha512-qC2On2qwYCtn/Kt8epvUn0H3NY6zG9yYhiNjkm6RvVTDmvogFQ4gtfiWSRP/EnabCRqM8FACDIO/ws5CnRBX+Q==}
-    engines: {node: '>= 10'}
-    cpu: [x64]
-    os: [linux]
 
   '@parcel/watcher-android-arm64@2.5.0':
     resolution: {integrity: sha512-qlX4eS28bUcQCdribHkg/herLe+0A9RyYC+mm2PXpncit8z5b3nSqGVzMNR3CmtAOgRutiZ02eIJJgP/b1iEFQ==}
@@ -5778,40 +5768,6 @@ packages:
     engines: {node: '>=18.0.0'}
     hasBin: true
 
-  turbo-darwin-64@2.3.3:
-    resolution: {integrity: sha512-bxX82xe6du/3rPmm4aCC5RdEilIN99VUld4HkFQuw+mvFg6darNBuQxyWSHZTtc25XgYjQrjsV05888w1grpaA==}
-    cpu: [x64]
-    os: [darwin]
-
-  turbo-darwin-arm64@2.3.3:
-    resolution: {integrity: sha512-DYbQwa3NsAuWkCUYVzfOUBbSUBVQzH5HWUFy2Kgi3fGjIWVZOFk86ss+xsWu//rlEAfYwEmopigsPYSmW4X15A==}
-    cpu: [arm64]
-    os: [darwin]
-
-  turbo-linux-64@2.3.3:
-    resolution: {integrity: sha512-eHj9OIB0dFaP6BxB88jSuaCLsOQSYWBgmhy2ErCu6D2GG6xW3b6e2UWHl/1Ho9FsTg4uVgo4DB9wGsKa5erjUA==}
-    cpu: [x64]
-    os: [linux]
-
-  turbo-linux-arm64@2.3.3:
-    resolution: {integrity: sha512-NmDE/NjZoDj1UWBhMtOPmqFLEBKhzGS61KObfrDEbXvU3lekwHeoPvAMfcovzswzch+kN2DrtbNIlz+/rp8OCg==}
-    cpu: [arm64]
-    os: [linux]
-
-  turbo-windows-64@2.3.3:
-    resolution: {integrity: sha512-O2+BS4QqjK3dOERscXqv7N2GXNcqHr9hXumkMxDj/oGx9oCatIwnnwx34UmzodloSnJpgSqjl8iRWiY65SmYoQ==}
-    cpu: [x64]
-    os: [win32]
-
-  turbo-windows-arm64@2.3.3:
-    resolution: {integrity: sha512-dW4ZK1r6XLPNYLIKjC4o87HxYidtRRcBeo/hZ9Wng2XM/MqqYkAyzJXJGgRMsc0MMEN9z4+ZIfnSNBrA0b08ag==}
-    cpu: [arm64]
-    os: [win32]
-
-  turbo@2.3.3:
-    resolution: {integrity: sha512-DUHWQAcC8BTiUZDRzAYGvpSpGLiaOQPfYXlCieQbwUvmml/LRGIe3raKdrOPOoiX0DYlzxs2nH6BoWJoZrj8hA==}
-    hasBin: true
-
   type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
     engines: {node: '>= 0.8.0'}
@@ -8014,9 +7970,6 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
 
-  '@nx/nx-linux-x64-gnu@20.3.1':
-    optional: true
-
   '@parcel/watcher-android-arm64@2.5.0':
     optional: true
 
@@ -8568,16 +8521,6 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.26.0
       '@testing-library/dom': 10.4.0
-      react: 19.0.0
-      react-dom: 19.0.0(react@19.0.0)
-    optionalDependencies:
-      '@types/react': 19.0.7
-      '@types/react-dom': 19.0.3(@types/react@19.0.7)
-
-  '@testing-library/react@16.2.0(@testing-library/dom@9.3.4)(@types/react-dom@19.0.3(@types/react@19.0.7))(@types/react@19.0.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
-    dependencies:
-      '@babel/runtime': 7.26.0
-      '@testing-library/dom': 9.3.4
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
     optionalDependencies:
@@ -9868,9 +9811,9 @@ snapshots:
       is-date-object: 1.1.0
       is-symbol: 1.1.1
 
-  esbuild-css-modules-plugin@3.1.4(esbuild@0.24.2):
+  esbuild-css-modules-plugin@3.1.4(esbuild@0.24.0):
     dependencies:
-      esbuild: 0.24.2
+      esbuild: 0.24.0
       lightningcss: 1.28.2
       lodash-es: 4.17.21
 
@@ -9881,9 +9824,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  esbuild-sass-plugin@3.3.1(esbuild@0.24.2)(sass-embedded@1.83.0):
+  esbuild-sass-plugin@3.3.1(esbuild@0.24.0)(sass-embedded@1.83.0):
     dependencies:
-      esbuild: 0.24.2
+      esbuild: 0.24.0
       resolve: 1.22.8
       safe-identifier: 0.4.2
       sass: 1.83.0
@@ -12521,33 +12464,6 @@ snapshots:
       get-tsconfig: 4.8.1
     optionalDependencies:
       fsevents: 2.3.3
-
-  turbo-darwin-64@2.3.3:
-    optional: true
-
-  turbo-darwin-arm64@2.3.3:
-    optional: true
-
-  turbo-linux-64@2.3.3:
-    optional: true
-
-  turbo-linux-arm64@2.3.3:
-    optional: true
-
-  turbo-windows-64@2.3.3:
-    optional: true
-
-  turbo-windows-arm64@2.3.3:
-    optional: true
-
-  turbo@2.3.3:
-    optionalDependencies:
-      turbo-darwin-64: 2.3.3
-      turbo-darwin-arm64: 2.3.3
-      turbo-linux-64: 2.3.3
-      turbo-linux-arm64: 2.3.3
-      turbo-windows-64: 2.3.3
-      turbo-windows-arm64: 2.3.3
 
   type-check@0.4.0:
     dependencies:
