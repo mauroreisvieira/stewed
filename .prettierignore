@@ -1,7 +1,0 @@
-# Markdown files
-*.md
-*.mdx
-
-# Generated files
-dist
-cache
