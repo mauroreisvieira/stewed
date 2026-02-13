@@ -14,7 +14,10 @@ export interface WeekProps {
 
 export function Week({ className }: WeekProps): React.ReactElement {
   // Importing useBem to handle BEM class names
-  const { getBlock, getElement } = useBem({ block: `${components.Calendar}__week`, styles });
+  const { getBlock, getElement } = useBem({
+    block: `${components.Calendar}__week`,
+    styles
+  });
 
   const { weekDays } = useCalendarContext();
 

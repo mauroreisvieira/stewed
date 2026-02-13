@@ -119,7 +119,10 @@ export function Calendar<T>({
   children
 }: CalendarProps<T>): React.ReactElement {
   // Importing useBem to handle BEM class names
-  const { getBlock, getElement } = useBem({ block: components.Calendar, styles });
+  const { getBlock, getElement } = useBem({
+    block: components.Calendar,
+    styles
+  });
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {

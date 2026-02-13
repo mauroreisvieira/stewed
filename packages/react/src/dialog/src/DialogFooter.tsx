@@ -14,7 +14,10 @@ export function DialogFooter({
   ...props
 }: DialogFooterProps): React.ReactElement {
   // Importing useBem to handle BEM class names
-  const { getBlock } = useBem({ block: `${components.Dialog}__footer`, styles });
+  const { getBlock } = useBem({
+    block: `${components.Dialog}__footer`,
+    styles
+  });
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {

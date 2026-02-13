@@ -46,7 +46,10 @@ export interface NavigationProps {
 
 export function Navigation({ children, className }: NavigationProps): React.ReactElement {
   // Importing useBem to handle BEM class names
-  const { getBlock } = useBem({ block: `${components.Calendar}__navigation`, styles });
+  const { getBlock } = useBem({
+    block: `${components.Calendar}__navigation`,
+    styles
+  });
 
   const { onPrev, onNext, month, year, locked } = useCalendarContext();
 

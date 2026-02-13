@@ -53,7 +53,10 @@ export function Stepper({
   ...props
 }: StepperProps): React.ReactElement {
   // Importing useBem to handle BEM class names
-  const { getBlock, getElement } = useBem({ block: components.Stepper, styles });
+  const { getBlock, getElement } = useBem({
+    block: components.Stepper,
+    styles
+  });
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {

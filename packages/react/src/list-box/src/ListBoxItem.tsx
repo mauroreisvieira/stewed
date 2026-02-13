@@ -61,7 +61,10 @@ export const ListBoxItem = forwardRef(
     const Comp = as || defaultElement;
 
     // Importing useBem to handle BEM class names
-    const { getBlock, getElement } = useBem({ block: `${components.ListBox}__item`, styles });
+    const { getBlock, getElement } = useBem({
+      block: `${components.ListBox}__item`,
+      styles
+    });
 
     // Generating CSS classes based on component props and styles
     const cssClasses = {

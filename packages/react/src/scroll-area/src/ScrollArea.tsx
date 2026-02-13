@@ -80,7 +80,9 @@ export function ScrollArea({
     const controller = new AbortController();
 
     // Add the scroll event listener
-    element.addEventListener("scroll", onChangeShadowVisibility, { signal: controller.signal });
+    element.addEventListener("scroll", onChangeShadowVisibility, {
+      signal: controller.signal
+    });
 
     // Create and observe the ResizeObserver for content changes
     const resizeObserver = new ResizeObserver(onChangeShadowVisibility);

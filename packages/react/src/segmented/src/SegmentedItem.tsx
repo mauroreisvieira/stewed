@@ -34,7 +34,10 @@ export function SegmentedItem({
   const isSelected = value === selectedValue;
 
   // Importing useBem to handle BEM class names
-  const { getBlock, getElement } = useBem({ block: `${components.Segmented}__item`, styles });
+  const { getBlock, getElement } = useBem({
+    block: `${components.Segmented}__item`,
+    styles
+  });
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {

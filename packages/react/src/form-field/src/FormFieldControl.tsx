@@ -18,7 +18,10 @@ export function FormFieldControl({
   ...props
 }: FormFieldControlProps): React.ReactElement {
   // Importing useBem to handle BEM class names
-  const { getBlock } = useBem({ block: `${components.FormField}__control`, styles });
+  const { getBlock } = useBem({
+    block: `${components.FormField}__control`,
+    styles
+  });
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {

@@ -96,7 +96,10 @@ const data: Payment[] = [
 
 export const Base: Story = {
   argTypes: {
-    hiddenColumns: { control: "check", options: ["id", "amount", "email", "status"] }
+    hiddenColumns: {
+      control: "check",
+      options: ["id", "amount", "email", "status"]
+    }
   },
   render: function Render(args): React.ReactElement {
     const columns: ColumnsDef<Payment>[] = [

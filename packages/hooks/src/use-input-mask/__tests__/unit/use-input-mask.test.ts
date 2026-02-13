@@ -62,13 +62,17 @@ describe("useInputMask", () => {
     );
 
     act(() => {
-      result.current.onBlur({ target: { value: "" } } as React.FocusEvent<HTMLInputElement>);
+      result.current.onBlur({
+        target: { value: "" }
+      } as React.FocusEvent<HTMLInputElement>);
     });
 
     expect(result.current.isValid).toBe(false); // Empty value with required field
 
     act(() => {
-      result.current.onBlur({ target: { value: "123" } } as React.FocusEvent<HTMLInputElement>);
+      result.current.onBlur({
+        target: { value: "123" }
+      } as React.FocusEvent<HTMLInputElement>);
     });
 
     expect(result.current.isValid).toBe(true); // Valid value
@@ -82,7 +86,9 @@ describe("useInputMask", () => {
     );
 
     act(() => {
-      result.current.onChange({ target: { value: "123" } } as React.ChangeEvent<HTMLInputElement>);
+      result.current.onChange({
+        target: { value: "123" }
+      } as React.ChangeEvent<HTMLInputElement>);
     });
 
     expect(result.current.value).toBe("123");

@@ -18,32 +18,36 @@ describe("TextField", () => {
       expect(container).toMatchSnapshot();
     });
 
-    it.each<TextFieldProps["skin"]>(["neutral", "critical", "success"])(
-      "should apply '%s' skin classes",
-      (skin) => {
-        const { container } = render(<TextField skin={skin} defaultValue="Input" />);
+    it.each<TextFieldProps["skin"]>([
+      "neutral",
+      "critical",
+      "success"
+    ])("should apply '%s' skin classes", (skin) => {
+      const { container } = render(<TextField skin={skin} defaultValue="Input" />);
 
-        expect(container).toMatchSnapshot();
-      }
-    );
+      expect(container).toMatchSnapshot();
+    });
 
-    it.each<TextFieldProps["appearance"]>(["soft", "ghost", "outline"])(
-      "should apply '%s' appearance classes",
-      (appearance) => {
-        const { container } = render(<TextField appearance={appearance} defaultValue="Input" />);
+    it.each<TextFieldProps["appearance"]>([
+      "soft",
+      "ghost",
+      "outline"
+    ])("should apply '%s' appearance classes", (appearance) => {
+      const { container } = render(<TextField appearance={appearance} defaultValue="Input" />);
 
-        expect(container).toMatchSnapshot();
-      }
-    );
+      expect(container).toMatchSnapshot();
+    });
 
-    it.each<TextFieldProps["size"]>(["sm", "md", "lg", "xl"])(
-      "should apply '%s' size classes",
-      (size) => {
-        const { container } = render(<TextField size={size} defaultValue="Input" />);
+    it.each<TextFieldProps["size"]>([
+      "sm",
+      "md",
+      "lg",
+      "xl"
+    ])("should apply '%s' size classes", (size) => {
+      const { container } = render(<TextField size={size} defaultValue="Input" />);
 
-        expect(container).toMatchSnapshot();
-      }
-    );
+      expect(container).toMatchSnapshot();
+    });
 
     it("should render left slot content", () => {
       const { container } = render(<TextField leftSlot="Left slot" defaultValue="Input" />);

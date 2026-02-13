@@ -38,7 +38,10 @@ export function CardMedia({
   ...props
 }: CardMediaProps): React.ReactElement {
   // Importing useBem to handle BEM class names
-  const { getBlock, getElement } = useBem({ block: `${components.Card}__media`, styles });
+  const { getBlock, getElement } = useBem({
+    block: `${components.Card}__media`,
+    styles
+  });
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {

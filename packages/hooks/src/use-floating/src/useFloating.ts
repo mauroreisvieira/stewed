@@ -252,7 +252,12 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
       // Adjust position to keep the element within the viewport or boundary
       const boundaryRect = boundary
         ? boundary.getBoundingClientRect()
-        : { height: window.innerHeight, width: window.innerWidth, top: 0, left: 0 };
+        : {
+            height: window.innerHeight,
+            width: window.innerWidth,
+            top: 0,
+            left: 0
+          };
 
       const { width: floatingWidth, height: floatingHeight } = floatingRect;
 
@@ -594,8 +599,13 @@ export function useFloating<R extends HTMLElement, F extends HTMLElement>({
     resizeObserver.observe(reference);
 
     // Recalculate position on window resize or scroll
-    window.addEventListener("resize", handleResize, { signal: controller.signal });
-    window.addEventListener("scroll", handleResize, { capture: true, signal: controller.signal });
+    window.addEventListener("resize", handleResize, {
+      signal: controller.signal
+    });
+    window.addEventListener("scroll", handleResize, {
+      capture: true,
+      signal: controller.signal
+    });
 
     // Cleanup function
     return () => {

@@ -14,7 +14,10 @@ export function DropdownScrollable({
   ...props
 }: DropdownScrollableProps): React.ReactElement {
   // Importing useBem to handle BEM class names
-  const { getBlock } = useBem({ block: `${components.Dropdown}__scrollable`, styles });
+  const { getBlock } = useBem({
+    block: `${components.Dropdown}__scrollable`,
+    styles
+  });
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {

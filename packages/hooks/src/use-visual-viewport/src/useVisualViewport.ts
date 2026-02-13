@@ -81,7 +81,9 @@ export const useVisualViewport = ({
     };
 
     // Attach the resize event listener to the visual viewport.
-    visualViewport.addEventListener("resize", handleResize, { signal: controller.signal });
+    visualViewport.addEventListener("resize", handleResize, {
+      signal: controller.signal
+    });
 
     // Cleanup function to remove the event listener on component unmount.
     return () => {

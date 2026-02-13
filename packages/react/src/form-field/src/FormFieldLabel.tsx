@@ -19,7 +19,10 @@ interface FormFieldLabelProps {
 
 export function FormFieldLabel({ className, ...props }: FormFieldLabelProps): React.ReactElement {
   // Importing useBem to handle BEM class names
-  const { getBlock } = useBem({ block: `${components.FormField}__label`, styles });
+  const { getBlock } = useBem({
+    block: `${components.FormField}__label`,
+    styles
+  });
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {

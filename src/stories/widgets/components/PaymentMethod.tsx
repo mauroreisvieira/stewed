@@ -33,7 +33,10 @@ const items = [
 
 export function PaymentMethod(): React.ReactElement {
   // Using the useSelect hook to manage selection
-  const { index, setIndex } = useSelect<{ name: string; icon: React.ReactNode }>(items, 0);
+  const { index, setIndex } = useSelect<{
+    name: string;
+    icon: React.ReactNode;
+  }>(items, 0);
 
   const regexPatterns = {
     name: /^[a-zA-Z ]+$/,

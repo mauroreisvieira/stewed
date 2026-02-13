@@ -809,7 +809,12 @@ export const Inventory = {
                       <Separator
                         orientation="horizontal"
                         space={{ block: "md" }}
-                        responsive={{ sm: { orientation: "vertical", space: { inline: "xl" } } }}
+                        responsive={{
+                          sm: {
+                            orientation: "vertical",
+                            space: { inline: "xl" }
+                          }
+                        }}
                       />
                       <Stack direction="column" gap="lg" grow>
                         <Text size="3xl" weight="semi-bold">
@@ -1507,10 +1512,30 @@ export const AddStaff = {
     }, [selectedStep]);
 
     const steps = [
-      { step: "1", completed: true, title: "Staff Info", icon: <FaUserEdit size={20} /> },
-      { step: "2", completed: true, title: "Assigned Services", icon: <FaUserDoctor size={20} /> },
-      { step: "3", completed: true, title: "Working Hours", icon: <MdOutlineTimer size={20} /> },
-      { step: "4", completed: false, title: "Days Off", icon: <MdOutlineTimerOff size={20} /> }
+      {
+        step: "1",
+        completed: true,
+        title: "Staff Info",
+        icon: <FaUserEdit size={20} />
+      },
+      {
+        step: "2",
+        completed: true,
+        title: "Assigned Services",
+        icon: <FaUserDoctor size={20} />
+      },
+      {
+        step: "3",
+        completed: true,
+        title: "Working Hours",
+        icon: <MdOutlineTimer size={20} />
+      },
+      {
+        step: "4",
+        completed: false,
+        title: "Days Off",
+        icon: <MdOutlineTimerOff size={20} />
+      }
     ];
 
     return (

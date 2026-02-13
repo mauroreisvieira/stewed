@@ -30,7 +30,7 @@
   @include theme.define-var(
     (
       border-width: 1px,
-      border-color: transparent
+      border-color: transparent,
     )
   );
 
@@ -66,14 +66,14 @@
         @include theme.define-var(
           (
             background-color: theme.get-color($value, "background"),
-            color: theme.get-color($value, "foreground-on-background")
+            color: theme.get-color($value, "foreground-on-background"),
           )
         );
 
         &:hover:not([aria-disabled="true"], [aria-pressed="true"]) {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "background-hovered")
+              background-color: theme.get-color($value, "background-hovered"),
             )
           );
         }
@@ -82,7 +82,7 @@
         &:active:not([aria-disabled="true"]) {
           @include theme.define-var(
             (
-              background-color: theme.get-color($value, "background-pressed")
+              background-color: theme.get-color($value, "background-pressed"),
             )
           );
         }
@@ -92,7 +92,7 @@
         @include theme.define-var(
           (
             color: theme.get-color($value, "foreground"),
-            background-color: transparent
+            background-color: transparent,
           )
         );
 
@@ -103,7 +103,7 @@
                   in srgb,
                   theme.get-color($value, "background"),
                   theme.get-color("background-default") 95%
-                )
+                ),
             )
           );
         }
@@ -116,7 +116,7 @@
                   in srgb,
                   theme.get-color($value, "background"),
                   theme.get-color("background-default") 90%
-                )
+                ),
             )
           );
         }
@@ -127,14 +127,14 @@
           (
             background-color: transparent,
             border-color: currentColor,
-            color: theme.get-color($value, "border")
+            color: theme.get-color($value, "border"),
           )
         );
 
         &:hover:not([aria-disabled="true"], [aria-pressed="true"]) {
           @include theme.define-var(
             (
-              color: theme.get-color($value, "border-hovered")
+              color: theme.get-color($value, "border-hovered"),
             )
           );
         }
@@ -143,7 +143,7 @@
         &:active:not([aria-disabled="true"]) {
           @include theme.define-var(
             (
-              color: theme.get-color($value, "background-pressed")
+              color: theme.get-color($value, "background-pressed"),
             )
           );
         }
@@ -157,7 +157,7 @@
                 in srgb,
                 theme.get-color($value, "background"),
                 transparent 95%
-              )
+              ),
           )
         );
 
@@ -168,7 +168,7 @@
                   in srgb,
                   theme.get-color($value, "background"),
                   transparent 90%
-                )
+                ),
             )
           );
         }
@@ -181,7 +181,7 @@
                   in srgb,
                   theme.get-color($value, "background"),
                   transparent 85%
-                )
+                ),
             )
           );
         }
@@ -216,7 +216,7 @@
       &__text {
         @include theme.define-var(
           (
-            text-font-size: 0
+            text-font-size: 0,
           )
         );
       }
@@ -229,7 +229,7 @@
         size: map.get($button-sizes, "xs"),
         padding-inline: theme.get-spacing("xs"),
         text-line-height: theme.get-line-height("xs"),
-        text-font-size: theme.get-font-size("xxs")
+        text-font-size: theme.get-font-size("xxs"),
       )
     );
   }
@@ -240,7 +240,7 @@
         size: map.get($button-sizes, "sm"),
         padding-inline: theme.get-spacing("md"),
         text-line-height: theme.get-line-height("sm"),
-        text-font-size: theme.get-font-size("xs")
+        text-font-size: theme.get-font-size("xs"),
       )
     );
   }
@@ -251,7 +251,7 @@
         size: map.get($button-sizes, "md"),
         padding-inline: theme.get-spacing("lg"),
         text-line-height: theme.get-line-height("sm"),
-        text-font-size: theme.get-font-size("sm")
+        text-font-size: theme.get-font-size("sm"),
       )
     );
   }
@@ -262,7 +262,7 @@
         size: map.get($button-sizes, "lg"),
         padding-inline: theme.get-spacing("xl"),
         text-line-height: theme.get-line-height("md"),
-        text-font-size: theme.get-font-size("md")
+        text-font-size: theme.get-font-size("md"),
       )
     );
   }
@@ -273,7 +273,7 @@
         size: map.get($button-sizes, "xl"),
         padding-inline: theme.get-spacing("2xl"),
         text-line-height: theme.get-line-height("md"),
-        text-font-size: theme.get-font-size("lg")
+        text-font-size: theme.get-font-size("lg"),
       )
     );
   }

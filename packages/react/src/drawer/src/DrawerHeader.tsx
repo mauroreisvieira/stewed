@@ -18,7 +18,10 @@ export function DrawerHeader({
   ...props
 }: DrawerHeaderProps): React.ReactElement {
   // Importing useBem to handle BEM class names
-  const { getBlock, getElement } = useBem({ block: `${components.Drawer}__header`, styles });
+  const { getBlock, getElement } = useBem({
+    block: `${components.Drawer}__header`,
+    styles
+  });
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {

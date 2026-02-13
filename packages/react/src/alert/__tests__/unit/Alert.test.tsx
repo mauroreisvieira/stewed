@@ -24,23 +24,31 @@ describe("Alert", () => {
       expect(container).toMatchSnapshot();
     });
 
-    it.each<AlertProps["shadow"]>(["none", "sm", "md", "lg", "xl", "2xl", "3xl"])(
-      "should apply '%s' shadow classes",
-      (shadow) => {
-        const { container } = render(<Alert shadow={shadow}>Alert</Alert>);
+    it.each<AlertProps["shadow"]>([
+      "none",
+      "sm",
+      "md",
+      "lg",
+      "xl",
+      "2xl",
+      "3xl"
+    ])("should apply '%s' shadow classes", (shadow) => {
+      const { container } = render(<Alert shadow={shadow}>Alert</Alert>);
 
-        expect(container).toMatchSnapshot();
-      }
-    );
+      expect(container).toMatchSnapshot();
+    });
 
-    it.each<AlertProps["skin"]>(["primary", "secondary", "neutral", "critical", "success"])(
-      "should apply '%s' skin classes",
-      (skin) => {
-        const { container } = render(<Alert skin={skin}>Alert</Alert>);
+    it.each<AlertProps["skin"]>([
+      "primary",
+      "secondary",
+      "neutral",
+      "critical",
+      "success"
+    ])("should apply '%s' skin classes", (skin) => {
+      const { container } = render(<Alert skin={skin}>Alert</Alert>);
 
-        expect(container).toMatchSnapshot();
-      }
-    );
+      expect(container).toMatchSnapshot();
+    });
 
     it("should render left slot content", () => {
       const { container } = render(<Alert leftSlot="Left slot">Alert</Alert>);

@@ -41,7 +41,10 @@ export function DropdownButton({
   ...props
 }: DropdownButtonProps): React.ReactElement {
   // Importing useBem to handle BEM class names
-  const { getBlock, getElement } = useBem({ block: `${components.Dropdown}__button`, styles });
+  const { getBlock, getElement } = useBem({
+    block: `${components.Dropdown}__button`,
+    styles
+  });
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {

@@ -29,32 +29,39 @@ describe("Tag", () => {
       expect(container).toMatchSnapshot();
     });
 
-    it.each<TagProps["skin"]>(["primary", "secondary", "neutral", "critical", "success"])(
-      "should apply '%s' skin classes",
-      (skin) => {
-        const { container } = render(<Tag skin={skin}>Tag</Tag>);
+    it.each<TagProps["skin"]>([
+      "primary",
+      "secondary",
+      "neutral",
+      "critical",
+      "success"
+    ])("should apply '%s' skin classes", (skin) => {
+      const { container } = render(<Tag skin={skin}>Tag</Tag>);
 
-        expect(container).toMatchSnapshot();
-      }
-    );
+      expect(container).toMatchSnapshot();
+    });
 
-    it.each<TagProps["appearance"]>(["filled", "ghost", "outline", "soft"])(
-      "should apply '%s' appearance classes",
-      (appearance) => {
-        const { container } = render(<Tag appearance={appearance}>Tag</Tag>);
+    it.each<TagProps["appearance"]>([
+      "filled",
+      "ghost",
+      "outline",
+      "soft"
+    ])("should apply '%s' appearance classes", (appearance) => {
+      const { container } = render(<Tag appearance={appearance}>Tag</Tag>);
 
-        expect(container).toMatchSnapshot();
-      }
-    );
+      expect(container).toMatchSnapshot();
+    });
 
-    it.each<TagProps["size"]>(["xs", "sm", "md", "lg"])(
-      "should apply '%s' size classes",
-      (size) => {
-        const { container } = render(<Tag size={size}>Tag</Tag>);
+    it.each<TagProps["size"]>([
+      "xs",
+      "sm",
+      "md",
+      "lg"
+    ])("should apply '%s' size classes", (size) => {
+      const { container } = render(<Tag size={size}>Tag</Tag>);
 
-        expect(container).toMatchSnapshot();
-      }
-    );
+      expect(container).toMatchSnapshot();
+    });
 
     it("should render left slot content", () => {
       const { container } = render(<Tag leftSlot="Left slot">Tag</Tag>);

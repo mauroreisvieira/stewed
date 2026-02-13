@@ -24,14 +24,15 @@ describe("Switch", () => {
       expect(container).toMatchSnapshot();
     });
 
-    it.each<SwitchProps["skin"]>(["primary", "critical", "success"])(
-      "should apply '%s' skin classes",
-      (skin) => {
-        const { container } = render(<Switch skin={skin}>Switch</Switch>);
+    it.each<SwitchProps["skin"]>([
+      "primary",
+      "critical",
+      "success"
+    ])("should apply '%s' skin classes", (skin) => {
+      const { container } = render(<Switch skin={skin}>Switch</Switch>);
 
-        expect(container).toMatchSnapshot();
-      }
-    );
+      expect(container).toMatchSnapshot();
+    });
 
     it.each<SwitchProps["size"]>(["sm", "md", "lg"])("should apply '%s' size classes", (size) => {
       const { container } = render(<Switch size={size}>Switch</Switch>);

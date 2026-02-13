@@ -108,7 +108,10 @@ const Root = forwardRef(
     const Comp = as || defaultElement;
 
     // Importing useBem to handle BEM class names
-    const { getBlock, getElement } = useBem({ block: components.Avatar, styles });
+    const { getBlock, getElement } = useBem({
+      block: components.Avatar,
+      styles
+    });
 
     // Generating CSS classes based on component props and styles
     const cssClasses = {

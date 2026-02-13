@@ -59,7 +59,12 @@ export function Segmented<T extends string>({
   return (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <div ref={ref} role="group" className={cssClasses.root} onKeyDown={onHandleKeyDown} {...props}>
-      <SegmentedContext value={{ value, onValueChange: onValueChange as (value: unknown) => void }}>
+      <SegmentedContext
+        value={{
+          value,
+          onValueChange: onValueChange as (value: unknown) => void
+        }}
+      >
         {children}
       </SegmentedContext>
     </div>

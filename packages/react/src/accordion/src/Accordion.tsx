@@ -88,7 +88,10 @@ export function Accordion({
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ modifiers: [...computedAppearance.map((i) => i)], extraClasses: className })
+    root: getBlock({
+      modifiers: [...computedAppearance.map((i) => i)],
+      extraClasses: className
+    })
   };
 
   // Used to manage the accordion state
@@ -110,7 +113,15 @@ export function Accordion({
   );
 
   return (
-    <AccordionContext value={{ hiddenUntilFound, multipleExpanded, onOpenChange, open, setOpen }}>
+    <AccordionContext
+      value={{
+        hiddenUntilFound,
+        multipleExpanded,
+        onOpenChange,
+        open,
+        setOpen
+      }}
+    >
       <div
         ref={ref}
         role="group"

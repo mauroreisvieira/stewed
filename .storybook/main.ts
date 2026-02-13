@@ -44,8 +44,10 @@ const config: StorybookConfig = {
    * @param      {InlineConfig}  config  The configuration
    * @return     {InlineConfig}  The inline configuration.
    */
-  async viteFinal(config: InlineConfig): InlineConfig {
-    config.plugins = config.plugins!.filter((plugin) => plugin!.name !== "vite:dts");
+  async viteFinal(config: InlineConfig): Promise<InlineConfig> {
+    if (config.plugins) {
+      config.plugins = config.plugins.filter((plugin) => plugin?.name !== "vite:dts");
+    }
 
     return mergeConfig(config, {
       build: {

@@ -17,7 +17,10 @@ export function ListBoxGroup({
   children
 }: ListBoxGroupProps): React.ReactElement {
   // Importing useBem to handle BEM class names
-  const { getBlock, getElement } = useBem({ block: `${components.ListBox}__group`, styles });
+  const { getBlock, getElement } = useBem({
+    block: `${components.ListBox}__group`,
+    styles
+  });
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {

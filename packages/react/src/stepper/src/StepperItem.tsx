@@ -46,7 +46,10 @@ export function StepperItem({
   ...props
 }: StepperItemProps): React.ReactElement {
   // Importing useBem to handle BEM class names
-  const { getBlock, getElement } = useBem({ block: `${components.Stepper}__item`, styles });
+  const { getBlock, getElement } = useBem({
+    block: `${components.Stepper}__item`,
+    styles
+  });
 
   // Use the custom hook useStepper to access all steps and selected value
   const { selectedValue, steps } = useStepper();

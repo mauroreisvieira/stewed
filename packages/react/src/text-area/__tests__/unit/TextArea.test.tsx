@@ -18,23 +18,25 @@ describe("TextArea", () => {
       expect(container).toMatchSnapshot();
     });
 
-    it.each<TextAreaProps["skin"]>(["neutral", "critical", "success"])(
-      "should apply '%s' skin classes",
-      (skin) => {
-        const { container } = render(<TextArea defaultValue="TextArea" skin={skin} />);
+    it.each<TextAreaProps["skin"]>([
+      "neutral",
+      "critical",
+      "success"
+    ])("should apply '%s' skin classes", (skin) => {
+      const { container } = render(<TextArea defaultValue="TextArea" skin={skin} />);
 
-        expect(container).toMatchSnapshot();
-      }
-    );
+      expect(container).toMatchSnapshot();
+    });
 
-    it.each<TextAreaProps["appearance"]>(["ghost", "outline", "soft"])(
-      "should apply '%s' appearance classes",
-      (appearance) => {
-        const { container } = render(<TextArea defaultValue="TextArea" appearance={appearance} />);
+    it.each<TextAreaProps["appearance"]>([
+      "ghost",
+      "outline",
+      "soft"
+    ])("should apply '%s' appearance classes", (appearance) => {
+      const { container } = render(<TextArea defaultValue="TextArea" appearance={appearance} />);
 
-        expect(container).toMatchSnapshot();
-      }
-    );
+      expect(container).toMatchSnapshot();
+    });
 
     it("should applies disabled classes", () => {
       const { container } = render(<TextArea defaultValue="TextArea" disabled />);

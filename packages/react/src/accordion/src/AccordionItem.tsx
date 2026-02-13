@@ -57,7 +57,10 @@ export function AccordionItem({
   ...props
 }: AccordionItemProps): React.ReactElement {
   // Importing useBem to handle BEM class names
-  const { getBlock } = useBem({ block: `${components.Accordion}__item`, styles });
+  const { getBlock } = useBem({
+    block: `${components.Accordion}__item`,
+    styles
+  });
 
   // Importing useAccordion to manage the accordion state
   const { setOpen, open, hiddenUntilFound } = useAccordion();

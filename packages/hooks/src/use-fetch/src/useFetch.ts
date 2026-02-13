@@ -87,7 +87,12 @@ export function useFetch<T>(url: string | null, options?: RequestInit): UseFetch
       case "loading":
         return { ...state, status: "loading", error: null };
       case "fetched":
-        return { ...state, status: "fetched", data: action.payload, error: null };
+        return {
+          ...state,
+          status: "fetched",
+          data: action.payload,
+          error: null
+        };
       case "error":
         return { ...state, status: "error", error: action.payload };
       default:

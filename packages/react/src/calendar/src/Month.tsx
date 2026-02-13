@@ -38,7 +38,10 @@ export interface MonthProps {
  */
 export function Month({ className }: MonthProps): React.ReactElement {
   // Importing useBem to handle BEM class names
-  const { getBlock } = useBem({ block: `${components.Calendar}__month`, styles });
+  const { getBlock } = useBem({
+    block: `${components.Calendar}__month`,
+    styles
+  });
 
   const {
     multipleSelect,

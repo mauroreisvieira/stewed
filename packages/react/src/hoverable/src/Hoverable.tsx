@@ -133,7 +133,11 @@ export function Hoverable({
       onTouchCancel={enabledTouch ? onHandleTouchCancel : undefined}
       {...props}
     >
-      {children({ status, isHovering: status === "enter", isTouch: touchDevice })}
+      {children({
+        status,
+        isHovering: status === "enter",
+        isTouch: touchDevice
+      })}
     </div>
   );
 }

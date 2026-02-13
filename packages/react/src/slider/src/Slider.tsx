@@ -378,7 +378,11 @@ export function Slider({
         <button
           key={val}
           className={cssClasses.thumb}
-          style={{ "--slider-thumb-percentage": `${valueToPercent(val)}%` } as React.CSSProperties}
+          style={
+            {
+              "--slider-thumb-percentage": `${valueToPercent(val)}%`
+            } as React.CSSProperties
+          }
           role="slider"
           aria-orientation="horizontal"
           aria-valuemin={min}

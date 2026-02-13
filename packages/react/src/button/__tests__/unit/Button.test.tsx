@@ -28,32 +28,40 @@ describe("Button", () => {
       expect(container).toMatchSnapshot();
     });
 
-    it.each<ButtonProps["skin"]>(["primary", "secondary", "neutral", "critical", "success"])(
-      "should apply '%s' skin classes",
-      (skin) => {
-        const { container } = render(<Button skin={skin}>Button</Button>);
+    it.each<ButtonProps["skin"]>([
+      "primary",
+      "secondary",
+      "neutral",
+      "critical",
+      "success"
+    ])("should apply '%s' skin classes", (skin) => {
+      const { container } = render(<Button skin={skin}>Button</Button>);
 
-        expect(container).toMatchSnapshot();
-      }
-    );
+      expect(container).toMatchSnapshot();
+    });
 
-    it.each<ButtonProps["appearance"]>(["filled", "ghost", "outline", "soft"])(
-      "should apply '%s' appearance classes",
-      (appearance) => {
-        const { container } = render(<Button appearance={appearance}>Button</Button>);
+    it.each<ButtonProps["appearance"]>([
+      "filled",
+      "ghost",
+      "outline",
+      "soft"
+    ])("should apply '%s' appearance classes", (appearance) => {
+      const { container } = render(<Button appearance={appearance}>Button</Button>);
 
-        expect(container).toMatchSnapshot();
-      }
-    );
+      expect(container).toMatchSnapshot();
+    });
 
-    it.each<ButtonProps["size"]>(["xs", "sm", "md", "lg", "xl"])(
-      "should apply '%s' size classes",
-      (size) => {
-        const { container } = render(<Button size={size}>Button</Button>);
+    it.each<ButtonProps["size"]>([
+      "xs",
+      "sm",
+      "md",
+      "lg",
+      "xl"
+    ])("should apply '%s' size classes", (size) => {
+      const { container } = render(<Button size={size}>Button</Button>);
 
-        expect(container).toMatchSnapshot();
-      }
-    );
+      expect(container).toMatchSnapshot();
+    });
 
     it("should render left slot content", () => {
       const { container } = render(<Button leftSlot="Left slot">Button</Button>);

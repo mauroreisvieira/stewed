@@ -89,7 +89,10 @@ export function Checkbox({
   const mergedRefs = mergeRefs([ref, inputRef]);
 
   // Importing useBem to handle BEM class names
-  const { getBlock, getElement } = useBem({ block: components.Checkbox, styles });
+  const { getBlock, getElement } = useBem({
+    block: components.Checkbox,
+    styles
+  });
 
   // Retrieve values from the current theme context
   const { activeToken } = useTheme();

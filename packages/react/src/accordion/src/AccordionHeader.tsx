@@ -38,7 +38,10 @@ export function AccordionHeader({
   ...props
 }: AccordionHeaderProps): React.ReactElement {
   // Importing useBem to handle BEM class names
-  const { getBlock, getElement } = useBem({ block: `${components.Accordion}__header`, styles });
+  const { getBlock, getElement } = useBem({
+    block: `${components.Accordion}__header`,
+    styles
+  });
 
   // Importing useAccordion to manage the accordion state
   const { setOpen, multipleExpanded, onOpenChange } = useAccordion();
@@ -48,7 +51,10 @@ export function AccordionHeader({
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ extraClasses: className, modifiers: [disabled && "disabled"] }),
+    root: getBlock({
+      extraClasses: className,
+      modifiers: [disabled && "disabled"]
+    }),
     left: getElement(["left"]),
     right: getElement(["right"]),
     text: getElement(["text"])

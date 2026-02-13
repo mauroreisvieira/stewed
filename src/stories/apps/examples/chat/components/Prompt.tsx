@@ -20,7 +20,9 @@ export function Prompt(): React.ReactElement {
 
   const { activeToken } = useTheme();
 
-  const isDesktop = useMediaQuery({ query: `(min-width: ${activeToken.breakpoints?.sm})` });
+  const isDesktop = useMediaQuery({
+    query: `(min-width: ${activeToken.breakpoints?.sm})`
+  });
 
   return (
     <Stack direction="column" gap="md">

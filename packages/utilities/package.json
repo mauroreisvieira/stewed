@@ -11,7 +11,7 @@
     "build": "vite build",
     "watch": "vite --watch",
     "test:unit": "vitest run",
-    "lint": "eslint .",
+    "lint": "biome lint",
     "clean": "rm -rf dist node_modules"
   },
   "devDependencies": {

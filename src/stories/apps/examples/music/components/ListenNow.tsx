@@ -10,7 +10,10 @@ const NUMBER_OF_PLAYLISTS = 12;
 
 export function ListenNow(): React.ReactElement {
   // Get images
-  const { data, isLoading } = useGetImages({ query: "concerts", perPage: NUMBER_OF_PLAYLISTS });
+  const { data, isLoading } = useGetImages({
+    query: "concerts",
+    perPage: NUMBER_OF_PLAYLISTS
+  });
 
   if (isLoading) {
     return (
@@ -57,7 +60,12 @@ export function ListenNow(): React.ReactElement {
     >
       {data?.results?.map(({ urls, user, alt_description }) => (
         <Card key={user.username} shadow="none" padding={{ block: "lg", inline: "md" }}>
-          <Card.Media image={{ src: `${urls.raw}&w=300&h=500&fit=crop`, alt: alt_description }} />
+          <Card.Media
+            image={{
+              src: `${urls.raw}&w=300&h=500&fit=crop`,
+              alt: alt_description
+            }}
+          />
           <Card.Body>
             <Text size="sm" weight="medium">
               {user.name}

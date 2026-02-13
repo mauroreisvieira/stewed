@@ -126,7 +126,10 @@ export const Carousel = forwardRef(
     ref: React.Ref<CarouselRef>
   ): React.ReactElement => {
     // Importing useBem to handle BEM class names
-    const { getBlock, getElement } = useBem({ block: components.Carousel, styles });
+    const { getBlock, getElement } = useBem({
+      block: components.Carousel,
+      styles
+    });
 
     // Retrieve values from the current theme context
     const { activeToken } = useTheme();

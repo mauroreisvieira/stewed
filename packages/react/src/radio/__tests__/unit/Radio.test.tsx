@@ -18,23 +18,24 @@ describe("Radio", () => {
       expect(container).toMatchSnapshot();
     });
 
-    it.each<RadioProps["skin"]>(["primary", "critical", "success"])(
-      "should apply '%s' skin classes",
-      (skin) => {
-        const { container } = render(<Radio skin={skin}>Radio</Radio>);
+    it.each<RadioProps["skin"]>([
+      "primary",
+      "critical",
+      "success"
+    ])("should apply '%s' skin classes", (skin) => {
+      const { container } = render(<Radio skin={skin}>Radio</Radio>);
 
-        expect(container).toMatchSnapshot();
-      }
-    );
+      expect(container).toMatchSnapshot();
+    });
 
-    it.each<RadioProps["appearance"]>(["border", "default"])(
-      "should apply '%s' appearance classes",
-      (appearance) => {
-        const { container } = render(<Radio appearance={appearance}>Radio</Radio>);
+    it.each<RadioProps["appearance"]>([
+      "border",
+      "default"
+    ])("should apply '%s' appearance classes", (appearance) => {
+      const { container } = render(<Radio appearance={appearance}>Radio</Radio>);
 
-        expect(container).toMatchSnapshot();
-      }
-    );
+      expect(container).toMatchSnapshot();
+    });
 
     it.each<RadioProps["size"]>(["sm", "md", "lg"])("should apply '%s' size classes", (size) => {
       const { container } = render(<Radio size={size}>Radio</Radio>);

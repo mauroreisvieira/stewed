@@ -61,11 +61,17 @@ export function Progress({
   ...props
 }: ProgressProps): React.ReactElement {
   // Importing useBem to handle BEM class names
-  const { getBlock, getElement } = useBem({ block: components.Progress, styles });
+  const { getBlock, getElement } = useBem({
+    block: components.Progress,
+    styles
+  });
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {
-    root: getBlock({ modifiers: [skin, size, appearance], extraClasses: className }),
+    root: getBlock({
+      modifiers: [skin, size, appearance],
+      extraClasses: className
+    }),
     control: getElement(["control"]),
     wrapper: getElement(["wrapper"]),
     step: getElement(["step"])

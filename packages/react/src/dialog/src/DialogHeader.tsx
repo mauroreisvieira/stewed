@@ -18,7 +18,10 @@ export function DialogHeader({
   ...props
 }: DialogHeaderProps): React.ReactElement {
   // Importing useBem to handle BEM class names
-  const { getBlock, getElement } = useBem({ block: `${components.Dialog}__header`, styles });
+  const { getBlock, getElement } = useBem({
+    block: `${components.Dialog}__header`,
+    styles
+  });
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {

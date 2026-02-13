@@ -48,7 +48,10 @@ export function Header(): React.ReactElement {
 
             <Grid.Item
               hidden
-              responsive={{ sm: { hidden: false, colSpan: 4 }, lg: { colSpan: undefined } }}
+              responsive={{
+                sm: { hidden: false, colSpan: 4 },
+                lg: { colSpan: undefined }
+              }}
             >
               <Stack items="center" gap="md">
                 <Button

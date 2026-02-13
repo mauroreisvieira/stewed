@@ -61,7 +61,10 @@ export function Snackbar({
   ...props
 }: SnackbarProps): React.ReactElement {
   // Import BEM utilities to generate class names based on block and element styles
-  const { getBlock, getElement } = useBem({ block: components.Snackbar, styles });
+  const { getBlock, getElement } = useBem({
+    block: components.Snackbar,
+    styles
+  });
 
   // Map to store timeout references for notifications, enabling auto-dismiss functionality
   const timeoutMap = useRef<Record<string, ReturnType<typeof setTimeout>>>({});

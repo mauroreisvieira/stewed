@@ -20,48 +20,49 @@ const defaultElement = "button";
  * @template E - The type of the HTML element that the Button component will render.
  * This allows flexibility to render the tag as a different element (e.g., "a", "a", etc.).
  */
-export type ButtonProps<E extends React.ElementType = React.ElementType> = CombinedProps<
-  {
-    /**
-     * Specifies the type of element to use as the button.
-     * @default button
-     */
-    as?: E;
-    /**
-     * Change the visual style of the button.
-     * @default primary
-     */
-    skin?: "primary" | "secondary" | "neutral" | "critical" | "success";
-    /**
-     * Change the visual appearance of the button.
-     * @default filled
-     */
-    appearance?: "filled" | "soft" | "outline" | "ghost";
-    /**
-     * Changes the size of the button, giving it more or less padding.
-     * @default md
-     */
-    size?: "xs" | "sm" | "md" | "lg" | "xl";
-    /** Slot for icon to display before the button text. */
-    leftSlot?: React.ReactNode;
-    /** Slot for icon to display after the button text. */
-    rightSlot?: React.ReactNode;
-    /** Indicates whether the button is in a pressed state. */
-    pressed?: boolean;
-    /**
-     * Sets the button to use the full width of its container.
-     * If true, the button will stretch to fill the container's width.
-     */
-    fullWidth?: boolean;
-    /** Hide content and show only the icon. */
-    iconOnly?: boolean;
-    /** Disables the button, disallowing merchant interaction. */
-    disabled?: boolean;
-    /** Displays a loading indicator on the button. */
-    loading?: boolean;
-  },
-  E
->;
+export type ButtonProps<E extends React.ElementType = React.ElementType> =
+  CombinedProps<
+    {
+      /**
+       * Specifies the type of element to use as the button.
+       * @default button
+       */
+      as?: E;
+      /**
+       * Change the visual style of the button.
+       * @default primary
+       */
+      skin?: "primary" | "secondary" | "neutral" | "critical" | "success";
+      /**
+       * Change the visual appearance of the button.
+       * @default filled
+       */
+      appearance?: "filled" | "soft" | "outline" | "ghost";
+      /**
+       * Changes the size of the button, giving it more or less padding.
+       * @default md
+       */
+      size?: "xs" | "sm" | "md" | "lg" | "xl";
+      /** Slot for icon to display before the button text. */
+      leftSlot?: React.ReactNode;
+      /** Slot for icon to display after the button text. */
+      rightSlot?: React.ReactNode;
+      /** Indicates whether the button is in a pressed state. */
+      pressed?: boolean;
+      /**
+       * Sets the button to use the full width of its container.
+       * If true, the button will stretch to fill the container's width.
+       */
+      fullWidth?: boolean;
+      /** Hide content and show only the icon. */
+      iconOnly?: boolean;
+      /** Disables the button, disallowing merchant interaction. */
+      disabled?: boolean;
+      /** Displays a loading indicator on the button. */
+      loading?: boolean;
+    },
+    E
+  >;
 
 /**
  * Button component is used to trigger an action or event, such as submitting a form, opening a Dialog, canceling an action,
@@ -97,13 +98,16 @@ export const Button = forwardRef(
       children,
       ...props
     }: ButtonProps,
-    ref: React.Ref<Element>
+    ref: React.Ref<Element>,
   ) => {
     // Determine the component type based on 'as' prop or use the default element
     const Comp = as || defaultElement;
 
     // Importing useBem to handle BEM class names
-    const { getBlock, getElement } = useBem({ block: components.Button, styles });
+    const { getBlock, getElement } = useBem({
+      block: components.Button,
+      styles,
+    });
 
     // Generating CSS classes based on component props and styles
     const cssClasses = {
@@ -115,14 +119,14 @@ export const Button = forwardRef(
           iconOnly && "icon-only",
           fullWidth && "full-width",
           loading && "loading",
-          props.disabled && "disabled"
+          props.disabled && "disabled",
         ],
-        extraClasses: className
+        extraClasses: className,
       }),
       spinner: getElement(["spinner"]),
       left: getElement(["left"]),
       text: getElement(["text"]),
-      right: getElement(["right"])
+      right: getElement(["right"]),
     };
 
     return (
@@ -133,13 +137,15 @@ export const Button = forwardRef(
         aria-disabled={props.disabled}
         {...props}
       >
-        {loading && <Spinner className={cssClasses.spinner} skin="default" size={size} />}
+        {loading && (
+          <Spinner className={cssClasses.spinner} skin="default" size={size} />
+        )}
         {leftSlot && <span className={cssClasses.left}>{leftSlot}</span>}
         {children && <span className={cssClasses.text}>{children}</span>}
         {rightSlot && <span className={cssClasses.right}>{rightSlot}</span>}
       </Comp>
     );
-  }
+  },
 ) as <E extends React.ElementType = typeof defaultElement>(
-  props: ButtonProps<E>
+  props: ButtonProps<E>,
 ) => React.ReactElement;

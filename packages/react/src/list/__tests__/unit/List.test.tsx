@@ -16,18 +16,19 @@ describe("List", () => {
       expect(container).toMatchSnapshot();
     });
 
-    it.each<ListProps["type"]>(["bullet", "decimal", "none"])(
-      "should apply '%s' skin classes",
-      (type) => {
-        const { container } = render(
-          <List type={type}>
-            <List.Item>Item</List.Item>
-          </List>
-        );
+    it.each<ListProps["type"]>([
+      "bullet",
+      "decimal",
+      "none"
+    ])("should apply '%s' skin classes", (type) => {
+      const { container } = render(
+        <List type={type}>
+          <List.Item>Item</List.Item>
+        </List>
+      );
 
-        expect(container).toMatchSnapshot();
-      }
-    );
+      expect(container).toMatchSnapshot();
+    });
 
     it("should render additional classes", () => {
       const { container } = render(

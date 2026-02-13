@@ -24,23 +24,24 @@ describe("Checkbox", () => {
       expect(container).toMatchSnapshot();
     });
 
-    it.each<CheckboxProps["skin"]>(["primary", "critical", "success"])(
-      "should apply '%s' skin classes",
-      (skin) => {
-        const { container } = render(<Checkbox skin={skin}>Checkbox</Checkbox>);
+    it.each<CheckboxProps["skin"]>([
+      "primary",
+      "critical",
+      "success"
+    ])("should apply '%s' skin classes", (skin) => {
+      const { container } = render(<Checkbox skin={skin}>Checkbox</Checkbox>);
 
-        expect(container).toMatchSnapshot();
-      }
-    );
+      expect(container).toMatchSnapshot();
+    });
 
-    it.each<CheckboxProps["appearance"]>(["border", "default"])(
-      "should apply '%s' appearance classes",
-      (appearance) => {
-        const { container } = render(<Checkbox appearance={appearance}>Checkbox</Checkbox>);
+    it.each<CheckboxProps["appearance"]>([
+      "border",
+      "default"
+    ])("should apply '%s' appearance classes", (appearance) => {
+      const { container } = render(<Checkbox appearance={appearance}>Checkbox</Checkbox>);
 
-        expect(container).toMatchSnapshot();
-      }
-    );
+      expect(container).toMatchSnapshot();
+    });
 
     it.each<CheckboxProps["size"]>(["sm", "md", "lg"])("should apply '%s' size classes", (size) => {
       const { container } = render(<Checkbox size={size}>Checkbox</Checkbox>);

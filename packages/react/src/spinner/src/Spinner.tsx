@@ -42,7 +42,10 @@ export function Spinner({
   ...props
 }: SpinnerProps): React.ReactElement {
   // Importing useBem to handle BEM class names
-  const { getBlock, getElement } = useBem({ block: components.Spinner, styles });
+  const { getBlock, getElement } = useBem({
+    block: components.Spinner,
+    styles
+  });
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {

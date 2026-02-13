@@ -14,7 +14,10 @@ export function DrawerFooter({
   ...props
 }: DrawerFooterProps): React.ReactElement {
   // Importing useBem to handle BEM class names
-  const { getBlock } = useBem({ block: `${components.Drawer}__footer`, styles });
+  const { getBlock } = useBem({
+    block: `${components.Drawer}__footer`,
+    styles
+  });
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {

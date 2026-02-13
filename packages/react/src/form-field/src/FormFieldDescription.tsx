@@ -20,7 +20,10 @@ export function FormFieldDescription({
   ...props
 }: FormFieldDescriptionProps): React.ReactElement {
   // Importing useBem to handle BEM class names
-  const { getBlock } = useBem({ block: `${components.FormField}__description`, styles });
+  const { getBlock } = useBem({
+    block: `${components.FormField}__description`,
+    styles
+  });
 
   // Generating CSS classes based on component props and styles
   const cssClasses = {

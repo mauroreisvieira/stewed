@@ -21,7 +21,10 @@ const NUMBER_OF_PLAYLISTS = 12;
 
 export function Playlists(): React.ReactElement {
   // Get images
-  const { data, isLoading } = useGetImages({ query: "disco", perPage: NUMBER_OF_PLAYLISTS });
+  const { data, isLoading } = useGetImages({
+    query: "disco",
+    perPage: NUMBER_OF_PLAYLISTS
+  });
 
   // Hook to display notifications
   const { add } = useSnackbar();

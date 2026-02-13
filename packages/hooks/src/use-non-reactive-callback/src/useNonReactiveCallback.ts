@@ -31,7 +31,6 @@ export function useNonReactiveCallback<T extends (...args: Parameters<T>) => Ret
   }, [fn]);
 
   // Return a stable callback that always invokes the latest function stored in the ref.
-  // eslint-disable-next-line react-compiler/react-compiler
   return useCallback((...args: Parameters<T>): ReturnType<T> => {
     return ref.current(...args);
   }, []) as T;

@@ -62,7 +62,9 @@ export function useMediaQuery({ query, defaultValue = false }: UseMediaQueryProp
 
     // Set up listeners for each media query
     mediaQueryLists.forEach((mql) => {
-      mql.addEventListener("change", updateMatchState, { signal: controller.signal });
+      mql.addEventListener("change", updateMatchState, {
+        signal: controller.signal
+      });
     });
 
     // Clean up event listeners
