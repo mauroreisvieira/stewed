@@ -13,13 +13,21 @@
   $var: null;
 
   @if $scope-naming {
-    $var: if($prefix, --#{$prefix}-#{$scope-naming}-#{$name}, --#{$scope-naming}-#{$name});
+    $var: --#{$scope-naming}-#{$name};
+
+    @if $prefix {
+      $var: --#{$prefix}-#{$scope-naming}-#{$name};
+    }
   } @else {
     /* stylelint-disable-next-line custom-property-no-missing-var-function */
-    $var: if($prefix, --#{$prefix}-#{$name}, --#{$name});
+    $var: --#{$name};
+
+    @if $prefix {
+      $var: --#{$prefix}-#{$name};
+    }
   }
 
-  @if $fallback {
+  @if $fallback != null {
     @return var($var, $fallback);
   }
 
