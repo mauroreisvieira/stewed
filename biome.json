@@ -9,7 +9,6 @@
     "bracketSameLine": false,
     "attributePosition": "auto"
   },
-
   "javascript": {
     "formatter": {
       "quoteProperties": "asNeeded",
@@ -18,6 +17,18 @@
       "quoteStyle": "double",
       "jsxQuoteStyle": "double",
       "trailingCommas": "none"
+    }
+  },
+  "css": {
+    "formatter": {
+      "enabled": true,
+      "indentStyle": "space",
+      "indentWidth": 2,
+      "lineEnding": "lf",
+      "quoteStyle": "double"
+    },
+    "linter": {
+      "enabled": true
     }
   },
   "assist": { "actions": { "source": { "organizeImports": "off" } } },

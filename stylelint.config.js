@@ -2,11 +2,27 @@ const hxh = require("@harmonix-hub/stylelint");
 
 const { stylelintConfig } = hxh;
 
-/** @type import("stylelint").stylelint.Config */
+const {
+  extends: baseExtends = [],
+  plugins: basePlugins = [],
+  rules: baseRules = {},
+  ...rest
+} = stylelintConfig;
+
 module.exports = {
-  ...stylelintConfig,
+  ...rest,
+  extends: baseExtends.filter(
+    (e) => !e.includes("prettier")
+  ),
+  plugins: basePlugins.filter(
+    (p) => !p.includes("prettier")
+  ),
   rules: {
-    ...stylelintConfig.rules,
+    ...Object.fromEntries(
+      Object.entries(baseRules).filter(
+        ([rule]) => !rule.startsWith("prettier")
+      )
+    ),
     "plugin/no-unsupported-browser-features": [
       true,
       {
