@@ -1,6 +1,6 @@
 {
-  "name": "@stewed/react",
-  "version": "2.2.0",
+  "name": "@stewed/base",
+  "version": "1.0.0",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/src/index.d.ts",
@@ -17,7 +17,6 @@
   "dependencies": {
     "@hello-week/hooks": "^0.4.0",
     "@hello-week/utilities": "^0.2.0",
-    "@stewed/base": "workspace:*",
     "@stewed/hooks": "workspace:*",
     "@stewed/tokens": "workspace:*",
     "@stewed/utilities": "workspace:*"

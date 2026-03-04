@@ -47,6 +47,37 @@
         "vite": "npm:rolldown-vite@latest",
       },
     },
+    "packages/base": {
+      "name": "@stewed/base",
+      "version": "1.0.0",
+      "dependencies": {
+        "@hello-week/hooks": "^0.4.0",
+        "@hello-week/utilities": "^0.2.0",
+        "@stewed/hooks": "workspace:*",
+        "@stewed/tokens": "workspace:*",
+        "@stewed/utilities": "workspace:*",
+      },
+      "devDependencies": {
+        "@harmonix-hub/babel": "^0.4.0",
+        "@harmonix-hub/tsconfig": "^1.6.0",
+        "@types/react": "^19.0.7",
+        "@types/react-dom": "^19.0.3",
+        "@vitejs/plugin-react-swc": "^3.7.2",
+        "esbuild-css-modules-plugin": "^3.1.4",
+        "esbuild-sass-plugin": "^3.3.1",
+        "jsdom": "^26.0.0",
+        "rollup-plugin-peer-deps-external": "^2.2.4",
+        "typescript": "^5.7.3",
+        "vite": "npm:rolldown-vite@latest",
+        "vite-plugin-dts": "^4.5.0",
+        "vite-plugin-lib-inject-css": "^2.2.1",
+        "vitest": "^3.0.2",
+      },
+      "peerDependencies": {
+        "react": "^18.0 || ^19.0",
+        "react-dom": "^18.0 || ^19.0",
+      },
+    },
     "packages/hooks": {
       "name": "@stewed/hooks",
       "version": "2.0.2",
@@ -77,6 +108,7 @@
       "dependencies": {
         "@hello-week/hooks": "^0.4.0",
         "@hello-week/utilities": "^0.2.0",
+        "@stewed/base": "workspace:*",
         "@stewed/hooks": "workspace:*",
         "@stewed/tokens": "workspace:*",
         "@stewed/utilities": "workspace:*",
@@ -705,6 +737,8 @@
     "@sinclair/typebox": ["@sinclair/typebox@0.27.10", "", {}, "sha512-MTBk/3jGLNB2tVxv6uLlFh1iu64iYOQ2PbdOSK3NW8JZsmlaOh2q6sdtKowBhfw8QFLmYNzTW4/oK4uATIi6ZA=="],
 
     "@sindresorhus/merge-streams": ["@sindresorhus/merge-streams@4.0.0", "", {}, "sha512-tlqY9xq5ukxTUZBmoOp+m61cqwQD5pHJtFY3Mn8CA8ps6yghLH/Hw8UPdqg4OLmFW3IFlcXnQNmo/dh8HzXYIQ=="],
+
+    "@stewed/base": ["@stewed/base@workspace:packages/base"],
 
     "@stewed/hooks": ["@stewed/hooks@workspace:packages/hooks"],
 
