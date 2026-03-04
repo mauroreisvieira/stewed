@@ -9,7 +9,7 @@ import {
   ListBox,
   Separator,
   Stack,
-  Text
+  Text,
 } from "@stewed/react";
 // Hooks
 import { useToggle } from "@stewed/hooks";
@@ -27,19 +27,23 @@ import { TbMenuDeep, TbMicrophone2 } from "react-icons/tb";
 
 export function Header(): React.ReactElement {
   // State to manage the visibility of a drawer (a toggle state)
-  const [drawerState, onHandleDrawer] = useToggle(false);
+  const { isOn, toggle } = useToggle(false);
 
   return (
     <>
       <Container as="header" screen="full">
         <Box padding={{ inline: "xl", block: "sm" }}>
-          <Grid cols={2} responsive={{ sm: { cols: 6 }, lg: { cols: 3 } }} items="center">
+          <Grid
+            cols={2}
+            responsive={{ sm: { cols: 6 }, lg: { cols: 3 } }}
+            items="center"
+          >
             <Grid.Item>
               <Button
                 leftSlot={<TbMenuDeep size={16} />}
                 skin="secondary"
                 appearance="ghost"
-                onClick={onHandleDrawer}
+                onClick={toggle}
                 iconOnly
               >
                 Menu
@@ -50,7 +54,7 @@ export function Header(): React.ReactElement {
               hidden
               responsive={{
                 sm: { hidden: false, colSpan: 4 },
-                lg: { colSpan: undefined }
+                lg: { colSpan: undefined },
               }}
             >
               <Stack items="center" gap="md">
@@ -79,10 +83,10 @@ export function Header(): React.ReactElement {
       </Container>
       <Drawer
         size="sm"
-        onClose={onHandleDrawer}
-        onClickOutside={onHandleDrawer}
-        onEscape={onHandleDrawer}
-        open={drawerState}
+        onClose={toggle}
+        onClickOutside={toggle}
+        onEscape={toggle}
+        open={isOn}
       >
         <Drawer.Header>
           <Text size="lg" weight="semi-bold">
@@ -94,7 +98,9 @@ export function Header(): React.ReactElement {
             <Stack direction="column" gap="md">
               <Text weight="bold">Discover</Text>
               <ListBox>
-                <ListBox.Item leftSlot={<MdOutlinePlayCircleOutline />}>Listen now</ListBox.Item>
+                <ListBox.Item leftSlot={<MdOutlinePlayCircleOutline />}>
+                  Listen now
+                </ListBox.Item>
                 <ListBox.Item leftSlot={<RxGrid />}>Browse</ListBox.Item>
                 <ListBox.Item leftSlot={<IoRadioOutline />}>Radio</ListBox.Item>
               </ListBox>
@@ -105,10 +111,16 @@ export function Header(): React.ReactElement {
             <Stack direction="column" gap="md">
               <Text weight="bold">Library</Text>
               <ListBox>
-                <ListBox.Item leftSlot={<RiPlayListFill />}>Playlist</ListBox.Item>
+                <ListBox.Item leftSlot={<RiPlayListFill />}>
+                  Playlist
+                </ListBox.Item>
                 <ListBox.Item leftSlot={<LuMusic2 />}>Songs</ListBox.Item>
-                <ListBox.Item leftSlot={<IoPersonCircleOutline />}>Made for you</ListBox.Item>
-                <ListBox.Item leftSlot={<TbMicrophone2 />}>Artists</ListBox.Item>
+                <ListBox.Item leftSlot={<IoPersonCircleOutline />}>
+                  Made for you
+                </ListBox.Item>
+                <ListBox.Item leftSlot={<TbMicrophone2 />}>
+                  Artists
+                </ListBox.Item>
                 <ListBox.Item leftSlot={<RiAlbumFill />}>Albums</ListBox.Item>
               </ListBox>
             </Stack>
@@ -118,11 +130,21 @@ export function Header(): React.ReactElement {
             <Stack direction="column" gap="md">
               <Text weight="bold">Playlists</Text>
               <ListBox>
-                <ListBox.Item leftSlot={<LuListMusic />}>Recently Added</ListBox.Item>
-                <ListBox.Item leftSlot={<LuListMusic />}>Recently Played</ListBox.Item>
-                <ListBox.Item leftSlot={<LuListMusic />}>Top Songs</ListBox.Item>
-                <ListBox.Item leftSlot={<LuListMusic />}>Top Albums</ListBox.Item>
-                <ListBox.Item leftSlot={<LuListMusic />}>Top Artists</ListBox.Item>
+                <ListBox.Item leftSlot={<LuListMusic />}>
+                  Recently Added
+                </ListBox.Item>
+                <ListBox.Item leftSlot={<LuListMusic />}>
+                  Recently Played
+                </ListBox.Item>
+                <ListBox.Item leftSlot={<LuListMusic />}>
+                  Top Songs
+                </ListBox.Item>
+                <ListBox.Item leftSlot={<LuListMusic />}>
+                  Top Albums
+                </ListBox.Item>
+                <ListBox.Item leftSlot={<LuListMusic />}>
+                  Top Artists
+                </ListBox.Item>
               </ListBox>
             </Stack>
           </Box>

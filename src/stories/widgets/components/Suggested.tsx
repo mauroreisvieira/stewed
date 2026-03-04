@@ -10,16 +10,19 @@ import {
   Dropdown,
   ListBox,
   Separator,
-  Text
+  Text,
 } from "@stewed/react";
 // Hooks
 import { useToggle } from "@stewed/hooks";
 // Icons
-import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
+import {
+  MdOutlineKeyboardArrowDown,
+  MdOutlineKeyboardArrowUp,
+} from "react-icons/md";
 import { TbStar, TbPlus } from "react-icons/tb";
 
 export function Suggested(): React.ReactElement {
-  const [liked, handleToggle] = useToggle(false);
+  const { isOn, toggle } = useToggle(false);
 
   return (
     <Container screen="sm" alignment="center" padding={{ block: "7xl" }}>
@@ -31,17 +34,18 @@ export function Suggested(): React.ReactElement {
                 @stewed/react
               </Text>
               <Text skin="neutral" size="sm">
-                This is a collection of reusable React components built with SCSS, accompanied by
-                React hooks, and a set of utilities to enhance the front-end development experience.
+                This is a collection of reusable React components built with
+                SCSS, accompanied by React hooks, and a set of utilities to
+                enhance the front-end development experience.
               </Text>
             </Box>
             <Group>
               <Button
                 size="sm"
                 skin="neutral"
-                appearance={liked ? "filled" : "outline"}
+                appearance={isOn ? "filled" : "outline"}
                 leftSlot={<TbStar />}
-                onClick={handleToggle}
+                onClick={toggle}
               >
                 Start
               </Button>
@@ -56,7 +60,11 @@ export function Suggested(): React.ReactElement {
                     skin="neutral"
                     appearance="outline"
                     leftSlot={
-                      isOpen ? <MdOutlineKeyboardArrowUp /> : <MdOutlineKeyboardArrowDown />
+                      isOpen ? (
+                        <MdOutlineKeyboardArrowUp />
+                      ) : (
+                        <MdOutlineKeyboardArrowDown />
+                      )
                     }
                     iconOnly
                   >
@@ -74,7 +82,9 @@ export function Suggested(): React.ReactElement {
                       </ListBox.Group>
                       <Separator space={{ block: "none" }} />
                       <ListBox.Group>
-                        <ListBox.Item leftSlot={<TbPlus />}>Create list</ListBox.Item>
+                        <ListBox.Item leftSlot={<TbPlus />}>
+                          Create list
+                        </ListBox.Item>
                       </ListBox.Group>
                     </ListBox>
                   </Box>

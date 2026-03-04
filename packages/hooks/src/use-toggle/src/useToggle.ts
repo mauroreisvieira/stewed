@@ -1,4 +1,4 @@
-import { useMemo, useState, type Dispatch, type SetStateAction } from "react";
+import { type Dispatch, type SetStateAction, useMemo, useState } from "react";
 
 /**
  * Interface for managing a boolean toggle state.
@@ -56,8 +56,8 @@ export function useToggle(defaultState = false): IUseToggle {
       /** toggles the state between `true` and `false` */
       toggle: (): void => setOn((prevIsOn) => !prevIsOn),
       /** resets the toggle to its initial state */
-      reset: (): void => setOn(initState)
+      reset: (): void => setOn(initState),
     }),
-    [initState, isOn]
+    [initState, isOn],
   );
 }

@@ -23,13 +23,12 @@ import { PiQueue } from "react-icons/pi";
 // Data
 import { songs } from "./data";
 import { Separator } from "@stewed/react";
-import { title } from "process";
 
 export function Playlist(): React.ReactElement {
   const { data } = useFetchImages({ query: "playlist", perPage: songs.length });
 
   const { item, setIndex, index } = useSelect(songs, 1);
-  const [isPlaying, togglePlay, setIsPlaying] = useToggle();
+  const { isOn, toggle, set } = useToggle();
 
   const [showQueue, setShowQueue] = useState(false);
 
@@ -63,7 +62,7 @@ export function Playlist(): React.ReactElement {
       setSliderValue(newValueInSeconds);
 
       // Sync playback
-      if (isPlaying && intervalRef.current) {
+      if (isOn && intervalRef.current) {
         // Clear the current interval
         clearInterval(intervalRef.current);
 
@@ -74,7 +73,7 @@ export function Playlist(): React.ReactElement {
               return prev + 1;
             } else {
               if (intervalRef.current) clearInterval(intervalRef.current);
-              setIsPlaying(false);
+              set(false);
 
               return prev;
             }
@@ -82,7 +81,7 @@ export function Playlist(): React.ReactElement {
         }, 1000);
       }
     },
-    [durationInSeconds, isPlaying, setIsPlaying]
+    [durationInSeconds, isOn, set]
   );
 
   // Define the function to handle what happens when music ends
@@ -93,7 +92,7 @@ export function Playlist(): React.ReactElement {
 
   // Handle play/pause
   useEffect(() => {
-    if (isPlaying) {
+    if (isOn) {
       intervalRef.current = setInterval(() => {
         setSliderValue((prev) => {
           if (prev < durationInSeconds) {
@@ -113,7 +112,7 @@ export function Playlist(): React.ReactElement {
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [isPlaying, durationInSeconds, onMusicEnd]);
+  }, [isOn, durationInSeconds, onMusicEnd]);
 
   return (
     <Container screen="xs" alignment="center" padding={{ block: "7xl" }}>
@@ -153,10 +152,10 @@ export function Playlist(): React.ReactElement {
                           onClick={() => {
                             setIndex(idx);
 
-                            if (isPlaying) {
-                              setIsPlaying(index === idx ? false : true);
+                            if (isOn) {
+                              set(index === idx ? false : true);
                             } else {
-                              setIsPlaying(true);
+                              set(true);
                             }
                           }}
                           leftSlot={
@@ -170,7 +169,7 @@ export function Playlist(): React.ReactElement {
                           rightSlot={
                             // eslint-disable-next-line no-nested-ternary
                             index === idx ? (
-                              isPlaying ? (
+                              isOn ? (
                                 <LuPause size={18} />
                               ) : (
                                 <LuPlay size={18} />
@@ -252,12 +251,12 @@ export function Playlist(): React.ReactElement {
               </Button>
               <Button
                 appearance="ghost"
-                leftSlot={isPlaying ? <LuPause size={24} /> : <LuPlay size={24} />}
+                leftSlot={isOn ? <LuPause size={24} /> : <LuPlay size={24} />}
                 size="xl"
-                onClick={togglePlay}
+                onClick={toggle}
                 iconOnly
               >
-                {isPlaying ? "Pause" : "Play"}
+                {isOn ? "Pause" : "Play"}
               </Button>
               <Button
                 appearance="ghost"

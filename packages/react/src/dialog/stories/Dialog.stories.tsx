@@ -13,15 +13,15 @@ const meta: Meta<typeof Dialog> = {
   subcomponents: {
     "Dialog.Header": Dialog.Header as React.FC<unknown>,
     "Dialog.Body": Dialog.Body as React.FC<unknown>,
-    "Dialog.Footer": Dialog.Footer as React.FC<unknown>
+    "Dialog.Footer": Dialog.Footer as React.FC<unknown>,
   },
   decorators: [
     (Story) => (
       <Theme>
         <Story />
       </Theme>
-    )
-  ]
+    ),
+  ],
 };
 
 export default meta;
@@ -29,57 +29,58 @@ export default meta;
 export const Base: Story = {
   argTypes: {
     children: {
-      control: false
-    }
+      control: false,
+    },
   },
   render: function Render({ ...args }): React.ReactElement {
-    const [open, toggleOpen] = useToggle();
+    const { isOn, toggle } = useToggle();
 
     return (
       <>
-        <Button onClick={toggleOpen}>Open</Button>
+        <Button onClick={toggle}>Open</Button>
         <Dialog
           size="sm"
-          open={open}
+          open={isOn}
           {...args}
-          onClose={toggleOpen}
-          onEscape={toggleOpen}
-          onClickOutside={toggleOpen}
+          onClose={toggle}
+          onEscape={toggle}
+          onClickOutside={toggle}
         >
           <Dialog.Header>
             <Text as="h4">Dialog Header</Text>
           </Dialog.Header>
           <Dialog.Body>
             <Text>
-              Pellentesque elementum diam sapien, nec ultrices risus convallis eget. Nam pharetra
-              dolor at dictum tempor. Quisque ut est a ligula hendrerit sodales. Curabitur ornare a
-              nulla in laoreet. Maecenas semper mi egestas, dignissim nisi et, elementum neque.
+              Pellentesque elementum diam sapien, nec ultrices risus convallis
+              eget. Nam pharetra dolor at dictum tempor. Quisque ut est a ligula
+              hendrerit sodales. Curabitur ornare a nulla in laoreet. Maecenas
+              semper mi egestas, dignissim nisi et, elementum neque.
             </Text>
           </Dialog.Body>
         </Dialog>
       </>
     );
-  }
+  },
 };
 
 export const HugeContent: Story = {
   argTypes: {
     children: {
-      control: false
-    }
+      control: false,
+    },
   },
   render: function Render({ ...args }): React.ReactElement {
-    const [open, toggleOpen] = useToggle();
+    const { isOn, toggle } = useToggle();
 
     return (
       <>
-        <Button onClick={toggleOpen}>Open</Button>
+        <Button onClick={toggle}>Open</Button>
         <Dialog
-          open={open}
+          open={isOn}
           {...args}
-          onClose={toggleOpen}
-          onEscape={toggleOpen}
-          onClickOutside={toggleOpen}
+          onClose={toggle}
+          onEscape={toggle}
+          onClickOutside={toggle}
         >
           <Dialog.Header>
             <Text as="h4">Dialog Header</Text>
@@ -88,9 +89,10 @@ export const HugeContent: Story = {
           <Dialog.Body>
             {Array.from({ length: 50 }).map(() => (
               <Text key={crypto.randomUUID()}>
-                Pellentesque elementum diam sapien, nec ultrices risus convallis eget. Nam pharetra
-                dolor at dictum tempor. Quisque ut est a ligula hendrerit sodales. Curabitur ornare
-                a nulla in laoreet. Maecenas semper mi egestas, dignissim nisi et, elementum neque.
+                Pellentesque elementum diam sapien, nec ultrices risus convallis
+                eget. Nam pharetra dolor at dictum tempor. Quisque ut est a
+                ligula hendrerit sodales. Curabitur ornare a nulla in laoreet.
+                Maecenas semper mi egestas, dignissim nisi et, elementum neque.
               </Text>
             ))}
           </Dialog.Body>
@@ -101,5 +103,5 @@ export const HugeContent: Story = {
         </Dialog>
       </>
     );
-  }
+  },
 };

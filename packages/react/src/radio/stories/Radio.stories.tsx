@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 // UI Components
-import { Theme, Radio, Separator, Text, type RadioGroupProps } from "../../index";
+import {
+  Theme,
+  Radio,
+  Separator,
+  Text,
+  type RadioGroupProps,
+} from "../../index";
 // Hooks
 import { useToggle } from "@stewed/hooks";
 
@@ -11,15 +17,15 @@ const meta: Meta<typeof Radio> = {
   title: "Components/Radio",
   component: Radio,
   subcomponents: {
-    "Radio.Group": Radio.Group as React.FC<unknown>
+    "Radio.Group": Radio.Group as React.FC<unknown>,
   },
   decorators: [
     (Story) => (
       <Theme>
         <Story />
       </Theme>
-    )
-  ]
+    ),
+  ],
 };
 
 export default meta;
@@ -30,8 +36,8 @@ export default meta;
 export const Controlled: Story = {
   args: {
     disabled: false,
-    children: "Label"
-  }
+    children: "Label",
+  },
 };
 
 /**
@@ -40,28 +46,28 @@ export const Controlled: Story = {
  **/
 export const Uncontrolled: Story = {
   args: {
-    children: "Label"
+    children: "Label",
   },
   render: function Render() {
-    const [isChecked, setChecked] = useToggle(false);
+    const { isOn, toggle } = useToggle(false);
 
     return (
-      <Radio checked={isChecked} onChange={setChecked}>
+      <Radio checked={isOn} onChange={toggle}>
         Label
       </Radio>
     );
-  }
+  },
 };
 
 export const Error: Story = {
   argTypes: {
-    onChange: { action: "change" }
+    onChange: { action: "change" },
   },
   args: {
     skin: "critical",
     defaultChecked: true,
-    children: "Label"
-  }
+    children: "Label",
+  },
 };
 
 /**
@@ -72,19 +78,23 @@ export const Group: StoryObj<RadioGroupProps> = {
   argTypes: {
     orientation: {
       control: "select",
-      options: ["vertical", "horizontal"]
-    }
+      options: ["vertical", "horizontal"],
+    },
   },
   args: {
     orientation: "vertical",
-    fullWidth: true
+    fullWidth: true,
   },
   render: function Render({ ...args }) {
     const [checkedValue, setCheckedValues] = useState<string>("Red");
 
     return (
       <>
-        <Radio.Group checkedValue={checkedValue} onCheckedChange={setCheckedValues} {...args}>
+        <Radio.Group
+          checkedValue={checkedValue}
+          onCheckedChange={setCheckedValues}
+          {...args}
+        >
           {["Red", "Blue", "Green"].map((color) => (
             <Radio key={color} appearance="border" value={color} size="lg">
               {color}
@@ -102,5 +112,5 @@ export const Group: StoryObj<RadioGroupProps> = {
         </Text>
       </>
     );
-  }
+  },
 };
