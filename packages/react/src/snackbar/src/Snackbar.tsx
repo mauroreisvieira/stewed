@@ -1,4 +1,5 @@
-import React, { useCallback, useMemo, useRef, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
+import { flushSync } from "react-dom";
 // Context
 import {
   SnackbarContext,
@@ -25,7 +26,7 @@ export interface SnackbarProps extends React.ComponentPropsWithoutRef<"div"> {
   /**
    * Maximum number of notification that can be displayed at once.
    * Older items are removed when the limit is reached.
-   * @default 5
+   * @default 6
    */
   max?: number;
   /**
@@ -55,25 +56,19 @@ export interface SnackbarProps extends React.ComponentPropsWithoutRef<"div"> {
 export function Snackbar({
   placement = "top-end",
   screen = "sm",
-  max = 5,
+  max = 6,
   className,
   children,
   ...props
 }: SnackbarProps): React.ReactElement {
   // Import BEM utilities to generate class names based on block and element styles
-  const { getBlock, getElement } = useBem({
-    block: components.Snackbar,
-    styles
-  });
+  const { getBlock, getElement } = useBem({ block: components.Snackbar, styles });
 
   // Map to store timeout references for notifications, enabling auto-dismiss functionality
   const timeoutMap = useRef<Record<string, ReturnType<typeof setTimeout>>>({});
 
   // State to hold currently displayed notifications
   const [notifications, setNotifications] = useState<SnackbarNotification[]>([]);
-
-  // Separate state to track notifications being removed for exit animations
-  const [removingNotifications, setRemovingNotifications] = useState<Set<string>>(new Set());
 
   // CSS classes for the Snackbar components
   const cssClasses = {
@@ -91,8 +86,29 @@ export function Snackbar({
    * @param {string} id - The ID of the notification to remove.
    */
   const remove = useCallback<SnackbarContextProps["remove"]>((id) => {
-    // Add the notification ID to the removing state for the exit animation
-    setRemovingNotifications((prev) => new Set(prev).add(id));
+    /** Function to remove a notification, clears timeout and updates state */
+    const removeNotification = (): void => {
+      // clear any active timeout associated with the notification
+      clearTimeout(timeoutMap.current[id]);
+
+      // remove the timeout reference from the map
+      delete timeoutMap.current[id];
+
+      // update the notifications state, removing the notification with the matching id
+      setNotifications((prev) => prev.filter((notification) => notification.id !== id));
+    };
+
+    // check if the browser supports `startViewTransition` for a smoother exit animation
+    if (document.startViewTransition) {
+      // if supported, trigger the view transition and flush the removal logic
+      document.startViewTransition(() => flushSync(removeNotification));
+
+      // exit early as the removal will happen inside the transition
+      return;
+    }
+
+    // if `startViewTransition` is not supported, immediately remove the notification
+    removeNotification();
   }, []);
 
   /**
@@ -102,38 +118,48 @@ export function Snackbar({
    */
   const add = useCallback<SnackbarContextProps["add"]>(
     (notification) => {
-      setNotifications((prev) => {
-        if (max && prev.length >= max) {
-          const [oldest, ...rest] = prev;
-          if (oldest) {
-            clearTimeout(timeoutMap.current[oldest.id]);
+      /** Function to add a notification to the list, handles max length and auto-dismiss */
+      const addNotification = () => {
+        setNotifications((prev) => {
+          // if the list exceeds the max allowed notifications
+          if (prev.length >= max) {
+            const oldest = prev.at(-1);
+            // remove the oldest notification
+            if (oldest) {
+              remove(oldest.id);
+            }
+
+            // return the new list with the new notification
+            return [notification, ...prev.slice(0, -1)];
           }
 
-          return [...rest, notification];
+          // return the list with the new notification added
+          return [notification, ...prev];
+        });
+
+        // set up auto-dismiss if specified in the notification
+        if (notification.autoDismiss) {
+          timeoutMap.current[notification.id] = setTimeout(() => {
+            // remove the notification after the specified time
+            remove(notification.id);
+          }, notification.autoDismiss);
         }
+      };
 
-        return [...prev, notification];
-      });
+      // check if the browser supports `startViewTransition` for a smooth transition
+      if (document.startViewTransition) {
+        // if supported, trigger the view transition and flush the addition logic
+        document.startViewTransition(() => flushSync(addNotification));
 
-      // Set up auto-dismissal if specified
-      if (notification?.autoDismiss) {
-        timeoutMap.current[notification.id] = setTimeout(() => {
-          remove(notification.id);
-        }, notification.autoDismiss);
+        // exit early as the addition will happen inside the transition
+        return;
       }
+
+      // if `startViewTransition` is not supported, immediately add the notification
+      flushSync(addNotification);
     },
     [max, remove]
   );
-
-  // Determine the animation type based on placement for entry
-  const entryAnimation = useMemo(() => {
-    return placement.startsWith("bottom") ? "slide-in-bottom" : "slide-in-top";
-  }, [placement]);
-
-  // Determine the animation type based on placement for exit
-  const exitAnimation = useMemo(() => {
-    return placement.startsWith("bottom") ? "slide-out-bottom" : "slide-out-top";
-  }, [placement]);
 
   return (
     <SnackbarContext value={{ add, remove, notifications }}>
@@ -142,27 +168,10 @@ export function Snackbar({
           <div className={cssClasses.content} {...props}>
             {notifications.map(({ id, content, leftSlot, rightSlot, size, skin, title }) => (
               <Motion
-                animation={removingNotifications.has(id) ? exitAnimation : entryAnimation}
                 key={id}
-                onDone={() => {
-                  requestAnimationFrame(() => {
-                    // Ensure cleanup for notifications already in removing state
-                    if (removingNotifications.has(id)) {
-                      setNotifications((prev) =>
-                        prev.filter((notification) => notification.id !== id)
-                      );
-
-                      setRemovingNotifications((prev) => {
-                        const newSet = new Set(prev);
-                        newSet.delete(id);
-
-                        return newSet;
-                      });
-
-                      clearTimeout(timeoutMap.current[id]);
-                    }
-                  });
-                }}
+                animation="zoom-in-soft"
+                duration="quickly"
+                transitionName={`notification-${id}`}
                 asChild
               >
                 <Alert
